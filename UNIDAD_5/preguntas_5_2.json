@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Cuál es uno de los objetivos principales del software de E/S respecto a la heterogeneidad de los dispositivos?",
+    "options": [
+      "Independencia de los dispositivos",
+      "Dependencia del hardware",
+      "Eliminación de controladores",
+      "Uso exclusivo de la CPU"
+    ],
+    "answer": "Independencia de los dispositivos"
+  },
+  {
+    "question": "¿Qué técnica de software se utiliza para suavizar las diferencias de velocidad entre el productor y el consumidor de datos?",
+    "options": [
+      "Buffering (Almacenamiento intermedio)",
+      "Polling",
+      "Paginación",
+      "Segmentación"
+    ],
+    "answer": "Buffering (Almacenamiento intermedio)"
+  },
+  {
+    "question": "¿En qué consiste la E/S programada?",
+    "options": [
+      "La CPU supervisa constantemente el estado del dispositivo (busy waiting) hasta completar la transferencia",
+      "El dispositivo interrumpe a la CPU cuando termina",
+      "Los datos se transfieren sin intervención de la CPU",
+      "Se utiliza un procesador dedicado solo para E/S"
+    ],
+    "answer": "La CPU supervisa constantemente el estado del dispositivo (busy waiting) hasta completar la transferencia"
+  },
+  {
+    "question": "¿Cuál es la principal desventaja de la E/S programada?",
+    "options": [
+      "Desperdicia ciclos de CPU en espera activa",
+      "Es muy difícil de programar",
+      "Requiere hardware costoso",
+      "No funciona con teclados"
+    ],
+    "answer": "Desperdicia ciclos de CPU en espera activa"
+  },
+  {
+    "question": "¿Qué método de E/S permite a la CPU ejecutar otros procesos mientras el dispositivo realiza una operación?",
+    "options": [
+      "E/S manejada por interrupciones",
+      "E/S programada",
+      "E/S por sondeo",
+      "E/S síncrona pura"
+    ],
+    "answer": "E/S manejada por interrupciones"
+  },
+  {
+    "question": "¿Qué es el Spooling (Simultaneous Peripheral Operations On-Line)?",
+    "options": [
+      "Un proceso que gestiona un buffer o cola para dispositivos de uso exclusivo (como impresoras)",
+      "Un tipo de memoria caché rápida",
+      "Un error de disco",
+      "Una técnica de enfriamiento"
+    ],
+    "answer": "Un proceso que gestiona un buffer o cola para dispositivos de uso exclusivo (como impresoras)"
+  },
+  {
+    "question": "¿Qué significa DMA?",
+    "options": [
+      "Direct Memory Access (Acceso Directo a Memoria)",
+      "Disk Management Agent",
+      "Data Moving Algorithm",
+      "Device Master Access"
+    ],
+    "answer": "Direct Memory Access (Acceso Directo a Memoria)"
+  },
+  {
+    "question": "¿Cuál es la función principal del controlador DMA?",
+    "options": [
+      "Transferir bloques de datos entre el dispositivo y la memoria sin intervención constante de la CPU",
+      "Controlar la temperatura del procesador",
+      "Gestionar las contraseñas de usuario",
+      "Dibujar gráficos en pantalla"
+    ],
+    "answer": "Transferir bloques de datos entre el dispositivo y la memoria sin intervención constante de la CPU"
+  },
+  {
+    "question": "¿Qué objetivo del software de E/S busca uniformidad en la forma de nombrar a los archivos y dispositivos?",
+    "options": [
+      "Nombres uniformes (independencia del dispositivo)",
+      "Encriptación de nombres",
+      "Nombres aleatorios",
+      "Nombres dependientes del hardware"
+    ],
+    "answer": "Nombres uniformes (independencia del dispositivo)"
+  },
+  {
+    "question": "¿Qué sucede al finalizar una transferencia por DMA?",
+    "options": [
+      "El controlador DMA genera una interrupción para avisar a la CPU",
+      "El sistema se reinicia",
+      "La memoria se borra",
+      "El dispositivo se apaga"
+    ],
+    "answer": "El controlador DMA genera una interrupción para avisar a la CPU"
+  },
+  {
+    "question": "¿Qué es el manejo de errores en el contexto del software de E/S?",
+    "options": [
+      "La capacidad del sistema para detectar y recuperarse de fallos en dispositivos o transmisiones",
+      "Ignorar los fallos para ir más rápido",
+      "Culpar al usuario por los problemas",
+      "Reemplazar el hardware automáticamente"
+    ],
+    "answer": "La capacidad del sistema para detectar y recuperarse de fallos en dispositivos o transmisiones"
+  },
+  {
+    "question": "¿Qué diferencia hay entre dispositivos de bloque y de carácter?",
+    "options": [
+      "Los de bloque almacenan información en tamaños fijos y son direccionables; los de carácter manejan flujos de bytes",
+      "Los de bloque son solo de salida; los de carácter solo de entrada",
+      "No hay diferencia",
+      "Los de carácter son más rápidos que los de bloque"
+    ],
+    "answer": "Los de bloque almacenan información en tamaños fijos y son direccionables; los de carácter manejan flujos de bytes"
+  },
+  {
+    "question": "¿Por qué se utilizan interrupciones en lugar de polling en sistemas multitarea?",
+    "options": [
+      "Para mejorar la eficiencia del CPU y permitir la concurrencia",
+      "Porque el polling no funciona con discos duros",
+      "Porque las interrupciones son más lentas",
+      "Para simplificar el hardware"
+    ],
+    "answer": "Para mejorar la eficiencia del CPU y permitir la concurrencia"
+  },
+  {
+    "question": "¿Qué es el 'Robo de ciclo' en DMA?",
+    "options": [
+      "Cuando el DMA utiliza el bus de memoria, impidiendo temporalmente que la CPU lo use",
+      "Un virus que roba ciclos de reloj",
+      "Cuando la CPU apaga el DMA",
+      "Un error de sincronización"
+    ],
+    "answer": "Cuando el DMA utiliza el bus de memoria, impidiendo temporalmente que la CPU lo use"
+  },
+  {
+    "question": "¿Qué capa de software de E/S se comunica directamente con los registros del hardware?",
+    "options": [
+      "Manejador de interrupciones",
+      "Driver (Controlador) del dispositivo",
+      "Software independiente del dispositivo",
+      "Software de usuario"
+    ],
+    "answer": "Driver (Controlador) del dispositivo"
+  },
+  {
+    "question": "¿Qué garantiza la seguridad en el software de E/S?",
+    "options": [
+      "Que los usuarios no puedan acceder directamente a dispositivos críticos sin pasar por el SO",
+      "Que los dispositivos sean físicamente indestructibles",
+      "Que el software sea gratuito",
+      "Que la velocidad sea constante"
+    ],
+    "answer": "Que los usuarios no puedan acceder directamente a dispositivos críticos sin pasar por el SO"
+  },
+  {
+    "question": "¿Qué técnica mejora el rendimiento manteniendo copias de datos frecuentemente usados en memoria rápida?",
+    "options": [
+      "Caching (Caché)",
+      "Spooling",
+      "Polling",
+      "Swapping"
+    ],
+    "answer": "Caching (Caché)"
+  },
+  {
+    "question": "¿Cuál es un ejemplo típico de uso de Spooling?",
+    "options": [
+      "Impresión de documentos",
+      "Movimiento del ratón",
+      "Encendido del monitor",
+      "Lectura de memoria RAM"
+    ],
+    "answer": "Impresión de documentos"
+  },
+  {
+    "question": "¿Qué permite la operación asíncrona de E/S?",
+    "options": [
+      "Que el proceso continúe su ejecución mientras la E/S se realiza en segundo plano",
+      "Que el proceso se detenga hasta que termine la E/S",
+      "Que el hardware funcione sin electricidad",
+      "Que la CPU se apague"
+    ],
+    "answer": "Que el proceso continúe su ejecución mientras la E/S se realiza en segundo plano"
+  },
+  {
+    "question": "¿Qué componente del sistema operativo suele ocultar las peculiaridades del hardware a las aplicaciones?",
+    "options": [
+      "La capa de software de E/S independiente del dispositivo",
+      "El hardware mismo",
+      "El usuario",
+      "La aplicación"
+    ],
+    "answer": "La capa de software de E/S independiente del dispositivo"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "question": "¿Cuál es la función principal del sistema operativo respecto al sistema de archivos?",
+    "options": [
+      "Controlar y organizar la información almacenada en dispositivos secundarios",
+      "Aumentar la velocidad del procesador",
+      "Modificar automáticamente los permisos de los usuarios",
+      "Crear copias de seguridad sin intervención del usuario"
+    ],
+    "answer": "Controlar y organizar la información almacenada en dispositivos secundarios"
+  },
+  {
+    "question": "¿Cómo está organizada la información en el sistema de archivos según el texto?",
+    "options": [
+      "De manera aleatoria para optimizar la velocidad",
+      "En una estructura lineal sin jerarquías",
+      "Jerárquicamente mediante archivos y directorios",
+      "En bloques separados sin relación entre sí"
+    ],
+    "answer": "Jerárquicamente mediante archivos y directorios"
+  },
+  {
+    "question": "¿Qué permiten las estructuras jerárquicas del sistema de archivos?",
+    "options": [
+      "Eliminar la necesidad de almacenamiento físico",
+      "Facilitar operaciones como creación, modificación y lectura de datos",
+      "Evitar que el usuario pueda organizar sus archivos",
+      "Reducir el tamaño total del dispositivo"
+    ],
+    "answer": "Facilitar operaciones como creación, modificación y lectura de datos"
+  },
+  {
+    "question": "¿Cuál de los siguientes NO es un nivel estructural del sistema de archivos mencionado en el texto?",
+    "options": [
+      "Archivos",
+      "Directorios",
+      "Bloques de almacenamiento",
+      "Planificador de procesos"
+    ],
+    "answer": "Planificador de procesos"
+  },
+  {
+    "question": "¿Qué función cumplen los metadatos en un sistema de archivos?",
+    "options": [
+      "Almacenar la velocidad de acceso del disco",
+      "Guardar información sobre ubicación, tamaño y propiedades de los archivos",
+      "Controlar únicamente los permisos de usuario",
+      "Administrar el reloj del sistema"
+    ],
+    "answer": "Guardar información sobre ubicación, tamaño y propiedades de los archivos"
+  },
+  {
+    "question": "¿Qué información contiene el Superbloque?",
+    "options": [
+      "Los nombres de los usuarios del sistema",
+      "Los parámetros globales como tamaño total y cantidad de bloques",
+      "El historial de archivos eliminados",
+      "Los procesos en ejecución"
+    ],
+    "answer": "Los parámetros globales como tamaño total y cantidad de bloques"
+  },
+  {
+    "question": "¿Qué garantiza la estructura jerárquica del sistema de archivos?",
+    "options": [
+      "La integridad y organización lógica de los datos",
+      "El funcionamiento del procesador",
+      "La velocidad del sistema operativo",
+      "La eliminación automática de archivos duplicados"
+    ],
+    "answer": "La integridad y organización lógica de los datos"
+  },
+  {
+    "question": "Según Tanenbaum y Bos (2015), ¿por qué se organiza el sistema de archivos en capas?",
+    "options": [
+      "Para ocultar al usuario la ubicación física del hardware",
+      "Para solventar la complejidad del hardware mediante funciones especializadas por nivel",
+      "Para reducir el tamaño del sistema operativo",
+      "Para que el usuario pueda manipular directamente los dispositivos de almacenamiento"
+    ],
+    "answer": "Para solventar la complejidad del hardware mediante funciones especializadas por nivel"
+  },
+  {
+    "question": "¿Cuál de las siguientes es una de las capas del sistema de archivos mencionadas en el texto?",
+    "options": [
+      "Capa del usuario",
+      "Capa del kernel gráfico",
+      "Capa de autenticación biométrica",
+      "Capa del temporizador"
+    ],
+    "answer": "Capa del usuario"
+  },
+  {
+    "question": "¿Qué función tiene la capa lógica del sistema de archivos?",
+    "options": [
+      "Administrar procesos en ejecución",
+      "Proveer una interfaz lógica y segura para manejar información",
+      "Supervisar la temperatura del hardware",
+      "Regular el uso de la memoria RAM"
+    ],
+    "answer": "Proveer una interfaz lógica y segura para manejar información"
+  },
+  {
+    "question": "¿Qué capa se encarga directamente del almacenamiento secundario?",
+    "options": [
+      "Capa del usuario",
+      "Capa de organización",
+      "Capa de gestión y almacenamiento secundario",
+      "Capa de metadatos"
+    ],
+    "answer": "Capa de gestión y almacenamiento secundario"
+  },
+  {
+    "question": "¿Qué capa supervisa los dispositivos de entrada y salida?",
+    "options": [
+      "Capa lógica",
+      "Capa de supervisión de dispositivos de E/S",
+      "Capa de usuario",
+      "Capa de planificación"
+    ],
+    "answer": "Capa de supervisión de dispositivos de E/S"
+  }
+]

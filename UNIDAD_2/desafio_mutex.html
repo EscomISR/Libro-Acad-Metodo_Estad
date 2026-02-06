@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío - Mutex</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Estilos consistentes con Unidad 2 */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --success: #2ecc71;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --gray: #95a5a6;
+            --warning: #f39c12;
+            --code-bg: #2d2d2d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: var(--light); min-height: 100vh; line-height: 1.7; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        header { text-align: center; padding: 30px 20px; margin-bottom: 30px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .breadcrumb { display: flex; justify-content: center; margin-bottom: 15px; color: var(--gray); font-size: 1rem; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: white; text-decoration: underline; }
+        .breadcrumb span { margin: 0 10px; }
+        
+        h1 { font-size: 2.2rem; margin-bottom: 10px; color: white; }
+        
+        .instruction-box { background: rgba(52, 152, 219, 0.1); border-left: 4px solid var(--secondary); padding: 15px 20px; border-radius: 0 8px 8px 0; margin-bottom: 30px; text-align: left; }
+        .instruction-box h3 { color: var(--secondary); margin-bottom: 5px; }
+
+        /* Contenedor de código dividido */
+        .challenge-container { background: #2d2d2d; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); overflow: hidden; border: 1px solid #333; position: relative; }
+        .code-header { background: #252526; padding: 8px 20px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; font-family: monospace; color: #aaa; font-size: 0.9rem; }
+
+        pre[class*="language-"] { margin: 0 !important; padding: 0 25px !important; background: transparent !important; font-size: 1rem; overflow: hidden !important; }
+        #code-part-1 { padding-top: 25px !important; padding-bottom: 5px !important; }
+        #code-part-2 { padding-top: 5px !important; padding-bottom: 5px !important; }
+        #code-part-3 { padding-top: 5px !important; padding-bottom: 25px !important; }
+
+        .interactive-line { background: #383838; padding: 5px 25px; display: flex; align-items: center; font-family: 'Consolas', 'Monaco', monospace; border-left: 4px solid var(--warning); }
+        .comment-text { color: #999; margin-right: 15px; white-space: nowrap; }
+        
+        .code-input { background: rgba(0, 0, 0, 0.3); border: 1px solid #555; border-radius: 4px; color: #fff; font-family: 'Consolas', 'Monaco', monospace; font-size: 1rem; padding: 5px 10px; width: 100%; max-width: 400px; outline: none; transition: all 0.3s; }
+        .code-input:focus { background: rgba(0, 0, 0, 0.5); border-color: var(--secondary); box-shadow: 0 0 8px rgba(52, 152, 219, 0.3); }
+        .code-input.correct { border-color: var(--success); background: rgba(46, 204, 113, 0.1); color: var(--success); }
+        .code-input.incorrect { border-color: var(--accent); background: rgba(231, 76, 60, 0.1); }
+
+        .feedback-area { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; animation: fadeIn 0.4s ease; }
+        .feedback-area.success { background: rgba(46, 204, 113, 0.15); border: 1px solid var(--success); color: #d4efdf; }
+        .feedback-area.error { background: rgba(231, 76, 60, 0.15); border: 1px solid var(--accent); color: #fadbd8; }
+        .feedback-icon { font-size: 1.5rem; margin-right: 10px; vertical-align: middle; }
+
+        .btn-check { display: block; width: 100%; padding: 12px; margin-top: 20px; background: var(--secondary); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s; }
+        .btn-check:hover { background: #2980b9; transform: translateY(-2px); }
+        
+        .back-button { display: inline-block; margin-top: 30px; color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .back-button:hover { color: white; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 2</a>
+                <span>/</span>
+                <a href="laboratorio_codigo.html">Laboratorio</a>
+                <span>/</span>
+                <span>Desafío</span>
+            </div>
+            <h1><i class="fas fa-keyboard"></i> Desafío de Código</h1>
+            <p style="color: var(--gray); margin-top: 5px;">Sección Crítica con Mutex</p>
+        </header>
+
+        <div class="instruction-box">
+            <h3><i class="fas fa-info-circle"></i> Instrucciones:</h3>
+            <p>Para evitar condiciones de carrera cuando varios hilos acceden a <code>saldo_bancario</code>, debemos usar un <strong>Mutex</strong>. Completa el código: primero <strong>bloquea</strong> (lock) el mutex antes de entrar a la sección crítica y luego <strong>desbloquéalo</strong> (unlock) al salir.</p>
+        </div>
+        
+        <div class="challenge-container">
+            <div class="code-header">
+                <span><i class="fas fa-code"></i> Mutex.c (Incompleto)</span>
+            </div>
+            
+            <pre id="code-part-1"><code class="language-c">void* realizar_transaccion(void* arg) {
+    // ...
+    printf("Hilo %d intentando entrar a la sección crítica...\n", id);
+
+    // [DESAFÍO 1] Bloquea el mutex 'candado'
+    // Función: pthread_mutex_lock(referencia)</code></pre>
+
+            <div class="interactive-line">
+                <span class="comment-text"></span>
+                <input type="text" id="input-lock" class="code-input" placeholder="funcion(&candado);" autocomplete="off" spellcheck="false">
+            </div>
+
+            <pre id="code-part-2"><code class="language-c">    // --- INICIO SECCIÓN CRÍTICA ---
+    saldo_bancario += monto;
+    printf("Nuevo saldo: %d\n", saldo_bancario);
+    // --- FIN SECCIÓN CRÍTICA ---
+
+    // [DESAFÍO 2] Desbloquea el mutex 'candado'
+    // Función: pthread_mutex_unlock(referencia)</code></pre>
+
+            <div class="interactive-line">
+                <span class="comment-text"></span>
+                <input type="text" id="input-unlock" class="code-input" placeholder="funcion(&candado);" autocomplete="off" spellcheck="false">
+            </div>
+
+            <pre id="code-part-3"><code class="language-c">    return NULL;
+}</code></pre>
+        </div>
+
+        <button class="btn-check" onclick="checkAnswer()">Verificar Solución</button>
+
+        <div id="feedback-success" class="feedback-area success" style="display: none;">
+            <i class="fas fa-check-circle feedback-icon"></i>
+            <strong>¡Excelente!</strong> Has asegurado la sección crítica correctamente. <code>pthread_mutex_lock</code> detiene a otros hilos si el candado está ocupado, y <code>pthread_mutex_unlock</code> libera el recurso para el siguiente hilo en espera.
+        </div>
+
+        <div id="feedback-wrong" class="feedback-area error" style="display: none;">
+            <i class="fas fa-times-circle feedback-icon"></i>
+            <strong>Incorrecto.</strong> Revisa las funciones POSIX para mutex.
+            <ul>
+                <li>Para entrar: <code>pthread_mutex_lock(&candado);</code></li>
+                <li>Para salir: <code>pthread_mutex_unlock(&candado);</code></li>
+            </ul>
+            ¡No olvides el operador de dirección <code>&</code>!
+        </div>
+
+        <div style="text-align: center;">
+            <a href="laboratorio_codigo.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Volver al Laboratorio
+            </a>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    
+    <script>
+        function checkAnswer() {
+            const inputLock = document.getElementById('input-lock');
+            const inputUnlock = document.getElementById('input-unlock');
+            
+            // Normalizar inputs
+            let valLock = inputLock.value.trim().replace(/\s+/g, '');
+            let valUnlock = inputUnlock.value.trim().replace(/\s+/g, '');
+            
+            document.getElementById('feedback-success').style.display = 'none';
+            document.getElementById('feedback-wrong').style.display = 'none';
+            inputLock.classList.remove('correct', 'incorrect');
+            inputUnlock.classList.remove('correct', 'incorrect');
+
+            if (valLock === "" || valUnlock === "") return;
+
+            // Validar Lock
+            const lockOk = valLock.includes('pthread_mutex_lock(&candado)');
+            // Validar Unlock
+            const unlockOk = valUnlock.includes('pthread_mutex_unlock(&candado)');
+
+            if (lockOk) inputLock.classList.add('correct');
+            else inputLock.classList.add('incorrect');
+
+            if (unlockOk) inputUnlock.classList.add('correct');
+            else inputUnlock.classList.add('incorrect');
+
+            if (lockOk && unlockOk) {
+                document.getElementById('feedback-success').style.display = 'block';
+            } else {
+                document.getElementById('feedback-wrong').style.display = 'block';
+            }
+        }
+        
+        // Permitir Enter en ambos inputs
+        const inputs = [document.getElementById('input-lock'), document.getElementById('input-unlock')];
+        inputs.forEach(input => {
+            input.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') checkAnswer();
+            });
+        });
+    </script>
+</body>
+</html>

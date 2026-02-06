@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.1 Aspectos Básicos del Sistema Operativo</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .floating-home-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 1.5rem;
+        }
+
+        .floating-home-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .sidebar-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 999;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+            overflow-y: auto;
+        }
+
+        .sidebar-nav.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            background: rgba(52, 152, 219, 0.1);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .nav-sections {
+            padding: 20px 0;
+        }
+
+        .nav-section {
+            margin-bottom: 15px;
+        }
+
+        .nav-section-title {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(52, 152, 219, 0.1);
+            border-left-color: var(--secondary);
+            padding-left: 25px;
+        }
+
+        .nav-item.active {
+            background: rgba(52, 152, 219, 0.2);
+            border-left-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .nav-item i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            font-size: 1.2rem;
+        }
+
+        .menu-toggle:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle.active {
+            background: var(--accent);
+        }
+
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 998;
+        }
+
+        .reading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--success));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            transition: margin-left 0.3s ease, margin-right 0.3s ease;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        .intro {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+            text-align: justify;
+        }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            scroll-margin-top: 100px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .section-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-right: 15px;
+            min-width: 120px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .content {
+            padding: 0 10px;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .content h4 {
+            font-size: 1.3rem;
+            color: var(--warning);
+            margin: 25px 0 12px;
+            padding-left: 8px;
+        }
+        
+        .content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .content ul, .content ol {
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+        
+        .content li {
+            margin-bottom: 12px;
+        }
+        
+        .highlight {
+            background: rgba(231, 76, 60, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .citation {
+            font-style: italic;
+            color: var(--gray);
+            margin: 5px 0 15px 20px;
+            border-left: 2px solid var(--secondary);
+            padding-left: 10px;
+        }
+        
+        .quote-box {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: var(--light);
+        }
+
+        .quote-box .citation {
+            border-left: none;
+            margin: 10px 0 0 0;
+            padding-left: 0;
+        }
+        
+        .table-container {
+            max-width: 100%;
+            margin: 30px auto;
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        
+        .table-caption {
+            text-align: center;
+            padding: 10px;
+            color: var(--gray);
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .figure-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .imagen-figura1 {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain; 
+            border-radius: 8px;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: zoom-in;
+            transform-origin: center center;
+        }
+        
+        /* Efecto al pasar el mouse */
+        .imagen-figura1:hover {
+            transform: scale(1.4); 
+            border-radius: 8px;
+        }
+        
+        .figure-caption {
+            color: var(--gray);
+            margin-top: 10px;
+        }
+        
+        /* Estilos para la tarjeta de actividad */
+        .activity-card {
+            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 4px solid var(--success); /* Borde izquierdo verde */
+            text-align: center;
+        }
+        
+        .activity-title {
+            font-size: 1.8rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+        
+        .activity-btn {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .activity-btn:hover {
+            background: #27ae60; /* Verde más oscuro al pasar el mouse */
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        .nav-btn i {
+            margin: 0 8px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-number {
+                min-width: 100px;
+                font-size: 1.8rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .floating-home-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar" id="progressBar"></div>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <a href="index.html" class="floating-home-btn" title="Ir al índice de unidades">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <nav class="sidebar-nav" id="sidebarNav">
+        <div class="sidebar-header">
+            <div class="sidebar-title">1.1 Aspectos Básicos</div>
+            <div class="sidebar-subtitle">Introducción a los Sistemas Operativos</div>
+        </div>
+        
+        <div class="nav-sections">
+            <div class="nav-section">
+                <div class="nav-section-title">Navegación</div>
+                <a href="#inicio" class="nav-item">
+                    <i class="fas fa-rocket"></i> Inicio del Tema
+                </a>
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-arrow-left"></i> Menú de Unidad 1
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Contenido</div>
+                <a href="#seccion-1-1-1" class="nav-item" data-section="1-1-1">
+                    <i class="fas fa-bullseye"></i> 1.1.1 Objetivos
+                </a>
+                <a href="#seccion-1-1-2" class="nav-item" data-section="1-1-2">
+                    <i class="fas fa-chart-line"></i> 1.1.2 Evolución
+                </a>
+                <a href="#seccion-1-1-3" class="nav-item" data-section="1-1-3">
+                    <i class="fas fa-server"></i> 1.1.3 Tipos de SO
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Recursos</div>
+                <a href="actividad_1_1.html" class="nav-item">
+                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
+                </a>
+                <a href="1.2.html" class="nav-item">
+                    <i class="fas fa-arrow-right"></i> Siguiente: Núcleo del SO
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <header id="inicio">
+            <div class="breadcrumb">
+                <a href="https://escomisr.github.io/Libro_Digital_SO/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 1</a>
+                <span>/</span>
+                <span>1.1 Aspectos básicos del SO</span>
+            </div>
+            <h1>1.1 Aspectos básicos del sistema operativo</h1>
+            <div class="subtitle">Capítulo I. Estructura de un sistema operativo</div>
+        </header>
+        
+        <div class="intro">
+            <p>La estructura es parte fundamental para el sistema operativo ya que la forma de trabajar con el kernel debe de existir un trabajo viable y eficiente entre el corazón y los elementos que se ven incluidos para ofrecer velocidad, accesos controlados y seguridad, todo ello permite entonces el buen funcionamiento</p>
+            <p>Por lo que durante el transcurso de esta unidad es muy importante la lectura que el estudiante vaya realizando ya que los conceptos, diagramación, videos y multimedia preparados para ustedes les apoyaran para establecer todas las herramientas en sus aprendizajes, es por lo que esta base fundamental de la estructura del sistema operativo y todo los elementos que se involucran son necesarios para su comprensión, además de visualizar la adquisición de conocimientos para comprender la importancia de este capítulo con los que ante siguen de este.</p>
+            
+            <div class="quote-box">
+                "El sistema operativo es el centro que da vida a la computadora, conectando el hardware con el software y gestionando cada recurso memoria, almacenamiento y dispositivos para que el usuario pueda interactuar con la tecnología de manera fluida, eficiente y confiable"
+                <div class="citation">(Silberschatz, Galvin & Gagne, 2022).</div>
+            </div>
+
+            <h3>Aspectos básicos:</h3>
+            <ul>
+                <li><strong>Control de programas:</strong> Se encarga de manejar varios programas al mismo tiempo, organizando el uso del procesador para que todo funcione sin interrupciones.</li>
+                <li><strong>Uso de la memoria:</strong> Administra el espacio donde se guardan temporalmente los datos y programas mientras están en uso, para que el equipo trabaje de forma ordenada y rápida</li>
+                <li><strong>Archivos y datos:</strong> Guarda, organiza y permite acceder a la información almacenada en el disco o en otros medios, para que el usuario encuentre fácilmente lo que necesita.</li>
+                <li><strong>Comunicación con el usuario:</strong> Crea el entorno donde la persona puede dar instrucciones a la computadora, ya sea con ventanas, íconos o comandos escritos.</li>
+                <li><strong>Seguridad y permisos:</strong> Protege la computadora controlando quién puede usarla y qué recursos puede modificar, evitando errores o accesos no autorizados.</li>
+            </ul>
+
+            <h3>Abstracción proporcionada por el sistema operativo</h3>
+            <p>El sistema operativo crea una capa de abstracción entre hardware y las aplicaciones usuario, simplificando interacción con los recursos del sistema.</p>
+            <p>Esta abstracción permite que los programas no necesiten gestionar directamente los detalles complejos del hardware, sino que interactúen con interfaces estandarizadas proporcionadas por el SO.</p>
+
+            <h4>Principales abstracciones del SO:</h4>
+            <ul>
+                <li><strong>Procesos (Abstracción de la CPU):</strong>
+                    <p>El SO maneja la ejecución de programas como procesos, ocultando los detalles de la planificación y el multiplexado de la CPU.</p>
+                </li>
+                <li><strong>Espacio de direcciones (Abstracción de la memoria):</strong>
+                    <p>Hace que parezca que toda la memoria está junta y protegida, aunque en realidad el sistema usa diferentes partes de la RAM y del disco para lograrlo.</p>
+                </li>
+                <li><strong>Archivos (Abstracción del almacenamiento):</strong>
+                    <p>Organiza los datos en un sistema jerárquico de archivos, ocultando los detalles del manejo de sectores en discos.</p>
+                </li>
+                <li><strong>Dispositivos de E/S (Abstracción del hardware):</strong>
+                    <p>Ofrece interfaces genéricas (controladores) para interactuar con periféricos (teclados, impresoras, etc.) sin requerir conocimiento específico del hardware.</p>
+                </li>
+                <li><strong>Interfaz de usuario (Abstracción de la interacción):</strong>
+                    <p>Proporciona entornos gráficos o de comandos para que el usuario no necesite operar directamente con instrucciones de bajo nivel.</p>
+                </li>
+            </ul>
+
+            <div class="figure-container">
+                <div class="figure-caption">Figura 1</div>
+                <div class="figure-caption">Capas de abstracción del sistema operativo.</div>
+                <div class="figura">
+                    <img src="FIGURA1.png" alt="Capas de abstracción" class="imagen-figura1"/>
+                </div>
+                <div class="figure-caption">Nota: Elaboración propia</div>
+            </div>
+        </div>
+        
+        <div class="section" id="seccion-1-1-1">
+            <div class="section-header">
+                <div class="section-number">1.1.1</div>
+                <div class="section-title">Objetivo</div>
+            </div>
+            <div class="content">
+                <p>Es el puente que une la lógica humana con la precisión de la máquina. Gestiona los recursos del hardware, coordina procesos, protege la información y crea el entorno donde las ideas se transforman en acción.</p>
+                
+                <div class="quote-box">
+                    "En conjunto, un sistema operativo debe ofrecer una experiencia estable y adaptable a los avances tecnológicos, satisfaciendo las demandas de las arquitecturas modernas"
+                    <div class="citation">(Silberschatz, Galvin y Gagne, 2022).</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" id="seccion-1-1-2">
+            <div class="section-header">
+                <div class="section-number">1.1.2</div>
+                <div class="section-title">Evolución</div>
+            </div>
+            <div class="content">
+                <p>Una evolución constante desde sus inicios, pasando de ser programas elementales encargados únicamente de gestionar los recursos del hardware, hasta convertirse en plataformas sofisticadas capaces de administrar múltiples tareas, redes de comunicación, entornos de seguridad avanzada y sistemas de computación distribuida.</p>
+                <p>Durante la historia, los sistemas operativos han evolucionado y han generado diferentes formas de cumplir las necesidades que se van requiriendo con el avance de la tecnología en donde los recursos son más requeridos por los procesos y operaciones matemáticas y lógicas que se necesitan, además de todos los procesos que tiene que administrar y controlar el sistema operativo para poder dar certeza a la información y el buen manejo de los recursos y en su caso si hubiese interrupciones o errores se puedan atender y resolver.</p>
+
+                <div class="figure-container">
+                    <div class="figure-caption">Figura 2</div>
+                    <div class="figure-caption">Evolución de los sistemas operativos</div>
+                    <div class="figura">
+                        <img src="FIGURA2.jpeg" alt="Evolución de los sistemas operativos" class="imagen-figura1"/>
+                    </div>
+                    <div class="figure-caption">Nota: Elaboración propia</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="seccion-1-1-3">
+            <div class="section-header">
+                <div class="section-number">1.1.3</div>
+                <div class="section-title">Tipos</div>
+            </div>
+            <div class="content">
+                <h4>a) Mainframe</h4>
+                <p>Son equipos de alto rendimiento se utilizan principalmente por empresas u organismos en donde su requerimiento principal es el control y administración de volumen grandes de información y procesamiento de la misma en donde juega un papel muy importante la forma de dar eficacia y seguridad que todas las aplicaciones funcionen correctamente, es por ello que su operatividad son muy importantes para el procesamiento y ejecución de datos.</p>
+
+                <h4>b) Servidor.</h4>
+                <p>Este equipo de cómputo o dispositivo es el que se encarga de administrar, controlar y gestionar todo tipo de tareas estas pueden ser de forma local o en red, en donde aquellas computadoras que se conectan por medio de una dirección IP, se les llama clientes y ellos son los que realizan peticiones de acceso al equipo principal con llamadas al sistema para que puedan acceder a sus recursos y realizar o ejecutar aplicaciones o consulta de los datos que se encuentren almacenados.</p>
+                <p>Por lo que los servidores siempre deben de estar activos para las solicitudes de los cliente además de que ofrezcan seguridad y procesamiento de los datos que los clietes requieran realizar</p>
+
+                <h4>c) Multiprocesador (Sistemas Paralelos)</h4>
+                <p>Son varios procesadores al mismo tiempo y así trabajar más rápido y mejor.</p>
+                <p>Tiene formas de llevarlas a cabo las cuales son:</p>
+                <ul>
+                    <li>En la <strong>multiprocesación simétrica (SMP)</strong>, todos los procesadores comparten recursos y trabajan de manera equilibrada.</li>
+                    <li>En los <strong>clusters</strong>, varios equipos están conectados entre sí mediante una red de alta velocidad para cooperar y ejecutar tareas en conjunto.</li>
+                </ul>
+
+                <h4>d) Embebidos</h4>
+                <p>Estos sistemas tiene una función principal de administrar a todos los dispositivos dándoles recursos específicos y limitados para llevar a cabo su tarea o proceso, ya que sus procesadores son de baja potencia, memoria y almacenamiento, por lo que deben de garantizar que con los recursos limitados que tienen puedan llevar acabo sus tareas tiendo estabilidad y dar respuesta inmediata, en donde todo va a estar focalizado a atender los procesos críticos dentro del espacio que se requiera.</p>
+                <p>Estos sistemas suelen operar bajo condiciones de <strong>tiempo real</strong>, donde las respuestas del sistema deben producirse dentro de plazos estrictamente definidos, por lo que comúnmente se implementan como <strong>RTOS (Real-Time Operating Systems)</strong>.</p>
+
+                <h4>e) Tiempo Real (RTOS)</h4>
+                <p>En este tipo de sistemas, <strong>lo más importante no es la velocidad general</strong>, sino <strong>cumplir con el tiempo exacto que cada tarea necesita</strong> para funcionar correctamente.</p>
+                <p>A diferencia de los sistemas operativos comunes, los RTOS no buscan usar todos los recursos al máximo, sino <strong>garantizar que cada proceso responda de manera puntual y predecible</strong>, especialmente en aplicaciones donde <strong>una demora puede causar un fallo o un riesgo</strong> (Silberschatz, Galvin & Gagne, 2022).</p>
+                <p>Existen dos tipos principales de sistemas de tiempo real: los <strong>Hard Real-Time</strong>, en los cuales el incumplimiento de un plazo es inaceptable porque podría provocar fallos catastróficos (como en el control de aeronaves, equipos médicos o sistemas industriales); y los <strong>Soft Real-Time</strong>, donde los plazos son importantes, pero toleran pequeñas desviaciones, típicos en aplicaciones como la reproducción de video o audio en tiempo real.</p>
+                <p>Un RTOS se caracteriza por su <strong>planificador determinista</strong>, su <strong>bajo tiempo de latencia</strong> y su <strong>eficiente manejo de interrupciones</strong>, lo que le permite responder a eventos externos con precisión.</p>
+                <p>Ejemplos notables incluyen <strong>VxWorks</strong>, <strong>RTLinux</strong> y <strong>QNX Neutrino</strong>, ampliamente utilizados en sectores aeroespaciales, automotrices y de automatización.</p>
+                
+                <div class="quote-box">
+                    Como explica Liu (2019), “un RTOS debe priorizar la predictibilidad sobre el rendimiento bruto”
+                    <div class="citation">(p. 211).</div>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-caption"><strong>Tabla 1</strong></div>
+                    <div class="table-caption">Comparativa resumida de tipos de sistemas operativos</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Enfoque</th>
+                                <th>Ejemplo</th>
+                                <th>Referencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Mainframe</strong></td>
+                                <td>Confiabilidad masiva</td>
+                                <td>IBM z/OS</td>
+                                <td>(Silberschatz, 2018)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Servidor</strong></td>
+                                <td>Servicios en red</td>
+                                <td>Linux Server</td>
+                                <td>(Stallings, 2018)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Multiprocesador</strong></td>
+                                <td>Paralelismo</td>
+                                <td>UNIX</td>
+                                <td>(Tanenbaum, 2015)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Embebidos</strong></td>
+                                <td>Eficiencia en recursos</td>
+                                <td>FreeRTOS</td>
+                                <td>(Laplante, 2020)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tiempo Real</strong></td>
+                                <td>Predictibilidad</td>
+                                <td>VxWorks</td>
+                                <td>(Liu, 2019)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-caption">Nota: Silberschatz, 2018; Stallings, 2018; Tanenbaum, 2015; Laplante, 2020; Liu, 2019</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="video-material">
+            <div class="section-header">
+                <div class="section-number"><i class="fas fa-play-circle"></i></div>
+                <div class="section-title">Material Audiovisual</div>
+            </div>
+            <div class="content">
+                <p>Para complementar el estudio sobre los aspectos básicos y la estructura del sistema operativo, consulta el siguiente video:</p>
+                
+                <div class="figure-container">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/pZOxxGNxWVs" title="Estructura del sistema operativo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
+                    <div class="figure-caption">Salas, I. (s.f.). <em>Estructura del sistema operativo</em> [Video]. YouTube. https://www.youtube.com/watch?v=pZOxxGNxWVs</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="activity-card">
+            <div class="activity-title">Actividad de Aprendizaje 1.1: Aspectos Básicos</div>
+            <p>Pon a prueba tus conocimientos sobre los objetivos, evolución y tipos de sistemas operativos.</p>
+            <a href="actividad_1_1.html" class="activity-btn">
+                <i class="fas fa-pencil-alt"></i> Realizar Actividad
+            </a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver al Menú de Unidad</a>
+            <a href="1.2.html" class="nav-btn">Continuar a 1.2: Fundamentos del Núcleo del Sistema Operativo<i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <footer>
+            <p>Sistemas Operativos - Unidad 1: Introducción a los Sistemas Operativos</p>
+            <p>Desarrollado para fines educativos - © 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        let sidebarOpen = false;
+
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebarNav = document.getElementById('sidebarNav');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                sidebarNav.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                menuToggle.classList.add('active');
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                sidebarNav.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            }
+            
+            updateContainerSpacing();
+        }
+
+        menuToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        function updateContainerSpacing() {
+            const container = document.querySelector('.container');
+            
+            if (window.innerWidth <= 768) {
+                container.style.marginLeft = '20px';
+                container.style.marginRight = '20px';
+                container.style.padding = '10px';
+            } else if (sidebarOpen && window.innerWidth > 768) {
+                container.style.marginLeft = '370px';
+                container.style.marginRight = '90px';
+                container.style.padding = '20px';
+            } else {
+                container.style.marginLeft = '90px';
+                container.style.marginRight = '90px';
+                container.style.padding = '20px';
+            }
+        }
+
+        function updateActiveSection() {
+            const sections = document.querySelectorAll('.section');
+            const navItems = document.querySelectorAll('.nav-item[data-section]');
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    currentSectionId = section.id;
+                }
+            });
+
+            navItems.forEach(item => {
+                const sectionId = 'seccion-' + item.dataset.section;
+                if (sectionId === currentSectionId) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function updateReadingProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        }
+
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        function toggleScrollToTopBtn() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        }
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            updateActiveSection();
+            updateReadingProgress();
+            toggleScrollToTopBtn();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && sidebarOpen) {
+                toggleSidebar();
+            }
+            updateContainerSpacing();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateActiveSection();
+            updateReadingProgress();
+            updateContainerSpacing();
+            if (window.innerWidth <= 768) {
+                sidebarNav.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebarOpen) {
+                toggleSidebar();
+            }
+            if (e.key === 'm' || e.key === 'M') {
+                if (!e.ctrlKey && !e.altKey) { 
+                    toggleSidebar();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

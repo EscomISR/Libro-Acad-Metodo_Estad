@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Qué es un proceso en el contexto de sistemas operativos?",
+    "options": [
+      "Un programa en ejecución",
+      "Un archivo almacenado en disco",
+      "Un componente físico del procesador",
+      "Una rutina de la BIOS"
+    ],
+    "answer": "Un programa en ejecución"
+  },
+  {
+    "question": "¿Qué estructura de datos utiliza el sistema operativo para controlar cada proceso?",
+    "options": [
+      "Tabla de asignación de archivos (FAT)",
+      "Bloque de Control de Proceso (BCP)",
+      "Vector de interrupciones",
+      "Registro de segmento de código"
+    ],
+    "answer": "Bloque de Control de Proceso (BCP)"
+  },
+  {
+    "question": "¿Qué parte de la memoria de un proceso almacena las variables locales y las llamadas a funciones?",
+    "options": [
+      "Heap (Montículo)",
+      "Sección de Texto",
+      "Pila (Stack)",
+      "Sección de Datos"
+    ],
+    "answer": "Pila (Stack)"
+  },
+  {
+    "question": "¿Qué área de memoria de un proceso se utiliza para la asignación dinámica de memoria durante la ejecución?",
+    "options": [
+      "Pila (Stack)",
+      "Heap (Montículo)",
+      "Registro acumulador",
+      "Código"
+    ],
+    "answer": "Heap (Montículo)"
+  },
+  {
+    "question": "¿Qué llamada al sistema se utiliza comúnmente en entornos Unix para crear un nuevo proceso?",
+    "options": [
+      "exec()",
+      "fork()",
+      "start()",
+      "init()"
+    ],
+    "answer": "fork()"
+  },
+  {
+    "question": "¿Cómo se denomina al proceso que crea a otro proceso mediante una llamada al sistema?",
+    "options": [
+      "Proceso hijo",
+      "Proceso init",
+      "Proceso padre",
+      "Proceso zombie"
+    ],
+    "answer": "Proceso padre"
+  },
+  {
+    "question": "¿En qué estado se encuentra un proceso que está esperando a que el planificador (scheduler) le asigne la CPU?",
+    "options": [
+      "Nuevo",
+      "En Ejecución",
+      "Bloqueado",
+      "Listo"
+    ],
+    "answer": "Listo"
+  },
+  {
+    "question": "¿Qué evento provoca que un proceso pase del estado 'En Ejecución' al estado 'Bloqueado'?",
+    "options": [
+      "Terminación del proceso",
+      "Solicitud de E/S o espera de un evento",
+      "Vencimiento del tiempo de CPU (quantum)",
+      "Creación de un proceso hijo"
+    ],
+    "answer": "Solicitud de E/S o espera de un evento"
+  },
+  {
+    "question": "¿Qué información del BCP indica la dirección de la siguiente instrucción a ejecutar?",
+    "options": [
+      "Identificador del proceso (PID)",
+      "Contador de Programa (PC)",
+      "Puntero de pila (Stack Pointer)",
+      "Registro de estado"
+    ],
+    "answer": "Contador de Programa (PC)"
+  },
+  {
+    "question": "¿Qué término describe el proceso de guardar el estado de un proceso actual y cargar el estado de otro?",
+    "options": [
+      "Interrupción de hardware",
+      "Conmutación de contexto",
+      "Paginación de memoria",
+      "Segmentación"
+    ],
+    "answer": "Conmutación de contexto"
+  },
+  {
+    "question": "¿Qué identificador único asigna el sistema operativo a cada proceso?",
+    "options": [
+      "MAC Address",
+      "Dirección IP",
+      "PID (Process ID)",
+      "UUID"
+    ],
+    "answer": "PID (Process ID)"
+  },
+  {
+    "question": "¿Qué estado corresponde a un proceso que recién ha sido creado pero aún no ha sido admitido en el grupo de procesos ejecutables?",
+    "options": [
+      "Listo",
+      "Nuevo",
+      "Bloqueado",
+      "Suspendido"
+    ],
+    "answer": "Nuevo"
+  },
+  {
+    "question": "¿Cuál es la función principal del planificador (scheduler) de procesos?",
+    "options": [
+      "Compilar el código fuente",
+      "Seleccionar qué proceso disponible se ejecutará en la CPU",
+      "Gestionar los permisos de archivos",
+      "Controlar los dispositivos USB"
+    ],
+    "answer": "Seleccionar qué proceso disponible se ejecutará en la CPU"
+  },
+  {
+    "question": "¿Qué sucede con los recursos de un proceso cuando este pasa al estado 'Terminado'?",
+    "options": [
+      "Se mantienen reservados indefinidamente",
+      "Se transfieren al proceso hijo",
+      "El sistema operativo los libera y reclama",
+      "Se guardan en el disco duro"
+    ],
+    "answer": "El sistema operativo los libera y reclama"
+  },
+  {
+    "question": "¿Qué abstracción fundamental proporciona el modelo de procesos al desarrollador?",
+    "options": [
+      "Un disco duro infinito",
+      "Una CPU virtual exclusiva para cada programa",
+      "Acceso directo al hardware gráfico",
+      "Redes de latencia cero"
+    ],
+    "answer": "Una CPU virtual exclusiva para cada programa"
+  },
+  {
+    "question": "¿Qué contiene la sección de 'Datos' en la imagen de memoria de un proceso?",
+    "options": [
+      "El código binario ejecutable",
+      "Variables globales y estáticas",
+      "Variables locales temporales",
+      "El BCP del proceso"
+    ],
+    "answer": "Variables globales y estáticas"
+  },
+  {
+    "question": "¿Qué mecanismo utiliza el kernel para gestionar la concurrencia y evitar conflictos en recursos compartidos?",
+    "options": [
+      "Sincronización (semáforos, mutex)",
+      "Desfragmentación",
+      "Compresión de datos",
+      "Overclocking"
+    ],
+    "answer": "Sincronización (semáforos, mutex)"
+  },
+  {
+    "question": "¿Qué sucede si un proceso en estado 'Listo' recibe la CPU por parte del despachador?",
+    "options": [
+      "Pasa al estado 'Bloqueado'",
+      "Pasa al estado 'Terminado'",
+      "Pasa al estado 'En Ejecución'",
+      "Se crea un nuevo hilo"
+    ],
+    "answer": "Pasa al estado 'En Ejecución'"
+  },
+  {
+    "question": "¿Por qué la conmutación de contexto se considera una sobrecarga (overhead) para el sistema?",
+    "options": [
+      "Porque consume mucha energía eléctrica",
+      "Porque el sistema no realiza trabajo útil para el usuario durante el cambio",
+      "Porque requiere reiniciar la computadora",
+      "Porque borra los archivos del usuario"
+    ],
+    "answer": "Porque el sistema no realiza trabajo útil para el usuario durante el cambio"
+  },
+  {
+    "question": "¿Qué incluye la 'Información de contabilidad' dentro del BCP?",
+    "options": [
+      "El código fuente del programa",
+      "Tiempo de CPU utilizado y límites de tiempo",
+      "La lista de archivos MP3 del usuario",
+      "La configuración de la pantalla"
+    ],
+    "answer": "Tiempo de CPU utilizado y límites de tiempo"
+  }
+]

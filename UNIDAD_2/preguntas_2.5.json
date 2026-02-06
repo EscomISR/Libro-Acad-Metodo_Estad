@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Cuál es el objetivo principal de la planificación del CPU?",
+    "options": [
+      "Asignar memoria a los procesos",
+      "Optimizar el rendimiento del sistema y garantizar la equidad",
+      "Controlar los dispositivos de entrada/salida",
+      "Compilar el código fuente de los programas"
+    ],
+    "answer": "Optimizar el rendimiento del sistema y garantizar la equidad"
+  },
+  {
+    "question": "¿Qué nivel de planificación decide qué procesos son admitidos en el sistema para ser procesados (controla el grado de multiprogramación)?",
+    "options": [
+      "Planificación a corto plazo",
+      "Planificación a medio plazo",
+      "Planificación a largo plazo",
+      "Planificación de E/S"
+    ],
+    "answer": "Planificación a largo plazo"
+  },
+  {
+    "question": "¿Qué nivel de planificación se encarga de seleccionar qué proceso de la cola de listos se ejecutará a continuación en el CPU?",
+    "options": [
+      "Planificación a largo plazo",
+      "Planificación a corto plazo (CPU Scheduler)",
+      "Planificación a medio plazo",
+      "Planificación de disco"
+    ],
+    "answer": "Planificación a corto plazo (CPU Scheduler)"
+  },
+  {
+    "question": "¿Qué función cumple la planificación a medio plazo?",
+    "options": [
+      "Gestionar el intercambio (swapping) de procesos entre memoria y disco",
+      "Asignar direcciones IP",
+      "Crear nuevos hilos de usuario",
+      "Reiniciar el sistema operativo"
+    ],
+    "answer": "Gestionar el intercambio (swapping) de procesos entre memoria y disco"
+  },
+  {
+    "question": "¿Qué criterio de rendimiento mide la cantidad de procesos que se completan por unidad de tiempo?",
+    "options": [
+      "Tiempo de retorno",
+      "Tiempo de espera",
+      "Rendimiento (Throughput)",
+      "Tiempo de respuesta"
+    ],
+    "answer": "Rendimiento (Throughput)"
+  },
+  {
+    "question": "¿Qué se entiende por 'tiempo de espera' en el contexto de la planificación?",
+    "options": [
+      "El tiempo que el proceso pasa ejecutándose en el CPU",
+      "El tiempo total desde que inicia hasta que termina",
+      "El tiempo que un proceso pasa en la cola de listos esperando el CPU",
+      "El tiempo que tarda el usuario en ingresar datos"
+    ],
+    "answer": "El tiempo que un proceso pasa en la cola de listos esperando el CPU"
+  },
+  {
+    "question": "¿Qué criterio es crítico en sistemas interactivos y mide el tiempo desde una solicitud hasta la primera respuesta?",
+    "options": [
+      "Tiempo de respuesta",
+      "Utilización del CPU",
+      "Rendimiento",
+      "Tiempo de compilación"
+    ],
+    "answer": "Tiempo de respuesta"
+  },
+  {
+    "question": "¿En qué consiste el algoritmo FCFS (First-Come, First-Served)?",
+    "options": [
+      "Asigna el CPU al proceso con el trabajo más corto",
+      "Asigna el CPU a los procesos en el orden en que llegan",
+      "Asigna el CPU basándose en prioridades",
+      "Asigna el CPU por turnos de tiempo fijo"
+    ],
+    "answer": "Asigna el CPU a los procesos en el orden en que llegan"
+  },
+  {
+    "question": "¿Cuál es una desventaja principal del algoritmo FCFS?",
+    "options": [
+      "Es difícil de implementar",
+      "Puede provocar el 'efecto convoy', aumentando el tiempo de espera promedio",
+      "Requiere hardware especial",
+      "Provoca demasiados cambios de contexto"
+    ],
+    "answer": "Puede provocar el 'efecto convoy', aumentando el tiempo de espera promedio"
+  },
+  {
+    "question": "¿Qué algoritmo selecciona para ejecución el proceso con la ráfaga de CPU más pequeña estimada?",
+    "options": [
+      "RR (Round Robin)",
+      "FCFS",
+      "SJF (Shortest Job First)",
+      "Colas multinivel"
+    ],
+    "answer": "SJF (Shortest Job First)"
+  },
+  {
+    "question": "¿Cuál es la principal dificultad para implementar el algoritmo SJF a corto plazo?",
+    "options": [
+      "Conocer o predecir la duración de la próxima ráfaga de CPU",
+      "Ordenar la cola de listos",
+      "La falta de memoria RAM",
+      "La gestión de interrupciones"
+    ],
+    "answer": "Conocer o predecir la duración de la próxima ráfaga de CPU"
+  },
+  {
+    "question": "¿Qué característica define al algoritmo Round Robin (RR)?",
+    "options": [
+      "Usa una pila LIFO",
+      "Asigna un tiempo fijo (quantum) a cada proceso de forma cíclica",
+      "Nunca interrumpe a un proceso",
+      "Da preferencia a los procesos largos"
+    ],
+    "answer": "Asigna un tiempo fijo (quantum) a cada proceso de forma cíclica"
+  },
+  {
+    "question": "¿Para qué tipo de sistemas es ideal el algoritmo Round Robin?",
+    "options": [
+      "Sistemas por lotes (Batch)",
+      "Sistemas de tiempo compartido / interactivos",
+      "Sistemas monousuario antiguos",
+      "Sistemas de archivos"
+    ],
+    "answer": "Sistemas de tiempo compartido / interactivos"
+  },
+  {
+    "question": "¿Qué problema puede ocurrir en la planificación por prioridades si los procesos de baja prioridad nunca se ejecutan?",
+    "options": [
+      "Deadlock",
+      "Inanición (Starvation)",
+      "Saturación de memoria",
+      "Fragmentación"
+    ],
+    "answer": "Inanición (Starvation)"
+  },
+  {
+    "question": "¿Qué técnica se utiliza para solucionar la inanición en sistemas de prioridades?",
+    "options": [
+      "Swapping",
+      "Paginación",
+      "Envejecimiento (Aging)",
+      "Compresión"
+    ],
+    "answer": "Envejecimiento (Aging)"
+  },
+  {
+    "question": "¿Qué significa que un algoritmo de planificación sea 'expropiativo' (preemptive)?",
+    "options": [
+      "Que el SO puede interrumpir un proceso en ejecución para asignar el CPU a otro",
+      "Que el proceso mantiene el CPU hasta que termina voluntariamente",
+      "Que el SO cobra impuestos por uso de CPU",
+      "Que solo se permiten procesos del kernel"
+    ],
+    "answer": "Que el SO puede interrumpir un proceso en ejecución para asignar el CPU a otro"
+  },
+  {
+    "question": "¿Cómo se realiza la planificación de hilos a nivel de usuario?",
+    "options": [
+      "El kernel planifica cada hilo individualmente",
+      "Una biblioteca en espacio de usuario gestiona los hilos sin que el kernel lo sepa",
+      "El hardware decide qué hilo ejecutar",
+      "No existe planificación para hilos de usuario"
+    ],
+    "answer": "Una biblioteca en espacio de usuario gestiona los hilos sin que el kernel lo sepa"
+  },
+  {
+    "question": "¿Cuál es una ventaja de la planificación de hilos a nivel de kernel?",
+    "options": [
+      "Es más simple de implementar",
+      "Permite aprovechar mejor los sistemas multiprocesador al asignar hilos a distintos núcleos",
+      "No requiere cambios de contexto",
+      "Consume menos memoria que la de usuario"
+    ],
+    "answer": "Permite aprovechar mejor los sistemas multiprocesador al asignar hilos a distintos núcleos"
+  },
+  {
+    "question": "¿Qué ocurre en la planificación Round Robin si el quantum es muy grande?",
+    "options": [
+      "El algoritmo se comporta como FCFS",
+      "El sistema se vuelve muy rápido",
+      "Los cambios de contexto aumentan drásticamente",
+      "Se produce un deadlock"
+    ],
+    "answer": "El algoritmo se comporta como FCFS"
+  },
+  {
+    "question": "¿Qué ocurre en la planificación Round Robin si el quantum es muy pequeño?",
+    "options": [
+      "La respuesta es muy lenta",
+      "La sobrecarga por cambios de contexto reduce el rendimiento del CPU",
+      "Los procesos nunca terminan",
+      "Se comporta como SJF"
+    ],
+    "answer": "La sobrecarga por cambios de contexto reduce el rendimiento del CPU"
+  }
+]

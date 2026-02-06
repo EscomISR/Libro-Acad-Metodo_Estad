@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Cuál es la unidad básica de utilización de la CPU según el modelo multihilo?",
+    "options": [
+      "El proceso",
+      "El hilo",
+      "El registro",
+      "La página de memoria"
+    ],
+    "answer": "El hilo"
+  },
+  {
+    "question": "¿Qué recursos comparten los hilos que pertenecen al mismo proceso?",
+    "options": [
+      "Registros y Pila",
+      "Contador de programa y Estado",
+      "Sección de código, sección de datos y archivos abiertos",
+      "No comparten ningún recurso"
+    ],
+    "answer": "Sección de código, sección de datos y archivos abiertos"
+  },
+  {
+    "question": "¿Qué elementos son propios y privados de cada hilo?",
+    "options": [
+      "Variables globales y archivos",
+      "Código fuente y librerías",
+      "Contador de programa, registros y pila",
+      "Memoria heap y descriptores de archivo"
+    ],
+    "answer": "Contador de programa, registros y pila"
+  },
+  {
+    "question": "¿Cuál es una ventaja principal del uso de hilos frente a la creación de nuevos procesos?",
+    "options": [
+      "Mayor aislamiento y seguridad",
+      "Economía y menor tiempo de creación/cambio de contexto",
+      "Independencia total de memoria",
+      "No requieren sincronización"
+    ],
+    "answer": "Economía y menor tiempo de creación/cambio de contexto"
+  },
+  {
+    "question": "¿Qué modelo de multihilo asigna varios hilos de usuario a un único hilo del kernel?",
+    "options": [
+      "Modelo de Uno a Uno",
+      "Modelo de Muchos a Uno",
+      "Modelo de Muchos a Muchos",
+      "Modelo Distribuido"
+    ],
+    "answer": "Modelo de Muchos a Uno"
+  },
+  {
+    "question": "¿Cuál es la principal desventaja del modelo de Muchos a Uno?",
+    "options": [
+      "Es difícil de implementar",
+      "Si un hilo realiza una llamada al sistema bloqueante, se bloquea todo el proceso",
+      "Consume demasiados recursos del kernel",
+      "No permite la creación de hilos de usuario"
+    ],
+    "answer": "Si un hilo realiza una llamada al sistema bloqueante, se bloquea todo el proceso"
+  },
+  {
+    "question": "¿Qué modelo de multihilo permite la mayor concurrencia real en sistemas multiprocesador al asignar cada hilo de usuario a un hilo del kernel?",
+    "options": [
+      "Modelo de Muchos a Uno",
+      "Modelo de Uno a Uno",
+      "Modelo de Hilos Verdes",
+      "Modelo Monolítico"
+    ],
+    "answer": "Modelo de Uno a Uno"
+  },
+  {
+    "question": "¿Qué desventaja presenta el modelo de Uno a Uno?",
+    "options": [
+      "No permite ejecutar hilos en paralelo",
+      "La creación de cada hilo de usuario requiere crear un hilo de kernel, lo que puede afectar el rendimiento",
+      "Bloquea todo el proceso ante una llamada al sistema",
+      "Solo funciona en sistemas monoprocesador"
+    ],
+    "answer": "La creación de cada hilo de usuario requiere crear un hilo de kernel, lo que puede afectar el rendimiento"
+  },
+  {
+    "question": "¿Qué modelo intenta combinar lo mejor de los mundos multiplexando hilos de usuario sobre un número menor o igual de hilos del kernel?",
+    "options": [
+      "Modelo de Muchos a Uno",
+      "Modelo de Uno a Uno",
+      "Modelo de Muchos a Muchos",
+      "Modelo de Dos Niveles"
+    ],
+    "answer": "Modelo de Muchos a Muchos"
+  },
+  {
+    "question": "¿Qué estándar define una API para la creación y sincronización de hilos en sistemas tipo Unix (Linux, macOS)?",
+    "options": [
+      "Win32 API",
+      "POSIX Pthreads (IEEE 1003.1c)",
+      "Java Threads",
+      "Green Threads"
+    ],
+    "answer": "POSIX Pthreads (IEEE 1003.1c)"
+  },
+  {
+    "question": "¿Dónde se implementan y gestionan los hilos a nivel de usuario (ULT)?",
+    "options": [
+      "En el hardware del procesador",
+      "En el núcleo del sistema operativo",
+      "En una biblioteca en el espacio de usuario",
+      "En el BIOS"
+    ],
+    "answer": "En una biblioteca en el espacio de usuario"
+  },
+  {
+    "question": "¿Cuál es una característica de los hilos a nivel de kernel (KLT)?",
+    "options": [
+      "El sistema operativo no sabe que existen",
+      "Son gestionados directamente por el sistema operativo",
+      "Son mucho más rápidos de crear que los hilos de usuario",
+      "No permiten el multiprocesamiento"
+    ],
+    "answer": "Son gestionados directamente por el sistema operativo"
+  },
+  {
+    "question": "¿Qué API de hilos es la nativa y principal para sistemas operativos Windows?",
+    "options": [
+      "Pthreads",
+      "Win32 Threads",
+      "Solaris Threads",
+      "Cocoa Threads"
+    ],
+    "answer": "Win32 Threads"
+  },
+  {
+    "question": "¿Por qué los hilos mejoran la 'capacidad de respuesta' de una aplicación interactiva?",
+    "options": [
+      "Porque eliminan los errores de programación",
+      "Porque permiten que una parte del programa siga ejecutándose aunque otra esté bloqueada",
+      "Porque aumentan la velocidad del reloj del procesador",
+      "Porque reducen el tamaño del programa en disco"
+    ],
+    "answer": "Porque permiten que una parte del programa siga ejecutándose aunque otra esté bloqueada"
+  },
+  {
+    "question": "¿Qué problema fundamental introduce el uso de hilos que comparten memoria?",
+    "options": [
+      "Fragmentación del disco",
+      "Necesidad de sincronización para evitar condiciones de carrera",
+      "Incompatibilidad con el hardware",
+      "Pérdida de datos al apagar el equipo"
+    ],
+    "answer": "Necesidad de sincronización para evitar condiciones de carrera"
+  },
+  {
+    "question": "¿Qué ocurre con los hilos de un proceso si este proceso termina abruptamente?",
+    "options": [
+      "Los hilos continúan ejecutándose en segundo plano",
+      "Los hilos se mueven a otro proceso",
+      "Todos los hilos del proceso terminan inmediatamente",
+      "Los hilos se guardan en el disco"
+    ],
+    "answer": "Todos los hilos del proceso terminan inmediatamente"
+  },
+  {
+    "question": "¿Qué beneficio aporta el multihilo en una arquitectura multiprocesador?",
+    "options": [
+      "Escalabilidad: los hilos pueden ejecutarse en paralelo en distintos núcleos",
+      "Reducción del uso de memoria RAM",
+      "Simplificación del código fuente",
+      "Eliminación de las interrupciones de hardware"
+    ],
+    "answer": "Escalabilidad: los hilos pueden ejecutarse en paralelo en distintos núcleos"
+  },
+  {
+    "question": "¿En qué espacio de memoria se gestionan los hilos en el modelo 'Muchos a Uno'?",
+    "options": [
+      "Espacio de Kernel",
+      "Espacio de Usuario",
+      "Memoria Virtual Swap",
+      "Memoria Caché L1"
+    ],
+    "answer": "Espacio de Usuario"
+  },
+  {
+    "question": "¿Qué mecanismo se utiliza para evitar que dos hilos modifiquen la misma variable al mismo tiempo?",
+    "options": [
+      "Compresión ZIP",
+      "Mecanismos de Sincronización (ej. Mutex, Semáforos)",
+      "Desfragmentación",
+      "Clustering"
+    ],
+    "answer": "Mecanismos de Sincronización (ej. Mutex, Semáforos)"
+  },
+  {
+    "question": "¿Qué biblioteca permite crear hilos que pueden ser gestionados por la JVM (Java Virtual Machine)?",
+    "options": [
+      "Java Threads",
+      "Win16 Threads",
+      "OS/2 Threads",
+      "BeOS Threads"
+    ],
+    "answer": "Java Threads"
+  }
+]

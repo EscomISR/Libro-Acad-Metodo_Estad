@@ -1,0 +1,967 @@
+<!DOCTYPE html> <html lang="es"> <head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Unidad 5: Dispositivos de entrada y salida</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <style>
+        /* Variables CSS raíz para temas y consistencia */
+        :root {
+            --primary: #2c3e50; /* Color primario */
+            --secondary: #3498db; /* Color secundario */
+            --accent: #e74c3c; /* Color de acento */
+            --light: #ecf0f1; /* Color claro (a menudo para texto sobre fondos oscuros) */
+            --dark: #2c3e50; /* Color oscuro (puede ser el mismo que el primario o una tonalidad diferente) */
+            --success: #2ecc71; /* Color para mensajes o elementos de éxito */
+            --warning: #f39c12; /* Color para mensajes o elementos de advertencia */
+            --submenu-bg: rgba(0, 0, 0, 0.15); /* Color de fondo para submenús con algo de transparencia */
+            --card-bg: rgba(255, 255, 255, 0.08); /* Color de fondo para tarjetas con algo de transparencia */
+        }
+        
+        /* Reseteo universal y estilo de fuente base */
+        * {
+            margin: 0; /* Elimina los márgenes predeterminados de todos los elementos */
+            padding: 0; /* Elimina el padding predeterminado de todos los elementos */
+            box-sizing: border-box; /* Cambia el modelo de caja para que el padding y el borde no se sumen al ancho/alto del elemento */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Establece una pila de fuentes preferida */
+        }
+        
+        /* Estilo del cuerpo (body) */
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50); /* Establece un fondo degradado */
+            color: var(--light); /* Establece el color de texto predeterminado a la variable light */
+            min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura completa del viewport */
+            padding: 20px; /* Añade algo de padding alrededor del contenido del cuerpo */
+        }
+        
+        /* Estilo del contenedor principal */
+        .container {
+            max-width: 1200px; /* Establece un ancho máximo para el área de contenido principal */
+            margin: 0 auto; /* Centra el contenedor en la página */
+            padding: 20px; /* Añade padding dentro del contenedor */
+        }
+        
+        /* Estilo de la sección de cabecera (header) */
+        header {
+            text-align: center; /* Centra el contenido de texto de la cabecera */
+            padding: 40px 20px; /* Añade padding a la cabecera */
+            margin-bottom: 30px; /* Añade espacio debajo de la cabecera */
+            background: rgba(0, 0, 0, 0.3); /* Fondo semitransparente para la cabecera */
+            border-radius: 15px; /* Redondea las esquinas de la cabecera */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Añade un efecto de sombra */
+            position: relative; /* Necesario para z-index y posicionamiento absoluto de pseudo-elementos */
+            overflow: hidden; /* Evita que el contenido (como pseudo-elementos) se salga de la cabecera */
+        }
+        
+        /* Pseudo-elemento decorativo для el fondo de la cabecera */
+        header::before {
+            content: ""; /* Requerido para que los pseudo-elementos se muestren */
+            position: absolute; /* Se posiciona relativo a la cabecera */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.1) 0%, transparent 40%), /* Primer degradado radial */
+                radial-gradient(circle at 80% 70%, rgba(231, 76, 60, 0.1) 0%, transparent 40%); /* Segundo degradado radial */
+            z-index: -1; /* Coloca el pseudo-elemento detrás del contenido de la cabecera */
+        }
+        
+        /* Estilo del encabezado principal (H1) */
+        h1 {
+            font-size: 3.5rem; /* Establece el tamaño de fuente para el título principal */
+            margin-bottom: 15px; /* Añade espacio debajo del H1 */
+            color: white; /* Establece el color del texto a blanco */
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Añade una sombra de texto sutil */
+        }
+        
+        /* Estilo del subtítulo */
+        .subtitle {
+            font-size: 1.8rem; /* Establece el tamaño de fuente para el subtítulo */
+            color: var(--secondary); /* Usa la variable de color secundario */
+            margin-bottom: 25px; /* Añade espacio debajo del subtítulo */
+            font-weight: 300; /* Establece un peso de fuente más ligero */
+        }
+        
+        /* Estilo del párrafo de descripción */
+        .description {
+            max-width: 800px; /* Limita el ancho de la descripción para mejorar la legibilidad */
+            margin: 0 auto; /* Centra el bloque de descripción */
+            font-size: 1.2rem; /* Establece el tamaño de fuente */
+            line-height: 1.6; /* Mejora la legibilidad aumentando el espaciado entre líneas */
+            margin-bottom: 30px; /* Añade espacio debajo de la descripción */
+            color: #d6dbdf; /* Un color grisáceo claro para el texto */
+        }
+        
+        /* Estilo del contenedor para las tarjetas */
+        .card-container {
+            display: grid; /* Usa CSS Grid para el diseño */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Crea columnas responsivas: tantas columnas de 300px como quepan, de lo contrario se estiran */
+            gap: 30px; /* Establece el espacio entre los ítems del grid (tarjetas) */
+            margin-top: 40px; /* Añade espacio encima del contenedor de tarjetas */
+        }
+        
+        /* Estilo de tarjeta individual */
+        .card {
+            background: var(--card-bg); /* Usa la variable de fondo de tarjeta */
+            border-radius: 15px; /* Redondea las esquinas de la tarjeta */
+            overflow: hidden; /* Asegura que el contenido como los subtemas no se desborde cuando está colapsado */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave para efectos hover (ej. transform, shadow) */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Añade una sombra a la tarjeta */
+            position: relative; /* Necesario para el posicionamiento absoluto potencial de elementos hijos o pseudo-elementos */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Añade un borde sutil */
+            transform-style: preserve-3d; /* Habilita transformaciones 3D para elementos hijos (usado en el efecto hover de JS) */
+            perspective: 1000px; /* Establece la perspectiva para transformaciones 3D (usado en el efecto hover de JS) */
+            will-change: transform, box-shadow, background; /* Optimiza las animaciones indicando al navegador qué propiedades cambiarán */
+        }
+        
+        /* Efecto hover para la tarjeta */
+        .card:hover {
+            transform: translateY(-8px) scale(1.02); /* Mueve la tarjeta ligeramente hacia arriba y la escala al pasar el cursor */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); /* Aumenta la sombra al pasar el cursor */
+            background: rgba(255, 255, 255, 0.12); /* Aclara ligeramente el fondo al pasar el cursor */
+        }
+        
+        /* Estilo de la cabecera de la tarjeta (área clickeable para expandir/colapsar) */
+        .card-header {
+            padding: 25px 25px 15px; /* Añade padding dentro de la cabecera de la tarjeta */
+            background: rgba(0, 0, 0, 0.2); /* Fondo semitransparente para la cabecera */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Añade un borde inferior */
+            cursor: pointer; /* Cambia el cursor a puntero para indicar que es clickeable */
+            display: flex; /* Usa flexbox para alinear ítems en la cabecera */
+            justify-content: space-between; /* Coloca espacio entre el contenido del título y el icono */
+            align-items: center; /* Alinea verticalmente los ítems en el centro */
+        }
+        
+        /* Contenedor para el número y título de la tarjeta */
+        .card-header-content {
+            display: flex; /* Usa flexbox para alinear número y título */
+            align-items: center; /* Alinea verticalmente los ítems */
+        }
+        
+        /* Estilo para el número de la tarjeta (ej. "5.1") */
+        .card-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary); /* Usa el color secundario */
+            margin-right: 15px; /* Añade espacio a la derecha del número */
+            min-width: 50px; /* Asegura un ancho mínimo para la alineación */
+            text-align: center; /* Centra el texto del número */
+        }
+        
+        /* Estilo para el título de la tarjeta */
+        .card-title {
+            font-size: 1.6rem;
+            font-weight: 600; /* Peso de fuente semigrueso */
+            color: white; /* Color de texto blanco */
+        }
+        
+        /* Estilo para el icono de expandir/colapsar (chevron) */
+        .card-icon {
+            font-size: 1.4rem;
+            transition: transform 0.4s ease; /* Animación de rotación suave para el icono */
+        }
+        
+        /* Rota el icono cuando la tarjeta está activa (expandida) */
+        .card.active .card-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Estilo para el contenedor de subtemas (oculto por defecto) */
+        .subtopics {
+            max-height: 0; /* Inicialmente colapsado */
+            overflow: hidden; /* Oculta el contenido cuando está colapsado */
+            transition: max-height 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animación suave de expandir/colapsar */
+            background: var(--submenu-bg); /* Usa el color de fondo del submenú */
+        }
+        
+        /* Expande el contenedor de subtemas cuando la tarjeta está activa */
+        .card.active .subtopics {
+            max-height: 500px; /* Establece una altura máxima para permitir que el contenido se muestre (ajustar si el contenido es más alto) */
+        }
+        
+        /* Estilo para la lista de subtemas */
+        .subtopic-list {
+            list-style-type: none; /* Elimina las viñetas predeterminadas de la lista */
+            padding: 15px 0; /* Añade padding arriba y abajo de la lista */
+        }
+        
+        /* Estilo para ítems individuales de subtemas */
+        .subtopic-item {
+            padding: 12px 25px; /* Añade padding a cada ítem */
+            display: flex; /* Usa flexbox para la alineación dentro del ítem */
+            align-items: center; /* Alinea verticalmente el contenido */
+            transition: all 0.3s; /* Transición suave para efectos hover */
+            border-left: 3px solid transparent; /* Marcador de posición para el borde del efecto hover */
+        }
+        
+        /* Efecto hover para ítems de subtemas */
+        .subtopic-item:hover {
+            background: rgba(52, 152, 219, 0.15); /* Fondo claro al pasar el cursor */
+            border-left: 3px solid var(--secondary); /* Añade un borde izquierdo usando el color secundario */
+        }
+        
+        /* Estilo para el número del subtema (ej. "5.1.1") */
+        .subtopic-number {
+            min-width: 70px; /* Asegura un ancho consistente para la alineación */
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        /* Estilo para el nombre del subtema */
+        .subtopic-name {
+            flex: 1; /* Permite que el nombre ocupe el espacio restante */
+        }
+        
+        /* Estilo para el enlace del subtema */
+        .subtopic-link {
+            color: var(--light); /* Usa el color claro para el texto */
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+            display: flex; /* Usa flexbox para la alineación */
+            align-items: center; /* Alinea verticalmente los ítems */
+            width: 100%; /* Hace que el enlace ocupe el ancho completo de su contenedor */
+        }
+        
+        /* Estilo para el icono de enlace externo dentro de los enlaces de subtemas */
+        .subtopic-link i {
+            margin-left: 10px; /* Añade espacio a la izquierda del icono */
+            font-size: 0.9rem; /* Establece el tamaño del icono */
+            opacity: 0.7; /* Hace el icono ligeramente transparente */
+        }
+        
+        /* Estilos específicos para ítems de actividad (similar a los ítems de subtema pero con diferentes colores) */
+        .activity-item {
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        
+        /* Efecto hover para ítems de actividad */
+        .activity-item:hover {
+            background: rgba(46, 204, 113, 0.15); /* Usa una variante del color de éxito para el fondo */
+            border-left: 3px solid var(--success); /* Usa el color de éxito para el borde */
+        }
+        
+        /* Estilo para el número de actividad (ej. "ACT 1") */
+        .activity-number {
+            min-width: 70px;
+            font-weight: bold;
+            color: var(--success); /* Usa el color de éxito */
+        }
+        
+        /* Estilo para el nombre de la actividad */
+        .activity-name {
+            flex: 1;
+        }
+        
+        /* Estilo para el enlace de la actividad */
+        .activity-link {
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        
+        /* Estilo para el icono en el enlace de la actividad */
+        .activity-link i {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            color: var(--success); /* Usa el color de éxito para el icono */
+        }
+        
+        /* Estilo para el pie de la tarjeta (contiene el botón "Ver tema completo") */
+        .card-footer {
+            padding: 0 25px 25px; /* Padding, ajustado cuando la tarjeta está activa */
+            text-align: center; /* Centra el botón */
+            transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; /* Transiciones suaves para ocultar/mostrar */
+            max-height: 100px; /* Altura máxima inicial */
+            overflow: hidden; /* Oculta el contenido si se desborda durante la transición */
+        }
+        
+        /* Oculta el pie de la tarjeta cuando la tarjeta está activa (expandida) */
+        .card.active .card-footer {
+            opacity: 0; /* Lo hace transparente */
+            transform: translateY(-20px); /* Lo mueve ligeramente hacia arriba */
+            max-height: 0; /* Lo colapsa */
+            padding: 0 25px; /* Elimina el padding vertical cuando está oculto */
+            pointer-events: none; /* Evita la interacción cuando está oculto */
+        }
+        
+        /* Estilo general de botón */
+        .btn {
+            display: inline-block; /* Permite establecer padding, margin, etc. */
+            background: var(--secondary); /* Usa el color secundario para el fondo */
+            color: white; /* Texto blanco */
+            padding: 12px 25px; /* Padding dentro del botón */
+            border-radius: 30px; /* Esquinas redondeadas para forma de píldora */
+            text-decoration: none; /* Elimina el subrayado de botones con estilo de enlace */
+            font-weight: 600; /* Texto semigrueso */
+            margin-top: 20px; /* Espacio encima del botón */
+            transition: all 0.3s ease; /* Transición suave para efectos hover */
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); /* Sombra para el botón */
+            border: none; /* Elimina el borde predeterminado */
+            cursor: pointer; /* Cursor de puntero al pasar el ratón */
+            font-size: 1rem; /* Tamaño de fuente */
+            font-family: inherit; /* Hereda la fuente del padre */
+        }
+        
+        /* Efecto hover del botón */
+        .btn:hover {
+            background: #2980b9; /* Oscurece el color secundario al pasar el cursor */
+            transform: translateY(-3px); /* Mueve el botón ligeramente hacia arriba */
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4); /* Aumenta la sombra al pasar el cursor */
+        }
+        
+        /* Estilo específico para el botón de actividades */
+        .btn-activities {
+            background: var(--success); /* Usa el color de éxito */
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3); /* Sombra con variante del color de éxito */
+        }
+        
+        /* Efecto hover para el botón de actividades */
+        .btn-activities:hover {
+            background: #27ae60; /* Oscurece el color de éxito al pasar el cursor */
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4); /* Aumenta la sombra */
+        }
+        
+        /* Estilo general de icono (no usado directamente, pero podría ser base para otros iconos) */
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Contenedor para los iconos de hardware en la cabecera */
+        .hardware-icons {
+            display: flex; /* Usa flexbox para organizar los iconos en una fila */
+            justify-content: center; /* Centra los iconos horizontalmente */
+            gap: 20px; /* Espacio entre iconos */
+            margin-top: 40px; /* Espacio encima del contenedor de iconos */
+            flex-wrap: wrap; /* Permite que los iconos pasen a la siguiente línea si no hay suficiente espacio */
+        }
+        
+        /* Estilo para iconos de hardware individuales */
+        .hardware-icon {
+            font-size: 2.5rem; /* Tamaño del icono */
+            background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+            width: 70px; /* Ancho fijo */
+            height: 70px; /* Alto fijo */
+            border-radius: 50%; /* Lo hace circular */
+            display: flex; /* Usa flexbox para centrar el emoji/icono dentro */
+            align-items: center; /* Centra verticalmente */
+            justify-content: center; /* Centra horizontalmente */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Añade una sombra */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave para el hover */
+        }
+
+        /* Efecto hover para iconos de hardware */
+        .hardware-icon.interactive:hover {
+            transform: translateY(-5px);
+            background: var(--secondary);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+            cursor: pointer;
+        }
+
+        /* Estilos para el óvalo del video */
+        .video-oval {
+            background: linear-gradient(135deg, var(--accent), #c0392b);
+            width: auto;
+            min-width: 160px;
+            padding: 0 25px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-oval:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(231, 76, 60, 0.6);
+            background: linear-gradient(135deg, #e74c3c, var(--accent));
+        }
+
+        .video-oval i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+            max-width: 90vw;
+            max-height: 85vh;
+            width: 900px;
+            position: relative;
+            animation: slideIn 0.4s ease-out;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #bdc3c7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 5px;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: var(--accent);
+            background: rgba(231, 76, 60, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px) scale(0.8);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* Estilo especial para la tarjeta de actividades */
+        .activities-card {
+            border-left: 4px solid var(--success); /* Añade un borde izquierdo prominente con el color de éxito */
+        }
+        
+        /* Estiliza el número de la tarjeta en la tarjeta de actividades para usar el color de éxito */
+        .activities-card .card-number {
+            color: var(--success);
+        }
+        
+        /* Estiliza el borde inferior de la cabecera de la tarjeta de actividades */
+        .activities-card .card-header {
+            border-bottom: 1px solid rgba(46, 204, 113, 0.3); /* Usa una variante del color de éxito */
+        }
+        
+        /* Estiliza el icono de chevron en la tarjeta de actividades para usar el color de éxito */
+        .activities-card .card-icon {
+            color: var(--success);
+        }
+        
+        /* Estilo del pie de página (footer) */
+        footer {
+            text-align: center; /* Centra el texto en el pie de página */
+            margin-top: 60px; /* Espacio encima del pie de página */
+            padding: 30px; /* Padding dentro del pie de página */
+            color: #95a5a6; /* Un color grisáceo claro para el texto del pie de página */
+            font-size: 0.9rem; /* Tamaño de fuente más pequeño para el texto del pie de página */
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Añade un borde superior */
+        }
+        
+        /* Media query para ajustes responsivos en pantallas más pequeñas (ancho máximo 768px) */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            .card-title {
+                font-size: 1.4rem;
+            }
+            .modal-content {
+                padding: 15px;
+                margin: 10px;
+                width: 98vw;
+                max-width: none;
+            }
+            .modal-title {
+                font-size: 1.2rem;
+            }
+            .video-oval {
+                width: 100px;
+                height: 50px;
+                font-size: 0.9rem;
+            }
+            .video-container {
+                min-height: 300px;
+            }
+            .video-container iframe {
+                min-height: 300px;
+            }
+        }
+
+        /* --- ESTILOS BOTÓN VOLVER --- */
+        .back-to-menu-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), #27ae60);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-menu-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container"> <header>
+          <div style="display: grid; grid-template-columns: auto 1fr auto; align-items: center; margin-bottom: 20px;">
+            <img src="IPNb.png" alt="Logo IPN" style="height: 80px; max-width: 120px; object-fit: contain;"> <h1 style="margin: 0; text-align: center;">Unidad temática 5</h1> <img src="ESCOMB.png" alt="Logo ESCOM" style="height: 80px; max-width: 120px; object-fit: contain;"> </div>
+          <div class="subtitle">Dispositivos de entrada y salida (E/S)</div> <div class="description">
+            <p>Los dispositivos de entrada y salida (E/S) son muy importantes para todos los equipos de cómputo derivado a que es el medio por el cual el usuario se puede interconectar con sus dispositivos externos con dichos equipos.
+            Su misión principal es que al ser conectados dispositivos externos los datos que se encuentren almacenados en ellos puedan ser extraídos y a su vez almacenados dentro de ellos, cabe señalar que en este proceso se involucra la CPU y la memoria que son elementos fundamentales para llevar a cabo este proceso
+            </p> </div> <!-- Ya quedo -->
+
+          <div class="hardware-icons">
+            <div class="hardware-icon">⌨️</div>
+            <div class="hardware-icon">🖱️</div>
+            <div class="hardware-icon">🖨️</div>
+            <div class="video-oval" onclick="openVideoModal()">
+                <i class="fas fa-play"></i>
+                    Introducción
+            </div>
+            <div class="hardware-icon">💾</div>
+            <div class="hardware-icon">📷</div>
+            <div class="hardware-icon">🔊</div>
+            </div>
+        </header>
+
+        <div class="card-container"> <div class="card" id="card-5-1">
+                <div class="card-header" onclick="toggleCard('5-1')"> <div class="card-header-content">
+                        <div class="card-number">5.1</div>
+                        <div class="card-title">Principios del hardware de E/S</div>
+                    </div>
+                    <div class="card-icon"><i class="fas fa-chevron-down"></i></div> </div>
+                
+                <div class="subtopics"> <ul class="subtopic-list">
+                        <li class="subtopic-item">
+                            <a href="5.1.html#seccion-5-1-1" class="subtopic-link">
+                                <div class="subtopic-number">5.1.1</div>
+                                <div class="subtopic-name">Dispositivos de bloque y de carácter</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="5.1.html#seccion-5-1-2" class="subtopic-link">
+                                <div class="subtopic-number">5.1.2</div>
+                                <div class="subtopic-name">Controladores de dispositivo.</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="5.1.html#seccion-5-1-3" class="subtopic-link">
+                                <div class="subtopic-number">5.1.3</div>
+                                <div class="subtopic-name">Interrupciones</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="5.1.html#seccion-5-1-4" class="subtopic-link">
+                                <div class="subtopic-number">5.1.4</div>
+                                <div class="subtopic-name">Acceso DMA.</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-footer"> <a href="5.1.html" class="btn">Ver tema completo</a>
+                </div>
+            </div>
+            
+            <div class="card" id="card-5-2">
+                <div class="card-header" onclick="toggleCard('5-2')">
+                    <div class="card-header-content">
+                        <div class="card-number">5.2</div>
+                        <div class="card-title">Principios del software de E/S</div>
+                    </div>
+                    <div class="card-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                
+                <div class="subtopics">
+                    <ul class="subtopic-list">
+                        <li class="subtopic-item">
+                            <a href="5.2.html#seccion-5-2-1" class="subtopic-link">
+                                <div class="subtopic-number">5.2.1</div>
+                                <div class="subtopic-name">Objetivos del software de E/S</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="5.2.html#seccion-5-2-2" class="subtopic-link">
+                                <div class="subtopic-number">5.2.2</div>
+                                <div class="subtopic-name">E/S Programada</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="5.2.html#seccion-5-2-3" class="subtopic-link">
+                                <div class="subtopic-number">5.2.3</div>
+                                <div class="subtopic-name">E/S Manejadas por interrupciones</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="5.2.html#seccion-5-2-4" class="subtopic-link">
+                                <div class="subtopic-number">5.2.4</div>
+                                <div class="subtopic-name">E/S usando DMA</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-footer">
+                    <a href="5.2.html" class="btn">Ver tema completo</a>
+                </div>
+            </div>
+            
+            <div class="card" id="card-5-3">
+                <div class="card-header" onclick="toggleCard('5-3')">
+                    <div class="card-header-content">
+                        <div class="card-number">5.3</div>
+                        <div class="card-title">Capas de software</div>
+                    </div>
+                    <div class="card-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                
+                <div class="subtopics">
+                    <ul class="subtopic-list">
+                        <li class="subtopic-item">
+                            <a href="5.3.html#seccion-5-3-1" class="subtopic-link">
+                                <div class="subtopic-number">5.3.1</div>
+                                <div class="subtopic-name">Manejador de interrupciones</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="5.3.html#seccion-5-3-2" class="subtopic-link">
+                                <div class="subtopic-number">5.3.2</div>
+                                <div class="subtopic-name">Controladores de dispositivo</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="5.3.html#seccion-5-3-3" class="subtopic-link">
+                                <div class="subtopic-number">5.3.3</div>
+                                <div class="subtopic-name">Software en modo usuario para E/S.</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-footer">
+                    <a href="5.3.html" class="btn">Ver tema completo</a>
+                </div>
+            </div>
+            
+            <div class="card activities-card" id="card-activities"> <div class="card-header" onclick="toggleCard('activities')">
+                    <div class="card-header-content">
+                        <div class="card-number"><i class="fas fa-tasks"></i></div> <div class="card-title">Actividades de aprendizaje</div>
+                    </div>
+                    <div class="card-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                
+                <div class="subtopics"> <ul class="subtopic-list">
+                        <li class="activity-item"> <a href="actividad_5_1.html" class="activity-link">
+                                <div class="activity-number">ACT 1</div>
+                                <div class="activity-name">Principios del hardware de E/S</div>
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </li>
+                        <li class="activity-item">
+                            <a href="actividad_5_2.html" class="activity-link">
+                                <div class="activity-number">ACT 2</div>
+                                <div class="activity-name">Principios del software de E/S</div>
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </li>
+                        <li class="activity-item">
+                            <a href="actividad_5_3.html" class="activity-link">
+                                <div class="activity-number">ACT 3</div>
+                                <div class="activity-name">Capas de software</div>
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-footer" id="activities-footer"> <button class="btn btn-activities" onclick="toggleCard('activities')"> <i class="fas fa-chevron-down"></i> Ver actividades
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header"> <div class="card-header-content">
+                        <div class="card-number"><i class="fas fa-book"></i></div> <div class="card-title">Lista de referencias</div>
+                    </div>
+                </div>
+                <div class="card-footer"> <a href="referencias.html" class="btn">Ver referencias</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-content">
+                        <div class="card-number"><i class="fas fa-keyboard"></i></div>
+                        <div class="card-title">Laboratorio de código</div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="laboratorio_codigo.html" class="btn">Iniciar laboratorio</a>
+                </div>
+            </div>
+
+        
+        
+        </div>
+        
+        
+        <div id="videoModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Video introducción - Dispositivos de entrada y salida</h2>
+                            <button class="close-btn" onclick="closeVideoModal()">×</button>
+                        </div>
+                        <div class="description">
+                            <p>Salas, I. (2025, 29 de noviembre). <em>General: Principios de hardware y software</em> [Video]. YouTube. https://www.youtube.com/watch?v=CprZd_69QGM</p>
+                        </div>
+                        <div class="video-container">
+                            <iframe id="videoFrame" src="" title="Video Educativo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+                            </iframe>
+                        </div>
+            </div>
+        </div>
+
+
+        <footer> <p>El pulso silencioso de los sistemas operativos (Polilibro Académico) - Unidad 5: Dispositivos de entrada y salida</p>
+            <p>Desarrollado para fines educativos - © 2025</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Función para alternar el estado activo de las tarjetas (expandir/colapsar subtemas)
+        function toggleCard(cardIdSuffix) {
+            const card = document.getElementById(`card-${cardIdSuffix}`); // Obtiene el elemento de la tarjeta específica por su ID
+            const wasActive = card.classList.contains('active'); // Verifica si la tarjeta está actualmente activa/expandida
+            
+            // Cierra todas las otras tarjetas actualmente activas
+            const allCards = document.querySelectorAll('.card'); // Obtiene todos los elementos de tarjeta
+            allCards.forEach(c => {
+                // Si una tarjeta no es la que se está clickeando y está activa, remueve su clase 'active'
+                if (c.id !== `card-${cardIdSuffix}` && c.classList.contains('active')) {
+                    c.classList.remove('active');
+                }
+            });
+            
+            // Alterna el estado activo de la tarjeta clickeada
+            if (!wasActive) { // Si no estaba activa, la activa
+                card.classList.add('active');
+            } else { // Si estaba activa, la desactiva (colapsa)
+                card.classList.remove('active');
+            }
+        }
+        
+        // Efecto 3D suave al pasar el cursor sobre las tarjetas (cuando no están activas/expandidas)
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                // Solo aplica el efecto hover si la tarjeta no está actualmente expandida
+                if (!card.classList.contains('active')) {
+                    const rect = card.getBoundingClientRect(); // Obtiene la posición y tamaño de la tarjeta
+                    const x = e.clientX - rect.left; // Posición X del ratón relativa a la tarjeta
+                    const y = e.clientY - rect.top;  // Posición Y del ratón relativa a la tarjeta
+                    
+                    const centerX = rect.width / 2; // Centro X de la tarjeta
+                    const centerY = rect.height / 2; // Centro Y de la tarjeta
+                    
+                    // Calcula los valores de rotación basados en la posición del ratón desde el centro
+                    // La división por 25 reduce la intensidad de la rotación
+                    const rotateY = (x - centerX) / 25; 
+                    const rotateX = (centerY - y) / 25; // Y invertida para una sensación natural
+                    
+                    // Limita la rotación a un valor máximo para evitar una inclinación excesiva
+                    const maxRotation = 8; // Grados máximos de rotación
+                    const clampedRotateX = Math.max(Math.min(rotateX, maxRotation), -maxRotation);
+                    const clampedRotateY = Math.max(Math.min(rotateY, maxRotation), -maxRotation);
+                    
+                    // Aplica la transformación 3D
+                    card.style.transform = `perspective(1200px) 
+                                          rotateX(${clampedRotateX}deg) 
+                                          rotateY(${clampedRotateY}deg) 
+                                          translateY(-8px) /* Ligero efecto de elevación */
+                                          scale(1.02)`;   /* Ligero efecto de zoom */
+                }
+            });
+            
+            // Restablece la transformación de la tarjeta cuando el ratón sale
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+            });
+        });
+        
+        // Cierra cualquier tarjeta activa/expandida al hacer clic fuera de ellas
+        document.addEventListener('click', (e) => {
+            const cards = document.querySelectorAll('.card'); // Obtiene todas las tarjetas
+            let isClickInsideACard = false; // Bandera para verificar si el clic fue dentro de alguna tarjeta
+            
+            // Verifica si el objetivo del clic está dentro de alguna de las tarjetas
+            cards.forEach(card => {
+                if (card.contains(e.target)) {
+                    isClickInsideACard = true;
+                }
+            });
+            
+            // Si el clic no fue dentro de ninguna tarjeta, cierra todas las tarjetas activas
+            if (!isClickInsideACard) {
+                cards.forEach(card => {
+                    card.classList.remove('active');
+                });
+            }
+        });
+
+
+        // Funciones para el modal del video
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const videoFrame = document.getElementById('videoFrame');
+            
+            if (!modal || !videoFrame) return;
+            
+            // Video Unidad 4: Sistema de Archivos
+            videoFrame.src = 'https://www.youtube.com/embed/CprZd_69QGM?autoplay=1'; 
+            
+            modal.classList.add('show');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const videoFrame = document.getElementById('videoFrame');
+            
+            if (!modal || !videoFrame) return;
+            
+            // Detener el video removiendo la fuente
+            videoFrame.src = '';
+            
+            modal.classList.remove('show');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaura scroll
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        // Cerrar modal con la tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+    </script>
+    <a href="../Unidades.html" class="back-to-menu-btn" title="Volver al Inicio">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>
+
+
+

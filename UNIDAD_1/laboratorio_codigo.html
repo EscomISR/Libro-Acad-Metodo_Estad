@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Código - Unidad 1</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos consistentes (Tema Oscuro/Azul) */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --gray: #95a5a6;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: var(--light); min-height: 100vh; line-height: 1.7; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        header { text-align: center; padding: 40px 20px; margin-bottom: 30px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; }
+        
+        .breadcrumb { display: flex; justify-content: center; margin-bottom: 20px; color: var(--gray); font-size: 1.1rem; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: white; text-decoration: underline; }
+        .breadcrumb span { margin: 0 10px; }
+        
+        h1 { font-size: 2.8rem; margin-bottom: 10px; color: white; }
+        .subtitle { font-size: 1.8rem; color: var(--secondary); font-weight: 300; }
+        
+        .flashcard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .flashcard {
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flashcard.highlight {
+            border-left: 4px solid var(--secondary);
+            background: linear-gradient(145deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.05));
+        }
+
+        .flashcard:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: var(--secondary);
+        }
+
+        .flashcard-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .flashcard-icon { font-size: 2.5rem; color: var(--secondary); width: 50px; text-align: center; }
+        .flashcard-title { font-size: 1.4rem; font-weight: 600; }
+
+        .flashcard-description { font-size: 0.95rem; opacity: 0.8; flex-grow: 1; margin-bottom: 20px; }
+        
+        .flashcard-footer { margin-top: auto; text-align: center; font-weight: bold; color: var(--secondary); }
+        .flashcard-footer i { margin-left: 8px; transition: transform 0.3s ease; }
+        .flashcard:hover .flashcard-footer i { transform: translateX(5px); }
+        
+        .section-divider {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer { text-align: center; margin-top: 60px; padding: 30px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 1</a>
+                <span>/</span>
+                <span>Laboratorio de Código</span>
+            </div>
+            <h1><i class="fas fa-terminal"></i> Laboratorio de Código</h1>
+            <div class="subtitle">Introducción a la Línea de Comandos</div>
+        </header>
+        
+        <div class="flashcard-container">
+            
+            <div class="section-divider">Automatización con Batch</div>
+
+            <a href="ver_codigo_1.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-file-code"></i></div>
+                    <div class="flashcard-title">Script de Sistema</div>
+                </div>
+                <p class="flashcard-description">
+                    Analiza un script <strong>.bat</strong> básico que interactúa con el sistema operativo para mostrar información del usuario y del entorno.
+                </p>
+                <div class="flashcard-footer">
+                    Ver Código Fuente <i class="fas fa-eye"></i>
+                </div>
+            </a>
+
+            <a href="desafio_bat.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-keyboard"></i></div>
+                    <div class="flashcard-title">Desafío de Comandos</div>
+                </div>
+                <p class="flashcard-description">
+                    <strong>Objetivo:</strong> Completa el script de automatización rellenando los comandos faltantes para gestionar archivos y directorios.
+                </p>
+                <div class="flashcard-footer">
+                    Iniciar Desafío <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+        </div>
+        
+        <footer>
+            <p>Sistemas Operativos - Unidad 1: Scripts y Automatización</p>
+            <p>Desarrollado para fines educativos - © 2025</p>
+        </footer>
+    </div>
+</body>
+</html>

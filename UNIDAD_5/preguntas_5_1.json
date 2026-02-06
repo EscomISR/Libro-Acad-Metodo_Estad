@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Qué es un dispositivo de bloque?",
+    "options": [
+      "Un dispositivo que almacena información en paquetes de tamaño fijo con dirección propia",
+      "Un dispositivo que envía un flujo continuo de bytes sin dirección",
+      "Un dispositivo que solo sirve para entrada de texto",
+      "Un dispositivo conectado inalámbricamente"
+    ],
+    "answer": "Un dispositivo que almacena información en paquetes de tamaño fijo con dirección propia"
+  },
+  {
+    "question": "¿Cuál es la función principal de un controlador de dispositivo?",
+    "options": [
+      "Conectar físicamente el dispositivo y traducir órdenes del SO a señales de hardware",
+      "Aumentar la capacidad de almacenamiento del disco",
+      "Gestionar los usuarios del sistema",
+      "Compilar programas de aplicación"
+    ],
+    "answer": "Conectar físicamente el dispositivo y traducir órdenes del SO a señales de hardware"
+  },
+  {
+    "question": "¿Qué es una interrupción en el contexto de E/S?",
+    "options": [
+      "Una señal enviada por el hardware al CPU para indicar que una operación ha terminado",
+      "Un error fatal que detiene el sistema",
+      "Un comando para apagar el equipo",
+      "Un bloqueo de seguridad"
+    ],
+    "answer": "Una señal enviada por el hardware al CPU para indicar que una operación ha terminado"
+  },
+  {
+    "question": "¿Qué significa DMA?",
+    "options": [
+      "Direct Memory Access (Acceso Directo a Memoria)",
+      "Device Management Algorithm",
+      "Dynamic Memory Allocation",
+      "Disk Management Access"
+    ],
+    "answer": "Direct Memory Access (Acceso Directo a Memoria)"
+  },
+  {
+    "question": "¿Cuál es la principal ventaja del uso de DMA?",
+    "options": [
+      "Libera al CPU de la carga de transferir datos byte a byte",
+      "Permite conectar más dispositivos USB",
+      "Hace que el monitor tenga mejor resolución",
+      "Elimina la necesidad de controladores"
+    ],
+    "answer": "Libera al CPU de la carga de transferir datos byte a byte"
+  },
+  {
+    "question": "¿Qué tipo de dispositivo es un ratón o un teclado?",
+    "options": [
+      "Dispositivo de carácter",
+      "Dispositivo de bloque",
+      "Dispositivo de almacenamiento masivo",
+      "Dispositivo de red"
+    ],
+    "answer": "Dispositivo de carácter"
+  },
+  {
+    "question": "¿Qué componente gestiona el acceso al bus para realizar transferencias DMA?",
+    "options": [
+      "El controlador DMA",
+      "La memoria RAM",
+      "El disco duro",
+      "La tarjeta de video"
+    ],
+    "answer": "El controlador DMA"
+  },
+  {
+    "question": "¿Qué evita el uso de interrupciones en comparación con la espera activa (polling)?",
+    "options": [
+      "El desperdicio de ciclos de CPU comprobando el estado del dispositivo",
+      "El uso de memoria RAM",
+      "El sobrecalentamiento del disco",
+      "La fragmentación de archivos"
+    ],
+    "answer": "El desperdicio de ciclos de CPU comprobando el estado del dispositivo"
+  },
+  {
+    "question": "¿Qué registro del controlador se usa para enviar comandos al dispositivo?",
+    "options": [
+      "Registro de control",
+      "Registro de estado",
+      "Registro de datos",
+      "Contador de programa"
+    ],
+    "answer": "Registro de control"
+  },
+  {
+    "question": "¿Qué modo de DMA transfiere datos solo cuando la CPU no está usando el bus?",
+    "options": [
+      "Modo transparente (o robo de ciclo)",
+      "Modo ráfaga",
+      "Modo bloqueante",
+      "Modo directo"
+    ],
+    "answer": "Modo transparente (o robo de ciclo)"
+  },
+  {
+    "question": "¿Qué ejemplo corresponde a un dispositivo de bloque?",
+    "options": [
+      "Disco duro",
+      "Impresora",
+      "Tarjeta de red",
+      "Micrófono"
+    ],
+    "answer": "Disco duro"
+  },
+  {
+    "question": "¿Qué hace la CPU cuando recibe una interrupción?",
+    "options": [
+      "Detiene su ejecución actual, guarda el estado y atiende la interrupción",
+      "Ignora la señal hasta terminar el programa actual",
+      "Reinicia el sistema",
+      "Borra la memoria caché"
+    ],
+    "answer": "Detiene su ejecución actual, guarda el estado y atiende la interrupción"
+  },
+  {
+    "question": "¿Qué es el 'Polling'?",
+    "options": [
+      "Una técnica donde la CPU pregunta repetidamente al dispositivo si ha terminado",
+      "Un tipo de encuesta a los usuarios",
+      "Un algoritmo de planificación",
+      "Un método de enfriamiento"
+    ],
+    "answer": "Una técnica donde la CPU pregunta repetidamente al dispositivo si ha terminado"
+  },
+  {
+    "question": "¿Qué información necesita el controlador DMA para iniciar una transferencia?",
+    "options": [
+      "Dirección de memoria, cantidad de datos y dirección del dispositivo",
+      "Nombre del usuario y contraseña",
+      "Hora del sistema",
+      "Versión del sistema operativo"
+    ],
+    "answer": "Dirección de memoria, cantidad de datos y dirección del dispositivo"
+  },
+  {
+    "question": "¿Qué sucede al finalizar una transferencia por DMA?",
+    "options": [
+      "El controlador DMA genera una interrupción para avisar a la CPU",
+      "El sistema se apaga",
+      "Se borran los datos transferidos",
+      "El dispositivo se desconecta"
+    ],
+    "answer": "El controlador DMA genera una interrupción para avisar a la CPU"
+  },
+  {
+    "question": "¿Por qué los controladores de dispositivos suelen ser específicos para cada sistema operativo?",
+    "options": [
+      "Porque deben interactuar con el kernel específico del SO",
+      "Por razones de marketing",
+      "Porque usan voltajes diferentes",
+      "No son específicos, son universales"
+    ],
+    "answer": "Porque deben interactuar con el kernel específico del SO"
+  },
+  {
+    "question": "¿Qué es un 'Driver'?",
+    "options": [
+      "Software que permite al SO comunicarse con el hardware",
+      "Un conductor de autobús",
+      "Una herramienta física para ajustar tornillos",
+      "Un tipo de virus"
+    ],
+    "answer": "Software que permite al SO comunicarse con el hardware"
+  },
+  {
+    "question": "¿Qué ventaja tiene el modo ráfaga en DMA?",
+    "options": [
+      "Alta velocidad de transferencia al no soltar el bus",
+      "Permite a la CPU usar el bus simultáneamente",
+      "Consume menos energía",
+      "Es más lento pero seguro"
+    ],
+    "answer": "Alta velocidad de transferencia al no soltar el bus"
+  },
+  {
+    "question": "¿Qué es el 'robo de ciclo' en el contexto de DMA?",
+    "options": [
+      "Cuando el DMA usa un ciclo del bus que la CPU no está usando",
+      "Un delito informático",
+      "Cuando la CPU toma ciclos del DMA",
+      "Un error de hardware"
+    ],
+    "answer": "Cuando el DMA usa un ciclo del bus que la CPU no está usando"
+  },
+  {
+    "question": "¿Qué función cumplen los registros en un controlador de E/S?",
+    "options": [
+      "Almacenar datos, comandos y estado para la comunicación con la CPU",
+      "Guardar archivos de usuario",
+      "Controlar la temperatura",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Almacenar datos, comandos y estado para la comunicación con la CPU"
+  }
+]

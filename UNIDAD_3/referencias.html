@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencias Bibliográficas y Recursos - Unidad 3</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        .intro {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+            text-align: justify;
+        }
+        
+        .section-title {
+            color: var(--light);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin: 50px 0 30px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .references-container {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .reference-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .reference-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .reference-citation {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .reference-type {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .type-figura { background: var(--accent); }
+        .type-tabla { background: var(--success); }
+        .type-video { background: var(--warning); }
+        
+        .reference-description {
+            color: var(--light);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+        
+        .stats-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .nav-btn i {
+            margin-right: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            .reference-citation {
+                font-size: 1rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <span>Referencias y Recursos</span>
+            </div>
+            <h1>Referencias Bibliográficas y Recursos</h1>
+            <div class="subtitle">Unidad 3: Administración de Memoria</div>
+        </header>
+        
+        <div class="intro">
+            <p>La presente sección compila las fuentes bibliográficas, figuras y material audiovisual utilizados en la Unidad 3. Estos recursos han sido seleccionados y elaborados para fundamentar teórica y prácticamente los conceptos sobre la abstracción de memoria, memoria virtual y segmentación.</p>
+        </div>
+
+        <div class="stats-section">
+            <h2 style="color: var(--secondary); margin-bottom: 20px;">Resumen de Recursos</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <div class="stat-label">Fuentes Bibliográficas</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">16</span>
+                    <div class="stat-label">Figuras Didácticas</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">0</span>
+                    <div class="stat-label">Tablas Comparativas</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8</span>
+                    <div class="stat-label">Videos Educativos</div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title"><i class="fas fa-book"></i> Bibliografía Consultada</h2>
+        <div class="references-container">
+            <div class="reference-item">
+                <div class="reference-type">Texto Fundamental</div>
+                <div class="reference-citation">
+                    Silberschatz, A., Galvin, P. B., & Gagne, G. (2022). <em>Conceptos de sistemas operativos</em> (10.ª ed.). Wiley.
+                </div>
+                <div class="reference-description">Referencia académica clásica que cubre los conceptos teóricos esenciales de la administración de memoria.</div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type">Texto de Referencia Principal</div>
+                <div class="reference-citation">
+                    Tanenbaum, A. S., & Bos, H. (2015). <em>Sistemas operativos modernos</em> (4.ª ed.). Pearson Educación.
+                </div>
+                <div class="reference-description">Obra fundamental que ofrece una visión completa de la gestión de memoria en sistemas modernos.</div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type">Texto Complementario</div>
+                <div class="reference-citation">
+                    Tanenbaum, A. S. (2017). <em>Conceptos de sistemas operativos</em> (9.ª ed.).
+                </div>
+                <div class="reference-description">Fuente adicional para profundizar en la organización y estructura de la memoria.</div>
+            </div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-image"></i> Índice de Figuras</h2>
+        <div class="references-container">
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 6</div>
+                <div class="reference-citation">Gestión de memoria en sistemas</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Índice de Unidad<br>
+                    <strong>Nota:</strong> Imagen elaborada con IA.
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 11</div>
+                <div class="reference-citation">Abstracción de la memoria en un sistema operativo</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.1<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 12</div>
+                <div class="reference-citation">Organización de la memoria</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.1<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum (2017).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 13</div>
+                <div class="reference-citation">Administración del almacenamiento</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.1<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 14</div>
+                <div class="reference-citation">Memoria de intercambio (swapping)</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.1<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 15</div>
+                <div class="reference-citation">Manejo con mapa de bits</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.1<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 16</div>
+                <div class="reference-citation">Manejo con listas ligadas</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.1<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 17</div>
+                <div class="reference-citation">Memoria virtual</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.2<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 18</div>
+                <div class="reference-citation">Paginación</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.2<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 19</div>
+                <div class="reference-citation">Tablas de páginas</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.2<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 20</div>
+                <div class="reference-citation">Algoritmo de reemplazo FIFO</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.2<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 22</div>
+                <div class="reference-citation">Algoritmo de reemplazo LRU</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.2<br>
+                    <strong>Nota:</strong> Adaptado de Tanenbaum y Bos (2015).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 23</div>
+                <div class="reference-citation">Algoritmo de reemplazo óptimo</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.2<br>
+                    <strong>Nota:</strong> Adaptado de Silberschatz et al. (2022).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 24</div>
+                <div class="reference-citation">Segmentación</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.3<br>
+                    <strong>Nota:</strong> Adaptado de Silberschatz et al. (2022).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 25</div>
+                <div class="reference-citation">Segmentación pura</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.3<br>
+                    <strong>Nota:</strong> Adaptado de Silberschatz et al. (2022).
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura 26</div>
+                <div class="reference-citation">Segmentación con paginación</div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.3<br>
+                    <strong>Nota:</strong> Adaptado de Silberschatz et al. (2022).
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-play-circle"></i> Índice de Recursos Audiovisuales</h2>
+        <div class="references-container">
+            <div class="reference-item">
+                <div class="reference-type type-video">Introducción</div>
+                <div class="reference-citation">
+                    Salas, I. (s.f.). <em>General: Abstracción, virtualización y segmentación</em> [Video]. YouTube. https://www.youtube.com/watch?v=JAjisuW9THU
+                </div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Índice de Unidad
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-video">Abstracción</div>
+                <div class="reference-citation">
+                    Salas, I. (s.f.). <em>Abstracción de memoria y organización</em> [Video]. YouTube. https://www.youtube.com/watch?v=MgSrUlrXO6I
+                </div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.1 - Abstracción de Memoria
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-video">Almacenamiento</div>
+                <div class="reference-citation">
+                    Salas, I. (s.f.). <em>Admin. almacenamiento e intercambio</em> [Video]. YouTube. https://www.youtube.com/watch?v=lJWXDgA41uM
+                </div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.1 - Intercambio (Swapping)
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-video">Gestión</div>
+                <div class="reference-citation">
+                    Salas, I. (s.f.). <em>Mapas de bits y listas ligadas</em> [Video]. YouTube. https://www.youtube.com/watch?v=I7o-0Dn8v-g
+                </div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.1 - Gestión de Memoria Libre
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-video">Memoria Virtual</div>
+                <div class="reference-citation">
+                    Salas, I. (s.f.). <em>Memoria virtual y paginación</em> [Video]. YouTube. https://www.youtube.com/watch?v=orbv50J7NT4
+                </div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.2 - Memoria Virtual
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-video">Algoritmos</div>
+                <div class="reference-citation">
+                    Salas, I. (s.f.). <em>Tablas de paginación y algoritmos</em> [Video]. YouTube. https://www.youtube.com/watch?v=k9gQjNbMKdA
+                </div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.2 - Algoritmos de Reemplazo
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-video">Segmentación</div>
+                <div class="reference-citation">
+                    Salas, I. (s.f.). <em>Segmentación e implementación</em> [Video]. YouTube. https://www.youtube.com/watch?v=syi6ROCfW7I
+                </div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.3 - Segmentación
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-type type-video">Híbrido</div>
+                <div class="reference-citation">
+                    Salas, I. (s.f.). <em>Segmentación con paginación</em> [Video]. YouTube. https://www.youtube.com/watch?v=Yrs-0tILQrE
+                </div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 3.3 - Segmentación con Paginación
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">
+                <i class="fas fa-home"></i> Volver al Índice Principal
+            </a>
+        </div>
+        
+        <footer>
+            <p>Sistemas Operativos - Referencias Bibliográficas y Recursos</p>
+            <p>Referencias bibliográficas organizadas según estándares académicos - © 2025</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+[
+    {
+        "pregunta": "¿Qué es el Shell en el contexto de un sistema operativo?",
+        "opciones": [
+            "La interfaz entre el usuario y el sistema operativo",
+            "El núcleo que administra la memoria RAM",
+            "Un programa para diseñar interfaces gráficas",
+            "El hardware físico donde se almacenan datos"
+        ],
+        "respuesta_correcta": "La interfaz entre el usuario y el sistema operativo"
+    },
+    {
+        "pregunta": "En un script de shell, ¿qué representa la variable $0?",
+        "opciones": [
+            "El nombre del script",
+            "El primer argumento",
+            "El número total de argumentos",
+            "El estado de salida del último comando"
+        ],
+        "respuesta_correcta": "El nombre del script"
+    },
+    {
+        "pregunta": "¿Qué variable de entorno define las rutas donde el sistema busca los archivos ejecutables?",
+        "opciones": [
+            "PATH",
+            "HOME",
+            "USER",
+            "PWD"
+        ],
+        "respuesta_correcta": "PATH"
+    },
+    {
+        "pregunta": "¿Cuál de los siguientes comandos se utiliza para visualizar las variables de entorno?",
+        "opciones": [
+            "printenv",
+            "showall",
+            "viewvars",
+            "listenv"
+        ],
+        "respuesta_correcta": "printenv"
+    },
+    {
+        "pregunta": "¿Qué estructuras de control son comunes en la programación de Shell?",
+        "opciones": [
+            "if, for, while",
+            "try, catch, finally",
+            "select, from, where",
+            "class, interface, extends"
+        ],
+        "respuesta_correcta": "if, for, while"
+    },
+    {
+        "pregunta": "¿Qué símbolo se utiliza en el Shell para redirigir la salida de un comando a un archivo sobrescribiéndolo?",
+        "opciones": [
+            ">",
+            "<",
+            "|",
+            "&"
+        ],
+        "respuesta_correcta": ">"
+    },
+    {
+        "pregunta": "¿Cuál es la función principal de una tubería (pipe |) en el Shell?",
+        "opciones": [
+            "Enviar la salida de un comando como entrada a otro",
+            "Ejecutar dos comandos simultáneamente en segundo plano",
+            "Redirigir errores a un archivo de log",
+            "Detener la ejecución de un script"
+        ],
+        "respuesta_correcta": "Enviar la salida de un comando como entrada a otro"
+    },
+    {
+        "pregunta": "¿Cuál es una diferencia clave entre una 'función' y un 'script' en el Shell?",
+        "opciones": [
+            "Las funciones se ejecutan en el entorno actual; los scripts en un proceso independiente",
+            "Los scripts no pueden usar variables",
+            "Las funciones son archivos externos y los scripts son internos",
+            "No existe diferencia, son lo mismo"
+        ],
+        "respuesta_correcta": "Las funciones se ejecutan en el entorno actual; los scripts en un proceso independiente"
+    },
+    {
+        "pregunta": "¿Qué comando es útil para buscar patrones de texto dentro de archivos?",
+        "opciones": [
+            "grep",
+            "ls",
+            "cd",
+            "mkdir"
+        ],
+        "respuesta_correcta": "grep"
+    },
+    {
+        "pregunta": "¿Qué almacena la variable de entorno PWD?",
+        "opciones": [
+            "El directorio de trabajo actual",
+            "La contraseña del usuario",
+            "El nombre del intérprete de comandos",
+            "La ruta del directorio personal"
+        ],
+        "respuesta_correcta": "El directorio de trabajo actual"
+    },
+    {
+        "pregunta": "¿Cuál es el propósito principal de automatizar tareas con scripts?",
+        "opciones": [
+            "Administrar procesos complejos y realizar copias de seguridad",
+            "Mejorar la velocidad del hardware",
+            "Crear controladores de dispositivos",
+            "Diseñar páginas web estáticas"
+        ],
+        "respuesta_correcta": "Administrar procesos complejos y realizar copias de seguridad"
+    },
+    {
+        "pregunta": "En un script, ¿cómo se accede al primer argumento pasado por el usuario?",
+        "opciones": [
+            "$1",
+            "$0",
+            "$ARG1",
+            "$FIRST"
+        ],
+        "respuesta_correcta": "$1"
+    },
+    {
+        "pregunta": "¿Qué variable de entorno indica el directorio personal del usuario?",
+        "opciones": [
+            "HOME",
+            "USER",
+            "ROOT",
+            "DIR"
+        ],
+        "respuesta_correcta": "HOME"
+    },
+    {
+        "pregunta": "¿Qué variable contiene el nombre del usuario actual?",
+        "opciones": [
+            "USER",
+            "NAME",
+            "LOGIN",
+            "ID"
+        ],
+        "respuesta_correcta": "USER"
+    },
+    {
+        "pregunta": "¿Qué variable especifica el intérprete de comandos por defecto?",
+        "opciones": [
+            "SHELL",
+            "BASH",
+            "CMD",
+            "EXEC"
+        ],
+        "respuesta_correcta": "SHELL"
+    },
+    {
+        "pregunta": "¿Qué comando permite crear o modificar variables de entorno para que sean heredadas por procesos hijos?",
+        "opciones": [
+            "export",
+            "echo",
+            "cat",
+            "ls"
+        ],
+        "respuesta_correcta": "export"
+    },
+    {
+        "pregunta": "¿Qué operador de redirección se usa para añadir contenido al final de un archivo sin sobrescribirlo?",
+        "opciones": [
+            ">>",
+            ">",
+            "<<",
+            "|"
+        ],
+        "respuesta_correcta": ">>"
+    },
+    {
+        "pregunta": "¿Qué operador se utiliza para redireccionar la entrada estándar desde un archivo?",
+        "opciones": [
+            "<",
+            ">",
+            "|",
+            "<<"
+        ],
+        "respuesta_correcta": "<"
+    },
+    {
+        "pregunta": "¿Cuál de los siguientes comandos se utiliza comúnmente para procesar o reemplazar texto en un flujo de datos?",
+        "opciones": [
+            "sed",
+            "kill",
+            "top",
+            "ps"
+        ],
+        "respuesta_correcta": "sed"
+    },
+    {
+        "pregunta": "¿Qué ventaja principal ofrecen las funciones dentro de un script?",
+        "opciones": [
+            "Modularizar código y evitar repetición",
+            "Ejecutar programas gráficos",
+            "Aumentar la memoria RAM disponible",
+            "Formatear el disco duro"
+        ],
+        "respuesta_correcta": "Modularizar código y evitar repetición"
+    }
+]

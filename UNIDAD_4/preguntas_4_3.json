@@ -1,0 +1,162 @@
+[
+  {
+    "question": "¿Cuál es la función principal de los directorios según Tanenbaum (2015)?",
+    "options": [
+      "Aumentar la velocidad del procesador",
+      "Organizar, localizar y administrar archivos mediante una estructura jerárquica",
+      "Eliminar archivos duplicados del sistema",
+      "Controlar el inicio y apagado del sistema"
+    ],
+    "answer": "Organizar, localizar y administrar archivos mediante una estructura jerárquica"
+  },
+  {
+    "question": "¿Qué información pueden registrar los directorios para gestionar archivos?",
+    "options": [
+      "Temperatura del disco y carga del CPU",
+      "Nombre, ubicaciones, atributos y fechas",
+      "Programas instalados y memoria RAM disponible",
+      "Contraseñas y datos de usuario"
+    ],
+    "answer": "Nombre, ubicaciones, atributos y fechas"
+  },
+  {
+    "question": "¿Qué estructuras ayudan a acelerar la búsqueda dentro de los directorios?",
+    "options": [
+      "Buffers del CPU y registros internos",
+      "Tablas de directorios abiertos y cachés",
+      "Tablas de procesos activos",
+      "Controladores de red"
+    ],
+    "answer": "Tablas de directorios abiertos y cachés"
+  },
+  {
+    "question": "¿Qué garantizan las bitácoras y el bloqueo de directorios?",
+    "options": [
+      "La eliminación rápida de archivos",
+      "La integridad y seguridad de los datos ante accesos sincrónicos",
+      "La compresión automática de archivos",
+      "La reorganización de la memoria RAM"
+    ],
+    "answer": "La integridad y seguridad de los datos ante accesos sincrónicos"
+  },
+  {
+    "question": "¿En qué consiste la asignación contigua según Tanenbaum (2015)?",
+    "options": [
+      "En almacenar bloques de un archivo en forma aleatoria",
+      "En guardar archivos en bloques consecutivos con dirección y longitud definidas",
+      "En utilizar punteros encadenados para recorrer archivos",
+      "En fragmentar bloques grandes para uso del sistema"
+    ],
+    "answer": "En guardar archivos en bloques consecutivos con dirección y longitud definidas"
+  },
+  {
+    "question": "¿Cuál es una ventaja de la asignación contigua?",
+    "options": [
+      "Acceso inmediato y eficiente a los datos",
+      "Evita por completo la fragmentación del disco",
+      "Permite almacenar archivos solo en RAM",
+      "No requiere conocer el tamaño del archivo"
+    ],
+    "answer": "Acceso inmediato y eficiente a los datos"
+  },
+  {
+    "question": "¿Qué problema puede presentarse en la asignación contigua?",
+    "options": [
+      "Fallo del kernel",
+      "Fragmentación externa",
+      "Pérdida de metadatos",
+      "Duplicación automática de bloques"
+    ],
+    "answer": "Fragmentación externa"
+  },
+  {
+    "question": "¿En qué consiste la asignación ligada?",
+    "options": [
+      "En almacenar todos los bloques seguidos sin punteros",
+      "En que cada bloque contiene un puntero al siguiente",
+      "En que el archivo se guarda únicamente en el superbloque",
+      "En dividir el archivo en varios sistemas de archivos"
+    ],
+    "answer": "En que cada bloque contiene un puntero al siguiente"
+  },
+  {
+    "question": "¿Qué información se necesita para recorrer un archivo en asignación ligada?",
+    "options": [
+      "El tamaño del archivo",
+      "La dirección del primer bloque",
+      "La cantidad total de usuarios",
+      "El número de inodos disponibles"
+    ],
+    "answer": "La dirección del primer bloque"
+  },
+  {
+    "question": "¿Qué ventaja tiene la asignación ligada?",
+    "options": [
+      "Evita completamente la fragmentación externa",
+      "Permite acceso directo a cualquier bloque sin recorrer punteros",
+      "Requiere menos memoria RAM",
+      "Aumenta la seguridad del sistema"
+    ],
+    "answer": "Evita completamente la fragmentación externa"
+  },
+  {
+    "question": "¿En qué se basa la asignación indexada según Tanenbaum y Bos (2015)?",
+    "options": [
+      "En almacenar datos únicamente en bloques consecutivos",
+      "En un bloque especial que contiene punteros a los bloques de datos",
+      "En unir archivos en un único bloque gigante",
+      "En eliminar la necesidad de metadatos"
+    ],
+    "answer": "En un bloque especial que contiene punteros a los bloques de datos"
+  },
+  {
+    "question": "¿Qué ventaja principal ofrece la asignación indexada?",
+    "options": [
+      "Acceso directo a cualquier sección del archivo",
+      "Evita la necesidad de estructuras de control",
+      "Elimina todos los punteros del sistema",
+      "Permite almacenar archivos sin límite de tamaño"
+    ],
+    "answer": "Acceso directo a cualquier sección del archivo"
+  },
+  {
+    "question": "¿Cómo evita la asignación indexada la fragmentación externa?",
+    "options": [
+      "Usando un único bloque contiguo",
+      "Permitiendo que los bloques del archivo se ubiquen en cualquier parte del disco",
+      "Compactando todo el sistema de archivos cada hora",
+      "Reservando espacio libre desde la instalación del sistema"
+    ],
+    "answer": "Permitiendo que los bloques del archivo se ubiquen en cualquier parte del disco"
+  },
+  {
+    "question": "¿Qué tarea realiza la administración del espacio en disco?",
+    "options": [
+      "Controla el tamaño de la memoria RAM",
+      "Asigna, controla y libera bloques del disco",
+      "Administra los permisos de los usuarios",
+      "Organiza procesos en ejecución"
+    ],
+    "answer": "Asigna, controla y libera bloques del disco"
+  },
+  {
+    "question": "¿Qué representa cada bloque dentro del mapa de bits del disco?",
+    "options": [
+      "El nivel de prioridad del usuario",
+      "Un valor binario que indica si está ocupado o libre",
+      "La versión del sistema operativo",
+      "La cantidad de punteros disponibles"
+    ],
+    "answer": "Un valor binario que indica si está ocupado o libre"
+  },
+  {
+    "question": "¿Cómo funciona la lista enlazada en la administración de espacio?",
+    "options": [
+      "Guarda bloques en orden alfabético",
+      "Vincula bloques libres formando una cadena disponible",
+      "Elimina archivos duplicados automáticamente",
+      "Almacena solo archivos multimedia"
+    ],
+    "answer": "Vincula bloques libres formando una cadena disponible"
+  }
+]

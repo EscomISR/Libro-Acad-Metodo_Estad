@@ -1,0 +1,302 @@
+[
+    {
+        "pregunta": "¿Qué caracteriza a un núcleo monolítico?",
+        "opciones": [
+            "a) Está dividido en capas independientes.",
+            "b) Contiene todo el sistema operativo en un único bloque ejecutable.",
+            "c) Solo ejecuta drivers de usuario.",
+            "d) Emula múltiples máquinas virtuales."
+        ],
+        "respuesta_correcta": "b) Contiene todo el sistema operativo en un único bloque ejecutable."
+    },
+    {
+        "pregunta": "¿Cuál es una ventaja de los núcleos monolíticos?",
+        "opciones": [
+            "a) Son lentos pero seguros.",
+            "b) Su alta velocidad de ejecución.",
+            "c) Su capacidad de emular hardware.",
+            "d) Evitan fallos en cascada."
+        ],
+        "respuesta_correcta": "b) Su alta velocidad de ejecución."
+    },
+    {
+        "pregunta": "¿Cuál es una desventaja de los núcleos monolíticos?",
+        "opciones": [
+            "a) Son muy modulares.",
+            "b) Son fáciles de mantener.",
+            "c) Si falla un componente, puede caer todo el sistema.",
+            "d) No permiten multitarea."
+        ],
+        "respuesta_correcta": "c) Si falla un componente, puede caer todo el sistema."
+    },
+    {
+        "pregunta": "¿Cuál es un ejemplo clásico de núcleo monolítico?",
+        "opciones": [
+            "a) Minix.",
+            "b) UNIX clásico.",
+            "c) THE de Dijkstra.",
+            "d) VMware."
+        ],
+        "respuesta_correcta": "b) UNIX clásico."
+    },
+    {
+        "pregunta": "¿Qué organización presentan los sistemas operativos por capas?",
+        "opciones": [
+            "a) Un solo bloque de ejecución.",
+            "b) Jerarquía donde cada capa depende de la inferior.",
+            "c) Un microkernel con drivers en espacio de usuario.",
+            "d) Un hipervisor que emula hardware."
+        ],
+        "respuesta_correcta": "b) Jerarquía donde cada capa depende de la inferior."
+    },
+    {
+        "pregunta": "¿Cuál es una ventaja del modelo por capas?",
+        "opciones": [
+            "a) Evita sobrecarga de comunicación.",
+            "b) Facilita diseño y depuración.",
+            "c) Es el más rápido.",
+            "d) Elimina la necesidad de memoria virtual."
+        ],
+        "respuesta_correcta": "b) Facilita diseño y depuración."
+    },
+    {
+        "pregunta": "¿Qué desventaja tiene el modelo por capas?",
+        "opciones": [
+            "a) Inestabilidad ante fallos.",
+            "b) Dificultad de depuración.",
+            "c) Pérdida de rendimiento por comunicación entre capas.",
+            "d) No soporta multitarea."
+        ],
+        "respuesta_correcta": "c) Pérdida de rendimiento por comunicación entre capas."
+    },
+    {
+        "pregunta": "¿Qué sistema educativo ejemplifica el modelo por capas?",
+        "opciones": [
+            "a) THE de Dijkstra.",
+            "b) Minix.",
+            "c) QNX.",
+            "d) Hyper-V."
+        ],
+        "respuesta_correcta": "a) THE de Dijkstra."
+    },
+    {
+        "pregunta": "¿Qué funciones mantiene un microkernel en su interior?",
+        "opciones": [
+            "a) Gestión de memoria completa y sistemas de archivos.",
+            "b) Solo lo mínimo: procesos, IPC e interrupciones.",
+            "c) Todos los drivers de dispositivo.",
+            "d) Hipervisores."
+        ],
+        "respuesta_correcta": "b) Solo lo mínimo: procesos, IPC e interrupciones."
+    },
+    {
+        "pregunta": "¿Cuál es una ventaja de los microkernels?",
+        "opciones": [
+            "a) Mejor rendimiento que los monolíticos.",
+            "b) Mayor seguridad y estabilidad.",
+            "c) Eliminar la multitarea.",
+            "d) No requiere drivers en espacio de usuario."
+        ],
+        "respuesta_correcta": "b) Mayor seguridad y estabilidad."
+    },
+    {
+        "pregunta": "¿Qué desventaja presentan los microkernels?",
+        "opciones": [
+            "a) No soportan drivers externos.",
+            "b) Son más lentos por los intercambios núcleo-usuario.",
+            "c) No permiten multitarea.",
+            "d) Son difíciles de depurar."
+        ],
+        "respuesta_correcta": "b) Son más lentos por los intercambios núcleo-usuario."
+    },
+    {
+        "pregunta": "¿Qué sistema es un ejemplo de microkernel?",
+        "opciones": [
+            "a) GNU Hurd.",
+            "b) MS-DOS.",
+            "c) THE.",
+            "d) VMware."
+        ],
+        "respuesta_correcta": "a) GNU Hurd."
+    },
+    {
+        "pregunta": "¿En qué tipo de núcleo se inspiró macOS moderno?",
+        "opciones": [
+            "a) Monolítico puro.",
+            "b) Microkernel híbrido.",
+            "c) Por capas.",
+            "d) Máquina virtual."
+        ],
+        "respuesta_correcta": "b) Microkernel híbrido."
+    },
+    {
+        "pregunta": "¿Qué modelo permite ejecutar múltiples sistemas operativos simultáneamente en el mismo hardware?",
+        "opciones": [
+            "a) Monolítico.",
+            "b) Por capas.",
+            "c) Microkernel.",
+            "d) Máquina virtual."
+        ],
+        "respuesta_correcta": "d) Máquina virtual."
+    },
+    {
+        "pregunta": "¿Cuál es la principal ventaja de la máquina virtual?",
+        "opciones": [
+            "a) Bajo consumo de recursos.",
+            "b) Aislamiento completo.",
+            "c) Rapidez sin módulos externos.",
+            "d) Elimina la sobrecarga de drivers."
+        ],
+        "respuesta_correcta": "b) Aislamiento completo."
+    },
+    {
+        "pregunta": "¿Qué desventaja tiene el enfoque de máquina virtual?",
+        "opciones": [
+            "a) Dificultad para la multitarea.",
+            "b) No soporta emulación de hardware.",
+            "c) Requiere más recursos.",
+            "d) No es seguro."
+        ],
+        "respuesta_correcta": "c) Requiere más recursos."
+    },
+    {
+        "pregunta": "¿Cuál es un ejemplo moderno de máquina virtual?",
+        "opciones": [
+            "a) VMware.",
+            "b) UNIX.",
+            "c) Minix.",
+            "d) THE."
+        ],
+        "respuesta_correcta": "a) VMware."
+    },
+    {
+        "pregunta": "¿Qué modelo de núcleo usa VirtualBox?",
+        "opciones": [
+            "a) Microkernel.",
+            "b) Máquina virtual.",
+            "c) Monolítico.",
+            "d) Por capas."
+        ],
+        "respuesta_correcta": "b) Máquina virtual."
+    },
+    {
+        "pregunta": "¿Qué característica distingue a IBM VM/370?",
+        "opciones": [
+            "a) Fue un sistema de tiempo real.",
+            "b) Emulaba múltiples máquinas virtuales.",
+            "c) Fue un microkernel educativo.",
+            "d) Implementó capas estrictas."
+        ],
+        "respuesta_correcta": "b) Emulaba múltiples máquinas virtuales."
+    },
+    {
+        "pregunta": "¿Qué ventaja tienen los sistemas modulares frente a monolíticos?",
+        "opciones": [
+            "a) Mejor aislamiento y mantenimiento.",
+            "b) Mayor rapidez siempre.",
+            "c) Menor necesidad de memoria.",
+            "d) Ausencia de drivers."
+        ],
+        "respuesta_correcta": "a) Mejor aislamiento y mantenimiento."
+    },
+    {
+        "pregunta": "¿Qué tipo de núcleo se asocia más a fallos en cascada?",
+        "opciones": [
+            "a) Por capas.",
+            "b) Máquina virtual.",
+            "c) Monolítico.",
+            "d) Microkernel."
+        ],
+        "respuesta_correcta": "c) Monolítico."
+    },
+    {
+        "pregunta": "¿Cuál modelo ofrece el mejor entorno para pruebas seguras?",
+        "opciones": [
+            "a) Monolítico.",
+            "b) Microkernel.",
+            "c) Máquina virtual.",
+            "d) Por capas."
+        ],
+        "respuesta_correcta": "c) Máquina virtual."
+    },
+    {
+        "pregunta": "¿Qué modelo sufre sobrecarga por comunicación entre capas?",
+        "opciones": [
+            "a) Microkernel.",
+            "b) Máquina virtual.",
+            "c) Por capas.",
+            "d) Monolítico."
+        ],
+        "respuesta_correcta": "c) Por capas."
+    },
+    {
+        "pregunta": "¿Cuál es el riesgo principal en un sistema monolítico?",
+        "opciones": [
+            "a) El consumo energético.",
+            "b) Que un fallo comprometa todo el sistema.",
+            "c) No poder emular hardware.",
+            "d) Incompatibilidad de drivers."
+        ],
+        "respuesta_correcta": "b) Que un fallo comprometa todo el sistema."
+    },
+    {
+        "pregunta": "¿Qué característica del microkernel mejora la tolerancia a fallos?",
+        "opciones": [
+            "a) La ejecución de componentes en espacio de usuario.",
+            "b) La falta de drivers externos.",
+            "c) La jerarquía de capas.",
+            "d) La emulación de hardware."
+        ],
+        "respuesta_correcta": "a) La ejecución de componentes en espacio de usuario."
+    },
+    {
+        "pregunta": "¿Qué sistema buscó demostrar el valor de los microkernels en la práctica?",
+        "opciones": [
+            "a) Minix.",
+            "b) Linux.",
+            "c) Windows 95.",
+            "d) THE."
+        ],
+        "respuesta_correcta": "a) Minix."
+    },
+    {
+        "pregunta": "¿Cuál es un beneficio del modelo por capas en enseñanza?",
+        "opciones": [
+            "a) Ayuda a comprender la jerarquía de servicios.",
+            "b) Garantiza mayor velocidad.",
+            "c) Elimina errores de drivers.",
+            "d) Impide multitarea."
+        ],
+        "respuesta_correcta": "a) Ayuda a comprender la jerarquía de servicios."
+    },
+    {
+        "pregunta": "¿Qué tipo de núcleo es GNU Hurd?",
+        "opciones": [
+            "a) Máquina virtual.",
+            "b) Microkernel.",
+            "c) Monolítico.",
+            "d) Por capas."
+        ],
+        "respuesta_correcta": "b) Microkernel."
+    },
+    {
+        "pregunta": "¿Cuál es una limitación de las máquinas virtuales respecto al rendimiento?",
+        "opciones": [
+            "a) Menor seguridad.",
+            "b) Necesidad de más recursos y sobrecarga de gestión.",
+            "c) Inestabilidad ante fallos.",
+            "d) Falta de aislamiento."
+        ],
+        "respuesta_correcta": "b) Necesidad de más recursos y sobrecarga de gestión."
+    },
+    {
+        "pregunta": "¿Qué modelo de núcleo combina rapidez y modularidad en distintas versiones modernas?",
+        "opciones": [
+            "a) Monolítico con módulos dinámicos.",
+            "b) Por capas puras.",
+            "c) Microkernel estricto.",
+            "d) Máquina virtual ligera."
+        ],
+        "respuesta_correcta": "a) Monolítico con módulos dinámicos."
+    }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Cuál es el objetivo de seguridad que asegura que la información solo sea accesible por entidades autorizadas?",
+    "options": [
+      "Integridad",
+      "Disponibilidad",
+      "Confidencialidad",
+      "No repudio"
+    ],
+    "answer": "Confidencialidad"
+  },
+  {
+    "question": "¿Qué objetivo de seguridad garantiza que los datos no han sido modificados sin autorización?",
+    "options": [
+      "Integridad",
+      "Confidencialidad",
+      "Autenticación",
+      "Autorización"
+    ],
+    "answer": "Integridad"
+  },
+  {
+    "question": "¿Qué significa disponibilidad en el contexto de la seguridad informática?",
+    "options": [
+      "Que el sistema sea rápido",
+      "Que los recursos y servicios estén accesibles cuando se requieran",
+      "Que los datos estén encriptados",
+      "Que el usuario tenga contraseña"
+    ],
+    "answer": "Que los recursos y servicios estén accesibles cuando se requieran"
+  },
+  {
+    "question": "¿Qué proceso verifica la identidad de un usuario, proceso o dispositivo?",
+    "options": [
+      "Autorización",
+      "Auditoría",
+      "Autenticación",
+      "Encriptación"
+    ],
+    "answer": "Autenticación"
+  },
+  {
+    "question": "¿Qué determina los privilegios o permisos que tiene una entidad autenticada?",
+    "options": [
+      "Autenticación",
+      "Autorización",
+      "Identificación",
+      "Contabilidad"
+    ],
+    "answer": "Autorización"
+  },
+  {
+    "question": "¿Qué mecanismo de seguridad registra las acciones realizadas en el sistema para su posterior análisis?",
+    "options": [
+      "Auditoría",
+      "Firewall",
+      "Antivirus",
+      "Backup"
+    ],
+    "answer": "Auditoría"
+  },
+  {
+    "question": "¿Qué estructura relaciona sujetos con objetos y define los permisos de acceso en una tabla bidireccional?",
+    "options": [
+      "Matriz de Acceso",
+      "Lista de Control de Acceso (ACL)",
+      "Capability List",
+      "Tabla de Hash"
+    ],
+    "answer": "Matriz de Acceso"
+  },
+  {
+    "question": "¿Qué es una Lista de Control de Acceso (ACL)?",
+    "options": [
+      "Una lista asociada a un objeto que especifica qué sujetos pueden acceder y con qué permisos",
+      "Una lista de contraseñas",
+      "Una lista de usuarios conectados",
+      "Una lista de virus conocidos"
+    ],
+    "answer": "Una lista asociada a un objeto que especifica qué sujetos pueden acceder y con qué permisos"
+  },
+  {
+    "question": "¿Qué modelo de control de acceso permite que el propietario del recurso decida quién tiene acceso (común en SO como Windows/Linux)?",
+    "options": [
+      "MAC (Mandatory Access Control)",
+      "DAC (Discretionary Access Control)",
+      "RBAC (Role-Based Access Control)",
+      "ABAC (Attribute-Based Access Control)"
+    ],
+    "answer": "DAC (Discretionary Access Control)"
+  },
+  {
+    "question": "¿Qué modelo de seguridad se centra principalmente en preservar la confidencialidad (reglas de no leer arriba, no escribir abajo)?",
+    "options": [
+      "Modelo Biba",
+      "Modelo Bell-LaPadula",
+      "Modelo Clark-Wilson",
+      "Modelo de Flujo"
+    ],
+    "answer": "Modelo Bell-LaPadula"
+  },
+  {
+    "question": "¿Qué modelo de seguridad está diseñado para proteger la integridad de la información (reglas de no leer abajo, no escribir arriba)?",
+    "options": [
+      "Modelo Bell-LaPadula",
+      "Modelo Biba",
+      "Modelo Graham-Denning",
+      "Modelo HRU"
+    ],
+    "answer": "Modelo Biba"
+  },
+  {
+    "question": "¿Qué modelo se enfoca en la integridad de las transacciones comerciales y la separación de deberes?",
+    "options": [
+      "Modelo Clark-Wilson",
+      "Modelo Bell-LaPadula",
+      "Modelo Biba",
+      "Modelo de Harrison-Ruzzo-Ullman"
+    ],
+    "answer": "Modelo Clark-Wilson"
+  },
+  {
+    "question": "¿Qué es el principio de mínimo privilegio?",
+    "options": [
+      "Dar a cada usuario o proceso solo los permisos estrictamente necesarios para realizar su tarea",
+      "Dar permisos de administrador a todos",
+      "No dar permisos a nadie",
+      "Dar permisos temporales aleatorios"
+    ],
+    "answer": "Dar a cada usuario o proceso solo los permisos estrictamente necesarios para realizar su tarea"
+  },
+  {
+    "question": "¿Qué tipo de ataque busca saturar los recursos del sistema para que no esté disponible para los usuarios legítimos?",
+    "options": [
+      "Phishing",
+      "Denegación de Servicio (DoS)",
+      "SQL Injection",
+      "Man-in-the-Middle"
+    ],
+    "answer": "Denegación de Servicio (DoS)"
+  },
+  {
+    "question": "¿Qué mecanismo se utiliza para proteger la confidencialidad de los datos almacenados o en tránsito?",
+    "options": [
+      "Compresión",
+      "Cifrado (Encriptación)",
+      "Desfragmentación",
+      "Indexación"
+    ],
+    "answer": "Cifrado (Encriptación)"
+  },
+  {
+    "question": "¿Qué modelo de control de acceso asigna permisos basándose en el rol o función del usuario dentro de la organización?",
+    "options": [
+      "DAC",
+      "MAC",
+      "RBAC (Role-Based Access Control)",
+      "Rule-Based Access Control"
+    ],
+    "answer": "RBAC (Role-Based Access Control)"
+  },
+  {
+    "question": "¿Qué es el aislamiento de procesos?",
+    "options": [
+      "Impedir que un proceso acceda a la memoria o recursos de otro sin autorización",
+      "Ejecutar un solo proceso a la vez",
+      "Desconectar el proceso de la red",
+      "Ejecutar el proceso en una máquina virtual"
+    ],
+    "answer": "Impedir que un proceso acceda a la memoria o recursos de otro sin autorización"
+  },
+  {
+    "question": "¿Qué modelo formal se centra en controlar el flujo de información entre diferentes clases de seguridad?",
+    "options": [
+      "Modelo de Flujo de Información (Denning)",
+      "Modelo de Matriz de Acceso",
+      "Modelo Entidad-Relación",
+      "Modelo OSI"
+    ],
+    "answer": "Modelo de Flujo de Información (Denning)"
+  },
+  {
+    "question": "¿Qué es la autenticación multifactor (MFA)?",
+    "options": [
+      "Usar más de un método de verificación (ej. contraseña + código SMS) para validar la identidad",
+      "Usar una contraseña muy larga",
+      "Cambiar la contraseña frecuentemente",
+      "Tener múltiples cuentas de usuario"
+    ],
+    "answer": "Usar más de un método de verificación (ej. contraseña + código SMS) para validar la identidad"
+  },
+  {
+    "question": "¿Qué garantiza el control de acceso obligatorio (MAC)?",
+    "options": [
+      "Que el sistema operativo imponga las políticas de acceso sin que el usuario pueda cambiarlas",
+      "Que el usuario decida quién accede a sus archivos",
+      "Que todos los archivos sean públicos",
+      "Que no se requiera contraseña"
+    ],
+    "answer": "Que el sistema operativo imponga las políticas de acceso sin que el usuario pueda cambiarlas"
+  }
+]

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Código - Software E/S</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Estilos consistentes Unidad 5 */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --gray: #95a5a6;
+            --code-bg: #2d2d2d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: var(--light); min-height: 100vh; line-height: 1.7; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        header { text-align: center; padding: 30px 20px; margin-bottom: 30px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .breadcrumb { display: flex; justify-content: center; margin-bottom: 15px; color: var(--gray); font-size: 1rem; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: white; text-decoration: underline; }
+        .breadcrumb span { margin: 0 10px; }
+        
+        h1 { font-size: 2.2rem; margin-bottom: 5px; color: white; }
+        .subtitle { font-size: 1.2rem; color: var(--secondary); font-weight: 300; }
+
+        .code-viewer-container { background: #1e1e1e; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); overflow: hidden; border: 1px solid #333; }
+        .code-header { background: #252526; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
+        .file-info { display: flex; align-items: center; gap: 10px; color: #ccc; font-family: monospace; font-size: 0.9rem; }
+        .file-icon { color: var(--secondary); }
+        
+        .btn-copy { background: rgba(255,255,255,0.1); border: none; color: #ddd; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-copy:hover { background: var(--secondary); color: white; }
+
+        pre[class*="language-"] { margin: 0 !important; border-radius: 0 !important; padding: 20px !important; background: transparent !important; font-size: 0.95rem; text-shadow: none !important; }
+        code[class*="language-"], pre[class*="language-"] { font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace; }
+
+        footer { text-align: center; margin-top: 40px; padding: 20px; color: var(--gray); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .back-button { display: inline-block; margin-top: 20px; color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .back-button:hover { color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 5</a>
+                <span>/</span>
+                <a href="laboratorio_codigo.html">Laboratorio</a>
+                <span>/</span>
+                <span>Código Fuente</span>
+            </div>
+            <h1><i class="fas fa-file-code"></i> Visor de Código</h1>
+            <div class="subtitle">Software de E/S y Señales</div>
+        </header>
+        
+        <main class="code-viewer-container">
+            <div class="code-header">
+                <div class="file-info">
+                    <i class="fas fa-c file-icon"></i>
+                    <span>SoftwareIO.c</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-copy" onclick="copyToClipboard()">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                </div>
+            </div>
+            
+            <pre><code class="language-c" id="source-code">/*
+    Escuela: ESCOM - IPN
+    Materia: Sistemas Operativos
+    Unidad 5: Entrada y Salida
+    Archivo: SoftwareIO.c
+    Descripción: Principios del Software de E/S.
+                 Demostración de E/S Programada, Interrupciones (Señales) y DMA.
+*/
+#include &lt;stdio.h&gt; 
+#include &lt;stdlib.h&gt; 
+#include &lt;string.h&gt; 
+#include &lt;unistd.h&gt;  // Para simular retardos y salidas 
+#include &lt;signal.h&gt;  // Para manejo de interrupciones 
+#include &lt;time.h&gt; 
+
+// Prototipos de funciones 
+void esProgramada(); 
+void esInterrupciones(); 
+void esDMA(); 
+void handlerSIGINT(int sig); 
+
+// Variable global para simular buffer DMA 
+char dmaBuffer[1024]; 
+
+int main() { 
+    printf("=== Principios del Software de E/S ===\n"); 
+    
+    // 1. E/S Programadas 
+    printf("\n1. E/S Programadas:\n"); 
+    esProgramada(); 
+    
+    // 2. E/S Manejadas por Interrupciones 
+    printf("\n2. E/S Manejadas por Interrupciones:\n"); 
+    signal(SIGINT, handlerSIGINT); // Configura interrupción 
+    esInterrupciones(); 
+    
+    // 3. E/S usando DMA 
+    printf("\n3. E/S usando DMA:\n"); 
+    esDMA(); 
+    
+    printf("\n=== Fin del Programa ===\n"); 
+    return 0; 
+} 
+
+// 1. E/S Programadas 
+void esProgramada() { 
+    char data[100]; 
+    printf("Escribe algo (E/S programada): "); 
+    // La CPU espera aquí activamente hasta que el usuario ingresa datos
+    fgets(data, sizeof(data), stdin); 
+    printf("Leído: %s", data); 
+    printf("La CPU espera activamente hasta que la operación se completa.\n"); 
+} 
+
+// 2. E/S Manejadas por Interrupciones 
+void esInterrupciones() { 
+    printf("Presiona Ctrl+C para simular una interrupción.\n"); 
+    printf("La CPU puede realizar otras tareas mientras espera...\n"); 
+    
+    // Simulación de espera activa realizando "otras tareas"
+    // En un sistema real, el proceso se bloquearía o la CPU ejecutaría otro proceso
+    for (int i = 0; i &lt; 5; i++) { 
+        printf("Realizando otra tarea %d...\n", i + 1); 
+        sleep(1); // Simula otra tarea 
+    } 
+} 
+
+// Manejador de señal SIGINT (interrupción) 
+void handlerSIGINT(int sig) { 
+    printf("\n¡Interrupción recibida! Código de señal: %d\n", sig); 
+    printf("La CPU responde a la interrupción y realiza la operación de E/S.\n"); 
+    // Restaurar el manejador por defecto o salir si se desea
+    exit(0); 
+} 
+
+// 3. E/S usando DMA 
+void esDMA() { 
+    printf("Iniciando simulación de E/S con DMA...\n"); 
+    
+    // Simula transferencia DMA 
+    strcpy(dmaBuffer, "Datos transferidos vía DMA."); 
+    
+    sleep(1); // Simula tiempo de transferencia independiente de la CPU
+    
+    printf("Contenido en el buffer DMA: %s\n", dmaBuffer); 
+    printf("La CPU delega la transferencia de datos al controlador DMA.\n"); 
+    printf("La CPU está libre para realizar otras tareas mientras tanto.\n"); 
+}</code></pre>
+        </main>
+        
+        <div style="text-align: center;">
+            <a href="laboratorio_codigo.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Volver al Laboratorio
+            </a>
+        </div>
+
+        <footer>
+            <p>Sistemas Operativos - Unidad 5</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script>
+        function copyToClipboard() {
+            const codeText = document.getElementById('source-code').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                btn.style.background = 'var(--secondary)';
+                btn.style.color = 'white';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

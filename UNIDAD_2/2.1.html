@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.1 Modelo de procesos</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .floating-home-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 1.5rem;
+        }
+
+        .floating-home-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .sidebar-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 999;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+            overflow-y: auto;
+        }
+
+        .sidebar-nav.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            background: rgba(52, 152, 219, 0.1);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .nav-sections {
+            padding: 20px 0;
+        }
+
+        .nav-section {
+            margin-bottom: 15px;
+        }
+
+        .nav-section-title {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(52, 152, 219, 0.1);
+            border-left-color: var(--secondary);
+            padding-left: 25px;
+        }
+
+        .nav-item.active {
+            background: rgba(52, 152, 219, 0.2);
+            border-left-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .nav-item i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            font-size: 1.2rem;
+        }
+
+        .menu-toggle:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle.active {
+            background: var(--accent);
+        }
+
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 998;
+        }
+
+        .reading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--success));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            transition: margin-left 0.3s ease, margin-right 0.3s ease;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        .intro {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+            text-align: justify;
+        }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            scroll-margin-top: 100px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .section-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-right: 15px;
+            min-width: 120px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .content {
+            padding: 0 10px;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .content h4 {
+            font-size: 1.3rem;
+            color: var(--warning);
+            margin: 25px 0 12px;
+            padding-left: 8px;
+        }
+        
+        .content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .content ul, .content ol {
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+        
+        .content li {
+            margin-bottom: 12px;
+        }
+        
+        .highlight {
+            background: rgba(231, 76, 60, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .citation {
+            font-style: italic;
+            color: var(--gray);
+            margin: 5px 0 15px 20px;
+            border-left: 2px solid var(--secondary);
+            padding-left: 10px;
+        }
+        
+        .quote-box {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: var(--light);
+        }
+
+        .quote-box .citation {
+            border-left: none;
+            margin: 10px 0 0 0;
+            padding-left: 0;
+        }
+        
+        .table-container {
+            max-width: 800px;
+            margin: 30px auto;
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        
+        .table-caption {
+            text-align: center;
+            padding: 10px;
+            color: var(--gray);
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .figure-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .imagen-figura1 {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain; 
+            border-radius: 8px;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: zoom-in;
+            transform-origin: center center;
+        }
+        
+        /* Efecto al pasar el mouse */
+        .imagen-figura1:hover {
+            transform: scale(1.4); 
+            border-radius: 8px;
+        }
+        
+        .figure-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin: 15px 0;
+            color: var(--gray);
+            font-style: italic;
+            flex-direction: column;
+        }
+        
+        .figure-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .figure-caption {
+            color: var(--gray);
+            margin-top: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        .nav-btn i {
+            margin: 0 8px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        .activity-card {
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 4px solid var(--success);
+            text-align: center;
+        }
+
+        .activity-title {
+            font-size: 1.8rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+
+        .activity-btn {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .activity-btn:hover {
+            background: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-number {
+                min-width: 100px;
+                font-size: 1.8rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .floating-home-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar" id="progressBar"></div>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <a href="index.html" class="floating-home-btn" title="Ir al índice de unidades">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <nav class="sidebar-nav" id="sidebarNav">
+        <div class="sidebar-header">
+            <div class="sidebar-title">2.1 Modelo de procesos</div>
+            <div class="sidebar-subtitle">Administración de procesos</div>
+        </div>
+        
+        <div class="nav-sections">
+            <div class="nav-section">
+                <div class="nav-section-title">Navegación</div>
+                <a href="#inicio" class="nav-item">
+                    <i class="fas fa-rocket"></i> Inicio del Tema
+                </a>
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-arrow-left"></i> Menú de Unidad 2
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Contenido</div>
+                <a href="#seccion-2-1-1" class="nav-item" data-section="2-1-1">
+                    <i class="fas fa-sitemap"></i> 2.1.1 Fundamentos: jerarquía, BCP
+                </a>
+                <a href="#seccion-2-1-2" class="nav-item" data-section="2-1-2">
+                    <i class="fas fa-cogs"></i> 2.1.2 Operaciones: creación, ejecución y terminación
+                </a>
+                <a href="#seccion-2-1-3" class="nav-item" data-section="2-1-3">
+                    <i class="fas fa-exchange-alt"></i> 2.1.3 Estados del proceso
+                </a>
+                <a href="#seccion-2-1-4" class="nav-item" data-section="2-1-4">
+                    <i class="fas fa-code"></i> 2.1.4 Implementación en el kernel
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Recursos</div>
+                <a href="actividad_2.1.html" class="nav-item">
+                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
+                </a>
+                <a href="2.2.html" class="nav-item">
+                    <i class="fas fa-arrow-right"></i> Siguiente: Modelo multi-hilo
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <header id="inicio">
+            <div class="breadcrumb">
+                <a href="https://escomisr.github.io/Libro_Digital_SO/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 2</a>
+                <span>/</span>
+                <span>2.1 Modelo de procesos</span>
+            </div>
+            <h1>2.1 Modelo de procesos</h1>
+            <div class="subtitle">Administración de procesos</div>            
+        </header>
+        
+        <div class="intro">
+            <p>Un modelo de procesos en sistemas operativos describe la manera en que los procesos (programas en ejecución) son organizados, gestionados y ejecutados por el sistema. Esta organización es fundamental para asegurar la eficiencia, la concurrencia y la estabilidad del sistema durante la ejecución del software</p>
+            <div class="citation">(Silberschatz, Galvin & Gagne, 2018).</div>
+        </div>
+        <div class="section" id="seccion-2-1">
+            <div class="content">
+                <p>El modelo de procesos explica cómo el sistema operativo organiza, lleva a cabo y administra los programas en operación. Cada proceso es una unidad que se ejecuta de manera independiente e incluye un contador del programa, un estado de ejecución, un espacio para las direcciones de la memoria y un grupo de recursos que el sistema asigna. Este modelo posibilita que varios programas se ejecuten de manera simultánea sin afectar a los demás, sentando así las bases para la multitarea y la concurrencia</p>                
+                <p>En su estructura, un proceso está compuesto por:</p>
+                <ul>
+                    <li><strong>Código del programa (texto)</strong>: instrucciones a ejecutar.</li>
+                    <li><strong>Datos</strong>: variables globales y estructuras utilizadas por el programa.</li>
+                    <li><strong>Pila (stack)</strong>: donde se almacenan las llamadas a funciones y variables locales.</li>
+                    <li><strong>Heap</strong>: área dinámica donde se crean objetos o estructuras de datos durante la ejecución.</li>
+                    <li>Naranja</li>
+                </ul>        
+                <p>El sistema operativo mantiene información sobre cada proceso a través de una estructura denominada <strong>Bloque de Control de Proceso (PCB, Process Control Block)</strong>, que registra el estado del proceso, sus registros, identificador (PID), prioridad, y recursos asociados.</p>
+                <p>Según <strong>Tanenbaum y Bos (2015)</strong>, “<i>el modelo de procesos es la abstracción central de los sistemas operativos modernos; cada proceso actúa como si tuviera su propio procesador virtual, aunque en realidad comparte la CPU con otros procesos</i>” (p. 95). Esta abstracción simplifica la programación y permite al sistema operativo aplicar políticas de <strong>planificación</strong>, <strong>suspensión</strong>, <stronng>reanudación</strong> y <strong>finalización</strong> que optimizan el uso de los recursos.</p>
+                <p>En síntesis, el modelo de procesos proporciona el marco conceptual que hace posible la <strong>ejecución concurrente</strong>, <strong>la seguridad del sistema</strong> y <strong>la eficiencia en el manejo de recursos</strong>, sirviendo como núcleo del diseño operativo moderno.                    
+                <p></p>
+            </div>
+                
+        </div>
+        
+        <div class="section" id="seccion-2-1-1">
+            <div class="section-header">
+                <div class="section-number">2.1.1</div>
+                <div class="section-title">Fundamentos: jerarquía, BCP</div>
+            </div>
+            <div class="content">
+                <p>La gestión de procesos se basa en principios de organización que posibilitan la supervisión eficaz de la ejecución de diversos programas por parte del sistema operativo. La jerarquía de procesos y el bloque de control del proceso (BCP) son algunos de los principios que se destacan, ya que son fundamentales para la supervisión y coordinación del ciclo vital de cada proceso en el sistema.</p>
+                <h3>Orden jerárquico de procesos</h3>
+                <p>Los sistemas operativos actuales organizan los procesos en una jerarquía, en la que cada proceso tiene la capacidad de generar uno o más subprocesos o procesos hijos. Cuando un proceso padre emplea una llamada al sistema, como fork () en Unix/Linux, para crear un nuevo proceso, se establece esta relación de dependencia.
+El proceso hijo, aunque retiene su propia ejecución de manera independiente, recibe parte del ambiente del padre (por ejemplo, directorios, permisos o variables). Esta jerarquía posibilita que el trabajo esté organizado de manera ordenada, lo cual simplifica la gestión, la sincronización y la finalización controlada de los procesos.
+
+                </p>
+                <h3>Bloque de Control de Proceso (BCP)</h3>
+                <p>El BCP se utiliza como una organización de datos interna por el sistema y esto incluye lo siguiente:</p>
+                <ul>
+                    <li><strong>Identificación del proceso</strong>: PID, PPID (padre), UID (usuario).</li>
+                    <li><strong>Estado del proceso</strong>: nuevo, listo, en ejecución, bloqueado o terminado.</li>
+                    <li><strong>Registros de CPU</strong>: valores almacenados cuando el proceso es interrumpido.</li>
+                    <li><strong>Información de memoria</strong>: punteros a tablas de páginas y espacio asignado.</li>
+                    <li><strong>Contabilidad</strong>: tiempo de CPU utilizado, prioridad y estadísticas.</li>
+                    <li><strong>Información de control</strong>: recursos abiertos (archivos, dispositivos, sockets).</li>
+                </ul>
+                <p>El BCP permite al sistema <strong>interrumpir y reanudar procesos</strong> sin pérdida de información, garantizando una conmutación de contexto (<i>context switch</i>) correcta y eficiente.</p>
+                
+                <h4>Funcionalidad del BCP</h4>
+                <p>El BCP es el corazón de la gestión de procesos. Su funcionalidad principal es permitir al sistema operativo:</p>
+                <ul>
+                    <li>Supervisar y controlar el estado actual del proceso, determinando si está activo, en cola de espera, suspendido o listo para ser ejecutado</li>
+                    <li>Se refiere a guardar todos los datos esenciales del proceso en curso, como los valores de los registros y la posición actual en el programa, para poder reanudarlo sin pérdida de información</li>
+                    <li><strong>Administrar recursos:</strong> Mantener un registro de los recursos (memoria, archivos abiertos, dispositivos I/O) asignados al proceso.</li>
+                    <li><strong>Controlar la identificación del proceso:</strong> Otorgar un identificador exclusivo a cada proceso.</li>
+                </ul>
+
+                <h4>Características del BCP</h4>
+                <p>El BCP tiene principalmente la siguiente información:</p>
+                <ul>
+                    <li><strong>Estado del proceso:</strong> Indica la etapa actual del proceso, como, por ejemplo: recién creado, preparado para ejecutarse, ejecutándose, en espera o finalizado.</li>
+                    <li><strong>Contador de programa:</strong> Indica la dirección de la siguiente instrucción que debe ser ejecutada por el procesador.</li>
+                    <li><strong>Registros de CPU:</strong> Comprende los registros esenciales del procesador, tales como acumuladores, registros de propósito general, índices y punteros de pila.</li>
+                    <li><strong>Información para la planificación del CPU:</strong> Incluye elementos como la prioridad del proceso y referencias a las estructuras utilizadas en las colas de planificación.</li>
+                    <li><strong>Datos de administración de memoria:</strong> Contiene datos como los valores de los registros base y límite, así como las tablas que administran la paginación o segmentación de la memoria.</li>
+                    <li><strong>Información de contabilidad:</strong> Registra estadísticas del uso del proceso, incluyendo tiempo de CPU consumido, restricciones temporales y su identificador numérico.</li>
+                    <li><strong>Información de estado de I/O:</strong> Lista de dispositivos I/O asignados al proceso, lista de archivos abiertos.</li>
+                </ul>
+                <div class="figure-container">
+                    <div class="figure-caption">Figura 3</div>
+                    <div class="figure-caption">Ciclo de vida de un proceso: creación, ejecución y terminación</div>
+                    <img src="Figura3.png" alt="Ciclo de vida de un proceso" class="imagen-figura1">
+                    <div class="figure-caption">Nota: Elaboración propia basada en Silberschatz et al., 2022; Tanenbaum y Bos, 2015</div>
+                </div>                
+            </div>
+        </div>
+        
+        <div class="section" id="seccion-2-1-3">
+            <div class="section-header">
+                <div class="section-number">2.1.3</div>
+                <div class="section-title">Estados del proceso</div>
+            </div>
+            <div class="content">
+                <p>Un <strong>proceso</strong> pasa por diferentes <strong>estados</strong> durante su ciclo de vida, dependiendo de las acciones que realice y de los recursos que tenga disponibles. Estos estados permiten al sistema operativo <strong>controlar y coordinar la ejecución</strong> de múltiples tareas de manera eficiente, garantizando un uso equilibrado del procesador y la memoria.</p>
+                <p>Los estados principales del proceso son:</p>                
+                <h4>1. Nuevo (New)</h4>
+                    <p>El proceso está siendo creado. El sistema operativo asigna los recursos iniciales y genera su <strong>Bloque de Control de Proceso (BCP)</strong> con la información básica. Aún no se encuentra listo para ejecutarse.</p>
+                <h4>2. Listo (Ready)</h4>
+                    <p>El proceso ya fue cargado en memoria y está <strong>esperando su turno para utilizar la CPU</strong>. Permanece en la <strong>cola de listos</strong>, administrada por el planificador (scheduler), quien decide el orden de ejecución según la política de planificación.</p>
+                <h4>3. En Ejecución (Running</h4>
+                    <p>El proceso está utilizando la <strong>CPU activamente</strong> para ejecutar sus instrucciones. Solo un proceso puede encontrarse en este estado por procesador. Si ocurre una interrupción o un cambio de contexto, el proceso puede volver al estado de listo o pasar a bloqueado.</p>
+                <h4>Bloqueado o Esperando (Waiting/Blocked)</h4>
+                    <p>El proceso <strong>no puede continuar</strong> hasta que ocurra un evento externo, como la finalización de una operación de E/S o la liberación de un recurso. En este estado, libera la CPU para que otros procesos puedan ejecutarse.</p>
+                <h4>5. Terminado (Terminated)</h4>
+                    <p>El proceso ha completado su ejecución o ha sido finalizado por el sistema o el usuario. El sistema operativo libera los recursos asociados y elimina su BCP.</p>    
+                <p>Como explican <strong>Silberschatz, Galvin y Gagne (2022)</strong>, “<i>los estados del proceso permiten al sistema operativo mantener el control de cada programa en ejecución, asegurando una transición ordenada y eficiente entre las fases de creación, ejecución, espera y finalización</i>” (p. 199). Esta organización garantiza que el sistema operativo mantenga la estabilidad y el equilibrio entre los procesos activos, bloqueados y finalizados, permitiendo una <strong>multitarea eficiente y controlada</strong>.</p>                    
+                <div class="figure-container">
+                    <div class="figure-caption">Figura 4</div>
+                    <div class="figure-caption">Estados del proceso</div>
+                    <img src="Figura4.png" alt="Estados del proceso" class="imagen-figura1">
+                    <div class="figure-caption">Nota: Elaboración propia basada en Silberschatz, Galvin y Gagne, 2022</div>
+                </div>                                               
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3><i class="fas fa-play-circle" style="margin-right: 10px;"></i> Material Audiovisual</h3>
+                <p>Visualiza el diagrama de estados de un proceso y sus transiciones en el siguiente video:</p>
+                
+                <div class="figure-container">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/MZqmn8SMZMM" title="Estados de procesos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
+                    <div class="figure-caption">Salas, I. (2025, 22 de noviembre). <em>Estados de procesos</em> [Video]. YouTube. https://www.youtube.com/watch?v=MZqmn8SMZMM</div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="section" id="seccion-2-1-4">
+            <div class="section-header">
+                <div class="section-number">2.1.4</div>
+                <div class="section-title">Implementación en el kernel</div>
+            </div>
+            <div class="content">
+                    <p>La <strong>implementación de la administración de procesos en el kernel</strong> constituye el núcleo funcional del sistema operativo, ya que gestiona la creación, ejecución, sincronización y terminación de los procesos que comparten los recursos del sistema. Para ello, el kernel utiliza estructuras de datos, algoritmos de planificación y mecanismos de protección que aseguran una operación segura y eficiente.</p>
+                <h3>Estructuras internas</h3>
+                    <p>El <strong>Bloque de Control de Proceso (BCP)</strong> o <i>Process Conrol Block</i> es la estructura central que almacena toda la información necesaria para administrar un proceso: su identificador, estado, prioridad, contadores, registros de CPU, permisos y recursos asignados. Esta estructura permite al kernel realizar cambios de contexto y mantener un control preciso del estado de cada proceso.</p>    
+                    <p>Según <strong>Stallings (2018)</strong>, “<i>el PCB representa la fuente primaria de información que el sistema operativo utiliza para gestionar la ejecución de procesos, garantizando continuidad y coherencia en los cambios de estado</i>” (p. 207).</p>
+                <h3>Creación y planificación</h3>
+                    <p>El kernel crea nuevos procesos mediante llamadas al sistema, como <i>fork ()</i> en Unix o <i>CreateProcess()</i> en Windows, reservando memoria y heredando parámetros del proceso padre. Posteriormente, los procesos se insertan en la <strong>cola de listos</strong>, donde el planificador (<i>scheduler</i>) selecciona cuál recibirá la CPU según políticas de planificación (por ejemplo, <i>First-Come First-Served</i>, <i>Round Robin</i> o <i>Multilevel Queue</i>). Estas políticas buscan <strong>optimizar el uso del procesador, el tiempo de respuesta y la equidad entre procesos</strong>.</p>
+                <h3>Conmutación de contexto</h3>
+                    <p>Cuando un proceso cede el procesador, el kernel guarda su contexto (registros, contador de programa, puntero de pila) y restaura el de otro proceso. Este mecanismo, conocido como <strong>conmutación de contexto</strong>, es fundamental para la multitarea, aunque introduce un pequeño retardo temporal.</p>
+                    <p>De acuerdo con <strong>Tanenbaum y Bos (2015)</strong>, “<i>la conmutación de contexto permite que el sistema operativo brinde la ilusión de ejecución simultánea, preservando la información esencial de cada proceso</i>” (p. 101)</p>
+                <h3>Sincronización y comunicación</h3>
+                    <p>Para evitar conflictos entre procesos que comparten recursos, el kernel implementa mecanismos de <STRONG>sincronización</STRONG> como semáforos, monitores y exclusión mutua (mutexes). Asimismo, ofrece métodos de <strong>comunicación entre procesos (IPC)</strong>, tales como colas de mensajes, tuberías (<i>pipes</i>), señales y memoria compartida, que garantizan la cooperación y coordinación segura.</p>
+                <h3>Manejo de interrupciones y E/S</h3>
+                    <p>Cuando un proceso requiere realizar una operación de entrada/salida (E/S), el kernel lo transfiere al estado de <strong>bloqueado</strong> hasta que el evento concluya. Los controladores de dispositivo y los manejadores de interrupciones (<i>interrupt handlers</i>) notifican al kernel cuando la operación ha terminado, permitiendo que el proceso retome su ejecución sin desperdiciar tiempo de CPU.</p>
+                <h3>Finalización y liberación de recursos</h3>
+                    <p>Al finalizar un proceso, el kernel libera todos los recursos asociados —como memoria, archivos y dispositivos— y actualiza las tablas de control. Esta limpieza evita fugas de memoria y mantiene la integridad del sistema operativo.</p>
+                    <p>En resumen, la implementación en el kernel representa el nivel más crítico del sistema operativo, donde se integran los <strong>mecanismos de planificación</strong>, <strong>sincronización</strong>, <strong>comunicación</strong> y <strong>control de recursos</strong>, asegurando que los procesos coexistan de forma ordenada y eficiente dentro del entorno multitarea.</p>
+                <div class="figure-container">
+                    <div class="figure-caption">Figura 5</div>
+                    <div class="figure-caption">Implementación en el kernel</div>
+                    <img src="Figura5.png" alt="Implementación en el kernel" class="imagen-figura1">
+                    <div class="figure-caption">Nota: Elaboración propia basada en Stallings, (2018)</div>
+                </div>                                               
+            </div>
+        </div>   
+        
+        <div class="activity-card">
+            <div class="activity-title">Actividad de Aprendizaje 2.1: Modelo de Procesos</div>
+            <p>Evalúa tu comprensión sobre los fundamentos, operaciones, estados e implementación de procesos en sistemas operativos.</p>
+            <a href="actividad_2_1.html" class="activity-btn">
+                <i class="fas fa-pencil-alt"></i> Realizar Actividad
+            </a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver al Menú de Unidad</a>
+            <a href="2.2.html" class="nav-btn">Continuar a 2.2: Modelo multihilo<i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <footer>
+            <p>Sistemas Operativos - Unidad 2: Administración de procesos</p>
+            <p>Desarrollado para fines educativos - © 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        let sidebarOpen = false;
+
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebarNav = document.getElementById('sidebarNav');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                sidebarNav.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                menuToggle.classList.add('active');
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                sidebarNav.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            }
+            
+            updateContainerSpacing();
+        }
+
+        menuToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        function updateContainerSpacing() {
+            const container = document.querySelector('.container');
+            
+            if (window.innerWidth <= 768) {
+                container.style.marginLeft = '20px';
+                container.style.marginRight = '20px';
+                container.style.padding = '10px';
+            } else if (sidebarOpen && window.innerWidth > 768) {
+                container.style.marginLeft = '370px';
+                container.style.marginRight = '90px';
+                container.style.padding = '20px';
+            } else {
+                container.style.marginLeft = '90px';
+                container.style.marginRight = '90px';
+                container.style.padding = '20px';
+            }
+        }
+
+        function updateActiveSection() {
+            const sections = document.querySelectorAll('.section');
+            const navItems = document.querySelectorAll('.nav-item[data-section]');
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    currentSectionId = section.id;
+                }
+            });
+
+            navItems.forEach(item => {
+                const sectionId = 'seccion-' + item.dataset.section;
+                if (sectionId === currentSectionId) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function updateReadingProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        }
+
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        function toggleScrollToTopBtn() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        }
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            updateActiveSection();
+            updateReadingProgress();
+            toggleScrollToTopBtn();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && sidebarOpen) {
+                toggleSidebar();
+            }
+            updateContainerSpacing();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateActiveSection();
+            updateReadingProgress();
+            updateContainerSpacing();
+            if (window.innerWidth <= 768) {
+                sidebarNav.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebarOpen) {
+                toggleSidebar();
+            }
+            if (e.key === 'm' || e.key === 'M') {
+                if (!e.ctrlKey && !e.altKey) { 
+                    toggleSidebar();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

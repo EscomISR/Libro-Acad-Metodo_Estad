@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío de E/S No Bloqueante</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --success: #2ecc71;
+            --accent: #e74c3c;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: var(--light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .challenge-header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+
+        .challenge-header h1 {
+            color: var(--secondary);
+            font-size: 2.5rem;
+        }
+
+        .challenge-area {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .objective {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .code-editor {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: #dcdcdc;
+        }
+        
+        .code-editor pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .code-blank {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px dashed var(--secondary);
+            color: var(--light);
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            width: 180px;
+            transition: all 0.3s ease;
+        }
+
+        .code-blank:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-style: solid;
+        }
+
+        .code-blank.correct {
+            border: 1px solid var(--success);
+            background-color: rgba(46, 204, 113, 0.2);
+        }
+
+        .code-blank.incorrect {
+            border: 1px solid var(--accent);
+            background-color: rgba(231, 76, 60, 0.2);
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .btn-verify {
+            background: var(--success);
+        }
+        .btn-verify:hover {
+            background: #27ae60;
+        }
+
+        .btn-back {
+            background: var(--primary);
+        }
+        .btn-back:hover {
+            background: #34495e;
+        }
+
+        #feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        
+        #feedback.correct {
+            background-color: rgba(46, 204, 113, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+        
+        #feedback.incorrect {
+            background-color: rgba(231, 76, 60, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+
+        #feedback a {
+            color: var(--secondary);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="challenge-header">
+            <h1><i class="fas fa-sync-alt"></i> Desafío de E/S No Bloqueante</h1>
+            <p>Implementa correctamente la llamada al sistema <code>select()</code>.</p>
+        </div>
+        
+        <div class="challenge-area">
+            <div class="objective">
+                <strong>Objetivo:</strong> Rellena los parámetros que faltan en la llamada a `select()` para monitorear la entrada estándar (`STDIN`) sin bloquear el programa.
+            </div>
+
+            <div class="code-editor">
+                <pre><code>// Modo no bloqueante usando select()
+printf("Esperando entrada por 5 segundos...\n");
+
+fd_set fds;
+struct timeval timeout;
+
+FD_ZERO(&fds);
+FD_SET(STDIN_FILENO, &fds);
+timeout.tv_sec = 5;
+timeout.tv_usec = 0;
+
+// La llamada al sistema clave para E/S no bloqueante
+int ready = select(
+    <input type="text" class="code-blank" id="blank1" placeholder="núm. descriptores">,
+    <input type="text" class="code-blank" id="blank2" placeholder="conjunto de lectura">,
+    NULL,
+    NULL,
+    <input type="text" class="code-blank" id="blank3" placeholder="tiempo de espera">
+);
+
+if (ready == -1) {
+    perror("Error en select()");
+} else if (ready == 0) {
+    printf("Tiempo de espera agotado.\n");
+} else {
+    // ... leer del STDIN ...
+}</code></pre>
+            </div>
+
+            <div id="feedback"></div>
+
+            <div class="controls">
+                <a href="laboratorio_codigo.html" class="btn btn-back"><i class="fas fa-arrow-left"></i> Volver al Laboratorio</a>
+                <button id="verifyBtn" class="btn btn-verify">Verificar Código <i class="fas fa-check"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('verifyBtn').addEventListener('click', function() {
+            const feedbackEl = document.getElementById('feedback');
+            const reviewLink = '<a href="5.2.html#introduccion" target="_blank">material de la sección 5.2</a>';
+
+            const correctAnswers = {
+                blank1: 'STDIN_FILENO+1',
+                blank2: '&fds',
+                blank3: '&timeout'
+            };
+
+            const blank1El = document.getElementById('blank1');
+            const blank2El = document.getElementById('blank2');
+            const blank3El = document.getElementById('blank3');
+            
+            // Normalizar: quitar espacios y comas opcionales
+            const normalize = (str) => str.replace(/[\s,]/g, '');
+
+            const isBlank1Correct = normalize(blank1El.value) === normalize(correctAnswers.blank1);
+            const isBlank2Correct = normalize(blank2El.value) === normalize(correctAnswers.blank2);
+            const isBlank3Correct = normalize(blank3El.value) === normalize(correctAnswers.blank3);
+
+            blank1El.classList.toggle('correct', isBlank1Correct);
+            blank1El.classList.toggle('incorrect', !isBlank1Correct);
+            
+            blank2El.classList.toggle('correct', isBlank2Correct);
+            blank2El.classList.toggle('incorrect', !isBlank2Correct);
+
+            blank3El.classList.toggle('correct', isBlank3Correct);
+            blank3El.classList.toggle('incorrect', !isBlank3Correct);
+
+            if (isBlank1Correct && isBlank2Correct && isBlank3Correct) {
+                feedbackEl.innerHTML = '¡Correcto! Has usado los parámetros de <code>select()</code> adecuadamente para una operación no bloqueante.';
+                feedbackEl.className = 'correct';
+            } else {
+                feedbackEl.innerHTML = `No es del todo correcto. Asegúrate de pasar los punteros y valores adecuados a <code>select()</code>. Revisa el ejemplo del ${reviewLink}.`;
+                feedbackEl.className = 'incorrect';
+            }
+            
+            feedbackEl.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

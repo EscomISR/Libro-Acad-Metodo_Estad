@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Cuáles son los dos modos principales en los que opera un sistema operativo?",
+    "options": [
+      "Modo seguro y modo depuración",
+      "Modo usuario y modo kernel",
+      "Modo eficiente y modo avanzado",
+      "Modo supervisor y modo administrador"
+    ],
+    "answer": "Modo usuario y modo kernel"
+  },
+  {
+    "question": "¿Qué caracteriza al modo kernel dentro del sistema operativo?",
+    "options": [
+      "Es un modo sin privilegios dedicado a aplicaciones comunes",
+      "Posee acceso total a la CPU, memoria y dispositivos",
+      "Solo ejecuta aplicaciones del usuario",
+      "Opera únicamente cuando ocurre una interrupción"
+    ],
+    "answer": "Posee acceso total a la CPU, memoria y dispositivos"
+  },
+  {
+    "question": "¿Cuál es la principal función del modo usuario?",
+    "options": [
+      "Ejecutar aplicaciones con privilegios restringidos",
+      "Reiniciar la CPU ante fallos",
+      "Configurar los controladores del sistema",
+      "Gestionar directamente dispositivos de E/S"
+    ],
+    "answer": "Ejecutar aplicaciones con privilegios restringidos"
+  },
+  {
+    "question": "¿Cómo solicita el modo usuario acceso a recursos privilegiados?",
+    "options": [
+      "A través de interrupciones manuales",
+      "Mediante llamadas al sistema",
+      "Desactivando el contador de programa",
+      "Usando accesos directos de la CPU"
+    ],
+    "answer": "Mediante llamadas al sistema"
+  },
+  {
+    "question": "¿Qué señala Tanenbaum y Bos (2015) sobre los cambios entre modo usuario y modo kernel?",
+    "options": [
+      "Aumentan significativamente el rendimiento",
+      "Son innecesarios en sistemas modernos",
+      "Tienen costo en rendimiento pero son indispensables",
+      "Se eliminan mediante optimización avanzada"
+    ],
+    "answer": "Tienen costo en rendimiento pero son indispensables"
+  },
+  {
+    "question": "¿Qué es una interrupción en un sistema operativo?",
+    "options": [
+      "Una orden que apaga el sistema inmediatamente",
+      "Una pausa en la ejecución para atender una acción no viable o un evento externo",
+      "Un error crítico que obliga a reiniciar el sistema",
+      "Un proceso que deshabilita el modo kernel temporalmente"
+    ],
+    "answer": "Una pausa en la ejecución para atender una acción no viable o un evento externo"
+  },
+  {
+    "question": "¿Cuál de las siguientes puede generar una interrupción?",
+    "options": [
+      "Un proceso que se ejecuta correctamente",
+      "Un dispositivo de E/S o una instrucción inválida",
+      "Una actualización gráfica de la interfaz",
+      "Una llamada al sistema sin argumentos"
+    ],
+    "answer": "Un dispositivo de E/S o una instrucción inválida"
+  },
+  {
+    "question": "¿Qué hace la CPU cuando ocurre una interrupción?",
+    "options": [
+      "Ignora el proceso en ejecución",
+      "Detiene temporalmente la ejecución y llama al manejador de interrupciones",
+      "Reinicia el sistema operativo",
+      "Bloquea todos los procesos del usuario"
+    ],
+    "answer": "Detiene temporalmente la ejecución y llama al manejador de interrupciones"
+  },
+  {
+    "question": "¿Qué componente identifica y procesa adecuadamente una interrupción?",
+    "options": [
+      "El planificador de tareas",
+      "El manejador de interrupciones",
+      "El sistema de archivos",
+      "El reloj del sistema"
+    ],
+    "answer": "El manejador de interrupciones"
+  },
+  {
+    "question": "¿Qué distingue al modo usuario respecto al modo kernel?",
+    "options": [
+      "Puede acceder directamente al hardware",
+      "Opera con permisos limitados",
+      "Controla totalmente la CPU",
+      "Administra la memoria del sistema"
+    ],
+    "answer": "Opera con permisos limitados"
+  },
+  {
+    "question": "¿Qué capacidad tiene el modo kernel que el modo usuario no?",
+    "options": [
+      "Modificar interfaces gráficas",
+      "Acceder a toda la memoria y controlar hardware",
+      "Ejecutar aplicaciones web",
+      "Regular procesos de usuario sin permiso"
+    ],
+    "answer": "Acceder a toda la memoria y controlar hardware"
+  },
+  {
+    "question": "¿Qué ocurre durante la transición entre modo usuario y modo kernel?",
+    "options": [
+      "La CPU libera todos los procesos",
+      "Se revisan permisos y se garantiza seguridad y estabilidad",
+      "Se detiene el reloj del sistema",
+      "El sistema operativo entra en suspensión"
+    ],
+    "answer": "Se revisan permisos y se garantiza seguridad y estabilidad"
+  },
+  {
+    "question": "¿Qué es el contador de programa?",
+    "options": [
+      "Un registro que almacena direcciones de instrucciones en ejecución",
+      "Una herramienta para medir la velocidad del CPU",
+      "Un proceso que controla conexiones de red",
+      "Un módulo que limita el acceso a la memoria"
+    ],
+    "answer": "Un registro que almacena direcciones de instrucciones en ejecución"
+  },
+  {
+    "question": "¿Cuál es la función principal del reloj del sistema?",
+    "options": [
+      "Almacenar datos temporales",
+      "Sincronizar y coordinar operaciones del hardware",
+      "Acelerar procesos del usuario",
+      "Eliminar procesos bloqueados"
+    ],
+    "answer": "Sincronizar y coordinar operaciones del hardware"
+  },
+  {
+    "question": "¿Qué permite el contador de programa?",
+    "options": [
+      "Ejecutar procesos sin restricciones",
+      "Administrar la E/S avanzada",
+      "Mantener la secuencia de instrucciones en ejecución",
+      "Medir la temperatura del hardware"
+    ],
+    "answer": "Mantener la secuencia de instrucciones en ejecución"
+  },
+  {
+    "question": "¿Cuál es un uso importante de los contadores en sistemas distribuidos?",
+    "options": [
+      "Detectar errores en tarjetas gráficas",
+      "Identificar cuellos de botella y optimizar rendimiento",
+      "Reemplazar el kernel por procesos seguros",
+      "Eliminar interrupciones innecesarias"
+    ],
+    "answer": "Identificar cuellos de botella y optimizar rendimiento"
+  },
+  {
+    "question": "¿Qué papel tienen los contadores en la seguridad del sistema?",
+    "options": [
+      "Simulan accesos para pruebas",
+      "Registran eventos anómalos como intentos fallidos de autenticación",
+      "Bloquean automáticamente procesos del usuario",
+      "Verifican configuraciones del BIOS"
+    ],
+    "answer": "Registran eventos anómalos como intentos fallidos de autenticación"
+  },
+  {
+    "question": "¿Cómo ayudan los contadores a la planificación de procesos?",
+    "options": [
+      "Asignando prioridad según consumo de recursos",
+      "Eliminando procesos inactivos",
+      "Desactivando interrupciones",
+      "Reduciendo el tamaño de la memoria virtual"
+    ],
+    "answer": "Asignando prioridad según consumo de recursos"
+  },
+  {
+    "question": "¿Para qué se utilizan contadores en servicios de nube?",
+    "options": [
+      "Para medir el uso de CPU, memoria y almacenamiento",
+      "Para limitar el acceso de los usuarios",
+      "Para crear máquinas virtuales",
+      "Para sincronizar relojes de los clientes"
+    ],
+    "answer": "Para medir el uso de CPU, memoria y almacenamiento"
+  },
+  {
+    "question": "¿Qué aspecto general destaca la importancia de los contadores en un sistema operativo?",
+    "options": [
+      "Simplificar la interfaz gráfica del usuario",
+      "Mejorar la administración, seguridad y planificación del sistema",
+      "Reducir el tamaño del kernel",
+      "Desactivar funciones avanzadas de hardware"
+    ],
+    "answer": "Mejorar la administración, seguridad y planificación del sistema"
+  }
+]

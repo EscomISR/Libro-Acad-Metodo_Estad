@@ -1,0 +1,172 @@
+[
+  {
+    "question": "¿Qué proporciona la abstracción de la memoria según Tanenbaum y Bos (2015)?",
+    "options": [
+      "Un espacio físico fijo para cada proceso",
+      "Una visión lógica independiente de la estructura física del equipo",
+      "Un acceso directo del usuario al hardware",
+      "Una forma de desactivar la memoria virtual"
+    ],
+    "answer": "Una visión lógica independiente de la estructura física del equipo"
+  },
+  {
+    "question": "¿Qué técnica permite crear direcciones lógicas que luego se traducen en direcciones físicas?",
+    "options": [
+      "Compilación estática",
+      "Paginación, segmentación o memoria virtual",
+      "Desfragmentación automática",
+      "Duplicación de memoria física"
+    ],
+    "answer": "Paginación, segmentación o memoria virtual"
+  },
+  {
+    "question": "¿Cuál es una de las ventajas principales de la abstracción de memoria?",
+    "options": [
+      "Permite que todos los procesos compartan la misma dirección física",
+      "Evita que un proceso acceda a la memoria de otro",
+      "Reduce el tamaño de la memoria RAM",
+      "Elimina la necesidad de almacenamiento secundario"
+    ],
+    "answer": "Evita que un proceso acceda a la memoria de otro"
+  },
+  {
+    "question": "¿Qué característica permite la ejecución de varios programas aprovechando mejor la memoria física?",
+    "options": [
+      "Monoprogramación",
+      "Multiprogramación",
+      "Compilación dinámica",
+      "Canales DMA"
+    ],
+    "answer": "Multiprogramación"
+  },
+  {
+    "question": "¿Qué combina la memoria virtual?",
+    "options": [
+      "Segmentación fija con registros",
+      "Memoria principal y secundaria",
+      "RAM con instrucciones del procesador",
+      "Inodos con directorios"
+    ],
+    "answer": "Memoria principal y secundaria"
+  },
+  {
+    "question": "¿Cuál es el objetivo de la organización jerárquica de la memoria?",
+    "options": [
+      "Aumentar el tamaño de los directorios",
+      "Equilibrar velocidad, capacidad y costo",
+      "Eliminar la necesidad de memoria caché",
+      "Reducir el uso de almacenamiento secundario"
+    ],
+    "answer": "Equilibrar velocidad, capacidad y costo"
+  },
+  {
+    "question": "¿Qué tarea cumple la administración del almacenamiento?",
+    "options": [
+      "Regular el uso del procesador",
+      "Gestionar la memoria principal y secundaria de forma eficiente",
+      "Abrir archivos automáticamente",
+      "Asignar permisos a usuarios sin intervención del kernel"
+    ],
+    "answer": "Gestionar la memoria principal y secundaria de forma eficiente"
+  },
+  {
+    "question": "¿Qué método de asignación distribuye bloques de manera continua?",
+    "options": [
+      "Asignación enlazada",
+      "Asignación indexada",
+      "Asignación contigua",
+      "Asignación aleatoria"
+    ],
+    "answer": "Asignación contigua"
+  },
+  {
+    "question": "¿Qué técnica mejora la tolerancia a fallos mediante almacenamiento redundante?",
+    "options": [
+      "Swap",
+      "RAID",
+      "Mapas de bits",
+      "Listas ligadas"
+    ],
+    "answer": "RAID"
+  },
+  {
+    "question": "¿En qué consiste el swapping?",
+    "options": [
+      "Crear copias de seguridad automáticas",
+      "Desplazar procesos completos a almacenamiento secundario temporalmente",
+      "Eliminar procesos inactivos",
+      "Convertir memoria virtual en física"
+    ],
+    "answer": "Desplazar procesos completos a almacenamiento secundario temporalmente"
+  },
+  {
+    "question": "¿Qué ventaja ofrece el swapping?",
+    "options": [
+      "Evita la necesidad de usar memoria secundaria",
+      "Permite ejecutar programas que requieren más memoria que la disponible físicamente",
+      "Elimina la fragmentación interna",
+      "Inhabilita la memoria virtual"
+    ],
+    "answer": "Permite ejecutar programas que requieren más memoria que la disponible físicamente"
+  },
+  {
+    "question": "¿Qué valor representa un bloque libre en el mapa de bits?",
+    "options": [
+      "1",
+      "0",
+      "2",
+      "Ninguno, depende del sistema"
+    ],
+    "answer": "0"
+  },
+  {
+    "question": "¿Qué valor representa un bloque ocupado en el mapa de bits?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "8"
+    ],
+    "answer": "1"
+  },
+  {
+    "question": "¿Cuál es una desventaja del manejo con mapa de bits en memorias grandes?",
+    "options": [
+      "Consume demasiada memoria",
+      "Recorrer el mapa completo puede ser costoso en tiempo",
+      "No permite detectar bloques ocupados",
+      "No permite expandir archivos"
+    ],
+    "answer": "Recorrer el mapa completo puede ser costoso en tiempo"
+  },
+  {
+    "question": "¿Cómo gestiona la memoria el método de listas ligadas?",
+    "options": [
+      "Cada bloque libre contiene un puntero al siguiente",
+      "Requiere que todos los bloques sean contiguos",
+      "Solo funciona con asignación indexada",
+      "Almacena todos los punteros dentro de un único inodo"
+    ],
+    "answer": "Cada bloque libre contiene un puntero al siguiente"
+  },
+  {
+    "question": "¿Qué mantiene esta técnica para identificar el primer bloque libre?",
+    "options": [
+      "Un registro en caché",
+      "Un puntero al inicio de la lista",
+      "Una tabla de índices global",
+      "Un mapa de bits fijo"
+    ],
+    "answer": "Un puntero al inicio de la lista"
+  },
+  {
+    "question": "¿Cuál es una desventaja de las listas ligadas?",
+    "options": [
+      "No se pueden usar en discos grandes",
+      "Pueden aumentar el tiempo de acceso al buscar bloques contiguos",
+      "Requieren mucha memoria física",
+      "No permiten liberar espacio"
+    ],
+    "answer": "Pueden aumentar el tiempo de acceso al buscar bloques contiguos"
+  }
+]

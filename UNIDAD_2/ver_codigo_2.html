@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Código - Round Robin</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Estilos consistentes con Unidad 2 */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --gray: #95a5a6;
+            --code-bg: #2d2d2d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: var(--light); min-height: 100vh; line-height: 1.7; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        header { text-align: center; padding: 30px 20px; margin-bottom: 30px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .breadcrumb { display: flex; justify-content: center; margin-bottom: 15px; color: var(--gray); font-size: 1rem; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: white; text-decoration: underline; }
+        .breadcrumb span { margin: 0 10px; }
+        
+        h1 { font-size: 2.2rem; margin-bottom: 5px; color: white; }
+        .subtitle { font-size: 1.2rem; color: var(--secondary); font-weight: 300; }
+
+        .code-viewer-container { background: #1e1e1e; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); overflow: hidden; border: 1px solid #333; }
+        .code-header { background: #252526; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
+        .file-info { display: flex; align-items: center; gap: 10px; color: #ccc; font-family: monospace; font-size: 0.9rem; }
+        .file-icon { color: var(--secondary); }
+        
+        .btn-copy { background: rgba(255,255,255,0.1); border: none; color: #ddd; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-copy:hover { background: var(--secondary); color: white; }
+
+        pre[class*="language-"] { margin: 0 !important; border-radius: 0 !important; padding: 20px !important; background: transparent !important; font-size: 0.95rem; text-shadow: none !important; }
+        code[class*="language-"], pre[class*="language-"] { font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace; }
+
+        footer { text-align: center; margin-top: 40px; padding: 20px; color: var(--gray); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .back-button { display: inline-block; margin-top: 20px; color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .back-button:hover { color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 2</a>
+                <span>/</span>
+                <a href="laboratorio_codigo.html">Laboratorio</a>
+                <span>/</span>
+                <span>Código Fuente</span>
+            </div>
+            <h1><i class="fas fa-file-code"></i> Visor de Código</h1>
+            <div class="subtitle">Round Robin</div>
+        </header>
+        
+        <main class="code-viewer-container">
+            <div class="code-header">
+                <div class="file-info">
+                    <i class="fas fa-c file-icon"></i>
+                    <span>RoundRobin.c</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-copy" onclick="copyToClipboard()">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                </div>
+            </div>
+            
+            <pre><code class="language-c" id="source-code">/*
+    Nombre: Ylhuicatzi Padua Tonatiuh
+    Escuela: ESCOM
+    Materia: Sistemas Operativos
+    Practica numero #2
+    Tema: Algoritmo Round Robin (Turno Rotatorio)
+*/
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAX_PROCESOS 10
+
+struct Proceso {
+    int id;
+    int rafaga;          // Tiempo de ejecución necesario
+    int tiempo_restante; // Tiempo que le falta por ejecutar
+    int tiempo_espera;
+};
+
+int main() {
+    int n, quantum;
+    struct Proceso procesos[MAX_PROCESOS];
+    int tiempo_total = 0, procesos_completados = 0;
+    int i;
+
+    // Configuración inicial (simulada)
+    n = 4; // Número de procesos
+    quantum = 2; // Tiempo del Quantum
+
+    // Inicialización de procesos
+    int rafagas[] = {5, 3, 1, 4};
+    for(i = 0; i &lt; n; i++) {
+        procesos[i].id = i + 1;
+        procesos[i].rafaga = rafagas[i];
+        procesos[i].tiempo_restante = rafagas[i];
+        procesos[i].tiempo_espera = 0;
+    }
+
+    printf("--- Simulación Round Robin (Quantum = %d) ---\n", quantum);
+
+    // Ciclo principal de planificación
+    while (procesos_completados &lt; n) {
+        int algun_proceso_ejecutado = 0;
+
+        for (i = 0; i &lt; n; i++) {
+            if (procesos[i].tiempo_restante &gt; 0) {
+                algun_proceso_ejecutado = 1;
+                printf("\nEjecutando Proceso %d... ", procesos[i].id);
+
+                if (procesos[i].tiempo_restante &gt; quantum) {
+                    // El proceso usa todo el quantum y aún le falta
+                    tiempo_total += quantum;
+                    procesos[i].tiempo_restante -= quantum;
+                    printf("Queda pendiente (%d restan)", procesos[i].tiempo_restante);
+                } else {
+                    // El proceso termina dentro de este quantum
+                    tiempo_total += procesos[i].tiempo_restante;
+                    procesos[i].tiempo_espera = tiempo_total - procesos[i].rafaga;
+                    procesos[i].tiempo_restante = 0;
+                    procesos_completados++;
+                    printf("Terminado! (Espera: %d)", procesos[i].tiempo_espera);
+                }
+            }
+        }
+        
+        if (!algun_proceso_ejecutado) break;
+    }
+
+    printf("\n\n--- Estadísticas Finales ---\n");
+    float promedio_espera = 0;
+    for (i = 0; i &lt; n; i++) {
+        promedio_espera += procesos[i].tiempo_espera;
+        printf("Proceso %d: Espera = %d\n", procesos[i].id, procesos[i].tiempo_espera);
+    }
+    printf("Tiempo Promedio de Espera: %.2f\n", promedio_espera / n);
+
+    return 0;
+}</code></pre>
+        </main>
+        
+        <div style="text-align: center;">
+            <a href="laboratorio_codigo.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Volver al Laboratorio
+            </a>
+        </div>
+
+        <footer>
+            <p>Sistemas Operativos - Unidad 2</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script>
+        function copyToClipboard() {
+            const codeText = document.getElementById('source-code').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                btn.style.background = 'var(--secondary)';
+                btn.style.color = 'white';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

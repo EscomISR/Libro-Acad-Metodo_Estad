@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Según Silberschatz, Galvin y Gagne (2022), ¿cuál es la función principal de la implementación del sistema de archivos?",
+    "options": [
+      "Optimizar la velocidad del procesador",
+      "Administrar, almacenar y recuperar archivos de forma segura y eficiente",
+      "Reemplazar al kernel en la organización del hardware",
+      "Eliminar archivos temporales automáticamente"
+    ],
+    "answer": "Administrar, almacenar y recuperar archivos de forma segura y eficiente"
+  },
+  {
+    "question": "¿Qué estructuras forman parte de los Bloques de Control de Proceso (BCP)?",
+    "options": [
+      "Tabla de archivos abiertos, Tabla de inodos y Tabla de montajes",
+      "Tabla de procesos, tabla de memoria y tabla de señales",
+      "Registros del CPU, pila y heap",
+      "Bloques de datos, memoria caché y controladores"
+    ],
+    "answer": "Tabla de archivos abiertos, Tabla de inodos y Tabla de montajes"
+  },
+  {
+    "question": "¿Qué elementos forman parte de la estructura de control en disco?",
+    "options": [
+      "Superbloque, mapa de bits y bloques de datos",
+      "Procesos, hilos y señales",
+      "Caché de disco, buffer de E/S y tabla RAID",
+      "Usuarios, grupos y permisos"
+    ],
+    "answer": "Superbloque, mapa de bits y bloques de datos"
+  },
+  {
+    "question": "¿Qué ocurre cuando un archivo se abre según el texto?",
+    "options": [
+      "Se copia todo su contenido al CPU",
+      "El sistema traslada información al inodo y actualiza la tabla de archivos abiertos",
+      "El archivo se elimina automáticamente de la memoria secundaria",
+      "El kernel bloquea todos los accesos simultáneos"
+    ],
+    "answer": "El sistema traslada información al inodo y actualiza la tabla de archivos abiertos"
+  },
+  {
+    "question": "¿Para qué sirve la asignación de espacio en disco?",
+    "options": [
+      "Para almacenar archivos de forma contigua o enlazada evitando fragmentación",
+      "Para verificar la temperatura del disco",
+      "Para eliminar archivos duplicados",
+      "Para copiar archivos entre directorios automáticamente"
+    ],
+    "answer": "Para almacenar archivos de forma contigua o enlazada evitando fragmentación"
+  },
+  {
+    "question": "¿Cómo se organizan los archivos dentro de los directorios?",
+    "options": [
+      "De forma plana sin jerarquías",
+      "De forma aleatoria para ahorrar tiempo",
+      "De manera jerárquica, incluyendo subdirectorios",
+      "Agrupados únicamente por extensión"
+    ],
+    "answer": "De manera jerárquica, incluyendo subdirectorios"
+  },
+  {
+    "question": "Según el texto, ¿qué representan los archivos para el sistema operativo?",
+    "options": [
+      "Procesos temporales",
+      "La unidad lógica principal para almacenar información",
+      "Datos reservados exclusivamente para el kernel",
+      "Solo registros de actividad del usuario"
+    ],
+    "answer": "La unidad lógica principal para almacenar información"
+  },
+  {
+    "question": "¿Dónde se almacenan físicamente los datos de los archivos?",
+    "options": [
+      "En la RAM del sistema",
+      "En la caché del procesador",
+      "En bloques de disco",
+      "En archivos ocultos del kernel"
+    ],
+    "answer": "En bloques de disco"
+  },
+  {
+    "question": "¿Qué ocurre cuando un archivo se carga en memoria al abrirse?",
+    "options": [
+      "Se habilita su lectura y escritura mediante datos de control",
+      "Se ejecuta automáticamente como proceso",
+      "Se convierte en un archivo temporal",
+      "Se vacía su contenido en el disco"
+    ],
+    "answer": "Se habilita su lectura y escritura mediante datos de control"
+  },
+  {
+    "question": "¿Qué señala Tanenbaum (2015) respecto a los directorios?",
+    "options": [
+      "Que no tienen impacto en los permisos de archivos",
+      "Que son fundamentales para mantener el orden y aplicar políticas de seguridad",
+      "Que solo pueden almacenar archivos pero no subdirectorios",
+      "Que deben eliminarse para mejorar el rendimiento"
+    ],
+    "answer": "Que son fundamentales para mantener el orden y aplicar políticas de seguridad"
+  },
+  {
+    "question": "¿Qué estructura adoptan los directorios en sistemas como UNIX, Linux o Windows?",
+    "options": [
+      "Una tabla secuencial",
+      "Una pila de elementos",
+      "Un árbol con directorio raíz",
+      "Un arreglo circular"
+    ],
+    "answer": "Un árbol con directorio raíz"
+  },
+  {
+    "question": "¿Qué almacenan los registros dentro de un directorio?",
+    "options": [
+      "El código ejecutable del archivo",
+      "El nombre, referencia física y atributos del archivo",
+      "Solo la fecha de creación",
+      "Los procesos que accedieron anteriormente"
+    ],
+    "answer": "El nombre, referencia física y atributos del archivo"
+  },
+  {
+    "question": "¿Qué estructuras ayudan a acelerar la búsqueda de directorios?",
+    "options": [
+      "Buffers de video y listas de procesos",
+      "Tablas de directorios abiertos y cachés",
+      "Drivers de audio y controladores USB",
+      "Páginas de memoria y registros del CPU"
+    ],
+    "answer": "Tablas de directorios abiertos y cachés"
+  },
+  {
+    "question": "¿Qué mecanismos garantizan la integridad ante accesos simultáneos?",
+    "options": [
+      "Bitácoras y bloqueo de directorios",
+      "Reinicio automático del sistema",
+      "Compresión forzada de archivos",
+      "Cifrado obligatorio de disco"
+    ],
+    "answer": "Bitácoras y bloqueo de directorios"
+  },
+  {
+    "question": "Según Tanenbaum, ¿qué son los archivos compartidos?",
+    "options": [
+      "Archivos visibles solo para administradores",
+      "Archivos que permiten acceso o procesos por múltiples usuarios",
+      "Archivos temporales borrados tras su uso",
+      "Archivos exclusivos del kernel"
+    ],
+    "answer": "Archivos que permiten acceso o procesos por múltiples usuarios"
+  },
+  {
+    "question": "¿Por qué es importante controlar la concurrencia en archivos compartidos?",
+    "options": [
+      "Para evitar que los archivos ocupen espacio extra",
+      "Para regular accesos simultáneos y evitar inconsistencias",
+      "Para acelerar la eliminación de archivos",
+      "Para impedir el acceso del sistema operativo"
+    ],
+    "answer": "Para regular accesos simultáneos y evitar inconsistencias"
+  },
+  {
+    "question": "¿Qué mecanismos utiliza el sistema operativo para proteger archivos compartidos?",
+    "options": [
+      "Permisos y control de acceso",
+      "Reinicio del disco",
+      "Compresión automática",
+      "Fragmentación del archivo"
+    ],
+    "answer": "Permisos y control de acceso"
+  },
+  {
+    "question": "Según Tanenbaum, ¿de qué depende el buen manejo de archivos compartidos?",
+    "options": [
+      "Solo del software del sistema operativo",
+      "Solo del hardware de la computadora",
+      "Del software, del sistema de archivos y del hardware de almacenamiento",
+      "Del número de usuarios conectados"
+    ],
+    "answer": "Del software, del sistema de archivos y del hardware de almacenamiento"
+  }
+]

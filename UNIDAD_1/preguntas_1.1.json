@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Cuál es la función principal del sistema operativo dentro de una computadora?",
+    "options": [
+      "Conectar hardware y software gestionando recursos",
+      "Acelerar la tarjeta gráfica",
+      "Ejecutar programas sin usar memoria",
+      "Sustituir al procesador en tareas críticas"
+    ],
+    "answer": "Conectar hardware y software gestionando recursos"
+  },
+  {
+    "question": "¿Qué aspecto básico del sistema operativo administra dónde se guardan datos y programas mientras están en uso?",
+    "options": [
+      "Control de programas",
+      "Uso de la memoria",
+      "Seguridad y permisos",
+      "Comunicación con el usuario"
+    ],
+    "answer": "Uso de la memoria"
+  },
+  {
+    "question": "¿Qué abstracción proporciona el sistema operativo para ocultar la complejidad del uso físico de la memoria?",
+    "options": [
+      "Espacio de direcciones",
+      "Planificador de discos",
+      "Interfaz de usuario",
+      "Controlador DMA"
+    ],
+    "answer": "Espacio de direcciones"
+  },
+  {
+    "question": "¿Qué componente actúa como la abstracción de la CPU que administra la ejecución de programas?",
+    "options": [
+      "Archivo ejecutable",
+      "Proceso",
+      "Unidad lógica aritmética",
+      "Planificador gráfico"
+    ],
+    "answer": "Proceso"
+  },
+  {
+    "question": "¿Qué función del sistema operativo organiza y permite acceder a la información en almacenamiento?",
+    "options": [
+      "Gestión de archivos",
+      "Gestión de memoria virtual",
+      "Controlador de interrupciones",
+      "Interpretación de comandos"
+    ],
+    "answer": "Gestión de archivos"
+  },
+  {
+    "question": "¿Cuál de los siguientes es un ejemplo de abstracción del sistema operativo relacionada con el hardware?",
+    "options": [
+      "Controladores de dispositivos de E/S",
+      "Compilador",
+      "Librería gráfica",
+      "Ventanas emergentes"
+    ],
+    "answer": "Controladores de dispositivos de E/S"
+  },
+  {
+    "question": "¿Qué tipo de sistema se caracteriza por manejar enormes volúmenes de datos con alta confiabilidad?",
+    "options": [
+      "Servidor",
+      "Tiempo real",
+      "Mainframe",
+      "Embebido"
+    ],
+    "answer": "Mainframe"
+  },
+  {
+    "question": "¿Qué tipo de sistema operativo debe garantizar que el tiempo de respuesta sea exacto y predecible?",
+    "options": [
+      "Multiprocesador",
+      "Servidor web",
+      "Tiempo Real",
+      "Sistema distribuido"
+    ],
+    "answer": "Tiempo Real"
+  },
+  {
+    "question": "¿Qué tipo de sistema operativo se utiliza en dispositivos con recursos limitados como sensores o electrodomésticos?",
+    "options": [
+      "Mainframe",
+      "Embebido",
+      "Multiprocesador",
+      "Servidor"
+    ],
+    "answer": "Embebido"
+  },
+  {
+    "question": "¿Qué característica distingue a un sistema multiprocesador?",
+    "options": [
+      "Trabaja con un único hilo de ejecución",
+      "Opera con varios procesadores en paralelo",
+      "Solo maneja una tarea a la vez",
+      "No utiliza memoria compartida"
+    ],
+    "answer": "Opera con varios procesadores en paralelo"
+  },
+  {
+    "question": "¿Cuál es una función esencial del sistema operativo al comunicarse con el usuario?",
+    "options": [
+      "Generar señales eléctricas",
+      "Proveer interfaz gráfica o de comandos",
+      "Compilar programas automáticamente",
+      "Controlar velocidades de reloj"
+    ],
+    "answer": "Proveer interfaz gráfica o de comandos"
+  },
+  {
+    "question": "¿Qué tipo de sistema operativo usa clusters conectados mediante redes de alta velocidad?",
+    "options": [
+      "Embebido",
+      "Multiprocesador",
+      "Servidor web",
+      "Mainframe"
+    ],
+    "answer": "Multiprocesador"
+  },
+  {
+    "question": "¿Qué elemento controla quién puede acceder o modificar recursos en un sistema operativo?",
+    "options": [
+      "Interfaz de usuario",
+      "Seguridad y permisos",
+      "Archivos temporales",
+      "Gestor de energía"
+    ],
+    "answer": "Seguridad y permisos"
+  },
+  {
+    "question": "¿Qué tipo de RTOS considera inaceptable incumplir un plazo?",
+    "options": [
+      "Soft Real-Time",
+      "Hard Real-Time",
+      "Batch RTOS",
+      "Predictive RTOS"
+    ],
+    "answer": "Hard Real-Time"
+  },
+  {
+    "question": "¿Qué característica define a los sistemas embebidos?",
+    "options": [
+      "Tienen recursos limitados y son especializados",
+      "Son los más rápidos del mercado",
+      "Siempre funcionan conectados a servidores",
+      "Requieren gran capacidad gráfica"
+    ],
+    "answer": "Tienen recursos limitados y son especializados"
+  },
+  {
+    "question": "¿Qué abstracción del SO permite que los programas no conozcan la estructura física del disco?",
+    "options": [
+      "Procesos",
+      "Archivos",
+      "Interrupciones",
+      "Tablas de páginas"
+    ],
+    "answer": "Archivos"
+  },
+  {
+    "question": "¿Qué característica hace únicos a los sistemas de tiempo real?",
+    "options": [
+      "Son los más rápidos",
+      "Su prioridad es la predictibilidad",
+      "Utilizan gráficos avanzados",
+      "Operan solo sin red"
+    ],
+    "answer": "Su prioridad es la predictibilidad"
+  },
+  {
+    "question": "¿Cuál es el objetivo general del sistema operativo?",
+    "options": [
+      "Ser un puente entre usuario y hardware",
+      "Guardar capturas de pantalla",
+      "Optimizar videojuegos",
+      "Administrar redes sociales"
+    ],
+    "answer": "Ser un puente entre usuario y hardware"
+  },
+  {
+    "question": "¿Qué aspecto básico del SO se encarga de manejar varios programas a la vez?",
+    "options": [
+      "Control de programas",
+      "Administración de archivos",
+      "Abstracción de memoria",
+      "Planificación multimedia"
+    ],
+    "answer": "Control de programas"
+  },
+  {
+    "question": "¿Qué concepto permite al usuario dar instrucciones al sistema mediante ventanas íconos o comandos?",
+    "options": [
+      "Interfaz de usuario",
+      "Memoria virtual",
+      "Controlador PCI",
+      "Hiperprocesamiento"
+    ],
+    "answer": "Interfaz de usuario"
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Según Tanenbaum y Bos (2015), ¿qué comprende la optimización del almacenamiento?",
+    "options": [
+      "La eliminación automática de archivos temporales",
+      "Estrategias para hacer más rápido, eficiente y confiable el manejo de datos en el disco",
+      "La compresión de todos los archivos del sistema",
+      "La reorganización de los procesos en memoria"
+    ],
+    "answer": "Estrategias para hacer más rápido, eficiente y confiable el manejo de datos en el disco"
+  },
+  {
+    "question": "¿Qué elementos utiliza el sistema operativo para mejorar la optimización del almacenamiento?",
+    "options": [
+      "Memoria caché y buffer de disco",
+      "Únicamente el procesador",
+      "Los controladores USB",
+      "La tabla de páginas"
+    ],
+    "answer": "Memoria caché y buffer de disco"
+  },
+  {
+    "question": "¿Qué función tiene la escritura diferida?",
+    "options": [
+      "Eliminar archivos duplicados",
+      "Acumular y organizar operaciones simultáneas para mejorar el acceso y funcionamiento",
+      "Desactivar procesos en ejecución",
+      "Copiar datos automáticamente entre discos"
+    ],
+    "answer": "Acumular y organizar operaciones simultáneas para mejorar el acceso y funcionamiento"
+  },
+  {
+    "question": "¿Qué es la recuperación según Tanenbaum (2015)?",
+    "options": [
+      "Un método para acelerar el acceso a la memoria RAM",
+      "Conjunto de procedimientos para restaurar la integridad de los datos tras un fallo",
+      "Un proceso para borrar archivos antiguos del sistema",
+      "Un mecanismo para duplicar archivos en discos externos"
+    ],
+    "answer": "Conjunto de procedimientos para restaurar la integridad de los datos tras un fallo"
+  },
+  {
+    "question": "¿Qué eventos pueden requerir procedimientos de recuperación?",
+    "options": [
+      "Actualizaciones del sistema",
+      "Fallos del sistema, problemas de hardware o interrupciones como cortes de energía",
+      "Instalación de nuevos programas",
+      "Cambios de usuario en el sistema"
+    ],
+    "answer": "Fallos del sistema, problemas de hardware o interrupciones como cortes de energía"
+  },
+  {
+    "question": "¿Qué busca la consistencia en sistemas distribuidos?",
+    "options": [
+      "Aumentar el tamaño de los archivos",
+      "Lograr uniformidad y coherencia en la lectura de datos entre nodos",
+      "Desactivar procesos duplicados",
+      "Reorganizar la estructura física del disco"
+    ],
+    "answer": "Lograr uniformidad y coherencia en la lectura de datos entre nodos"
+  },
+  {
+    "question": "¿Qué se debe implementar para evitar errores o retrasos en sistemas distribuidos?",
+    "options": [
+      "Fragmentación de archivos",
+      "Modelos de consistencia y procesos de sincronización",
+      "Reducción del tamaño de la memoria virtual",
+      "Desactivación de la caché"
+    ],
+    "answer": "Modelos de consistencia y procesos de sincronización"
+  },
+  {
+    "question": "¿Qué beneficio proporciona el proceso de agrupar solicitudes de escritura?",
+    "options": [
+      "Aumenta la fragmentación del disco",
+      "Realiza una sola operación grande y más eficiente",
+      "Obliga a las aplicaciones a detenerse",
+      "Disminuye la memoria RAM disponible"
+    ],
+    "answer": "Realiza una sola operación grande y más eficiente"
+  },
+  {
+    "question": "¿Cómo ayuda la reorganización de operaciones de escritura?",
+    "options": [
+      "Colocando los datos en áreas aleatorias del disco",
+      "Agrupando datos relacionados en zonas próximas del disco para reducir accesos físicos",
+      "Eliminando automáticamente archivos antiguos",
+      "Reduciendo el tamaño de los bloques del disco"
+    ],
+    "answer": "Agrupando datos relacionados en zonas próximas del disco para reducir accesos físicos"
+  },
+  {
+    "question": "¿Cuál es el principal beneficio de esta optimización en el rendimiento?",
+    "options": [
+      "Las aplicaciones pueden continuar sin esperar la lentitud del disco",
+      "El sistema aumenta el tamaño del almacenamiento físico",
+      "Los archivos se cargan directamente en la RAM",
+      "La memoria caché deja de utilizarse"
+    ],
+    "answer": "Las aplicaciones pueden continuar sin esperar la lentitud del disco"
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Qué significa IPC en el contexto de sistemas operativos?",
+    "options": [
+      "Internet Protocol Control",
+      "Inter-Process Communication",
+      "Internal Process Core",
+      "Instruction Pointer Counter"
+    ],
+    "answer": "Inter-Process Communication"
+  },
+  {
+    "question": "¿Cuál es la función principal de la IPC?",
+    "options": [
+      "Aumentar la velocidad del reloj del CPU",
+      "Permitir el intercambio de datos y sincronización entre procesos",
+      "Gestionar la memoria virtual del sistema",
+      "Controlar los drivers de video"
+    ],
+    "answer": "Permitir el intercambio de datos y sincronización entre procesos"
+  },
+  {
+    "question": "¿Cuál es el mecanismo de IPC más rápido?",
+    "options": [
+      "Tuberías (Pipes)",
+      "Colas de mensajes",
+      "Memoria compartida",
+      "Sockets"
+    ],
+    "answer": "Memoria compartida"
+  },
+  {
+    "question": "¿Por qué la memoria compartida es el método más veloz?",
+    "options": [
+      "Porque usa un protocolo de red especial",
+      "Porque evita la intervención del kernel en la transferencia de datos",
+      "Porque comprime los datos automáticamente",
+      "Porque usa la GPU en lugar de la CPU"
+    ],
+    "answer": "Porque evita la intervención del kernel en la transferencia de datos"
+  },
+  {
+    "question": "¿Qué riesgo principal presenta el uso de memoria compartida?",
+    "options": [
+      "Condiciones de carrera si no hay sincronización",
+      "Pérdida de datos por red lenta",
+      "Bloqueo del kernel",
+      "Llenado del disco duro"
+    ],
+    "answer": "Condiciones de carrera si no hay sincronización"
+  },
+  {
+    "question": "¿Qué característica define a una tubería (pipe) tradicional?",
+    "options": [
+      "Es bidireccional y de acceso aleatorio",
+      "Es unidireccional y sigue el orden FIFO",
+      "Permite comunicación por red",
+      "Almacena mensajes con prioridades"
+    ],
+    "answer": "Es unidireccional y sigue el orden FIFO"
+  },
+  {
+    "question": "¿Qué limitación tienen las tuberías anónimas?",
+    "options": [
+      "Solo funcionan entre procesos relacionados (padre-hijo)",
+      "Son muy lentas",
+      "No pueden transmitir texto",
+      "Requieren conexión a internet"
+    ],
+    "answer": "Solo funcionan entre procesos relacionados (padre-hijo)"
+  },
+  {
+    "question": "¿Qué llamada al sistema se usa en Unix para crear una tubería anónima?",
+    "options": [
+      "socket()",
+      "mkfifo()",
+      "pipe()",
+      "shmget()"
+    ],
+    "answer": "pipe()"
+  },
+  {
+    "question": "¿Qué mecanismo de IPC permite la comunicación entre procesos no relacionados mediante un nombre en el sistema de archivos?",
+    "options": [
+      "Tubería anónima",
+      "Tubería con nombre (Named Pipe / FIFO)",
+      "Señal",
+      "Semáforo"
+    ],
+    "answer": "Tubería con nombre (Named Pipe / FIFO)"
+  },
+  {
+    "question": "¿Qué ventaja ofrecen las colas de mensajes sobre las tuberías?",
+    "options": [
+      "Son más rápidas que la memoria compartida",
+      "Permiten comunicación estructurada con prioridades y tipos de mensaje",
+      "No consumen memoria del kernel",
+      "Son exclusivas de Windows"
+    ],
+    "answer": "Permiten comunicación estructurada con prioridades y tipos de mensaje"
+  },
+  {
+    "question": "¿Qué define a la comunicación síncrona (bloqueante)?",
+    "options": [
+      "El emisor continúa inmediatamente después de enviar",
+      "El emisor espera hasta que el receptor reciba el mensaje",
+      "El mensaje se pierde si no hay receptor",
+      "Se usa solo en redes inalámbricas"
+    ],
+    "answer": "El emisor espera hasta que el receptor reciba el mensaje"
+  },
+  {
+    "question": "¿Qué define a la comunicación asíncrona (no bloqueante)?",
+    "options": [
+      "El emisor envía el mensaje y continúa su ejecución sin esperar",
+      "El sistema se detiene por completo",
+      "Requiere un cable físico dedicado",
+      "El receptor debe estar listo antes de enviar"
+    ],
+    "answer": "El emisor envía el mensaje y continúa su ejecución sin esperar"
+  },
+  {
+    "question": "¿Qué mecanismo se utiliza para notificar eventos asíncronos como interrupciones (ej. Ctrl+C)?",
+    "options": [
+      "Sockets",
+      "Señales (Signals)",
+      "Memoria Virtual",
+      "Archivos mapeados"
+    ],
+    "answer": "Señales (Signals)"
+  },
+  {
+    "question": "¿Qué mecanismo es la base de la comunicación cliente-servidor en redes?",
+    "options": [
+      "Pipes anónimos",
+      "Sockets",
+      "Memoria compartida local",
+      "Colas de mensajes locales"
+    ],
+    "answer": "Sockets"
+  },
+  {
+    "question": "¿Qué función de Windows se utiliza para crear un objeto de memoria compartida?",
+    "options": [
+      "CreatePipe",
+      "CreateFileMapping",
+      "OpenProcess",
+      "VirtualAlloc"
+    ],
+    "answer": "CreateFileMapping"
+  },
+  {
+    "question": "¿Cuál es una función de Unix utilizada para enviar un mensaje a una cola?",
+    "options": [
+      "msgsnd()",
+      "pipe()",
+      "kill()",
+      "mmap()"
+    ],
+    "answer": "msgsnd()"
+  },
+  {
+    "question": "¿Qué sucede con los datos en una tubería si no se leen?",
+    "options": [
+      "Se borran inmediatamente",
+      "Permanecen en el buffer del kernel hasta que se lean",
+      "Se envían al disco duro",
+      "Generan un error fatal"
+    ],
+    "answer": "Permanecen en el buffer del kernel hasta que se lean"
+  },
+  {
+    "question": "¿Qué señal se utiliza comúnmente para detener un proceso inmediatamente (Kill)?",
+    "options": [
+      "SIGINT",
+      "SIGKILL",
+      "SIGSTOP",
+      "SIGCONT"
+    ],
+    "answer": "SIGKILL"
+  },
+  {
+    "question": "¿Qué mecanismo de IPC actúa como intermediario activo gestionando los datos en el kernel?",
+    "options": [
+      "Memoria compartida",
+      "Paso de mensajes (Colas)",
+      "Variables locales",
+      "Registros de CPU"
+    ],
+    "answer": "Paso de mensajes (Colas)"
+  },
+  {
+    "question": "¿Qué protocolo es común en el uso de Sockets para comunicación fiable?",
+    "options": [
+      "TCP/IP",
+      "USB",
+      "SATA",
+      "HDMI"
+    ],
+    "answer": "TCP/IP"
+  }
+]

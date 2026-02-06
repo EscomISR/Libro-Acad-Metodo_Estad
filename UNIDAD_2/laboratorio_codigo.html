@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Código - Unidad 2</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos consistentes con Unidad 2 (Azul/Oscuro) */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db; /* Azul principal */
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --gray: #95a5a6;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            font-weight: 300;
+        }
+        
+        .flashcard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .flashcard {
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Estilo Azul Highlight */
+        .flashcard.highlight {
+            border-left: 4px solid var(--secondary);
+            background: linear-gradient(145deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.05));
+        }
+
+        .flashcard:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: var(--secondary);
+        }
+
+        .flashcard-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .flashcard-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            width: 50px;
+            text-align: center;
+        }
+        
+        .flashcard-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .flashcard-description {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            flex-grow: 1; 
+            margin-bottom: 20px;
+        }
+        
+        .flashcard-description code {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #a0cff1;
+        }
+
+        .flashcard-footer {
+            margin-top: auto;
+            text-align: center;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .flashcard-footer i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .flashcard:hover .flashcard-footer i {
+            transform: translateX(5px);
+        }
+        
+        /* Separador visual para las secciones de prácticas */
+        .section-divider {
+            grid-column: 1 / -1;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 2</a>
+                <span>/</span>
+                <span>Laboratorio de Código</span>
+            </div>
+            <h1><i class="fas fa-flask"></i> Laboratorio de Código</h1>
+            <div class="subtitle">Administración de Procesos</div>
+        </header>
+        
+        <div class="flashcard-container">
+            
+            <div class="section-divider">FCFS (First Come First Served)</div>
+            <a href="ver_codigo_1.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-user-clock"></i></div>
+                    <div class="flashcard-title">Código FCFS</div>
+                </div>
+                <p class="flashcard-description">Algoritmo de planificación no expulsivo donde el primero en llegar es el primero en ser atendido.</p>
+                <div class="flashcard-footer">Ver Código <i class="fas fa-eye"></i></div>
+            </a>
+            <a href="desafio_fcfs.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-hourglass-start"></i></div>
+                    <div class="flashcard-title">Desafío FIFO</div>
+                </div>
+                <p class="flashcard-description"><strong>Objetivo:</strong> Implementa la cola de procesos para asegurar el orden correcto de llegada.</p>
+                <div class="flashcard-footer">Iniciar Desafío <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <div class="section-divider">Round Robin</div>
+            <a href="ver_codigo_2.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-history"></i></div>
+                    <div class="flashcard-title">Código Round Robin</div>
+                </div>
+                <p class="flashcard-description">Algoritmo de Turno Rotatorio que utiliza un <em>Quantum</em> para alternar justamente entre procesos.</p>
+                <div class="flashcard-footer">Ver Código <i class="fas fa-eye"></i></div>
+            </a>
+            <a href="desafio_rr.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-stopwatch"></i></div>
+                    <div class="flashcard-title">Desafío de Quantum</div>
+                </div>
+                <p class="flashcard-description"><strong>Objetivo:</strong> Implementa la lógica para el cambio de contexto cuando el tiempo se agota.</p>
+                <div class="flashcard-footer">Iniciar Desafío <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <div class="section-divider">Por Prioridad</div>
+            <a href="ver_codigo_3.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-sort-amount-up"></i></div>
+                    <div class="flashcard-title">Código Prioridad</div>
+                </div>
+                <p class="flashcard-description">Planificación basada en la importancia del proceso. Analiza cómo evitar la inanición.</p>
+                <div class="flashcard-footer">Ver Código <i class="fas fa-eye"></i></div>
+            </a>
+            <a href="desafio_prioridad.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-list-ol"></i></div>
+                    <div class="flashcard-title">Desafío de Ordenamiento</div>
+                </div>
+                <p class="flashcard-description"><strong>Objetivo:</strong> Completa la función de comparación para ordenar la cola de listos por prioridad.</p>
+                <div class="flashcard-footer">Iniciar Desafío <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <div class="section-divider">SJF (Shortest Job First)</div>
+            <a href="ver_codigo_4.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                    <div class="flashcard-title">Código SJF</div>
+                </div>
+                <p class="flashcard-description">El trabajo más corto primero (No expulsivo). Minimiza el tiempo de espera promedio.</p>
+                <div class="flashcard-footer">Ver Código <i class="fas fa-eye"></i></div>
+            </a>
+            <a href="desafio_sjf.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-filter"></i></div>
+                    <div class="flashcard-title">Desafío de Selección</div>
+                </div>
+                <p class="flashcard-description"><strong>Objetivo:</strong> Identifica y selecciona el proceso con la ráfaga de CPU más corta disponible.</p>
+                <div class="flashcard-footer">Iniciar Desafío <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <div class="section-divider">SRTF (Shortest Remaining Time First)</div>
+            <a href="ver_codigo_5.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-clock"></i></div>
+                    <div class="flashcard-title">Código SRTF</div>
+                </div>
+                <p class="flashcard-description">Versión expulsiva del SJF. El proceso con menor tiempo restante toma el control.</p>
+                <div class="flashcard-footer">Ver Código <i class="fas fa-eye"></i></div>
+            </a>
+            <a href="desafio_srtf.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-cut"></i></div>
+                    <div class="flashcard-title">Desafío de Expulsión</div>
+                </div>
+                <p class="flashcard-description"><strong>Objetivo:</strong> Implementa la lógica para interrumpir un proceso si llega uno más corto.</p>
+                <div class="flashcard-footer">Iniciar Desafío <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <div class="section-divider">Sincronización (Mutex)</div>
+            <a href="ver_codigo_6.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-lock"></i></div>
+                    <div class="flashcard-title">Código Mutex</div>
+                </div>
+                <p class="flashcard-description">Uso de semáforos y exclusión mutua para proteger secciones críticas en hilos.</p>
+                <div class="flashcard-footer">Ver Código <i class="fas fa-eye"></i></div>
+            </a>
+            <a href="desafio_mutex.html" class="flashcard highlight">
+                <div class="flashcard-header">
+                    <div class="flashcard-icon"><i class="fas fa-key"></i></div>
+                    <div class="flashcard-title">Desafío de Candados</div>
+                </div>
+                <p class="flashcard-description"><strong>Objetivo:</strong> Completa el código para bloquear y desbloquear recursos compartidos correctamente.</p>
+                <div class="flashcard-footer">Iniciar Desafío <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+        </div>
+        
+        <footer>
+            <p>Sistemas Operativos - Unidad 2: Desafíos de Código</p>
+            <p>Desarrollado para fines educativos - © 2025</p>
+        </footer>
+    </div>
+</body>
+</html>

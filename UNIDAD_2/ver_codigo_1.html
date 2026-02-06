@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Código - FCFS</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Estilos consistentes con Unidad 2 */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --gray: #95a5a6;
+            --code-bg: #2d2d2d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: var(--light); min-height: 100vh; line-height: 1.7; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        header { text-align: center; padding: 30px 20px; margin-bottom: 30px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .breadcrumb { display: flex; justify-content: center; margin-bottom: 15px; color: var(--gray); font-size: 1rem; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: white; text-decoration: underline; }
+        .breadcrumb span { margin: 0 10px; }
+        
+        h1 { font-size: 2.2rem; margin-bottom: 5px; color: white; }
+        .subtitle { font-size: 1.2rem; color: var(--secondary); font-weight: 300; }
+
+        .code-viewer-container { background: #1e1e1e; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); overflow: hidden; border: 1px solid #333; }
+        .code-header { background: #252526; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
+        .file-info { display: flex; align-items: center; gap: 10px; color: #ccc; font-family: monospace; font-size: 0.9rem; }
+        .file-icon { color: var(--secondary); }
+        
+        .btn-copy { background: rgba(255,255,255,0.1); border: none; color: #ddd; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-copy:hover { background: var(--secondary); color: white; }
+
+        pre[class*="language-"] { margin: 0 !important; border-radius: 0 !important; padding: 20px !important; background: transparent !important; font-size: 0.95rem; text-shadow: none !important; }
+        code[class*="language-"], pre[class*="language-"] { font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace; }
+
+        footer { text-align: center; margin-top: 40px; padding: 20px; color: var(--gray); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .back-button { display: inline-block; margin-top: 20px; color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .back-button:hover { color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 2</a>
+                <span>/</span>
+                <a href="laboratorio_codigo.html">Laboratorio</a>
+                <span>/</span>
+                <span>Código Fuente</span>
+            </div>
+            <h1><i class="fas fa-file-code"></i> Visor de Código</h1>
+            <div class="subtitle">Algoritmo FCFS</div>
+        </header>
+        
+        <main class="code-viewer-container">
+            <div class="code-header">
+                <div class="file-info">
+                    <i class="fas fa-c file-icon"></i>
+                    <span>AlgoritmoFCFS.c</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-copy" onclick="copyToClipboard()">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                </div>
+            </div>
+            
+            <pre><code class="language-c" id="source-code">/*
+    Nombre: Ylhuicatzi Padua Tonatiuh
+    Escuela: ESCOM
+    Materia: Sistemas Operativos
+    Practica numero #5
+    Tema: Algoritmo FCFS
+*/
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+// Estructura para representar un proceso
+typedef struct {
+    int id;
+    int bt;
+    int wt;
+    int tat;
+} Proceso;
+
+// Estructura para representar una cola tipo FIFO
+typedef struct Nodo {
+    Proceso proceso;
+    struct Nodo* siguiente;
+} Nodo;
+
+typedef struct {
+    Nodo* frente;
+    Nodo* final;
+} Cola;
+
+// Función para crear un nuevo nodo
+Nodo* crearNodo(Proceso proceso) {
+    Nodo* nodo = (Nodo*)malloc(sizeof(Nodo));
+    nodo->proceso = proceso;
+    nodo->siguiente = NULL;
+    return nodo;
+}
+
+// Función para encolar un proceso a la cola
+void encolar(Cola* cola, Proceso proceso) {
+    Nodo* nodo = crearNodo(proceso);
+    if (cola->frente == NULL) {
+        cola->frente = nodo;
+        cola->final = nodo;
+    } else {
+        cola->final->siguiente = nodo;
+        cola->final = nodo;
+    }
+}
+
+// Función para desencolar un proceso de la cola
+Proceso desencolar(Cola* cola) {
+    if (cola->frente == NULL) {
+        Proceso proceso_vacio;
+        proceso_vacio.id = -1;
+        return proceso_vacio;
+    } else {
+        Nodo* temp = cola->frente;
+        Proceso proceso = temp->proceso;
+        cola->frente = cola->frente->siguiente;
+        free(temp);
+        return proceso;
+    }
+}
+
+// Función para liberar la memoria de la cola
+void liberarCola(Cola* cola) {
+    Nodo* actual = cola->frente;
+    while (actual != NULL) {
+        Nodo* temp = actual;
+        actual = actual->siguiente;
+        free(temp);
+    }
+    cola->frente = NULL;
+    cola->final = NULL;
+}
+
+// Función para calcular los tiempos de espera y de retorno promedio
+void calcularTiempos(Proceso procesos[], int n) {
+    int tiempo_espera_total = 0;
+    int tiempo_retorno_total = 0;
+
+    for (int i = 0; i < n; i++) {
+        tiempo_espera_total += procesos[i].wt;
+        tiempo_retorno_total += procesos[i].tat;
+    }
+
+    double tiempo_espera_promedio = (double)tiempo_espera_total / n;
+    double tiempo_retorno_promedio = (double)tiempo_retorno_total / n;
+
+    // Mostrar la tabla de resultados en un archivo de texto
+    FILE* archivo_resultados = fopen("resultados_fcfs.txt", "w");
+    if (archivo_resultados != NULL) {
+        fprintf(archivo_resultados, "Proceso\tTiempo de espera\tTiempo de retorno\n");
+        for (int i = 0; i < n; i++) {
+            fprintf(archivo_resultados, "%d\t\t%d\t\t\t%d\n", procesos[i].id, procesos[i].wt, procesos[i].tat);
+        }
+        fprintf(archivo_resultados, "\nTiempo de espera promedio: %.2f\n", tiempo_espera_promedio);
+        fprintf(archivo_resultados, "Tiempo de retorno promedio: %.2f\n", tiempo_retorno_promedio);
+        fclose(archivo_resultados);
+        printf("Se han guardado los resultados en el archivo resultados_fcfs.txt\n");
+    } else {
+        printf("Error al abrir el archivo de resultados.\n");
+    }
+}
+
+// Función principal
+int main(int argc, char* argv[]) {
+    if (argc != 4) {
+        printf("Uso: ./fcfs <numero_procesos> <rango_minimo> <rango_maximo>\n");
+        return 1;
+    }
+
+    int n = atoi(argv[1]); // Número de procesos
+    int rango_minimo = atoi(argv[2]); // Rango mínimo de ráfaga
+    int rango_maximo = atoi(argv[3]); // Rango máximo de ráfaga
+
+    if (n <= 0) {
+        printf("El número de procesos debe ser mayor a cero.\n");
+        return 1;
+    }
+
+    if (rango_minimo <= 0 || rango_maximo <= 0 || rango_minimo > rango_maximo) {
+        printf("El rango de ráfaga debe ser válido.\n");
+        return 1;
+    }
+
+    srand(time(NULL));
+
+    Proceso* procesos = (Proceso*)malloc(n * sizeof(Proceso)); // Crear arreglo de procesos
+
+    // Generar procesos y asignar tiempos de ráfaga aleatorios
+    for (int i = 0; i < n; i++) {
+        procesos[i].id = i + 1;
+        procesos[i].bt = rand() % (rango_maximo - rango_minimo + 1) + rango_minimo;
+        procesos[i].wt = 0;
+        procesos[i].tat = 0;
+    }
+
+    // Asignar tiempo de espera 0 a un proceso de forma aleatoria
+    int indice_tiempo_espera_cero = rand() % n;
+    procesos[indice_tiempo_espera_cero].wt = 0;
+
+    // Asignar tiempos de espera aleatorios a los demás procesos
+    for (int i = 0; i < n; i++) {
+        if (i != indice_tiempo_espera_cero) {
+            procesos[i].wt = rand() % rango_maximo + 1;
+        }
+    }
+
+    Cola cola;
+    cola.frente = NULL;
+    cola.final = NULL;
+
+    // Encolar los procesos en orden de llegada
+    for (int i = 0; i < n; i++) {
+        encolar(&cola, procesos[i]);
+    }
+
+    int tiempo_transcurrido = 0;
+
+    // Calcular los tiempos de espera y de retorno
+    while (cola.frente != NULL) {
+        Proceso proceso_actual = desencolar(&cola);
+        proceso_actual.tat = proceso_actual.wt + proceso_actual.bt;
+        tiempo_transcurrido += proceso_actual.bt;
+
+        // Actualizar tiempos de espera de los procesos en espera
+        Nodo* actual = cola.frente;
+        while (actual != NULL) {
+            actual->proceso.wt += proceso_actual.bt;
+            actual = actual->siguiente;
+        }
+
+        // Guardar los cambios en el proceso actual
+        procesos[proceso_actual.id - 1] = proceso_actual;
+    }
+
+    liberarCola(&cola); // Liberar memoria de la cola
+    calcularTiempos(procesos, n); // Calcular y mostrar los tiempos de espera y de retorno
+    free(procesos); // Liberar memoria del arreglo de procesos
+    return 0;
+}</code></pre>
+        </main>
+        
+        <div style="text-align: center;">
+            <a href="laboratorio_codigo.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Volver al Laboratorio
+            </a>
+        </div>
+
+        <footer>
+            <p>Sistemas Operativos - Unidad 2</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script>
+        function copyToClipboard() {
+            const codeText = document.getElementById('source-code').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                btn.style.background = 'var(--secondary)';
+                btn.style.color = 'white';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

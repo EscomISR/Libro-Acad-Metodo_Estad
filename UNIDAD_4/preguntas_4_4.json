@@ -1,0 +1,162 @@
+[
+  {
+    "question": "¿Cuál es la función principal de los sistemas de archivos estructurados según Tanenbaum y Bos (2015)?",
+    "options": [
+      "Aumentar la velocidad del procesador",
+      "Definir cómo se almacenan y gestionan los datos para facilitar búsqueda, acceso y administración",
+      "Eliminar archivos temporales del sistema",
+      "Controlar los procesos en memoria"
+    ],
+    "answer": "Definir cómo se almacenan y gestionan los datos para facilitar búsqueda, acceso y administración"
+  },
+  {
+    "question": "¿Qué ventaja ofrecen los sistemas de archivos estructurados?",
+    "options": [
+      "Su arquitectura modular que resuelve operaciones complejas",
+      "Requieren menos memoria RAM",
+      "Permiten ejecutar programas sin kernel",
+      "Eliminan completamente la fragmentación del disco"
+    ],
+    "answer": "Su arquitectura modular que resuelve operaciones complejas"
+  },
+  {
+    "question": "¿Cuál es una función de seguridad en los sistemas de archivos estructurados?",
+    "options": [
+      "Acelerar la carga del sistema operativo",
+      "Proteger la información ante fallos del sistema",
+      "Eliminar automáticamente archivos duplicados",
+      "Evitar la creación de subdirectorios"
+    ],
+    "answer": "Proteger la información ante fallos del sistema"
+  },
+  {
+    "question": "¿Qué propone el método de bitácoras (journaling)?",
+    "options": [
+      "Eliminar el uso de metadatos",
+      "Registrar eventos en bitácoras para mantener la integridad de la información",
+      "Guardar archivos únicamente de forma contigua",
+      "Reemplazar los sistemas de archivos tradicionales"
+    ],
+    "answer": "Registrar eventos en bitácoras para mantener la integridad de la información"
+  },
+  {
+    "question": "¿Cuál es la primera etapa del proceso por bitácoras?",
+    "options": [
+      "Registrar errores detectados durante la operación",
+      "Registrar los archivos principales en la bitácora",
+      "Aplicar soluciones al error detectado",
+      "Eliminar los registros anteriores"
+    ],
+    "answer": "Registrar los archivos principales en la bitácora"
+  },
+  {
+    "question": "¿Qué registra la segunda etapa del journaling?",
+    "options": [
+      "La solución aplicada al fallo",
+      "Los errores que se hayan presentado",
+      "El contenido de memoria RAM",
+      "Los archivos eliminados del sistema"
+    ],
+    "answer": "Los errores que se hayan presentado"
+  },
+  {
+    "question": "¿Qué describe la tercera etapa del journaling?",
+    "options": [
+      "La solución aplicada para prevenir errores futuros",
+      "La copia de seguridad completa del sistema",
+      "El almacenamiento de archivos multimedia",
+      "La reconstrucción automática del kernel"
+    ],
+    "answer": "La solución aplicada para prevenir errores futuros"
+  },
+  {
+    "question": "¿Qué caracteriza a la bitácora completa?",
+    "options": [
+      "Registra únicamente los metadatos",
+      "Registra datos y metadatos ofreciendo máxima seguridad",
+      "Registra solo los errores del sistema",
+      "Registra únicamente accesos de usuarios"
+    ],
+    "answer": "Registra datos y metadatos ofreciendo máxima seguridad"
+  },
+  {
+    "question": "¿Qué caracteriza a la bitácora parcial?",
+    "options": [
+      "Registra únicamente metadatos priorizando rapidez",
+      "Registra datos y metadatos sin orden",
+      "Registra los errores de hardware",
+      "Registra únicamente datos"
+    ],
+    "answer": "Registra únicamente metadatos priorizando rapidez"
+  },
+  {
+    "question": "¿Qué caracteriza a la bitácora ordenada?",
+    "options": [
+      "Registra primero metadatos y luego datos",
+      "Registra primero los datos y luego los metadatos",
+      "Registra solamente accesos de lectura",
+      "No registra fallos del sistema"
+    ],
+    "answer": "Registra primero los datos y luego los metadatos"
+  },
+  {
+    "question": "¿Cómo se realizan las actualizaciones en un sistema por diario?",
+    "options": [
+      "Se escriben directamente en los bloques del disco",
+      "Se registran secuencialmente en un archivo especial llamado diario",
+      "Se guardan en memoria RAM sin escribir en el disco",
+      "Se almacenan en una bitácora oculta del kernel"
+    ],
+    "answer": "Se registran secuencialmente en un archivo especial llamado diario"
+  },
+  {
+    "question": "¿Qué ventaja ofrece registrar actualizaciones de forma secuencial en un diario?",
+    "options": [
+      "Reduce el uso de metadatos",
+      "Evita accesos dispersos al disco y mejora el rendimiento",
+      "Permite almacenar archivos sin límite de tamaño",
+      "Elimina la necesidad de un sistema operativo"
+    ],
+    "answer": "Evita accesos dispersos al disco y mejora el rendimiento"
+  },
+  {
+    "question": "¿Cuál es la primera fase del método por diario?",
+    "options": [
+      "Registrar la modificación como una transacción",
+      "Liberar espacio mediante limpieza",
+      "Reconstruir el estado en caso de fallo",
+      "Confirmar la escritura"
+    ],
+    "answer": "Registrar la modificación como una transacción"
+  },
+  {
+    "question": "¿Qué se hace en la segunda fase del método por diario?",
+    "options": [
+      "Registrar la transacción",
+      "Confirmar la escritura para garantizar persistencia",
+      "Ejecutar el proceso de limpieza",
+      "Eliminar versiones antiguas del diario"
+    ],
+    "answer": "Confirmar la escritura para garantizar persistencia"
+  },
+  {
+    "question": "¿Qué tarea realiza el proceso de limpieza en el sistema por diario?",
+    "options": [
+      "Convierte el diario en una bitácora completa",
+      "Elimina versiones antiguas y libera espacio",
+      "Duplicar los archivos más recientes",
+      "Crea puntos de restauración"
+    ],
+    "answer": "Elimina versiones antiguas y libera espacio"
+  },
+  {
+    "question": "¿Cómo se reconstruye el estado del sistema tras un fallo en un método por diario?",
+    "options": [
+      "Revisando todos los bloques del disco uno por uno",
+      "Releyendo únicamente el diario más reciente",
+      "Restaurando el kernel",
+      "Borrando y reescribiendo la tabla de particiones"
+    ],
+    "answer": "Releyendo únicamente el diario más reciente"
+  }
+]

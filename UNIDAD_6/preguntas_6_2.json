@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Qué tecnología permite crear múltiples máquinas virtuales aisladas sobre un único hardware físico?",
+    "options": [
+      "Virtualización",
+      "Compilación",
+      "Emulación",
+      "Multiprocesamiento"
+    ],
+    "answer": "Virtualización"
+  },
+  {
+    "question": "¿Cuál es la principal diferencia entre la emulación y la virtualización?",
+    "options": [
+      "La emulación simula hardware diferente por software; la virtualización comparte recursos nativos del hardware",
+      "La virtualización es más lenta",
+      "La emulación solo funciona en Windows",
+      "No hay diferencia"
+    ],
+    "answer": "La emulación simula hardware diferente por software; la virtualización comparte recursos nativos del hardware"
+  },
+  {
+    "question": "¿Qué componente es clave en la paravirtualización para comunicar el sistema invitado con el hipervisor?",
+    "options": [
+      "Sistema operativo invitado modificado",
+      "Hardware emulado",
+      "BIOS virtual",
+      "Controlador de video"
+    ],
+    "answer": "Sistema operativo invitado modificado"
+  },
+  {
+    "question": "¿Qué característica define a los contenedores (como Docker) frente a las máquinas virtuales tradicionales?",
+    "options": [
+      "Comparten el mismo núcleo del sistema operativo anfitrión",
+      "Tienen su propio hardware virtual completo",
+      "Requieren un hipervisor tipo 1",
+      "Son más lentos de iniciar"
+    ],
+    "answer": "Comparten el mismo núcleo del sistema operativo anfitrión"
+  },
+  {
+    "question": "¿Qué tecnología de hardware facilita la virtualización al reducir la sobrecarga de la CPU (ej. Intel VT-x)?",
+    "options": [
+      "Virtualización asistida por hardware",
+      "Overclocking",
+      "Hyper-threading",
+      "Memoria Caché L3"
+    ],
+    "answer": "Virtualización asistida por hardware"
+  },
+  {
+    "question": "¿Cuál es una desventaja de la virtualización completa por software (sin asistencia de hardware)?",
+    "options": [
+      "Mayor sobrecarga de rendimiento debido a la emulación de instrucciones privilegiadas",
+      "Incompatibilidad con Linux",
+      "No permite aislamiento",
+      "Requiere modificar el sistema operativo invitado"
+    ],
+    "answer": "Mayor sobrecarga de rendimiento debido a la emulación de instrucciones privilegiadas"
+  },
+  {
+    "question": "¿Qué tipo de emulación permite ejecutar programas de una arquitectura (ej. ARM) en otra (ej. x86)?",
+    "options": [
+      "Emulación de hardware o instrucción",
+      "Virtualización de red",
+      "Contenedores",
+      "Paravirtualización"
+    ],
+    "answer": "Emulación de hardware o instrucción"
+  },
+  {
+    "question": "¿Qué software gestiona las máquinas virtuales, asignando recursos como CPU y memoria?",
+    "options": [
+      "Hipervisor (VMM)",
+      "Bootloader",
+      "Kernel monolítico",
+      "Compilador JIT"
+    ],
+    "answer": "Hipervisor (VMM)"
+  },
+  {
+    "question": "¿Qué ventaja principal ofrece el uso de contenedores en el desarrollo de software?",
+    "options": [
+      "Portabilidad y rapidez en el despliegue de aplicaciones",
+      "Acceso directo a la BIOS",
+      "Ejecución de sistemas operativos antiguos",
+      "Simulación de redes complejas"
+    ],
+    "answer": "Portabilidad y rapidez en el despliegue de aplicaciones"
+  },
+  {
+    "question": "¿Cuál es un ejemplo de software de virtualización completa?",
+    "options": [
+      "VMware Workstation / VirtualBox",
+      "Docker",
+      "Wine",
+      "Kubernetes"
+    ],
+    "answer": "VMware Workstation / VirtualBox"
+  },
+  {
+    "question": "¿Qué es la 'Virtualización de Tipo 1' (Bare-Metal)?",
+    "options": [
+      "El hipervisor se ejecuta directamente sobre el hardware sin un sistema operativo anfitrión",
+      "El hipervisor se ejecuta como una aplicación sobre Windows o Linux",
+      "Es una emulación de consola de videojuegos",
+      "Es un contenedor de aplicaciones"
+    ],
+    "answer": "El hipervisor se ejecuta directamente sobre el hardware sin un sistema operativo anfitrión"
+  },
+  {
+    "question": "¿Qué permite la técnica de 'Emulación de API' (como Wine)?",
+    "options": [
+      "Ejecutar aplicaciones diseñadas para un SO en otro diferente traduciendo las llamadas al sistema",
+      "Simular un procesador diferente",
+      "Crear una red virtual",
+      "Acelerar el hardware gráfico"
+    ],
+    "answer": "Ejecutar aplicaciones diseñadas para un SO en otro diferente traduciendo las llamadas al sistema"
+  },
+  {
+    "question": "¿Qué es una 'Hypercall' en paravirtualización?",
+    "options": [
+      "Una llamada especial del sistema invitado al hipervisor para solicitar servicios privilegiados",
+      "Una llamada telefónica virtual",
+      "Un error de memoria",
+      "Una instrucción de la CPU"
+    ],
+    "answer": "Una llamada especial del sistema invitado al hipervisor para solicitar servicios privilegiados"
+  },
+  {
+    "question": "¿Qué riesgo de seguridad es específico de los entornos virtualizados?",
+    "options": [
+      "VM Escape (Escapar de la máquina virtual al anfitrión)",
+      "Pantalla azul de la muerte",
+      "Sobrecalentamiento del disco",
+      "Pérdida de la conexión Wi-Fi"
+    ],
+    "answer": "VM Escape (Escapar de la máquina virtual al anfitrión)"
+  },
+  {
+    "question": "¿Qué tecnología de AMD es equivalente a Intel VT-x para la virtualización?",
+    "options": [
+      "AMD-V",
+      "AMD Ryzen",
+      "AMD Radeon",
+      "AMD Crossfire"
+    ],
+    "answer": "AMD-V"
+  },
+  {
+    "question": "¿Por qué los contenedores son considerados 'ligeros'?",
+    "options": [
+      "Porque no necesitan duplicar el sistema operativo completo para cada instancia",
+      "Porque usan menos electricidad",
+      "Porque se pueden descargar rápido",
+      "Porque tienen pocos colores"
+    ],
+    "answer": "Porque no necesitan duplicar el sistema operativo completo para cada instancia"
+  },
+  {
+    "question": "¿Qué es la virtualización de red?",
+    "options": [
+      "La creación de redes lógicas independientes sobre una misma infraestructura física",
+      "Usar Wi-Fi en lugar de cable",
+      "Navegar por internet",
+      "Conectar dos monitores"
+    ],
+    "answer": "La creación de redes lógicas independientes sobre una misma infraestructura física"
+  },
+  {
+    "question": "¿Qué herramienta se usa comúnmente para emular consolas de videojuegos antiguas?",
+    "options": [
+      "Emulador",
+      "Hipervisor Tipo 1",
+      "Docker",
+      "Compilador"
+    ],
+    "answer": "Emulador"
+  },
+  {
+    "question": "¿Cuál es un beneficio clave de la virtualización en centros de datos?",
+    "options": [
+      "Consolidación de servidores (ejecutar múltiples servidores en menos máquinas físicas)",
+      "Aumentar el consumo de energía",
+      "Hacer que los servidores sean más grandes",
+      "Reducir la velocidad de internet"
+    ],
+    "answer": "Consolidación de servidores (ejecutar múltiples servidores en menos máquinas físicas)"
+  },
+  {
+    "question": "¿Qué limitación tiene la paravirtualización?",
+    "options": [
+      "El sistema operativo invitado debe ser modificado para ser compatible",
+      "Es muy lenta",
+      "Consume mucha memoria RAM",
+      "No funciona en servidores"
+    ],
+    "answer": "El sistema operativo invitado debe ser modificado para ser compatible"
+  }
+]

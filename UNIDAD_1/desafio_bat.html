@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío - Batch Scripting</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Estilos consistentes */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --success: #2ecc71;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --gray: #95a5a6;
+            --warning: #f39c12;
+            --code-bg: #2d2d2d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: var(--light); min-height: 100vh; line-height: 1.7; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        header { text-align: center; padding: 30px 20px; margin-bottom: 30px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .breadcrumb { display: flex; justify-content: center; margin-bottom: 15px; color: var(--gray); font-size: 1rem; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: white; text-decoration: underline; }
+        .breadcrumb span { margin: 0 10px; }
+        
+        h1 { font-size: 2.2rem; margin-bottom: 10px; color: white; }
+        
+        .instruction-box { background: rgba(52, 152, 219, 0.1); border-left: 4px solid var(--secondary); padding: 15px 20px; border-radius: 0 8px 8px 0; margin-bottom: 30px; text-align: left; }
+        .instruction-box h3 { color: var(--secondary); margin-bottom: 5px; }
+
+        .challenge-container { background: #2d2d2d; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); overflow: hidden; border: 1px solid #333; position: relative; }
+        .code-header { background: #252526; padding: 8px 20px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; font-family: monospace; color: #aaa; font-size: 0.9rem; }
+
+        pre[class*="language-"] { margin: 0 !important; padding: 5px 25px !important; background: transparent !important; font-size: 1rem; overflow: hidden !important; }
+        
+        .interactive-line { background: #383838; padding: 5px 25px; display: flex; align-items: center; font-family: 'Consolas', 'Monaco', monospace; border-left: 4px solid var(--warning); margin: 5px 0; }
+        .comment-text { color: #999; margin-right: 15px; white-space: nowrap; font-size: 0.9rem; }
+        
+        .code-input { background: rgba(0, 0, 0, 0.3); border: 1px solid #555; border-radius: 4px; color: #fff; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.95rem; padding: 5px 10px; width: 100%; flex-grow: 1; outline: none; transition: all 0.3s; }
+        .code-input:focus { background: rgba(0, 0, 0, 0.5); border-color: var(--secondary); box-shadow: 0 0 8px rgba(52, 152, 219, 0.3); }
+        .code-input.correct { border-color: var(--success); background: rgba(46, 204, 113, 0.1); color: var(--success); }
+        .code-input.incorrect { border-color: var(--accent); background: rgba(231, 76, 60, 0.1); }
+
+        .feedback-area { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; animation: fadeIn 0.4s ease; }
+        .feedback-area.success { background: rgba(46, 204, 113, 0.15); border: 1px solid var(--success); color: #d4efdf; }
+        .feedback-area.error { background: rgba(231, 76, 60, 0.15); border: 1px solid var(--accent); color: #fadbd8; }
+        .btn-check { display: block; width: 100%; padding: 12px; margin-top: 20px; background: var(--secondary); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s; }
+        .btn-check:hover { background: #2980b9; transform: translateY(-2px); }
+        .back-button { display: inline-block; margin-top: 30px; color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .back-button:hover { color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 1</a>
+                <span>/</span>
+                <a href="laboratorio_codigo.html">Laboratorio</a>
+                <span>/</span>
+                <span>Desafío</span>
+            </div>
+            <h1><i class="fas fa-terminal"></i> Desafío de Código</h1>
+            <p style="color: var(--gray); margin-top: 5px;">Automatización de Tareas (Backup)</p>
+        </header>
+
+        <div class="instruction-box">
+            <h3><i class="fas fa-info-circle"></i> Instrucciones:</h3>
+            <p>Un administrador de sistemas necesita automatizar el respaldo de archivos. Completa el script <strong>.bat</strong> utilizando los comandos correctos para crear directorios, copiar archivos y verificar la operación.</p>
+        </div>
+        
+        <div class="challenge-container">
+            <div class="code-header">
+                <span><i class="fas fa-scroll"></i> Respaldo.bat</span>
+            </div>
+            
+            <pre><code class="language-batch">@echo off
+echo Iniciando proceso de respaldo...
+
+:: 1. Crear un directorio llamado 'Backups'
+:: Pista: Usa el comando para 'make directory'</code></pre>
+
+            <div class="interactive-line">
+                <span class="comment-text" style="min-width: 20px;">>></span>
+                <input type="text" id="input-1" class="code-input" placeholder="comando Backups" autocomplete="off" spellcheck="false">
+            </div>
+
+            <pre><code class="language-batch">:: 2. Copiar todos los archivos de texto (.txt) a la carpeta 'Backups'
+:: Pista: Comando para copiar archivos</code></pre>
+
+            <div class="interactive-line">
+                <span class="comment-text" style="min-width: 20px;">>></span>
+                <input type="text" id="input-2" class="code-input" placeholder="comando *.txt Backups" autocomplete="off" spellcheck="false">
+            </div>
+
+            <pre><code class="language-batch">:: 3. Verificar listando el contenido de 'Backups'
+:: Pista: Comando para ver directorio</code></pre>
+
+            <div class="interactive-line">
+                <span class="comment-text" style="min-width: 20px;">>></span>
+                <input type="text" id="input-3" class="code-input" placeholder="comando Backups" autocomplete="off" spellcheck="false">
+            </div>
+
+            <pre><code class="language-batch">echo Respaldo completado con éxito.
+pause</code></pre>
+        </div>
+
+        <button class="btn-check" onclick="checkAnswer()">Verificar Solución</button>
+
+        <div id="feedback-success" class="feedback-area success" style="display: none;">
+            <i class="fas fa-check-circle"></i>
+            <strong>¡Excelente!</strong> Has usado correctamente los comandos básicos: <code>mkdir</code> para crear carpetas, <code>copy</code> para transferir archivos y <code>dir</code> para listar el contenido.
+        </div>
+
+        <div id="feedback-wrong" class="feedback-area error" style="display: none;">
+            <i class="fas fa-times-circle"></i>
+            <strong>Inténtalo de nuevo.</strong> Revisa los comandos:
+            <ul style="margin-left: 40px; margin-top: 5px;">
+                <li>1. <code>mkdir</code> o <code>md</code></li>
+                <li>2. <code>copy</code> o <code>xcopy</code></li>
+                <li>3. <code>dir</code></li>
+            </ul>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="laboratorio_codigo.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Volver al Laboratorio
+            </a>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js"></script>
+    
+    <script>
+        function checkAnswer() {
+            // Respuestas esperadas
+            const answers1 = ["mkdir backups", "md backups", "mkdir", "md"];
+            const answers2 = ["copy *.txt backups", "copy", "xcopy"];
+            const answers3 = ["dir backups", "dir"];
+
+            const input1 = document.getElementById('input-1');
+            const input2 = document.getElementById('input-2');
+            const input3 = document.getElementById('input-3');
+            
+            // Normalizar
+            const val1 = input1.value.trim().toLowerCase();
+            const val2 = input2.value.trim().toLowerCase();
+            const val3 = input3.value.trim().toLowerCase();
+
+            let correct1 = false, correct2 = false, correct3 = false;
+
+            // Validación flexible: si el usuario escribe solo el comando o el comando completo
+            if (answers1.some(a => val1.startsWith(a))) correct1 = true;
+            if (answers2.some(a => val2.startsWith(a))) correct2 = true;
+            if (answers3.some(a => val3.startsWith(a))) correct3 = true;
+
+            input1.classList.remove('correct', 'incorrect');
+            input2.classList.remove('correct', 'incorrect');
+            input3.classList.remove('correct', 'incorrect');
+
+            if (correct1) input1.classList.add('correct'); else input1.classList.add('incorrect');
+            if (correct2) input2.classList.add('correct'); else input2.classList.add('incorrect');
+            if (correct3) input3.classList.add('correct'); else input3.classList.add('incorrect');
+
+            if (correct1 && correct2 && correct3) {
+                document.getElementById('feedback-success').style.display = 'block';
+                document.getElementById('feedback-wrong').style.display = 'none';
+            } else {
+                document.getElementById('feedback-success').style.display = 'none';
+                document.getElementById('feedback-wrong').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

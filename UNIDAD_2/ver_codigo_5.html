@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Código - SRTF</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Estilos consistentes con Unidad 2 */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --gray: #95a5a6;
+            --code-bg: #2d2d2d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: var(--light); min-height: 100vh; line-height: 1.7; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        header { text-align: center; padding: 30px 20px; margin-bottom: 30px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .breadcrumb { display: flex; justify-content: center; margin-bottom: 15px; color: var(--gray); font-size: 1rem; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: white; text-decoration: underline; }
+        .breadcrumb span { margin: 0 10px; }
+        
+        h1 { font-size: 2.2rem; margin-bottom: 5px; color: white; }
+        .subtitle { font-size: 1.2rem; color: var(--secondary); font-weight: 300; }
+
+        .code-viewer-container { background: #1e1e1e; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); overflow: hidden; border: 1px solid #333; }
+        .code-header { background: #252526; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
+        .file-info { display: flex; align-items: center; gap: 10px; color: #ccc; font-family: monospace; font-size: 0.9rem; }
+        .file-icon { color: var(--secondary); }
+        
+        .btn-copy { background: rgba(255,255,255,0.1); border: none; color: #ddd; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-copy:hover { background: var(--secondary); color: white; }
+
+        pre[class*="language-"] { margin: 0 !important; border-radius: 0 !important; padding: 20px !important; background: transparent !important; font-size: 0.95rem; text-shadow: none !important; }
+        code[class*="language-"], pre[class*="language-"] { font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace; }
+
+        footer { text-align: center; margin-top: 40px; padding: 20px; color: var(--gray); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .back-button { display: inline-block; margin-top: 20px; color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .back-button:hover { color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 2</a>
+                <span>/</span>
+                <a href="laboratorio_codigo.html">Laboratorio</a>
+                <span>/</span>
+                <span>Código Fuente</span>
+            </div>
+            <h1><i class="fas fa-file-code"></i> Visor de Código</h1>
+            <div class="subtitle">Algoritmo SRTF</div>
+        </header>
+        
+        <main class="code-viewer-container">
+            <div class="code-header">
+                <div class="file-info">
+                    <i class="fas fa-c file-icon"></i>
+                    <span>AlgoritmoSRTF.c</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-copy" onclick="copyToClipboard()">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                </div>
+            </div>
+            
+            <pre><code class="language-c" id="source-code">/*
+    Escuela: ESCOM - IPN
+    Materia: Sistemas Operativos
+    Práctica 6: Planificación SRTF (Shortest Remaining Time First)
+    Descripción: Versión expulsiva del SJF. Si llega un proceso con menor
+                 tiempo restante, se apropia de la CPU.
+*/
+
+#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;limits.h&gt;
+
+struct Proceso {
+    int pid;
+    int bt;  // Burst Time (Ráfaga)
+    int art; // Arrival Time (Llegada)
+};
+
+void encontrarTiempoEspera(struct Proceso proc[], int n, int wt[]) {
+    int rt[n]; // Tiempo restante (Remaining Time)
+    for (int i = 0; i &lt; n; i++)
+        rt[i] = proc[i].bt;
+
+    int complete = 0, t = 0, minm = INT_MAX;
+    int shortest = 0, finish_time;
+    bool check = false;
+
+    // Ejecutar hasta que todos los procesos se completen
+    while (complete != n) {
+        // Encontrar proceso con tiempo restante mínimo entre los que han llegado hasta el tiempo 't'
+        for (int j = 0; j &lt; n; j++) {
+            if ((proc[j].art &lt;= t) && (rt[j] &lt; minm) && rt[j] &gt; 0) {
+                minm = rt[j];
+                shortest = j;
+                check = true;
+            }
+        }
+
+        if (check == false) {
+            t++;
+            continue;
+        }
+
+        // Reducir tiempo restante del proceso seleccionado
+        rt[shortest]--;
+
+        // Actualizar el mínimo
+        minm = rt[shortest];
+        if (minm == 0)
+            minm = INT_MAX;
+
+        // Si el proceso termina
+        if (rt[shortest] == 0) {
+            complete++;
+            check = false;
+            finish_time = t + 1;
+            // Calcular tiempo de espera
+            wt[shortest] = finish_time - proc[shortest].bt - proc[shortest].art;
+            if (wt[shortest] &lt; 0)
+                wt[shortest] = 0;
+        }
+        t++;
+    }
+}
+
+void encontrarTiempoPromedio(struct Proceso proc[], int n) {
+    int wt[n], tat[n], total_wt = 0, total_tat = 0;
+
+    encontrarTiempoEspera(proc, n, wt);
+
+    // Calcular Turn Around Time (TAT)
+    for (int i = 0; i &lt; n; i++)
+        tat[i] = proc[i].bt + wt[i];
+
+    printf("PID\tRáfaga\tLlegada\tEspera\tRetorno\n");
+    for (int i = 0; i &lt; n; i++) {
+        total_wt = total_wt + wt[i];
+        total_tat = total_tat + tat[i];
+        printf("%d\t%d\t%d\t%d\t%d\n", proc[i].pid, proc[i].bt, proc[i].art, wt[i], tat[i]);
+    }
+
+    printf("\nPromedio de espera = %.2f", (float)total_wt / (float)n);
+    printf("\nPromedio de retorno = %.2f", (float)total_tat / (float)n);
+}
+
+int main() {
+    struct Proceso proc[] = {{1, 6, 1}, {2, 8, 1}, {3, 7, 2}, {4, 3, 3}};
+    int n = sizeof(proc) / sizeof(proc[0]);
+
+    printf("--- Simulación SRTF ---\n\n");
+    encontrarTiempoPromedio(proc, n);
+    return 0;
+}</code></pre>
+        </main>
+        
+        <div style="text-align: center;">
+            <a href="laboratorio_codigo.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Volver al Laboratorio
+            </a>
+        </div>
+
+        <footer>
+            <p>Sistemas Operativos - Unidad 2</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script>
+        function copyToClipboard() {
+            const codeText = document.getElementById('source-code').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                btn.style.background = 'var(--secondary)';
+                btn.style.color = 'white';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

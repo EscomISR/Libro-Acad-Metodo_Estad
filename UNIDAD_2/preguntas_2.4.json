@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Qué término describe la situación donde varios procesos acceden y manipulan datos compartidos concurrentemente y el resultado depende del orden de ejecución?",
+    "options": [
+      "Interbloqueo",
+      "Condición de carrera",
+      "Inanición",
+      "Exclusión mutua"
+    ],
+    "answer": "Condición de carrera"
+  },
+  {
+    "question": "¿Cómo se denomina el segmento de código en el cual un proceso accede a un recurso compartido?",
+    "options": [
+      "Sección crítica",
+      "Sección de entrada",
+      "Sección restante",
+      "Sección de salida"
+    ],
+    "answer": "Sección crítica"
+  },
+  {
+    "question": "¿Qué requisito de la solución al problema de la sección crítica asegura que solo un proceso a la vez pueda estar ejecutando su sección crítica?",
+    "options": [
+      "Progreso",
+      "Espera limitada",
+      "Exclusión mutua",
+      "Atomicidad"
+    ],
+    "answer": "Exclusión mutua"
+  },
+  {
+    "question": "¿Qué significa que una operación sea 'atómica'?",
+    "options": [
+      "Que utiliza energía nuclear",
+      "Que se ejecuta como una unidad indivisible, sin interrupciones",
+      "Que es muy pequeña",
+      "Que se ejecuta repetidamente"
+    ],
+    "answer": "Que se ejecuta como una unidad indivisible, sin interrupciones"
+  },
+  {
+    "question": "¿Qué es un semáforo en el contexto de sistemas operativos?",
+    "options": [
+      "Una señal de tráfico en la interfaz gráfica",
+      "Una variable entera utilizada para la sincronización mediante operaciones atómicas",
+      "Un tipo de memoria caché",
+      "Un driver de dispositivo"
+    ],
+    "answer": "Una variable entera utilizada para la sincronización mediante operaciones atómicas"
+  },
+  {
+    "question": "¿Cuáles son las dos operaciones atómicas estándar para manipular un semáforo?",
+    "options": [
+      "read() y write()",
+      "start() y stop()",
+      "wait() y signal() (o P y V)",
+      "open() y close()"
+    ],
+    "answer": "wait() y signal() (o P y V)"
+  },
+  {
+    "question": "¿Qué diferencia principal existe entre un Mutex y un Semáforo binario?",
+    "options": [
+      "El Mutex no tiene estado",
+      "El Mutex tiene un concepto de propiedad (ownership), solo quien lo bloquea puede desbloquearlo",
+      "El semáforo es más rápido",
+      "No hay diferencia"
+    ],
+    "answer": "El Mutex tiene un concepto de propiedad (ownership), solo quien lo bloquea puede desbloquearlo"
+  },
+  {
+    "question": "¿Qué es un 'Abrazo Mortal' (Deadlock)?",
+    "options": [
+      "Cuando un proceso termina inesperadamente",
+      "Una situación donde un conjunto de procesos están bloqueados esperando recursos que poseen otros procesos del mismo conjunto",
+      "Un error de compilación",
+      "Cuando la CPU se sobrecalienta"
+    ],
+    "answer": "Una situación donde un conjunto de procesos están bloqueados esperando recursos que poseen otros procesos del mismo conjunto"
+  },
+  {
+    "question": "¿Qué estructura de sincronización de alto nivel encapsula datos y procedimientos, garantizando que solo un proceso esté activo dentro de ella a la vez?",
+    "options": [
+      "Semáforo",
+      "Monitor",
+      "Spinlock",
+      "Barrera"
+    ],
+    "answer": "Monitor"
+  },
+  {
+    "question": "¿Qué sucede cuando un proceso ejecuta la operación wait() en un semáforo cuyo valor es 0?",
+    "options": [
+      "El proceso continúa su ejecución",
+      "El semáforo incrementa su valor",
+      "El proceso se bloquea hasta que el semáforo sea mayor que 0",
+      "El sistema operativo se reinicia"
+    ],
+    "answer": "El proceso se bloquea hasta que el semáforo sea mayor que 0"
+  },
+  {
+    "question": "¿Qué tipo de semáforo puede tomar valores enteros no negativos para controlar el acceso a múltiples instancias de un recurso?",
+    "options": [
+      "Semáforo binario",
+      "Semáforo contador",
+      "Mutex",
+      "Spinlock"
+    ],
+    "answer": "Semáforo contador"
+  },
+  {
+    "question": "¿Qué es la 'espera activa' (busy waiting)?",
+    "options": [
+      "Cuando un proceso se suspende y libera la CPU",
+      "Cuando un proceso consume ciclos de CPU en un bucle comprobando una condición",
+      "Cuando el planificador asigna prioridades dinámicas",
+      "Cuando un proceso espera una E/S de disco"
+    ],
+    "answer": "Cuando un proceso consume ciclos de CPU en un bucle comprobando una condición"
+  },
+  {
+    "question": "¿Qué mecanismo se utiliza dentro de los monitores para suspender procesos hasta que se cumpla un requisito específico?",
+    "options": [
+      "Variables de condición",
+      "Punteros de pila",
+      "Registros de segmento",
+      "Interrupciones de hardware"
+    ],
+    "answer": "Variables de condición"
+  },
+  {
+    "question": "¿Cuál es el objetivo principal de sincronizar procesos?",
+    "options": [
+      "Acelerar el hardware",
+      "Mantener la consistencia de los datos compartidos",
+      "Reducir el tamaño de los programas",
+      "Evitar el uso de la memoria RAM"
+    ],
+    "answer": "Mantener la consistencia de los datos compartidos"
+  },
+  {
+    "question": "¿Qué problema clásico de sincronización involucra un búfer de tamaño limitado y dos tipos de procesos?",
+    "options": [
+      "Problema de los filósofos cenando",
+      "Problema del productor-consumidor",
+      "Problema de los lectores-escritores",
+      "Problema del barbero dormilón"
+    ],
+    "answer": "Problema del productor-consumidor"
+  },
+  {
+    "question": "¿Qué es la 'Inanición' (Starvation) en el contexto de sincronización?",
+    "options": [
+      "Falta de energía eléctrica",
+      "Situación donde un proceso espera indefinidamente por un recurso porque otros procesos siempre se le adelantan",
+      "Cuando se agota la memoria del sistema",
+      "Cuando el disco duro está lleno"
+    ],
+    "answer": "Situación donde un proceso espera indefinidamente por un recurso porque otros procesos siempre se le adelantan"
+  },
+  {
+    "question": "¿Qué operación realiza 'signal()' (o V) en un semáforo?",
+    "options": [
+      "Decrementa el valor del semáforo",
+      "Incrementa el valor del semáforo y despierta a un proceso en espera si lo hay",
+      "Elimina el semáforo",
+      "Bloquea al proceso que llama"
+    ],
+    "answer": "Incrementa el valor del semáforo y despierta a un proceso en espera si lo hay"
+  },
+  {
+    "question": "¿Cuál de los siguientes NO es un mecanismo de sincronización?",
+    "options": [
+      "Paginación",
+      "Semáforo",
+      "Mutex",
+      "Monitor"
+    ],
+    "answer": "Paginación"
+  },
+  {
+    "question": "¿Por qué los monitores se consideran más fáciles de usar que los semáforos?",
+    "options": [
+      "Porque son más rápidos",
+      "Porque el compilador o el lenguaje gestionan la exclusión mutua automáticamente",
+      "Porque no usan memoria",
+      "Porque funcionan sin sistema operativo"
+    ],
+    "answer": "Porque el compilador o el lenguaje gestionan la exclusión mutua automáticamente"
+  },
+  {
+    "question": "¿Qué riesgo tiene el uso incorrecto de un Mutex (por ejemplo, olvidar desbloquearlo)?",
+    "options": [
+      "Fragmentación externa",
+      "Bloqueo permanente de otros hilos que intenten acceder al recurso (Deadlock/Hang)",
+      "Aumento de la velocidad del procesador",
+      "Creación de procesos zombie"
+    ],
+    "answer": "Bloqueo permanente de otros hilos que intenten acceder al recurso (Deadlock/Hang)"
+  }
+]

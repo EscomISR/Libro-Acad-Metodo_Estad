@@ -1,0 +1,202 @@
+[
+  {
+    "question": "¿Cuál es el propósito principal de organizar el software de E/S en capas?",
+    "options": [
+      "Aumentar la complejidad del sistema",
+      "Mejorar la eficiencia, modularidad e independencia del hardware",
+      "Hacer que el sistema sea más lento",
+      "Eliminar la necesidad de hardware"
+    ],
+    "answer": "Mejorar la eficiencia, modularidad e independencia del hardware"
+  },
+  {
+    "question": "¿Cuál es la capa de software de E/S más cercana al hardware?",
+    "options": [
+      "Software en modo usuario",
+      "Software independiente del dispositivo",
+      "Controladores de dispositivos",
+      "Rutinas de servicio de interrupciones"
+    ],
+    "answer": "Rutinas de servicio de interrupciones"
+  },
+  {
+    "question": "¿Qué acción realiza el manejador de interrupciones inmediatamente al detectar una interrupción?",
+    "options": [
+      "Apaga el dispositivo",
+      "Salva el contexto (estado) del proceso interrumpido",
+      "Borra la memoria caché",
+      "Reinicia el sistema operativo"
+    ],
+    "answer": "Salva el contexto (estado) del proceso interrumpido"
+  },
+  {
+    "question": "¿Qué componente consulta el sistema para saber qué manejador ejecutar ante una interrupción específica?",
+    "options": [
+      "El vector de interrupciones",
+      "La tabla de páginas",
+      "El bloque de control de proceso (PCB)",
+      "El registro de instrucciones"
+    ],
+    "answer": "El vector de interrupciones"
+  },
+  {
+    "question": "¿Cuál es la función principal de un controlador de dispositivo (driver)?",
+    "options": [
+      "Traducir órdenes genéricas del SO en comandos específicos para el hardware",
+      "Gestionar la interfaz gráfica de usuario",
+      "Compilar programas de aplicación",
+      "Administrar las contraseñas de los usuarios"
+    ],
+    "answer": "Traducir órdenes genéricas del SO en comandos específicos para el hardware"
+  },
+  {
+    "question": "¿Qué capa se encarga de proporcionar una interfaz uniforme y ocultar las diferencias entre dispositivos al resto del SO?",
+    "options": [
+      "Software independiente del dispositivo",
+      "Manejador de interrupciones",
+      "Hardware",
+      "Software de aplicación"
+    ],
+    "answer": "Software independiente del dispositivo"
+  },
+  {
+    "question": "¿En qué capa se gestiona típicamente el nombrado uniforme de dispositivos (ej. /dev/disk0)?",
+    "options": [
+      "Software independiente del dispositivo",
+      "Controlador de dispositivo",
+      "Hardware",
+      "Software de usuario"
+    ],
+    "answer": "Software independiente del dispositivo"
+  },
+  {
+    "question": "¿Qué es el Spooling y dónde se implementa generalmente?",
+    "options": [
+      "Una técnica de gestión de colas para dispositivos exclusivos, implementada en software modo usuario",
+      "Un driver de red en el kernel",
+      "Un tipo de interrupción de hardware",
+      "Un protocolo de seguridad en el hardware"
+    ],
+    "answer": "Una técnica de gestión de colas para dispositivos exclusivos, implementada en software modo usuario"
+  },
+  {
+    "question": "¿Qué módulo de un controlador de dispositivo se encarga de detectar y configurar el hardware al inicio?",
+    "options": [
+      "Módulo de control",
+      "Módulo de inicialización",
+      "Módulo de interrupciones",
+      "Módulo de diagnóstico"
+    ],
+    "answer": "Módulo de inicialización"
+  },
+  {
+    "question": "¿Qué tipo de controlador gestiona dispositivos como discos duros y permite acceso aleatorio?",
+    "options": [
+      "Controlador de carácter",
+      "Controlador de bloque",
+      "Controlador de red",
+      "Controlador virtual"
+    ],
+    "answer": "Controlador de bloque"
+  },
+  {
+    "question": "¿Qué sucede al finalizar la ejecución de una rutina de servicio de interrupción?",
+    "options": [
+      "El sistema se apaga",
+      "Se restaura el contexto y se devuelve el control al proceso interrumpido",
+      "El dispositivo se desconecta",
+      "Se borran los registros del CPU"
+    ],
+    "answer": "Se restaura el contexto y se devuelve el control al proceso interrumpido"
+  },
+  {
+    "question": "¿Qué capa de software contiene las bibliotecas estándar de E/S (como stdio)?",
+    "options": [
+      "Software en modo usuario",
+      "Kernel del SO",
+      "Controladores de dispositivo",
+      "Firmware"
+    ],
+    "answer": "Software en modo usuario"
+  },
+  {
+    "question": "¿Qué función cumple el 'reporte de errores' en el software independiente del dispositivo?",
+    "options": [
+      "Ignorar todos los errores",
+      "Proporcionar una forma estándar de notificar fallos al usuario o al sistema",
+      "Reparar físicamente el dispositivo",
+      "Aumentar la velocidad del dispositivo"
+    ],
+    "answer": "Proporcionar una forma estándar de notificar fallos al usuario o al sistema"
+  },
+  {
+    "question": "¿Qué tipo de dispositivo maneja un flujo continuo de datos sin estructura de bloques (ej. teclado)?",
+    "options": [
+      "Dispositivo de bloque",
+      "Dispositivo de carácter",
+      "Dispositivo de almacenamiento masivo",
+      "Dispositivo DMA"
+    ],
+    "answer": "Dispositivo de carácter"
+  },
+  {
+    "question": "¿Cómo se comunican las aplicaciones de usuario con el sistema operativo para solicitar E/S?",
+    "options": [
+      "Mediante llamadas al sistema (System Calls)",
+      "Accediendo directamente a los puertos del hardware",
+      "Enviando correos electrónicos al kernel",
+      "Reiniciando la computadora"
+    ],
+    "answer": "Mediante llamadas al sistema (System Calls)"
+  },
+  {
+    "question": "¿Qué capa se encarga de la protección y seguridad, verificando permisos de acceso a los dispositivos?",
+    "options": [
+      "Software independiente del dispositivo (o el Sistema de Archivos)",
+      "El dispositivo físico",
+      "El cable de conexión",
+      "El monitor"
+    ],
+    "answer": "Software independiente del dispositivo (o el Sistema de Archivos)"
+  },
+  {
+    "question": "¿Qué es un controlador virtual?",
+    "options": [
+      "Un dispositivo físico que no existe",
+      "Software que simula un dispositivo físico (ej. impresora PDF)",
+      "Un controlador para videojuegos",
+      "Un virus informático"
+    ],
+    "answer": "Software que simula un dispositivo físico (ej. impresora PDF)"
+  },
+  {
+    "question": "¿Qué ventaja ofrece el almacenamiento en búfer (buffering) gestionado por el software independiente?",
+    "options": [
+      "Suaviza las diferencias de velocidad entre productor y consumidor de datos",
+      "Hace que el disco duro gire más rápido",
+      "Elimina la necesidad de memoria RAM",
+      "Evita el uso de interrupciones"
+    ],
+    "answer": "Suaviza las diferencias de velocidad entre productor y consumidor de datos"
+  },
+  {
+    "question": "¿Qué ocurre si un dispositivo genera una interrupción mientras la CPU está atendiendo otra de mayor prioridad?",
+    "options": [
+      "La nueva interrupción puede quedar pendiente o ser ignorada temporalmente",
+      "El sistema colapsa",
+      "La CPU atiende ambas simultáneamente en el mismo núcleo",
+      "El dispositivo explota"
+    ],
+    "answer": "La nueva interrupción puede quedar pendiente o ser ignorada temporalmente"
+  },
+  {
+    "question": "¿Qué capa realiza la traducción final de direcciones lógicas a físicas en el disco?",
+    "options": [
+      "El controlador de dispositivo (Driver)",
+      "El software de usuario",
+      "El navegador web",
+      "El procesador de textos"
+    ],
+    "answer": "El controlador de dispositivo (Driver)"
+  }
+]

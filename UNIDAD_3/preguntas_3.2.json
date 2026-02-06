@@ -1,0 +1,172 @@
+[
+  {
+    "question": "¿Qué permite la memoria virtual según Tanenbaum y Bos (2015)?",
+    "options": [
+      "Ejecutar aplicaciones sin cargar todo el programa en memoria principal",
+      "Eliminar la necesidad de almacenamiento secundario",
+      "Evitar el uso de la RAM",
+      "Compartir procesos entre usuarios"
+    ],
+    "answer": "Ejecutar aplicaciones sin cargar todo el programa en memoria principal"
+  },
+  {
+    "question": "¿Cómo logra la memoria virtual simular un espacio continuo mayor al disponible?",
+    "options": [
+      "Duplicando la RAM físicamente",
+      "Uniendo memoria RAM con memoria secundaria",
+      "Usando solo memoria caché",
+      "Combinando registros con discos"
+    ],
+    "answer": "Uniendo memoria RAM con memoria secundaria"
+  },
+  {
+    "question": "¿Cómo se prepara un programa para funcionar con memoria virtual?",
+    "options": [
+      "Dividiéndolo en bloques del mismo tamaño",
+      "Eliminando las partes que no se usan",
+      "Guardándolo totalmente en memoria secundaria",
+      "Cargando siempre todas sus instrucciones"
+    ],
+    "answer": "Dividiéndolo en bloques del mismo tamaño"
+  },
+  {
+    "question": "¿Qué técnica organiza la memoria en bloques de tamaño uniforme llamados marcos?",
+    "options": [
+      "Segmentación",
+      "Paginación",
+      "Swapping",
+      "Mapas de bits"
+    ],
+    "answer": "Paginación"
+  },
+  {
+    "question": "¿Qué elimina la paginación?",
+    "options": [
+      "La fragmentación interna",
+      "La fragmentación externa",
+      "El uso de memoria secundaria",
+      "La tabla de páginas"
+    ],
+    "answer": "La fragmentación externa"
+  },
+  {
+    "question": "¿Qué módulo convierte direcciones lógicas en direcciones físicas durante la paginación?",
+    "options": [
+      "CPU",
+      "MMU",
+      "DMA",
+      "BIOS"
+    ],
+    "answer": "MMU"
+  },
+  {
+    "question": "¿Qué tabla registra la relación entre páginas lógicas y marcos físicos?",
+    "options": [
+      "Tabla de segmentos",
+      "Tabla de paginación",
+      "TLB",
+      "Tabla hash"
+    ],
+    "answer": "Tabla de paginación"
+  },
+  {
+    "question": "¿Qué desventaja puede presentar la paginación?",
+    "options": [
+      "Aumento del tiempo de búsqueda por accesos frecuentes a la tabla",
+      "Imposibilidad de usar memoria secundaria",
+      "Necesidad de memoria contigua",
+      "No se puede usar memoria virtual"
+    ],
+    "answer": "Aumento del tiempo de búsqueda por accesos frecuentes a la tabla"
+  },
+  {
+    "question": "¿Qué mecanismo acelera la traducción frecuente de direcciones?",
+    "options": [
+      "Swap",
+      "TLB",
+      "RAID",
+      "Inodos"
+    ],
+    "answer": "TLB"
+  },
+  {
+    "question": "¿Qué indica el bit presente/ausente en una tabla de páginas?",
+    "options": [
+      "Si el usuario tiene permisos de lectura",
+      "Si la página está en memoria principal o en disco",
+      "Si la página pertenece al kernel",
+      "Si la página ha sido modificada"
+    ],
+    "answer": "Si la página está en memoria principal o en disco"
+  },
+  {
+    "question": "¿Qué representa el bit de modificación en una tabla de páginas?",
+    "options": [
+      "Si ha sido alterada desde su carga",
+      "Si ha sido eliminada",
+      "Si pertenece al segmento de pila",
+      "Si está asociada a un archivo"
+    ],
+    "answer": "Si ha sido alterada desde su carga"
+  },
+  {
+    "question": "¿Qué ocurre cuando una página requerida no está en memoria principal?",
+    "options": [
+      "El proceso se bloquea permanentemente",
+      "Se produce un fallo de página",
+      "El sistema reinicia la ejecución",
+      "Se descarta la página"
+    ],
+    "answer": "Se produce un fallo de página"
+  },
+  {
+    "question": "¿Qué página reemplaza el algoritmo FIFO?",
+    "options": [
+      "La más utilizada recientemente",
+      "La más antigua en memoria",
+      "La que no se usará en más tiempo",
+      "La más grande"
+    ],
+    "answer": "La más antigua en memoria"
+  },
+  {
+    "question": "¿Qué problema puede causar FIFO?",
+    "options": [
+      "Fragmentación externa",
+      "Anomalía de Belady",
+      "Pérdida de direcciones lógicas",
+      "Duplicación de páginas"
+    ],
+    "answer": "Anomalía de Belady"
+  },
+  {
+    "question": "¿Qué página reemplaza el algoritmo LRU?",
+    "options": [
+      "La que no se usará por más tiempo",
+      "La menos usada recientemente",
+      "La más vieja del sistema",
+      "La primera del segmento"
+    ],
+    "answer": "La menos usada recientemente"
+  },
+  {
+    "question": "¿Qué ventaja tiene LRU?",
+    "options": [
+      "Requiere menos memoria que FIFO",
+      "Su rendimiento se aproxima al óptimo",
+      "No necesita estructuras adicionales",
+      "Evita todos los fallos de página"
+    ],
+    "answer": "Su rendimiento se aproxima al óptimo"
+  },
+  {
+    "question": "¿Qué característica hace que el algoritmo óptimo sea solo teórico?",
+    "options": [
+      "Es muy lento",
+      "Requiere conocer el futuro de las referencias",
+      "Solo funciona con SSD",
+      "No permite fallos de página"
+    ],
+    "answer": "Requiere conocer el futuro de las referencias"
+  }
+]

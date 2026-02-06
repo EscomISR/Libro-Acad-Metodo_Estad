@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.2 Implementación - Sistema de Archivos</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: var(--light); min-height: 100vh; line-height: 1.7; }
+
+        .floating-home-btn { position: fixed; top: 20px; right: 20px; background: var(--secondary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3); transition: all 0.3s ease; z-index: 1000; font-size: 1.5rem; }
+        .floating-home-btn:hover { background: #2980b9; transform: translateY(-3px); box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4); }
+
+        .sidebar-nav { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px); border-right: 1px solid rgba(255, 255, 255, 0.1); z-index: 999; transition: transform 0.3s ease; transform: translateX(-100%); overflow-y: auto; }
+        .sidebar-nav.active { transform: translateX(0); }
+        .sidebar-header { padding: 20px; background: rgba(52, 152, 219, 0.1); border-bottom: 1px solid rgba(52, 152, 219, 0.3); }
+        .sidebar-title { font-size: 1.2rem; color: var(--secondary); font-weight: 600; margin-bottom: 5px; }
+        .sidebar-subtitle { font-size: 0.9rem; color: var(--gray); }
+        .nav-sections { padding: 20px 0; }
+        .nav-section { margin-bottom: 15px; }
+        .nav-section-title { padding: 10px 20px; font-size: 1rem; font-weight: 600; color: var(--secondary); border-bottom: 1px solid rgba(52, 152, 219, 0.2); margin-bottom: 10px; }
+        .nav-item { display: block; padding: 12px 20px; color: var(--light); text-decoration: none; transition: all 0.3s ease; border-left: 3px solid transparent; }
+        .nav-item:hover { background: rgba(52, 152, 219, 0.1); border-left-color: var(--secondary); padding-left: 25px; }
+        .nav-item.active { background: rgba(52, 152, 219, 0.2); border-left-color: var(--secondary); color: var(--secondary); }
+        .nav-item i { margin-right: 10px; width: 20px; text-align: center; }
+
+        .menu-toggle { position: fixed; top: 20px; left: 20px; background: var(--primary); color: white; width: 50px; height: 50px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; z-index: 1001; font-size: 1.2rem; }
+        .menu-toggle:hover { background: var(--secondary); transform: translateY(-2px); }
+        .menu-toggle.active { background: var(--accent); }
+
+        .reading-progress { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: rgba(255, 255, 255, 0.1); z-index: 998; }
+        .reading-progress-bar { height: 100%; background: linear-gradient(90deg, var(--secondary), var(--success)); width: 0%; transition: width 0.1s ease; }
+        .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; transition: margin-left 0.3s ease, margin-right 0.3s ease; }
+        
+        header { text-align: center; padding: 40px 20px; margin-bottom: 30px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; position: relative; overflow: hidden; }
+        .breadcrumb { display: flex; justify-content: center; margin-bottom: 20px; color: var(--gray); font-size: 1.1rem; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: white; text-decoration: underline; }
+        .breadcrumb span { margin: 0 10px; }
+        h1 { font-size: 2.8rem; margin-bottom: 10px; color: white; }
+        .subtitle { font-size: 1.8rem; color: var(--secondary); margin-bottom: 20px; font-weight: 300; text-align: center; }
+        
+        .intro { max-width: 900px; margin: 0 auto 40px; padding: 25px; background: var(--card-bg); border-radius: 15px; border-left: 4px solid var(--secondary); text-align: justify; }
+        
+        .section { background: var(--card-bg); border-radius: 15px; padding: 30px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); scroll-margin-top: 100px; }
+        .section-header { display: flex; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid var(--secondary); }
+        .section-number { font-size: 2.2rem; font-weight: bold; color: var(--secondary); margin-right: 15px; min-width: 120px; }
+        .section-title { font-size: 1.8rem; font-weight: 600; color: white; }
+        
+        .content { padding: 0 10px; }
+        .content h3 { font-size: 1.5rem; color: var(--secondary); margin: 30px 0 15px; padding-left: 10px; border-left: 3px solid var(--accent); }
+        .content h4 { font-size: 1.3rem; color: var(--warning); margin: 25px 0 12px; padding-left: 8px; }
+        .content p { margin-bottom: 15px; text-align: justify; }
+        .content ul, .content ol { padding-left: 30px; margin: 20px 0; }
+        .content li { margin-bottom: 12px; }
+        
+        .citation { font-style: italic; color: var(--gray); margin: 5px 0 15px 20px; border-left: 2px solid var(--secondary); padding-left: 10px; }
+        .quote-box { background: rgba(52, 152, 219, 0.1); border-left: 4px solid var(--secondary); padding: 20px; margin: 25px 0; border-radius: 8px; font-style: italic; color: var(--light); }
+        .quote-box .citation { border-left: none; margin: 10px 0 0 0; padding-left: 0; }
+        
+        .figure-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .imagen-figura1 {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain; 
+            border-radius: 8px;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: zoom-in;
+            transform-origin: center center;
+        }
+        
+        /* Efecto al pasar el mouse */
+        .imagen-figura1:hover {
+            transform: scale(1.4); 
+            border-radius: 8px;
+        }
+        
+        .figure-caption { color: var(--gray); margin-top: 10px; }
+        .figure-container img { max-width: 100%; border-radius: 5px; }
+
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 40px; }
+        .nav-btn { display: inline-flex; align-items: center; background: var(--secondary); color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .nav-btn:hover { background: #2980b9; transform: translateY(-3px); }
+        .nav-btn i { margin: 0 8px; }
+        
+        footer { text-align: center; margin-top: 60px; padding: 30px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .scroll-to-top { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: white; width: 50px; height: 50px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); transition: all 0.3s ease; opacity: 0; visibility: hidden; z-index: 999; }
+        .scroll-to-top.visible { opacity: 1; visibility: visible; }
+        .scroll-to-top:hover { background: #c0392b; transform: translateY(-3px); }
+
+        /* Estilos para la Activity Card */
+        .activity-card {
+            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 4px solid var(--success); /* Borde izquierdo verde */
+            text-align: center;
+        }
+        
+        .activity-title {
+            font-size: 1.8rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+        
+        .activity-btn {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .activity-btn:hover {
+            background: #27ae60; /* Verde más oscuro al pasar el mouse */
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-nav { width: 100%; }
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1.4rem; }
+            .section-title { font-size: 1.5rem; }
+            .section-number { min-width: 100px; font-size: 1.8rem; }
+            .nav-buttons { flex-direction: column; gap: 15px; }
+            .nav-btn { width: 100%; text-align: center; justify-content: center; }
+            .floating-home-btn { width: 50px; height: 50px; font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    <a href="index.html" class="floating-home-btn" title="Ir al índice"><i class="fas fa-home"></i></a>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <nav class="sidebar-nav" id="sidebarNav">
+        <div class="sidebar-header">
+            <div class="sidebar-title">4.2 Implementación</div>
+            <div class="sidebar-subtitle">Sistema de Archivos</div>
+        </div>
+        <div class="nav-sections">
+            <div class="nav-section">
+                <div class="nav-section-title">Navegación</div>
+                <a href="4.1.html" class="nav-item"><i class="fas fa-arrow-left"></i> Anterior: 4.1 Estructura</a>
+                <a href="index.html" class="nav-item"><i class="fas fa-list"></i> Menú Unidad 4</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Contenido</div>
+                <a href="#seccion-4-2" class="nav-item" data-section="4-2"><i class="fas fa-cogs"></i> 4.2 Implementación</a>
+                <a href="#seccion-4-2-1" class="nav-item" data-section="4-2-1"><i class="fas fa-file"></i> 4.2.1 De archivos</a>
+                <a href="#seccion-4-2-2" class="nav-item" data-section="4-2-2"><i class="fas fa-folder"></i> 4.2.2 De directorios</a>
+                <a href="#seccion-4-2-3" class="nav-item" data-section="4-2-3"><i class="fas fa-share-alt"></i> 4.2.3 Archivos compartidos</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Recursos</div>
+                <a href="4.3.html" class="nav-item"><i class="fas fa-arrow-right"></i> Siguiente: Métodos de Asignación</a>
+            </div>
+        </div>
+    </nav>
+
+    <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-chevron-up"></i></button>
+
+    <div class="container">
+        <header id="inicio">
+            <div class="breadcrumb">
+               <a href="https://escomisr.github.io/Libro_Digital_SO/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 4</a>
+                <span>/</span>
+                <span>4.2 Implementación</span>
+            </div>
+            <h1>4.2 Implementación</h1>
+            <div class="subtitle">Organización y Gestión de Datos</div>
+        </header>
+        
+        <div class="intro">
+            <div class="quote-box">
+                "Según Silberschatz, Galvin y Gagne (2022), establece que existe una agrupación que estructura los datos y procedimientos que se utilizan por el sistema operativo en donde tiene una función de administrar, almacenar y recuperar archivos de una forma segura y eficiente."
+            </div>
+        </div>
+        
+        <div class="section" id="seccion-4-2">
+            <div class="section-header">
+                <div class="section-number">4.2</div>
+                <div class="section-title">Niveles de Implementación</div>
+            </div>
+            <div class="content">
+                <p>La implementación dentro de su organización tiene los siguientes niveles con características y funciones específicas:</p>
+                <ol>
+                    <li>
+                        <strong>Los Bloques de Control de Proceso (BCP)</strong> son estructuras que se cargan al iniciar el sistema operativo y permanecen activas durante su ejecución, incluyendo elementos como:
+                        <br>Tabla de archivos abiertos, Tabla de inodos y Tabla de montajes.
+                    </li>
+                    <li>
+                        <strong>Estructura de control en disco</strong>, dentro de este espacio de almacenamiento se ubican de forma permanente y garantiza la persistencia de los datos entre los que se encuentran:
+                        <br>Superbloque, Mapa de bits y Bloques de datos.
+                    </li>
+                    <li>
+                        <strong>Administración de archivos, gestión documental y administración de datos</strong>, esto se genera cuando un archivo se apertura y el sistema operativo realiza un traslado de información al control de inodo desde el dispositivo físico a la memoria principal, con ello se actualiza la tabla de archivos abiertos, esto ayuda a mejorar la velocidad de acceso y la reducción de operaciones de entrada y salida en los discos de almacenamiento.
+                    </li>
+                    <li>
+                        <strong>Asignación de espacio</strong>, sirve para la asignación de bloques en el disco que permiten el almacenamiento de los archivos en una forma contigua y enlazada buscando la eficiencia de acceso y evitando la fragmentación.
+                    </li>
+                    <li>
+                        <strong>Manejo de directorios</strong>, Los archivos se organizan de forma jerárquica dentro de directorios, que contienen referencias tanto a otros archivos como a subdirectorios.
+                    </li>
+                </ol>
+
+                <div class="figure-container">
+                    <div class="figure-caption">Figura 29</div>
+                    <div class="figure-caption">Implementación del sistema de archivos</div>
+                    <img src="FIGURA29.png" alt="Implementación del sistema de archivos" class="imagen-figura1">
+                    <div class="figure-caption">Nota: Adaptado de Conceptos de sistemas operativos (10.ª ed.) por Abraham Silberschatz, Peter B. Galvin y Greg Gagne, 2022, Wiley.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" id="seccion-4-2-1">
+            <div class="section-header">
+                <div class="section-number">4.2.1</div>
+                <div class="section-title">De archivos</div>
+            </div>
+            <div class="content">
+                <div class="quote-box">
+                    "Según Silberschatz, Galvin y Gagne (2022), dentro del sistema operativo, los archivos representan la unidad lógica principal para almacenar información."
+                </div>
+                <p>Estos son gestionados mediante estructuras de datos y mecanismos que permiten su creación, acceso, modificación y eliminación.</p>
+                <p>Su organización combina una estructura lógica jerárquica basada en directorios y archivos con una estructura física compuesta por bloques o sectores que el sistema administra de manera transparente al usuario.</p>
+                <p>Es por ello que los archivos se organizan de cierta forma por niveles dentro de los directorios que nos permitirán su ubicación y clasificación.</p>
+                <p>Por lo que los dispositivos de almacenamiento físico guardan los datos en espacio conocidos como bloques de disco tomando en consideración los métodos de asignación contigua.</p>
+                <p>Cuando se abre un archivo tiene datos de control que permite su carga en el espacio de memoria, lo que nos facilitará la lectura y escritura del mismo, además de proporcionar seguridad que garantice los accesos mediante bitácoras.</p>
+
+                <div class="figure-container">
+                    <div class="figure-caption">Figura 30</div>
+                    <div class="figure-caption">Estructura lógica y física del sistema de archivos</div>
+                    <img src="FIGURA30.png" alt="Estructura lógica y física del sistema de archivos" class="imagen-figura1">
+                    <div class="figure-caption">Nota: Adaptado de Conceptos de sistemas operativos (10.ª ed.) por A. Silberschatz, P. B. Galvin y G. Gagne, 2022; Wiley.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="seccion-4-2-2">
+            <div class="section-header">
+                <div class="section-number">4.2.2</div>
+                <div class="section-title">De directorios</div>
+            </div>
+            <div class="content">
+                <p>Según Tanenbaum (2015), establece que los directorios los requiere el sistema de archivo para su funcionalidad debido a que tienen presente un orden por niveles en donde se encuentran organizados de una forma sencilla de ubicar en los dispositivos de almacenamiento y con ello tener una administración más específica en los permisos a la información, Por lo que, utiliza los directorios para mantener el orden jerárquico de los archivos, registrar información de control como nombres, ubicaciones, atributos y fechas, y aplicar políticas de seguridad sobre carpetas y contenidos.</p>
+                <p>En los sistemas modernos como UNIX, Linux o Windows, la estructura de directorios adopta una forma de árbol, con un directorio raíz del cual dependen múltiples subdirectorios y archivos.</p>
+                <p>Cada directorio implementa dentro de él archivos que contiene registros con el nombre y referencia física, además de sus atributos, para que con esto se pueda optimizar el acceso, el sistema en donde se mantenga en la memoria estructuras como tablas de directorios abiertos y cachés que aceleran la búsqueda.</p>
+                <p>Asimismo, los mecanismos de control como las bitácoras y el bloqueo de directorios garantizan la integridad y seguridad de los datos ante accesos simultáneos o fallos del sistema.</p>
+            </div>
+        </div>
+
+        <div class="section" id="seccion-4-2-3">
+            <div class="section-header">
+                <div class="section-number">4.2.3</div>
+                <div class="section-title">Archivos compartidos</div>
+            </div>
+            <div class="content">
+                <p>Según Tanenbaum, es cuando se permiten que diferentes usuarios puedan tener accesos o procesos sobre un mismo archivo, esto permite la colaboración compartida y que se puede trabajar en diferentes momentos y aplicaciones, así como en equipos independientes, pero con la finalidad de intercambiar momentos de trabajos en los archivos almacenados.</p>
+                <p>Es por ello que se debe de establecer las formas para que este proceso funcione adecuadamente, en donde el sistema operativo debe de tener métodos o procesos de control de la concurrencia que se podría presentar con esto se podrá regular simultáneamente en el archivo de trabajo.</p>
+                <p>Además, los sistemas operativos utilizan mecanismos de permisos y protección de acceso, de modo que solo los usuarios autorizados puedan visualizar o modificar los archivos compartidos.</p>
+                <p>Tanenbaum señala que el manejo adecuado de los archivos compartidos no solo depende del software, sino también del soporte del sistema de archivos y del hardware de almacenamiento.</p>                
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-title">Actividad de Aprendizaje 4.2: Implementación</div>
+            <p>Evalúa tu comprensión sobre los Bloques de Control de Proceso, inodos y la gestión de archivos y directorios.</p>
+            <a href="Actividad_4_2.html" class="activity-btn">
+                <i class="fas fa-pencil-alt"></i> Realizar Actividad
+            </a>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="4.1.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Anterior: 4.1 Estructura</a>
+            <a href="4.3.html" class="nav-btn">Continuar a 4.3: Métodos de Asignación <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <footer>
+            <p>Sistemas Operativos - Unidad 4: Sistema de Archivos</p>
+            <p>Desarrollado para fines educativos - © 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        let sidebarOpen = false;
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebarNav = document.getElementById('sidebarNav');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        function toggleSidebar() { sidebarOpen = !sidebarOpen; if (sidebarOpen) { sidebarNav.classList.add('active'); sidebarOverlay.classList.add('active'); menuToggle.classList.add('active'); menuToggle.innerHTML = '<i class="fas fa-times"></i>'; document.body.style.overflow = 'hidden'; } else { sidebarNav.classList.remove('active'); sidebarOverlay.classList.remove('active'); menuToggle.classList.remove('active'); menuToggle.innerHTML = '<i class="fas fa-bars"></i>'; document.body.style.overflow = 'auto'; } updateContainerSpacing(); }
+        menuToggle.addEventListener('click', toggleSidebar); sidebarOverlay.addEventListener('click', toggleSidebar);
+        document.querySelectorAll('.nav-item[data-section]').forEach(item => { item.addEventListener('click', () => { if (window.innerWidth <= 768) { toggleSidebar(); } }); });
+        function updateContainerSpacing() { const container = document.querySelector('.container'); if (window.innerWidth <= 768) { container.style.marginLeft = '20px'; container.style.marginRight = '20px'; container.style.padding = '10px'; } else if (sidebarOpen && window.innerWidth > 768) { container.style.marginLeft = '370px'; container.style.marginRight = '90px'; container.style.padding = '20px'; } else { container.style.marginLeft = '90px'; container.style.marginRight = '90px'; container.style.padding = '20px'; } }
+        function updateActiveSection() { const sections = document.querySelectorAll('.section'); const navItems = document.querySelectorAll('.nav-item[data-section]'); let currentSectionId = ''; sections.forEach(section => { const rect = section.getBoundingClientRect(); if (rect.top <= 150 && rect.bottom >= 150) { currentSectionId = section.id; } }); navItems.forEach(item => { const sectionId = 'seccion-' + item.dataset.section; if (sectionId === currentSectionId) { item.classList.add('active'); } else { item.classList.remove('active'); } }); }
+        function updateReadingProgress() { const winScroll = document.body.scrollTop || document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight; const scrolled = (winScroll / height) * 100; document.getElementById('progressBar').style.width = scrolled + '%'; }
+        const scrollToTopBtn = document.getElementById('scrollToTop'); function toggleScrollToTopBtn() { if (window.pageYOffset > 300) { scrollToTopBtn.classList.add('visible'); } else { scrollToTopBtn.classList.remove('visible'); } } scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        window.addEventListener('scroll', () => { updateActiveSection(); updateReadingProgress(); toggleScrollToTopBtn(); });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) { const offsetTop = target.offsetTop - 100; window.scrollTo({ top: offsetTop, behavior: 'smooth' }); } }); });
+        window.addEventListener('resize', () => { if (window.innerWidth > 768 && sidebarOpen) { toggleSidebar(); } updateContainerSpacing(); });
+        document.addEventListener('DOMContentLoaded', function() { updateActiveSection(); updateReadingProgress(); updateContainerSpacing(); if (window.innerWidth <= 768) { sidebarNav.classList.remove('active'); } });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && sidebarOpen) { toggleSidebar(); } });
+    </script>
+</body>
+</html>

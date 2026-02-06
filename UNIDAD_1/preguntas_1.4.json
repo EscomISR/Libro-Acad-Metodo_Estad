@@ -1,0 +1,212 @@
+[
+  {
+    "question": "¿Qué son las llamadas al sistema dentro de un sistema operativo?",
+    "options": [
+      "Programas opcionales para acelerar la CPU",
+      "La interfaz mediante la cual las aplicaciones solicitan servicios al kernel",
+      "Herramientas que permiten modificar el hardware desde el usuario",
+      "Procesos que solo funcionan con permisos administrativos"
+    ],
+    "answer": "La interfaz mediante la cual las aplicaciones solicitan servicios al kernel"
+  },
+  {
+    "question": "Según Silberschatz, Galvin y Gagne (2022), ¿qué representan las llamadas al sistema?",
+    "options": [
+      "El punto de inicio de los procesos de usuario",
+      "El punto de transición entre programas de usuario y el núcleo",
+      "El mecanismo para desactivar interrupciones",
+      "Una alternativa para reemplazar el kernel"
+    ],
+    "answer": "El punto de transición entre programas de usuario y el núcleo"
+  },
+  {
+    "question": "¿De qué depende la autorización de una llamada al sistema?",
+    "options": [
+      "Del tamaño del archivo solicitado",
+      "De los privilegios del usuario y de la revisión del kernel",
+      "Del tipo de memoria disponible",
+      "De la velocidad del procesador"
+    ],
+    "answer": "De los privilegios del usuario y de la revisión del kernel"
+  },
+  {
+    "question": "¿Qué llamada al sistema crea un nuevo proceso?",
+    "options": [
+      "execve()",
+      "wait()",
+      "fork()",
+      "exit()"
+    ],
+    "answer": "fork()"
+  },
+  {
+    "question": "¿Qué hace execve()?",
+    "options": [
+      "Duplica un proceso",
+      "Finaliza un proceso",
+      "Reemplaza el espacio de memoria del proceso actual con un nuevo programa",
+      "Bloquea la ejecución de señales"
+    ],
+    "answer": "Reemplaza el espacio de memoria del proceso actual con un nuevo programa"
+  },
+  {
+    "question": "¿Cuál es la función principal de wait() y waitpid()?",
+    "options": [
+      "Eliminar procesos sobrantes",
+      "Permitir que un proceso padre espere la finalización de sus procesos hijos",
+      "Bloquear señales del sistema",
+      "Incrementar la prioridad del proceso"
+    ],
+    "answer": "Permitir que un proceso padre espere la finalización de sus procesos hijos"
+  },
+  {
+    "question": "¿Qué hace la llamada exit()?",
+    "options": [
+      "Reemplaza la memoria del proceso",
+      "Detiene temporalmente el proceso",
+      "Termina cualquier proceso",
+      "Envía señales asincrónicas"
+    ],
+    "answer": "Termina cualquier proceso"
+  },
+  {
+    "question": "¿Qué son las señales en un sistema operativo?",
+    "options": [
+      "Archivos especiales del sistema",
+      "Eventos asincrónicos que notifican sucesos importantes a un proceso",
+      "Interrupciones de hardware generadas exclusivamente por la CPU",
+      "Mecanismos para acceder al disco duro"
+    ],
+    "answer": "Eventos asincrónicos que notifican sucesos importantes a un proceso"
+  },
+  {
+    "question": "¿Cuál señal interrumpe un proceso mediante la combinación Ctrl + C?",
+    "options": [
+      "SIGSTOP",
+      "SIGKILL",
+      "SIGINT",
+      "SIGUSR1"
+    ],
+    "answer": "SIGINT"
+  },
+  {
+  "question": "¿Qué señal informa al proceso padre que un proceso hijo terminó?",
+  "options": [
+    "SIGKILL",
+    "SIGSTOP",
+    "SIGCHLD",
+    "SIGUSR1"
+  ],
+  "answer": "SIGCHLD"
+},
+  {
+    "question": "¿Qué llamadas al sistema permiten manejar señales?",
+    "options": [
+      "signal(), kill(), sigaction(), sigprocmask()",
+      "fork(), execve(), wait()",
+      "open(), read(), write()",
+      "chmod(), chown(), umask()"
+    ],
+    "answer": "signal(), kill(), sigaction(), sigprocmask()"
+  },
+  {
+    "question": "¿Qué representa un archivo dentro del sistema operativo según el texto?",
+    "options": [
+      "Un proceso en espera de ejecución",
+      "Un conjunto de datos identificado por nombre y extensión",
+      "Una copia del sistema operativo",
+      "Una variable del kernel"
+    ],
+    "answer": "Un conjunto de datos identificado por nombre y extensión"
+  },
+  {
+    "question": "¿Qué función cumplen los directorios?",
+    "options": [
+      "Liberan memoria al borrar procesos",
+      "Organizan archivos lógicamente y facilitan su ubicación",
+      "Sirven como reemplazo de la memoria RAM",
+      "Inician procesos del sistema"
+    ],
+    "answer": "Organizan archivos lógicamente y facilitan su ubicación"
+  },
+  {
+    "question": "¿Qué estructura jerárquica suelen tener los directorios?",
+    "options": [
+      "Árbol o raíz",
+      "Malla hexagonal",
+      "Cadena circular",
+      "Tabla directa"
+    ],
+    "answer": "Árbol o raíz"
+  },
+  {
+    "question": "¿Qué establece la protección y control de acceso?",
+    "options": [
+      "El orden en que se crean archivos",
+      "Los mecanismos que determinan qué usuarios pueden acceder a recursos",
+      "La cantidad de memoria que usa cada aplicación",
+      "La arquitectura del sistema de archivos"
+    ],
+    "answer": "Los mecanismos que determinan qué usuarios pueden acceder a recursos"
+  },
+  {
+    "question": "¿Qué utiliza el kernel para evitar accesos no autorizados a memoria?",
+    "options": [
+      "Listas de E/S",
+      "Tablas de páginas con permisos",
+      "Contraseñas embebidas",
+      "Registros virtuales"
+    ],
+    "answer": "Tablas de páginas con permisos"
+  },
+  {
+    "question": "¿Qué verifican las llamadas al sistema relacionadas con archivos?",
+    "options": [
+      "Los identificadores de usuario (UID) y grupo (GID)",
+      "La temperatura del CPU",
+      "La cantidad de procesos activos",
+      "La disponibilidad de la red"
+    ],
+    "answer": "Los identificadores de usuario (UID) y grupo (GID)"
+  },
+  {
+    "question": "¿Cuál de las siguientes es una llamada miscelánea para gestión del tiempo?",
+    "options": [
+      "execve()",
+      "clock_gettime()",
+      "waitpid()",
+      "sigaction()"
+    ],
+    "answer": "clock_gettime()"
+  },
+  {
+    "question": "¿Qué llamada se usa para obtener información del sistema operativo?",
+    "options": [
+      "uname()",
+      "getenv()",
+      "ptrace()",
+      "kill()"
+    ],
+    "answer": "uname()"
+  },
+  {
+    "question": "¿Qué llamada se utiliza para la depuración y monitoreo de procesos?",
+    "options": [
+      "fork()",
+      "ptrace()",
+      "read()",
+      "sigprocmask()"
+    ],
+    "answer": "ptrace()"
+  },
+  {
+    "question": "¿Qué objetivo tienen las llamadas misceláneas?",
+    "options": [
+      "Administrar procesos de forma exclusiva",
+      "Proporcionar herramientas complementarias para monitorear, sincronizar y gestionar el sistema",
+      "Desactivar la memoria virtual",
+      "Manipular dispositivos sin permisos del kernel"
+    ],
+    "answer": "Proporcionar herramientas complementarias para monitorear, sincronizar y gestionar el sistema"
+  }
+]

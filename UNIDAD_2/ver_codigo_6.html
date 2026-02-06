@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Código - Mutex</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Estilos consistentes con Unidad 2 */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a2a3a;
+            --gray: #95a5a6;
+            --code-bg: #2d2d2d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: var(--light); min-height: 100vh; line-height: 1.7; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        header { text-align: center; padding: 30px 20px; margin-bottom: 30px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .breadcrumb { display: flex; justify-content: center; margin-bottom: 15px; color: var(--gray); font-size: 1rem; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: white; text-decoration: underline; }
+        .breadcrumb span { margin: 0 10px; }
+        
+        h1 { font-size: 2.2rem; margin-bottom: 5px; color: white; }
+        .subtitle { font-size: 1.2rem; color: var(--secondary); font-weight: 300; }
+
+        .code-viewer-container { background: #1e1e1e; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); overflow: hidden; border: 1px solid #333; }
+        .code-header { background: #252526; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
+        .file-info { display: flex; align-items: center; gap: 10px; color: #ccc; font-family: monospace; font-size: 0.9rem; }
+        .file-icon { color: var(--secondary); }
+        
+        .btn-copy { background: rgba(255,255,255,0.1); border: none; color: #ddd; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-copy:hover { background: var(--secondary); color: white; }
+
+        pre[class*="language-"] { margin: 0 !important; border-radius: 0 !important; padding: 20px !important; background: transparent !important; font-size: 0.95rem; text-shadow: none !important; }
+        code[class*="language-"], pre[class*="language-"] { font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace; }
+
+        footer { text-align: center; margin-top: 40px; padding: 20px; color: var(--gray); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .back-button { display: inline-block; margin-top: 20px; color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .back-button:hover { color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 2</a>
+                <span>/</span>
+                <a href="laboratorio_codigo.html">Laboratorio</a>
+                <span>/</span>
+                <span>Código Fuente</span>
+            </div>
+            <h1><i class="fas fa-file-code"></i> Visor de Código</h1>
+            <div class="subtitle">Sincronización (Mutex)</div>
+        </header>
+        
+        <main class="code-viewer-container">
+            <div class="code-header">
+                <div class="file-info">
+                    <i class="fas fa-c file-icon"></i>
+                    <span>Mutex.c</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-copy" onclick="copyToClipboard()">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                </div>
+            </div>
+            
+            <pre><code class="language-c" id="source-code">/*
+    Escuela: ESCOM - IPN
+    Materia: Sistemas Operativos
+    Práctica 8: Sincronización de Procesos (Mutex)
+    Descripción: Uso de Mutex para proteger una variable compartida (Sección Crítica)
+                 accedida concurrentemente por múltiples hilos.
+*/
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;unistd.h&gt;
+
+#define NUM_HILOS 5
+
+// Recurso compartido
+int saldo_bancario = 1000;
+
+// Declaración del Mutex
+pthread_mutex_t candado;
+
+void* realizar_transaccion(void* arg) {
+    int id = *((int*)arg);
+    int monto = 100;
+
+    printf("Hilo %d intentando entrar a la sección crítica...\n", id);
+
+    // 1. Bloquear el mutex antes de entrar a la sección crítica
+    pthread_mutex_lock(&candado);
+
+    // --- INICIO SECCIÓN CRÍTICA ---
+    printf("Hilo %d ha entrado. Saldo actual: %d\n", id, saldo_bancario);
+    
+    // Simular tiempo de procesamiento
+    sleep(1);
+    
+    saldo_bancario += monto;
+    printf("Hilo %d ha depositado $%d. Nuevo saldo: %d\n", id, monto, saldo_bancario);
+    // --- FIN SECCIÓN CRÍTICA ---
+
+    // 2. Desbloquear el mutex al salir
+    pthread_mutex_unlock(&candado);
+
+    printf("Hilo %d ha salido de la sección crítica.\n", id);
+    return NULL;
+}
+
+int main() {
+    pthread_t hilos[NUM_HILOS];
+    int ids[NUM_HILOS];
+
+    // Inicializar el mutex
+    if (pthread_mutex_init(&candado, NULL) != 0) {
+        printf("Fallo al inicializar mutex\n");
+        return 1;
+    }
+
+    printf("--- Simulación de Cajero (Saldo Inicial: %d) ---\n", saldo_bancario);
+
+    // Crear hilos
+    for (int i = 0; i &lt; NUM_HILOS; i++) {
+        ids[i] = i + 1;
+        pthread_create(&hilos[i], NULL, realizar_transaccion, &ids[i]);
+    }
+
+    // Esperar a que terminen los hilos
+    for (int i = 0; i &lt; NUM_HILOS; i++) {
+        pthread_join(hilos[i], NULL);
+    }
+
+    // Destruir el mutex
+    pthread_mutex_destroy(&candado);
+
+    printf("\nSaldo Final: %d\n", saldo_bancario);
+    return 0;
+}</code></pre>
+        </main>
+        
+        <div style="text-align: center;">
+            <a href="laboratorio_codigo.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Volver al Laboratorio
+            </a>
+        </div>
+
+        <footer>
+            <p>Sistemas Operativos - Unidad 2</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script>
+        function copyToClipboard() {
+            const codeText = document.getElementById('source-code').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                btn.style.background = 'var(--secondary)';
+                btn.style.color = 'white';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

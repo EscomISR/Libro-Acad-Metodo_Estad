@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.3 Segmentación de Memoria</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /*
+        Estilos CSS definidos para mantener la consistencia visual.
+        */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        /* Botón flotante de inicio */
+        .floating-home-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 1.5rem;
+        }
+
+        .floating-home-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Menú de navegación lateral */
+        .sidebar-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 999;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+            overflow-y: auto;
+        }
+
+        .sidebar-nav.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            background: rgba(52, 152, 219, 0.1);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .nav-sections {
+            padding: 20px 0;
+        }
+
+        .nav-section {
+            margin-bottom: 15px;
+        }
+
+        .nav-section-title {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(52, 152, 219, 0.1);
+            border-left-color: var(--secondary);
+            padding-left: 25px;
+        }
+
+        .nav-item.active {
+            background: rgba(52, 152, 219, 0.2);
+            border-left-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .nav-item i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Botón toggle del menú */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            font-size: 1.2rem;
+        }
+
+        .menu-toggle:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle.active {
+            background: var(--accent);
+        }
+
+        /* Indicador de progreso de lectura */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 998;
+        }
+
+        .reading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--success));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Overlay para cerrar el menú */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            transition: margin-left 0.3s ease, margin-right 0.3s ease;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        .intro {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+            text-align: justify;
+        }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            scroll-margin-top: 100px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .section-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-right: 15px;
+            min-width: 120px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .content {
+            padding: 0 10px;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .content h4 {
+            font-size: 1.3rem;
+            color: var(--warning);
+            margin: 25px 0 12px;
+            padding-left: 8px;
+        }
+        
+        .content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .content ul, .content ol {
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+        
+        .content li {
+            margin-bottom: 12px;
+        }
+        
+        .highlight {
+            background: rgba(231, 76, 60, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .figure-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .imagen-figura1 {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain; 
+            border-radius: 8px;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: zoom-in;
+            transform-origin: center center;
+        }
+        
+        /* Efecto al pasar el mouse */
+        .imagen-figura1:hover {
+            transform: scale(1.4); 
+            border-radius: 8px;
+        }
+        
+        .figure-placeholder {
+            width: 100%;
+            min-height: 300px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin: 15px 0;
+            color: var(--gray);
+            font-style: italic;
+            flex-direction: column;
+        }
+        
+        .figure-caption {
+            color: var(--gray);
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .activity-card {
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 4px solid var(--success);
+            text-align: center;
+        }
+        
+        .activity-title {
+            font-size: 1.8rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+
+        .activity-description {
+            margin-bottom: 20px;
+        }
+        
+        .activity-btn {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .activity-btn:hover {
+            background: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        .nav-btn i {
+            margin: 0 8px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Botón de ir arriba */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-number {
+                min-width: 100px;
+                font-size: 1.8rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .floating-home-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar" id="progressBar"></div>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <a href="index.html" class="floating-home-btn" title="Ir al inicio de Unidades">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <nav class="sidebar-nav" id="sidebarNav">
+        <div class="sidebar-header">
+            <div class="sidebar-title">3.3 Segmentación de Memoria</div>
+            <div class="sidebar-subtitle">Modelos y Enfoques</div>
+        </div>
+        
+        <div class="nav-sections">
+            <div class="nav-section">
+                <div class="nav-section-title">Navegación</div>
+                <a href="#inicio" class="nav-item">
+                    <i class="fas fa-play-circle"></i>
+                    Inicio de la unidad
+                </a>
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-arrow-left"></i>
+                    Menú principal 3
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Contenido</div>
+                <a href="#seccion-3-3-1" class="nav-item" data-section="3-3-1">
+                    <i class="fas fa-dice-d6"></i>
+                    3.3.1 Segmentación Pura
+                </a>
+                <a href="#seccion-3-3-2" class="nav-item" data-section="3-3-2">
+                    <i class="fas fa-layer-group"></i>
+                    3.3.2 Segmentación con Paginación
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Recursos</div>
+                <a href="#actividad-aprendizaje" class="nav-item">
+                    <i class="fas fa-tasks"></i>
+                    Actividad de aprendizaje
+                </a>
+                <a href="3.2.html" class="nav-item">
+                    <i class="fas fa-arrow-left"></i>
+                    Anterior: Memoria Virtual
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <header id="inicio">
+            <div class="breadcrumb">
+                <a href="https://escomisr.github.io/Libro_Digital_SO/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="index.html">Unidad 3</a>
+                <span>/</span>
+                <span>3.3 Segmentación de Memoria</span>
+            </div>
+            <h1>3.3 Segmentación</h1>
+            <div class="subtitle">Organización lógica del espacio de direcciones</div>
+        </header>
+        
+        <div class="intro">
+            <p>La segmentación es una forma de administrar la memoria que consiste en dividir el programa en partes llamadas segmentos, las cuales pueden tener distintos tamaños.</p>
+            <p>Cada segmento representa una parte lógica del programa, como el código, los datos o la pila.</p>
+            <p>A diferencia de la paginación, donde las divisiones son iguales, la segmentación organiza la memoria según la estructura real del programa, haciendo su uso más natural y flexible (Silberschatz, Galvin y Gagne, 2022).</p>
+            <p>En este modelo, cada proceso se divide en varias partes llamadas segmentos, y cada dirección dentro del programa se forma por dos elementos: el número de segmento, que indica a qué parte del programa pertenece, y el desplazamiento, que señala la posición dentro de ese segmento.</p>
+            <p>El sistema operativo guarda una tabla de segmentos para cada proceso, donde anota la dirección inicial y el tamaño de cada segmento.</p>
+            <p>Con esta información puede convertir las direcciones lógicas en físicas y asegurarse de que el programa no acceda a zonas de memoria no permitidas.</p>
+            <p>La segmentación tiene ventajas importantes porque representa de forma más clara la estructura lógica de los programas, permite proteger y compartir partes del código, y facilita el crecimiento de cada segmento según sea necesario.</p>
+            <p>Sin embargo, también tiene desventajas, como la fragmentación externa —cuando quedan espacios vacíos en la memoria— y una administración más complicada por manejar segmentos de diferentes tamaños.</p>
+            
+            <div class="figure-container">
+                <p class="figure-caption">Figura 24</p>
+                <p class="figure-caption">Segmentación</p>
+                <img src="FIGURA24.png" alt="Segmentación" class="imagen-figura1">
+                <p class="figure-caption">Nota: Adaptado de Conceptos de sistemas operativos (10.ª ed.) por A. Silberschatz, P. B. Galvin y G. Gagne, 2022, Wiley.</p>
+            </div>
+        </div>
+        
+        <div class="section" id="seccion-3-3-1">
+            <div class="section-header">
+                <div class="section-number">3.3.1</div>
+                <div class="section-title">Segmentación pura</div>
+            </div>
+            <div class="content">
+                <p>Es una forma de administrar la memoria en la que cada programa se divide en partes llamadas segmentos, que pueden tener distintos tamaños y representan elementos como el código, los datos, la pila o las tablas.</p>
+                <p>Estos segmentos se cargan en la memoria principal solo cuando se necesitan y pueden aumentar o disminuir de tamaño de manera independiente.</p>
+                <p>A diferencia de la paginación, aquí no se usan divisiones fijas, sino que la memoria se organiza según la estructura lógica del programa (Silberschatz, Galvin y Gagne, 2022).</p>
+                <p>En este modelo, el espacio de direcciones de un proceso está formado por varios segmentos, y cada dirección se compone de un número de segmento y un desplazamiento, que indica la posición dentro de él.</p>
+                <p>El sistema operativo mantiene una tabla donde se guarda la dirección inicial y el tamaño de cada segmento, lo que permite controlar el acceso y evitar errores.</p>
+                <p>Esta técnica ofrece una gestión flexible y modular de la memoria, útil para sistemas que requieren protección y compartición de datos, aunque su manejo es más complejo que el de la paginación.</p>
+                
+                <div class="figure-container">
+                    <p class="figure-caption">Figura 25</p>
+                    <p class="figure-caption">Segmentación pura</p>
+                    <img src="FIGURA25.png" alt="Segmentación pura" class="imagen-figura1">
+                    <p class="figure-caption">Nota: Adaptado de Conceptos de sistemas operativos (10.ª ed.) por A. Silberschatz, P. B. Galvin y G. Gagne, 2022; Wiley, 2022.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3><i class="fas fa-play-circle" style="margin-right: 10px;"></i> Material Audiovisual</h3>
+                <p>Para comprender cómo se estructura y se implementa la segmentación de memoria, revisa el siguiente video:</p>
+                
+                <div class="figure-container">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/syi6ROCfW7I" title="Segmentación e implementación de la segmentación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
+                    <div class="figure-caption">Salas, I. (2025, 26 de noviembre). <em>Segmentación e implementación</em> [Video]. YouTube. https://www.youtube.com/watch?v=syi6ROCfW7I</div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="section" id="seccion-3-3-2">
+            <div class="section-header">
+                <div class="section-number">3.3.2</div>
+                <div class="section-title">Segmentación con paginación</div>
+            </div>
+            <div class="content">
+                <p>Estas páginas se almacenan en marcos de memoria física eliminando así la fragmentación externa que se presenta en la segmentación pura.</p>
+                <p>Cada proceso cuenta con una tabla de segmentos y cada segmento tiene su propia tabla de páginas.</p>
+                <p>De esta forma, para acceder a una dirección de memoria, se utilizan tres componentes:</p>
+                <ul>
+                    <li><strong>Número de segmento:</strong> identifica el bloque lógico del proceso</li>
+                    <li><strong>Número de página:</strong> localiza la página específica dentro del segmento</li>
+                    <li><strong>Desplazamiento (offset):</strong> indica la posición dentro de la página</li>
+                </ul>
+                <p>Este mecanismo admite que los segmentos crezcan y se gestionen de manera independiente, mientras que las páginas aseguran una asignación física eficiente.</p>
+                <h4>Ventajas principales:</h4>
+                <ul>
+                    <li>Elimina la fragmentación externa</li>
+                    <li>Mantiene la organización lógica del programa por segmentos</li>
+                    <li>Facilita la protección y el compartimiento de memoria</li>
+                </ul>
+                <h4>Desventajas:</h4>
+                <ul>
+                    <li>Mayor complejidad en la traducción de direcciones</li>
+                    <li>Necesidad de múltiples tablas (de segmentos y de páginas) aumentando el consumo de memoria</li>
+                </ul>
+                <p>La siguiente figura 26, muestra el modelo de segmentación con paginación, en el que la memoria de un proceso se organiza de manera jerárquica.</p>
+                <p>Primero, el espacio lógico se divide en segmentos lógicos (por ejemplo, código, datos y pila), y luego cada segmento se subdivide en páginas de tamaño fijo.</p>
+
+                <div class="figure-container">
+                    <p class="figure-caption">Figura 26</p>
+                    <p class="figure-caption">Segmentación con paginación</p>
+                    <img src="FIGURA26.png" alt="Segmentación con paginación" class="imagen-figura1">
+                    <p class="figure-caption">Nota: Adaptado de Conceptos de sistemas operativos (10.ª ed.) por A. Silberschatz, P. B. Galvin y G. Gagne, 2022; Wiley, 2022.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3><i class="fas fa-play-circle" style="margin-right: 10px;"></i> Material Audiovisual</h3>
+                <p>A continuación, se detalla el funcionamiento de la segmentación paginada, combinando las ventajas de ambos esquemas:</p>
+                
+                <div class="figure-container">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/Yrs-0tILQrE" title="Segmentación con paginación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
+                    <div class="figure-caption">Salas, I. (2025, 26 de noviembre). <em>Segmentación con paginación</em> [Video]. YouTube. https://www.youtube.com/watch?v=Yrs-0tILQrE</div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="activity-card" id="actividad-aprendizaje">
+            <div class="activity-title">
+                <i class="fas fa-tasks"></i>
+                Actividad de Aprendizaje 3.3: Segmentación
+            </div>
+            <p class="activity-description">Evalúa tu comprensión sobre los diferentes enfoques de segmentación de memoria y su combinación con la paginación.</p>
+            <a href="Actividad_3_3.html" class="activity-btn">
+                <i class="fas fa-pencil-alt"></i> Realizar Actividad
+            </a>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="3.2.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a 3.2: Memoria Virtual</a>
+            <a href="index.html" class="nav-btn">Volver al Menú Principal <i class="fas fa-home"></i></a>
+        </div>
+        
+        <footer>
+            <p>Sistemas Operativos - Unidad 3: Administración de Memoria</p>
+            <p>Desarrollado para fines educativos - © 2025 | Referencias: Silberschatz, Galvin y Gagne (2022).</p>
+        </footer>
+    </div>
+
+    <script>
+        // Variables globales
+        let sidebarOpen = false;
+
+        // Toggle del menú lateral
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebarNav = document.getElementById('sidebarNav');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                sidebarNav.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                menuToggle.classList.add('active');
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                sidebarNav.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            }
+            
+            updateContainerSpacing();
+        }
+
+        menuToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        // Cerrar menú al hacer clic en un enlace de navegación
+        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        // Ajustar espaciado del contenedor dinámicamente
+        function updateContainerSpacing() {
+            const container = document.querySelector('.container');
+            
+            if (window.innerWidth <= 768) {
+                container.style.marginLeft = '20px';
+                container.style.marginRight = '20px';
+                container.style.padding = '10px';
+            } else if (sidebarOpen && window.innerWidth > 768) {
+                container.style.marginLeft = '370px';
+                container.style.marginRight = '90px';
+                container.style.padding = '20px';
+            } else {
+                container.style.marginLeft = '90px';
+                container.style.marginRight = '90px';
+                container.style.padding = '20px';
+            }
+        }
+
+        // Resaltar sección activa en el menú
+        function updateActiveSection() {
+            const sections = document.querySelectorAll('.section, .intro');
+            const navItems = document.querySelectorAll('.nav-item[data-section]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    currentSection = section.id.replace('seccion-', '');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.section === currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Indicador de progreso de lectura
+        function updateReadingProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        }
+
+        // Botón de ir arriba
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        function toggleScrollToTopBtn() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        }
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            updateActiveSection();
+            updateReadingProgress();
+            toggleScrollToTopBtn();
+        });
+
+        // Desplazamiento suave para enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && sidebarOpen) {
+                toggleSidebar();
+            }
+            updateContainerSpacing();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateActiveSection();
+            updateReadingProgress();
+            updateContainerSpacing();
+            
+            if (window.innerWidth <= 768) {
+                sidebarNav.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebarOpen) {
+                toggleSidebar();
+            }
+            
+            if (e.key === 'm' || e.key === 'M') {
+                if (!e.ctrlKey && !e.altKey) {
+                    toggleSidebar();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
