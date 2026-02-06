@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polilibro académico - ENMYH | Metodología de la Investigación y Estadística I</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="IMAGENES/logoescom.png">
+    <style>
+        /* Variables de color */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- ESTILOS DEL CONTENIDO DE LA PÁGINA --- */
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 20px 0 30px 0;
+            background: rgba(0, 0, 0, 1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        /* Estilos base para las imágenes del hero */
+        .hero-content img {
+            margin: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Logo IPN (Primera imagen) */
+        .hero-content img:first-of-type {
+            height: 8rem;
+        }
+
+        /* Logo ESCOM (Última imagen) */
+        .hero-content img:last-of-type {
+            height: 5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-content img {
+                margin: 0 2rem;
+            }
+            .hero-content img:first-of-type {
+                height: 12rem;
+            }
+            .hero-content img:last-of-type {
+                height: 7rem;
+            }
+        }
+
+        .hero-title h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-title h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        .hero-title h1 .highlight {
+             background: linear-gradient(to right, white, #a0cff1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title .subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        @media (min-width: 1024px) {
+            .card-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            transition: all 0.4s;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .card .card-header {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .card-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        .card-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .card .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #FFF;
+        }
+
+        .card-content {
+            padding: 0 20px 20px;
+            text-align: center;
+        }
+        
+        .card-description {
+            font-size: 0.875rem;
+            color: #bdc3c7;
+            line-height: 1.5;
+        }
+
+        .gradient-1 { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .gradient-2 { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .gradient-3 { background: linear-gradient(135deg, #f39c12, #f1c40f); }
+        .gradient-4 { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .gradient-5 { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .gradient-6 { background: linear-gradient(135deg, #1abc9c, #16a085); }
+        .gradient-7 { background: linear-gradient(135deg, #e67e22, #d35400); }
+        .gradient-8 { background: linear-gradient(135deg, #34495e, #2c3e50); }
+
+        /* --- ESTILOS MODAL --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fff;
+            color: #333;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+            max-width: 90vw;
+            width: 800px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.4s ease-out;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .modal-close-btn:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .modal-body .modal-section {
+            display: none;
+        }
+
+        .modal-body .modal-section.active {
+            display: block;
+        }
+        
+        .prose {
+            line-height: 1.7;
+            font-size: 1rem;
+            color: #555;
+        }
+        .prose h3 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .prose h4 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-top: 1.5rem;
+        }
+        .prose p, .prose ul, .prose ol {
+            margin-bottom: 1rem;
+        }
+        .prose strong {
+            color: var(--primary);
+        }
+        .prose a {
+            color: var(--secondary);
+        }
+        .prose hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 2rem 0;
+        }
+        
+        .creator-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .creator-block {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
+        
+        .creator-block img {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+        }
+        
+        .creator-info h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .creator-info .email {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .creator-info p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .collaborator-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .collaborator-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .collaborator-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .collaborator-card img {
+            width: 7rem;
+            height: 7rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+            background-color: #e0e0e0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .collaborator-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .collaborator-info .email {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: #95a5a6;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* --- ESTILOS BOTÓN CTA --- */
+        .cta-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, var(--secondary), #27ae60);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-button i {
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Estilos para la lista de videos */
+        .unit-title {
+            color: var(--secondary);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .video-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        @media (min-width: 768px) {
+            .video-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .video-list li {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #eee;
+        }
+        .video-list li:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateX(5px);
+        }
+        .video-list li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .video-list li:hover i {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="hero-section">
+            <div class="hero-content">
+                <img src="IMAGENES/IPNb.png" alt="IPN Logo">
+                <div class="hero-title">
+                    <h1><span class="highlight">Instituto Politécnico Nacional</span><br><span class="subtitle">Escuela Nacional de Medicina y Homeopatía</span></h1>
+                    <!-- <p class="hero-description">Evidencia que que trasforma la atención médica<strong> -->
+                    <img src="Título01.png" width="100%">
+                    <br>Polilibro académico <br>Unidad de aprendizaje Metodología de la Investigación y Estadística </p>
+                </div>
+                <img src="IMAGENES/ESCOMB.png" alt="ESCOM Logo">
+            </div>
+        </section>
+
+        <div class="card-container">
+            <div class="card" data-modal="prefacio">
+                <div class="card-header"><div class="card-icon gradient-1"><i class="fas fa-book"></i></div><h3 class="card-title">Bienvenida</h3></div>
+                <div class="card-content"><p class="card-description">El porqué y para quién de este recurso.</p></div>
+            </div>
+            <div class="card" data-modal="examen">
+                <div class="card-header">
+                    <div class="card-icon gradient-2">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3 class="card-title">Examen diagnóstico</h3>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">Evaluación de conocimientos previos.</p>
+                </div>
+            </div>
+            <div class="card" data-modal="Encuadre">
+                <div class="card-header"><div class="card-icon gradient-2"><i class="fas fa-compass"></i></div><h3 class="card-title">Contenido</h3></div>
+                <div class="card-content"><p class="card-description">Propósito y estructura de la unidad.</p></div>
+            </div>
+            
+             <div class="card" data-modal="programa">
+                <div class="card-header"><div class="card-icon gradient-3"><i class="fas fa-file-alt"></i></div><h3 class="card-title">Programa</h3></div>
+                <div class="card-content"><p class="card-description">Programa sintético de la unidad de aprendizaje.</p></div>
+            </div>
+            <div class="card" data-modal="Introducción">
+                <div class="card-header"><div class="card-icon gradient-4"><i class="fas fa-lightbulb"></i></div><h3 class="card-title">Introducción</h3></div>
+                <div class="card-content"><p class="card-description">Contexto y relevancia de los sistemas operativos.</p></div>
+            </div>
+
+            <div class="card" data-modal="creadores">
+                <div class="card-header"><div class="card-icon gradient-5"><i class="fas fa-users"></i></div><h3 class="card-title">Creadores</h3></div>
+                <div class="card-content"><p class="card-description">Información sobre los autores.</p></div>
+            </div>
+            <div class="card" data-modal="colaboradores">
+                <div class="card-header"><div class="card-icon gradient-7"><i class="fas fa-hands-helping"></i></div><h3 class="card-title">Colaboradores</h3></div>
+                <div class="card-content"><p class="card-description">Equipo de desarrollo y agradecimientos.</p></div>
+            </div>
+             <div class="card" data-modal="metodologia">
+                <div class="card-header"><div class="card-icon gradient-8"><i class="fas fa-sitemap"></i></div><h3 class="card-title">Metodología</h3></div>
+                <div class="card-content"><p class="card-description">Estrategia y métodos de aprendizaje.</p></div>
+            </div>
+
+            <div class="card" data-modal="actividades">
+                <div class="card-header"><div class="card-icon gradient-6"><i class="fas fa-gamepad"></i></div><h3 class="card-title">Agenda de actividades</h3></div>
+                <div class="card-content"><p class="card-description">Ejercicios y dinámicas de aprendizaje.</p></div>
+            </div>
+
+            <div class="card" data-modal="laboratorios">
+                <div class="card-header"><div class="card-icon gradient-1"><i class="fas fa-laptop-code"></i></div><h3 class="card-title">Agenda de laboratorios</h3></div>
+                <div class="card-content"><p class="card-description">Prácticas de código y programación.</p></div>
+            </div>
+           
+            <div class="card" data-modal="licencia">
+                <div class="card-header"><div class="card-icon gradient-1"><i class="fab fa-creative-commons"></i></div><h3 class="card-title">Licencia Creative Commons</h3></div>
+                <div class="card-content"><p class="card-description">Términos de uso y licenciamiento del recurso.</p></div>
+            </div>
+
+            </div> <section class="cta-section">
+            <a href="Unidades.html" class="cta-button">
+                <span>Explorar unidades temáticas</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+        </div>
+        
+        <footer>
+            <p>El pulso silencioso de los sistemas operativos - Polilibro académico</p>
+            <p>Desarrollado para fines educativos - © 2025</p>
+        </footer>
+    </main>
+
+    <div id="modal-container" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="modal-close-button"><i class="fas fa-times"></i></button>
+            <div class="modal-body prose">
+                <div id="modal-prefacio" class="modal-section">
+                    <h3>Bienvenida</h3>
+                    <p><strong><p style="text-align: justify;">El pulso silencioso de los sistemas operativos (polilibro académico), </strong> ha sido diseñado como una herramienta educativa dinámica e innovadora, orientada al aprendizaje activo de las y los estudiantes. Su objetivo es fortalecer, de manera progresiva y aplicada, los fundamentos que explican cómo y por qué los sistemas operativos constituyen
+                               el eje que organiza y controla todo lo que ocurre en una computadora, asegurando el uso eficiente, seguro y coordinado de los recursos para brindar una mejor experiencia al usuario.</p>
+                            <p><p style="text-align: justify;">A diferencia de un texto tradicional, el pulso silencioso de los sistemas operativos (polilibro académico) aprovecha las posibilidades de la interactividad a través de diagramas dinámicos, simulaciones, autoevaluaciones, actividades guiadas y recursos multimedia,
+                               se busca que los y las estudiantes exploren los conceptos clave de forma práctica, autónoma y significativa. La estructura modular permite avanzar gradualmente desde los principios básicos del sistema operativo hasta los
+                               temas de mayor complejidad, integrando ejemplos reales y entornos de experimentación digital.</p>
+                            <p><p style="text-align: justify;">Cada sección ha sido desarrollada con un enfoque pedagógico centrado en la comprensión, la aplicación y la reflexión. La interactividad no solo complementa el contenido teórico, sino que invita al lector a experimentar, analizar y construir su propio conocimiento, fortaleciendo sus competencias técnicas y su pensamiento crítico, </p>
+                            <p>Este recurso representa una innovación educativa que refleja la convicción de que el aprendizaje debe ser una experiencia participativa, incluyente y significativa, en la que el y la estudiante sea protagonista de su propio
+                               desarrollo académico.</p>
+                    <p><strong><p style="text-align: justify;">El pulso silencioso de los sistemas operativos (polilibro académico)</strong> es más que un material de apoyo: es una invitación a explorar, descubrir, aprender con creatividad, rigor y pasión por la tecnología.</p>
+                </div>
+
+                <div id="modal-Encuadre" class="modal-section">
+                    <h3>Contenido</h3>
+                    <p><p style="text-align: justify;">El pulso silencioso de los sistemas operativos (polilibro académico), fue creado como un recurso didáctico innovador, destinado a las mentes creativas y analíticas que se forman en Ingeniería en Sistemas Computacionales dentro del Instituto Politécnico Nacional. Pensado para una formación tecnológica del siglo XXI, combina la teoría, la práctica y la creatividad digital, permitiendo explorar, construir y evaluar soluciones eficientes que dan vida a los sistemas operativos modernos.</p>
+                    <p><p style="text-align: justify;">Este recurso explora el corazón de la computación moderna: el sistema operativo, motor invisible que coordina el hardware, organiza los procesos y mantiene en equilibrio el funcionamiento de todo sistema informático. Este enfoque permite que la y el estudiante comprenda la lógica que da vida a los sistemas operativos, y cómo sus estructuras y procesos se transforman en herramientas clave para enfrentar los retos y oportunidades de la era digital.</p>
+                    <p>Este enfoque permite que el y la estudiante comprenda la lógica que da vida a los sistemas operativos, y cómo sus estructuras y procesos se transforman en herramientas clave para enfrentar los retos y oportunidades de la era digital.</p>
+                    <p><p style="text-align: justify;">Cada unidad ha sido cuidadosamente estructurado para estimular la autonomía, la curiosidad científica y la aplicación práctica del conocimiento, desarrollando competencias técnicas y analíticas mediante actividades participativas, simulaciones digitales, figuras interactivas y recursos multimedia que favorecen un aprendizaje activo.</p>
+                    <p>En el desarrollo de las lecturas de cada unidad se presentarán los elementos en los cuales te permitirán situar tu aprendizaje dentro de un contexto significativo, facilitando la comprensión de los conceptos, las ideas y los procesos que sustentan el presente recurso didáctico digital.</p> 
+                </div>
+                
+                <div id="modal-programa" class="modal-section">
+                    <style>
+                        /* Estilos específicos para este modal */
+                        .program-card {
+                            background-color: #f3e8ff; /* Tono morado claro */
+                            border: 1px solid #d8b4fe;
+                            border-radius: 0.75rem;
+                            padding: 1.5rem;
+                            margin-bottom: 1.5rem;
+                        }
+                        .program-card-ipn {
+                            font-weight: 600;
+                            color: #6b21a8;
+                            background-color: #e9d5ff;
+                            padding: 0.25rem 0.75rem;
+                            border-radius: 9999px;
+                            display: inline-block;
+                            margin-right: 0.75rem;
+                        }
+                        .program-details-grid {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 1rem;
+                        }
+                        @media (min-width: 768px) {
+                            .program-details-grid {
+                                grid-template-columns: 1fr 1fr;
+                            }
+                        }
+                        .program-details-card {
+                            border: 1px solid #e5e7eb;
+                            border-radius: 0.75rem;
+                            padding: 1rem;
+                        }
+                        .program-details-card div {
+                            margin-bottom: 0.5rem;
+                        }
+                        .program-cta {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                            color: #6b21a8;
+                            font-weight: 500;
+                        }
+                    </style>
+
+                    <div class="text-center" style="margin-bottom: 2rem;">
+                        <div style="width: 8rem; height: 8rem; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <i class="fas fa-file-alt" style="font-size: 4rem; color: white;"></i>
+                        </div>
+                        <h3>Programa de la unidad de aprendizaje</h3>
+                    </div>
+
+                    <div class="prose">
+                        <div class="program-card">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <span class="program-card-ipn">IPN</span>
+                                <span style="font-weight: 600; color: #581c87;">Instituto Politécnico Nacional</span>
+                            </div>
+                            <div style="color: #581c87;">
+                                <p style="margin: 0;"><strong>Secretaría Académica</strong></p>
+                                <p style="margin: 0;"><strong>Dirección de Educación Superior</strong></p>
+                                <p style="margin-top: 0.5rem; font-size: 1.25rem; font-weight: 600;">Programa sintético</p>
+                                <a href="DOCUMENTOS/sistemasOperativos_ISC2020.pdf" target="_blank">Ver el programa completo de la unidad de aprendizaje Sistemas Operativos</a>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="program-details-grid">
+                            <div class="program-details-card">
+                                <div><strong>Unidad Académica:</strong> Escuela Superior de Cómputo</div>
+                                <div><strong>Programa Académico:</strong> Ingeniería en Sistemas Computacionales</div>
+                                <div><strong>Unidad de Aprendizaje:</strong> Sistemas Operativos</div>
+                                <div><strong>Semestre:</strong> IV</div>
+                            </div>
+                            
+                            <div class="program-details-card">
+                                <div><strong>Modalidad:</strong> escolarizada</div>
+                                <div><strong>Tipo:</strong> teórica-práctica / obligatoria</div>
+                                <div><strong>Vigencia:</strong> agosto 2021</div>
+                                <div><strong>Créditos SATCA:</strong> 6.3</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid #d8b4fe; border-radius: 0.75rem;">
+                            <h4 style="color: #6b21a8; margin-bottom: 0.75rem;">
+                                Propósito de la unidad de aprendizaje
+                            </h4>
+                            <p>
+                            El propósito de la unidad de aprendizaje (UA) <strong>Sistemas Operativos</strong> es: 
+                            propone soluciones a las necesidades de sistemas computacionales actuales a partir del funcionamiento del sistema operativo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="modal-encuadre" class="modal-section">
+                    <h3>Encuadre</h3>
+                    <p>El propósito de la unidad de aprendizaje (UA) <strong>Sistemas Operativos</strong> es proponer soluciones a las necesidades de sistemas computacionales actuales a partir del funcionamiento del sistema operativo. A lo largo de este recurso, se explorarán los componentes fundamentales que permiten esta gestión.</p>
+                </div>
+
+                <div id="modal-Introducción" class="modal-section">
+                    <h3>Introducción</h3>
+                    <p style="text-align: justify;">Todos los sistemas operativos desde sus inicios han sido parte fundamental para que la operatividad de las computadoras y juegan un papel muy importante entre el usuario y la computadora, por lo que los programas que se ejecutan les proporcionan estabilidad, seguridad y control en los procesos que se lleven a cabo con todos los elementos del hardware.</p>
+                    
+                    <p style="text-align: justify;">El pulso silencioso de los sistemas operativos (polilibro académico) invita a un viaje a través de los mecanismos, funciones y retos que conforman los sistemas operativos actuales.</p>
+                    
+                    <p style="text-align: justify;"><strong>En la primera unidad</strong>, se abordarán las bases para comprender qué es un sistema operativo, sus objetivos fundamentales, su evolución histórica y los conceptos clave que rigen su funcionamiento interno, como el núcleo, los modos de operación y las llamadas al sistema.</p>
+                    
+                    <p style="text-align: justify;"><strong>En la segunda unidad</strong> se muestra la importancia de la administración de procesos, sumando a ello los modelos de procesos, hilos, comunicación entre procesos, sincronización y algoritmos de planificación para optimizar el rendimiento del sistema operativo en beneficio de todas las llamadas al sistema por parte del usuario en peticiones como hacer una impresión o abrir un programa.</p>
+                    
+                    <p style="text-align: justify;"><strong>En la tercera unidad</strong> se establecerá la gestión que realiza la memoria con los recursos, en donde su abstracción es muy importante ya que pueden tener procesos críticos en su ejecución; por lo que la memoria virtual, paginación y técnicas de segmentación, ayudarán a la ejecución de múltiples programas de manera eficiente y segura.</p>
+                    
+                    <p style="text-align: justify;"><strong>La cuarta unidad</strong> se enfoca en los archivos, sus componentes y la forma en que se administran dentro de los sistemas operativos; asimismo cómo se nombran, organizan, protegen y manejan los datos, en donde se explora desde la estructura básica de un archivo hasta las técnicas avanzadas de optimización en la integridad de los datos.</p>
+                    
+                    <p style="text-align: justify;"><strong>En la quinta unidad</strong> se exploran los componentes fundamentales que permiten la interacción entre los sistemas informáticos y el mundo exterior, mostrando los principios de hardware y software que administran y hacen funcionar a los dispositivos de E/S, su clasificación, funcionamiento y la gestión eficiente por parte del sistema operativo.</p>
+                    
+                    <p style="text-align: justify;"><strong>En la unidad seis y última</strong> se exploran los conceptos fundamentales de seguridad y virtualización en los sistemas operativos modernos. Asimismo, las amenazas comunes que se pueden presentar en el funcionamiento o en presencia de virus; es por ello que los mecanismos de protección permiten salvaguardar los datos y recursos, y cómo la virtualización permite la creación de entornos de cómputo aislados y eficientes, buscando siempre el buen funcionamiento de los sistemas operativos.</p>
+                </div>
+
+                <div id="modal-creadores" class="modal-section">
+                    <h3>Autores el pulso silencioso de los sistemas operativos (polilibro académico)</h3>
+                    <div class="creator-block">
+                        <img src="IMAGENES/isr.png" alt="Israel Salas Ramírez">
+                        <div class="creator-info">
+                            <h4>Israel Salas Ramírez</h4>
+                            <p class="email">isalasr@ipn.mx</p>
+                            <p style="text-align: justify;"><strong>Semblanza:</strong> docente en la Escuela Superior de Cómputo del Instituto Politécnico Nacional, es doctor y maestro en ciencias de la educación, ingeniero en comunicaciones y electrónica de la ESIME Zacatenco, ha trabajado como responsable de unidades de Informática y generación de proyectos de Inversión Tecnológica.</p>
+                            <p style="text-align: justify;"><strong>Áreas de interés:</strong> Sistemas Operativos, Administración de Redes, Neurociencia en la Educación, Redes Neuronales, Generación de Simuladores Médicos y Plataformas Virtuales Aplicados a la Educación.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="creator-block">
+                        <img src="IMAGENES/benjamin_cruz_torres.png" alt="Benjamín Cruz Torres">
+                        <div class="creator-info">
+                           <h4>Benjamín Cruz Torres</h4>
+                            <p class="email">bcruzt@ipn.mx</p>
+                            <p style="text-align: justify;"><strong>Semblanza:</strong> Benjamín Cruz Torres (El profe Benji). Actualmente funge como presidente de la academia de sistemas distribuidos y docente en la Escuela Superior de Cómputo del Instituto Politécnico Nacional. Es Doctor en Ciencias de la Computación y Maestro en Ciencias de la Computación por parte del Centro de Investigación en Computación del Instituto Politécnico Nacional.</p>
+                            <p style="text-align: justify;"><strong>Áreas de interés:</strong> los sistemas distribuidos, el cómputo en la nube, la inteligencia artificial, la administración de redes y las tecnologías web.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="creator-block">
+                        <img src="IMAGENES/hermelinda_patricia_leyva_lopez.png" alt="Hermelinda Patricia Leyva López">
+                        <div class="creator-info">
+                            <h4>Hermelinda Patricia Leyva López</h4>
+                            <p class="email">hleyval@ipn.mx</p>
+                            <p style="text-align: justify;"><strong>Semblanza:</strong> docente de la unidad de aprendizaje TIC aplicadas para el Turismo en la Escuela Superior de Turismo del Instituto Politécnico Nacional, Doctor en Educación, Maestría en Administración de Tecnologías de la Información, Maestría en Docencia y Desarrollo de Competencias, Maestría en Educación, Contador Público egresada de ESCA-IPN.</p>
+                            <p style="text-align: justify;"><strong>Áreas de interés:</strong> Neurociencia de la Educación y Redes Neuronales, Metodología de la Investigación, Educación en línea con plataformas virtuales.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="modal-colaboradores" class="modal-section">
+                    <h3>Equipo de Desarrollo</h3>
+                    <p style="text-align:center; margin-bottom: 2rem;">Estudiantes que contribuyeron a la creación de este recurso digital.</p>
+                    <div class="collaborator-grid">
+                        <div class="collaborator-card">
+                            <img src="IMAGENES/MARTÍNEZ_LEÓN.jpg" alt="Foto">
+                            <div class="collaborator-info">
+                                <h4>Martínez León Josué David</h4>
+                                <p class="email">jmartinezl2103@alumno.ipn.mx</p>
+                            </div>
+                        </div>
+
+                        <div class="collaborator-card">
+                            <img src="IMAGENES/MÁRQUEZ_HERNÁNDEZ.jpg" alt="Foto">
+                            <div class="collaborator-info">
+                                <h4>Márquez Hernández Sarah Michelle</h4>
+                                <p class="email">smarquezh1900@alumno.ipn.mx</p>
+                            </div>
+                        </div>
+
+                        <div class="collaborator-card">
+                            <img src="IMAGENES/CONDE_GALVÁN.jpg" alt="Foto">
+                            <div class="collaborator-info">
+                                <h4>Conde Galván Leslie Monserrat</h4>
+                                <p class="email">lcondeg1500@alumno.ipn.mx</p>
+                            </div>
+                        </div>
+                        
+                        <div class="collaborator-card">
+                            <img src="IMAGENES/CASIMIRO_HERNÁNDEZ.jpg" alt="Foto">
+                            <div class="collaborator-info">
+                                <h4>Casimiro Hernández Gael Noel</h4>
+                                <p class="email">gcasimiroh2100@alumno.ipn.mx</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="modal-metodologia" class="modal-section">
+                   <h3>Metodología</h3><p>El pulso silencioso de los sistemas Operativos (polilibro académico), se diseñó como un recurso didáctico innovador para estudiantes de la carrera de Ingeniería en Sistemas Computacionales en la Escuela Superior de Cómputo del Instituto Politécnico Nacional, en el marco de una formación tecnológica orientada a la comprensión, aplicación y evaluación de sistemas operativos y busca desarrollar competencias técnicas mediante un enfoque práctico y participativo.</p>
+                    <h4>Contexto académico</h4>
+                    <p>El pulso silencioso de los sistemas Operativos (polilibro académico) es un material académico que forma parte del contenido de la asignatura Sistemas Operativos, siendo una herramienta complementaria dentro de la modalidad presencial y bajo una estrategia orientada a proyectos.</p>
+<p>Los y las estudiantes utilizarán el presente polilibro académico para la resolución de problemas reales y la aplicación de conocimientos en situaciones prácticas de sistemas operativos. Los y las estudiantes trabajen en equipo para abordar retos, problemáticas, desarrollando habilidades y conocimientos en un contexto significativo en el contexto de sistemas operativos. Esto promoverá la colaboración, el aprendizaje cooperativo y la evaluación continua, fomentando un aprendizaje significativo y adaptativo. </p>
+<h4>Competencia</h4>
+<p>Comprender, analizar y aplicar conceptos de sistemas oeprativos para la solución de problemas relacionados con la administración de memoria, administración de procesos, el sistema de archivos, los dispositivos de entrada-salida y la seguridad y virtualización.</p>
+<h3>Objetivo general</h3>
+<p>Propone soluciones a las necesidades de sistemas computacionales actuales a partir del funcionamiento del sistema operativo.</p>
+<h4>Objetivos específicos</h4> 
+<ul type="circle">
+    <li> Identifica los sistemas operativos actuales y emergentes con base en su estructura, modos de operación y llamadas a sistema. </li>
+    <li> Administra procesos e hilos con base en su comunicación, sincronización y planificación. </li>
+    <li> Administra la memoria principal y secundaria del sistema operativo con base en las técnicas de paginación, segmentación y swapping. </li>
+    <li> Implementa la organización del sistema de archivos a partir de su estructura, asignación de espacio, administración y optimización. </li>
+    <li> Implementa la interacción de los dispositivos de entrada y salida con el sistema operativo a partir del hardware y del software. </li>
+    <li> Incrementa la funcionalidad del sistema operativo con base en la seguridad y  virtualización. </li>
+</ul>
+<h3>Duración y modalidad</h3>
+<ul type="square">
+    <li><strong>Duración total estimada</strong>: 81 horas</li>
+    <li><strong>Distribución sugerida</strong>: 3.0 horas de teoría a la semana con el Polilibro Académico. 1.5 horas a la semana presenciales con acompañamiento del docente para análisis de casos, resolución de problemas y retroalimentación.</li>
+    <li><strong>Modalidad presencial</strong>. Se recomienda que el estudiante dedique mínimo 1 horas a la semana para la revisión de contenidos del Polilibro Académico previos a la sesión presencial.</li>
+</ul>
+
+                    
+<h3>Estrategias de aprendizaje</h3>
+<ul type="disc">
+    <li><strong>Aprendizaje basado en proyectos</strong>.Las y los estudiantes, a través de una serie de etapas, y guiados por el o la docente, colaboran para responder a una problemática o resolver una situación en el ámabito de los sistemas operativos.</li>
+    <li><strong>Aprendizaje autónomo</strong>. El o la estudiante navega de forma autogestionada por el contenido del Polilibro Académico, apoyándose en recursos interactivos, lecturas clave y ejemplos guiados.</li>
+    <li><strong>Aprendizaje basado en problemas</strong>. Los y las estudiantes resuelven problemas desafiantes y auténticos en el ámbito de los sistemas operativos, buscan soluciones de manera colaborativa analizando y resolviendo problemas reales que se encuentran en el área de los sistemas operativos. </li>
+</ul>
+</div>               
+                <div id="modal-cuestionario" class="modal-section">
+                    <h3>Cuestionario de Comentarios</h3>
+                    <p>Tu opinión es muy importante para mejorar el pulso silencioso de los sistemas Operativos (Polilibro Académico). Por favor, haznos saber tus sugerencias.</p>
+                </div>
+
+                <div id="modal-examen" class="modal-section">
+                    <h3>Examen diagnóstico</h3>
+                    <p><strong>Examen diagnóstico para la unidad de aprendizaje Sistemas Operativos.</strong></p>
+                    
+                    <h4>Instrucciones</h4>
+                    <p style="text-align: justify;">
+                        El presente examen diagnóstico de la Unidad de Aprendizaje Sistemas Operativos tiene como propósito identificar los conocimientos previos del estudiante sobre conceptos básicos, funciones y tipos de sistemas operativos, así como su relación con el hardware y el uso cotidiano de la tecnología. Los resultados permitirán al docente ajustar las estrategias de enseñanza y fortalecer el proceso de aprendizaje.
+                    </p>
+
+                    <p style="text-align: justify;">
+                        El examen se aplicará durante la primera sesión del curso, con una duración aproximada de 30 a 45 minutos. Incluye reactivos de opción múltiple, verdadero/falso y preguntas abiertas cortas. No se permite el uso de apuntes ni dispositivos electrónicos, salvo indicación del docente. 
+                        <strong>Este instrumento NO TIENE VALOR EN LA CALIFICACIÓN FINAL</strong>, ya que su finalidad es exclusivamente diagnóstica.
+                    </p>
+
+                    <p style="text-align: justify;">
+                        Tu participación en este examen diagnóstico es fundamental para construir un aprendizaje significativo y fortalecer tu formación en el área de Sistemas Operativos, base esencial en tu desarrollo como futuro profesional en ingeniería.
+                    </p>
+                    
+                    <hr>
+
+                    <div style="background-color: #fff3cd; color: #856404; padding: 1rem; border-radius: 8px; border: 1px solid #ffeeba; margin-bottom: 1.5rem;">
+                        <p style="margin-bottom: 0.5rem; font-weight: bold;">
+                            <i class="fas fa-exclamation-circle"></i> Antes de iniciar:
+                        </p>
+                        <p style="margin-bottom: 0.5rem;">Las primeras 2 preguntas del cuestionario son obligatorias para tu identificación:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+                            <li><strong></strong> Escribe tu número de <strong>boleta</strong>.</li>
+                            <li><strong></strong> Escribe tu <strong>nombre completo</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <div style="width:100%; display:flex; flex-direction:column; gap:8px; min-height:635px; margin-top: 1rem;">
+                        <iframe src="https://wayground.com/embed/quiz/6973be6c417ff2828c034857" title="Examen Diagnóstico - Wayground" style="flex:1;" frameBorder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div id="modal-licencia" class="modal-section">
+                    <h3>Licencia Creative Commons</h3>
+                    <p style="text-align: center;">
+                        <i class="fab fa-creative-commons" style="font-size: 5rem; color: #2c3e50;"></i>
+                    </p>
+                    <p><a href="https://escomisr.github.io/Libro_Digital_SO/">El pulso silencioso de los sistemas Operativos</a> © 2026 by <a href="https://escomisr.github.io/Libro_Digital_SO/">Israel Salas Ramírez, Benjamín Cruz Torres, Hermelinda Patricia Leyva López</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></p>
+                </div>
+
+                <div id="modal-actividades" class="modal-section">
+                    <h3>Actividades de aprendizaje</h3>
+                    <p>En esta sección encontrarás un compendio de las actividades lúdicas y ejercicios prácticos diseñados para reforzar los conocimientos de cada unidad.</p>
+
+                    <h4 class="unit-title">Unidad 1: Estructura de un sistema operativo</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_1/actividad_1_1.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 1.1</a></li>
+                        <li><a href="UNIDAD_1/actividad_1_2.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 1.2</a></li>
+                        <li><a href="UNIDAD_1/actividad_1_3.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 1.3</a></li>
+                        <li><a href="UNIDAD_1/actividad_1_4.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 1.4</a></li>
+                        <li><a href="UNIDAD_1/actividad_1_5.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 1.5</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 2: Administración de procesos</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_2/actividad_2_1.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 2.1</a></li>
+                        <li><a href="UNIDAD_2/actividad_2_2.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 2.2</a></li>
+                        <li><a href="UNIDAD_2/actividad_2_3.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 2.3</a></li>
+                        <li><a href="UNIDAD_2/actividad_2_4.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 2.4</a></li>
+                        <li><a href="UNIDAD_2/actividad_2_5.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 2.5</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 3: Administración de memoria</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_3/Actividad_3_1.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 3.1</a></li>
+                        <li><a href="UNIDAD_3/Actividad_3_2.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 3.2</a></li>
+                        <li><a href="UNIDAD_3/Actividad_3_3.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 3.3</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 4: Sistema de archivos</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_4/Actividad_4_1.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 4.1</a></li>
+                        <li><a href="UNIDAD_4/Actividad_4_2.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 4.2</a></li>
+                        <li><a href="UNIDAD_4/Actividad_4_3.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 4.3</a></li>
+                        <li><a href="UNIDAD_4/Actividad_4_4.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 4.4</a></li>
+                        <li><a href="UNIDAD_4/Actividad_4_5.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 4.5</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 5: Dispositivos de E/S</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_5/actividad_5_1.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 5.1</a></li>
+                        <li><a href="UNIDAD_5/actividad_5_2.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 5.2</a></li>
+                        <li><a href="UNIDAD_5/actividad_5_3.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 5.3</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 6: Seguridad y virtualización</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_6/actividad_6_1.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 6.1</a></li>
+                        <li><a href="UNIDAD_6/actividad_6_2.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 6.2</a></li>
+                    </ul>
+                    <p>Estas actividades no son parte de la evaluación, funcionan únicamnete como una manera de reforzar tu aprendizaje. Por lo que, no es necesario entregar evidencia de su realziación.</p>                    
+                </div>
+                
+                <div id="modal-laboratorios" class="modal-section">
+                    <h3>Laboratorios de código</h3>
+                    <p>Espacio dedicado a la práctica y experimentación con código para reforzar los conceptos de sistemas operativos.</p>
+
+                    <h4 class="unit-title">Unidad 1: Estructura de un sistema operativo</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_1/laboratorio_codigo.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-code"></i> Laboratorio Unidad 1</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 2: Administración de procesos</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_2/laboratorio_codigo.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-code"></i> Laboratorio Unidad 2</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 3: Administración de memoria</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_3/laboratorio_codigo.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-code"></i> Laboratorio Unidad 3</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 4: Sistema de archivos</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_4/laboratorio_codigo.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-code"></i> Laboratorio Unidad 4</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 5: Dispositivos de E/S</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_5/laboratorio_codigo.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-code"></i> Laboratorio Unidad 5</a></li>
+                    </ul>
+
+                    <h4 class="unit-title">Unidad 6: Seguridad y virtualización</h4>
+                    <ul class="video-list">
+                        <li><a href="UNIDAD_6/laboratorio_codigo.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-code"></i> Laboratorio Unidad 6</a></li>
+                    </ul>
+                    <p>Estas actividades no son parte de la evaluación, funcionan únicamnete como una manera de reforzar tu aprendizaje. Por lo que, no es necesario entregar evidencia de su realziación.</p>
+                </div>
+                <div id="modal-referencias" class="modal-section">
+                    <h3>Referencias bibliográficas</h3>
+                    <p>Bibliografía base para el desarrollo de este material didáctico:</p>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                            Andrews, G. R. (2013). <i>Fundamentos de programación multihilo, paralela y distribuida</i>. Addison-Wesley.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                            Bovet, D. P., & Cesati, M. (2005). <i>Comprendiendo el núcleo de Linux</i> (3.ª ed.). O’Reilly Media.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                            Love, R. (2010). <i>Desarrollo del núcleo de Linux</i> (3.ª ed.). Addison-Wesley Professional.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                            Silberschatz, A., Galvin, P. B., & Gagne, G. (2022). <i>Conceptos de sistemas operativos</i> (10.ª ed.). Wiley.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                            Silberschatz, A., Korth, H. F., & Sudarshan, S. (2020). <i>Conceptos de sistemas de bases de datos</i> (7.ª ed.). McGraw-Hill Education.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                            Stallings, W. (2018). <i>Sistemas operativos: Aspectos internos y principios de diseño</i> (9.ª ed.). Pearson Educación.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                            Tanenbaum, A. S., & Bos, H. (2015). <i>Sistemas operativos modernos</i> (4.ª ed.). Pearson Educación.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                            Tanenbaum, A. S., & Van Steen, M. (2017). <i>Sistemas distribuidos: Principios y paradigmas</i> (3.ª ed.). Pearson Educación.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                            Wolf, M., Halter, J., & Dawson, J. (2015). <i>Tecnologías de computación en la nube y estrategias para centros de datos ubicuos</i> (2.ª ed.). CRC Press.
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="modal-videos" class="modal-section">
+                    <h3>Material audiovisual</h3>
+                    <p>Selecciona un tema para reproducir el video explicativo correspondiente:</p>
+
+                    <div class="video-index">
+                        <h4 class="unit-title">Unidad I: Estructura de un sistema operativo</h4>
+                        <ul class="video-list">
+                            <li onclick="playVideo('8U92rOkobGI')" style="background-color: #e8f4fd; border-left: 4px solid var(--secondary);"><i class="fas fa-star"></i> <strong>General: Introducción y Modos de Operación</strong></li>
+                            
+                            <li onclick="playVideo('pZOxxGNxWVs')"><i class="fas fa-play-circle"></i> Estructura del sistema operativo</li>
+                            <li onclick="playVideo('fYo1R_h2dbA')"><i class="fas fa-play-circle"></i> Implementación del kernel</li>
+                            <li onclick="playVideo('EvXrjNJSbMI')"><i class="fas fa-play-circle"></i> Interrupciones</li>
+                            <li onclick="playVideo('v40mP-w8Lnk')"><i class="fas fa-play-circle"></i> Contadores</li>
+                            <li onclick="playVideo('KDXZkv2ROkU')"><i class="fas fa-play-circle"></i> Llamadas a sistema</li>
+                            <li onclick="playVideo('UeIdTPKO7ao')"><i class="fas fa-play-circle"></i> Procesos y señales</li>
+                            <li onclick="playVideo('68rPyKE16Kc')"><i class="fas fa-play-circle"></i> Directorios y archivos</li>
+                            <li onclick="playVideo('DE6Tl61BY28')"><i class="fas fa-play-circle"></i> Protección</li>
+                            <li onclick="playVideo('epIy6lg-5Hw')"><i class="fas fa-play-circle"></i> Shell</li>
+                            <li onclick="playVideo('7LWbVX2dAEo')"><i class="fas fa-play-circle"></i> Argumentos y variables</li>
+                            <li onclick="playVideo('asEPxm_-cfU')"><i class="fas fa-play-circle"></i> Estructuras de control y funciones</li>
+                        </ul>
+
+                        <h4 class="unit-title">Unidad II: Administración de procesos</h4>
+                        <ul class="video-list">
+                            <li onclick="playVideo('T9Xit0OAayo')" style="background-color: #e8f4fd; border-left: 4px solid var(--secondary);"><i class="fas fa-star"></i> <strong>General: Procesos, hilos y planificación</strong></li>
+                            
+                            <li onclick="playVideo('MZqmn8SMZMM')"><i class="fas fa-play-circle"></i> Estados de procesos</li>
+                            <li onclick="playVideo('S3-ZaInBiMs')"><i class="fas fa-play-circle"></i> Modelo multi-hilo</li>
+                            <li onclick="playVideo('v6UNbhdhdO0')"><i class="fas fa-play-circle"></i> Semáforos e hilos (Sincronización)</li>
+                            <li onclick="playVideo('kGWEHikIfQs')"><i class="fas fa-play-circle"></i> Planificación de procesos y algoritmos</li>
+                            <li onclick="playVideo('f8Zs4xwD5hA')"><i class="fas fa-play-circle"></i> Planificación de hilos</li>
+                        </ul>
+
+                        <h4 class="unit-title">Unidad III: Administración de memoria</h4>
+                        <ul class="video-list">
+                            <li onclick="playVideo('JAjisuW9THU')" style="background-color: #e8f4fd; border-left: 4px solid var(--secondary);"><i class="fas fa-star"></i> <strong>General: Abstracción, virtualización y segmentación</strong></li>
+                            
+                            <li onclick="playVideo('MgSrUlrXO6I')"><i class="fas fa-play-circle"></i> Abstracción de memoria y organización</li>
+                            <li onclick="playVideo('lJWXDgA41uM')"><i class="fas fa-play-circle"></i> Admin. almacenamiento e intercambio</li>
+                            <li onclick="playVideo('I7o-0Dn8v-g')"><i class="fas fa-play-circle"></i> Mapas de bits y listas ligadas</li>
+                            <li onclick="playVideo('orbv50J7NT4')"><i class="fas fa-play-circle"></i> Memoria virtual y paginación</li>
+                            <li onclick="playVideo('k9gQjNbMKdA')"><i class="fas fa-play-circle"></i> Tablas de paginación y algoritmos</li>
+                            <li onclick="playVideo('syi6ROCfW7I')"><i class="fas fa-play-circle"></i> Segmentación e implementación</li>
+                            <li onclick="playVideo('Yrs-0tILQrE')"><i class="fas fa-play-circle"></i> Segmentación con paginación</li>
+                        </ul>
+
+                        <h4 class="unit-title">Unidad IV: Sistema de archivos</h4>
+                        <ul class="video-list">
+                            <li onclick="playVideo('By5rFRRQsf4')" style="background-color: #e8f4fd; border-left: 4px solid var(--secondary);"><i class="fas fa-star"></i> <strong>General: Estructura, implementación y optimización</strong></li>
+                            
+                            <li onclick="playVideo('g-bhPcGNRog')"><i class="fas fa-play-circle"></i> Métodos de asignación de espacio</li>
+                            <li onclick="playVideo('Kn0aPg1xP_g')"><i class="fas fa-play-circle"></i> Sistemas de archivos estructurados</li>
+                            <li onclick="playVideo('s9rtMXOk38s')"><i class="fas fa-play-circle"></i> Sistemas estructurados por diario</li>
+                            <li onclick="playVideo('Aamcv3v43D8')"><i class="fas fa-play-circle"></i> Optimización del sistema de archivos</li>
+                        </ul>
+
+                        <h4 class="unit-title">Unidad V: Dispositivos de E/S</h4>
+                        <ul class="video-list">
+                            <li onclick="playVideo('CprZd_69QGM')" style="background-color: #e8f4fd; border-left: 4px solid var(--secondary);"><i class="fas fa-star"></i> <strong>General: Principios de hardware y software</strong></li>
+                            
+                            <li onclick="playVideo('MbRJ6lOiyIs')"><i class="fas fa-play-circle"></i> Generalidades de E/S</li>
+                            <li onclick="playVideo('qUFKoJ9Zxlc')"><i class="fas fa-play-circle"></i> Capas de software</li>
+                        </ul>
+
+                        <h4 class="unit-title">Unidad VI: Seguridad y virtualización</h4>
+                        <ul class="video-list">
+                            <li onclick="playVideo('By5rFRRQsf4')" style="background-color: #e8f4fd; border-left: 4px solid var(--secondary);"><i class="fas fa-star"></i> <strong>General: Ambiente de seguridad y virtualización</strong></li>
+                            
+                            <li onclick="playVideo('-0iRtpRkf6k')"><i class="fas fa-play-circle"></i> El ambiente de seguridad</li>
+                            <li onclick="playVideo('2aGSHXlO9f4')"><i class="fas fa-play-circle"></i> Control de acceso a los recursos</li>
+                            <li onclick="playVideo('Gbs0k6R2kJY')"><i class="fas fa-play-circle"></i> Implementación de matrices de acceso</li>
+                            <li onclick="playVideo('fNxP_789EzA')"><i class="fas fa-play-circle"></i> Modelos formales de seguridad</li>
+                            <li onclick="playVideo('h9OtB6xcDLo')"><i class="fas fa-play-circle"></i> Virtualización y emulación</li>
+                            <li onclick="playVideo('jt3sU0LHNHM')"><i class="fas fa-play-circle"></i> Virtualización asistida por hardware</li>
+                            <li onclick="playVideo('P8_u4rfOTEw')"><i class="fas fa-play-circle"></i> Paravirtualización y contenedores</li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="video-player-overlay" class="modal-overlay" style="z-index: 2000; background-color: rgba(0,0,0,0.95);">
+        <div class="modal-content" style="background: black; width: 900px; max-width: 95vw; padding: 0; border: 1px solid #333;">
+            <button class="modal-close-btn" onclick="closeVideoPlayer()" style="color: white; z-index: 10; top: -40px; right: 0;"><i class="fas fa-times"></i> Cerrar</button>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe id="main-video-frame" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
+                        src="" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // --- MANEJO DEL MODAL ---
+    const modalContainer = document.getElementById('modal-container');
+    const modalCloseButton = document.getElementById('modal-close-button');
+    const cardsWithModal = document.querySelectorAll('.card[data-modal]');
+
+    // Función para abrir el modal
+    function openModal(modalId) {
+        // Oculta todas las secciones del modal
+        document.querySelectorAll('.modal-section').forEach(section => section.classList.remove('active'));
+        
+        // Muestra la sección correcta
+        const activeSection = document.getElementById(`modal-${modalId}`);
+        if (activeSection) {
+            activeSection.classList.add('active');
+            modalContainer.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Evita el scroll del fondo
+        }
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+        modalContainer.classList.remove('show');
+        document.body.style.overflow = 'auto'; // Restaura el scroll
+    }
+
+    // Asigna el evento click a cada tarjeta que abre un modal
+    cardsWithModal.forEach(card => {
+        card.addEventListener('click', () => {
+            const modalId = card.getAttribute('data-modal');
+            openModal(modalId);
+        });
+    });
+    
+    // Asigna los eventos para cerrar el modal
+    modalCloseButton.addEventListener('click', closeModal);
+    modalContainer.addEventListener('click', e => {
+        // Cierra el modal si se hace clic en el fondo oscuro
+        if (e.target === modalContainer) {
+            closeModal();
+        }
+    });
+
+    // --- EFECTO 3D HOVER (SOLO PARA DESKTOP) ---
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    
+    // Solo aplica el efecto 3D si NO es un dispositivo táctil
+    if (!isTouchDevice) {
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = (x - centerX) / 25;
+                const rotateX = (centerY - y) / 25;
+                
+                const maxRotation = 8;
+                const clampedRotateX = Math.max(Math.min(rotateX, maxRotation), -maxRotation);
+                const clampedRotateY = Math.max(Math.min(rotateY, maxRotation), -maxRotation);
+                
+                card.style.transform = `perspective(1200px) 
+                                      rotateX(${clampedRotateX}deg) 
+                                      rotateY(${clampedRotateY}deg) 
+                                      translateY(-8px)
+                                      scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+            });
+        });
+    }
+
+    // --- MANEJO DE ACORDEÓN (SI APLICA) Y CLICS EXTERNOS ---
+    document.addEventListener('click', (e) => {
+        const allCards = document.querySelectorAll('.card');
+        let isClickInsideACard = false;
+        
+        allCards.forEach(card => {
+            if (card.contains(e.target)) {
+                isClickInsideACard = true;
+            }
+        });
+        
+        if (!isClickInsideACard) {
+            allCards.forEach(card => {
+                card.classList.remove('active'); // Cierra los acordeones (si los hubiera)
+            });
+        }
+    });
+
+    // --- LÓGICA DEL REPRODUCTOR DE VIDEO ---
+    const videoOverlay = document.getElementById('video-player-overlay');
+    const videoFrame = document.getElementById('main-video-frame');
+
+    function playVideo(videoId) {
+        // Construir la URL de embed de YouTube
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        videoFrame.src = embedUrl;
+        
+        // Mostrar el modal del reproductor
+        videoOverlay.classList.add('show');
+    }
+
+    function closeVideoPlayer() {
+        // Ocultar el modal
+        videoOverlay.classList.remove('show');
+        // Detener el video limpiando el src
+        videoFrame.src = '';
+    }
+
+    // Cerrar si se hace clic fuera del video
+    videoOverlay.addEventListener('click', (e) => {
+        if (e.target === videoOverlay) {
+            closeVideoPlayer();
+        }
+    });
+
+</script>
+
+</body>
+</html>

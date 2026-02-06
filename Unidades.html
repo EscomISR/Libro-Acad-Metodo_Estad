@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidades de temáticas - Sistemas operativos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="IMAGENES/logoescom.png">
+    <style>
+        /* Variables CSS raíz */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-muted: #bdc3c7;
+            
+            /* Gradientes para las tarjetas de unidades */
+            --gradient-unit-1: linear-gradient(135deg, #3498db, #2980b9);
+            --gradient-unit-2: linear-gradient(135deg, #e67e22, #d35400);
+            --gradient-unit-3: linear-gradient(135deg, #2ecc71, #27ae60);
+            --gradient-unit-4: linear-gradient(135deg, #9b59b6, #8e44ad);
+            --gradient-unit-5: linear-gradient(135deg, #e74c3c, #c0392b);
+            --gradient-unit-6: linear-gradient(135deg, #34495e, #2c3e50);
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
+        header.main-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            width: 100%;
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(44, 62, 80, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .header-container {
+            display: flex;
+            height: 4rem;
+            align-items: center;
+            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon-wrapper {
+            display: flex;
+            height: 2.5rem;
+            width: 2.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            background: var(--secondary);
+        }
+
+        .logo-icon-wrapper i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .logo-text-wrapper {
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .logo-text-wrapper {
+                display: block;
+            }
+        }
+
+        .logo-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: var(--light);
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: #bdc3c7;
+        }
+
+        .desktop-nav {
+            display: none;
+            margin-left: auto;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--light);
+            background-color: transparent;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-button:hover {
+            background-color: var(--card-bg);
+            color: white;
+        }
+
+        .nav-button.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .nav-button i {
+            font-size: 1rem;
+        }
+
+        .mobile-nav-trigger {
+            margin-left: auto;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-nav-trigger {
+                display: none;
+            }
+        }
+        
+        #mobile-menu-button {
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .sheet {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 256px;
+            height: 100%;
+            background-color: var(--primary);
+            border-left: 1px solid var(--border-color);
+            z-index: 100;
+            transition: right 0.3s ease-in-out;
+            padding: 1.5rem;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+        }
+
+        .sheet.open {
+            right: 0;
+        }
+        
+        .sheet-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .sheet-header .logo-icon-wrapper {
+            height: 2rem;
+            width: 2rem;
+        }
+        .sheet-header .logo-icon-wrapper i {
+            font-size: 1rem;
+        }
+
+        .sheet-header .logo-title {
+            font-size: 0.875rem;
+        }
+        
+        .sheet-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-top: 1.5rem;
+        }
+
+        .sheet-content .nav-button {
+            justify-content: flex-start;
+            width: 100%;
+        }
+        
+        #close-menu-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+
+        /* Cabecera de la sección de unidades */
+        .page-header {
+            text-align: center;
+            margin: 2rem 0 3rem 0;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            /* MODIFICACIÓN: Se cambió max-width de 700px a 100% para ocupar todo el ancho */
+            max-width: 100%;
+            margin: 0 auto;
+            /* MODIFICACIÓN: Se agregó la justificación aquí en el CSS */
+            text-align: justify;
+        }
+        
+        /* Contenedor de las tarjetas */
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Estilo de tarjeta individual (ahora es un enlace <a>) */
+        .unit-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            text-decoration: none; /* Quita el subrayado del enlace */
+            color: var(--light); /* Asegura que el texto herede el color correcto */
+            display: block; /* Para que el enlace se comporte como un bloque */
+        }
+
+        .unit-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .unit-card .card-header {
+            padding: 1.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .unit-card .card-header::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .header-top i {
+            font-size: 2rem;
+            opacity: 0.9;
+        }
+        
+        .duration-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+        
+        .card-subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .topics-section p {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #d6dbdf;
+            margin-bottom: 0.5rem;
+        }
+        
+        .topics-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .topic-badge {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-duration {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        .explore-link {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--secondary);
+            transition: color 0.3s;
+        }
+        
+        .unit-card:hover .explore-link {
+            color: #5dade2;
+        }
+
+        .explore-link i {
+            transition: transform 0.3s;
+        }
+        
+        .unit-card:hover .explore-link i {
+            transform: translateX(5px);
+        }
+
+        /* Asignación de gradientes a cada tarjeta */
+        #unit-1 .card-header { background: var(--gradient-unit-1); }
+        #unit-2 .card-header { background: var(--gradient-unit-2); }
+        #unit-3 .card-header { background: var(--gradient-unit-3); }
+        #unit-4 .card-header { background: var(--gradient-unit-4); }
+        #unit-5 .card-header { background: var(--gradient-unit-5); }
+        #unit-6 .card-header { background: var(--gradient-unit-6); }
+        
+        /* Footer de la página */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            color: #95a5a6;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo-icon-wrapper"><i class="fas fa-graduation-cap"></i></div>
+                <div class="logo-text-wrapper">
+                    <h1 class="logo-title">El pulso silencioso de los sistemas operativos</h1>
+                    <p class="logo-subtitle">ESCOM - Polilibro académico</p>
+                </div>
+            </div>
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-button active" onclick="setActive(this)">
+                    <i class="fas fa-book-open"></i><span>Inicio</span>
+                </a>
+                <a href="#" class="nav-button">
+                    <i class="fas fa-bars"></i><span>Unidades</span>
+                </a>
+            </nav>
+            <div class="mobile-nav-trigger">
+                <button id="mobile-menu-button"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+    
+    <div id="mobile-menu" class="sheet">
+        <button id="close-menu-button"><i class="fas fa-times"></i></button>
+        <div class="sheet-header">
+            <div class="logo-icon-wrapper"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+                <h2 class="logo-title">Recurso Didáctico</h2>
+                <p class="logo-subtitle">ESCOM</p>
+            </div>
+        </div>
+        <div class="sheet-content">
+            <a href="index.html" class="nav-button active" onclick="setActive(this)"><i class="fas fa-book-open"></i><span>Inicio</span></a>
+            <a href="#" class="nav-button"><i class="fas fa-bars"></i><span>Unidades</span></a>
+        </div>
+    </div>
+
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Unidades de temáticas</h1>
+            <p>Explora seis unidades enfocadas en la administración de recursos, la programación concurrente y el desarrollo de sistemas. Este recorrido te permitirá crear soluciones computacionales eficientes mientras fortaleces tus habilidades de análisis y resolución de problemas.</p>
+        </header>
+
+        <div class="units-grid" id="units-container">
+            </div>
+        
+    </main>
+        
+    <footer>
+        <p>El pulso silencioso de los sistemas operativos- Polilibro académico</p>
+    </footer>
+
+    <script>
+        // Script para menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.add('open'));
+        closeMenuButton.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+        // Script para generar tarjetas de unidades
+        document.addEventListener('DOMContentLoaded', () => {
+            const units = [
+                { id: 1, title: "Unidad I", subtitle: "Estructura de un sistema operativo", description: "Identifica los sistemas operativos actuales y emergentes con base en su estructura, modos de operación y llamadas a sistema.", icon: "fa-book-open", duration: "3 semanas", topics: ["Conceptos básicos", "Evolución", "Tipos de S.O."] },
+                { id: 2, title: "Unidad II", subtitle: "Administración de procesos", description: "Administra procesos e hilos con base en su comunicación, sincronización y planificación.", icon: "fa-cogs", duration: "3 semanas", topics: ["Procesos", "Hilos", "Sincronización"] },
+                { id: 3, title: "Unidad III", subtitle: "Administración de memoria", description: "Administra la memoria principal y secundaria del sistema operativo con base en las técnicas de paginación, segmentación y swapping.", icon: "fa-memory", duration: "3 semanas", topics: ["Memoria virtual", "Paginación", "Segmentación"] },
+                { id: 4, title: "Unidad IV", subtitle: "Sistema de archivos", description: "Implementa la organización del sistema de archivos a partir de su estructura, asignación de espacio, administración y optimización.", icon: "fa-folder-open", duration: "3 semanas", topics: ["Estructura", "Implementación", "Optimización"] },
+                { id: 5, title: "Unidad V", subtitle: "Dispositivos de entrada y salida", description: "Implementa la interacción de los dispositivos de E/S con el sistema operativo a partir del hardware y del software.", icon: "fa-keyboard", duration: "3 semanas", topics: ["Hardware de E/S", "Software de E/S", "Capas de software"] },
+                { id: 6, title: "Unidad VI", subtitle: "Seguridad y virtualización", description: "Incrementa la funcionalidad del sistema operativo con base en la seguridad y virtualización.", icon: "fa-shield-alt", duration: "3 semanas", topics: ["Seguridad", "Virtualización", "Contenedores"] }
+            ];
+
+            const container = document.getElementById('units-container');
+
+            units.forEach(unit => {
+                // Usar <a> como elemento principal de la tarjeta
+                const cardLink = document.createElement('a');
+                cardLink.className = 'unit-card';
+                cardLink.id = `unit-${unit.id}`;
+                cardLink.href = `UNIDAD_${unit.id}/index.html`; // El enlace ahora está en el contenedor principal
+                
+                const topicsHtml = unit.topics.map(topic => `<span class="topic-badge">${topic}</span>`).join('');
+                
+                cardLink.innerHTML = `
+                    <div class="card-header">
+                        <div class="header-top">
+                            <i class="fas ${unit.icon}"></i>
+                            <span class="duration-badge">${unit.duration}</span>
+                        </div>
+                        <h3 class="card-title">${unit.title}</h3>
+                        <h4 class="card-subtitle">${unit.subtitle}</h4>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">${unit.description}</p>
+                        <div class="topics-section">
+                            <p>Temas principales</p>
+                            <div class="topics-tags">
+                                ${topicsHtml}
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="footer-duration">
+                                <i class="far fa-clock"></i>
+                                <span>${unit.duration}</span>
+                            </div>
+                            <div class="explore-link">
+                                <span>Explorar</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(cardLink);
+            });
+        });
+    </script>
+</body>
+</html>
