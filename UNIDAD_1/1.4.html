@@ -629,29 +629,22 @@
         <div class="section" id="seccion-1-4-1">
             <div class="section-header">
                 <div class="section-number">1.4.1</div>
-                <div class="section-title">Procesos y señales</div>
+                <div class="section-title">Captación del suceso y planteamiento del problema</div>
             </div>
             <div class="content">
-                <p>Representan dos de los mecanismos más importantes para la administración y comunicación dentro del sistema operativo.</p>
-                <p>Ambos elementos son gestionados directamente por el <strong>kernel</strong>, a través de un conjunto específico de llamadas al sistema que garantizan su control seguro y eficiente.</p>
-                <p>Estos se deben de realizar, aplicar, sincronizan y finalizan mediante la aplicación de las llamadas en donde el kernel evaluara su ejecución o función para llevarla a cabo.</p>
-
-                <ul>
-                    <li><strong>Este comando forma nuevos procesos llamado Fork ().</strong></li>
-                    <li><strong>execve():</strong> reemplaza el espacio de memoria del proceso actual por un nuevo programa.</li>
-                    <li><strong>wait() y waitpid():</strong> permiten que un proceso padre espere la finalización de sus hijos.</li>
-                    <li><strong>Este comando termina cualquier proceso y se escribe como exit ()</strong></li>
-                </ul>
-
-                <p>Cada una de estas llamadas activa rutinas del <strong>planificador de procesos (scheduler)</strong>, encargado de asignar el tiempo de CPU y administrar el cambio de contexto entre procesos. Gracias a estas operaciones, el sistema operativo puede mantener múltiples tareas activas de forma concurrente, distribuyendo los recursos según políticas de prioridad y equidad.</p>
+                <p>Constituye la fase inicial del proceso de investigación, en la que el investigador identifica un fenómeno, situación o necesidad que requiere ser estudiada. Esta captación puede surgir de la observación directa, la práctica profesional, la revisión de literatura científica o el análisis de datos previos. En esta etapa se reconoce la existencia
+                   de una situación problemática que afecta a un grupo, contexto o área del conocimiento, lo cual despierta el interés por comprender sus causas, características o consecuencias.</p> 
+                <p>El planteamiento del problema implica delimitar y describir con claridad la situación detectada, especificando qué ocurre, a quién afecta, dónde se presenta y por qué es importante investigarla. Incluye la formulación de preguntas de investigación, la definición de objetivos y la justificación del estudio, estableciendo su relevancia científica,
+                   social o profesional. Un problema bien planteado orienta el rumbo del estudio y permite enfocar los esfuerzos hacia aspectos concretos y medibles.</p> 
+                <p>Su importancia radica en que constituye el punto de partida que da sentido y dirección a toda la investigación. Una adecuada formulación del problema facilita la selección del diseño metodológico, la recolección de datos pertinentes y la obtención de resultados útiles para la toma de decisiones. En áreas como la salud, la educación y las ciencias sociales,
+                   un planteamiento claro permite generar conocimiento aplicable para mejorar prácticas y resolver necesidades reales Hernández Sampieri et al., (2014).</p></p>
 
                 <div class="quote-box">
-                    “el kernel administra los procesos a través de un conjunto de llamadas al sistema que permiten su creación, suspensión, reanudación y finalización de manera controlada”
-                    <div class="citation">(Tanenbaum y Bos, 2015, p. 154).</div>
+                    “es el instante en que la curiosidad científica se activa y transforma una situación cotidiana en una oportunidad de conocimiento. Observar con mirada crítica, reconocer una necesidad real y convertirla en una pregunta precisa permite enfocar la investigación hacia soluciones significativas. Este momento no solo delimita el rumbo del estudio,
+                    sino que conecta la realidad con el pensamiento científico, dando sentido, pertinencia e impacto social al proceso investigativo.”
+                    <div class="citation">(Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</div>
                 </div>
 
-                <p>Por otro lado, las <strong>señales</strong> constituyen un mecanismo de comunicación y control entre procesos o entre el sistema y un proceso específico. Son eventos asincrónicos generados por el kernel o por otros procesos para notificar sucesos importantes, como errores, interrupciones o solicitudes de terminación. Por ejemplo, señales como <strong>SIGINT</strong> interrumpen un proceso (generalmente mediante la combinación Ctrl + C), mientras que <strong>SIGKILL</strong> fuerza su terminación inmediata. Otras señales, como <strong>SIGCHLD</strong>, informan al proceso padre sobre la finalización de un hijo.</p>
-                <p>Las llamadas al sistema encargadas de manejar señales incluyen <strong>signal(), kill(), sigaction() y sigprocmask()</strong>, que permiten enviar, recibir y bloquear señales según el contexto.</p>
             </div>
 
             <div style="margin-top: 30px;">
@@ -666,91 +659,11 @@
 
         </div>
 
-        <div class="section" id="seccion-1-4-2">
-            <div class="section-header">
-                <div class="section-number">1.4.2</div>
-                <div class="section-title">Directorios y archivos</div>
-            </div>
-            <div class="content">
-                <p>Estos elementos son de suma importancia en los sistemas operativos ya que los archivos son un grupo de datos que se identifican por un nombre y una extensión y un directorios es donde se organizan y se listan los archivos que tienen guardados dentro de esta estructura y que son fundamentales para el buen manejo tanto del usuario como del sistema operativo.</p>
-                <p>Existen diferentes tipos de archivos y la extensión establece el programa en donde fue creado, así como siempre representaran la capacidad que estos tengan en almacenamiento ocupado</p>
-                <p>Los directorios son de un tipo organización los archivos en donde actúa como contenedor donde los agrupa lógicamente relacionando su administración y su ubicación con ello permite que no se consuma recursos de hardware y memoria para su localización. Existe director que son organizados en forma jerárquica creando una estructura llamada árbol o raíz para mantener el orden en el sistema de archivos donde sea más eficiente su ubicación de los archivos.</p>
-            </div>
-
-            <div style="margin-top: 30px;">
-                <h3><i class="fas fa-play-circle" style="margin-right: 10px;"></i> Material Audiovisual</h3>
-                <p>A continuación, se explica cómo el sistema operativo maneja la jerarquía de directorios y la manipulación de archivos:</p>
-                
-                <div class="figure-container">
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/68rPyKE16Kc" title="Directorios y archivos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
-                    <div class="figure-caption">Salas, I. (s.f). <em>Directorios y archivos</em> [Video]. YouTube. https://www.youtube.com/watch?v=68rPyKE16Kc</div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="section" id="seccion-1-4-3">
-            <div class="section-header">
-                <div class="section-number">1.4.3</div>
-                <div class="section-title">Protección y control de acceso</div>
-            </div>
-            <div class="content">
-                <p>Este proceso va a establecer los mecanismos necesario para que los usuarios que tengan privilegios puedan acceder a datos, aplicaciones y recursos mediante procedimientos bien específicos bajo contraseñas y accesos que el usuario tenga así como lista de control de acceso, los más autorizados son aquellos que tengan autentificación, que tenga acciones para el uso de la aplicación por el usuario realizando autorización para llevarlo a cabo, listas de control, control basado en roles, estado de mejor acceso dependiendo de su privilegio, contrafuegos y programas de seguridad y por último es muy importante sus actualizaciones para funcionar adecuadamente ante el sistema.</p>
-                <p>El <strong>control de acceso</strong> también se extiende al ámbito de la memoria y los dispositivos. El kernel utiliza <strong>tablas de páginas con permisos</strong>, asegurando que cada proceso acceda solo a las direcciones de memoria asignadas, y bloqueando operaciones de lectura o escritura no autorizadas. De manera similar, las llamadas relacionadas con la administración de archivos verifican los <strong>identificadores de usuario (UID)</strong> y <strong>grupos (GID)</strong> antes de ejecutar cualquier operación. Este modelo refuerza la seguridad en entornos multiusuario y protege los datos del sistema ante accesos indebidos.</p>
-            </div>
-
-            <div style="margin-top: 30px;">
-                <h3><i class="fas fa-play-circle" style="margin-right: 10px;"></i> Material Audiovisual</h3>
-                <p>Este video detalla los mecanismos que utiliza el sistema operativo para garantizar la seguridad y protección de los recursos:</p>
-                
-                <div class="figure-container">
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/DE6Tl61BY28" title="Protección" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
-                    <div class="figure-caption">Salas, I. (s.f.). <em>Protección y control de acceso</em> [Video]. YouTube. https://www.youtube.com/watch?v=DE6Tl61BY28</div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="section" id="seccion-1-4-4">
-            <div class="section-header">
-                <div class="section-number">1.4.4</div>
-                <div class="section-title">Diversas (llamadas misceláneas)</div>
-            </div>
-            <div class="content">
-                <p>Son un grupo de funciones, aplicaciones o herramientas en donde se visualizan los servicios esenciales del sistema por lo que no se relacionan con la memoria, procesos o archivos solo se usan para que todo funcione en forma general correctamente y tiene su función de interactuar con el usuario y su forma de comunicarse con el sistema realizando llamadas al sistema, interfaces de programación uso de bibliotecas, servicios de procesos en segundo plano, uso de herramientas e interacciones con el hardware.</p>
-                <p>Por lo que existen una categoría para las llamas que son:</p>
-                
-                <ul>
-                    <li><strong>Gestión del tiempo y fecha:</strong> <code>time()</code>, <code>gettimeofday()</code>, <code>clock_gettime()</code> permiten consultar y modificar la hora del sistema o medir intervalos temporales.</li>
-                    <li><strong>Gestión del entorno:</strong> <code>getenv()</code>, <code>setenv()</code> — acceden o modifican variables de entorno que influyen en el comportamiento de los procesos.</li>
-                    <li><strong>Gestión del sistema:</strong> <code>uname()</code> — obtiene información del sistema operativo (nombre, versión, arquitectura).</li>
-                    <li><strong>Sincronización:</strong> <code>sleep()</code>, <code>usleep()</code> — suspenden temporalmente la ejecución de un proceso.</li>
-                    <li><strong>Gestión de recursos:</strong> <code>getrlimit()</code>, <code>setrlimit()</code> — consultan o establecen límites de uso de recursos como CPU, memoria o archivos abiertos.</li>
-                    <li><strong>Depuración y monitoreo:</strong> <code>ptrace()</code> — permite observar y controlar la ejecución de otros procesos, útil para depuradores.</li>
-                </ul>
-
-                <p>Estas llamadas desempeñan un papel complementario en la administración del sistema, proporcionando herramientas que permiten <strong>monitorizar, ajustar y sincronizar</strong> el funcionamiento del sistema operativo con las aplicaciones.</p>
-            </div>
-        </div>
-
-        <div class="activity-card">
-            <div class="activity-title">Actividad de Aprendizaje 1.4: Llamadas a Sistema</div>
-            <p>Pon a prueba lo aprendido sobre la interfaz entre las aplicaciones y el sistema operativo (System Calls).</p>
-            <a href="actividad_1_4.html" class="activity-btn">
-                <i class="fas fa-pencil-alt"></i> Realizar Actividad
-            </a>
-        </div>
-        
-        <div class="nav-buttons">
-            <a href="1.3.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a 1.3: Modos de Operación</a>
-            <a href="1.5.html" class="nav-btn">Continuar a 1.5: Shell<i class="fas fa-arrow-right"></i></a>
-        </div>
-        
         <footer>
-            <p>Sistemas Operativos - Unidad 1: Introducción a los Sistemas Operativos</p>
+            <p>Polilibro académico - Metodología de la Investigación y Estadística I</p>
             <p>Desarrollado para fines educativos - © 2025</p>
         </footer>
-    </div>
+   </div>
 
     <script>
         let sidebarOpen = false;
