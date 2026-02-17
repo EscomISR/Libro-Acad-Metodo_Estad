@@ -743,69 +743,6 @@
 
 
 
-                <div class="table-container">
-                    <div class="table-caption"><strong>Tabla 3</strong></div>
-                    <div class="table-caption">Resumen de las características clave de las interrupciones en sistemas operativos</div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Aspecto</th>
-                                <th>Función principal</th>
-                                <th>Mecanismo / Aplicación</th>
-                                <th>Ejemplo</th>
-                                <th>Referencia</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Multitarea y concurrencia</strong></td>
-                                <td>Permite alternar entre procesos para compartir la CPU equitativamente.</td>
-                                <td>Interrupciones del temporizador activan el <em>scheduler</em> para redistribuir el tiempo de CPU.</td>
-                                <td>Linux utiliza el parámetro HZ (1000 Hz en x86) para definir la frecuencia del <em>scheduler</em>.</td>
-                                <td>Silberschatz, Galvin y Gagne (2022)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Gestión eficiente de E/S</strong></td>
-                                <td>Reemplaza el <em>polling</em> por un modelo basado en eventos, optimizando el uso de CPU.</td>
-                                <td>Los dispositivos generan interrupciones al finalizar operaciones; el CPU atiende al <em>handler</em> correspondiente.</td>
-                                <td>Un servidor puede manejar más de 10,000 interrupciones por segundo por tráfico de red.</td>
-                                <td>Stallings (2018)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Respuesta a eventos asíncronos</strong></td>
-                                <td>Permite reaccionar ante estímulos externos imprevisibles en tiempo real.</td>
-                                <td>Uso de señales IRQs (periféricos) y NMIs (fallos críticos).</td>
-                                <td>Un teclado envía una IRQ al presionar una tecla.</td>
-                                <td>Laplante (2020)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Manejo de errores y excepciones</strong></td>
-                                <td>Detecta y gestiona condiciones anómalas sin comprometer la estabilidad del sistema.</td>
-                                <td>Clasificación: <em>faults, traps y aborts</em> según la gravedad del error.</td>
-                                <td>Un <em>page fault</em> dispara una interrupción para cargar la página faltante.</td>
-                                <td>Tanenbaum (2016)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Temporización</strong></td>
-                                <td>Sincroniza operaciones internas del sistema y tareas planificadas.</td>
-                                <td>Uso del PIT y HPET para gestionar tiempos de proceso y <em>timeouts</em>.</td>
-                                <td>Cronómetros y sistemas de tiempo real utilizan interrupciones de alta precisión.</td>
-                                <td>Patterson y Hennessy (2017)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="table-caption">Nota: Silberschatz, Galvin y Gagne, 2022; Stallings, 2018; Laplante, 2020; Tanenbaum, 2016; Patterson y Hennessy, 2017</div>
-                </div>
-            </div>
-
-            <div style="margin-top: 30px;">
-                <h3><i class="fas fa-play-circle" style="margin-right: 10px;"></i> Material Audiovisual</h3>
-                <p>A continuación, se presenta un recurso audiovisual que detalla el manejo y funcionamiento de las interrupciones:</p>
-                
-                <div class="figure-container">
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/EvXrjNJSbMI" title="Interrupciones" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
-                    <div class="figure-caption">Salas, I. (s.f.). <em>Manejo de Interrupciones</em> [Video]. YouTube. https://www.youtube.com/watch?v=EvXrjNJSbMI</div>
-                </div>
             </div>
 
         </div>
