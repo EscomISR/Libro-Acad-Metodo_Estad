@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidad 2: Estructura del protocolo de investigación</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh.png">
+    <title>Unidad 1: Metodología de la investigación científica</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -521,7 +521,7 @@
             }
         }
 
-/* --- ESTILOS BOTÓN VOLVER --- */
+        /* --- ESTILOS BOTÓN VOLVER --- */
         .back-to-menu-btn {
             position: fixed;
             bottom: 25px;
@@ -545,7 +545,6 @@
             transform: scale(1.1) rotate(15deg);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
         }
-
     </style>
 </head>
 <body>
@@ -553,31 +552,60 @@
         <header>
             <div style="display: grid; grid-template-columns: auto 1fr auto; align-items: center; margin-bottom: 20px;">
                 <img src="IPNb.png" alt="Logo IPN" style="height: 80px; max-width: 120px; object-fit: contain;">
-                <h1 style="margin: 0; text-align: center;">Unidad temática 2</h1>
-                <img src="logoenmh.png" alt="Logo ENMyH" style="height: 80px; max-width: 120px; object-fit: contain;">
+                <h1 style="margin: 0; text-align: center;">Unidad temática 1</h1>
+                <img src="logoenmh2.png" alt="Logo ENMyH" style="height: 80px; max-width: 120px; object-fit: contain;">
             </div>
-            <div class="subtitle">Estructura del protocolo de investigación</div>
+            <div class="subtitle">Metodología de la investigación científica</div>
             <div class="description">
                 <p>Analiza un protocolo de investigación con base en los diferentes apartados de su estructura.</p>
             </div>
 
             <div class="hardware-icons">
-                <div class="hardware-icon">🔧</div>
-                <div class="hardware-icon">⚡</div>
-                <div class="hardware-icon">🔄</div>
+                <div class="hardware-icon">💻</div>
+                <div class="hardware-icon">🧠</div>
                 <div class="video-oval" onclick="openVideoModal()">
                     <i class="fas fa-play"></i>
                     Introducción
                 </div>
-                <div class="hardware-icon">🧵</div>
-                <div class="hardware-icon">📊</div>
-                <div class="hardware-icon">⏱️</div>
+                <div class="hardware-icon">💾</div>
+                <div class="hardware-icon">🌐</div>
+                <div class="hardware-icon">🔒</div>
             </div>
         </header>
         
         <div class="card-container">
+            <div class="card" id="card-1-1">
+                <div class="card-header" onclick="toggleCard('1-1')">
+                    <div class="card-header-content">
+                        <div class="card-number">2.1</div>
+                        <div class="card-title">Estructura del protocolo de investigación</div>
+                    </div>
+                    <div class="card-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="subtopics">
+                    <ul class="subtopic-list">
+                        <li class="subtopic-item">
+                            <a href="1.1.html#seccion-2-2" class="subtopic-link">
+                                <div class="subtopic-number">2.2</div>
+                                <div class="subtopic-name">Planteamiento del diseño de la investigación</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="1.1.html#seccion-2-3" class="subtopic-link">
+                                <div class="subtopic-number">2.3</div>
+                                <div class="subtopic-name">Investigación documental</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="2.1.html" class="btn">Ver tema completo</a>
+                </div>
+            </div>
+
             <div class="card" id="card-2-1">
-                <div class="card-header" onclick="toggleCard('2-1')">
+                <div class="card-header" onclick="toggleCard('1-2')">
                     <div class="card-header-content">
                         <div class="card-number">2.1</div>
                         <div class="card-title">Estructura del protocolo de investigación</div>
@@ -593,102 +621,88 @@
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </li>
-                        <li class="subtopic-item">
-                            <a href="2.1.html#seccion-2-1-2" class="subtopic-link">
-                                <div class="subtopic-number">2.1.2</div>
-                                <div class="subtopic-name">Delimitación del problema de la investigación</div>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </li>
-                        <li class="subtopic-item">
-                            <a href="2.1.html#seccion-2-1-3" class="subtopic-link">
-                                <div class="subtopic-number">2.1.3</div>
-                                <div class="subtopic-name">Planteamiento de objetivos</div>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </li>
-                        <li class="subtopic-item">
-                            <a href="2.1.html#seccion-2-1-4" class="subtopic-link">
-                                <div class="subtopic-number">2.1.4</div>
-                                <div class="subtopic-name">Delimitación de variables</div>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </li>
-
-                        <li class="subtopic-item">
-                            <a href="2.1.html#seccion-2-1-4" class="subtopic-link">
-                                <div class="subtopic-number">2.1.5</div>
-                                <div class="subtopic-name">Hipótesis nula y alterna</div>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </li>
-
-
-                        <li class="subtopic-item">
-                            <a href="2.1.html#seccion-2-1-4" class="subtopic-link">
-                                <div class="subtopic-number">2.1.6</div>
-                                <div class="subtopic-name">Justificación</div>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </li>
-                        <li class="subtopic-item">
-                            <a href="2.1.html#seccion-2-1-4" class="subtopic-link">
-                                <div class="subtopic-number">2.1.7</div>
-                                <div class="subtopic-name">Trascendencia</div>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
                 <div class="card-footer">
                     <a href="2.1.html" class="btn">Ver tema completo</a>
                 </div>
             </div>
-
- 
-                <div class="card-footer">
-                    <a href="2.2.html" class="btn">Ver tema completo</a>
-                </div>
-            </div>
             
-            <div class="card" id="card-2-3">
-                <div class="card-header" onclick="toggleCard('2-3')">
+            <div class="card" id="card-1-3">
+                <div class="card-header" onclick="toggleCard('1-3')">
                     <div class="card-header-content">
-                        <div class="card-number">2.3</div>
-                        <div class="card-title">Investigación documental</div>
+                        <div class="card-number">1.3</div>
+                        <div class="card-title">Tipos y formas de investigación</div>
                     </div>
                     <div class="card-icon"><i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="subtopics">
                     <ul class="subtopic-list">
                         <li class="subtopic-item">
-                            <a href="2.3.html#seccion-2-3-1" class="subtopic-link">
-                                <div class="subtopic-number">2.3.1</div>
-                                <div class="subtopic-name">Referencias bibliográficas</div>
+                            <a href="1.3.html#seccion-1-3-1" class="subtopic-link">
+                                <div class="subtopic-number">1.3.1</div>
+                                <div class="subtopic-name">Investigación con enfoque cualitativo, cuantitativo o mixto</div>
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </li>
-
+                        <li class="subtopic-item">
+                            <a href="1.3.html#seccion-1-3-2" class="subtopic-link">
+                                <div class="subtopic-number">1.3.2</div>
+                                <div class="subtopic-name">Investigación experimental, cuasi experimental y no experimental</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                             <a href="1.3.html#seccion-1-3-3" class="subtopic-link">
+                                <div class="subtopic-number">1.3.3</div>
+                                <div class="subtopic-name">Descriptiva, trasversal y correlacional</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                             <a href="1.3.html#seccion-1-3-4" class="subtopic-link">
+                                <div class="subtopic-number">1.3.4</div>
+                                <div class="subtopic-name">Prospectivo, retrospectivo, logitudinal, casos y controles: cohorte y ensayos clínico</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <a href="2.3.html" class="btn">Ver tema completo</a>
+                    <a href="1.3.html" class="btn">Ver tema completo</a>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-header">
+            <div class="card" id="card-1-4">
+                <div class="card-header" onclick="toggleCard('1-4')">
                     <div class="card-header-content">
-                        <div class="card-number"><i class="fas fa-book"></i></div>
-                        <div class="card-title">Lista de referencias</div>
+                        <div class="card-number">1.4</div>
+                        <div class="card-title">Planeación de la investigación</div>
                     </div>
+                    <div class="card-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="subtopics">
+                    <ul class="subtopic-list">
+                        <li class="subtopic-item">
+                            <a href="1.4.html#seccion-1-4-1" class="subtopic-link">
+                                <div class="subtopic-number">1.4.1</div>
+                                <div class="subtopic-name">Captación del suceso y planteamiento del problema</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li class="subtopic-item">
+                            <a href="1.4.html#seccion-1-4-2" class="subtopic-link">
+                                <div class="subtopic-number">1.4.2</div>
+                                <div class="subtopic-name">Directorios y archivos</div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="card-footer">
-                    <a href="referencias.html" class="btn">Ver referencias</a>
+                    <a href="1.4.html" class="btn">Ver tema completo</a>
                 </div>
             </div>
-
 
             <div class="card activities-card" id="card-activities">
                 <div class="card-header" onclick="toggleCard('activities')">
@@ -702,76 +716,85 @@
                 <div class="subtopics">
                     <ul class="subtopic-list">
                         <li class="activity-item">
-                            <a href="actividad_2_1.html" class="activity-link">
+                            <a href="actividad_1_1.html" class="activity-link">
                                 <div class="activity-number">ACT 1</div>
-                                <div class="activity-name">Modelo de procesos</div>
+                                <div class="activity-name">Metodología</div>
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </li>
                         <li class="activity-item">
-                            <a href="actividad_2_2.html" class="activity-link">
+                            <a href="actividad_1_2.html" class="activity-link">
                                 <div class="activity-number">ACT 2</div>
-                                <div class="activity-name">Modelo multi-hilo</div>
+                                <div class="activity-name">Etapas del proceso de investigación</div>
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </li>
                         <li class="activity-item">
-                            <a href="actividad_2_3.html" class="activity-link">
+                            <a href="actividad_1_3.html" class="activity-link">
                                 <div class="activity-number">ACT 3</div>
-                                <div class="activity-name">Comunicación entre procesos</div>
+                                <div class="activity-name">Tipos y formas de investigación</div>
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </li>
                         <li class="activity-item">
-                            <a href="actividad_2_4.html" class="activity-link">
+                            <a href="actividad_1_4.html" class="activity-link">
                                 <div class="activity-number">ACT 4</div>
-                                <div class="activity-name">Sincronización entre procesos/hilos</div>
-                                <i class="fas fa-pencil-alt"></i>
-                            </a>
-                        </li>
-                        <li class="activity-item">
-                            <a href="actividad_2_5.html" class="activity-link">
-                                <div class="activity-number">ACT 5</div>
-                                <div class="activity-name">Planificación</div>
+                                <div class="activity-name">Planeación de la investigación</div>
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
                 
-                <div class="card-footer">
-                    <div class="card-footer" id="activities-footer"> <button class="btn btn-activities" onclick="toggleCard('activities')"> <i class="fas fa-chevron-down"></i> Ver actividades
-
+                <div class="card-footer" id="activities-footer">
+                    <button class="btn btn-activities" onclick="toggleCard('activities')">
+                        <i class="fas fa-chevron-down"></i> Ver actividades
+                    </button>
                 </div>
             </div>
-        </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-content">
+                        <div class="card-number"><i class="fas fa-book"></i></div>
+                        <div class="card-title">Lista de referencias</div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="referencias.html" class="btn">Ver referencias</a>
+                </div>
+            </div>
 
-        <div class="card">
+            <div class="card">
             <div class="card-header">
                 <div class="card-header-content">
                     <div class="card-number"><i class="fas fa-keyboard"></i></div>
-                    <div class="card-title">Laboratorio de código</div>
+                    <div class="card-title">Práctica</div>
                 </div>
             </div>
             <div class="card-footer">
                 <a href="laboratorio_codigo.html" class="btn">Iniciar laboratorio</a>
             </div>
         </div>
+
+        </div>
+
+        
         
         <!-- Modal para el video -->
         <div id="videoModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title">Video introducción - Administración de procesos</h2>
+                    <h2 class="modal-title">Introducción - sistemas operativos</h2>
                     <button class="close-btn" onclick="closeVideoModal()">&times;</button>
                 </div>
                 <div class="description">
-                    <p>Salas, I. (2025, 28 de noviembre). <em>General: Procesos, hilos y planificación</em> [Video]. YouTube. https://www.youtube.com/watch?v=T9Xit0OAayo</p>
+                    <p>Salas, I. (2025, 22 de noviembre). <em>Introducción a los sistemas operativos</em> [Video]. YouTube. https://www.youtube.com/watch?v=8U92rOkobGI</p>
                 </div>
                 <div class="video-container">
                     <iframe id="videoFrame" 
                             src="" 
-                            title="Video de Sistemas Operativos"
+                            title="Video de sistemas operativos"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                             referrerpolicy="strict-origin-when-cross-origin"
@@ -780,12 +803,12 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <footer>
-            <p>Metodología de la Investigación y Estadística I - Unidad 2: Estructura del protocolo de investigación</p>
+        
+        <footer>
+            <p>Polilibro académico - ENMYH | Metodología de la Investigación y Estadística I</p>
             <p>Desarrollado para fines educativos - © 2026</p>
-    </footer>
+        </footer>
+    </div>
     
     <script>
         function toggleCard(cardIdSuffix) {
@@ -817,8 +840,8 @@
                 return;
             }
             
-            // Video Unidad 2: Modelos de procesos
-            videoFrame.src = 'https://www.youtube.com/embed/T9Xit0OAayo?autoplay=1&rel=0&modestbranding=1';
+            // Video educativo de sistemas operativos que permite embed
+            videoFrame.src = 'https://www.youtube.com/embed/8U92rOkobGI';
             
             modal.classList.add('show');
             modal.style.display = 'flex';
