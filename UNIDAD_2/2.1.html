@@ -762,33 +762,65 @@
 
         </div>
         
-        <div class="section" id="seccion-2-1-4">
+        <div class="section" id="seccion-2-1-3">
             <div class="section-header">
-                <div class="section-number">2.1.4</div>
-                <div class="section-title">Implementación en el kernel</div>
+                <div class="section-number">2.1.3</div>
+                <div class="section-title">Planteamiento de objetivos</div>
             </div>
             <div class="content">
-                    <p>La <strong>implementación de la administración de procesos en el kernel</strong> constituye el núcleo funcional del sistema operativo, ya que gestiona la creación, ejecución, sincronización y terminación de los procesos que comparten los recursos del sistema. Para ello, el kernel utiliza estructuras de datos, algoritmos de planificación y mecanismos de protección que aseguran una operación segura y eficiente.</p>
-                <h3>Estructuras internas</h3>
-                    <p>El <strong>Bloque de Control de Proceso (BCP)</strong> o <i>Process Conrol Block</i> es la estructura central que almacena toda la información necesaria para administrar un proceso: su identificador, estado, prioridad, contadores, registros de CPU, permisos y recursos asignados. Esta estructura permite al kernel realizar cambios de contexto y mantener un control preciso del estado de cada proceso.</p>    
-                    <p>Según <strong>Stallings (2018)</strong>, “<i>el PCB representa la fuente primaria de información que el sistema operativo utiliza para gestionar la ejecución de procesos, garantizando continuidad y coherencia en los cambios de estado</i>” (p. 207).</p>
-                <h3>Creación y planificación</h3>
-                    <p>El kernel crea nuevos procesos mediante llamadas al sistema, como <i>fork ()</i> en Unix o <i>CreateProcess()</i> en Windows, reservando memoria y heredando parámetros del proceso padre. Posteriormente, los procesos se insertan en la <strong>cola de listos</strong>, donde el planificador (<i>scheduler</i>) selecciona cuál recibirá la CPU según políticas de planificación (por ejemplo, <i>First-Come First-Served</i>, <i>Round Robin</i> o <i>Multilevel Queue</i>). Estas políticas buscan <strong>optimizar el uso del procesador, el tiempo de respuesta y la equidad entre procesos</strong>.</p>
-                <h3>Conmutación de contexto</h3>
-                    <p>Cuando un proceso cede el procesador, el kernel guarda su contexto (registros, contador de programa, puntero de pila) y restaura el de otro proceso. Este mecanismo, conocido como <strong>conmutación de contexto</strong>, es fundamental para la multitarea, aunque introduce un pequeño retardo temporal.</p>
-                    <p>De acuerdo con <strong>Tanenbaum y Bos (2015)</strong>, “<i>la conmutación de contexto permite que el sistema operativo brinde la ilusión de ejecución simultánea, preservando la información esencial de cada proceso</i>” (p. 101)</p>
-                <h3>Sincronización y comunicación</h3>
-                    <p>Para evitar conflictos entre procesos que comparten recursos, el kernel implementa mecanismos de <STRONG>sincronización</STRONG> como semáforos, monitores y exclusión mutua (mutexes). Asimismo, ofrece métodos de <strong>comunicación entre procesos (IPC)</strong>, tales como colas de mensajes, tuberías (<i>pipes</i>), señales y memoria compartida, que garantizan la cooperación y coordinación segura.</p>
-                <h3>Manejo de interrupciones y E/S</h3>
-                    <p>Cuando un proceso requiere realizar una operación de entrada/salida (E/S), el kernel lo transfiere al estado de <strong>bloqueado</strong> hasta que el evento concluya. Los controladores de dispositivo y los manejadores de interrupciones (<i>interrupt handlers</i>) notifican al kernel cuando la operación ha terminado, permitiendo que el proceso retome su ejecución sin desperdiciar tiempo de CPU.</p>
-                <h3>Finalización y liberación de recursos</h3>
-                    <p>Al finalizar un proceso, el kernel libera todos los recursos asociados —como memoria, archivos y dispositivos— y actualiza las tablas de control. Esta limpieza evita fugas de memoria y mantiene la integridad del sistema operativo.</p>
-                    <p>En resumen, la implementación en el kernel representa el nivel más crítico del sistema operativo, donde se integran los <strong>mecanismos de planificación</strong>, <strong>sincronización</strong>, <strong>comunicación</strong> y <strong>control de recursos</strong>, asegurando que los procesos coexistan de forma ordenada y eficiente dentro del entorno multitarea.</p>
-                <div class="figure-container">
+                <p>es la etapa en la que se establecen los propósitos que guían la investigación y orientan todas sus acciones metodológicas. Los objetivos indican lo que se pretende lograr con el estudio y deben derivarse directamente del problema planteado. Generalmente se formulan un objetivo general, que expresa la finalidad principal del estudio, y objetivos específicos, que desglosan las acciones necesarias para alcanzarlo.</p>
+                <p>Entre sus características, los objetivos deben ser claros, precisos, medibles, alcanzables y coherentes con el problema de investigación. Se redactan en infinitivo (analizar, identificar, determinar, evaluar) y delimitan el rumbo del estudio, facilitando la selección de métodos, técnicas y procedimientos adecuados. Un adecuado planteamiento de objetivos asegura la coherencia del proceso investigativo y permite evaluar
+                   el cumplimiento de los resultados esperados (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
+                
+                 <h3>Objetivo general</h3>
+                    <p>expresa la finalidad principal de la investigación y define con claridad qué se pretende lograr al concluir el estudio. Se deriva directamente del planteamiento del problema y orienta todo el proceso investigativo, estableciendo el rumbo que seguirán los métodos, técnicas y procedimientos. Su redacción debe ser clara, precisa y estar formulada en infinitivo, reflejando el resultado global que se espera alcanzar.</p>
+                    <p>Este objetivo integra el propósito central del estudio y sirve como referente para formular los objetivos específicos, evaluar los resultados y mantener la coherencia del trabajo científico. Un objetivo general bien planteado permite delimitar el alcance del estudio, facilitar la toma de decisiones metodológicas y asegurar que la investigación responda de manera directa a la problemática planteada (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
+ 
+                 <h3>caracteristicas:</h3>
+                    <p>Expresa la finalidad principal de la investigación.</p>
+                    <p>Se deriva directamente del problema planteado.</p>
+                    <p>Está redactado con claridad, precisión y coherencia.</p>
+                    <p>Se formula en infinitivo (analizar, determinar, evaluar, identificar).</p>
+                    <p>Delimita el alcance del estudio.</p>
+                    <p>Orienta el diseño metodológico y el desarrollo de la investigación.</p>
+                    <p>Sirve como guía para la formulación de los objetivos específicos.</p>
+                    <p>Permite evaluar el logro global del estudio.</p>
+                   <br>
+
+                 <h3>Objetivo específicos</h3>
+                    <p>Desglosan el objetivo general en acciones concretas y ordenadas que permiten alcanzarlo de manera sistemática. Cada objetivo específico señala una tarea particular del proceso investigativo, facilitando la organización del trabajo y la obtención de resultados parciales que contribuyen al logro del propósito principal del estudio.</p>
+                    <p>Estos objetivos se redactan en infinitivo, deben ser claros, medibles y coherentes con el problema de investigación. Además, orientan la selección de métodos, técnicas e instrumentos de recolección de datos, permitiendo evaluar el progreso del estudio y verificar el cumplimiento de los resultados esperados. Su adecuada formulación asegura la coherencia, viabilidad y precisión del proceso investigativo (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
+                 <h3>Caracteristicas:</h3>
+                    <p>Se derivan directamente del objetivo general.</p>
+                    <p>Desglosan el estudio en acciones concretas y ordenadas.</p>
+                    <p>Se redactan en infinitivo (identificar, analizar, describir, evaluar).</p>
+                    <p>Son claros, precisos y comprensibles.</p>
+                    <p>Deben ser medibles y verificables.</p>
+                    <p>Mantienen coherencia con el problema de investigación.</p>
+                    <p>Orientan la selección de métodos, técnicas e instrumentos.</p>
+                    <p>Permiten evaluar el avance y cumplimiento del estudio.</p>
+                    <p>Contribuyen al logro del objetivo general.</p>
+
+                 <h3>Impacto científico</h3>
+                    <p>El impacto científico se relaciona con la contribución que la investigación realiza al avance del conocimiento en un área específica. Se manifiesta mediante la generación de nuevas teorías, la validación o refutación de conceptos existentes y la apertura de nuevas líneas de investigación. Este impacto fortalece el desarrollo disciplinar y promueve la construcción continua del saber científico.</p>
+                    <p>Además, se evidencia a través de publicaciones académicas, citaciones, desarrollo de modelos teóricos y difusión del conocimiento en la comunidad científica. Su relevancia radica en que permite la acumulación sistemática del conocimiento y el fortalecimiento de la rigurosidad metodológica en futuras investigaciones (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>                   
+                 <h3>Impacto social</h3>
+                    <p>Los beneficios que la investigación genera en la calidad de vida de las personas y en la solución de problemas comunitarios. Los estudios pueden aportar evidencia para mejorar políticas públicas, programas de salud, educación y estrategias de bienestar social, favoreciendo el desarrollo humano.</p>
+                    <p>Asimismo, este impacto promueve la equidad, la inclusión y la toma de decisiones informadas, al ofrecer soluciones basadas en evidencia científica. Cuando la investigación responde a necesidades reales, fortalece el vínculo entre la ciencia y la sociedad, contribuyendo al progreso social sostenible (Hernández Sampieri et al., 2014).</p>
+
+                 <h3>Impacto económico</h3>
+                    <p>Se manifiesta cuando los resultados de la investigación contribuyen al uso eficiente de recursos, la optimización de procesos y la generación de valor. Los hallazgos pueden mejorar la productividad, reducir costos y apoyar la toma de decisiones estratégicas en organizaciones públicas y privadas.</p>
+                    <p>La investigación puede impulsar el crecimiento económico mediante la innovación, el desarrollo de productos y la mejora de servicios. Esto favorece la competitividad y el desarrollo sostenible, demostrando que la inversión en investigación es un factor clave para el progreso económico (Hernández Sampieri et al., 2014).</p>
+
+                 <h3>Impacto tecnológico</h3>
+                    <p>La aplicación del conocimiento científico para crear, mejorar o innovar herramientas, sistemas y procesos tecnológicos. Este impacto impulsa el desarrollo de soluciones prácticas que facilitan actividades humanas y optimizan procesos en diferentes sectores.</p>
+                    <p>Asimismo, promueve la modernización, la eficiencia y la transformación digital, favoreciendo la transferencia de conocimiento hacia la industria y la sociedad. La investigación con impacto tecnológico fortalece la innovación y contribuye al desarrollo científico-tecnológico de las naciones (Hernández Sampieri et al., 2014).</p>
+
+                 <div class="figure-container">
                     <div class="figure-caption">Figura 5</div>
-                    <div class="figure-caption">Implementación en el kernel</div>
-                    <img src="Figura5.png" alt="Implementación en el kernel" class="imagen-figura1">
-                    <div class="figure-caption">Nota: Elaboración propia basada en Stallings, (2018)</div>
+                    <div class="figure-caption">Planteamiento de objetivos</div>
+                    <img src="Figura5.png" alt="Planteamiento de objetivos" class="imagen-figura1">
+                    <div class="figure-caption">Nota: Elaboración propia basada en Hernández Sampieri et al., 2014</div>
                 </div>                                               
             </div>
         </div>   
