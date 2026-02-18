@@ -695,19 +695,9 @@
         </div>
         <div class="section" id="seccion-2-1">
             <div class="content">
-                <p>El modelo de procesos explica cómo el sistema operativo organiza, lleva a cabo y administra los programas en operación. Cada proceso es una unidad que se ejecuta de manera independiente e incluye un contador del programa, un estado de ejecución, un espacio para las direcciones de la memoria y un grupo de recursos que el sistema asigna. Este modelo posibilita que varios programas se ejecuten de manera simultánea sin afectar a los demás, sentando así las bases para la multitarea y la concurrencia</p>                
-                <p>En su estructura, un proceso está compuesto por:</p>
-                <ul>
-                    <li><strong>Código del programa (texto)</strong>: instrucciones a ejecutar.</li>
-                    <li><strong>Datos</strong>: variables globales y estructuras utilizadas por el programa.</li>
-                    <li><strong>Pila (stack)</strong>: donde se almacenan las llamadas a funciones y variables locales.</li>
-                    <li><strong>Heap</strong>: área dinámica donde se crean objetos o estructuras de datos durante la ejecución.</li>
-                    <li>Naranja</li>
-                </ul>        
-                <p>El sistema operativo mantiene información sobre cada proceso a través de una estructura denominada <strong>Bloque de Control de Proceso (PCB, Process Control Block)</strong>, que registra el estado del proceso, sus registros, identificador (PID), prioridad, y recursos asociados.</p>
-                <p>Según <strong>Tanenbaum y Bos (2015)</strong>, “<i>el modelo de procesos es la abstracción central de los sistemas operativos modernos; cada proceso actúa como si tuviera su propio procesador virtual, aunque en realidad comparte la CPU con otros procesos</i>” (p. 95). Esta abstracción simplifica la programación y permite al sistema operativo aplicar políticas de <strong>planificación</strong>, <strong>suspensión</strong>, <stronng>reanudación</strong> y <strong>finalización</strong> que optimizan el uso de los recursos.</p>
-                <p>En síntesis, el modelo de procesos proporciona el marco conceptual que hace posible la <strong>ejecución concurrente</strong>, <strong>la seguridad del sistema</strong> y <strong>la eficiencia en el manejo de recursos</strong>, sirviendo como núcleo del diseño operativo moderno.                    
-                <p></p>
+                <p>La estructura del protocolo de investigación se caracteriza por su organización lógica y sistemática, que permite presentar de manera clara el problema a estudiar, los objetivos que se persiguen y la fundamentación teórica que sustenta el estudio. Su redacción debe ser precisa, coherente y objetiva, facilitando la comprensión del propósito de la investigación y su relevancia científica y social. Además, integra elementos que delimitan el alcance del estudio, establecen las variables y orientan
+                   la formulación de hipótesis o preguntas de investigación.</p>
+                <p>Otra característica esencial es su rigor metodológico, ya que describe detalladamente el diseño del estudio, la población y muestra, los instrumentos de recolección de datos y los procedimientos de análisis, garantizando la reproducibilidad y validez de los resultados. Asimismo, incorpora consideraciones éticas, cronograma y recursos necesarios, lo que asegura la viabilidad del proyecto y permite evaluar su factibilidad antes de su ejecución (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>   
             </div>
                 
         </div>
@@ -715,80 +705,48 @@
         <div class="section" id="seccion-2-1-1">
             <div class="section-header">
                 <div class="section-number">2.1.1</div>
-                <div class="section-title">Fundamentos: jerarquía, BCP</div>
+                <div class="section-title">Marco teórico</div>
             </div>
             <div class="content">
-                <p>La gestión de procesos se basa en principios de organización que posibilitan la supervisión eficaz de la ejecución de diversos programas por parte del sistema operativo. La jerarquía de procesos y el bloque de control del proceso (BCP) son algunos de los principios que se destacan, ya que son fundamentales para la supervisión y coordinación del ciclo vital de cada proceso en el sistema.</p>
-                <h3>Orden jerárquico de procesos</h3>
-                <p>Los sistemas operativos actuales organizan los procesos en una jerarquía, en la que cada proceso tiene la capacidad de generar uno o más subprocesos o procesos hijos. Cuando un proceso padre emplea una llamada al sistema, como fork () en Unix/Linux, para crear un nuevo proceso, se establece esta relación de dependencia.
-El proceso hijo, aunque retiene su propia ejecución de manera independiente, recibe parte del ambiente del padre (por ejemplo, directorios, permisos o variables). Esta jerarquía posibilita que el trabajo esté organizado de manera ordenada, lo cual simplifica la gestión, la sincronización y la finalización controlada de los procesos.
+                <p>Es la base conceptual que sustenta una investigación, ya que reúne, analiza y organiza las teorías, conceptos, antecedentes y estudios previos relacionados con el problema de estudio. Su función principal es proporcionar un fundamento científico que permita comprender el fenómeno investigado, justificar la relevancia del estudio y orientar la formulación de hipótesis o preguntas de investigación. Además,
+                   ayuda a ubicar el trabajo dentro del conocimiento existente y evita duplicar investigaciones ya realizadas.</p>
+                <p>Entre sus características principales destaca que debe ser pertinente, al incluir información directamente relacionada con el problema; actualizado, incorporando fuentes recientes y confiables; y analítico, pues no se limita a describir información, sino que la interpreta y relaciona críticamente. Asimismo, debe presentar coherencia lógica, claridad conceptual y sustento en fuentes científicas verificables,
+                   lo que fortalece la validez y el rigor académico de la investigación (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
 
-                </p>
-                <h3>Bloque de Control de Proceso (BCP)</h3>
-                <p>El BCP se utiliza como una organización de datos interna por el sistema y esto incluye lo siguiente:</p>
-                <ul>
-                    <li><strong>Identificación del proceso</strong>: PID, PPID (padre), UID (usuario).</li>
-                    <li><strong>Estado del proceso</strong>: nuevo, listo, en ejecución, bloqueado o terminado.</li>
-                    <li><strong>Registros de CPU</strong>: valores almacenados cuando el proceso es interrumpido.</li>
-                    <li><strong>Información de memoria</strong>: punteros a tablas de páginas y espacio asignado.</li>
-                    <li><strong>Contabilidad</strong>: tiempo de CPU utilizado, prioridad y estadísticas.</li>
-                    <li><strong>Información de control</strong>: recursos abiertos (archivos, dispositivos, sockets).</li>
-                </ul>
-                <p>El BCP permite al sistema <strong>interrumpir y reanudar procesos</strong> sin pérdida de información, garantizando una conmutación de contexto (<i>context switch</i>) correcta y eficiente.</p>
-                
-                <h4>Funcionalidad del BCP</h4>
-                <p>El BCP es el corazón de la gestión de procesos. Su funcionalidad principal es permitir al sistema operativo:</p>
-                <ul>
-                    <li>Supervisar y controlar el estado actual del proceso, determinando si está activo, en cola de espera, suspendido o listo para ser ejecutado</li>
-                    <li>Se refiere a guardar todos los datos esenciales del proceso en curso, como los valores de los registros y la posición actual en el programa, para poder reanudarlo sin pérdida de información</li>
-                    <li><strong>Administrar recursos:</strong> Mantener un registro de los recursos (memoria, archivos abiertos, dispositivos I/O) asignados al proceso.</li>
-                    <li><strong>Controlar la identificación del proceso:</strong> Otorgar un identificador exclusivo a cada proceso.</li>
-                </ul>
+                <h3>Características</h3>
+                <p>Integra teorías, conceptos y antecedentes directamente relacionados con el problema de investigación.</p>
+                <p>Se sustenta en fuentes científicas confiables y actualizadas</p>
+                <p>Presenta un enfoque analítico y crítico, interpretando y relacionando la información.</p>
+                <p>Mantiene coherencia lógica y organización temática clara.</p>
+                <p>Proporciona claridad conceptual para comprender el fenómeno estudiado.</p>
+                <p>Orienta la formulación de hipótesis, variables y el diseño metodológico.</p>
+                <p>Fortalece el rigor científico y la validez académica del estudio.</p>
 
-                <h4>Características del BCP</h4>
-                <p>El BCP tiene principalmente la siguiente información:</p>
-                <ul>
-                    <li><strong>Estado del proceso:</strong> Indica la etapa actual del proceso, como, por ejemplo: recién creado, preparado para ejecutarse, ejecutándose, en espera o finalizado.</li>
-                    <li><strong>Contador de programa:</strong> Indica la dirección de la siguiente instrucción que debe ser ejecutada por el procesador.</li>
-                    <li><strong>Registros de CPU:</strong> Comprende los registros esenciales del procesador, tales como acumuladores, registros de propósito general, índices y punteros de pila.</li>
-                    <li><strong>Información para la planificación del CPU:</strong> Incluye elementos como la prioridad del proceso y referencias a las estructuras utilizadas en las colas de planificación.</li>
-                    <li><strong>Datos de administración de memoria:</strong> Contiene datos como los valores de los registros base y límite, así como las tablas que administran la paginación o segmentación de la memoria.</li>
-                    <li><strong>Información de contabilidad:</strong> Registra estadísticas del uso del proceso, incluyendo tiempo de CPU consumido, restricciones temporales y su identificador numérico.</li>
-                    <li><strong>Información de estado de I/O:</strong> Lista de dispositivos I/O asignados al proceso, lista de archivos abiertos.</li>
-                </ul>
                 <div class="figure-container">
                     <div class="figure-caption">Figura 3</div>
-                    <div class="figure-caption">Ciclo de vida de un proceso: creación, ejecución y terminación</div>
-                    <img src="Figura3.png" alt="Ciclo de vida de un proceso" class="imagen-figura1">
-                    <div class="figure-caption">Nota: Elaboración propia basada en Silberschatz et al., 2022; Tanenbaum y Bos, 2015</div>
+                    <div class="figure-caption">Marco teórico</div>
+                    <img src="Figura3.png" alt="Marco teórico" class="imagen-figura1">
+                    <div class="figure-caption">Nota: Elaboración propia basada en Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014</div>
                 </div>                
             </div>
         </div>
         
-        <div class="section" id="seccion-2-1-3">
+        <div class="section" id="seccion-2-1-2">
             <div class="section-header">
-                <div class="section-number">2.1.3</div>
-                <div class="section-title">Estados del proceso</div>
+                <div class="section-number">2.1.2</div>
+                <div class="section-title">Delimitación del problema de la investigación</div>
             </div>
             <div class="content">
-                <p>Un <strong>proceso</strong> pasa por diferentes <strong>estados</strong> durante su ciclo de vida, dependiendo de las acciones que realice y de los recursos que tenga disponibles. Estos estados permiten al sistema operativo <strong>controlar y coordinar la ejecución</strong> de múltiples tareas de manera eficiente, garantizando un uso equilibrado del procesador y la memoria.</p>
-                <p>Los estados principales del proceso son:</p>                
-                <h4>1. Nuevo (New)</h4>
-                    <p>El proceso está siendo creado. El sistema operativo asigna los recursos iniciales y genera su <strong>Bloque de Control de Proceso (BCP)</strong> con la información básica. Aún no se encuentra listo para ejecutarse.</p>
-                <h4>2. Listo (Ready)</h4>
-                    <p>El proceso ya fue cargado en memoria y está <strong>esperando su turno para utilizar la CPU</strong>. Permanece en la <strong>cola de listos</strong>, administrada por el planificador (scheduler), quien decide el orden de ejecución según la política de planificación.</p>
-                <h4>3. En Ejecución (Running</h4>
-                    <p>El proceso está utilizando la <strong>CPU activamente</strong> para ejecutar sus instrucciones. Solo un proceso puede encontrarse en este estado por procesador. Si ocurre una interrupción o un cambio de contexto, el proceso puede volver al estado de listo o pasar a bloqueado.</p>
-                <h4>Bloqueado o Esperando (Waiting/Blocked)</h4>
-                    <p>El proceso <strong>no puede continuar</strong> hasta que ocurra un evento externo, como la finalización de una operación de E/S o la liberación de un recurso. En este estado, libera la CPU para que otros procesos puedan ejecutarse.</p>
-                <h4>5. Terminado (Terminated)</h4>
-                    <p>El proceso ha completado su ejecución o ha sido finalizado por el sistema o el usuario. El sistema operativo libera los recursos asociados y elimina su BCP.</p>    
-                <p>Como explican <strong>Silberschatz, Galvin y Gagne (2022)</strong>, “<i>los estados del proceso permiten al sistema operativo mantener el control de cada programa en ejecución, asegurando una transición ordenada y eficiente entre las fases de creación, ejecución, espera y finalización</i>” (p. 199). Esta organización garantiza que el sistema operativo mantenga la estabilidad y el equilibrio entre los procesos activos, bloqueados y finalizados, permitiendo una <strong>multitarea eficiente y controlada</strong>.</p>                    
+                <p>Consiste en precisar el alcance del estudio estableciendo con claridad los límites espaciales, temporales, conceptuales y poblacionales del fenómeno que se analizará. Este proceso permite enfocar la investigación en un contexto específico, evitando ambigüedades y reduciendo la complejidad del problema para hacerlo viable y abordable científicamente.</p>
+                <p>Al delimitar el problema se define qué se estudiará y qué quedará fuera del análisis, favoreciendo la claridad en los objetivos, la selección adecuada de métodos y la obtención de resultados pertinentes. Una delimitación precisa contribuye a la factibilidad del estudio, optimiza recursos y asegura que la investigación responda de manera concreta a la 
+                   pregunta planteada (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
+
+
                 <div class="figure-container">
                     <div class="figure-caption">Figura 4</div>
-                    <div class="figure-caption">Estados del proceso</div>
-                    <img src="Figura4.png" alt="Estados del proceso" class="imagen-figura1">
-                    <div class="figure-caption">Nota: Elaboración propia basada en Silberschatz, Galvin y Gagne, 2022</div>
+                    <div class="figure-caption">Delimitación del problema de la investigación</div>
+                    <img src="Figura4.png" alt="Delimitación del problema de la investigación" class="imagen-figura1">
+                    <div class="figure-caption">Nota: Elaboración propia basada en Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014</div>
                 </div>                                               
             </div>
 
