@@ -738,42 +738,59 @@
         <div class="section" id="seccion-2-2-3">
             <div class="section-header">
                 <div class="section-number">2.2.3</div>
-                <div class="section-title">Investigación documental</div>
+                <div class="section-title">Aplicación del plan estadístico</div>
             </div>
             <div class="content">
- 
- 
-                <p>La distinción entre hilos de usuario y hilos del núcleo está en quién tiene el control sobre su ejecución y la manera en que se manejan los recursos. En los sistemas actuales, se emplean ambas perspectivas de acuerdo con lo que las aplicaciones requieren en términos de escalabilidad, flexibilidad y rendimiento.</p>
-                <h3>Hilos en Modo Usuario</h3>
-                <p>Los hilos en modo usuario son gestionados completamente por una biblioteca de hilos en el espacio de usuario, sin intervención directa del kernel.</p>
-                <h3>Hilos en modo de usuario</h3>
-                <p>Una biblioteca del espacio de usuario se encarga de la gestión de los hilos de usuario, sin que el sistema operativo participe directamente. Esto implica que la creación, planificación y sincronización se llevan a cabo sin pasar al modo kernel, lo cual les permite ser más veloces y eficaces en operaciones sencillas. No obstante, tienen limitaciones: si un hilo se bloquea (por ejemplo, a la espera de una operación de entrada/salida), el proceso entero separa porque el kernel no puede diferenciar los hilos internos.</p>
-                <h3>Hilos en modo kernel</h3>
-                <p>Por otro lado, los hilos de kernel son generados y gestionados directamente por el sistema operativo; esto posibilita que cada hilo sea planificado de manera independiente. Así, el sistema tiene la capacidad de ejecutar varios hilos simultáneamente en diferentes núcleos de CPU, optimizando así el uso de los sistemas multiprocesador. Sin embargo, la transición al modo kernel supone un cambio de contexto que crea más sobrecarga que los hilos de usuario.</p>
-                <div class="citation">(Silberschatz, Galvin, & Gagne, 2018).</div>
+                <p>Es la fase del proceso investigativo en la que se
+                   ejecutan los procedimientos de análisis previamente
+                   establecidos para interpretar los datos recolectados. En esta etapa se organizan, codifican y procesan los datos mediante técnicas estadísticas descriptivas e inferenciales, de acuerdo con los objetivos, hipótesis y tipo de variables del estudio. Su finalidad es transformar la información en resultados comprensibles que permitan responder de manera objetiva al problema de investigación.</p>
+                <p>Entre sus características, el plan estadístico debe ser coherente con el diseño metodológico, especificar el tipo de pruebas a utilizar, los niveles de significancia y los criterios de interpretación. Además, garantiza la validez, confiabilidad y precisión de los resultados, facilitando la toma de decisiones científicas basadas en evidencia. Una adecuada aplicación del plan estadístico
+                   fortalece el rigor del estudio y sustenta las conclusiones con fundamentos cuantitativos sólidos (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
+                
+                <H4>Características de la aplicación del plan estadístico</H4>
+                <p>+ Se basa en los objetivos, hipótesis y tipo de variables del estudio.</p>
+                <p>+ Organiza, codifica y depura los datos recolectados.</p>
+                <p>+ Utiliza estadística descriptiva (tablas, frecuencias, medias, gráficos).</p>
+                <p>+ Emplea estadística inferencial para probar hipótesis.</p>
+                <p>+ Define pruebas estadísticas acordes al diseño de investigación.</p>
+                <p>+ Establece niveles de significancia y criterios de interpretación.</p>
+                <p>+ Garantiza validez, confiabilidad y precisión en los resultados.</p>
+                <p>+ Facilita la toma de decisiones basadas en evidencia.</p>
+                <p>+ Permite presentar resultados de forma clara y comprensible.</p>
+
+                <div class="citation">(Hernández Sampieri, R., Fernández Collado, C., & Baptista Lucio, M. P. 2014).</div>
                 <div class="quote-box">
-                    "los hilos del kernel posibilitan un paralelismo real en sistemas multiprocesador, puesto que el sistema operativo reconoce y gestiona cada hilo de manera directa".
-                    <div class="citation">(Silberschatz, Galvin, & Gagne, 2022).</div>
+                    "la aplicación del plan estadístico es fundamental para convertir los datos en evidencia científica confiable,
+                     permitiendo interpretar los resultados con objetividad y rigor. Su correcta ejecución asegura que las conclusiones del estudio estén sustentadas en análisis precisos, 
+                     facilitando la toma de decisiones informadas y fortaleciendo la validez del conocimiento generado. De esta manera, el análisis estadístico se convierte en un puente
+                     entre la información recolectada y la comprensión científica del fenómeno investigado.".
+                    <div class="citation">(Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</div>
                 </div>
             </div>
+                <div class="figure-container">
+                    <div class="figure-caption">Figura 12</div>
+                    <div class="figure-caption">Aplicación del plan estadístico</div>
+                    <img src="Figura12.png" alt="Aplicación del plan estadístico " class="imagen-figura1">
+                    <div class="figure-caption">Nota: Elaboración propia basada en Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014.</div>
+                </div>  
         </div>
 
         <div class="activity-card">
-            <div class="activity-title">Actividad de Aprendizaje 2.2: Modelo de Procesos</div>
-            <p>Evalúa tu comprensión sobre el modelo multihilo.</p>
+            <div class="activity-title">Actividad de Aprendizaje 2.2: Estructura del protocolo de investigación</div>
+            <p>Evalúa tu comprensión sobre la Estructura del protocolo de investigación.</p>
             <a href="actividad_2_2.html" class="activity-btn">
                 <i class="fas fa-pencil-alt"></i> Realizar Actividad
             </a>
         </div>
         
         <div class="nav-buttons">
-            <a href="2.1.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Anterior: 2.1 Modelo de procesos</a>
-            <a href="2.3.html" class="nav-btn">Continuar a 2.3: Comunicación entre procesos (IPC)<i class="fas fa-arrow-right"></i></a>
+            <a href="2.1.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Anterior: 2.1 Estructura del protocolo de investigación</a>
+            <a href="2.3.html" class="nav-btn">Continuar a 2.3: Investigación documental<i class="fas fa-arrow-right"></i></a>
         </div>
         
         <footer>
-            <p>Sistemas Operativos - Unidad 2: Administración de procesos</p>
-            <p>Desarrollado para fines educativos - © 2025</p>
+            <p>Metodología de la Investigación y Estadística I - Unidad 1: Metodología de la investigación científica</p>
+            <p>Desarrollado para fines educativos - © 2026</p>
         </footer>
     </div>
 
