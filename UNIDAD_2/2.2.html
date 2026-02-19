@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2.2 Modelo multi-hilo</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <title>2.2 Planteamiento del diseño de la investigación</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -615,8 +615,8 @@
 
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
-            <div class="sidebar-title">2.2 Modelo multihilo</div>
-            <div class="sidebar-subtitle">Administración de procesos</div>
+            <div class="sidebar-title">2.2 Planteamiento del diseño de la investigación</div>
+            <div class="sidebar-subtitle"></div>
         </div>
         
         <div class="nav-sections">
@@ -633,13 +633,13 @@
             <div class="nav-section">
                 <div class="nav-section-title">Contenido</div>
                 <a href="#seccion-2-2-1" class="nav-item" data-section="2-2-1">
-                    <i class="fas fa-book"></i> 2.2.1 Bibliotecas POSIX y Win32
+                    <i class="fas fa-book"></i> 2.2.1 Control de variables (Operacionalización)
                 </a>
                 <a href="#seccion-2-2-2" class="nav-item" data-section="2-2-2">
-                    <i class="fas fa-cogs"></i> 2.2.2 Implementación de hilos
+                    <i class="fas fa-cogs"></i> 2.2.2 Selección de la muestra
                 </a>
                 <a href="#seccion-2-2-3" class="nav-item" data-section="2-2-3">
-                    <i class="fas fa-layer-group"></i> 2.2.3 Hilos en modo usuario vs kernel
+                    <i class="fas fa-layer-group"></i> 2.2.3 Aplicación del plan estadístico
                 </a>
             </div>
 
@@ -649,7 +649,7 @@
                     <i class="fas fa-tasks"></i> Actividad de aprendizaje
                 </a>
                 <a href="2.3.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i> Siguiente: Comunicación entre procesos (IPC)
+                    <i class="fas fa-arrow-right"></i> Siguiente: Investigación documental
                 </a>
             </div>
         </div>
@@ -666,37 +666,30 @@
                 <span>/</span>
                 <a href="index.html">Unidad 2</a>
                 <span>/</span>
-                <span>2.2 Modelo multihilo</span>
+                <span>2.2 Planteamiento del diseño de la investigación</span>
             </div>
-            <h1>2.2 Modelo multihilo</h1>
-            <div class="subtitle">Administración de procesos</div>
+            <h1>2.2 Planteamiento del diseño de la investigación</h1>
+            <div class="subtitle">Planteamiento del diseño de la investigación</div>
         </header>
         
         <div class="intro">
-            <p>El <strong>modelo multihilo</strong> constituye una extensión del modelo tradicional de procesos, donde un mismo proceso puede contener <strong>múltiples hilos de ejecución</strong> que comparten los mismos recursos, pero operan de forma concurrente. Cada hilo  representa una secuencia independiente de instrucciones que puede ejecutarse en paralelo, lo que permite <strong>aprovechar mejor los recursos del sistema y mejorar el rendimiento </strong>en tareas que pueden dividirse en subtareas independientes.</p>
-            <p>A diferencia de los procesos, los hilos comparten el <strong>espacio de direcciones, los archivos abiertos y las variables globales </strong>de su proceso padre, lo que facilita la comunicación y reduce el consumo de memoria. Sin embargo, esta compartición también introduce riesgos de <strong>condiciones de carrera</strong> y conflictos en el acceso a recursos, por lo que es necesario aplicar <strong>mecanismos de sincronización</strong> como semáforos o mutex.</p>
-            <p>Según <strong>Silberschatz, Galvin y Gagne (2022)</strong>, “<i>un hilo es la unidad básica de utilización de la CPU; comparte el estado del proceso al que pertenece, pero mantiene su propio contador de programa, pila y registros</i>” (p. 254). Esto significa que varios hilos dentro del mismo proceso pueden ejecutarse simultáneamente en distintos núcleos del procesador, lo que optimiza el paralelismo y la capacidad de respuesta del sistema operativo.</p>
-            <p>Los tres enfoques principales para implementar el multihilo son:</p>
-            <p>
-            <ol>
-                <li><strong>Modelo de Muchos a Uno</strong>: múltiples hilos de usuario se asignan a un solo hilo del kernel. Es eficiente en memoria, pero no permite ejecutar varios hilos simultáneamente en múltiples procesadores.</li>
-                <li><strong>Modelo de Uno a Uno</strong>: cada hilo de usuario corresponde directamente a un hilo del kernel. Aumenta el paralelismo, pero requiere más recursos del sistema.</li>
-                <li><strong>3.	Modelo de Muchos a Muchos</strong>: varios hilos de usuario se asignan dinámicamente a varios hilos del kernel, combinando flexibilidad y rendimiento.</li>
-            </ol>     
-            </p>
-        </p>
+            <p>Consiste en definir el plan o estrategia que se seguirá para responder al problema de estudio y comprobar las hipótesis formuladas. En esta etapa se determina el tipo de estudio (experimental, no experimental, descriptivo, correlacional, transversal, longitudinal, entre otros), así como la forma en que se recolectarán y
+               analizarán los datos. El diseño establece la estructura lógica que conecta los objetivos con los procedimientos metodológicos.</p>
+            <p>Entre sus características se encuentra la coherencia con el problema y los objetivos, la precisión en la definición de la población y muestra, la selección adecuada de instrumentos y la consideración de aspectos éticos. Un diseño bien planteado garantiza validez interna y externa, permite controlar variables y asegura que los resultados obtenidos sean confiables y reproducibles. En síntesis, el diseño es la arquitectura metodológica que da solidez científica a la investigación (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
+
         </div>
         
         <div class="section" id="seccion-2-2-1">
             <div class="section-header">
                 <div class="section-number">2.2.1</div>
-                <div class="section-title">Bibliotecas POSIX y Win32</div>
+                <div class="section-title">Control de variables (Operacionalización)</div>
             </div>
             <div class="content">
-                <p>Los estándares más comunes para la implementación y gestión de multihilo en los sistemas operativos actuales son las bibliotecas de hilos Win32 Threads y POSIX. Aunque son diferentes en su diseño, compatibilidad y campo de aplicación, ambas posibilitan la creación, sincronización y terminación de hilos.</p>
-                <p>Para el caso de POSIX, se trata de una interfaz estandarizada que fue establecida por la norma IEEE POSIX 1003.1c, la cual es muy común en sistemas Linux, Unix y macOS. Estas bibliotecas ofrecen funciones para crear hilos, sincronizarlos a través de mutex  y supervisar su terminación. Su diseño busca la eficiencia y la portabilidad, lo que posibilita la creación de aplicaciones concurrentes que pueden ejecutarse en diversas plataformas sin alterar de manera importante el código fuente.</p>
-                <p>Como señalan <strong>Silberschatz, Galvin y Gagne (2022)</strong>, “<i>las bibliotecas de hilos como POSIX y Win32 proporcionan las herramientas necesarias para la programación concurrente, facilitando la creación de aplicaciones más reactivas, eficientes y escalables</i>” (p. 261). Estas bibliotecas, en conjunto, permiten que los desarrolladores elijan el modelo más adecuado según los requerimientos del sistema, optimizando el uso de los procesadores y la respuesta ante múltiples tareas simultáneas.</p>
-                <div class="figure-container">
+                <p>Mediante el cual los conceptos teóricos de una investigación se transforman en variables observables y medibles, permitiendo su análisis objetivo. Consiste en definir con precisión cada variable, establecer sus dimensiones, indicadores y la forma en que serán evaluadas. Este procedimiento facilita la recolección
+                   de datos confiables y asegura que los conceptos abstractos puedan medirse de manera concreta dentro del estudio.</p>
+                <p>Entre sus características principales, la operacionalización permite estandarizar la medición, reducir sesgos y garantizar la validez y confiabilidad de los resultados. Asimismo, implica especificar las escalas de medición, los instrumentos a utilizar y los criterios de evaluación, lo que facilita la replicabilidad
+                   del estudio y el control de factores que podrían influir en los resultados. Un adecuado control de variables fortalece el rigor metodológico y la precisión en la interpretación de los hallazgos (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
+               <div class="figure-container">
                     <div class="figure-caption">Figura 6</div>
                     <div class="figure-caption">Modelo multihilo</div>
                     <img src="Figura6.png" alt="Modelo multihilo " class="imagen-figura1">
