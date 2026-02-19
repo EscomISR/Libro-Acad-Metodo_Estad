@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2.3 Comunicación entre procesos</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <title>2.3 Investigación documental</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -561,8 +561,8 @@
 
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
-            <div class="sidebar-title">2.3 Comunicación entre procesos (IPC)
-            <div class="sidebar-subtitle">Administración de procesos</div>
+            <div class="sidebar-title">2.3 Investigación documental
+            <div class="sidebar-subtitle"></div>
         </div>
         
         <div class="nav-sections">
@@ -579,23 +579,14 @@
             <div class="nav-section">
                 <div class="nav-section-title">Contenido</div>
                 <a href="#seccion-2-3-1" class="nav-item" data-section="2-3-1">
-                    <i class="fas fa-memory"></i> 2.3.1 Memoria compartida
+                    <i class="fas fa-memory"></i> 2.3.1 Referencias bibliográficas
                 </a>
-                <a href="#seccion-2-3-2" class="nav-item" data-section="2-3-2">
-                    <i class="fas fa-envelope"></i> 2.3.2 Paso de mensajes
-                </a>
-                <a href="#seccion-2-3-3" class="nav-item" data-section="2-3-3">
-                    <i class="fas fa-pipe"></i> 2.3.3 Tuberías y colas
-                </a>
-            </div>
+             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Recursos</div>
                 <a href="actividad_2.3.html" class="nav-item">
                     <i class="fas fa-tasks"></i> Actividad de aprendizaje
-                </a>
-                <a href="2.4.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i> Siguiente: Sincronización entre procesos/hilos
                 </a>
             </div>
         </div>
@@ -608,96 +599,55 @@
     <div class="container">
         <header id="inicio">
             <div class="breadcrumb">
-                <a href="https://escomisr.github.io/Libro_Digital_SO/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="https://https://escomisr.github.io/Libro-Acad-Metodo_Estad/"><i class="fas fa-home"></i> Inicio</a>
                 <span>/</span>
                 <a href="index.html">Unidad 2</a>
                 <span>/</span>
-                <span>2.3 Comunicación entre procesos(IPC)n>
+                <span>2.3 Investigación documental
             </div>
-            <h1>2.3 Comunicación entre procesos(IPC)
-            <div class="subtitle">Administración de procesos</div>
+            <h1>2.3 Investigación documental
+            <div class="subtitle"></div>
         </header>
         
         <div class="intro">
-            <p>La comunicación entre procesos (IPC) es un conjunto de métodos que facilitan la sincronización y el intercambio de datos entre procesos que se llevan a cabo al mismo tiempo en un sistema operativo. La IPC es fundamental para evitar conflictos en el acceso a recursos, compartir datos y coordinar actividades, ya que los procesos están ubicados en espacios de memoria separados.</p>
-            <p>Los mecanismos de IPC incluyen tuberías (<i>pipes</i>), colas de mensajes, memoria compartida, señales y sockets. Cada uno proporciona diversos beneficios dependiendo de la clase de aplicación y del grado de aislamiento o rendimiento que se necesite.</p>
-            <ol> 
-                <ul><strong>Tuberías (Pipes)</strong>. Las tuberías facilitan la comunicación en una sola dirección entre procesos interconectados, enviando datos como un flujo constante. En sistemas Unix/Linux, se generan a través del comando <i>pipe ()</i> y son muy empleadas para enlazar procesos en una secuencia de ejecución.</dd>
-                <ul><strong>Colas de mensajes</strong>. Almacenan mensajes en una cola administrada por el kernel, lo que posibilita una comunicación estructurada y asincrónica. Los procesos tienen la posibilidad de enviar o recibir mensajes con control de prioridad, lo cual ayuda a que la sincronización se realice sin bloqueo directo.</ul>
-                <ul><strong>Memoria compartida</strong>. Es el mecanismo más rápido de IPC, ya que varios procesos pueden acceder directamente a una región común de memoria. Requiere, sin embargo, mecanismos adicionales de sincronización (como semáforos) para evitar accesos simultáneos que causen inconsistencias.</ul>
-                <ul><strong>Señales</strong>. Son notificaciones asíncronas enviadas por el sistema o por otros procesos para indicar eventos, como interrupciones o errores. Por ejemplo, la señal <i>SIGINT</i> detiene un proceso, mientras que <i>SIGKILL</i> lo finaliza inmediatamente.</ul>
-                <ul><strong>Sockets</strong>. Los sockets permiten la comunicación entre procesos en la misma máquina o en distintas redes, funcionando como un canal bidireccional basado en protocolos (<i>TCP/IP</i> o <i>UDP</i>). Son la base de la comunicación cliente-servidor en entornos distribuidos.</ul>               
-            </dl>
+            <p>es un tipo de estudio que se fundamenta en la revisión, análisis e interpretación crítica de fuentes existentes, como libros, artículos científicos, tesis, informes técnicos, documentos oficiales y bases de datos académicas. Su propósito es obtener información relevante sobre un tema, conocer el estado actual del conocimiento y construir el sustento teórico que respalda una investigación.</p>
+            <p>Se caracteriza por ser sistemática, organizada y analítica, ya que implica seleccionar fuentes confiables, evaluar su calidad y pertinencia, y sintetizar la información de manera coherente. Además, permite identificar antecedentes, contrastar enfoques teóricos y evitar la duplicación de estudios previos. La investigación documental constituye una base esencial para el desarrollo científico,
+               ya que fortalece el marco teórico y orienta la formulación de hipótesis y diseños metodológicos (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
 
 
             <div class="quote-box">
-                "La comunicación entre procesos proporciona los mecanismos necesarios para el intercambio de información y la sincronización de actividades, garantizando la coherencia y el orden en los sistemas concurrentes"
-                <div class="citation">(Silberschatz, Galvin y Gagne, 2022 p.279).</div>
+                "constituye un pilar fundamental en el proceso científico, ya que permite construir una base teórica sólida a partir del análisis crítico de fuentes confiables. A través de la revisión sistemática de información existente, el investigador comprende el estado del conocimiento, identifica vacíos científicos y
+                 orienta con mayor precisión el desarrollo de su estudio. De esta manera, la investigación documental no solo sustenta el marco teórico, sino que fortalece el rigor académico y la calidad de los resultados obtenidos."
+                <div class="citation">(Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</div>
             </div>
-            <p>En conjunto, los mecanismos de IPC son fundamentales para los sistemas multitarea y distribuidos, permitiendo la cooperación entre procesos, la distribución de la carga de trabajo y la eficiencia en el procesamiento paralelo.</p>
+
         </div>
         
         <div class="section" id="seccion-2-3-1">
             <div class="section-header">
                 <div class="section-number">2.3.1</div>
-                <div class="section-title">Memoria compartida</div>
+                <div class="section-title">Referencias bibliográficas</div>
             </div>
             <div class="content">
-                <p>La memoria compartida (<i>shared memory</i>) es uno de los mecanismos más eficientes de <strong>IPC</strong>, ya que permite que <strong>dos o más procesos accedan directamente a una misma región de memoria física</strong>. A diferencia de otros métodos de comunicación, como las tuberías o las colas de mensajes, la memoria compartida <strong>no requiere transferencia de datos a través del kernel</strong>, lo que reduce la sobrecarga y acelera el intercambio de información.</p>
-                <p>En <strong>Windows</strong>, se utilizan las funciones <i>CreateFileMapping()</i> y <i>MapViewOfFile()</i> para lograr el mismo propósito.</p>                     
-                <div class="quote-box">
-                    "La memoria compartida ofrece el método más rápido de comunicación entre procesos, ya que evita la intervención del kernel durante el intercambio de datos, aunque requiere sincronización explícita por parte del programador".
-                    <div class="citation">(Silberschatz, Galvin, & Gagne, 2022).</div>
+                <p> son el conjunto organizado de fuentes consultadas y citadas durante el desarrollo de una investigación. Incluyen libros, artículos científicos, tesis, documentos oficiales y recursos digitales que respaldan la información
+                    presentada en el estudio. Su función principal es reconocer el trabajo intelectual de otros autores y proporcionar la base académica que sustenta los argumentos y resultados del investigador.</p>
+                <P>Las referencias sirven para verificar la veracidad de la información, permitir al lector localizar las fuentes originales y ampliar el conocimiento sobre el tema estudiado. Además, facilitan la transparencia del proceso investigativo,
+                   ya que muestran de dónde provienen los datos, teorías y conceptos utilizados. De esta manera, fortalecen la credibilidad del trabajo académico.</P>
+                <p>Su importancia radica en que evitan el plagio al dar el debido crédito a los autores consultados, promueven la ética académica y fomentan el respeto por la propiedad intelectual. Asimismo, evidencian el rigor científico del estudio al demostrar
+                   que el investigador se apoyó en literatura confiable y actualizada.</p>   
+                <p>Finalmente, las referencias bibliográficas contribuyen al avance del conocimiento, ya que permiten que otros investigadores consulten las fuentes, comparen resultados y continúen desarrollando nuevas investigaciones. Por ello, su correcta elaboración,
+                   siguiendo normas como APA, Vancouver u otros estilos académicos, es esencial para garantizar la calidad, validez y profesionalismo de cualquier trabajo científico (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
+    
+                   <div class="quote-box">
+                    "Son un elemento esencial en toda investigación, ya que garantizan la credibilidad, transparencia y sustento científico del trabajo académico. Al reconocer las fuentes consultadas, se respeta la propiedad intelectual, se evita el plagio y se demuestra
+                     el rigor metodológico del estudio. Además, facilitan la verificación de la información y permiten que otros investigadores profundicen en el tema, contribuyendo al avance del conocimiento. Su correcta elaboración fortalece la calidad,
+                     ética y profesionalismo de cualquier investigación científica."
+                    <div class="citation">(Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</div>
                 </div>
             </div>
         </div>
         
-        <div class="section" id="seccion-2-3-2">
-            <div class="section-header">
-                <div class="section-number">2.3.2</div>
-                <div class="section-title">Paso de mensajes</div>
-            </div>
-            <div class="content">
-                <p>A diferencia de la <strong>memoria compartida</strong>, donde varios procesos acceden a la misma región de memoria, el paso de mensajes realiza transferencias controladas y seguras que mantienen el aislamiento entre procesos y evitan accesos directos a los datos compartidos <strong>(Silberschatz, Galvin y Gagne, 2022)</strong>.</p>
-                <p>En este modelo, los procesos emplean operaciones primarias como envió y recepción para enviar mensajes que pueden incluir señales de sincronización, comandos o datos. El sistema operativo tiene como función ser intermediario, administrando las colas de mensajes, regulando el orden en que se entregan y gestionando los procesos que están bloqueados o en espera.</p>
-                <p>Las modalidades son:</p>                
-                <ol>
-                    <li><strong>Síncrono</strong>: el proceso emisor se detiene hasta que el receptor valide la llegada del mensaje, lo que asegura la sincronización, aunque con latencia más elevada.</li>
-                    <li><strong>Asíncrono</strong>: el emisor sigue ejecutando sin esperar una respuesta inmediata, lo cual mejora el rendimiento, pero necesita mecanismos de control extra.</li>                    
-                </ol>                
-            </div>
-        </div>
-
-        <div class="section" id="seccion-2-3-3">
-            <div class="section-header">
-                <div class="section-number">2.3.3</div>
-                <div class="section-title">Tuberías y colas</div>
-            </div>            
-            <div class="content">
-                <p>Las colas de mensajes y las tuberías (<i>pipes</i>) son métodos tradicionales de <strong>IPC</strong> que posibilitan que los programas en ejecución intercambien información, asegurando la sincronización y el aislamiento de los flujos de datos. A pesar de que ambos procedimientos son muy empleados en sistemas operativos como Windows y Unix/Linux, se distinguen por su estructura, grado de control y flexibilidad.</p>
-                <h4>Tuberías (<i>Pipes</i>)</h4>
-
-                <p>Las tuberías son canales de comunicación unidireccionales que posibilitan la transmisión constante de datos entre procesos asociados, generalmente entre el proceso padre y el hijo. Actúan como un buffer de memoria gestionado por el kernel, en el cual un proceso realiza una escritura y otro la lectura siguiendo el orden <strong>FIFO</strong>.</p>
-                <p>Su clasificación es:</p>
-                <ul>
-                    <li><strong>Tuberías anónimas</strong>, creadas temporalmente mediante la llamada al sistema <i>pipe()</i>, ideales para comunicación entre procesos con una relación jerárquica directa.</li>                    
-                    <li><strong>Tuberías con nombre (named pipes o FIFOs)</strong>, creadas mediante <i>mkfifo</i>, que permiten la comunicación entre procesos no relacionados, incluso de distintos usuarios.</li>                    
-                </ul>                
-                <div class="quote-box">
-                    "Las tuberías proporcionan un método simple de comunicación entre procesos conectados en una cadena, permitiendo el paso de información sin necesidad de almacenamiento intermedio en disco".
-                    <div class="citation">(Silberschatz Galvin y Gagne, 2022).</div>
-                </div>
-                <h3>Colas de Mensajes </h3>
-                <p>Las <strong>colas de mensajes</strong> permiten una comunicación <strong>estructurada y asíncrona</strong> entre procesos, gestionando los mensajes a través de una <strong>cola en el kernel</strong>. Cada mensaje contiene un identificador, una prioridad y los datos transmitidos, lo que permite que varios procesos se comuniquen sin bloquearse entre sí.</p>
-                <p>Su principal ventaja es la capacidad de <strong>enviar y recibir mensajes de manera ordenada</strong>, sin requerir una relación jerárquica entre los procesos. Además, permiten un control más preciso sobre el flujo de datos, ya que los mensajes pueden clasificarse o priorizarse.</p>  
-                <p>En sistemas Unix, las funciones <i>msgget()</i>, <i>msgsnd()</i> y <i>msgrcv()</i> implementan este mecanismo, mientras que en Windows se utilizan APIs específicas del sistema.</p>
-                <div class="quote-box">
-                    "Las colas de mensajes ofrecen una forma segura y flexible de intercambio de información, especialmente útil en aplicaciones concurrentes y sistemas distribuidos donde los procesos deben comunicarse sin compartir memoria".
-                    <div class="citation">(Tanenbaum y Bos, 2015).</div>                    
-                </div>
-                <p>En conjunto, <strong>las tuberías y colas</strong> constituyen herramientas esenciales para la cooperación entre procesos, facilitando la <strong>sincronización</strong>, <strong>modularidad</strong> y <strong>eficiencia</strong> en la ejecución concurrente de programas.</p>
-            </div>
-        </div>
+ 
 
         <div class="activity-card">
             <div class="activity-title">Actividad de Aprendizaje 2.3: Tuberías y colas</div>
