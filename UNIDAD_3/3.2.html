@@ -634,19 +634,21 @@
         
         <div class="section" id="seccion-3-2-1">
             <div class="section-header">
-                <div class="section-number">aqui me quede3.2.1</div>
-                <div class="section-title">Paginación</div>
+                <div class="section-number"></div>
+                <div class="section-title">Recopilación de datos</div>
             </div>
             <div class="content">
-                <p>Según Tanenbaum y Bos (2015), es una técnica que dispone de la gestión y administración de la memoria en donde el sistema operativo juega un papel importante ya que distribuye y estructura tanto la memoria física como lógica en bloques de tamaño uniformes llamados marcos de página, su función principal es evitar que se asignen espacios contiguos eliminando la fragmentación externa y con ello garantizar que el espacio libre se asigne lo mejor posible.</p>
-                <p>Para describir mejor este proceso cuando se lleva a cabo es importante determinar que cuando sus partes sean cargados en estos marcos libres de la memoria principal se podrán ubicar sus posiciones físicas no consecutivas, es por ello que la unidad de gestión de memoria conocida como MMU, realiza la conversión de las direcciones lógicas que se generaran por el programa a direcciones físicas mediante la tabla de paginación en donde se va a estar registrando la relación que existe entre cada página y su marco correspondiente.</p>
-                <p>Entre las ventajas que se pueden establecer destaca el uso eficiente de la memoria y la eliminación de la fragmentación externa, así como la facilidad de implementar la memoria virtual, derivado a que los fragmentos de los procesos se pueden organizar y distribuir libremente en la RAM, lo único que si hay que considerar que tendremos una disminución en el rendimiento derivo a que los accesos frecuentes a la tabla de paginación, pero podremos utilizar una alternativa que se llama Buffer de búsqueda de traducción conocida como TLB, que se encargara de guardar las traducciones más utilizadas y con ello se lograra acelerar el acceso de los datos.</p>
+                <p>Se refiere al procedimiento organizado mediante el cual el investigador obtiene información pertinente y confiable con el propósito de responder una pregunta de estudio, verificar hipótesis o comprender un fenómeno específico. Esta etapa es fundamental dentro del método científico, ya que proporciona evidencias objetivas que servirán como base para el análisis e interpretación de los resultados. La información recolectada puede ser de naturaleza cuantitativa, cuando se expresa en valores numéricos medibles,
+                   o cualitativa, cuando describe percepciones, experiencias o características del fenómeno estudiado (Hernández Sampieri et al., 2014).</p>
+                <p>Este proceso requiere seleccionar fuentes apropiadas y emplear técnicas e instrumentos adecuados, tales como encuestas, entrevistas, observación directa, cuestionarios, registros clínicos o revisión documental. La recolección debe efectuarse de manera sistemática, ética y organizada, asegurando la validez y confiabilidad de los datos obtenidos. Una planificación cuidadosa reduce errores, evita sesgos y garantiza la calidad de la información que sustentará el estudio (Hernández Sampieri et al., 2014).</p>
+                <p>Segun Hernández Sampieri et al. (2014), el uso de tecnologías digitales, bases de datos científicas y sistemas electrónicos ha optimizado la recopilación de datos, permitiendo manejar grandes volúmenes de información con rapidez y precisión. En el ámbito de las ciencias de la salud, una adecuada recolección de datos resulta esencial para el diagnóstico, la toma de decisiones clínicas y la generación de evidencia científica orientada a mejorar la atención médica y la calidad de vida de la población</p>
+
 
                 <div class="figure-container">
                     <p class="figure-caption">Figura 18</p>
-                    <p class="figure-caption">Paginación</p>
-                    <img src="FIGURA18.png" alt="Paginación" class="imagen-figura1">
-                    <p class="figure-caption">Nota: Adaptado de Sistemas operativos modernos (4.ª ed.) por A. S. Tanenbaum y H. Bos, 2015; Pearson Educación.</p>
+                    <p class="figure-caption">Recopilación de datos</p>
+                    <img src="FIGURA18.png" alt="Recopilación de datos" class="imagen-figura1">
+                    <p class="figure-caption">Nota: Adaptado de Metodología de la investigación (6.ª ed.). Hernández Sampieri, R., Fernández Collado, C., & Baptista Lucio, M. P. 2014 McGraw-Hill Educación.</p>
                 </div>
             </div>
 
@@ -665,87 +667,40 @@
         <div class="section" id="seccion-3-2-2">
             <div class="section-header">
                 <div class="section-number">3.2.2</div>
-                <div class="section-title">Tablas de páginas</div>
+                <div class="section-title">Procesamiento y organización de datos</div>
             </div>
             <div class="content">
-                <p>Cada proceso posee su propia tabla de páginas, en la cual cada entrada contiene la dirección base del marco de memoria física donde se encuentra cargada la página correspondiente.</p>
-                <p>Además, cada entrada incluye bits de control que ayudan al sistema operativo a gestionar la protección y el estado de las páginas, tales como:</p>
-                <ul>
-                    <li><strong>Bit de presente/ausente:</strong> indica si la página se encuentra actualmente en memoria principal o en el disco.</li>
-                    <li><strong>Bit de modificación:</strong> señala si la página ha sido alterada desde su carga.</li>
-                    <li><strong>Bit de acceso:</strong> registra si la página ha sido utilizada recientemente; útil en algoritmos de reemplazo.</li>
-                </ul>
-                <p>En sistemas con grandes espacios de direcciones, las tablas de páginas pueden alcanzar tamaños considerables, por lo que se emplean estructuras jerárquicas como tablas multinivel, tablas invertidas o tablas hash, que reducen el consumo de memoria y aceleran el proceso de búsqueda.</p>
-                <p>Durante la ejecución, el hardware de la Unidad de Gestión de Memoria (MMU) consulta la tabla de páginas cada vez que un proceso realiza una referencia de memoria.</p>
-                <p>Si la página requerida no está en memoria principal, se produce un fallo de página y el sistema operativo la recupera desde el almacenamiento secundario.</p>
-                <p>En síntesis, las tablas de páginas son un componente clave del sistema de traducción de direcciones en los sistemas operativos modernos, ya que admiten la protección de procesos, la flexibilidad de asignación y el establecimiento eficiente de la memoria virtual.</p>
+                <p>Es la etapa posterior a la recopilación de información en la que los datos obtenidos se clasifican, depuran y estructuran con el propósito de facilitar su análisis e interpretación. Este proceso implica revisar la información recolectada para detectar errores, eliminar inconsistencias,
+                   codificar respuestas y agrupar los datos en categorías o variables que permitan su manejo sistemático. Una adecuada organización asegura que la información sea comprensible, accesible y útil para responder a los objetivos de la investigación (Hernández Sampieri et al., 2014).</p>
+                <p>El procesamiento de datos incluye actividades como la tabulación, codificación, digitalización y almacenamiento en matrices o bases de datos. En estudios cuantitativos, los datos suelen organizarse en tablas estadísticas o programas informáticos para su análisis numérico, mientras que
+                   en investigaciones cualitativas se clasifican en categorías temáticas que permiten identificar patrones, significados y relaciones. Esta etapa es esencial para garantizar la validez de los resultados y evitar interpretaciones erróneas derivadas de información mal estructurada.</p>
+                <p>En la actualidad, el uso de software especializado y herramientas digitales ha optimizado el procesamiento y organización de datos, permitiendo manejar grandes volúmenes de información con mayor rapidez, precisión y seguridad. En las ciencias de la salud, esta fase resulta crucial para
+                   interpretar resultados clínicos, generar evidencia científica confiable y apoyar la toma de decisiones basadas en datos, contribuyendo así a mejorar la calidad de la atención y los resultados en salud.</p>
+                <H3>Clasificación del procesamiento y organización de datos</H3>
+                <H4>🔹 Depuración de datos</H4>
+                <p>Consiste en revisar la información recopilada para detectar errores, omisiones, duplicidades o inconsistencias que puedan afectar la validez del estudio.</p>
+                <H4>🔹 Codificación</H4>
+                <p>Implica asignar símbolos, números o etiquetas a las respuestas o variables para facilitar su registro y análisis, especialmente en estudios cuantitativos.</p>
+                <H4>🔹 Clasificación o categorización</H4>
+                <p>Se agrupan los datos según características comunes o variables de estudio. En investigaciones cualitativas, se organizan en categorías temáticas; en las cuantitativas,
+                   por variables y valores.</p>
+                <H4>🔹 Tabulación</H4>
+                <p>Proceso de organizar los datos en tablas o matrices para resumir la información y facilitar su análisis estadístico.</p>
+                <H4>🔹 Digitalización y almacenamiento</H4>
+                <p>Consiste en introducir los datos en sistemas electrónicos o bases de datos para su resguardo, consulta y procesamiento posterior.</p>
+                <H4>🔹 Presentación de datos</H4>
+                <p>Incluye la organización visual de la información mediante cuadros, gráficas, diagramas o matrices que faciliten su comprensión e interpretación.</p>
+                <br>
+                <p>Esta clasificación permite asegurar orden, precisión y confiabilidad en el manejo de la información, facilitando la obtención de resultados válidos y la generación de conocimiento científico.</p>
 
                 <div class="figure-container">
                     <p class="figure-caption">Figura 19</p>
-                    <p class="figure-caption">Tablas de páginas</p>
-                    <img src="FIGURA19.png" alt="Tablas de páginas" class="imagen-figura1">
-                    <p class="figure-caption">Nota: Adaptado de Sistemas operativos modernos (4.ª ed.) por A. S. Tanenbaum y H. Bos, 2015; Pearson Educación.</p>
+                    <p class="figure-caption">Procesamiento y organización de datos</p>
+                    <img src="FIGURA19.png" alt="Procesamiento y organización de datos" class="imagen-figura1">
+                    <p class="figure-caption">Nota: Adaptado de Metodología de la investigación (6.ª ed.). Hernández Sampieri, R., Fernández Collado, C., & Baptista Lucio, M. P. 2014 McGraw-Hill Educación.</p>
                 </div>
             </div>
         </div>
-
-        <div class="section" id="seccion-3-2-3">
-            <div class="section-header">
-                <div class="section-number">3.2.3</div>
-                <div class="section-title">Algoritmos de reemplazo</div>
-            </div>
-            <div class="content">
-                <h3>INTRODUCCIÓN</h3>
-                <p>Su finalidad es reducir la frecuencia de estos fallos y mantener un equilibrio adecuado entre rendimiento y eficiencia (Tanenbaum y Bos, 2015).</p>
-                
-                <h4>Algoritmo FIFO (Primero en entrar, primero en salir)</h4>
-                <p>Entre los métodos más utilizados se encuentra el algoritmo FIFO, que reemplaza la página que ha permanecido más tiempo en memoria.</p>
-                <ul>
-                    <li><strong>Ventaja:</strong> su principal fortaleza radica en la sencillez de implementación.</li>
-                    <li><strong>Desventaja:</strong> puede provocar la anomalía de Belady, en la cual el aumento del número de marcos de página puede generar, de forma inesperada, un mayor número de fallos.</li>
-                </ul>
-                <p>La siguiente figura 20 muestra el funcionamiento básico del algoritmo FIFO: el sistema operativo gestiona las páginas siguiendo el orden de llegada, de modo que la página más antigua se reemplaza al presentarse un fallo, lo que simplifica el control de la memoria, aunque no siempre garantiza la máxima eficiencia.</p>
-
-                <div class="figure-container">
-                    <p class="figure-caption">Figura 20</p>
-                    <p class="figure-caption">Algoritmo de reemplazo FIFO (Primero en entrar, primero en salir)</p>    
-                    <img src="FIGURA20.png" alt="Algoritmo de reemplazo FIFO (Primero en entrar, primero en salir)" class="imagen-figura1">
-                    <p class="figure-caption">Nota: Adaptado de Sistemas operativos modernos (4.ª ed.) por Andrew S. Tanenbaum y Herbert Bos, 2015, Pearson.</p>
-                </div>
-
-                <h4>Algoritmo de reemplazo LRU (Least Recently Used)</h4>
-                <p>De acuerdo con Tanenbaum y Bos (2015), el algoritmo de reemplazo LRU se encarga de sustituir la página que lleva más tiempo sin ser utilizada, bajo la suposición de que las páginas empleadas recientemente tienen una mayor probabilidad de volver a usarse pronto.</p>
-                <p>Este método se apoya en el principio de localidad temporal, y para su funcionamiento requiere estructuras adicionales —como pilas o contadores de tiempo— que registren el historial de acceso de cada página.</p>
-                <ul>
-                    <li><strong>Ventaja:</strong> su rendimiento es muy cercano al del algoritmo óptimo, ya que aprovecha la recurrencia en el uso de las páginas.</li>
-                    <li><strong>Desventaja:</strong> necesita recursos adicionales de hardware o software para mantener actualizado el registro del uso reciente.</li>
-                </ul>
-                <p>En la siguiente figura se representa el funcionamiento del algoritmo LRU, el cual selecciona para reemplazo la página menos utilizada recientemente. El sistema operativo conserva un registro del orden de acceso mediante una estructura dinámica, actualizando su posición cada vez que una página es referenciada, lo que permite mantener en memoria las páginas con mayor probabilidad de reutilización.</p>
-                
-                <div class="figure-container">
-                    <p class="figure-caption">Figura 22</p>
-                    <p class="figure-caption">Algoritmo de reemplazo LRU (Usado menos recientemente)</p>
-                    <img src="FIGURA22.png" alt="Algoritmo de reemplazo LRU (Usado menos recientemente)" class="imagen-figura1">
-                    <p class="figure-caption">Nota: Adaptado de Sistemas operativos modernos (4.ª ed.) por Andrew S. Tanenbaum y Herbert Bos, 2015, Pearson.</p>
-                </div>
-
-                <h4>Óptimo (Reemplazo de página óptimo)</h4>
-                <p>Según Silberschatz, Galvin y Gagne (2022), el algoritmo óptimo reemplaza la página que no se usará durante el mayor tiempo futuro. Aunque no es aplicable en la práctica sirve como modelo teórico para comparar la eficiencia de otros algoritmos.</p>
-                <ul>
-                    <li><strong>Ventaja:</strong> proporciona el menor número posible de fallos de página.</li>
-                    <li><strong>Desventaja:</strong> requiere conocimiento futuro de las referencias de memoria, por lo que se usa solo con fines de análisis.</li>
-                </ul>
-                <p>Los algoritmos de reemplazo determinan la estrategia mediante la cual el sistema operativo mantiene un conjunto activo de páginas en memoria buscando un equilibrio entre eficiencia, rapidez y bajo número de fallos de página. La elección del algoritmo depende del tipo de sistema y del comportamiento esperado de las aplicaciones.</p>
-                <p>La siguiente figura representa el funcionamiento del algoritmo de reemplazo óptimo, una estrategia teórica utilizada en los sistemas operativos para reducir el número de fallos de página. El algoritmo identifica la página que no será utilizada durante el mayor tiempo futuro dentro de la secuencia de referencias y la reemplaza al ocurrir un fallo de página.</p>
-                <p>Este enfoque proporciona el mejor rendimiento posible, ya que asegura el menor número de sustituciones, sirviendo como un modelo ideal de comparación frente a otros algoritmos prácticos como FIFO o LRU. Sin embargo, no puede establecerse en sistemas reales, ya que requiere conocer de antemano el patrón de acceso a memoria, por lo que se utiliza principalmente con fines analíticos o educativos.</p>
-
-                <div class="figure-container">
-                    <p class="figure-caption">Figura 23</p>
-                    <p class="figure-caption">Algoritmo de reemplazo óptimo (reemplazo de página óptimo)</p>
-                    <img src="FIGURA23.png" alt="Algoritmo de reemplazo óptimo (reemplazo de página óptimo)" class="imagen-figura1">
-                    <p class="figure-caption">Nota: Adaptado de Conceptos de sistemas operativos (10.ª ed.) por A. Silberschatz, P. B. Galvin y G. Gagne, 2022; Wiley, 2022.</p>
-                </div>
-            </div>
 
             <div style="margin-top: 30px;">
                 <h3><i class="fas fa-play-circle" style="margin-right: 10px;"></i> Material Audiovisual</h3>
