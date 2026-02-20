@@ -618,42 +618,58 @@
                 <span>/</span>
                 <a href="index.html">Unidad 3</a>
                 <span>/</span>
-                <span>3.3 Segmentación de Memoria</span>
+                <span>3.3 Estadística descriptiva</span>
             </div>
-            <h1>3.3 Segmentación</h1>
-            <div class="subtitle">Organización lógica del espacio de direcciones</div>
+            <h1>3.3 Estadística descriptiva</h1>
+            <div class="subtitle"></div>
         </header>
         
         <div class="intro">
-            <p>La segmentación es una forma de administrar la memoria que consiste en dividir el programa en partes llamadas segmentos, las cuales pueden tener distintos tamaños.</p>
-            <p>Cada segmento representa una parte lógica del programa, como el código, los datos o la pila.</p>
-            <p>A diferencia de la paginación, donde las divisiones son iguales, la segmentación organiza la memoria según la estructura real del programa, haciendo su uso más natural y flexible (Silberschatz, Galvin y Gagne, 2022).</p>
-            <p>En este modelo, cada proceso se divide en varias partes llamadas segmentos, y cada dirección dentro del programa se forma por dos elementos: el número de segmento, que indica a qué parte del programa pertenece, y el desplazamiento, que señala la posición dentro de ese segmento.</p>
-            <p>El sistema operativo guarda una tabla de segmentos para cada proceso, donde anota la dirección inicial y el tamaño de cada segmento.</p>
-            <p>Con esta información puede convertir las direcciones lógicas en físicas y asegurarse de que el programa no acceda a zonas de memoria no permitidas.</p>
-            <p>La segmentación tiene ventajas importantes porque representa de forma más clara la estructura lógica de los programas, permite proteger y compartir partes del código, y facilita el crecimiento de cada segmento según sea necesario.</p>
-            <p>Sin embargo, también tiene desventajas, como la fragmentación externa —cuando quedan espacios vacíos en la memoria— y una administración más complicada por manejar segmentos de diferentes tamaños.</p>
+            <p>Es la rama de la estadística encargada de organizar, resumir y presentar los datos obtenidos en una investigación con el fin de describir sus características principales. Su propósito es transformar grandes volúmenes de información en formas comprensibles mediante tablas,
+               gráficos y medidas numéricas que permitan identificar patrones, tendencias y comportamientos dentro de un conjunto de datos. Esta herramienta facilita la comprensión inicial de la información sin llegar a establecer inferencias o generalizaciones más allá de los datos observados (Triola, 2018).</p>
+            <p>Para describir los datos, la estadística descriptiva utiliza medidas de tendencia central como la media, mediana y moda, las cuales indican valores representativos del conjunto; asimismo, emplea medidas de dispersión como el rango, la varianza y la desviación estándar, que permiten conocer el grado
+               de variabilidad de los datos. Estas medidas ayudan a interpretar cómo se distribuye la información y si existe homogeneidad o dispersión en los valores analizados.</p>
+            <p>En el ámbito de las ciencias de la salud y la investigación científica, la estadística descriptiva es fundamental para resumir resultados clínicos, caracterizar poblaciones y presentar información de manera clara y objetiva. Su uso permite visualizar tendencias epidemiológicas, evaluar indicadores de salud y
+               comunicar hallazgos de forma comprensible para la toma de decisiones basada en evidencia. De este modo, constituye una base esencial para el análisis estadístico y la interpretación rigurosa de los resultados obtenidos.</p>
+            <br>
+            <H3>Características de las frecuencias, porcentajes, proporciones y tasas</H3>
+            <H4>🔹 Simplicidad y comprensión inmediata</H4>
+            <p>Permiten resumir datos complejos en valores fáciles de interpretar.</p>
+            <H4>🔹 Cuantificación objetiva de la información</H4>
+            <p>Transforman observaciones en valores numéricos que facilitan el análisis</p>
+            <H4>🔹 Comparabilidad entre grupos</H4>
+            <p>Facilitan la identificación de diferencias y similitudes entre poblaciones o categorías.</p>
+            <H4>🔹 Representación de la distribución de los datos</H4>
+            <p>Muestran cómo se comporta un fenómeno dentro de un conjunto de observaciones.</p>
+            <H4>🔹 Relación parte–todo</H4>
+            <p>Los porcentajes y proporciones ayudan a entender qué fracción del total representa un grupo específico.</p>
+            <H4>🔹 Medición de ocurrencia y riesgo</H4>
+            <p>Las tasas permiten evaluar la frecuencia de eventos considerando población y tiempo.</p>
+            <H$>🔹 Base para análisis estadísticos posteriores</H>
+            <p>Sirven como fundamento para análisis comparativos e inferenciales más complejos.</p>
             
             <div class="figure-container">
-                <p class="figure-caption">Figura 24</p>
-                <p class="figure-caption">Segmentación</p>
-                <img src="FIGURA24.png" alt="Segmentación" class="imagen-figura1">
-                <p class="figure-caption">Nota: Adaptado de Conceptos de sistemas operativos (10.ª ed.) por A. Silberschatz, P. B. Galvin y G. Gagne, 2022, Wiley.</p>
+                <p class="figure-caption">Figura 20</p>
+                <p class="figure-caption">Estadística descriptiva</p>
+                <img src="FIGURA20.png" alt="Estadística descriptiva" class="imagen-figura1">
+                <p class="figure-caption">Nota: Adaptado de Estadística (12.ª ed.). Triola, M. F. 2018. Pearson.</p>
             </div>
         </div>
         
         <div class="section" id="seccion-3-3-1">
             <div class="section-header">
                 <div class="section-number">3.3.1</div>
-                <div class="section-title">Segmentación pura</div>
+                <div class="section-title">Frecuencias, porcentajes, proporciones y tasas</div>
             </div>
             <div class="content">
-                <p>Es una forma de administrar la memoria en la que cada programa se divide en partes llamadas segmentos, que pueden tener distintos tamaños y representan elementos como el código, los datos, la pila o las tablas.</p>
-                <p>Estos segmentos se cargan en la memoria principal solo cuando se necesitan y pueden aumentar o disminuir de tamaño de manera independiente.</p>
-                <p>A diferencia de la paginación, aquí no se usan divisiones fijas, sino que la memoria se organiza según la estructura lógica del programa (Silberschatz, Galvin y Gagne, 2022).</p>
-                <p>En este modelo, el espacio de direcciones de un proceso está formado por varios segmentos, y cada dirección se compone de un número de segmento y un desplazamiento, que indica la posición dentro de él.</p>
-                <p>El sistema operativo mantiene una tabla donde se guarda la dirección inicial y el tamaño de cada segmento, lo que permite controlar el acceso y evitar errores.</p>
-                <p>Esta técnica ofrece una gestión flexible y modular de la memoria, útil para sistemas que requieren protección y compartición de datos, aunque su manejo es más complejo que el de la paginación.</p>
+                <p>Son herramientas fundamentales de la estadística descriptiva que permiten resumir y presentar datos de manera clara y comprensible. Estas medidas facilitan la interpretación de la información al mostrar cuántas veces
+                   ocurre un fenómeno y cómo se distribuye dentro de una población o muestra. Su uso es esencial para describir características, comparar grupos y comprender la magnitud de un evento en un contexto determinado (Pagano & Gauvreau, 2018).</p>
+                <p>La frecuencia indica el número de veces que aparece un dato o evento dentro de un conjunto de observaciones, mientras que el porcentaje expresa esa frecuencia en relación con el total, multiplicada por cien para facilitar su interpretación. Por su parte,
+                   la proporción representa la relación entre una parte y el total, expresada como un valor entre 0 y 1 o como fracción. Estas medidas permiten comparar resultados y describir la distribución de los datos de manera sencilla y comprensible.</p>
+                <p>Las tasas se utilizan para expresar la ocurrencia de un evento en relación con una población y un periodo de tiempo determinado, lo que permite analizar la velocidad o riesgo con que sucede un fenómeno. En las ciencias de la salud, estas medidas
+                   son indispensables para describir indicadores epidemiológicos como tasas de mortalidad, incidencia o prevalencia, facilitando la vigilancia sanitaria y la toma de decisiones basadas en evidencia para mejorar la salud pública (Pagano & Gauvreau, 2018)</p>
+                <br>
+                <H4></H4>                
                 
                 <div class="figure-container">
                     <p class="figure-caption">Figura 25</p>
