@@ -7,19 +7,16 @@
     <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /*
-        Estilos CSS definidos para mantener la consistencia visual.
-        */
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gray: #95a5a6;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --primary: #4b0082;
+            --secondary: #8e44ad;
+            --accent: #d8b4fe;
+            --light: #f5f3ff;
+            --dark: #1e0030;
+            --gray: #d8b4fe;
+            --success: #a855f7;
+            --warning: #7d3cff;
+            --card-bg: rgba(255, 255, 255, 0.08);
         }
         
         * {
@@ -30,13 +27,12 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            background: linear-gradient(135deg, #1e0030, #3d0066);
             color: var(--light);
             min-height: 100vh;
             line-height: 1.7;
         }
 
-        /* Botón flotante de inicio */
         .floating-home-btn {
             position: fixed;
             top: 20px;
@@ -57,21 +53,20 @@
         }
 
         .floating-home-btn:hover {
-            background: #2980b9;
+            background: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
         }
 
-        /* Menú de navegación lateral */
         .sidebar-nav {
             position: fixed;
             left: 0;
             top: 0;
             width: 280px;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(30, 0, 48, 0.95);
+            border-right: 1px solid var(--border-color);
             backdrop-filter: blur(10px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 999;
             transition: transform 0.3s ease;
             transform: translateX(-100%);
@@ -127,8 +122,8 @@
         }
 
         .nav-item:hover {
-            background: rgba(52, 152, 219, 0.1);
-            border-left-color: var(--secondary);
+            background: rgba(142, 68, 173, 0.2);
+            border-left-color: var(--accent);
             padding-left: 25px;
         }
 
@@ -144,7 +139,6 @@
             text-align: center;
         }
 
-        /* Botón toggle del menú */
         .menu-toggle {
             position: fixed;
             top: 20px;
@@ -174,7 +168,6 @@
             background: var(--accent);
         }
 
-        /* Indicador de progreso de lectura */
         .reading-progress {
             position: fixed;
             top: 0;
@@ -192,7 +185,6 @@
             transition: width 0.1s ease;
         }
 
-        /* Overlay para cerrar el menú */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -211,7 +203,6 @@
             visibility: visible;
         }
         
-        /* Contenedor principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -347,6 +338,70 @@
             font-weight: 500;
         }
         
+        .citation {
+            font-style: italic;
+            color: var(--gray);
+            margin: 5px 0 15px 20px;
+            border-left: 2px solid var(--secondary);
+            padding-left: 10px;
+        }
+        
+        .quote-box {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: var(--light);
+        }
+
+        .quote-box .citation {
+            border-left: none;
+            margin: 10px 0 0 0;
+            padding-left: 0;
+        }
+        
+        .table-container {
+            max-width: 100%;
+            margin: 30px auto;
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        
+        .table-caption {
+            text-align: center;
+            padding: 10px;
+            color: var(--gray);
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
         .figure-container {
             margin: 30px 0;
             padding: 20px;
@@ -376,32 +431,18 @@
             border-radius: 8px;
         }
         
-        .figure-placeholder {
-            width: 100%;
-            min-height: 300px;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            margin: 15px 0;
-            color: var(--gray);
-            font-style: italic;
-            flex-direction: column;
-        }
-        
         .figure-caption {
             color: var(--gray);
             margin-top: 10px;
-            font-size: 0.9rem;
         }
         
+        /* Estilos para la tarjeta de actividad */
         .activity-card {
-            background: rgba(46, 204, 113, 0.1);
+            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
             border-radius: 15px;
             padding: 30px;
             margin: 40px 0;
-            border-left: 4px solid var(--success);
+            border-left: 4px solid var(--success); /* Borde izquierdo verde */
             text-align: center;
         }
         
@@ -425,11 +466,11 @@
         }
         
         .activity-btn:hover {
-            background: #27ae60;
+            background: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+            box-shadow: 0 5px 15px var(--secondary);
         }
-        
+
         .nav-buttons {
             display: flex;
             justify-content: space-between;
@@ -449,7 +490,7 @@
         }
         
         .nav-btn:hover {
-            background: #2980b9;
+            background: var(--primary);
             transform: translateY(-3px);
         }
         
@@ -466,7 +507,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Botón de ir arriba */
         .scroll-to-top {
             position: fixed;
             bottom: 20px;
@@ -694,7 +734,7 @@
         <div class="section" id="video-3-2">
             <div class="section-header">
                 <div class="section-number"><i class="fas fa-play-circle"></i></div>
-                <div class="section-title">3.2 Plan de análisis estadístico y recopilación</div>
+                <div class="section-title">Material Audiovisual</div>
             </div>
             <div class="content">
                 <div class="figure-container">
@@ -704,9 +744,6 @@
             </div>
         </div>
 
-        </div>
-
-        
         <div class="activity-card">
             <div class="activity-title">Actividad de Aprendizaje 3.2: Plan de análisis estadístico</div>
             <p>Pon a prueba tus conocimientos sobre Plan de análisis estadístico.</p>
@@ -718,6 +755,8 @@
         <div class="nav-buttons">
             <a href="3.1.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a 3.1: Informe final</a>
             <a href="3.3.html" class="nav-btn">Continuar a 3.3: Estadística descriptiva <i class="fas fa-arrow-right"></i></a>
+        </div>
+
         </div>
         
         <footer>
