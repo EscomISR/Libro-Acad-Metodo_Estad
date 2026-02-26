@@ -1,5 +1,185 @@
 [
   {
+    "question": "¿Qué permite seleccionar adecuadamente el plan de análisis estadístico?",
+    "options": [
+      "Elegir las pruebas estadísticas acordes al tipo de datos",
+      "Reducir el tamaño de muestra",
+      "Eliminar hipótesis"
+    ],
+    "answer": "Elegir las pruebas estadísticas acordes al tipo de datos"
+  },
+  {
+    "question": "¿Qué se debe establecer respecto a las hipótesis en el plan de análisis?",
+    "options": [
+      "Cómo serán contrastadas mediante pruebas estadísticas",
+      "Cómo serán eliminadas",
+      "Cómo serán redactadas nuevamente"
+    ],
+    "answer": "Cómo serán contrastadas mediante pruebas estadísticas"
+  },
+  {
+    "question": "¿Qué debe especificarse respecto al nivel de significancia?",
+    "options": [
+      "El valor alfa que determinará la aceptación o rechazo de hipótesis",
+      "El número de tablas",
+      "La duración del estudio"
+    ],
+    "answer": "El valor alfa que determinará la aceptación o rechazo de hipótesis"
+  },
+  {
+    "question": "¿Qué debe incluir el plan respecto al procesamiento de datos?",
+    "options": [
+      "La forma en que serán codificados, capturados y depurados",
+      "La redacción de conclusiones",
+      "La elaboración del índice"
+    ],
+    "answer": "La forma en que serán codificados, capturados y depurados"
+  },
+  {
+    "question": "¿Qué se debe definir sobre el software estadístico?",
+    "options": [
+      "El programa que se utilizará para analizar los datos",
+      "El diseño de portada",
+      "La bibliografía final"
+    ],
+    "answer": "El programa que se utilizará para analizar los datos"
+  },
+  {
+    "question": "¿Qué relación debe existir entre el plan de análisis y los objetivos específicos?",
+    "options": [
+      "Correspondencia directa entre cada objetivo y el análisis propuesto",
+      "Independencia total",
+      "Relación con las recomendaciones"
+    ],
+    "answer": "Correspondencia directa entre cada objetivo y el análisis propuesto"
+  },
+  {
+    "question": "¿Qué permite prever el plan de análisis estadístico?",
+    "options": [
+      "La forma en que se presentarán los resultados",
+      "La modificación del problema de investigación",
+      "La eliminación del marco teórico"
+    ],
+    "answer": "La forma en que se presentarán los resultados"
+  },
+  {
+    "question": "¿Qué tipo de medidas pueden contemplarse en el análisis descriptivo?",
+    "options": [
+      "Medidas de tendencia central y dispersión",
+      "Hipótesis nulas",
+      "Variables latentes"
+    ],
+    "answer": "Medidas de tendencia central y dispersión"
+  },
+  {
+    "question": "¿Qué se debe considerar respecto al tipo de estudio?",
+    "options": [
+      "Que el análisis sea acorde al diseño metodológico",
+      "Que se modifique el diseño",
+      "Que se eliminen variables"
+    ],
+    "answer": "Que el análisis sea acorde al diseño metodológico"
+  },
+  {
+    "question": "¿Qué se debe prever respecto a los datos faltantes?",
+    "options": [
+      "El procedimiento para su manejo o exclusión",
+      "Su eliminación automática sin registro",
+      "La modificación de hipótesis"
+    ],
+    "answer": "El procedimiento para su manejo o exclusión"
+  },
+  {
+    "question": "¿Qué debe garantizar el plan respecto a la validez de los resultados?",
+    "options": [
+      "Un análisis sistemático y fundamentado",
+      "La simplificación del estudio",
+      "La reducción de bibliografía"
+    ],
+    "answer": "Un análisis sistemático y fundamentado"
+  },
+  {
+    "question": "¿Qué se establece respecto a la presentación de resultados?",
+    "options": [
+      "El uso de tablas y gráficos según el tipo de variable",
+      "El uso exclusivo de texto",
+      "La eliminación de figuras"
+    ],
+    "answer": "El uso de tablas y gráficos según el tipo de variable"
+  },
+  {
+    "question": "¿Qué debe definirse respecto a la muestra?",
+    "options": [
+      "El tamaño y características que influyen en el análisis",
+      "El color de las tablas",
+      "La extensión del documento"
+    ],
+    "answer": "El tamaño y características que influyen en el análisis"
+  },
+  {
+    "question": "¿Qué permite el plan respecto a la interpretación futura?",
+    "options": [
+      "Facilitar una discusión coherente con los resultados",
+      "Evitar conclusiones",
+      "Eliminar recomendaciones"
+    ],
+    "answer": "Facilitar una discusión coherente con los resultados"
+  },
+  {
+    "question": "¿Qué debe evitar el plan de análisis estadístico?",
+    "options": [
+      "La improvisación en el tratamiento de datos",
+      "La organización previa",
+      "La coherencia metodológica"
+    ],
+    "answer": "La improvisación en el tratamiento de datos"
+  },
+  {
+    "question": "¿Qué relación tiene el plan con la recolección de datos?",
+    "options": [
+      "Orienta qué información debe obtenerse",
+      "Se redacta después de las conclusiones",
+      "Sustituye el marco teórico"
+    ],
+    "answer": "Orienta qué información debe obtenerse"
+  },
+  {
+    "question": "¿Qué define respecto a las pruebas estadísticas?",
+    "options": [
+      "Cuáles se aplicarán según el tipo de variable y objetivo",
+      "Que no se aplicarán pruebas",
+      "Que solo se usarán estadísticas descriptivas"
+    ],
+    "answer": "Cuáles se aplicarán según el tipo de variable y objetivo"
+  },
+  {
+    "question": "¿Qué garantiza una correcta planificación del análisis?",
+    "options": [
+      "Rigor científico en el tratamiento de datos",
+      "Resultados favorables",
+      "Menor número de variables"
+    ],
+    "answer": "Rigor científico en el tratamiento de datos"
+  },
+  {
+    "question": "¿Qué debe existir entre el plan de análisis y las variables del estudio?",
+    "options": [
+      "Correspondencia metodológica clara",
+      "Independencia total",
+      "Eliminación de variables secundarias"
+    ],
+    "answer": "Correspondencia metodológica clara"
+  },
+  {
+    "question": "¿Qué permite estructurar adecuadamente el plan de análisis estadístico?",
+    "options": [
+      "Transformar datos en información útil y fundamentada",
+      "Modificar los resultados obtenidos",
+      "Reducir el marco conceptual"
+    ],
+    "answer": "Transformar datos en información útil y fundamentada"
+  },
+  {
     "question": "¿Qué es el plan de análisis estadístico?",
     "options": [
       "La estrategia organizada que define cómo se procesarán e interpretarán los datos",
