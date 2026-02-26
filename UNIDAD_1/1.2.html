@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #4a2c50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gray: #95a5a6;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --primary: #4b0082;
+            --secondary: #8e44ad;
+            --accent: #d8b4fe;
+            --light: #f5f3ff;
+            --dark: #1e0030;
+            --gray: #d8b4fe;
+            --success: #a855f7;
+            --warning: #7d3cff;
+            --card-bg: rgba(255, 255, 255, 0.08);
         }
         
         * {
@@ -27,7 +27,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            background: linear-gradient(135deg, #1e0030, #3d0066);
             color: var(--light);
             min-height: 100vh;
             line-height: 1.7;
@@ -53,7 +53,7 @@
         }
 
         .floating-home-btn:hover {
-            background: #2980b9;
+            background: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
         }
@@ -64,9 +64,9 @@
             top: 0;
             width: 280px;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(30, 0, 48, 0.95);
+            border-right: 1px solid var(--border-color);
             backdrop-filter: blur(10px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 999;
             transition: transform 0.3s ease;
             transform: translateX(-100%);
@@ -122,8 +122,8 @@
         }
 
         .nav-item:hover {
-            background: rgba(52, 152, 219, 0.1);
-            border-left-color: var(--secondary);
+            background: rgba(142, 68, 173, 0.2);
+            border-left-color: var(--accent);
             padding-left: 25px;
         }
 
@@ -345,7 +345,7 @@
             border-left: 2px solid var(--secondary);
             padding-left: 10px;
         }
-
+        
         .quote-box {
             background: rgba(52, 152, 219, 0.1);
             border-left: 4px solid var(--secondary);
@@ -360,44 +360,6 @@
             border-left: none;
             margin: 10px 0 0 0;
             padding-left: 0;
-        }
-        
-        .type-card {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            padding: 25px;
-            margin: 25px 0;
-            border-left: 4px solid var(--secondary);
-        }
-        
-        .type-title {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .type-definition {
-            margin-bottom: 15px;
-        }
-        
-        .type-characteristics {
-            margin-top: 15px;
-        }
-
-        .type-characteristics h4 {
-            color: var(--warning);
-            margin: 15px 0 10px 0;
-            padding-left: 0;
-        }
-
-        .type-characteristics ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-
-        .type-characteristics li {
-            margin-bottom: 8px;
         }
         
         .table-container {
@@ -425,7 +387,6 @@
         td {
             padding: 12px 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            vertical-align: top;
         }
         
         tr:nth-child(even) {
@@ -434,15 +395,13 @@
         
         .table-caption {
             text-align: center;
-            padding: 15px;
+            padding: 10px;
             color: var(--gray);
             background: rgba(0, 0, 0, 0.3);
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
         }
-
+        
         .figure-container {
             margin: 30px 0;
             padding: 20px;
@@ -477,6 +436,41 @@
             margin-top: 10px;
         }
         
+        /* Estilos para la tarjeta de actividad */
+        .activity-card {
+            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 4px solid var(--success); /* Borde izquierdo verde */
+            text-align: center;
+        }
+        
+        .activity-title {
+            font-size: 1.8rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+        
+        .activity-btn {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .activity-btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--secondary);
+        }
+
         .nav-buttons {
             display: flex;
             justify-content: space-between;
@@ -496,7 +490,7 @@
         }
         
         .nav-btn:hover {
-            background: #2980b9;
+            background: var(--primary);
             transform: translateY(-3px);
         }
         
@@ -544,41 +538,6 @@
             transform: translateY(-3px);
         }
         
-        /* Estilos para la tarjeta de actividad */
-        .activity-card {
-            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 4px solid var(--success); /* Borde izquierdo verde */
-            text-align: center;
-        }
-        
-        .activity-title {
-            font-size: 1.8rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .activity-btn {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .activity-btn:hover {
-            background: #27ae60; /* Verde más oscuro al pasar el mouse */
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
-        }
-
         @media (max-width: 768px) {
             .sidebar-nav {
                 width: 100%;
@@ -921,7 +880,7 @@
                     <p>Aunque muchos estudios biológicos se realizan en laboratorio o con modelos animales, sus resultados suelen tener implicaciones directas en la salud humana, lo que hace indispensable considerar
                         aspectos éticos relacionados con el uso responsable de los recursos biológicos y el bienestar animal Hernández Sampieri et al. (2014).</p>
 
-                    <li>Importancia de la ética en la investigación<strong>La ética en la investigación establece los principios y normas que regulan la conducta de los investigadores, con el propósito de proteger a
+                    <li>Importancia de la ética en la investigación. La ética en la investigación establece los principios y normas que regulan la conducta de los investigadores, con el propósito de proteger a
                         los sujetos de estudio y asegurar una práctica científica responsable. En medicina y biología, la ética es indispensable debido al impacto potencial de la investigación sobre la vida y la salud.</li>
                 </ul>
 
