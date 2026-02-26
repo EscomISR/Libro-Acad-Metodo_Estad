@@ -1,122 +1,227 @@
 [
   {
-    "question": "¿Qué es la segmentación según el texto?",
+    "question": "¿Qué constituye la interpretación y discusión de los resultados?",
     "options": [
-      "Una técnica que divide la memoria en bloques de tamaño fijo",
-      "Una forma de administrar la memoria dividiendo el programa en partes lógicas llamadas segmentos",
-      "Un método para almacenar datos únicamente en disco",
-      "Un sistema para eliminar procesos inactivos"
+      "Una etapa esencial del proceso de investigación donde se analiza el significado de los datos obtenidos",
+      "La fase de recolección de datos en campo",
+      "Un resumen estadístico sin análisis"
     ],
-    "answer": "Una forma de administrar la memoria dividiendo el programa en partes lógicas llamadas segmentos"
+    "answer": "Una etapa esencial del proceso de investigación donde se analiza el significado de los datos obtenidos"
   },
   {
-    "question": "¿Qué representa un segmento dentro de un programa?",
+    "question": "¿Con qué se vinculan los resultados en la interpretación?",
     "options": [
-      "Un archivo temporal del sistema",
-      "Una parte lógica como código, datos o pila",
-      "Una partición física del disco",
-      "Una copia completa del proceso"
+      "Con los objetivos, las hipótesis y el marco teórico del estudio",
+      "Con el cronograma y presupuesto",
+      "Con las referencias bibliográficas exclusivamente"
     ],
-    "answer": "Una parte lógica como código, datos o pila"
+    "answer": "Con los objetivos, las hipótesis y el marco teórico del estudio"
   },
   {
-    "question": "¿Qué elementos forman una dirección lógica en segmentación?",
+    "question": "¿Qué hace el investigador además de describir los hallazgos?",
     "options": [
-      "Marco y desplazamiento",
-      "Número de segmento y desplazamiento",
-      "Página y bit de modificación",
-      "Dirección física y TLB"
+      "Explica su relevancia e identifica patrones",
+      "Aplica nuevamente los instrumentos",
+      "Reduce el tamaño de la muestra"
     ],
-    "answer": "Número de segmento y desplazamiento"
+    "answer": "Explica su relevancia e identifica patrones"
   },
   {
-    "question": "¿Qué almacena la tabla de segmentos de un proceso?",
+    "question": "¿Qué permite determinar la interpretación respecto a las hipótesis?",
     "options": [
-      "Permisos de usuario y rutas de archivos",
-      "Dirección inicial y tamaño de cada segmento",
-      "La ubicación de todas las páginas del sistema",
-      "Los bits de presente y ausencia"
+      "Si los resultados las respaldan o las rechazan",
+      "Si deben eliminarse del estudio",
+      "Si deben modificarse antes del análisis"
     ],
-    "answer": "Dirección inicial y tamaño de cada segmento"
+    "answer": "Si los resultados las respaldan o las rechazan"
   },
   {
-    "question": "¿Qué ventaja tiene la segmentación?",
+    "question": "¿Qué requiere la interpretación según el texto?",
     "options": [
-      "Elimina la memoria virtual",
-      "Representa mejor la estructura lógica del programa y permite compartir partes del código",
-      "Reduce el tamaño de los programas",
-      "Impide el crecimiento dinámico de segmentos"
+      "Contrastar los resultados con investigaciones previas y teorías existentes",
+      "Eliminar los datos cualitativos",
+      "Aplicar nuevas encuestas"
     ],
-    "answer": "Representa mejor la estructura lógica del programa y permite compartir partes del código"
+    "answer": "Contrastar los resultados con investigaciones previas y teorías existentes"
   },
   {
-    "question": "¿Qué desventaja presenta la segmentación pura?",
+    "question": "¿Qué debe reconocerse durante la discusión?",
     "options": [
-      "Genera fragmentación externa",
-      "Solo funciona con direcciones físicas",
-      "Consume demasiada memoria secundaria",
-      "Elimina el uso de tablas de segmentos"
+      "Las limitaciones del estudio y posibles sesgos",
+      "Nuevas hipótesis no planteadas",
+      "Cambios en la muestra"
     ],
-    "answer": "Genera fragmentación externa"
+    "answer": "Las limitaciones del estudio y posibles sesgos"
   },
   {
-    "question": "¿Qué caracteriza a la segmentación pura?",
+    "question": "¿Qué implica la discusión de los resultados?",
     "options": [
-      "Los segmentos tienen tamaño fijo",
-      "Los segmentos pueden crecer o disminuir independientemente",
-      "No requiere tablas de segmentos",
-      "Transforma páginas en marcos"
+      "Una reflexión crítica que fundamente el significado de los hallazgos",
+      "Un resumen de tablas estadísticas",
+      "La repetición del marco teórico"
     ],
-    "answer": "Los segmentos pueden crecer o disminuir independientemente"
+    "answer": "Una reflexión crítica que fundamente el significado de los hallazgos"
   },
   {
-    "question": "¿Qué elimina la segmentación con paginación?",
+    "question": "¿Qué favorece una adecuada interpretación en ciencias de la salud?",
     "options": [
-      "La segmentación lógica",
-      "La fragmentación externa",
-      "La tabla de páginas",
-      "La memoria secundaria"
+      "La comprensión de fenómenos clínicos y epidemiológicos",
+      "La eliminación de variables",
+      "La reducción del análisis"
     ],
-    "answer": "La fragmentación externa"
+    "answer": "La comprensión de fenómenos clínicos y epidemiológicos"
   },
   {
-    "question": "¿Qué tablas son necesarias en segmentación con paginación?",
+    "question": "¿Qué fortalece la interpretación en el ámbito sanitario?",
     "options": [
-      "Solo una tabla de páginas",
-      "Una tabla de segmentos y una tabla de páginas por segmento",
-      "Una tabla hash y una TLB",
-      "Solo una tabla invertida"
+      "La toma de decisiones basadas en evidencia",
+      "La modificación de resultados",
+      "La reducción de participantes"
     ],
-    "answer": "Una tabla de segmentos y una tabla de páginas por segmento"
+    "answer": "La toma de decisiones basadas en evidencia"
   },
   {
-    "question": "¿Qué componentes se utilizan para acceder a una dirección en segmentación con paginación?",
+    "question": "¿Qué permiten elaborar la interpretación y discusión?",
     "options": [
-      "TLB, bit de presente y dirección física",
-      "Número de segmento, número de página y desplazamiento",
-      "Índice de marco y contador de tiempo",
-      "Solo un desplazamiento"
+      "Conclusiones sólidas y recomendaciones prácticas",
+      "Nuevos instrumentos de medición",
+      "Hipótesis adicionales"
     ],
-    "answer": "Número de segmento, número de página y desplazamiento"
+    "answer": "Conclusiones sólidas y recomendaciones prácticas"
   },
   {
-    "question": "¿Cuál es una ventaja de la segmentación con paginación?",
+    "question": "¿Qué representan las conclusiones?",
     "options": [
-      "Reduce el tamaño de los segmentos lógicos",
-      "Elimina la necesidad de protección en memoria",
-      "Facilita la protección y compartición de memoria",
-      "Evita por completo el uso de RAM"
+      "La fase final del proceso de investigación",
+      "La etapa de recopilación de datos",
+      "La sección metodológica"
     ],
-    "answer": "Facilita la protección y compartición de memoria"
+    "answer": "La fase final del proceso de investigación"
   },
   {
-    "question": "¿Cuál es una desventaja de la segmentación con paginación?",
+    "question": "¿Qué sintetizan las conclusiones?",
     "options": [
-      "Fragmentación externa",
-      "Requiere múltiples tablas y mayor complejidad",
-      "No permite compartir código",
-      "No usa memoria virtual"
+      "Los hallazgos más relevantes del estudio",
+      "Las referencias utilizadas",
+      "El cronograma del proyecto"
     ],
-    "answer": "Requiere múltiples tablas y mayor complejidad"
+    "answer": "Los hallazgos más relevantes del estudio"
+  },
+  {
+    "question": "¿A qué deben responder directamente las conclusiones?",
+    "options": [
+      "Al problema planteado y a los objetivos propuestos",
+      "Al número de encuestas aplicadas",
+      "Al presupuesto del estudio"
+    ],
+    "answer": "Al problema planteado y a los objetivos propuestos"
+  },
+  {
+    "question": "¿Qué no deben incluir las conclusiones?",
+    "options": [
+      "Información nueva que no haya sido analizada previamente",
+      "Síntesis de resultados",
+      "Relación con hipótesis"
+    ],
+    "answer": "Información nueva que no haya sido analizada previamente"
+  },
+  {
+    "question": "¿Cómo deben redactarse las conclusiones?",
+    "options": [
+      "Con claridad, precisión y objetividad",
+      "Con opiniones personales",
+      "Con lenguaje informal"
+    ],
+    "answer": "Con claridad, precisión y objetividad"
+  },
+  {
+    "question": "¿Qué constituyen las recomendaciones?",
+    "options": [
+      "Acciones o mejoras derivadas de los resultados obtenidos",
+      "Nuevas hipótesis",
+      "Instrumentos de análisis"
+    ],
+    "answer": "Acciones o mejoras derivadas de los resultados obtenidos"
+  },
+  {
+    "question": "¿En qué deben basarse las recomendaciones?",
+    "options": [
+      "En la evidencia generada por el estudio",
+      "En opiniones externas",
+      "En estudios no relacionados"
+    ],
+    "answer": "En la evidencia generada por el estudio"
+  },
+  {
+    "question": "¿Qué deben ser las recomendaciones?",
+    "options": [
+      "Claras, viables y coherentes con los hallazgos",
+      "Generales e imprecisas",
+      "Independientes de los resultados"
+    ],
+    "answer": "Claras, viables y coherentes con los hallazgos"
+  },
+  {
+    "question": "¿A qué se refieren las perspectivas?",
+    "options": [
+      "A las proyecciones futuras del tema investigado",
+      "A la recopilación de datos",
+      "Al análisis descriptivo"
+    ],
+    "answer": "A las proyecciones futuras del tema investigado"
+  },
+  {
+    "question": "¿Qué permiten las perspectivas?",
+    "options": [
+      "Ampliar el conocimiento y desarrollar nuevas líneas de investigación",
+      "Reducir el estudio",
+      "Eliminar variables"
+    ],
+    "answer": "Ampliar el conocimiento y desarrollar nuevas líneas de investigación"
+  },
+  {
+    "question": "¿Qué constituyen las tablas y gráficos en esta sección?",
+    "options": [
+      "Herramientas para organizar y presentar datos de forma clara",
+      "Instrumentos de recolección",
+      "Hipótesis estadísticas"
+    ],
+    "answer": "Herramientas para organizar y presentar datos de forma clara"
+  },
+  {
+    "question": "¿Qué permiten las tablas?",
+    "options": [
+      "Comparar categorías y valores numéricos",
+      "Modificar resultados",
+      "Eliminar datos cualitativos"
+    ],
+    "answer": "Comparar categorías y valores numéricos"
+  },
+  {
+    "question": "¿Qué favorecen los gráficos?",
+    "options": [
+      "Una comprensión rápida y efectiva de la información",
+      "La eliminación de hipótesis",
+      "La reducción del análisis"
+    ],
+    "answer": "Una comprensión rápida y efectiva de la información"
+  },
+  {
+    "question": "¿Qué permiten identificar los gráficos?",
+    "options": [
+      "Tendencias y diferencias",
+      "Errores metodológicos",
+      "Cambios en el marco teórico"
+    ],
+    "answer": "Tendencias y diferencias"
+  },
+  {
+    "question": "¿Qué fortalece la sección de recomendaciones y perspectivas?",
+    "options": [
+      "La práctica basada en evidencia y el avance científico",
+      "La reducción del estudio",
+      "La eliminación del análisis"
+    ],
+    "answer": "La práctica basada en evidencia y el avance científico"
   }
 ]
