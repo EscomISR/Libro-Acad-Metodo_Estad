@@ -1,0 +1,122 @@
+[
+  {
+    "question": "¿Qué es la segmentación según el texto?",
+    "options": [
+      "Una técnica que divide la memoria en bloques de tamaño fijo",
+      "Una forma de administrar la memoria dividiendo el programa en partes lógicas llamadas segmentos",
+      "Un método para almacenar datos únicamente en disco",
+      "Un sistema para eliminar procesos inactivos"
+    ],
+    "answer": "Una forma de administrar la memoria dividiendo el programa en partes lógicas llamadas segmentos"
+  },
+  {
+    "question": "¿Qué representa un segmento dentro de un programa?",
+    "options": [
+      "Un archivo temporal del sistema",
+      "Una parte lógica como código, datos o pila",
+      "Una partición física del disco",
+      "Una copia completa del proceso"
+    ],
+    "answer": "Una parte lógica como código, datos o pila"
+  },
+  {
+    "question": "¿Qué elementos forman una dirección lógica en segmentación?",
+    "options": [
+      "Marco y desplazamiento",
+      "Número de segmento y desplazamiento",
+      "Página y bit de modificación",
+      "Dirección física y TLB"
+    ],
+    "answer": "Número de segmento y desplazamiento"
+  },
+  {
+    "question": "¿Qué almacena la tabla de segmentos de un proceso?",
+    "options": [
+      "Permisos de usuario y rutas de archivos",
+      "Dirección inicial y tamaño de cada segmento",
+      "La ubicación de todas las páginas del sistema",
+      "Los bits de presente y ausencia"
+    ],
+    "answer": "Dirección inicial y tamaño de cada segmento"
+  },
+  {
+    "question": "¿Qué ventaja tiene la segmentación?",
+    "options": [
+      "Elimina la memoria virtual",
+      "Representa mejor la estructura lógica del programa y permite compartir partes del código",
+      "Reduce el tamaño de los programas",
+      "Impide el crecimiento dinámico de segmentos"
+    ],
+    "answer": "Representa mejor la estructura lógica del programa y permite compartir partes del código"
+  },
+  {
+    "question": "¿Qué desventaja presenta la segmentación pura?",
+    "options": [
+      "Genera fragmentación externa",
+      "Solo funciona con direcciones físicas",
+      "Consume demasiada memoria secundaria",
+      "Elimina el uso de tablas de segmentos"
+    ],
+    "answer": "Genera fragmentación externa"
+  },
+  {
+    "question": "¿Qué caracteriza a la segmentación pura?",
+    "options": [
+      "Los segmentos tienen tamaño fijo",
+      "Los segmentos pueden crecer o disminuir independientemente",
+      "No requiere tablas de segmentos",
+      "Transforma páginas en marcos"
+    ],
+    "answer": "Los segmentos pueden crecer o disminuir independientemente"
+  },
+  {
+    "question": "¿Qué elimina la segmentación con paginación?",
+    "options": [
+      "La segmentación lógica",
+      "La fragmentación externa",
+      "La tabla de páginas",
+      "La memoria secundaria"
+    ],
+    "answer": "La fragmentación externa"
+  },
+  {
+    "question": "¿Qué tablas son necesarias en segmentación con paginación?",
+    "options": [
+      "Solo una tabla de páginas",
+      "Una tabla de segmentos y una tabla de páginas por segmento",
+      "Una tabla hash y una TLB",
+      "Solo una tabla invertida"
+    ],
+    "answer": "Una tabla de segmentos y una tabla de páginas por segmento"
+  },
+  {
+    "question": "¿Qué componentes se utilizan para acceder a una dirección en segmentación con paginación?",
+    "options": [
+      "TLB, bit de presente y dirección física",
+      "Número de segmento, número de página y desplazamiento",
+      "Índice de marco y contador de tiempo",
+      "Solo un desplazamiento"
+    ],
+    "answer": "Número de segmento, número de página y desplazamiento"
+  },
+  {
+    "question": "¿Cuál es una ventaja de la segmentación con paginación?",
+    "options": [
+      "Reduce el tamaño de los segmentos lógicos",
+      "Elimina la necesidad de protección en memoria",
+      "Facilita la protección y compartición de memoria",
+      "Evita por completo el uso de RAM"
+    ],
+    "answer": "Facilita la protección y compartición de memoria"
+  },
+  {
+    "question": "¿Cuál es una desventaja de la segmentación con paginación?",
+    "options": [
+      "Fragmentación externa",
+      "Requiere múltiples tablas y mayor complejidad",
+      "No permite compartir código",
+      "No usa memoria virtual"
+    ],
+    "answer": "Requiere múltiples tablas y mayor complejidad"
+  }
+]

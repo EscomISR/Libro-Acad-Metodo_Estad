@@ -1,202 +1,227 @@
 [
   {
-    "question": "¿Cuál es la unidad básica de utilización de la CPU según el modelo multihilo?",
+    "question": "¿En qué consiste el planteamiento del diseño de la investigación?",
     "options": [
-      "El proceso",
-      "El hilo",
-      "El registro",
-      "La página de memoria"
+      "En definir el plan o estrategia para responder al problema y comprobar las hipótesis",
+      "En redactar únicamente el marco teórico",
+      "En presentar los resultados finales del estudio"
     ],
-    "answer": "El hilo"
+    "answer": "En definir el plan o estrategia para responder al problema y comprobar las hipótesis"
   },
   {
-    "question": "¿Qué recursos comparten los hilos que pertenecen al mismo proceso?",
+    "question": "¿Qué determina el diseño de investigación?",
     "options": [
-      "Registros y Pila",
-      "Contador de programa y Estado",
-      "Sección de código, sección de datos y archivos abiertos",
-      "No comparten ningún recurso"
+      "El tipo de estudio y la forma en que se recolectarán y analizarán los datos",
+      "Solo la redacción de los objetivos",
+      "La eliminación de variables intervinientes"
     ],
-    "answer": "Sección de código, sección de datos y archivos abiertos"
+    "answer": "El tipo de estudio y la forma en que se recolectarán y analizarán los datos"
   },
   {
-    "question": "¿Qué elementos son propios y privados de cada hilo?",
+    "question": "¿Qué conecta el diseño dentro de la investigación?",
     "options": [
-      "Variables globales y archivos",
-      "Código fuente y librerías",
-      "Contador de programa, registros y pila",
-      "Memoria heap y descriptores de archivo"
+      "Los objetivos con los procedimientos metodológicos",
+      "Las conclusiones con la portada",
+      "Las referencias con el cronograma"
     ],
-    "answer": "Contador de programa, registros y pila"
+    "answer": "Los objetivos con los procedimientos metodológicos"
   },
   {
-    "question": "¿Cuál es una ventaja principal del uso de hilos frente a la creación de nuevos procesos?",
+    "question": "¿Qué garantiza un diseño bien planteado?",
     "options": [
-      "Mayor aislamiento y seguridad",
-      "Economía y menor tiempo de creación/cambio de contexto",
-      "Independencia total de memoria",
-      "No requieren sincronización"
+      "Validez interna y externa",
+      "Resultados subjetivos",
+      "La reducción del tamaño de muestra"
     ],
-    "answer": "Economía y menor tiempo de creación/cambio de contexto"
+    "answer": "Validez interna y externa"
   },
   {
-    "question": "¿Qué modelo de multihilo asigna varios hilos de usuario a un único hilo del kernel?",
+    "question": "¿Qué permite controlar el diseño de investigación?",
     "options": [
-      "Modelo de Uno a Uno",
-      "Modelo de Muchos a Uno",
-      "Modelo de Muchos a Muchos",
-      "Modelo Distribuido"
+      "Las variables del estudio",
+      "Las referencias bibliográficas",
+      "Los títulos de las tablas"
     ],
-    "answer": "Modelo de Muchos a Uno"
+    "answer": "Las variables del estudio"
   },
   {
-    "question": "¿Cuál es la principal desventaja del modelo de Muchos a Uno?",
+    "question": "¿Qué es la operacionalización de variables?",
     "options": [
-      "Es difícil de implementar",
-      "Si un hilo realiza una llamada al sistema bloqueante, se bloquea todo el proceso",
-      "Consume demasiados recursos del kernel",
-      "No permite la creación de hilos de usuario"
+      "El proceso de transformar conceptos teóricos en variables observables y medibles",
+      "La eliminación de variables dependientes",
+      "La redacción de hipótesis alternativas"
     ],
-    "answer": "Si un hilo realiza una llamada al sistema bloqueante, se bloquea todo el proceso"
+    "answer": "El proceso de transformar conceptos teóricos en variables observables y medibles"
   },
   {
-    "question": "¿Qué modelo de multihilo permite la mayor concurrencia real en sistemas multiprocesador al asignar cada hilo de usuario a un hilo del kernel?",
+    "question": "¿Qué se establece durante la operacionalización?",
     "options": [
-      "Modelo de Muchos a Uno",
-      "Modelo de Uno a Uno",
-      "Modelo de Hilos Verdes",
-      "Modelo Monolítico"
+      "Dimensiones, indicadores y forma de evaluación de cada variable",
+      "Las conclusiones finales",
+      "El índice del documento"
     ],
-    "answer": "Modelo de Uno a Uno"
+    "answer": "Dimensiones, indicadores y forma de evaluación de cada variable"
   },
   {
-    "question": "¿Qué desventaja presenta el modelo de Uno a Uno?",
+    "question": "¿Qué permite la operacionalización respecto a la medición?",
     "options": [
-      "No permite ejecutar hilos en paralelo",
-      "La creación de cada hilo de usuario requiere crear un hilo de kernel, lo que puede afectar el rendimiento",
-      "Bloquea todo el proceso ante una llamada al sistema",
-      "Solo funciona en sistemas monoprocesador"
+      "Estandarizar la medición y reducir sesgos",
+      "Eliminar la necesidad de instrumentos",
+      "Modificar los objetivos del estudio"
     ],
-    "answer": "La creación de cada hilo de usuario requiere crear un hilo de kernel, lo que puede afectar el rendimiento"
+    "answer": "Estandarizar la medición y reducir sesgos"
   },
   {
-    "question": "¿Qué modelo intenta combinar lo mejor de los mundos multiplexando hilos de usuario sobre un número menor o igual de hilos del kernel?",
+    "question": "¿Qué debe especificarse en el control de variables?",
     "options": [
-      "Modelo de Muchos a Uno",
-      "Modelo de Uno a Uno",
-      "Modelo de Muchos a Muchos",
-      "Modelo de Dos Niveles"
+      "Escalas de medición, instrumentos y criterios de evaluación",
+      "Solo la hipótesis nula",
+      "Únicamente el impacto social"
     ],
-    "answer": "Modelo de Muchos a Muchos"
+    "answer": "Escalas de medición, instrumentos y criterios de evaluación"
   },
   {
-    "question": "¿Qué estándar define una API para la creación y sincronización de hilos en sistemas tipo Unix (Linux, macOS)?",
+    "question": "¿Qué es la selección de la muestra?",
     "options": [
-      "Win32 API",
-      "POSIX Pthreads (IEEE 1003.1c)",
-      "Java Threads",
-      "Green Threads"
+      "El proceso de elegir un subconjunto representativo de la población",
+      "La eliminación de participantes con errores",
+      "La definición del marco teórico"
     ],
-    "answer": "POSIX Pthreads (IEEE 1003.1c)"
+    "answer": "El proceso de elegir un subconjunto representativo de la población"
   },
   {
-    "question": "¿Dónde se implementan y gestionan los hilos a nivel de usuario (ULT)?",
+    "question": "¿Qué garantiza una muestra adecuada?",
     "options": [
-      "En el hardware del procesador",
-      "En el núcleo del sistema operativo",
-      "En una biblioteca en el espacio de usuario",
-      "En el BIOS"
+      "Que los resultados reflejen de manera confiable la realidad investigada",
+      "La reducción del problema de estudio",
+      "La eliminación del análisis estadístico"
     ],
-    "answer": "En una biblioteca en el espacio de usuario"
+    "answer": "Que los resultados reflejen de manera confiable la realidad investigada"
   },
   {
-    "question": "¿Cuál es una característica de los hilos a nivel de kernel (KLT)?",
+    "question": "¿Qué caracteriza al muestreo probabilístico?",
     "options": [
-      "El sistema operativo no sabe que existen",
-      "Son gestionados directamente por el sistema operativo",
-      "Son mucho más rápidos de crear que los hilos de usuario",
-      "No permiten el multiprocesamiento"
+      "Todos los elementos tienen la misma probabilidad de ser seleccionados",
+      "Solo algunos individuos pueden ser elegidos intencionalmente",
+      "Se basa únicamente en disponibilidad"
     ],
-    "answer": "Son gestionados directamente por el sistema operativo"
+    "answer": "Todos los elementos tienen la misma probabilidad de ser seleccionados"
   },
   {
-    "question": "¿Qué API de hilos es la nativa y principal para sistemas operativos Windows?",
+    "question": "¿Qué es el muestreo estratificado?",
     "options": [
-      "Pthreads",
-      "Win32 Threads",
-      "Solaris Threads",
-      "Cocoa Threads"
+      "Dividir la población en subgrupos y seleccionar muestra de cada uno",
+      "Elegir participantes disponibles",
+      "Seleccionar cada décimo participante sin dividir grupos"
     ],
-    "answer": "Win32 Threads"
+    "answer": "Dividir la población en subgrupos y seleccionar muestra de cada uno"
   },
   {
-    "question": "¿Por qué los hilos mejoran la 'capacidad de respuesta' de una aplicación interactiva?",
+    "question": "¿Qué caracteriza al muestreo no probabilístico?",
     "options": [
-      "Porque eliminan los errores de programación",
-      "Porque permiten que una parte del programa siga ejecutándose aunque otra esté bloqueada",
-      "Porque aumentan la velocidad del reloj del procesador",
-      "Porque reducen el tamaño del programa en disco"
+      "No todos los individuos tienen la misma probabilidad de ser seleccionados",
+      "Todos tienen igual probabilidad",
+      "Se realiza únicamente por azar simple"
     ],
-    "answer": "Porque permiten que una parte del programa siga ejecutándose aunque otra esté bloqueada"
+    "answer": "No todos los individuos tienen la misma probabilidad de ser seleccionados"
   },
   {
-    "question": "¿Qué problema fundamental introduce el uso de hilos que comparten memoria?",
+    "question": "¿Qué es el muestreo por conveniencia?",
     "options": [
-      "Fragmentación del disco",
-      "Necesidad de sincronización para evitar condiciones de carrera",
-      "Incompatibilidad con el hardware",
-      "Pérdida de datos al apagar el equipo"
+      "Elegir participantes disponibles o accesibles",
+      "Dividir en estratos proporcionales",
+      "Seleccionar conglomerados completos"
     ],
-    "answer": "Necesidad de sincronización para evitar condiciones de carrera"
+    "answer": "Elegir participantes disponibles o accesibles"
   },
   {
-    "question": "¿Qué ocurre con los hilos de un proceso si este proceso termina abruptamente?",
+    "question": "¿Qué es la aplicación del plan estadístico?",
     "options": [
-      "Los hilos continúan ejecutándose en segundo plano",
-      "Los hilos se mueven a otro proceso",
-      "Todos los hilos del proceso terminan inmediatamente",
-      "Los hilos se guardan en el disco"
+      "La ejecución de los procedimientos de análisis para interpretar los datos",
+      "La redacción del marco teórico",
+      "La delimitación del problema"
     ],
-    "answer": "Todos los hilos del proceso terminan inmediatamente"
+    "answer": "La ejecución de los procedimientos de análisis para interpretar los datos"
   },
   {
-    "question": "¿Qué beneficio aporta el multihilo en una arquitectura multiprocesador?",
+    "question": "¿Qué tipo de estadística utiliza tablas, frecuencias y medias?",
     "options": [
-      "Escalabilidad: los hilos pueden ejecutarse en paralelo en distintos núcleos",
-      "Reducción del uso de memoria RAM",
-      "Simplificación del código fuente",
-      "Eliminación de las interrupciones de hardware"
+      "Estadística descriptiva",
+      "Estadística inferencial",
+      "Estadística cualitativa narrativa"
     ],
-    "answer": "Escalabilidad: los hilos pueden ejecutarse en paralelo en distintos núcleos"
+    "answer": "Estadística descriptiva"
   },
   {
-    "question": "¿En qué espacio de memoria se gestionan los hilos en el modelo 'Muchos a Uno'?",
+    "question": "¿Para qué se utiliza la estadística inferencial?",
     "options": [
-      "Espacio de Kernel",
-      "Espacio de Usuario",
-      "Memoria Virtual Swap",
-      "Memoria Caché L1"
+      "Para probar hipótesis",
+      "Para redactar conclusiones sin datos",
+      "Para definir el cronograma"
     ],
-    "answer": "Espacio de Usuario"
+    "answer": "Para probar hipótesis"
   },
   {
-    "question": "¿Qué mecanismo se utiliza para evitar que dos hilos modifiquen la misma variable al mismo tiempo?",
+    "question": "¿Qué debe definir el plan estadístico?",
     "options": [
-      "Compresión ZIP",
-      "Mecanismos de Sincronización (ej. Mutex, Semáforos)",
-      "Desfragmentación",
-      "Clustering"
+      "Pruebas estadísticas, niveles de significancia y criterios de interpretación",
+      "Solo los objetivos generales",
+      "Únicamente el impacto económico"
     ],
-    "answer": "Mecanismos de Sincronización (ej. Mutex, Semáforos)"
+    "answer": "Pruebas estadísticas, niveles de significancia y criterios de interpretación"
   },
   {
-    "question": "¿Qué biblioteca permite crear hilos que pueden ser gestionados por la JVM (Java Virtual Machine)?",
+    "question": "¿Qué garantiza una adecuada aplicación del plan estadístico?",
     "options": [
-      "Java Threads",
-      "Win16 Threads",
-      "OS/2 Threads",
-      "BeOS Threads"
+      "Validez, confiabilidad y precisión en los resultados",
+      "Resultados subjetivos",
+      "Eliminación del diseño metodológico"
     ],
-    "answer": "Java Threads"
+    "answer": "Validez, confiabilidad y precisión en los resultados"
+  },
+  {
+    "question": "¿Qué permite presentar resultados de forma clara y comprensible?",
+    "options": [
+      "Una adecuada aplicación del plan estadístico",
+      "La omisión de variables",
+      "La eliminación del análisis inferencial"
+    ],
+    "answer": "Una adecuada aplicación del plan estadístico"
+  },
+  {
+    "question": "¿Qué fortalece el rigor del estudio en la etapa estadística?",
+    "options": [
+      "La correcta ejecución del plan estadístico",
+      "La modificación de hipótesis",
+      "La eliminación de instrumentos"
+    ],
+    "answer": "La correcta ejecución del plan estadístico"
+  },
+  {
+    "question": "¿Qué facilita la toma de decisiones científicas basadas en evidencia?",
+    "options": [
+      "El análisis estadístico bien aplicado",
+      "Las opiniones personales",
+      "La ausencia de pruebas estadísticas"
+    ],
+    "answer": "El análisis estadístico bien aplicado"
+  },
+  {
+    "question": "¿Qué relación debe tener el plan estadístico?",
+    "options": [
+      "Coherencia con el diseño metodológico, objetivos e hipótesis",
+      "Independencia total del diseño",
+      "Desvinculación de las variables"
+    ],
+    "answer": "Coherencia con el diseño metodológico, objetivos e hipótesis"
+  },
+  {
+    "question": "¿Qué convierte los datos en evidencia científica confiable?",
+    "options": [
+      "La aplicación del plan estadístico",
+      "La redacción del marco conceptual",
+      "La delimitación espacial del problema"
+    ],
+    "answer": "La aplicación del plan estadístico"
   }
 ]
