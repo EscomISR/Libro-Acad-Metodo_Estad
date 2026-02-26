@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gray: #95a5a6;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --primary: #4b0082;
+            --secondary: #8e44ad;
+            --accent: #d8b4fe;
+            --light: #f5f3ff;
+            --dark: #1e0030;
+            --gray: #d8b4fe;
+            --success: #a855f7;
+            --warning: #7d3cff;
+            --card-bg: rgba(255, 255, 255, 0.08);
         }
         
         * {
@@ -27,7 +27,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            background: linear-gradient(135deg, #1e0030, #3d0066);
             color: var(--light);
             min-height: 100vh;
             line-height: 1.7;
@@ -64,9 +64,9 @@
             top: 0;
             width: 280px;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(30, 0, 48, 0.95);
+            border-right: 1px solid var(--border-color);
             backdrop-filter: blur(10px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 999;
             transition: transform 0.3s ease;
             transform: translateX(-100%);
@@ -122,8 +122,8 @@
         }
 
         .nav-item:hover {
-            background: rgba(52, 152, 219, 0.1);
-            border-left-color: var(--secondary);
+            background: rgba(142, 68, 173, 0.2);
+            border-left-color: var(--accent);
             padding-left: 25px;
         }
 
@@ -466,9 +466,9 @@
         }
         
         .activity-btn:hover {
-            background: #27ae60; /* Verde más oscuro al pasar el mouse */
+            background: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+            box-shadow: 0 5px 15px var(--secondary);
         }
 
         .nav-buttons {
@@ -490,7 +490,7 @@
         }
         
         .nav-btn:hover {
-            background: #2980b9;
+            background: var(--primary);
             transform: translateY(-3px);
         }
         
