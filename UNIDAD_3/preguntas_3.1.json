@@ -9,6 +9,15 @@
     "answer": "El documento académico o científico que presenta de manera ordenada los resultados de una investigación concluida"
   },
   {
+    "question": "¿Qué función cumple el informe final dentro del proceso de investigación?",
+    "options": [
+      "Presentar de manera sistemática los resultados obtenidos al concluir el estudio",
+      "Modificar las hipótesis planteadas",
+      "Sustituir el marco teórico"
+    ],
+    "answer": "Presentar de manera sistemática los resultados obtenidos al concluir el estudio"
+  },
+  {
     "question": "¿Qué integra el informe final?",
     "options": [
       "Planteamiento del problema, objetivos, metodología, resultados, análisis, conclusiones y recomendaciones",
@@ -70,6 +79,42 @@
       "La presentación de resultados"
     ],
     "answer": "Opiniones personales sin sustento"
+  },
+  {
+    "question": "¿Qué debe existir entre los objetivos planteados y las conclusiones del informe final?",
+    "options": [
+      "Coherencia y correspondencia directa",
+      "Independencia total",
+      "Relación únicamente con la bibliografía"
+    ],
+    "answer": "Coherencia y correspondencia directa"
+  },
+  {
+    "question": "¿Qué permite la presentación ordenada de los apartados en el informe final?",
+    "options": [
+      "Facilitar la comprensión y evaluación del estudio",
+      "Reducir la cantidad de información",
+      "Evitar el uso de metodología"
+    ],
+    "answer": "Facilitar la comprensión y evaluación del estudio"
+  },
+  {
+    "question": "¿Qué debe evitar el informe final en su redacción?",
+    "options": [
+      "Incluir información que no haya sido analizada previamente",
+      "Presentar resultados organizados",
+      "Utilizar lenguaje técnico"
+    ],
+    "answer": "Incluir información que no haya sido analizada previamente"
+  },
+  {
+    "question": "¿Qué demuestra un informe final bien estructurado?",
+    "options": [
+      "El cumplimiento adecuado de las etapas del proceso de investigación",
+      "La eliminación de variables secundarias",
+      "La reducción del número de participantes"
+    ],
+    "answer": "El cumplimiento adecuado de las etapas del proceso de investigación"
   },
   {
     "question": "¿Qué incluyen los resultados dentro del informe final?",
