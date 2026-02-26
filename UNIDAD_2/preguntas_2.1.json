@@ -1,202 +1,227 @@
 [
   {
-    "question": "¿Qué es un proceso en el contexto de sistemas operativos?",
+    "question": "¿Qué es la estructura del protocolo de investigación?",
     "options": [
-      "Un programa en ejecución",
-      "Un archivo almacenado en disco",
-      "Un componente físico del procesador",
-      "Una rutina de la BIOS"
+      "Es el esquema organizado que guía el desarrollo del estudio y asegura su rigor científico",
+      "Es el resumen final donde se presentan únicamente los resultados obtenidos",
+      "Es un documento opcional que se redacta después de concluir la investigación"
     ],
-    "answer": "Un programa en ejecución"
+    "answer": "Es el esquema organizado que guía el desarrollo del estudio y asegura su rigor científico"
   },
   {
-    "question": "¿Qué estructura de datos utiliza el sistema operativo para controlar cada proceso?",
+    "question": "¿Qué elemento forma parte de la estructura del protocolo de investigación?",
     "options": [
-      "Tabla de asignación de archivos (FAT)",
-      "Bloque de Control de Proceso (BCP)",
-      "Vector de interrupciones",
-      "Registro de segmento de código"
+      "Título, planteamiento del problema, justificación y objetivos",
+      "Portada decorativa y conclusiones preliminares",
+      "Opiniones personales del investigador sin sustento teórico"
     ],
-    "answer": "Bloque de Control de Proceso (BCP)"
+    "answer": "Título, planteamiento del problema, justificación y objetivos"
   },
   {
-    "question": "¿Qué parte de la memoria de un proceso almacena las variables locales y las llamadas a funciones?",
+    "question": "¿Qué garantiza la estructura del protocolo dentro del proceso investigativo?",
     "options": [
-      "Heap (Montículo)",
-      "Sección de Texto",
-      "Pila (Stack)",
-      "Sección de Datos"
+      "Coherencia, viabilidad y validez en el proceso investigativo",
+      "La eliminación de la metodología",
+      "La sustitución del marco teórico por opiniones"
     ],
-    "answer": "Pila (Stack)"
+    "answer": "Coherencia, viabilidad y validez en el proceso investigativo"
   },
   {
-    "question": "¿Qué área de memoria de un proceso se utiliza para la asignación dinámica de memoria durante la ejecución?",
+    "question": "¿Qué caracteriza la redacción del protocolo de investigación?",
     "options": [
-      "Pila (Stack)",
-      "Heap (Montículo)",
-      "Registro acumulador",
-      "Código"
+      "Debe ser precisa, coherente y objetiva",
+      "Debe ser extensa y subjetiva",
+      "Debe incluir lenguaje informal para facilitar lectura rápida"
     ],
-    "answer": "Heap (Montículo)"
+    "answer": "Debe ser precisa, coherente y objetiva"
   },
   {
-    "question": "¿Qué llamada al sistema se utiliza comúnmente en entornos Unix para crear un nuevo proceso?",
+    "question": "¿Qué asegura el rigor metodológico dentro del protocolo?",
     "options": [
-      "exec()",
-      "fork()",
-      "start()",
-      "init()"
+      "La descripción detallada del diseño, población, instrumentos y procedimientos de análisis",
+      "La omisión de las variables para evitar confusión",
+      "La modificación constante de los objetivos"
     ],
-    "answer": "fork()"
+    "answer": "La descripción detallada del diseño, población, instrumentos y procedimientos de análisis"
   },
   {
-    "question": "¿Cómo se denomina al proceso que crea a otro proceso mediante una llamada al sistema?",
+    "question": "¿Cuál es la función principal del marco teórico?",
     "options": [
-      "Proceso hijo",
-      "Proceso init",
-      "Proceso padre",
-      "Proceso zombie"
+      "Proporcionar un fundamento científico que permita comprender el fenómeno investigado",
+      "Sustituir la metodología del estudio",
+      "Presentar únicamente opiniones del investigador"
     ],
-    "answer": "Proceso padre"
+    "answer": "Proporcionar un fundamento científico que permita comprender el fenómeno investigado"
   },
   {
-    "question": "¿En qué estado se encuentra un proceso que está esperando a que el planificador (scheduler) le asigne la CPU?",
+    "question": "¿Qué evita el marco teórico dentro de una investigación?",
     "options": [
-      "Nuevo",
-      "En Ejecución",
-      "Bloqueado",
-      "Listo"
+      "Duplicar investigaciones ya realizadas",
+      "Formular hipótesis",
+      "Delimitar variables"
     ],
-    "answer": "Listo"
+    "answer": "Duplicar investigaciones ya realizadas"
   },
   {
-    "question": "¿Qué evento provoca que un proceso pase del estado 'En Ejecución' al estado 'Bloqueado'?",
+    "question": "¿Qué característica debe cumplir el marco teórico?",
     "options": [
-      "Terminación del proceso",
-      "Solicitud de E/S o espera de un evento",
-      "Vencimiento del tiempo de CPU (quantum)",
-      "Creación de un proceso hijo"
+      "Ser pertinente, actualizado y analítico",
+      "Ser únicamente descriptivo",
+      "Basarse en fuentes no verificables"
     ],
-    "answer": "Solicitud de E/S o espera de un evento"
+    "answer": "Ser pertinente, actualizado y analítico"
   },
   {
-    "question": "¿Qué información del BCP indica la dirección de la siguiente instrucción a ejecutar?",
+    "question": "¿Qué implica la delimitación del problema?",
     "options": [
-      "Identificador del proceso (PID)",
-      "Contador de Programa (PC)",
-      "Puntero de pila (Stack Pointer)",
-      "Registro de estado"
+      "Precisar los límites espaciales, temporales, conceptuales y poblacionales del estudio",
+      "Ampliar el problema sin establecer límites",
+      "Eliminar variables del análisis"
     ],
-    "answer": "Contador de Programa (PC)"
+    "answer": "Precisar los límites espaciales, temporales, conceptuales y poblacionales del estudio"
   },
   {
-    "question": "¿Qué término describe el proceso de guardar el estado de un proceso actual y cargar el estado de otro?",
+    "question": "¿Qué favorece una delimitación precisa del problema?",
     "options": [
-      "Interrupción de hardware",
-      "Conmutación de contexto",
-      "Paginación de memoria",
-      "Segmentación"
+      "La claridad en los objetivos y la selección adecuada de métodos",
+      "La ampliación indefinida del estudio",
+      "La reducción del marco teórico"
     ],
-    "answer": "Conmutación de contexto"
+    "answer": "La claridad en los objetivos y la selección adecuada de métodos"
   },
   {
-    "question": "¿Qué identificador único asigna el sistema operativo a cada proceso?",
+    "question": "¿Qué son los objetivos en una investigación?",
     "options": [
-      "MAC Address",
-      "Dirección IP",
-      "PID (Process ID)",
-      "UUID"
+      "Los propósitos que guían la investigación y orientan sus acciones metodológicas",
+      "Las conclusiones finales del estudio",
+      "Las variables independientes"
     ],
-    "answer": "PID (Process ID)"
+    "answer": "Los propósitos que guían la investigación y orientan sus acciones metodológicas"
   },
   {
-    "question": "¿Qué estado corresponde a un proceso que recién ha sido creado pero aún no ha sido admitido en el grupo de procesos ejecutables?",
+    "question": "¿Cómo deben redactarse los objetivos?",
     "options": [
-      "Listo",
-      "Nuevo",
-      "Bloqueado",
-      "Suspendido"
+      "En infinitivo, con claridad y precisión",
+      "En tiempo pasado",
+      "En forma interrogativa obligatoriamente"
     ],
-    "answer": "Nuevo"
+    "answer": "En infinitivo, con claridad y precisión"
   },
   {
-    "question": "¿Cuál es la función principal del planificador (scheduler) de procesos?",
+    "question": "¿Qué expresa el objetivo general?",
     "options": [
-      "Compilar el código fuente",
-      "Seleccionar qué proceso disponible se ejecutará en la CPU",
-      "Gestionar los permisos de archivos",
-      "Controlar los dispositivos USB"
+      "La finalidad principal de la investigación",
+      "Las tareas específicas del estudio",
+      "La metodología aplicada"
     ],
-    "answer": "Seleccionar qué proceso disponible se ejecutará en la CPU"
+    "answer": "La finalidad principal de la investigación"
   },
   {
-    "question": "¿Qué sucede con los recursos de un proceso cuando este pasa al estado 'Terminado'?",
+    "question": "¿Qué hacen los objetivos específicos?",
     "options": [
-      "Se mantienen reservados indefinidamente",
-      "Se transfieren al proceso hijo",
-      "El sistema operativo los libera y reclama",
-      "Se guardan en el disco duro"
+      "Desglosan el objetivo general en acciones concretas y ordenadas",
+      "Sustituyen al objetivo general",
+      "Eliminan la necesidad de hipótesis"
     ],
-    "answer": "El sistema operativo los libera y reclama"
+    "answer": "Desglosan el objetivo general en acciones concretas y ordenadas"
   },
   {
-    "question": "¿Qué abstracción fundamental proporciona el modelo de procesos al desarrollador?",
+    "question": "¿A qué se refiere el impacto científico?",
     "options": [
-      "Un disco duro infinito",
-      "Una CPU virtual exclusiva para cada programa",
-      "Acceso directo al hardware gráfico",
-      "Redes de latencia cero"
+      "A la contribución que la investigación realiza al avance del conocimiento",
+      "A la rentabilidad económica del estudio",
+      "A la duración del cronograma"
     ],
-    "answer": "Una CPU virtual exclusiva para cada programa"
+    "answer": "A la contribución que la investigación realiza al avance del conocimiento"
   },
   {
-    "question": "¿Qué contiene la sección de 'Datos' en la imagen de memoria de un proceso?",
+    "question": "¿Qué caracteriza el impacto social?",
     "options": [
-      "El código binario ejecutable",
-      "Variables globales y estáticas",
-      "Variables locales temporales",
-      "El BCP del proceso"
+      "Los beneficios que la investigación genera en la calidad de vida y solución de problemas comunitarios",
+      "La generación exclusiva de teorías",
+      "La eliminación del marco metodológico"
     ],
-    "answer": "Variables globales y estáticas"
+    "answer": "Los beneficios que la investigación genera en la calidad de vida y solución de problemas comunitarios"
   },
   {
-    "question": "¿Qué mecanismo utiliza el kernel para gestionar la concurrencia y evitar conflictos en recursos compartidos?",
+    "question": "¿Qué implica el impacto económico?",
     "options": [
-      "Sincronización (semáforos, mutex)",
-      "Desfragmentación",
-      "Compresión de datos",
-      "Overclocking"
+      "Uso eficiente de recursos, optimización de procesos y generación de valor",
+      "El aumento obligatorio del presupuesto",
+      "La reducción del marco teórico"
     ],
-    "answer": "Sincronización (semáforos, mutex)"
+    "answer": "Uso eficiente de recursos, optimización de procesos y generación de valor"
   },
   {
-    "question": "¿Qué sucede si un proceso en estado 'Listo' recibe la CPU por parte del despachador?",
+    "question": "¿Qué representa el impacto tecnológico?",
     "options": [
-      "Pasa al estado 'Bloqueado'",
-      "Pasa al estado 'Terminado'",
-      "Pasa al estado 'En Ejecución'",
-      "Se crea un nuevo hilo"
+      "La aplicación del conocimiento científico para crear o mejorar herramientas y procesos",
+      "La eliminación de métodos tradicionales",
+      "La sustitución del análisis estadístico"
     ],
-    "answer": "Pasa al estado 'En Ejecución'"
+    "answer": "La aplicación del conocimiento científico para crear o mejorar herramientas y procesos"
   },
   {
-    "question": "¿Por qué la conmutación de contexto se considera una sobrecarga (overhead) para el sistema?",
+    "question": "¿Qué es delimitar variables?",
     "options": [
-      "Porque consume mucha energía eléctrica",
-      "Porque el sistema no realiza trabajo útil para el usuario durante el cambio",
-      "Porque requiere reiniciar la computadora",
-      "Porque borra los archivos del usuario"
+      "Identificar, definir y precisar las características que serán objeto de medición y análisis",
+      "Eliminar las variables dependientes",
+      "Redactar únicamente el marco teórico"
     ],
-    "answer": "Porque el sistema no realiza trabajo útil para el usuario durante el cambio"
+    "answer": "Identificar, definir y precisar las características que serán objeto de medición y análisis"
   },
   {
-    "question": "¿Qué incluye la 'Información de contabilidad' dentro del BCP?",
+    "question": "¿Cómo deben estar definidas las variables?",
     "options": [
-      "El código fuente del programa",
-      "Tiempo de CPU utilizado y límites de tiempo",
-      "La lista de archivos MP3 del usuario",
-      "La configuración de la pantalla"
+      "Conceptual y operacionalmente, y ser medibles",
+      "Solo de forma conceptual",
+      "De manera ambigua para permitir flexibilidad"
     ],
-    "answer": "Tiempo de CPU utilizado y límites de tiempo"
+    "answer": "Conceptual y operacionalmente, y ser medibles"
+  },
+  {
+    "question": "¿Qué establece la hipótesis nula?",
+    "options": [
+      "Que no existe relación, diferencia o efecto significativo entre las variables",
+      "Que existe una relación directa entre las variables",
+      "Que las variables son irrelevantes"
+    ],
+    "answer": "Que no existe relación, diferencia o efecto significativo entre las variables"
+  },
+  {
+    "question": "¿Cuándo se acepta la hipótesis alterna?",
+    "options": [
+      "Cuando la evidencia permite rechazar la hipótesis nula",
+      "Cuando no se realiza análisis estadístico",
+      "Cuando el investigador lo decide subjetivamente"
+    ],
+    "answer": "Cuando la evidencia permite rechazar la hipótesis nula"
+  },
+  {
+    "question": "¿Qué explica la justificación?",
+    "options": [
+      "Las razones que fundamentan la realización del estudio y su importancia",
+      "La estructura del cronograma",
+      "La clasificación de variables"
+    ],
+    "answer": "Las razones que fundamentan la realización del estudio y su importancia"
+  },
+  {
+    "question": "¿Qué debe destacar la justificación?",
+    "options": [
+      "La relevancia del problema, su impacto potencial y la viabilidad de la investigación",
+      "El diseño gráfico del protocolo",
+      "La extensión del marco teórico"
+    ],
+    "answer": "La relevancia del problema, su impacto potencial y la viabilidad de la investigación"
+  },
+  {
+    "question": "¿A qué se refiere la trascendencia en la investigación?",
+    "options": [
+      "Al impacto duradero que los resultados pueden generar más allá de su contexto inmediato",
+      "A la duración del estudio en meses",
+      "Al número de páginas del protocolo"
+    ],
+    "answer": "Al impacto duradero que los resultados pueden generar más allá de su contexto inmediato"
   }
 ]
