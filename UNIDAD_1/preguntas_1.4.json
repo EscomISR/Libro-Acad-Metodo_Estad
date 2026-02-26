@@ -178,5 +178,50 @@
       "Copiar investigaciones anteriores"
     ],
     "answer": "Convertir una necesidad real en una pregunta precisa"
+  },
+  {
+    "question": "¿Cuál es la función principal de la justificación en el planteamiento del problema?",
+    "options": [
+      "Establecer la relevancia científica, social o profesional del estudio",
+      "Definir las variables de la investigación",
+      "Seleccionar el tipo de muestra"
+    ],
+    "answer": "Establecer la relevancia científica, social o profesional del estudio"
+  },
+  {
+    "question": "¿Qué papel juegan los recursos disponibles en la planeación de la investigación?",
+    "options": [
+      "Determinan la viabilidad del proyecto",
+      "Son un aspecto secundario y opcional",
+      "Solo se consideran al final del estudio"
+    ],
+    "answer": "Determinan la viabilidad del proyecto"
+  },
+  {
+    "question": "¿Por qué es importante considerar los aspectos éticos durante la planeación?",
+    "options": [
+      "Para proteger a los participantes y garantizar la integridad del estudio",
+      "Para aumentar el presupuesto de la investigación",
+      "Para reducir el número de preguntas de investigación"
+    ],
+    "answer": "Para proteger a los participantes y garantizar la integridad del estudio"
+  },
+  {
+    "question": "¿Qué se logra al delimitar el alcance de un estudio durante la planeación?",
+    "options": [
+      "Enfocar la investigación en aspectos concretos y manejables",
+      "Ampliar el problema para abarcar más temas",
+      "Eliminar la necesidad de objetivos específicos"
+    ],
+    "answer": "Enfocar la investigación en aspectos concretos y manejables"
+  },
+  {
+    "question": "¿Qué elemento de la planeación ayuda a visualizar las actividades y el tiempo necesario para ejecutar la investigación?",
+    "options": [
+      "El cronograma de actividades",
+      "El marco teórico",
+      "La justificación"
+    ],
+    "answer": "El cronograma de actividades"
   }
 ]
