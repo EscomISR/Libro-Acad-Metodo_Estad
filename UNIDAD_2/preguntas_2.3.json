@@ -1,202 +1,227 @@
 [
   {
-    "question": "¿Qué significa IPC en el contexto de sistemas operativos?",
+    "question": "¿Qué es la investigación documental?",
     "options": [
-      "Internet Protocol Control",
-      "Inter-Process Communication",
-      "Internal Process Core",
-      "Instruction Pointer Counter"
+      "Un método sistemático de recopilación, análisis e interpretación de información proveniente de fuentes previamente publicadas",
+      "Un procedimiento exclusivo de recolección de datos en campo",
+      "Un tipo de experimento clínico"
     ],
-    "answer": "Inter-Process Communication"
+    "answer": "Un método sistemático de recopilación, análisis e interpretación de información proveniente de fuentes previamente publicadas"
   },
   {
-    "question": "¿Cuál es la función principal de la IPC?",
+    "question": "¿En qué tipo de fuentes se basa la investigación documental?",
     "options": [
-      "Aumentar la velocidad del reloj del CPU",
-      "Permitir el intercambio de datos y sincronización entre procesos",
-      "Gestionar la memoria virtual del sistema",
-      "Controlar los drivers de video"
+      "Fuentes escritas, digitales o audiovisuales previamente publicadas",
+      "Entrevistas informales no registradas",
+      "Observación directa en laboratorio"
     ],
-    "answer": "Permitir el intercambio de datos y sincronización entre procesos"
+    "answer": "Fuentes escritas, digitales o audiovisuales previamente publicadas"
   },
   {
-    "question": "¿Cuál es el mecanismo de IPC más rápido?",
+    "question": "¿Cuál es el propósito de la investigación documental?",
     "options": [
-      "Tuberías (Pipes)",
-      "Colas de mensajes",
-      "Memoria compartida",
-      "Sockets"
+      "Construir conocimiento a partir de evidencias existentes",
+      "Eliminar la formulación de hipótesis",
+      "Reducir el tamaño de la muestra"
     ],
-    "answer": "Memoria compartida"
+    "answer": "Construir conocimiento a partir de evidencias existentes"
   },
   {
-    "question": "¿Por qué la memoria compartida es el método más veloz?",
+    "question": "¿Qué permite sustentar científicamente la investigación documental?",
     "options": [
-      "Porque usa un protocolo de red especial",
-      "Porque evita la intervención del kernel en la transferencia de datos",
-      "Porque comprime los datos automáticamente",
-      "Porque usa la GPU en lugar de la CPU"
+      "Un problema de estudio sin recurrir directamente a la recolección de datos en campo",
+      "La aplicación de encuestas masivas",
+      "La modificación del marco teórico"
     ],
-    "answer": "Porque evita la intervención del kernel en la transferencia de datos"
+    "answer": "Un problema de estudio sin recurrir directamente a la recolección de datos en campo"
   },
   {
-    "question": "¿Qué riesgo principal presenta el uso de memoria compartida?",
+    "question": "¿Para qué sirve la investigación documental dentro del estudio?",
     "options": [
-      "Condiciones de carrera si no hay sincronización",
-      "Pérdida de datos por red lenta",
-      "Bloqueo del kernel",
-      "Llenado del disco duro"
+      "Fundamentar el marco teórico e identificar el estado del arte",
+      "Eliminar antecedentes teóricos",
+      "Reducir el análisis estadístico"
     ],
-    "answer": "Condiciones de carrera si no hay sincronización"
+    "answer": "Fundamentar el marco teórico e identificar el estado del arte"
   },
   {
-    "question": "¿Qué característica define a una tubería (pipe) tradicional?",
+    "question": "¿Qué evita la investigación documental?",
     "options": [
-      "Es bidireccional y de acceso aleatorio",
-      "Es unidireccional y sigue el orden FIFO",
-      "Permite comunicación por red",
-      "Almacena mensajes con prioridades"
+      "La duplicidad de estudios",
+      "El uso de referencias",
+      "La formulación de preguntas"
     ],
-    "answer": "Es unidireccional y sigue el orden FIFO"
+    "answer": "La duplicidad de estudios"
   },
   {
-    "question": "¿Qué limitación tienen las tuberías anónimas?",
+    "question": "¿Qué facilita la comparación de enfoques teóricos?",
     "options": [
-      "Solo funcionan entre procesos relacionados (padre-hijo)",
-      "Son muy lentas",
-      "No pueden transmitir texto",
-      "Requieren conexión a internet"
+      "La construcción de argumentos sólidos",
+      "La eliminación de hipótesis",
+      "La reducción del análisis crítico"
     ],
-    "answer": "Solo funcionan entre procesos relacionados (padre-hijo)"
+    "answer": "La construcción de argumentos sólidos"
   },
   {
-    "question": "¿Qué llamada al sistema se usa en Unix para crear una tubería anónima?",
+    "question": "¿En qué ámbito se menciona como ejemplo la aplicación de investigación documental?",
     "options": [
-      "socket()",
-      "mkfifo()",
-      "pipe()",
-      "shmget()"
+      "Ciencias de la salud",
+      "Ingeniería aeroespacial exclusivamente",
+      "Arquitectura urbana"
     ],
-    "answer": "pipe()"
+    "answer": "Ciencias de la salud"
   },
   {
-    "question": "¿Qué mecanismo de IPC permite la comunicación entre procesos no relacionados mediante un nombre en el sistema de archivos?",
+    "question": "¿Qué permite analizar en ciencias de la salud?",
     "options": [
-      "Tubería anónima",
-      "Tubería con nombre (Named Pipe / FIFO)",
-      "Señal",
-      "Semáforo"
+      "Guías clínicas, revisiones sistemáticas y evidencia científica",
+      "Entrevistas sin estructura",
+      "Datos sin respaldo teórico"
     ],
-    "answer": "Tubería con nombre (Named Pipe / FIFO)"
+    "answer": "Guías clínicas, revisiones sistemáticas y evidencia científica"
   },
   {
-    "question": "¿Qué ventaja ofrecen las colas de mensajes sobre las tuberías?",
+    "question": "¿Dónde se realiza principalmente la investigación documental en la actualidad?",
     "options": [
-      "Son más rápidas que la memoria compartida",
-      "Permiten comunicación estructurada con prioridades y tipos de mensaje",
-      "No consumen memoria del kernel",
-      "Son exclusivas de Windows"
+      "En bases de datos académicas y plataformas digitales indexadas",
+      "En entrevistas presenciales",
+      "En prácticas de laboratorio"
     ],
-    "answer": "Permiten comunicación estructurada con prioridades y tipos de mensaje"
+    "answer": "En bases de datos académicas y plataformas digitales indexadas"
   },
   {
-    "question": "¿Qué define a la comunicación síncrona (bloqueante)?",
+    "question": "¿Qué permiten las plataformas como PubMed y Scopus?",
     "options": [
-      "El emisor continúa inmediatamente después de enviar",
-      "El emisor espera hasta que el receptor reciba el mensaje",
-      "El mensaje se pierde si no hay receptor",
-      "Se usa solo en redes inalámbricas"
+      "Acceder a literatura científica actualizada y revisada por pares",
+      "Eliminar la necesidad de citar",
+      "Modificar hipótesis automáticamente"
     ],
-    "answer": "El emisor espera hasta que el receptor reciba el mensaje"
+    "answer": "Acceder a literatura científica actualizada y revisada por pares"
   },
   {
-    "question": "¿Qué define a la comunicación asíncrona (no bloqueante)?",
+    "question": "¿Qué facilitan los operadores booleanos?",
     "options": [
-      "El emisor envía el mensaje y continúa su ejecución sin esperar",
-      "El sistema se detiene por completo",
-      "Requiere un cable físico dedicado",
-      "El receptor debe estar listo antes de enviar"
+      "Búsquedas avanzadas mediante palabras clave y filtros",
+      "La redacción automática del informe",
+      "La validación estadística"
     ],
-    "answer": "El emisor envía el mensaje y continúa su ejecución sin esperar"
+    "answer": "Búsquedas avanzadas mediante palabras clave y filtros"
   },
   {
-    "question": "¿Qué mecanismo se utiliza para notificar eventos asíncronos como interrupciones (ej. Ctrl+C)?",
+    "question": "¿Qué garantiza el uso de normas de citación?",
     "options": [
-      "Sockets",
-      "Señales (Signals)",
-      "Memoria Virtual",
-      "Archivos mapeados"
+      "El respeto a la propiedad intelectual",
+      "La eliminación del análisis crítico",
+      "La reducción del número de fuentes"
     ],
-    "answer": "Señales (Signals)"
+    "answer": "El respeto a la propiedad intelectual"
   },
   {
-    "question": "¿Qué mecanismo es la base de la comunicación cliente-servidor en redes?",
+    "question": "¿Qué son las referencias bibliográficas?",
     "options": [
-      "Pipes anónimos",
-      "Sockets",
-      "Memoria compartida local",
-      "Colas de mensajes locales"
+      "El conjunto ordenado de fuentes documentales que respaldan un trabajo científico",
+      "Las conclusiones del estudio",
+      "Los instrumentos de recolección"
     ],
-    "answer": "Sockets"
+    "answer": "El conjunto ordenado de fuentes documentales que respaldan un trabajo científico"
   },
   {
-    "question": "¿Qué función de Windows se utiliza para crear un objeto de memoria compartida?",
+    "question": "¿Qué incluyen las referencias bibliográficas?",
     "options": [
-      "CreatePipe",
-      "CreateFileMapping",
-      "OpenProcess",
-      "VirtualAlloc"
+      "Libros, artículos científicos, tesis, documentos oficiales y recursos electrónicos",
+      "Únicamente entrevistas personales",
+      "Solo datos estadísticos"
     ],
-    "answer": "CreateFileMapping"
+    "answer": "Libros, artículos científicos, tesis, documentos oficiales y recursos electrónicos"
   },
   {
-    "question": "¿Cuál es una función de Unix utilizada para enviar un mensaje a una cola?",
+    "question": "¿Cuál es la función principal de las referencias bibliográficas?",
     "options": [
-      "msgsnd()",
-      "pipe()",
-      "kill()",
-      "mmap()"
+      "Reconocer la autoría intelectual y permitir la verificación de la información",
+      "Reducir el tamaño del documento",
+      "Eliminar hipótesis"
     ],
-    "answer": "msgsnd()"
+    "answer": "Reconocer la autoría intelectual y permitir la verificación de la información"
   },
   {
-    "question": "¿Qué sucede con los datos en una tubería si no se leen?",
+    "question": "¿Qué demuestran las referencias bibliográficas?",
     "options": [
-      "Se borran inmediatamente",
-      "Permanecen en el buffer del kernel hasta que se lean",
-      "Se envían al disco duro",
-      "Generan un error fatal"
+      "El rigor académico del estudio",
+      "La cantidad de participantes",
+      "El número de variables"
     ],
-    "answer": "Permanecen en el buffer del kernel hasta que se lean"
+    "answer": "El rigor académico del estudio"
   },
   {
-    "question": "¿Qué señal se utiliza comúnmente para detener un proceso inmediatamente (Kill)?",
+    "question": "¿Qué ayudan a evitar las referencias bibliográficas?",
     "options": [
-      "SIGINT",
-      "SIGKILL",
-      "SIGSTOP",
-      "SIGCONT"
+      "El plagio",
+      "La formulación de preguntas",
+      "La interpretación de resultados"
     ],
-    "answer": "SIGKILL"
+    "answer": "El plagio"
   },
   {
-    "question": "¿Qué mecanismo de IPC actúa como intermediario activo gestionando los datos en el kernel?",
+    "question": "¿Qué permiten las referencias a otros investigadores?",
     "options": [
-      "Memoria compartida",
-      "Paso de mensajes (Colas)",
-      "Variables locales",
-      "Registros de CPU"
+      "Localizar las fuentes originales para profundizar en el tema",
+      "Modificar resultados",
+      "Reducir el marco teórico"
     ],
-    "answer": "Paso de mensajes (Colas)"
+    "answer": "Localizar las fuentes originales para profundizar en el tema"
   },
   {
-    "question": "¿Qué protocolo es común en el uso de Sockets para comunicación fiable?",
+    "question": "¿Qué evidencian las referencias bibliográficas?",
     "options": [
-      "TCP/IP",
-      "USB",
-      "SATA",
-      "HDMI"
+      "El estado del conocimiento existente",
+      "La duración del estudio",
+      "La cantidad de encuestas"
     ],
-    "answer": "TCP/IP"
+    "answer": "El estado del conocimiento existente"
+  },
+  {
+    "question": "¿Qué normas de citación se mencionan?",
+    "options": [
+      "APA, Vancouver o IEEE",
+      "ISO exclusivamente",
+      "MLA únicamente"
+    ],
+    "answer": "APA, Vancouver o IEEE"
+  },
+  {
+    "question": "¿Qué contribuye a mantener el uso adecuado de normas de citación?",
+    "options": [
+      "Uniformidad, claridad y calidad académica",
+      "Reducción de bibliografía",
+      "Eliminación de hipótesis"
+    ],
+    "answer": "Uniformidad, claridad y calidad académica"
+  },
+  {
+    "question": "¿Qué gestores bibliográficos se mencionan?",
+    "options": [
+      "Mendeley y Zotero",
+      "Excel y PowerPoint",
+      "WordPad y Bloc de notas"
+    ],
+    "answer": "Mendeley y Zotero"
+  },
+  {
+    "question": "¿Qué facilitan los gestores bibliográficos?",
+    "options": [
+      "La organización automática de fuentes y generación de referencias",
+      "La aplicación de encuestas",
+      "La eliminación de datos"
+    ],
+    "answer": "La organización automática de fuentes y generación de referencias"
+  },
+  {
+    "question": "¿Qué aseguran los gestores bibliográficos y normas de citación?",
+    "options": [
+      "La transparencia académica y el respeto a la propiedad intelectual",
+      "La reducción del estudio",
+      "La modificación de resultados"
+    ],
+    "answer": "La transparencia académica y el respeto a la propiedad intelectual"
   }
 ]

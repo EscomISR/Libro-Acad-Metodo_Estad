@@ -1,212 +1,227 @@
 [
   {
-    "question": "¿Qué son las llamadas al sistema dentro de un sistema operativo?",
+    "question": "¿En qué momento del proceso investigativo se organiza y estructura de manera sistemática todo el estudio antes de ejecutarlo?",
     "options": [
-      "Programas opcionales para acelerar la CPU",
-      "La interfaz mediante la cual las aplicaciones solicitan servicios al kernel",
-      "Herramientas que permiten modificar el hardware desde el usuario",
-      "Procesos que solo funcionan con permisos administrativos"
+      "En la etapa inicial llamada planeación de la investigación",
+      "En la fase de análisis estadístico de datos",
+      "En la etapa de publicación de resultados"
     ],
-    "answer": "La interfaz mediante la cual las aplicaciones solicitan servicios al kernel"
+    "answer": "En la etapa inicial llamada planeación de la investigación"
   },
   {
-    "question": "Según Silberschatz, Galvin y Gagne (2022), ¿qué representan las llamadas al sistema?",
+    "question": "¿Qué se define durante la planeación de la investigación?",
     "options": [
-      "El punto de inicio de los procesos de usuario",
-      "El punto de transición entre programas de usuario y el núcleo",
-      "El mecanismo para desactivar interrupciones",
-      "Una alternativa para reemplazar el kernel"
+      "El problema de estudio, preguntas de investigación, objetivos, justificación y alcance",
+      "Únicamente los instrumentos estadísticos",
+      "Solo la hipótesis final comprobada"
     ],
-    "answer": "El punto de transición entre programas de usuario y el núcleo"
+    "answer": "El problema de estudio, preguntas de investigación, objetivos, justificación y alcance"
   },
   {
-    "question": "¿De qué depende la autorización de una llamada al sistema?",
+    "question": "¿Qué se inicia durante la planeación para sustentar científicamente el proyecto?",
     "options": [
-      "Del tamaño del archivo solicitado",
-      "De los privilegios del usuario y de la revisión del kernel",
-      "Del tipo de memoria disponible",
-      "De la velocidad del procesador"
+      "La revisión de la literatura para construir el marco teórico",
+      "La aplicación inmediata de encuestas masivas",
+      "La redacción de conclusiones finales"
     ],
-    "answer": "De los privilegios del usuario y de la revisión del kernel"
+    "answer": "La revisión de la literatura para construir el marco teórico"
   },
   {
-    "question": "¿Qué llamada al sistema crea un nuevo proceso?",
+    "question": "¿Qué incluye el diseño metodológico dentro de la planeación?",
     "options": [
-      "execve()",
-      "wait()",
-      "fork()",
-      "exit()"
+      "Selección del tipo de investigación, población, muestra, técnicas e instrumentos y procedimiento de análisis",
+      "Solo la elección del título del estudio",
+      "Únicamente la elaboración de gráficas finales"
     ],
-    "answer": "fork()"
+    "answer": "Selección del tipo de investigación, población, muestra, técnicas e instrumentos y procedimiento de análisis"
   },
   {
-    "question": "¿Qué hace execve()?",
+    "question": "¿Qué aspectos adicionales se consideran en la planeación además del diseño metodológico?",
     "options": [
-      "Duplica un proceso",
-      "Finaliza un proceso",
-      "Reemplaza el espacio de memoria del proceso actual con un nuevo programa",
-      "Bloquea la ejecución de señales"
+      "Aspectos éticos, recursos disponibles, cronograma y viabilidad",
+      "Solo la impresión del documento final",
+      "Únicamente la difusión en redes sociales"
     ],
-    "answer": "Reemplaza el espacio de memoria del proceso actual con un nuevo programa"
+    "answer": "Aspectos éticos, recursos disponibles, cronograma y viabilidad"
   },
   {
-    "question": "¿Cuál es la función principal de wait() y waitpid()?",
+    "question": "¿Qué garantiza la coherencia entre objetivos y métodos durante la planeación?",
     "options": [
-      "Eliminar procesos sobrantes",
-      "Permitir que un proceso padre espere la finalización de sus procesos hijos",
-      "Bloquear señales del sistema",
-      "Incrementar la prioridad del proceso"
+      "Asegurar que los métodos elegidos correspondan a los objetivos planteados",
+      "Cambiar los objetivos durante la ejecución",
+      "Omitir la justificación del estudio"
     ],
-    "answer": "Permitir que un proceso padre espere la finalización de sus procesos hijos"
+    "answer": "Asegurar que los métodos elegidos correspondan a los objetivos planteados"
   },
   {
-    "question": "¿Qué hace la llamada exit()?",
+    "question": "¿Qué permite anticipar dificultades y optimizar recursos?",
     "options": [
-      "Reemplaza la memoria del proceso",
-      "Detiene temporalmente el proceso",
-      "Termina cualquier proceso",
-      "Envía señales asincrónicas"
+      "Una planeación adecuada",
+      "La improvisación metodológica",
+      "La eliminación del cronograma"
     ],
-    "answer": "Termina cualquier proceso"
+    "answer": "Una planeación adecuada"
   },
   {
-    "question": "¿Qué son las señales en un sistema operativo?",
+    "question": "¿Qué fortalece una planeación adecuada respecto a los resultados?",
     "options": [
-      "Archivos especiales del sistema",
-      "Eventos asincrónicos que notifican sucesos importantes a un proceso",
-      "Interrupciones de hardware generadas exclusivamente por la CPU",
-      "Mecanismos para acceder al disco duro"
+      "La validez y confiabilidad de los resultados",
+      "La subjetividad del investigador",
+      "La reducción del marco teórico"
     ],
-    "answer": "Eventos asincrónicos que notifican sucesos importantes a un proceso"
+    "answer": "La validez y confiabilidad de los resultados"
   },
   {
-    "question": "¿Cuál señal interrumpe un proceso mediante la combinación Ctrl + C?",
+    "question": "Según la cita textual incluida, ¿qué transforma una idea en conocimiento organizado?",
     "options": [
-      "SIGSTOP",
-      "SIGKILL",
-      "SIGINT",
-      "SIGUSR1"
+      "La planeación de la investigación",
+      "El análisis improvisado",
+      "La simple observación sin método"
     ],
-    "answer": "SIGINT"
+    "answer": "La planeación de la investigación"
   },
   {
-  "question": "¿Qué señal informa al proceso padre que un proceso hijo terminó?",
-  "options": [
-    "SIGKILL",
-    "SIGSTOP",
-    "SIGCHLD",
-    "SIGUSR1"
-  ],
-  "answer": "SIGCHLD"
-},
-  {
-    "question": "¿Qué llamadas al sistema permiten manejar señales?",
+    "question": "¿Qué permite que el estudio contribuya al avance del saber y solución de problemas reales?",
     "options": [
-      "signal(), kill(), sigaction(), sigprocmask()",
-      "fork(), execve(), wait()",
-      "open(), read(), write()",
-      "chmod(), chown(), umask()"
+      "Definir objetivos, métodos y recursos con coherencia y rigor científico",
+      "Redactar conclusiones antes del estudio",
+      "Evitar la revisión de literatura"
     ],
-    "answer": "signal(), kill(), sigaction(), sigprocmask()"
+    "answer": "Definir objetivos, métodos y recursos con coherencia y rigor científico"
   },
   {
-    "question": "¿Qué representa un archivo dentro del sistema operativo según el texto?",
+    "question": "¿Qué constituye la captación del suceso dentro del proceso de investigación?",
     "options": [
-      "Un proceso en espera de ejecución",
-      "Un conjunto de datos identificado por nombre y extensión",
-      "Una copia del sistema operativo",
-      "Una variable del kernel"
+      "La fase inicial donde se identifica un fenómeno o necesidad que requiere estudio",
+      "La fase final de publicación",
+      "El análisis estadístico avanzado"
     ],
-    "answer": "Un conjunto de datos identificado por nombre y extensión"
+    "answer": "La fase inicial donde se identifica un fenómeno o necesidad que requiere estudio"
   },
   {
-    "question": "¿Qué función cumplen los directorios?",
+    "question": "¿De dónde puede surgir la captación del suceso?",
     "options": [
-      "Liberan memoria al borrar procesos",
-      "Organizan archivos lógicamente y facilitan su ubicación",
-      "Sirven como reemplazo de la memoria RAM",
-      "Inician procesos del sistema"
+      "Observación directa, práctica profesional, revisión de literatura o análisis de datos previos",
+      "Únicamente de experimentos de laboratorio",
+      "Solo de hipótesis confirmadas"
     ],
-    "answer": "Organizan archivos lógicamente y facilitan su ubicación"
+    "answer": "Observación directa, práctica profesional, revisión de literatura o análisis de datos previos"
   },
   {
-    "question": "¿Qué estructura jerárquica suelen tener los directorios?",
+    "question": "¿Qué se reconoce durante la captación del suceso?",
     "options": [
-      "Árbol o raíz",
-      "Malla hexagonal",
-      "Cadena circular",
-      "Tabla directa"
+      "La existencia de una situación problemática que afecta a un grupo o contexto",
+      "La solución definitiva del problema",
+      "La publicación inmediata del estudio"
     ],
-    "answer": "Árbol o raíz"
+    "answer": "La existencia de una situación problemática que afecta a un grupo o contexto"
   },
   {
-    "question": "¿Qué establece la protección y control de acceso?",
+    "question": "¿Qué implica el planteamiento del problema?",
     "options": [
-      "El orden en que se crean archivos",
-      "Los mecanismos que determinan qué usuarios pueden acceder a recursos",
-      "La cantidad de memoria que usa cada aplicación",
-      "La arquitectura del sistema de archivos"
+      "Delimitar y describir con claridad qué ocurre, a quién afecta, dónde y por qué es importante",
+      "Redactar conclusiones finales",
+      "Eliminar la justificación del estudio"
     ],
-    "answer": "Los mecanismos que determinan qué usuarios pueden acceder a recursos"
+    "answer": "Delimitar y describir con claridad qué ocurre, a quién afecta, dónde y por qué es importante"
   },
   {
-    "question": "¿Qué utiliza el kernel para evitar accesos no autorizados a memoria?",
+    "question": "¿Qué incluye el planteamiento del problema?",
     "options": [
-      "Listas de E/S",
-      "Tablas de páginas con permisos",
-      "Contraseñas embebidas",
-      "Registros virtuales"
+      "Formulación de preguntas de investigación, definición de objetivos y justificación",
+      "Únicamente la selección de gráficos",
+      "Solo la elaboración del cronograma"
     ],
-    "answer": "Tablas de páginas con permisos"
+    "answer": "Formulación de preguntas de investigación, definición de objetivos y justificación"
   },
   {
-    "question": "¿Qué verifican las llamadas al sistema relacionadas con archivos?",
+    "question": "¿Qué orienta el rumbo del estudio?",
     "options": [
-      "Los identificadores de usuario (UID) y grupo (GID)",
-      "La temperatura del CPU",
-      "La cantidad de procesos activos",
-      "La disponibilidad de la red"
+      "Un problema bien planteado",
+      "Un título llamativo",
+      "La ausencia de objetivos"
     ],
-    "answer": "Los identificadores de usuario (UID) y grupo (GID)"
+    "answer": "Un problema bien planteado"
   },
   {
-    "question": "¿Cuál de las siguientes es una llamada miscelánea para gestión del tiempo?",
+    "question": "¿Por qué es importante una adecuada formulación del problema?",
     "options": [
-      "execve()",
-      "clock_gettime()",
-      "waitpid()",
-      "sigaction()"
+      "Porque facilita la selección del diseño metodológico y la recolección de datos pertinentes",
+      "Porque elimina la necesidad de metodología",
+      "Porque evita la toma de decisiones"
     ],
-    "answer": "clock_gettime()"
+    "answer": "Porque facilita la selección del diseño metodológico y la recolección de datos pertinentes"
   },
   {
-    "question": "¿Qué llamada se usa para obtener información del sistema operativo?",
+    "question": "¿Qué permite un planteamiento claro en áreas como salud y educación?",
     "options": [
-      "uname()",
-      "getenv()",
-      "ptrace()",
-      "kill()"
+      "Generar conocimiento aplicable para mejorar prácticas y resolver necesidades reales",
+      "Evitar la aplicación práctica",
+      "Limitar el impacto social"
     ],
-    "answer": "uname()"
+    "answer": "Generar conocimiento aplicable para mejorar prácticas y resolver necesidades reales"
   },
   {
-    "question": "¿Qué llamada se utiliza para la depuración y monitoreo de procesos?",
+    "question": "Según la cita textual, ¿qué ocurre cuando la curiosidad científica se activa?",
     "options": [
-      "fork()",
-      "ptrace()",
-      "read()",
-      "sigprocmask()"
+      "Una situación cotidiana se transforma en una oportunidad de conocimiento",
+      "Se finaliza automáticamente la investigación",
+      "Se elimina la necesidad de preguntas"
     ],
-    "answer": "ptrace()"
+    "answer": "Una situación cotidiana se transforma en una oportunidad de conocimiento"
   },
   {
-    "question": "¿Qué objetivo tienen las llamadas misceláneas?",
+    "question": "¿Qué conecta la realidad con el pensamiento científico en el planteamiento del problema?",
     "options": [
-      "Administrar procesos de forma exclusiva",
-      "Proporcionar herramientas complementarias para monitorear, sincronizar y gestionar el sistema",
-      "Desactivar la memoria virtual",
-      "Manipular dispositivos sin permisos del kernel"
+      "Convertir una necesidad real en una pregunta precisa",
+      "Memorizar conceptos sin análisis",
+      "Copiar investigaciones anteriores"
     ],
-    "answer": "Proporcionar herramientas complementarias para monitorear, sincronizar y gestionar el sistema"
+    "answer": "Convertir una necesidad real en una pregunta precisa"
+  },
+  {
+    "question": "¿Cuál es la función principal de la justificación en el planteamiento del problema?",
+    "options": [
+      "Establecer la relevancia científica, social o profesional del estudio",
+      "Definir las variables de la investigación",
+      "Seleccionar el tipo de muestra"
+    ],
+    "answer": "Establecer la relevancia científica, social o profesional del estudio"
+  },
+  {
+    "question": "¿Qué papel juegan los recursos disponibles en la planeación de la investigación?",
+    "options": [
+      "Determinan la viabilidad del proyecto",
+      "Son un aspecto secundario y opcional",
+      "Solo se consideran al final del estudio"
+    ],
+    "answer": "Determinan la viabilidad del proyecto"
+  },
+  {
+    "question": "¿Por qué es importante considerar los aspectos éticos durante la planeación?",
+    "options": [
+      "Para proteger a los participantes y garantizar la integridad del estudio",
+      "Para aumentar el presupuesto de la investigación",
+      "Para reducir el número de preguntas de investigación"
+    ],
+    "answer": "Para proteger a los participantes y garantizar la integridad del estudio"
+  },
+  {
+    "question": "¿Qué se logra al delimitar el alcance de un estudio durante la planeación?",
+    "options": [
+      "Enfocar la investigación en aspectos concretos y manejables",
+      "Ampliar el problema para abarcar más temas",
+      "Eliminar la necesidad de objetivos específicos"
+    ],
+    "answer": "Enfocar la investigación en aspectos concretos y manejables"
+  },
+  {
+    "question": "¿Qué elemento de la planeación ayuda a visualizar las actividades y el tiempo necesario para ejecutar la investigación?",
+    "options": [
+      "El cronograma de actividades",
+      "El marco teórico",
+      "La justificación"
+    ],
+    "answer": "El cronograma de actividades"
   }
 ]

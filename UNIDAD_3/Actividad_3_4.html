@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad 1.1: Batalla Científica</title>
+    <title>Actividad 3.4: Batalla de la Interpretación</title>
     <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
+            /* Paleta de colores en tonos morados */
             --primary: #4b0082;
             --secondary: #8e44ad;
             --accent: #d8b4fe;
@@ -94,11 +95,6 @@
             background: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 6px 25px rgba(142, 68, 173, 0.5);
-        }
-
-        .floating-home-btn.hidden {
-            opacity: 0;
-            visibility: hidden;
         }
 
         .sidebar-nav {
@@ -767,7 +763,7 @@
 
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
-            <div class="sidebar-title">1.1 Metodología de la investigación científica</div>
+            <div class="sidebar-title">3.4 Interpretación de resultados</div>
             <div class="sidebar-subtitle">Actividad de Aprendizaje</div>
         </div>
         
@@ -777,15 +773,15 @@
                 <a href="index.html" class="nav-item">
                     <i class="fas fa-home"></i> Menú principal
                 </a>
-                <a href="1.1.html" class="nav-item">
-                    <i class="fas fa-book-open"></i> Volver al material (1.1)
+                <a href="3.4.html" class="nav-item">
+                    <i class="fas fa-book-open"></i> Volver al material (3.4)
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Otras Secciones</div>
-                <a href="1.2.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i> Siguiente: Etapas del proceso
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-arrow-right"></i> Finalizar Unidad 3
                 </a>
             </div>
         </div>
@@ -798,33 +794,33 @@
     <div class="container">
         <div class="header">
             <div class="breadcrumb">
-                <a href="https://escomisr.github.io/Libro_Digital_SO/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/Unidades.html"><i class="fas fa-home"></i> Inicio</a>
                 <span>/</span>
-                <a href="index.html">Unidad 1</a>                
+                <a href="index.html">Unidad 3</a>                
                 <span>/</span>
-                <a href="1.1.html">1.1 Metodología científica</a>
+                <a href="3.4.html">3.4 Interpretación de resultados</a>
                 <span>/</span>
-                <span>Batalla Científica</span>
+                <span>Batalla de la Interpretación</span>
             </div>
-            <h1>⚡ Batalla del Conocimiento Científico</h1>
-            <div class="subtitle">¡Derrota al Guardián de la Ignorancia con tu dominio sobre los métodos de investigación!</div>
+            <h1>⚡ Batalla de la Interpretación</h1>
+            <div class="subtitle">¡Supera al Guardián de la Conclusión demostrando tu capacidad para analizar y debatir resultados científicos!</div>
         </div>
 
         <div class="instructions">
-            <h3><i class="fas fa-microscope"></i> Instrucciones de Batalla</h3>
+            <h3><i class="fas fa-comments"></i> Instrucciones de Batalla</h3>
             <ul>
-                <li><strong>Misión:</strong> Derrota al Guardián de la Ignorancia respondiendo correctamente las preguntas sobre los métodos generales y particulares de la ciencia.</li>
+                <li><strong>Misión:</strong> Derrota al Guardián de la Conclusión respondiendo correctamente las preguntas sobre la interpretación y discusión de resultados de investigación.</li>
                 <li><strong>Mecánica:</strong> Cada respuesta correcta inflige 1 punto de daño. Cada respuesta incorrecta cuenta como un error.</li>
-                <li><strong>Victoria:</strong> Reduce la vida del guardián a 0 HP respondiendo las 8 preguntas correctamente.</li>
+                <li><strong>Victoria:</strong> Reduce la vida del guardián a 0 HP respondiendo todas las preguntas correctamente.</li>
                 <li><strong>Derrota:</strong> Cometes más de 3 errores antes de derrotar al guardián.</li>
-                <li><strong>Estrategia:</strong> Lee cuidadosamente cada pregunta basada en el tema 1.1. ¡Demuestra tu conocimiento metodológico!</li>
+                <li><strong>Estrategia:</strong> Recuerda cómo se contrastan los resultados empíricos con el marco teórico y cómo formular conclusiones fundamentadas.</li>
             </ul>
         </div>
 
         <div class="battle-arena">
             <div class="monster-section">
-                <div class="monster-avatar" id="monsterAvatar">👾</div>
-                <div class="monster-name">Guardián de la Ignorancia</div>
+                <div class="monster-avatar" id="monsterAvatar">🎓</div>
+                <div class="monster-name">Guardián de la Conclusión</div>
                 <div class="health-bar-container">
                     <div class="health-bar" id="healthBar" style="width: 100%;"></div>
                 </div>
@@ -852,7 +848,7 @@
             </div>
 
             <div class="questions-section">
-                <h3><i class="fas fa-clipboard-list"></i> Desafíos de la Metodología Científica</h3>
+                <h3><i class="fas fa-lightbulb"></i> Desafíos de Interpretación</h3>
                 <div id="questionsContainer"></div>
             </div>
 
@@ -862,7 +858,7 @@
 
             <div class="battle-controls">
                 <button class="btn btn-attack" onclick="attack()" id="attackBtn">
-                    <i class="fas fa-bolt"></i> ¡COMPROBAR HIPÓTESIS!
+                    <i class="fas fa-bolt"></i> ¡ARGUMENTAR RESULTADOS!
                 </button>
                 <button class="btn btn-secondary" onclick="resetBattle()">
                     <i class="fas fa-redo"></i> Nueva Batalla
@@ -876,21 +872,21 @@
         </div>
 
         <div class="navigation">
-            <a href="1.1.html" class="btn btn-nav">
-                <i class="fas fa-arrow-left"></i> Volver a 1.1 Metodología
+            <a href="2.3.html" class="btn btn-nav">
+                <i class="fas fa-arrow-left"></i> Volver a 2.3 Documental
             </a>
             <div class="nav-center">
                 <a href="index.html" class="btn btn-secondary">
                     <i class="fas fa-home"></i> Menú Principal
                 </a>
             </div>
-            <a href="1.2.html" class="btn btn-nav">
-                Siguiente: 1.2 Etapas del proceso <i class="fas fa-arrow-right"></i>
+            <a href="index.html" class="btn btn-nav">
+                Finalizar Unidad 2 <i class="fas fa-flag-checkered"></i>
             </a>
         </div>
         
         <footer>
-            <p>Metodología de la Investigación y Estadística I - Unidad 1</p>
+            <p>Polilibro académico - Metodología de la Investigación y Estadística I</p>
             <p>Desarrollado para fines educativos - © 2026</p>
         </footer>
     </div>
@@ -913,10 +909,10 @@
     const container = document.getElementById('questionsContainer');
 
     try {
-      // Ajusta la ruta a tu JSON de preguntas correspondiente al tema 1.1
-      const response = await fetch('preguntas_1.1.json');
+      // Archivo JSON para las preguntas de la unidad 3.4
+      const response = await fetch('preguntas_3.4.json');
       if (!response.ok) {
-        throw new Error(`No se pudo cargar preguntas_1.1.json (HTTP ${response.status})`);
+        throw new Error(`No se pudo cargar preguntas_3.4.json (HTTP ${response.status})`);
       }
       const allQuestionsRaw = await response.json();
 
@@ -956,6 +952,10 @@
         };
       });
 
+      // Actualizar vida máxima del monstruo (por si hay menos de 8 preguntas)
+      monsterHP = questions.length;
+      document.getElementById('healthText').textContent = `${monsterHP} / ${monsterHP} HP`;
+
       container.innerHTML = '';
       questions.forEach((q, index) => {
         const questionDiv = document.createElement('div');
@@ -976,7 +976,6 @@
       });
 
       time = attempts = errors = completed = 0;
-      monsterHP = maxHP;
       selectedAnswers = {};
       updateUI();
       clearInterval(timerInterval);
@@ -1014,16 +1013,17 @@
 
   function updateMonsterAvatar() {
     const avatar = document.getElementById('monsterAvatar');
-    const healthPercentage = (monsterHP / maxHP) * 100;
-    if (healthPercentage > 70) avatar.textContent = '👾';
-    else if (healthPercentage > 40) avatar.textContent = '🤕';
-    else if (healthPercentage > 0) avatar.textContent = '😵';
+    const healthPercentage = (monsterHP / questions.length) * 100;
+    if (healthPercentage > 70) avatar.textContent = '🎓';
+    else if (healthPercentage > 40) avatar.textContent = '🗣️';
+    else if (healthPercentage > 0) avatar.textContent = '🧠';
     else avatar.textContent = '💥';
   }
 
   function updateUI() {
-    document.getElementById('healthBar').style.width = `${(monsterHP / maxHP) * 100}%`;
-    document.getElementById('healthText').textContent = `${monsterHP} / ${maxHP} HP`;
+    const totalHP = questions.length > 0 ? questions.length : maxHP;
+    document.getElementById('healthBar').style.width = `${(monsterHP / totalHP) * 100}%`;
+    document.getElementById('healthText').textContent = `${monsterHP} / ${totalHP} HP`;
     const dots = document.querySelectorAll('.error-dot');
     dots.forEach((dot, i) => {
       dot.classList.toggle('filled', i < errors);
@@ -1045,7 +1045,7 @@
   function attack() {
     if (gameOver) return;
     if (completed < questions.length) {
-      return showGameStatus("⚠️ ¡Plantea todas tus respuestas antes de comprobar hipótesis!", "continue");
+      return showGameStatus("⚠️ ¡Selecciona una opción para todas las preguntas antes de argumentar tus resultados!", "continue");
     }
     attempts++;
     let correct = 0;
@@ -1063,7 +1063,7 @@
       if (userAns === correctAns) correct++;
     });
 
-    monsterHP = Math.max(0, monsterHP - correct);
+    monsterHP = Math.max(0, questions.length - correct);
     errors = Math.min(maxErrors, questions.length - correct);
     updateUI();
     checkGameEnd();
@@ -1074,13 +1074,13 @@
     if (monsterHP <= 0) {
       gameOver = true;
       clearInterval(timerInterval);
-      showGameStatus(`<i class='fas fa-trophy'></i> ¡VICTORIA CIENTÍFICA! Tiempo: ${time}s`, 'victory');
+      showGameStatus(`<i class='fas fa-trophy'></i> ¡ARGUMENTACIÓN SÓLIDA! Tiempo: ${time}s`, 'victory');
       btn.disabled = true;
       document.body.style.animation = 'victoryGlow 2s infinite';
     } else if (errors >= maxErrors) {
       gameOver = true;
       clearInterval(timerInterval);
-      showGameStatus(`<i class='fas fa-skull'></i> ¡MÉTODO FALLIDO! Demasiados errores`, 'defeat');
+      showGameStatus(`<i class='fas fa-skull'></i> ¡CONCLUSIÓN INVÁLIDA! Demasiados errores`, 'defeat');
       btn.disabled = true;
       document.body.style.animation = 'defeatPulse 1s infinite';
     }
@@ -1088,7 +1088,7 @@
 
   function resetBattle() {
     time = attempts = errors = completed = 0;
-    monsterHP = maxHP;
+    monsterHP = questions.length > 0 ? questions.length : maxHP;
     gameOver = false;
     selectedAnswers = {};
     document.getElementById('timerValue').textContent = '0s';

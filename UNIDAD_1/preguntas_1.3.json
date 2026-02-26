@@ -1,202 +1,227 @@
 [
   {
-    "question": "¿Cuáles son los dos modos principales en los que opera un sistema operativo?",
+    "question": "La investigación científica puede clasificarse según:",
     "options": [
-      "Modo seguro y modo depuración",
-      "Modo usuario y modo kernel",
-      "Modo eficiente y modo avanzado",
-      "Modo supervisor y modo administrador"
+      "Su finalidad, enfoque, alcance, diseño y fuente de datos.",
+      "Únicamente el tipo de hipótesis.",
+      "El número de investigadores participantes."
     ],
-    "answer": "Modo usuario y modo kernel"
+    "answer": "Su finalidad, enfoque, alcance, diseño y fuente de datos."
   },
   {
-    "question": "¿Qué caracteriza al modo kernel dentro del sistema operativo?",
+    "question": "La investigación básica tiene como propósito principal:",
     "options": [
-      "Es un modo sin privilegios dedicado a aplicaciones comunes",
-      "Posee acceso total a la CPU, memoria y dispositivos",
-      "Solo ejecuta aplicaciones del usuario",
-      "Opera únicamente cuando ocurre una interrupción"
+      "Generar conocimiento nuevo y ampliar la comprensión de los fenómenos naturales sin buscar una aplicación práctica inmediata.",
+      "Resolver problemas concretos con aplicación inmediata.",
+      "Evaluar intervenciones clínicas en hospitales."
     ],
-    "answer": "Posee acceso total a la CPU, memoria y dispositivos"
+    "answer": "Generar conocimiento nuevo y ampliar la comprensión de los fenómenos naturales sin buscar una aplicación práctica inmediata."
   },
   {
-    "question": "¿Cuál es la principal función del modo usuario?",
+    "question": "La investigación aplicada se orienta a:",
     "options": [
-      "Ejecutar aplicaciones con privilegios restringidos",
-      "Reiniciar la CPU ante fallos",
-      "Configurar los controladores del sistema",
-      "Gestionar directamente dispositivos de E/S"
+      "Utilizar el conocimiento científico existente para resolver problemas concretos y mejorar situaciones reales.",
+      "Desarrollar teorías sin intención práctica.",
+      "Describir fenómenos sin intervención."
     ],
-    "answer": "Ejecutar aplicaciones con privilegios restringidos"
+    "answer": "Utilizar el conocimiento científico existente para resolver problemas concretos y mejorar situaciones reales."
   },
   {
-    "question": "¿Cómo solicita el modo usuario acceso a recursos privilegiados?",
+    "question": "El enfoque cuantitativo se caracteriza por:",
     "options": [
-      "A través de interrupciones manuales",
-      "Mediante llamadas al sistema",
-      "Desactivando el contador de programa",
-      "Usando accesos directos de la CPU"
+      "La medición objetiva de fenómenos mediante datos numéricos y análisis estadístico.",
+      "La interpretación exclusiva de experiencias subjetivas.",
+      "La ausencia de instrumentos estructurados."
     ],
-    "answer": "Mediante llamadas al sistema"
+    "answer": "La medición objetiva de fenómenos mediante datos numéricos y análisis estadístico."
   },
   {
-    "question": "¿Qué señala Tanenbaum y Bos (2015) sobre los cambios entre modo usuario y modo kernel?",
+    "question": "El enfoque cuantitativo permite:",
     "options": [
-      "Aumentan significativamente el rendimiento",
-      "Son innecesarios en sistemas modernos",
-      "Tienen costo en rendimiento pero son indispensables",
-      "Se eliminan mediante optimización avanzada"
+      "Comprobar hipótesis e identificar relaciones entre variables con resultados generalizables.",
+      "Evitar el uso de muestras representativas.",
+      "Eliminar el análisis estadístico."
     ],
-    "answer": "Tienen costo en rendimiento pero son indispensables"
+    "answer": "Comprobar hipótesis e identificar relaciones entre variables con resultados generalizables."
   },
   {
-    "question": "¿Qué es una interrupción en un sistema operativo?",
+    "question": "El enfoque mixto integra:",
     "options": [
-      "Una orden que apaga el sistema inmediatamente",
-      "Una pausa en la ejecución para atender una acción no viable o un evento externo",
-      "Un error crítico que obliga a reiniciar el sistema",
-      "Un proceso que deshabilita el modo kernel temporalmente"
+      "Métodos cuantitativos y cualitativos para obtener una comprensión más completa de los fenómenos.",
+      "Únicamente análisis estadístico avanzado.",
+      "Solo entrevistas abiertas sin medición."
     ],
-    "answer": "Una pausa en la ejecución para atender una acción no viable o un evento externo"
+    "answer": "Métodos cuantitativos y cualitativos para obtener una comprensión más completa de los fenómenos."
   },
   {
-    "question": "¿Cuál de las siguientes puede generar una interrupción?",
+    "question": "La investigación experimental se caracteriza por:",
     "options": [
-      "Un proceso que se ejecuta correctamente",
-      "Un dispositivo de E/S o una instrucción inválida",
-      "Una actualización gráfica de la interfaz",
-      "Una llamada al sistema sin argumentos"
+      "La manipulación deliberada de variables independientes para observar su efecto en una variable dependiente.",
+      "La observación sin intervención alguna.",
+      "La recopilación de datos históricos exclusivamente."
     ],
-    "answer": "Un dispositivo de E/S o una instrucción inválida"
+    "answer": "La manipulación deliberada de variables independientes para observar su efecto en una variable dependiente."
   },
   {
-    "question": "¿Qué hace la CPU cuando ocurre una interrupción?",
+    "question": "La investigación experimental permite establecer:",
     "options": [
-      "Ignora el proceso en ejecución",
-      "Detiene temporalmente la ejecución y llama al manejador de interrupciones",
-      "Reinicia el sistema operativo",
-      "Bloquea todos los procesos del usuario"
+      "Relaciones de causa y efecto.",
+      "Únicamente asociaciones descriptivas.",
+      "Relaciones sin control de variables."
     ],
-    "answer": "Detiene temporalmente la ejecución y llama al manejador de interrupciones"
+    "answer": "Relaciones de causa y efecto."
   },
   {
-    "question": "¿Qué componente identifica y procesa adecuadamente una interrupción?",
+    "question": "La investigación cuasi experimental se utiliza cuando:",
     "options": [
-      "El planificador de tareas",
-      "El manejador de interrupciones",
-      "El sistema de archivos",
-      "El reloj del sistema"
+      "No es posible asignar aleatoriamente a los participantes en los grupos de estudio.",
+      "Se puede controlar completamente todas las variables.",
+      "No existe intervención alguna."
     ],
-    "answer": "El manejador de interrupciones"
+    "answer": "No es posible asignar aleatoriamente a los participantes en los grupos de estudio."
   },
   {
-    "question": "¿Qué distingue al modo usuario respecto al modo kernel?",
+    "question": "La investigación no experimental se caracteriza por:",
     "options": [
-      "Puede acceder directamente al hardware",
-      "Opera con permisos limitados",
-      "Controla totalmente la CPU",
-      "Administra la memoria del sistema"
+      "Examinar relaciones sin manipular directamente las variables.",
+      "Asignar grupos de manera aleatoria.",
+      "Realizar únicamente pruebas de laboratorio."
     ],
-    "answer": "Opera con permisos limitados"
+    "answer": "Examinar relaciones sin manipular directamente las variables."
   },
   {
-    "question": "¿Qué capacidad tiene el modo kernel que el modo usuario no?",
+    "question": "La investigación descriptiva tiene como propósito:",
     "options": [
-      "Modificar interfaces gráficas",
-      "Acceder a toda la memoria y controlar hardware",
-      "Ejecutar aplicaciones web",
-      "Regular procesos de usuario sin permiso"
+      "Detallar y caracterizar un fenómeno sin manipular variables.",
+      "Establecer causalidad directa.",
+      "Aplicar intervenciones clínicas."
     ],
-    "answer": "Acceder a toda la memoria y controlar hardware"
+    "answer": "Detallar y caracterizar un fenómeno sin manipular variables."
   },
   {
-    "question": "¿Qué ocurre durante la transición entre modo usuario y modo kernel?",
+    "question": "La investigación transversal recolecta datos:",
     "options": [
-      "La CPU libera todos los procesos",
-      "Se revisan permisos y se garantiza seguridad y estabilidad",
-      "Se detiene el reloj del sistema",
-      "El sistema operativo entra en suspensión"
+      "En un solo momento o en un periodo corto.",
+      "Durante décadas obligatoriamente.",
+      "Solo después de aplicar una intervención."
     ],
-    "answer": "Se revisan permisos y se garantiza seguridad y estabilidad"
+    "answer": "En un solo momento o en un periodo corto."
   },
   {
-    "question": "¿Qué es el contador de programa?",
+    "question": "La investigación correlacional tiene como finalidad:",
     "options": [
-      "Un registro que almacena direcciones de instrucciones en ejecución",
-      "Una herramienta para medir la velocidad del CPU",
-      "Un proceso que controla conexiones de red",
-      "Un módulo que limita el acceso a la memoria"
+      "Analizar la relación o grado de asociación entre dos o más variables sin manipularlas.",
+      "Comprobar relaciones causales definitivas.",
+      "Aplicar tratamientos experimentales."
     ],
-    "answer": "Un registro que almacena direcciones de instrucciones en ejecución"
+    "answer": "Analizar la relación o grado de asociación entre dos o más variables sin manipularlas."
   },
   {
-    "question": "¿Cuál es la función principal del reloj del sistema?",
+    "question": "La investigación prospectiva se caracteriza por:",
     "options": [
-      "Almacenar datos temporales",
-      "Sincronizar y coordinar operaciones del hardware",
-      "Acelerar procesos del usuario",
-      "Eliminar procesos bloqueados"
+      "Seguir a los participantes hacia el futuro para observar la aparición de eventos.",
+      "Analizar únicamente datos pasados.",
+      "No considerar factores de riesgo."
     ],
-    "answer": "Sincronizar y coordinar operaciones del hardware"
+    "answer": "Seguir a los participantes hacia el futuro para observar la aparición de eventos."
   },
   {
-    "question": "¿Qué permite el contador de programa?",
+    "question": "La investigación retrospectiva analiza:",
     "options": [
-      "Ejecutar procesos sin restricciones",
-      "Administrar la E/S avanzada",
-      "Mantener la secuencia de instrucciones en ejecución",
-      "Medir la temperatura del hardware"
+      "Hechos o eventos que ya ocurrieron utilizando registros previos.",
+      "Eventos futuros exclusivamente.",
+      "Datos simulados en laboratorio."
     ],
-    "answer": "Mantener la secuencia de instrucciones en ejecución"
+    "answer": "Hechos o eventos que ya ocurrieron utilizando registros previos."
   },
   {
-    "question": "¿Cuál es un uso importante de los contadores en sistemas distribuidos?",
+    "question": "La investigación longitudinal se caracteriza por:",
     "options": [
-      "Detectar errores en tarjetas gráficas",
-      "Identificar cuellos de botella y optimizar rendimiento",
-      "Reemplazar el kernel por procesos seguros",
-      "Eliminar interrupciones innecesarias"
+      "Analizar variables a lo largo del tiempo.",
+      "Recolectar datos en un solo momento.",
+      "No realizar seguimiento a los participantes."
     ],
-    "answer": "Identificar cuellos de botella y optimizar rendimiento"
+    "answer": "Analizar variables a lo largo del tiempo."
   },
   {
-    "question": "¿Qué papel tienen los contadores en la seguridad del sistema?",
+    "question": "La investigación de casos y controles compara:",
     "options": [
-      "Simulan accesos para pruebas",
-      "Registran eventos anómalos como intentos fallidos de autenticación",
-      "Bloquean automáticamente procesos del usuario",
-      "Verifican configuraciones del BIOS"
+      "Personas con una enfermedad y personas sin ella para analizar exposiciones previas.",
+      "Dos tratamientos experimentales nuevos.",
+      "Solo datos estadísticos poblacionales."
     ],
-    "answer": "Registran eventos anómalos como intentos fallidos de autenticación"
+    "answer": "Personas con una enfermedad y personas sin ella para analizar exposiciones previas."
   },
   {
-    "question": "¿Cómo ayudan los contadores a la planificación de procesos?",
+    "question": "La investigación de cohorte consiste en:",
     "options": [
-      "Asignando prioridad según consumo de recursos",
-      "Eliminando procesos inactivos",
-      "Desactivando interrupciones",
-      "Reduciendo el tamaño de la memoria virtual"
+      "Seguir a un grupo de personas según su exposición a un factor de riesgo para observar la aparición de un evento.",
+      "Asignar aleatoriamente tratamientos.",
+      "Analizar únicamente datos históricos."
     ],
-    "answer": "Asignando prioridad según consumo de recursos"
+    "answer": "Seguir a un grupo de personas según su exposición a un factor de riesgo para observar la aparición de un evento."
   },
   {
-    "question": "¿Para qué se utilizan contadores en servicios de nube?",
+    "question": "Los ensayos clínicos son estudios:",
     "options": [
-      "Para medir el uso de CPU, memoria y almacenamiento",
-      "Para limitar el acceso de los usuarios",
-      "Para crear máquinas virtuales",
-      "Para sincronizar relojes de los clientes"
+      "Experimentales diseñados para evaluar la eficacia y seguridad de intervenciones médicas.",
+      "Observacionales sin intervención.",
+      "Descriptivos sin grupo control."
     ],
-    "answer": "Para medir el uso de CPU, memoria y almacenamiento"
+    "answer": "Experimentales diseñados para evaluar la eficacia y seguridad de intervenciones médicas."
   },
   {
-    "question": "¿Qué aspecto general destaca la importancia de los contadores en un sistema operativo?",
+    "question": "En los ensayos clínicos los participantes se asignan:",
     "options": [
-      "Simplificar la interfaz gráfica del usuario",
-      "Mejorar la administración, seguridad y planificación del sistema",
-      "Reducir el tamaño del kernel",
-      "Desactivar funciones avanzadas de hardware"
+      "De manera controlada, generalmente aleatoria, a un grupo experimental y a un grupo control.",
+      "Según preferencia personal.",
+      "Sin criterios establecidos."
     ],
-    "answer": "Mejorar la administración, seguridad y planificación del sistema"
+    "answer": "De manera controlada, generalmente aleatoria, a un grupo experimental y a un grupo control."
+  },
+  {
+    "question": "La investigación básica contribuye principalmente a:",
+    "options": [
+      "El desarrollo teórico de la ciencia.",
+      "La aplicación inmediata de tratamientos.",
+      "La evaluación de políticas públicas."
+    ],
+    "answer": "El desarrollo teórico de la ciencia."
+  },
+  {
+    "question": "La investigación aplicada en salud puede incluir:",
+    "options": [
+      "El diseño de tratamientos y estrategias de prevención de enfermedades.",
+      "Únicamente estudios celulares sin aplicación.",
+      "Solo análisis descriptivos."
+    ],
+    "answer": "El diseño de tratamientos y estrategias de prevención de enfermedades."
+  },
+  {
+    "question": "La investigación correlacional utiliza técnicas como:",
+    "options": [
+      "El coeficiente de correlación.",
+      "La asignación aleatoria de grupos.",
+      "La manipulación experimental directa."
+    ],
+    "answer": "El coeficiente de correlación."
+  },
+  {
+    "question": "La investigación transversal no establece:",
+    "options": [
+      "Relaciones de causalidad.",
+      "Prevalencias en un momento determinado.",
+      "Asociaciones entre variables."
+    ],
+    "answer": "Relaciones de causalidad."
+  },
+  {
+    "question": "Los estudios de cohorte permiten:",
+    "options": [
+      "Establecer la secuencia temporal entre exposición y efecto.",
+      "Eliminar la necesidad de seguimiento.",
+      "Evitar la clasificación por exposición."
+    ],
+    "answer": "Establecer la secuencia temporal entre exposición y efecto."
   }
 ]

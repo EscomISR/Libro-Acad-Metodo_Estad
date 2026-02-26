@@ -1,172 +1,227 @@
 [
   {
-    "question": "¿Qué permite la memoria virtual según Tanenbaum y Bos (2015)?",
+    "question": "¿Qué permite seleccionar adecuadamente el plan de análisis estadístico?",
     "options": [
-      "Ejecutar aplicaciones sin cargar todo el programa en memoria principal",
-      "Eliminar la necesidad de almacenamiento secundario",
-      "Evitar el uso de la RAM",
-      "Compartir procesos entre usuarios"
+      "Elegir las pruebas estadísticas acordes al tipo de datos",
+      "Reducir el tamaño de muestra",
+      "Eliminar hipótesis"
     ],
-    "answer": "Ejecutar aplicaciones sin cargar todo el programa en memoria principal"
+    "answer": "Elegir las pruebas estadísticas acordes al tipo de datos"
   },
   {
-    "question": "¿Cómo logra la memoria virtual simular un espacio continuo mayor al disponible?",
+    "question": "¿Qué se debe establecer respecto a las hipótesis en el plan de análisis?",
     "options": [
-      "Duplicando la RAM físicamente",
-      "Uniendo memoria RAM con memoria secundaria",
-      "Usando solo memoria caché",
-      "Combinando registros con discos"
+      "Cómo serán contrastadas mediante pruebas estadísticas",
+      "Cómo serán eliminadas",
+      "Cómo serán redactadas nuevamente"
     ],
-    "answer": "Uniendo memoria RAM con memoria secundaria"
+    "answer": "Cómo serán contrastadas mediante pruebas estadísticas"
   },
   {
-    "question": "¿Cómo se prepara un programa para funcionar con memoria virtual?",
+    "question": "¿Qué debe especificarse respecto al nivel de significancia?",
     "options": [
-      "Dividiéndolo en bloques del mismo tamaño",
-      "Eliminando las partes que no se usan",
-      "Guardándolo totalmente en memoria secundaria",
-      "Cargando siempre todas sus instrucciones"
+      "El valor alfa que determinará la aceptación o rechazo de hipótesis",
+      "El número de tablas",
+      "La duración del estudio"
     ],
-    "answer": "Dividiéndolo en bloques del mismo tamaño"
+    "answer": "El valor alfa que determinará la aceptación o rechazo de hipótesis"
   },
   {
-    "question": "¿Qué técnica organiza la memoria en bloques de tamaño uniforme llamados marcos?",
+    "question": "¿Qué debe incluir el plan respecto al procesamiento de datos?",
     "options": [
-      "Segmentación",
-      "Paginación",
-      "Swapping",
-      "Mapas de bits"
+      "La forma en que serán codificados, capturados y depurados",
+      "La redacción de conclusiones",
+      "La elaboración del índice"
     ],
-    "answer": "Paginación"
+    "answer": "La forma en que serán codificados, capturados y depurados"
   },
   {
-    "question": "¿Qué elimina la paginación?",
+    "question": "¿Qué se debe definir sobre el software estadístico?",
     "options": [
-      "La fragmentación interna",
-      "La fragmentación externa",
-      "El uso de memoria secundaria",
-      "La tabla de páginas"
+      "El programa que se utilizará para analizar los datos",
+      "El diseño de portada",
+      "La bibliografía final"
     ],
-    "answer": "La fragmentación externa"
+    "answer": "El programa que se utilizará para analizar los datos"
   },
   {
-    "question": "¿Qué módulo convierte direcciones lógicas en direcciones físicas durante la paginación?",
+    "question": "¿Qué relación debe existir entre el plan de análisis y los objetivos específicos?",
     "options": [
-      "CPU",
-      "MMU",
-      "DMA",
-      "BIOS"
+      "Correspondencia directa entre cada objetivo y el análisis propuesto",
+      "Independencia total",
+      "Relación con las recomendaciones"
     ],
-    "answer": "MMU"
+    "answer": "Correspondencia directa entre cada objetivo y el análisis propuesto"
   },
   {
-    "question": "¿Qué tabla registra la relación entre páginas lógicas y marcos físicos?",
+    "question": "¿Qué permite prever el plan de análisis estadístico?",
     "options": [
-      "Tabla de segmentos",
-      "Tabla de paginación",
-      "TLB",
-      "Tabla hash"
+      "La forma en que se presentarán los resultados",
+      "La modificación del problema de investigación",
+      "La eliminación del marco teórico"
     ],
-    "answer": "Tabla de paginación"
+    "answer": "La forma en que se presentarán los resultados"
   },
   {
-    "question": "¿Qué desventaja puede presentar la paginación?",
+    "question": "¿Qué tipo de medidas pueden contemplarse en el análisis descriptivo?",
     "options": [
-      "Aumento del tiempo de búsqueda por accesos frecuentes a la tabla",
-      "Imposibilidad de usar memoria secundaria",
-      "Necesidad de memoria contigua",
-      "No se puede usar memoria virtual"
+      "Medidas de tendencia central y dispersión",
+      "Hipótesis nulas",
+      "Variables latentes"
     ],
-    "answer": "Aumento del tiempo de búsqueda por accesos frecuentes a la tabla"
+    "answer": "Medidas de tendencia central y dispersión"
   },
   {
-    "question": "¿Qué mecanismo acelera la traducción frecuente de direcciones?",
+    "question": "¿Qué se debe considerar respecto al tipo de estudio?",
     "options": [
-      "Swap",
-      "TLB",
-      "RAID",
-      "Inodos"
+      "Que el análisis sea acorde al diseño metodológico",
+      "Que se modifique el diseño",
+      "Que se eliminen variables"
     ],
-    "answer": "TLB"
+    "answer": "Que el análisis sea acorde al diseño metodológico"
   },
   {
-    "question": "¿Qué indica el bit presente/ausente en una tabla de páginas?",
+    "question": "¿Qué se debe prever respecto a los datos faltantes?",
     "options": [
-      "Si el usuario tiene permisos de lectura",
-      "Si la página está en memoria principal o en disco",
-      "Si la página pertenece al kernel",
-      "Si la página ha sido modificada"
+      "El procedimiento para su manejo o exclusión",
+      "Su eliminación automática sin registro",
+      "La modificación de hipótesis"
     ],
-    "answer": "Si la página está en memoria principal o en disco"
+    "answer": "El procedimiento para su manejo o exclusión"
   },
   {
-    "question": "¿Qué representa el bit de modificación en una tabla de páginas?",
+    "question": "¿Qué debe garantizar el plan respecto a la validez de los resultados?",
     "options": [
-      "Si ha sido alterada desde su carga",
-      "Si ha sido eliminada",
-      "Si pertenece al segmento de pila",
-      "Si está asociada a un archivo"
+      "Un análisis sistemático y fundamentado",
+      "La simplificación del estudio",
+      "La reducción de bibliografía"
     ],
-    "answer": "Si ha sido alterada desde su carga"
+    "answer": "Un análisis sistemático y fundamentado"
   },
   {
-    "question": "¿Qué ocurre cuando una página requerida no está en memoria principal?",
+    "question": "¿Qué se establece respecto a la presentación de resultados?",
     "options": [
-      "El proceso se bloquea permanentemente",
-      "Se produce un fallo de página",
-      "El sistema reinicia la ejecución",
-      "Se descarta la página"
+      "El uso de tablas y gráficos según el tipo de variable",
+      "El uso exclusivo de texto",
+      "La eliminación de figuras"
     ],
-    "answer": "Se produce un fallo de página"
+    "answer": "El uso de tablas y gráficos según el tipo de variable"
   },
   {
-    "question": "¿Qué página reemplaza el algoritmo FIFO?",
+    "question": "¿Qué debe definirse respecto a la muestra?",
     "options": [
-      "La más utilizada recientemente",
-      "La más antigua en memoria",
-      "La que no se usará en más tiempo",
-      "La más grande"
+      "El tamaño y características que influyen en el análisis",
+      "El color de las tablas",
+      "La extensión del documento"
     ],
-    "answer": "La más antigua en memoria"
+    "answer": "El tamaño y características que influyen en el análisis"
   },
   {
-    "question": "¿Qué problema puede causar FIFO?",
+    "question": "¿Qué permite el plan respecto a la interpretación futura?",
     "options": [
-      "Fragmentación externa",
-      "Anomalía de Belady",
-      "Pérdida de direcciones lógicas",
-      "Duplicación de páginas"
+      "Facilitar una discusión coherente con los resultados",
+      "Evitar conclusiones",
+      "Eliminar recomendaciones"
     ],
-    "answer": "Anomalía de Belady"
+    "answer": "Facilitar una discusión coherente con los resultados"
   },
   {
-    "question": "¿Qué página reemplaza el algoritmo LRU?",
+    "question": "¿Qué debe evitar el plan de análisis estadístico?",
     "options": [
-      "La que no se usará por más tiempo",
-      "La menos usada recientemente",
-      "La más vieja del sistema",
-      "La primera del segmento"
+      "La improvisación en el tratamiento de datos",
+      "La organización previa",
+      "La coherencia metodológica"
     ],
-    "answer": "La menos usada recientemente"
+    "answer": "La improvisación en el tratamiento de datos"
   },
   {
-    "question": "¿Qué ventaja tiene LRU?",
+    "question": "¿Qué relación tiene el plan con la recolección de datos?",
     "options": [
-      "Requiere menos memoria que FIFO",
-      "Su rendimiento se aproxima al óptimo",
-      "No necesita estructuras adicionales",
-      "Evita todos los fallos de página"
+      "Orienta qué información debe obtenerse",
+      "Se redacta después de las conclusiones",
+      "Sustituye el marco teórico"
     ],
-    "answer": "Su rendimiento se aproxima al óptimo"
+    "answer": "Orienta qué información debe obtenerse"
   },
   {
-    "question": "¿Qué característica hace que el algoritmo óptimo sea solo teórico?",
+    "question": "¿Qué define respecto a las pruebas estadísticas?",
     "options": [
-      "Es muy lento",
-      "Requiere conocer el futuro de las referencias",
-      "Solo funciona con SSD",
-      "No permite fallos de página"
+      "Cuáles se aplicarán según el tipo de variable y objetivo",
+      "Que no se aplicarán pruebas",
+      "Que solo se usarán estadísticas descriptivas"
     ],
-    "answer": "Requiere conocer el futuro de las referencias"
+    "answer": "Cuáles se aplicarán según el tipo de variable y objetivo"
+  },
+  {
+    "question": "¿Qué garantiza una correcta planificación del análisis?",
+    "options": [
+      "Rigor científico en el tratamiento de datos",
+      "Resultados favorables",
+      "Menor número de variables"
+    ],
+    "answer": "Rigor científico en el tratamiento de datos"
+  },
+  {
+    "question": "¿Qué debe existir entre el plan de análisis y las variables del estudio?",
+    "options": [
+      "Correspondencia metodológica clara",
+      "Independencia total",
+      "Eliminación de variables secundarias"
+    ],
+    "answer": "Correspondencia metodológica clara"
+  },
+  {
+    "question": "¿Qué permite estructurar adecuadamente el plan de análisis estadístico?",
+    "options": [
+      "Transformar datos en información útil y fundamentada",
+      "Modificar los resultados obtenidos",
+      "Reducir el marco conceptual"
+    ],
+    "answer": "Transformar datos en información útil y fundamentada"
+  },
+  {
+    "question": "¿Qué es el plan de análisis estadístico?",
+    "options": [
+      "La estrategia organizada que define cómo se procesarán e interpretarán los datos",
+      "Un tipo de muestreo probabilístico",
+      "Un instrumento de recolección"
+    ],
+    "answer": "La estrategia organizada que define cómo se procesarán e interpretarán los datos"
+  },
+  {
+    "question": "¿Cuándo se diseña el plan de análisis estadístico?",
+    "options": [
+      "Antes de analizar la información",
+      "Después de presentar conclusiones",
+      "Durante la redacción del marco teórico"
+    ],
+    "answer": "Antes de analizar la información"
+  },
+  {
+    "question": "¿Qué incluye la preparación de los datos?",
+    "options": [
+      "Codificación, depuración, clasificación y organización",
+      "Conclusiones y recomendaciones",
+      "Aplicación de encuestas"
+    ],
+    "answer": "Codificación, depuración, clasificación y organización"
+  },
+  {
+    "question": "¿Qué utiliza la estadística descriptiva según el texto?",
+    "options": [
+      "Frecuencias, porcentajes, medias y desviación estándar",
+      "Hipótesis alternas",
+      "Ensayos clínicos"
+    ],
+    "answer": "Frecuencias, porcentajes, medias y desviación estándar"
+  },
+  {
+    "question": "¿Qué permite la estadística inferencial?",
+    "options": [
+      "Establecer relaciones, diferencias o asociaciones entre variables",
+      "Redactar conclusiones",
+      "Eliminar datos atípicos"
+    ],
+    "answer": "Establecer relaciones, diferencias o asociaciones entre variables"
   }
 ]

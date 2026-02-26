@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad 2.2: Desafío Multihilo</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <title>Actividad 2.2: Batalla del Diseño</title>
+    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --success: #2ecc71;
-            --accent: #e74c3c;
-            --warning: #f39c12;
-            --light: #ecf0f1;
-            --dark: #1a2a3a;
-            --gray: #95a5a6;
-            --monster-color: #9b59b6; /* Morado para Unidad 2 */
+            /* Paleta de colores en tonos morados */
+            --primary: #4b0082;
+            --secondary: #8e44ad;
+            --accent: #d8b4fe;
+            --light: #f5f3ff;
+            --dark: #1e0030;
+            --gray: #d8b4fe;
+            --success: #a855f7;
+            --warning: #7d3cff;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            
+            /* Colores funcionales para el minijuego */
+            --quiz-correct: #2ecc71;
+            --quiz-incorrect: #e74c3c;
+            --monster-color: #d8b4fe;
         }
 
         * {
@@ -26,7 +32,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0a0f3d, #1a2a3a, #2c3e50);
+            background: linear-gradient(135deg, #1e0030, #3d0066);
             color: var(--light);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -42,9 +48,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(231, 76, 60, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 20%, rgba(142, 68, 173, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(216, 180, 254, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(75, 0, 130, 0.2) 0%, transparent 50%);
             z-index: -1;
             animation: backgroundShift 12s ease-in-out infinite;
         }
@@ -64,7 +70,6 @@
             50% { filter: brightness(0.95) contrast(1.05); }
         }
 
-        /* Botón flotante de inicio */
         .floating-home-btn {
             position: fixed;
             top: 20px;
@@ -78,28 +83,29 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 4px 20px rgba(142, 68, 173, 0.3);
             transition: all 0.3s ease;
             z-index: 1000;
             font-size: 1.5rem;
+            opacity: 1;
+            visibility: visible;
         }
 
         .floating-home-btn:hover {
-            background: #2980b9;
+            background: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 6px 25px rgba(142, 68, 173, 0.5);
         }
 
-        /* Menú de navegación lateral */
         .sidebar-nav {
             position: fixed;
             left: 0;
             top: 0;
             width: 280px;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(30, 0, 48, 0.95);
             backdrop-filter: blur(10px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(216, 180, 254, 0.2);
             z-index: 999;
             transition: transform 0.3s ease;
             transform: translateX(-100%);
@@ -112,8 +118,8 @@
 
         .sidebar-header {
             padding: 20px;
-            background: rgba(52, 152, 219, 0.1);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+            background: rgba(142, 68, 173, 0.1);
+            border-bottom: 1px solid rgba(142, 68, 173, 0.3);
         }
 
         .sidebar-title {
@@ -141,7 +147,7 @@
             font-size: 1rem;
             font-weight: 600;
             color: var(--secondary);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+            border-bottom: 1px solid rgba(142, 68, 173, 0.2);
             margin-bottom: 10px;
         }
 
@@ -155,8 +161,8 @@
         }
 
         .nav-item:hover {
-            background: rgba(52, 152, 219, 0.1);
-            border-left-color: var(--secondary);
+            background: rgba(142, 68, 173, 0.2);
+            border-left-color: var(--accent);
             padding-left: 25px;
         }
 
@@ -166,7 +172,6 @@
             text-align: center;
         }
 
-        /* Botón toggle del menú */
         .menu-toggle {
             position: fixed;
             top: 20px;
@@ -196,7 +201,6 @@
             background: var(--accent);
         }
 
-        /* Indicador de progreso de lectura */
         .reading-progress {
             position: fixed;
             top: 0;
@@ -214,14 +218,13 @@
             transition: width 0.1s ease;
         }
 
-        /* Overlay para cerrar el menú */
         .sidebar-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 998;
             opacity: 0;
             visibility: hidden;
@@ -233,7 +236,6 @@
             visibility: visible;
         }
 
-        /* Contenedor principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -243,7 +245,7 @@
 
         .header {
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 15px;
             margin-bottom: 30px;
@@ -254,7 +256,7 @@
             justify-content: center;
             margin-bottom: 20px;
             color: var(--gray);
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .breadcrumb a {
@@ -273,28 +275,28 @@
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 15px;
             color: white;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--secondary);
             margin-bottom: 20px;
         }
 
         .instructions {
-            background: rgba(155, 89, 182, 0.15); /* Morado Unidad 2 */
-            border: 1px solid rgba(155, 89, 182, 0.3);
+            background: var(--card-bg);
+            border: 1px solid rgba(142, 68, 173, 0.3);
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 30px;
-            border-left: 4px solid var(--monster-color);
+            border-left: 4px solid var(--secondary);
         }
 
         .instructions h3 {
-            color: var(--monster-color);
+            color: var(--accent);
             margin-bottom: 15px;
             font-size: 1.3rem;
         }
@@ -308,14 +310,13 @@
             margin-bottom: 8px;
         }
 
-        /* Battle Arena */
         .battle-arena {
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--card-bg);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(155, 89, 182, 0.2);
+            border: 1px solid rgba(142, 68, 173, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -327,8 +328,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 50% 50%, rgba(155, 89, 182, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(142, 68, 173, 0.1) 0%, transparent 70%);
             z-index: -1;
             animation: arenaGlow 4s ease-in-out infinite;
         }
@@ -342,9 +342,9 @@
             text-align: center;
             margin-bottom: 30px;
             padding: 25px;
-            background: rgba(155, 89, 182, 0.15);
+            background: rgba(75, 0, 130, 0.2);
             border-radius: 15px;
-            border: 2px solid rgba(155, 89, 182, 0.4);
+            border: 2px solid rgba(142, 68, 173, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -356,7 +356,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(155, 89, 182, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(142, 68, 173, 0.15) 0%, transparent 70%);
             animation: monsterAura 3s linear infinite;
             z-index: -1;
         }
@@ -387,16 +387,16 @@
         .health-bar-container {
             width: 300px;
             height: 20px;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 10px;
             margin: 0 auto 15px;
             overflow: hidden;
-            border: 2px solid rgba(155, 89, 182, 0.5);
+            border: 2px solid rgba(142, 68, 173, 0.5);
         }
 
         .health-bar {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent), var(--monster-color));
+            background: linear-gradient(90deg, var(--warning), var(--accent));
             transition: width 0.5s ease;
             border-radius: 8px;
         }
@@ -416,17 +416,17 @@
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             padding: 15px 20px;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .stat-value {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--secondary);
+            color: var(--accent);
         }
 
         .stat-label {
@@ -450,42 +450,41 @@
         }
 
         .error-dot.filled {
-            background: var(--accent);
-            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+            background: var(--quiz-incorrect);
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.6);
         }
 
-        /* Questions */
         .questions-section {
             margin-top: 30px;
         }
 
         .questions-section h3 {
-            color: var(--warning);
+            color: var(--accent);
             margin-bottom: 20px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             text-align: center;
-            border-bottom: 2px solid var(--warning);
+            border-bottom: 2px solid var(--secondary);
             padding-bottom: 10px;
         }
 
         .question {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             padding: 25px;
             margin-bottom: 25px;
-            border-left: 4px solid var(--warning);
+            border-left: 4px solid var(--secondary);
             transition: all 0.3s ease;
         }
 
         .question:hover {
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.08);
             transform: translateX(5px);
         }
 
         .question-number {
             font-size: 1.2rem;
             font-weight: bold;
-            color: var(--warning);
+            color: var(--accent);
             margin-bottom: 15px;
         }
 
@@ -493,6 +492,7 @@
             font-size: 1.1rem;
             margin-bottom: 20px;
             line-height: 1.5;
+            text-align: justify;
         }
 
         .options {
@@ -501,7 +501,7 @@
         }
 
         .option {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             padding: 15px;
@@ -513,28 +513,28 @@
         }
 
         .option:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(142, 68, 173, 0.2);
             border-color: var(--secondary);
             transform: translateX(3px);
         }
 
         .option.selected {
-            background: rgba(52, 152, 219, 0.2);
-            border-color: var(--secondary);
-            box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+            background: rgba(142, 68, 173, 0.3);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(142, 68, 173, 0.4);
         }
 
         .option.correct {
-            background: rgba(46, 204, 113, 0.2);
-            border-color: var(--success);
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+            background: rgba(46, 204, 113, 0.15);
+            border-color: var(--quiz-correct);
+            box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
             animation: correctPulse 0.6s ease;
         }
 
         .option.incorrect {
-            background: rgba(231, 76, 60, 0.2);
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+            background: rgba(231, 76, 60, 0.15);
+            border-color: var(--quiz-incorrect);
+            box-shadow: 0 0 15px rgba(231, 76, 60, 0.3);
             animation: incorrectShake 0.6s ease;
         }
 
@@ -553,24 +553,18 @@
         .option-letter {
             font-weight: bold;
             font-size: 1.1rem;
-            color: var(--secondary);
+            color: var(--accent);
             min-width: 25px;
         }
 
-        .option.correct .option-letter {
-            color: var(--success);
-        }
-
-        .option.incorrect .option-letter {
-            color: var(--accent);
-        }
+        .option.correct .option-letter { color: var(--quiz-correct); }
+        .option.incorrect .option-letter { color: var(--quiz-incorrect); }
 
         .option-text {
             flex: 1;
             font-size: 1rem;
         }
 
-        /* Controls */
         .battle-controls {
             display: flex;
             flex-wrap: wrap;
@@ -598,49 +592,48 @@
         }
 
         .btn-attack {
-            background: var(--accent);
+            background: var(--warning);
             color: white;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 4px 15px rgba(125, 60, 255, 0.3);
             font-size: 1.2rem;
             padding: 18px 35px;
         }
 
         .btn-attack:hover {
-            background: #c0392b;
+            background: var(--success);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
         }
 
         .btn-attack:disabled {
-            background: var(--gray);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--gray);
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
 
         .btn-secondary {
-            background: var(--gray);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-secondary:hover {
-            background: #7f8c8d;
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
         }
 
-        .btn-success {
-            background: var(--success);
+        .btn-nav {
+            background: var(--secondary);
             color: white;
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
         }
 
-        .btn-success:hover {
-            background: #27ae60;
+        .btn-nav:hover {
+            background: var(--primary);
             transform: translateY(-3px);
         }
 
-        /* Game Status */
         .game-status {
             text-align: center;
             padding: 20px;
@@ -653,23 +646,22 @@
 
         .game-status.victory {
             background: rgba(46, 204, 113, 0.2);
-            border: 2px solid var(--success);
-            color: var(--success);
+            border: 2px solid var(--quiz-correct);
+            color: var(--quiz-correct);
         }
 
         .game-status.defeat {
             background: rgba(231, 76, 60, 0.2);
+            border: 2px solid var(--quiz-incorrect);
+            color: var(--quiz-incorrect);
+        }
+
+        .game-status.continue {
+            background: rgba(216, 180, 254, 0.2);
             border: 2px solid var(--accent);
             color: var(--accent);
         }
 
-        .game-status.continue {
-            background: rgba(243, 156, 18, 0.2);
-            border: 2px solid var(--warning);
-            color: var(--warning);
-        }
-
-        /* Navigation */
         .navigation {
             display: flex;
             justify-content: space-between;
@@ -684,7 +676,6 @@
             flex: 1;
         }
 
-        /* Progress bar for questions */
         .progress-bar {
             width: 100%;
             height: 8px;
@@ -696,17 +687,16 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--success));
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
             transition: width 0.3s ease;
             width: 0%;
         }
 
-        /* Botón de ir arriba */
         .scroll-to-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: var(--accent);
+            background: var(--secondary);
             color: white;
             width: 50px;
             height: 50px;
@@ -716,7 +706,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
             transition: all 0.3s ease;
             opacity: 0;
             visibility: hidden;
@@ -729,67 +719,30 @@
         }
 
         .scroll-to-top:hover {
-            background: #c0392b;
+            background: var(--primary);
             transform: translateY(-3px);
         }
 
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         @media (max-width: 768px) {
-            .sidebar-nav {
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .battle-controls {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .player-stats {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .navigation {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-center {
-                order: 2;
-            }
-
-            .navigation .btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .question {
-                padding: 20px;
-            }
-
-            .floating-home-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .container {
-                margin-left: 20px;
-                margin-right: 20px;
-                padding: 10px;
-            }
-
-            .health-bar-container {
-                width: 250px;
-            }
-
-            .monster-avatar {
-                font-size: 4rem;
-            }
+            .sidebar-nav { width: 100%; }
+            h1 { font-size: 2rem; }
+            .battle-controls, .player-stats, .navigation { flex-direction: column; gap: 15px; }
+            .nav-center { order: 2; }
+            .navigation .btn { width: 100%; text-align: center; justify-content: center; }
+            .question { padding: 20px; }
+            .floating-home-btn { width: 50px; height: 50px; font-size: 1.2rem; }
+            .container { margin-left: 20px; margin-right: 20px; padding: 10px; }
+            .health-bar-container { width: 250px; }
+            .monster-avatar { font-size: 4rem; }
         }
     </style>
 </head>
@@ -802,7 +755,7 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <a href="index.html" class="floating-home-btn" title="Ir al índice de Unidad 2">
+    <a href="index.html" class="floating-home-btn" title="Ir al inicio">
         <i class="fas fa-home"></i>
     </a>
 
@@ -810,32 +763,25 @@
 
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
-            <div class="sidebar-title">Modelo Multihilo</div>
-            <div class="sidebar-subtitle">Unidad 2: Administración de procesos</div>
+            <div class="sidebar-title">2.2 Planteamiento del diseño de la investigación</div>
+            <div class="sidebar-subtitle">Actividad de Aprendizaje</div>
         </div>
         
         <div class="nav-sections">
             <div class="nav-section">
                 <div class="nav-section-title">Navegación</div>
                 <a href="index.html" class="nav-item">
-                    <i class="fas fa-home"></i>
-                    Menú Unidad 2
+                    <i class="fas fa-home"></i> Menú principal
                 </a>
                 <a href="2.2.html" class="nav-item">
-                    <i class="fas fa-book-open"></i>
-                    Volver al material
+                    <i class="fas fa-book-open"></i> Volver al material (2.2)
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Otras Secciones</div>
-                <a href="2.1.html" class="nav-item">
-                    <i class="fas fa-arrow-left"></i>
-                    2.1 Modelo de procesos
-                </a>
                 <a href="2.3.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i>
-                    2.3 Comunicación IPC
+                    <i class="fas fa-arrow-right"></i> Siguiente: Investigación documental
                 </a>
             </div>
         </div>
@@ -848,31 +794,33 @@
     <div class="container">
         <div class="header">
             <div class="breadcrumb">
-                <a href="index.html"><i class="fas fa-home"></i> Unidad 2</a>
+                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/Unidades.html"><i class="fas fa-home"></i> Inicio</a>
                 <span>/</span>
-                <a href="2.2.html">2.2 Modelo multihilo</a>
+                <a href="index.html">Unidad 2</a>                
                 <span>/</span>
-                <span>Desafío Multihilo</span>
+                <a href="2.2.html">2.2 Planteamiento del diseño de la investigación</a>
+                <span>/</span>
+                <span>Batalla del Diseño</span>
             </div>
-            <h1>⚡ Desafío Multihilo</h1>
-            <div class="subtitle">¡Demuestra tu maestría en la concurrencia y vence al Espectro de los Hilos!</div>
+            <h1>⚡ Batalla del Diseño</h1>
+            <div class="subtitle">¡Supera al Guardián del Diseño demostrando tu conocimiento sobre variables, muestreo y planes estadísticos!</div>
         </div>
 
         <div class="instructions">
-            <h3><i class="fas fa-gamepad"></i> Instrucciones de Batalla</h3>
+            <h3><i class="fas fa-pencil-ruler"></i> Instrucciones de Batalla</h3>
             <ul>
-                <li><strong>Misión:</strong> Derrota al Espectro respondiendo preguntas sobre POSIX, hilos de usuario/kernel y modelos de hilos.</li>
-                <li><strong>Mecánica:</strong> Responde correctamente para atacar. Los errores reducen tu salud.</li>
-                <li><strong>Victoria:</strong> Reduce la vida del espectro a 0 HP respondiendo 8 preguntas.</li>
-                <li><strong>Derrota:</strong> Cometes más de 3 errores antes de ganar.</li>
-                <li><strong>Estrategia:</strong> Recuerda las diferencias entre procesos e hilos y los modelos Many-to-One, One-to-One.</li>
+                <li><strong>Misión:</strong> Derrota al Guardián del Diseño respondiendo correctamente las preguntas sobre diseño de investigación.</li>
+                <li><strong>Mecánica:</strong> Cada respuesta correcta inflige 1 punto de daño. Cada respuesta incorrecta cuenta como un error.</li>
+                <li><strong>Victoria:</strong> Reduce la vida del guardián a 0 HP respondiendo todas las preguntas correctamente.</li>
+                <li><strong>Derrota:</strong> Cometes más de 3 errores antes de derrotar al guardián.</li>
+                <li><strong>Estrategia:</strong> Recuerda los tipos de muestreo (probabilístico y no probabilístico) y el concepto de operacionalización de variables.</li>
             </ul>
         </div>
 
         <div class="battle-arena">
             <div class="monster-section">
-                <div class="monster-avatar" id="monsterAvatar">👻</div>
-                <div class="monster-name">Espectro de los Hilos</div>
+                <div class="monster-avatar" id="monsterAvatar">📐</div>
+                <div class="monster-name">Guardián del Diseño</div>
                 <div class="health-bar-container">
                     <div class="health-bar" id="healthBar" style="width: 100%;"></div>
                 </div>
@@ -886,7 +834,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="attemptsValue">0</div>
-                    <div class="stat-label"><i class="fas fa-sword"></i> Ataques</div>
+                    <div class="stat-label"><i class="fas fa-flask"></i> Intentos</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="errorsValue">0 / 3</div>
@@ -900,7 +848,7 @@
             </div>
 
             <div class="questions-section">
-                <h3><i class="fas fa-scroll"></i> Pruebas de Concurrencia</h3>
+                <h3><i class="fas fa-clipboard-check"></i> Desafíos del Diseño</h3>
                 <div id="questionsContainer"></div>
             </div>
 
@@ -910,7 +858,7 @@
 
             <div class="battle-controls">
                 <button class="btn btn-attack" onclick="attack()" id="attackBtn">
-                    <i class="fas fa-bolt"></i> ¡ATACAR!
+                    <i class="fas fa-bolt"></i> ¡COMPROBAR PLAN!
                 </button>
                 <button class="btn btn-secondary" onclick="resetBattle()">
                     <i class="fas fa-redo"></i> Nueva Batalla
@@ -924,24 +872,26 @@
         </div>
 
         <div class="navigation">
-            <a href="2.2.html" class="btn btn-success">
-                <i class="fas fa-arrow-left"></i> Volver al Material
+            <a href="2.2.html" class="btn btn-nav">
+                <i class="fas fa-arrow-left"></i> Volver a 2.2 Diseño
             </a>
             <div class="nav-center">
                 <a href="index.html" class="btn btn-secondary">
-                    <i class="fas fa-home"></i> Menú Unidad 2
+                    <i class="fas fa-home"></i> Menú Principal
                 </a>
             </div>
-            <a href="2.3.html" class="btn btn-success">
-                Siguiente Tema <i class="fas fa-arrow-right"></i>
+            <a href="2.3.html" class="btn btn-nav">
+                Siguiente: 2.3 Investigación documental <i class="fas fa-arrow-right"></i>
             </a>
         </div>
+        
+        <footer>
+            <p>Polilibro académico - Metodología de la Investigación y Estadística I</p>
+            <p>Desarrollado para fines educativos - © 2026</p>
+        </footer>
     </div>
 
     <script>
-  // ========================
-  // VARIABLES DEL JUEGO
-  // ========================
   let time = 0;
   let attempts = 0;
   let errors = 0;
@@ -955,87 +905,30 @@
   let completed = 0;
   let questions = []; 
 
-  // ========================
-  // FUNCIÓN PARA INICIAR EL JUEGO
-  // ========================
   async function initGame() {
     const container = document.getElementById('questionsContainer');
 
     try {
-      // Intenta cargar el JSON externo
-      const response = await fetch('preguntas_2_2.json');
-      
-      if (response.ok) {
-          const allQuestionsRaw = await response.json();
-          processQuestions(allQuestionsRaw, container);
-      } else {
-         // Fallback por si no existe el archivo JSON aún
-         console.warn("No se encontró preguntas_2_2.json, usando preguntas de respaldo.");
-         const fallbackQuestions = [
-            {
-                "question": "¿Cuál es la unidad básica de utilización de la CPU?",
-                "options": ["Proceso", "Hilo", "Programa", "Instrucción"],
-                "answer": "Hilo"
-            },
-            {
-                "question": "¿Qué recurso NO comparten los hilos de un mismo proceso?",
-                "options": ["Archivos abiertos", "Sección de código", "Contador de programa (PC)", "Variables globales"],
-                "answer": "Contador de programa (PC)"
-            },
-            {
-                "question": "¿Qué modelo de multihilo asigna múltiples hilos de usuario a un solo hilo del kernel?",
-                "options": ["Uno a Uno", "Muchos a Uno", "Muchos a Muchos", "Uno a Muchos"],
-                "answer": "Muchos a Uno"
-            },
-            {
-                "question": "¿Qué estándar de hilos es común en sistemas UNIX/Linux?",
-                "options": ["Win32 Threads", "Green Threads", "POSIX Pthreads", "Java Threads"],
-                "answer": "POSIX Pthreads"
-            },
-            {
-                "question": "¿Qué ventaja principal ofrece el modelo Uno a Uno?",
-                "options": ["Mayor eficiencia en memoria", "Mayor concurrencia y uso de multiprocesadores", "Gestión exclusiva en espacio de usuario", "Menor sobrecarga del kernel"],
-                "answer": "Mayor concurrencia y uso de multiprocesadores"
-            },
-            {
-                "question": "¿Dónde se gestionan los hilos a nivel de usuario?",
-                "options": ["En el núcleo del SO", "En una biblioteca en espacio de usuario", "En el hardware", "En la BIOS"],
-                "answer": "En una biblioteca en espacio de usuario"
-            },
-            {
-                "question": "¿Qué sucede si un hilo a nivel de usuario realiza una llamada al sistema bloqueante en un modelo Muchos a Uno?",
-                "options": ["Solo ese hilo se bloquea", "Todo el proceso se bloquea", "El kernel crea un nuevo hilo", "El hilo se elimina"],
-                "answer": "Todo el proceso se bloquea"
-            },
-            {
-                "question": "¿Qué característica define a los hilos en modo kernel?",
-                "options": ["Son invisibles para el SO", "El SO los gestiona directamente", "Son más rápidos de crear que los de usuario", "No permiten paralelismo"],
-                "answer": "El SO los gestiona directamente"
-            }
-         ];
-         processQuestions(fallbackQuestions, container);
+      // Archivo JSON para las preguntas de la unidad 2.2
+      const response = await fetch('preguntas_2.2.json');
+      if (!response.ok) {
+        throw new Error(`No se pudo cargar preguntas_2.2.json (HTTP ${response.status})`);
       }
+      const allQuestionsRaw = await response.json();
 
-    } catch (err) {
-      console.error(err);
-      container.innerHTML = `
-        <div class="question">
-          ⚠️ <strong>Error al iniciar:</strong><br>${err.message}
-        </div>`;
-    }
-  }
-
-  function processQuestions(allQuestionsRaw, container) {
       if (!Array.isArray(allQuestionsRaw) || allQuestionsRaw.length === 0) {
         throw new Error('El JSON no contiene un arreglo de preguntas.');
       }
 
-      // Mezclar y seleccionar 8 preguntas aleatorias
       shuffleArray(allQuestionsRaw);
       questions = allQuestionsRaw.slice(0, 8).map((q, idx) => {
-        const questionText = q.question;
-        const optionsOrig = q.options;
-        const answerOrig  = q.answer;
+        const questionText = q.pregunta ?? q.question;
+        const optionsOrig = q.opciones ?? q.options;
+        const answerOrig  = q.respuesta_correcta ?? q.answer;
+
+        if (!questionText || !Array.isArray(optionsOrig) || !answerOrig) {
+          throw new Error(`Pregunta ${idx + 1} con formato inválido (faltan campos).`);
+        }
 
         const optionsShuffled = shuffleArray([...optionsOrig]);
         let correctIndex = optionsShuffled.indexOf(answerOrig);
@@ -1046,6 +939,12 @@
           correctIndex = optionsShuffled.findIndex(o => norm(o) === normAnswer);
         }
 
+        if (correctIndex === -1) {
+          throw new Error(
+            `La respuesta no coincide con ninguna opción en la pregunta: "${questionText.substring(0, 50)}..."`
+          );
+        }
+
         return {
           question: questionText,
           options: optionsShuffled,
@@ -1053,13 +952,16 @@
         };
       });
 
-      // Renderizar
+      // Actualizar vida máxima del monstruo (por si hay menos de 8 preguntas)
+      monsterHP = questions.length;
+      document.getElementById('healthText').textContent = `${monsterHP} / ${monsterHP} HP`;
+
       container.innerHTML = '';
       questions.forEach((q, index) => {
         const questionDiv = document.createElement('div');
         questionDiv.className = 'question';
         questionDiv.innerHTML = `
-          <div class="question-number">Prueba ${index + 1}</div>
+          <div class="question-number">Desafío ${index + 1}</div>
           <div class="question-text">${q.question}</div>
           <div class="options">
             ${q.options.map((option, optIndex) => `
@@ -1073,12 +975,21 @@
         container.appendChild(questionDiv);
       });
 
-      resetBattleState();
+      time = attempts = errors = completed = 0;
+      selectedAnswers = {};
+      updateUI();
+      clearInterval(timerInterval);
+      startTimer();
+
+    } catch (err) {
+      console.error(err);
+      container.innerHTML = `
+        <div class="question">
+          ⚠️ <strong>Error al cargar preguntas:</strong><br>${err.message}
+        </div>`;
+    }
   }
 
-  // ========================
-  // UTILIDADES Y LÓGICA DE JUEGO
-  // ========================
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -1102,16 +1013,17 @@
 
   function updateMonsterAvatar() {
     const avatar = document.getElementById('monsterAvatar');
-    const healthPercentage = (monsterHP / maxHP) * 100;
-    if (healthPercentage > 70) avatar.textContent = '👻';
-    else if (healthPercentage > 40) avatar.textContent = '💀';
-    else if (healthPercentage > 0) avatar.textContent = '☠️';
-    else avatar.textContent = '💨';
+    const healthPercentage = (monsterHP / questions.length) * 100;
+    if (healthPercentage > 70) avatar.textContent = '📐';
+    else if (healthPercentage > 40) avatar.textContent = '📏';
+    else if (healthPercentage > 0) avatar.textContent = '📉';
+    else avatar.textContent = '💥';
   }
 
   function updateUI() {
-    document.getElementById('healthBar').style.width = `${(monsterHP / maxHP) * 100}%`;
-    document.getElementById('healthText').textContent = `${monsterHP} / ${maxHP} HP`;
+    const totalHP = questions.length > 0 ? questions.length : maxHP;
+    document.getElementById('healthBar').style.width = `${(monsterHP / totalHP) * 100}%`;
+    document.getElementById('healthText').textContent = `${monsterHP} / ${totalHP} HP`;
     const dots = document.querySelectorAll('.error-dot');
     dots.forEach((dot, i) => {
       dot.classList.toggle('filled', i < errors);
@@ -1122,7 +1034,6 @@
   }
 
   function selectOption(qIndex, oIndex) {
-    if(gameOver) return; 
     for (let i = 0; i < questions[qIndex].options.length; i++) {
       document.getElementById(`q${qIndex}opt${i}`).classList.remove('selected');
     }
@@ -1134,7 +1045,7 @@
   function attack() {
     if (gameOver) return;
     if (completed < questions.length) {
-      return showGameStatus("⚠️ ¡Responde todas las preguntas antes de atacar!", "continue");
+      return showGameStatus("⚠️ ¡Selecciona una opción para todas las preguntas antes de comprobar el plan!", "continue");
     }
     attempts++;
     let correct = 0;
@@ -1152,7 +1063,7 @@
       if (userAns === correctAns) correct++;
     });
 
-    monsterHP = Math.max(0, monsterHP - correct);
+    monsterHP = Math.max(0, questions.length - correct);
     errors = Math.min(maxErrors, questions.length - correct);
     updateUI();
     checkGameEnd();
@@ -1163,44 +1074,39 @@
     if (monsterHP <= 0) {
       gameOver = true;
       clearInterval(timerInterval);
-      showGameStatus(`<i class='fas fa-trophy'></i> ¡VICTORIA! Tiempo: ${time}s`, 'victory');
+      showGameStatus(`<i class='fas fa-trophy'></i> ¡DISEÑO PERFECTO! Tiempo: ${time}s`, 'victory');
       btn.disabled = true;
       document.body.style.animation = 'victoryGlow 2s infinite';
     } else if (errors >= maxErrors) {
       gameOver = true;
       clearInterval(timerInterval);
-      showGameStatus(`<i class='fas fa-skull'></i> ¡DERROTA! Demasiados errores`, 'defeat');
+      showGameStatus(`<i class='fas fa-skull'></i> ¡DISEÑO FALLIDO! Demasiados errores`, 'defeat');
       btn.disabled = true;
       document.body.style.animation = 'defeatPulse 1s infinite';
     }
   }
 
-  function resetBattleState() {
+  function resetBattle() {
     time = attempts = errors = completed = 0;
-    monsterHP = maxHP;
+    monsterHP = questions.length > 0 ? questions.length : maxHP;
     gameOver = false;
     selectedAnswers = {};
     document.getElementById('timerValue').textContent = '0s';
     document.getElementById('attemptsValue').textContent = '0';
     document.getElementById('errorsValue').textContent = '0 / 3';
     document.getElementById('gameStatus').style.display = 'none';
-    const attackBtn = document.getElementById('attackBtn');
-    if(attackBtn) attackBtn.disabled = false;
+    document.getElementById('attackBtn').disabled = false;
     document.getElementById('progressFill').style.width = '0%';
     document.body.style.animation = 'none';
-    updateUI();
-    clearInterval(timerInterval);
-    startTimer();
-  }
-
-  function resetBattle() {
-    resetBattleState();
     questions.forEach((q, i) => {
       q.options.forEach((_, j) => {
         const el = document.getElementById(`q${i}opt${j}`);
         if (el) el.classList.remove('selected', 'correct', 'incorrect');
       });
     });
+    updateUI();
+    clearInterval(timerInterval);
+    startTimer();
   }
 
   function showGameStatus(msg, type) {
@@ -1216,43 +1122,71 @@
     alert(`💡 Respuestas Correctas:\n\n${answers}`);
   }
 
-  // UI lateral y scroll
+  /* Toggle menú lateral */
   const menuToggle = document.getElementById('menuToggle');
   const sidebarNav = document.getElementById('sidebarNav');
   const sidebarOverlay = document.getElementById('sidebarOverlay');
-  
-  menuToggle.addEventListener('click', () => {
-      sidebarNav.classList.add('active');
-      sidebarOverlay.classList.add('active');
-      menuToggle.classList.add('active');
-      menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-      document.body.style.overflow = 'hidden';
-  });
 
-  sidebarOverlay.addEventListener('click', () => {
-      sidebarNav.classList.remove('active');
-      sidebarOverlay.classList.remove('active');
-      menuToggle.classList.remove('active');
-      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-      document.body.style.overflow = 'auto';
-  });
+  function toggleSidebar() {
+      sidebarOpen = !sidebarOpen;
+      if (sidebarOpen) {
+          sidebarNav.classList.add('active');
+          sidebarOverlay.classList.add('active');
+          menuToggle.classList.add('active');
+          menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+      } else {
+          sidebarNav.classList.remove('active');
+          sidebarOverlay.classList.remove('active');
+          menuToggle.classList.remove('active');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+      updateContainerSpacing();
+  }
+
+  menuToggle.addEventListener('click', toggleSidebar);
+  sidebarOverlay.addEventListener('click', toggleSidebar);
+
+  function updateContainerSpacing() {
+    const container = document.querySelector('.container');
+    if (window.innerWidth <= 768) {
+      container.style.marginLeft = '20px';
+      container.style.marginRight = '20px';
+    } else {
+      container.style.marginLeft = sidebarOpen ? '370px' : '90px';
+      container.style.marginRight = '90px';
+    }
+  }
+
+  function updateReadingProgress() {
+    const scroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const percent = Math.min((scroll / height) * 100, 100);
+    document.getElementById('readingProgressBar').style.width = `${percent}%`;
+  }
 
   const scrollToTopBtn = document.getElementById('scrollToTop');
   window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) scrollToTopBtn.classList.add('visible');
-      else scrollToTopBtn.classList.remove('visible');
-      
-      const scroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const percent = Math.min((scroll / height) * 100, 100);
-      document.getElementById('readingProgressBar').style.width = `${percent}%`;
+      updateReadingProgress();
+      if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add('visible');
+      } else {
+          scrollToTopBtn.classList.remove('visible');
+      }
   });
-  
+
   scrollToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  document.addEventListener('DOMContentLoaded', initGame);
+  window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && sidebarOpen) toggleSidebar();
+      updateContainerSpacing();
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+      initGame();
+      updateContainerSpacing();
+  });
 </script>
 
 </body>
