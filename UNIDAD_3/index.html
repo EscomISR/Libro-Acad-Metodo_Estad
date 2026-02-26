@@ -6,7 +6,7 @@
     <title>Unidad 3: Interpretación de los resultados de la investigación</title>
     <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<style>
         :root {
             --primary: #4b0082;
             --secondary: #8e44ad;
@@ -15,6 +15,7 @@
             --dark: #2c3e50;
             --success: #2ecc71;
             --warning: #f39c12;
+            --activities: #d946ef; /* Nuevo color fiusha para actividades */
             --card-bg: rgba(255, 255, 255, 0.08);
             --submenu-bg: rgba(30, 0, 48, 0.4);
         }
@@ -213,14 +214,14 @@
         }
 
         .activity-item:hover {
-            background: rgba(46, 204, 113, 0.15);
-            border-left: 3px solid var(--success);
+            background: rgba(217, 70, 239, 0.15);
+            border-left: 3px solid var(--activities);
         }
 
         .activity-number {
             min-width: 70px;
             font-weight: bold;
-            color: var(--success);
+            color: var(--activities);
         }
 
         .activity-name {
@@ -239,7 +240,7 @@
             margin-left: 10px;
             font-size: 0.9rem;
             opacity: 0.7;
-            color: var(--success);
+            color: var(--activities);
         }
 
         .card-footer {
@@ -268,7 +269,7 @@
             font-weight: 600;
             margin-top: 20px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
             border: none;
             cursor: pointer;
             font-size: 1rem;
@@ -278,17 +279,18 @@
         .btn:hover {
             background: var(--secondary);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 6px 20px rgba(142, 68, 173, 0.6);
         }
 
         .btn-activities {
-            background: var(--success);
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+            background: linear-gradient(135deg, var(--activities), #a21caf);
+            box-shadow: 0 4px 15px rgba(217, 70, 239, 0.4);
+            border: none;
         }
 
         .btn-activities:hover {
-            background: #27ae60;
-            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+            background: linear-gradient(135deg, #e879f9, var(--activities));
+            box-shadow: 0 6px 20px rgba(217, 70, 239, 0.6);
         }
         
         .hardware-icons {
@@ -332,7 +334,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 8px 25px rgba(217, 70, 239, 0.4);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             font-weight: bold;
@@ -343,8 +345,8 @@
 
         .video-oval:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(231, 76, 60, 0.6);
-            background: linear-gradient(135deg, #e74c3c, var(--accent));
+            box-shadow: 0 12px 30px rgba(217, 70, 239, 0.7);
+            background: linear-gradient(135deg, #c026d3, var(--accent));
         }
 
         .video-oval i {
@@ -462,19 +464,19 @@
         }
         
         .activities-card {
-            border-left: 4px solid var(--success);
+            border-left: 4px solid var(--activities);
         }
         
         .activities-card .card-number {
-            color: var(--success);
+            color: var(--activities);
         }
         
         .activities-card .card-header {
-            border-bottom: 1px solid rgba(46, 204, 113, 0.3);
+            border-bottom: 1px solid rgba(217, 70, 239, 0.3);
         }
         
         .activities-card .card-icon {
-            color: var(--success);
+            color: var(--activities);
         }
         
         footer {
