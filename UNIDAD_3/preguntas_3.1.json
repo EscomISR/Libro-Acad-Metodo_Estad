@@ -1,172 +1,182 @@
 [
   {
-    "question": "¿Qué proporciona la abstracción de la memoria según Tanenbaum y Bos (2015)?",
+    "question": "¿Qué es el informe final?",
     "options": [
-      "Un espacio físico fijo para cada proceso",
-      "Una visión lógica independiente de la estructura física del equipo",
-      "Un acceso directo del usuario al hardware",
-      "Una forma de desactivar la memoria virtual"
+      "El documento académico o científico que presenta de manera ordenada los resultados de una investigación concluida",
+      "Un resumen preliminar antes de iniciar la investigación",
+      "Un instrumento para recolectar datos en campo"
     ],
-    "answer": "Una visión lógica independiente de la estructura física del equipo"
+    "answer": "El documento académico o científico que presenta de manera ordenada los resultados de una investigación concluida"
   },
   {
-    "question": "¿Qué técnica permite crear direcciones lógicas que luego se traducen en direcciones físicas?",
+    "question": "¿Qué integra el informe final?",
     "options": [
-      "Compilación estática",
-      "Paginación, segmentación o memoria virtual",
-      "Desfragmentación automática",
-      "Duplicación de memoria física"
+      "Planteamiento del problema, objetivos, metodología, resultados, análisis, conclusiones y recomendaciones",
+      "Únicamente resultados y conclusiones",
+      "Solo tablas y gráficos estadísticos"
     ],
-    "answer": "Paginación, segmentación o memoria virtual"
+    "answer": "Planteamiento del problema, objetivos, metodología, resultados, análisis, conclusiones y recomendaciones"
   },
   {
-    "question": "¿Cuál es una de las ventajas principales de la abstracción de memoria?",
+    "question": "¿Cuál es el propósito del informe final?",
     "options": [
-      "Permite que todos los procesos compartan la misma dirección física",
-      "Evita que un proceso acceda a la memoria de otro",
-      "Reduce el tamaño de la memoria RAM",
-      "Elimina la necesidad de almacenamiento secundario"
+      "Comunicar los hallazgos de forma comprensible, verificable y sustentada",
+      "Reducir la cantidad de datos obtenidos",
+      "Evitar la replicación del estudio"
     ],
-    "answer": "Evita que un proceso acceda a la memoria de otro"
+    "answer": "Comunicar los hallazgos de forma comprensible, verificable y sustentada"
   },
   {
-    "question": "¿Qué característica permite la ejecución de varios programas aprovechando mejor la memoria física?",
+    "question": "¿Qué permite el informe final a otros investigadores?",
     "options": [
-      "Monoprogramación",
-      "Multiprogramación",
-      "Compilación dinámica",
-      "Canales DMA"
+      "Evaluar, reproducir o ampliar el estudio realizado",
+      "Modificar los resultados originales",
+      "Eliminar las conclusiones"
     ],
-    "answer": "Multiprogramación"
+    "answer": "Evaluar, reproducir o ampliar el estudio realizado"
   },
   {
-    "question": "¿Qué combina la memoria virtual?",
+    "question": "¿Qué evidencia el informe final?",
     "options": [
-      "Segmentación fija con registros",
-      "Memoria principal y secundaria",
-      "RAM con instrucciones del procesador",
-      "Inodos con directorios"
+      "El rigor científico del proceso",
+      "La duración del cronograma",
+      "La cantidad de autores consultados"
     ],
-    "answer": "Memoria principal y secundaria"
+    "answer": "El rigor científico del proceso"
   },
   {
-    "question": "¿Cuál es el objetivo de la organización jerárquica de la memoria?",
+    "question": "¿Qué caracteriza la estructura del informe final?",
     "options": [
-      "Aumentar el tamaño de los directorios",
-      "Equilibrar velocidad, capacidad y costo",
-      "Eliminar la necesidad de memoria caché",
-      "Reducir el uso de almacenamiento secundario"
+      "Presenta secciones definidas como introducción, metodología, resultados y conclusiones",
+      "Carece de orden formal",
+      "Se redacta sin divisiones internas"
     ],
-    "answer": "Equilibrar velocidad, capacidad y costo"
+    "answer": "Presenta secciones definidas como introducción, metodología, resultados y conclusiones"
   },
   {
-    "question": "¿Qué tarea cumple la administración del almacenamiento?",
+    "question": "¿Cómo debe ser la redacción del informe final?",
     "options": [
-      "Regular el uso del procesador",
-      "Gestionar la memoria principal y secundaria de forma eficiente",
-      "Abrir archivos automáticamente",
-      "Asignar permisos a usuarios sin intervención del kernel"
+      "Clara, coherente, técnica y objetiva",
+      "Informal y subjetiva",
+      "Ambigua y general"
     ],
-    "answer": "Gestionar la memoria principal y secundaria de forma eficiente"
+    "answer": "Clara, coherente, técnica y objetiva"
   },
   {
-    "question": "¿Qué método de asignación distribuye bloques de manera continua?",
+    "question": "¿Qué evita el informe al mantener objetividad?",
     "options": [
-      "Asignación enlazada",
-      "Asignación indexada",
-      "Asignación contigua",
-      "Asignación aleatoria"
+      "Opiniones personales sin sustento",
+      "El uso de tablas",
+      "La presentación de resultados"
     ],
-    "answer": "Asignación contigua"
+    "answer": "Opiniones personales sin sustento"
   },
   {
-    "question": "¿Qué técnica mejora la tolerancia a fallos mediante almacenamiento redundante?",
+    "question": "¿Qué incluyen los resultados dentro del informe final?",
     "options": [
-      "Swap",
-      "RAID",
-      "Mapas de bits",
-      "Listas ligadas"
+      "Datos recolectados y procesados sin interpretaciones personales",
+      "Opiniones del investigador",
+      "Recomendaciones finales"
     ],
-    "answer": "RAID"
+    "answer": "Datos recolectados y procesados sin interpretaciones personales"
   },
   {
-    "question": "¿En qué consiste el swapping?",
+    "question": "¿Qué permiten identificar los resultados?",
     "options": [
-      "Crear copias de seguridad automáticas",
-      "Desplazar procesos completos a almacenamiento secundario temporalmente",
-      "Eliminar procesos inactivos",
-      "Convertir memoria virtual en física"
+      "Patrones, tendencias, relaciones o diferencias significativas",
+      "Nuevos problemas no estudiados",
+      "Cambios en la muestra"
     ],
-    "answer": "Desplazar procesos completos a almacenamiento secundario temporalmente"
+    "answer": "Patrones, tendencias, relaciones o diferencias significativas"
   },
   {
-    "question": "¿Qué ventaja ofrece el swapping?",
+    "question": "¿Qué representan los resultados dentro del estudio?",
     "options": [
-      "Evita la necesidad de usar memoria secundaria",
-      "Permite ejecutar programas que requieren más memoria que la disponible físicamente",
-      "Elimina la fragmentación interna",
-      "Inhabilita la memoria virtual"
+      "La evidencia científica del estudio",
+      "El marco teórico",
+      "La hipótesis nula"
     ],
-    "answer": "Permite ejecutar programas que requieren más memoria que la disponible físicamente"
+    "answer": "La evidencia científica del estudio"
   },
   {
-    "question": "¿Qué valor representa un bloque libre en el mapa de bits?",
+    "question": "¿Qué es la ejecución de la investigación?",
     "options": [
-      "1",
-      "0",
-      "2",
-      "Ninguno, depende del sistema"
+      "La fase donde se pone en práctica el diseño metodológico",
+      "La elaboración del marco teórico",
+      "La redacción de conclusiones"
     ],
-    "answer": "0"
+    "answer": "La fase donde se pone en práctica el diseño metodológico"
   },
   {
-    "question": "¿Qué valor representa un bloque ocupado en el mapa de bits?",
+    "question": "¿Qué se aplican durante la ejecución?",
     "options": [
-      "0",
-      "1",
-      "2",
-      "8"
+      "Instrumentos de recolección de datos",
+      "Conclusiones finales",
+      "Referencias bibliográficas"
     ],
-    "answer": "1"
+    "answer": "Instrumentos de recolección de datos"
   },
   {
-    "question": "¿Cuál es una desventaja del manejo con mapa de bits en memorias grandes?",
+    "question": "¿Qué garantiza una ejecución adecuada?",
     "options": [
-      "Consume demasiada memoria",
-      "Recorrer el mapa completo puede ser costoso en tiempo",
-      "No permite detectar bloques ocupados",
-      "No permite expandir archivos"
+      "Validez y confiabilidad de la información obtenida",
+      "Reducción del marco teórico",
+      "Eliminación del análisis estadístico"
     ],
-    "answer": "Recorrer el mapa completo puede ser costoso en tiempo"
+    "answer": "Validez y confiabilidad de la información obtenida"
   },
   {
-    "question": "¿Cómo gestiona la memoria el método de listas ligadas?",
+    "question": "¿Qué debe respetarse durante la ejecución?",
     "options": [
-      "Cada bloque libre contiene un puntero al siguiente",
-      "Requiere que todos los bloques sean contiguos",
-      "Solo funciona con asignación indexada",
-      "Almacena todos los punteros dentro de un único inodo"
+      "Principios éticos como confidencialidad y consentimiento informado",
+      "Preferencias personales del investigador",
+      "Opiniones externas"
     ],
-    "answer": "Cada bloque libre contiene un puntero al siguiente"
+    "answer": "Principios éticos como confidencialidad y consentimiento informado"
   },
   {
-    "question": "¿Qué mantiene esta técnica para identificar el primer bloque libre?",
+    "question": "¿Qué es la aplicación de la encuesta y/o instrumentos?",
     "options": [
-      "Un registro en caché",
-      "Un puntero al inicio de la lista",
-      "Una tabla de índices global",
-      "Un mapa de bits fijo"
+      "La etapa donde se implementan herramientas para recolectar información",
+      "La fase de interpretación de resultados",
+      "La elaboración del cronograma"
     ],
-    "answer": "Un puntero al inicio de la lista"
+    "answer": "La etapa donde se implementan herramientas para recolectar información"
   },
   {
-    "question": "¿Cuál es una desventaja de las listas ligadas?",
+    "question": "¿Qué aseguran los procedimientos estandarizados?",
     "options": [
-      "No se pueden usar en discos grandes",
-      "Pueden aumentar el tiempo de acceso al buscar bloques contiguos",
-      "Requieren mucha memoria física",
-      "No permiten liberar espacio"
+      "Uniformidad en la recolección de datos",
+      "Mayor cantidad de hipótesis",
+      "Reducción del análisis"
     ],
-    "answer": "Pueden aumentar el tiempo de acceso al buscar bloques contiguos"
+    "answer": "Uniformidad en la recolección de datos"
+  },
+  {
+    "question": "¿Qué garantizan una correcta aplicación de instrumentos?",
+    "options": [
+      "Datos precisos, confiables y pertinentes",
+      "Resultados subjetivos",
+      "Mayor número de participantes"
+    ],
+    "answer": "Datos precisos, confiables y pertinentes"
+  },
+  {
+    "question": "¿Qué fortalecen los resultados bien presentados?",
+    "options": [
+      "La credibilidad del trabajo",
+      "La reducción de datos",
+      "La eliminación de variables"
+    ],
+    "answer": "La credibilidad del trabajo"
+  },
+  {
+    "question": "¿Qué permiten integrar las herramientas digitales en el informe?",
+    "options": [
+      "Texto, tablas, gráficos y referencias de manera estandarizada",
+      "Únicamente imágenes decorativas",
+      "Opiniones del investigador"
+    ],
+    "answer": "Texto, tablas, gráficos y referencias de manera estandarizada"
   }
 ]
