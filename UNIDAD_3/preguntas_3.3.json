@@ -9,6 +9,33 @@
     "answer": "La rama de la estadística encargada de organizar, resumir y presentar datos"
   },
   {
+    "question": "¿Cuál es uno de los objetivos principales de la estadística descriptiva?",
+    "options": [
+      "Resumir grandes volúmenes de datos",
+      "Comprobar hipótesis experimentales",
+      "Determinar relaciones causales"
+    ],
+    "answer": "Resumir grandes volúmenes de datos"
+  },
+  {
+    "question": "¿Qué facilita la organización de datos en estadística descriptiva?",
+    "options": [
+      "Su interpretación clara y estructurada",
+      "La eliminación de variables",
+      "La modificación de resultados"
+    ],
+    "answer": "Su interpretación clara y estructurada"
+  },
+  {
+    "question": "¿Qué tipo de datos organiza la estadística descriptiva?",
+    "options": [
+      "Datos obtenidos de una población o muestra",
+      "Hipótesis teóricas",
+      "Conclusiones finales"
+    ],
+    "answer": "Datos obtenidos de una población o muestra"
+  },
+  {
     "question": "¿Qué permite identificar la estadística descriptiva?",
     "options": [
       "Patrones, tendencias y comportamientos",
@@ -27,6 +54,33 @@
     "answer": "Valores representativos del conjunto de datos"
   },
   {
+    "question": "¿Qué representa la media?",
+    "options": [
+      "El promedio aritmético de los datos",
+      "El valor más frecuente",
+      "La diferencia entre valores extremos"
+    ],
+    "answer": "El promedio aritmético de los datos"
+  },
+  {
+    "question": "¿Qué representa la mediana?",
+    "options": [
+      "El valor central de un conjunto de datos ordenados",
+      "El promedio general",
+      "La suma total de los datos"
+    ],
+    "answer": "El valor central de un conjunto de datos ordenados"
+  },
+  {
+    "question": "¿Qué representa la moda?",
+    "options": [
+      "El valor que más se repite",
+      "El valor promedio",
+      "El valor mínimo"
+    ],
+    "answer": "El valor que más se repite"
+  },
+  {
     "question": "¿Qué permiten conocer la varianza y desviación estándar?",
     "options": [
       "El grado de variabilidad de los datos",
@@ -36,6 +90,114 @@
     "answer": "El grado de variabilidad de los datos"
   },
   {
+    "question": "¿Qué mide la varianza?",
+    "options": [
+      "La dispersión de los datos respecto a la media",
+      "El valor central",
+      "La frecuencia absoluta"
+    ],
+    "answer": "La dispersión de los datos respecto a la media"
+  },
+  {
+    "question": "¿Qué indica una desviación estándar alta?",
+    "options": [
+      "Mayor dispersión de los datos",
+      "Menor número de datos",
+      "Mayor exactitud"
+    ],
+    "answer": "Mayor dispersión de los datos"
+  },
+  {
+    "question": "¿Qué permiten identificar las medidas de tendencia central?",
+    "options": [
+      "El comportamiento general de los datos",
+      "Relaciones causales",
+      "Errores de medición"
+    ],
+    "answer": "El comportamiento general de los datos"
+  },
+  {
+    "question": "¿Qué permiten identificar las medidas de dispersión?",
+    "options": [
+      "Qué tan alejados están los datos de la media",
+      "El valor más frecuente",
+      "El tamaño de la muestra"
+    ],
+    "answer": "Qué tan alejados están los datos de la media"
+  },
+  {
+    "question": "¿Qué es la frecuencia absoluta?",
+    "options": [
+      "El número de veces que se repite un valor",
+      "El porcentaje total",
+      "El promedio general"
+    ],
+    "answer": "El número de veces que se repite un valor"
+  },
+  {
+    "question": "¿Qué es la frecuencia relativa?",
+    "options": [
+      "La proporción de veces que aparece un valor respecto al total",
+      "El valor central",
+      "La desviación estándar"
+    ],
+    "answer": "La proporción de veces que aparece un valor respecto al total"
+  },
+  {
+    "question": "¿Qué permiten las tablas en estadística descriptiva?",
+    "options": [
+      "Organizar datos en filas y columnas",
+      "Formular hipótesis",
+      "Eliminar datos atípicos"
+    ],
+    "answer": "Organizar datos en filas y columnas"
+  },
+  {
+    "question": "¿Qué permiten los gráficos?",
+    "options": [
+      "Visualizar datos de forma clara",
+      "Comprobar hipótesis nulas",
+      "Reducir el tamaño de muestra"
+    ],
+    "answer": "Visualizar datos de forma clara"
+  },
+  {
+    "question": "¿Qué muestran los gráficos de barras?",
+    "options": [
+      "Comparaciones entre categorías",
+      "Distribuciones normales exclusivamente",
+      "Errores estándar"
+    ],
+    "answer": "Comparaciones entre categorías"
+  },
+  {
+    "question": "¿Qué representa un histograma?",
+    "options": [
+      "La distribución de frecuencias de una variable",
+      "Una relación causal",
+      "Una hipótesis alterna"
+    ],
+    "answer": "La distribución de frecuencias de una variable"
+  },
+  {
+    "question": "¿Qué muestran los gráficos circulares?",
+    "options": [
+      "Proporciones o porcentajes",
+      "Desviaciones estándar",
+      "Pruebas inferenciales"
+    ],
+    "answer": "Proporciones o porcentajes"
+  },
+  {
+    "question": "¿Qué permiten observar los gráficos de líneas?",
+    "options": [
+      "Cambios a lo largo del tiempo",
+      "Valores aislados",
+      "Errores sistemáticos"
+    ],
+    "answer": "Cambios a lo largo del tiempo"
+  },
+  {
     "question": "¿Qué muestran las tasas?",
     "options": [
       "La ocurrencia de un evento considerando población y tiempo",
@@ -43,5 +205,23 @@
       "La hipótesis alterna"
     ],
     "answer": "La ocurrencia de un evento considerando población y tiempo"
+  },
+  {
+    "question": "¿Qué utilidad tiene la estadística descriptiva en ciencias de la salud?",
+    "options": [
+      "Analizar y presentar datos clínicos y epidemiológicos",
+      "Sustituir la investigación experimental",
+      "Eliminar variables externas"
+    ],
+    "answer": "Analizar y presentar datos clínicos y epidemiológicos"
+  },
+  {
+    "question": "¿Qué permite la estadística descriptiva antes de aplicar métodos inferenciales?",
+    "options": [
+      "Comprender y organizar los datos",
+      "Confirmar hipótesis nulas",
+      "Determinar causalidad"
+    ],
+    "answer": "Comprender y organizar los datos"
   }
 ]
