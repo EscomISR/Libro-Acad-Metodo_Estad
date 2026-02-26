@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gray: #95a5a6;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --primary: #4b0082;
+            --secondary: #8e44ad;
+            --accent: #d8b4fe;
+            --light: #f5f3ff;
+            --dark: #1e0030;
+            --gray: #d8b4fe;
+            --success: #a855f7;
+            --warning: #7d3cff;
+            --card-bg: rgba(255, 255, 255, 0.08);
         }
         
         * {
@@ -27,7 +27,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            background: linear-gradient(135deg, #1e0030, #3d0066);
             color: var(--light);
             min-height: 100vh;
             line-height: 1.7;
@@ -53,7 +53,7 @@
         }
 
         .floating-home-btn:hover {
-            background: #2980b9;
+            background: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
         }
@@ -64,9 +64,9 @@
             top: 0;
             width: 280px;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(30, 0, 48, 0.95);
+            border-right: 1px solid var(--border-color);
             backdrop-filter: blur(10px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 999;
             transition: transform 0.3s ease;
             transform: translateX(-100%);
@@ -122,8 +122,8 @@
         }
 
         .nav-item:hover {
-            background: rgba(52, 152, 219, 0.1);
-            border-left-color: var(--secondary);
+            background: rgba(142, 68, 173, 0.2);
+            border-left-color: var(--accent);
             padding-left: 25px;
         }
 
@@ -363,7 +363,7 @@
         }
         
         .table-container {
-            max-width: 800px;
+            max-width: 100%;
             margin: 30px auto;
             overflow-x: auto;
             border-radius: 10px;
@@ -401,7 +401,7 @@
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
         }
-
+        
         .figure-container {
             margin: 30px 0;
             padding: 20px;
@@ -431,31 +431,46 @@
             border-radius: 8px;
         }
         
-        .figure-placeholder {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            margin: 15px 0;
-            color: var(--gray);
-            font-style: italic;
-            flex-direction: column;
-        }
-        
-        .figure-placeholder i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-        
         .figure-caption {
             color: var(--gray);
             margin-top: 10px;
         }
         
+        /* Estilos para la tarjeta de actividad */
+        .activity-card {
+            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 4px solid var(--success); /* Borde izquierdo verde */
+            text-align: center;
+        }
+        
+        .activity-title {
+            font-size: 1.8rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+        
+        .activity-btn {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .activity-btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--secondary);
+        }
+
         .nav-buttons {
             display: flex;
             justify-content: space-between;
@@ -475,7 +490,7 @@
         }
         
         .nav-btn:hover {
-            background: #2980b9;
+            background: var(--primary);
             transform: translateY(-3px);
         }
         
@@ -521,40 +536,6 @@
         .scroll-to-top:hover {
             background: #c0392b;
             transform: translateY(-3px);
-        }
-
-        .activity-card {
-            background: rgba(46, 204, 113, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 4px solid var(--success);
-            text-align: center;
-        }
-
-        .activity-title {
-            font-size: 1.8rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-
-        .activity-btn {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-
-        .activity-btn:hover {
-            background: #27ae60;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
         }
         
         @media (max-width: 768px) {
