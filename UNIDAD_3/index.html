@@ -259,9 +259,10 @@
             pointer-events: none;
         }
 
+        /* --- BOTONES GENERALES ACTUALIZADOS --- */
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            background: rgba(255, 255, 255, 0.1);
             color: white;
             padding: 12px 25px;
             border-radius: 30px;
@@ -269,28 +270,26 @@
             font-weight: 600;
             margin-top: 20px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
             font-size: 1rem;
             font-family: inherit;
         }
 
         .btn:hover {
-            background: var(--secondary);
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(142, 68, 173, 0.6);
+            border-color: var(--secondary);
         }
 
         .btn-activities {
-            background: linear-gradient(135deg, var(--activities), #a21caf);
-            box-shadow: 0 4px 15px rgba(217, 70, 239, 0.4);
-            border: none;
+            background: rgba(142, 68, 173, 0.2);
+            border: 1px solid rgba(217, 70, 239, 0.4);
         }
 
         .btn-activities:hover {
-            background: linear-gradient(135deg, #e879f9, var(--activities));
-            box-shadow: 0 6px 20px rgba(217, 70, 239, 0.6);
+            background: rgba(142, 68, 173, 0.4);
+            border-color: var(--activities);
         }
         
         .hardware-icons {
@@ -323,9 +322,9 @@
             cursor: pointer;
         }
 
-        /* Estilos para el óvalo del video */
+        /* --- BOTÓN DE INTRODUCCIÓN (ÓVALO DEL VIDEO) ACTUALIZADO --- */
         .video-oval {
-            background: linear-gradient(135deg, #9333ea, #581c87);
+            background: rgba(142, 68, 173, 0.15);
             width: auto;
             min-width: 160px;
             padding: 0 25px;
@@ -334,19 +333,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 25px rgba(217, 70, 239, 0.4);
+            border: 1px solid rgba(216, 180, 254, 0.3);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             font-weight: bold;
             font-size: 1.1rem;
             color: white;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         .video-oval:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(217, 70, 239, 0.7);
-            background: linear-gradient(135deg, #c026d3, var(--accent));
+            transform: translateY(-5px) scale(1.03);
+            background: rgba(142, 68, 173, 0.3);
+            border-color: var(--accent);
+            box-shadow: 0 8px 25px rgba(142, 68, 173, 0.2);
         }
 
         .video-oval i {
@@ -523,7 +522,7 @@
             }
         }
 
-        /* --- ESTILOS BOTÓN VOLVER --- */
+        /* --- ESTILOS BOTÓN VOLVER ACTUALIZADO --- */
         .back-to-menu-btn {
             position: fixed;
             bottom: 25px;
@@ -533,19 +532,21 @@
             justify-content: center;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #8e44ad, #4b0082);
+            background: rgba(30, 0, 48, 0.85);
             color: white;
             border-radius: 50%;
             text-decoration: none;
             font-size: 1.5rem;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
             z-index: 1000;
             transition: all 0.3s ease;
         }
 
         .back-to-menu-btn:hover {
-            transform: scale(1.1) rotate(15deg);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(1.08);
+            background: rgba(75, 0, 130, 0.9);
+            border-color: rgba(255, 255, 255, 0.4);
         }
     </style>
 </head>
@@ -563,16 +564,10 @@
             </div>
 
             <div class="hardware-icons">
-                <div class="hardware-icon">🧠</div>
-                <div class="hardware-icon">💾</div>
-                <div class="hardware-icon">📊</div>
                 <div class="video-oval" onclick="openVideoModal()">
                     <i class="fas fa-play"></i>
                     Introducción
                 </div>
-                <div class="hardware-icon">🔄</div>
-                <div class="hardware-icon">📑</div>
-                <div class="hardware-icon">⚡</div>
             </div>
         </header>
 
