@@ -110,6 +110,14 @@
             color: var(--secondary);
         }
 
+        .subsection-title {
+            color: var(--accent);
+            margin: 30px 0 20px;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 15px;
+        }
+
         .references-container {
             display: grid;
             gap: 25px;
@@ -269,7 +277,7 @@
             <h2 style="color: var(--secondary); margin-bottom: 20px;">Resumen de Recursos</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">6</span>
+                    <span class="stat-number">8</span>
                     <div class="stat-label">Fuentes Bibliográficas</div>
                 </div>
                 <div class="stat-item">
@@ -284,6 +292,9 @@
         </div>
         
         <h2 class="section-title"><i class="fas fa-book"></i> Bibliografía Consultada</h2>
+        
+        <!-- SECCIÓN: DOCUMENTALES -->
+        <h3 class="subsection-title"><i class="fas fa-book-open"></i> Documentales</h3>
         <div class="references-container">
             <div class="reference-item">
                 <div class="reference-type">Epidemiología</div>
@@ -318,14 +329,6 @@
             </div>
 
             <div class="reference-item">
-                <div class="reference-type">Medicina y Salud</div>
-                <div class="reference-citation">
-                    Casqueiro, J., Casqueiro, J., & Alves, C. (2012). <em>Infections in patients with diabetes mellitus: A review of pathogenesis</em>. Indian Journal of Endocrinology and Metabolism, 16(Suppl1), S27.
-                </div>
-                <div class="reference-description">Artículo científico utilizado como ejemplo en el planteamiento de problemas médicos.</div>
-            </div>
-
-            <div class="reference-item">
                 <div class="reference-type">Estadística</div>
                 <div class="reference-citation">
                     Triola, M. F. (2018). <em>Estadística</em> (12.ª ed.). Pearson Educación.
@@ -334,38 +337,62 @@
             </div>
         </div>
 
-        <h2 class="section-title"><i class="fas fa-image"></i> Índice de Figuras</h2>
+        <!-- SECCIÓN: ELECTRÓNICAS (Incluye web, figuras y videos ordenados alfabéticamente) -->
+        <h3 class="subsection-title"><i class="fas fa-globe"></i> Electrónicas</h3>
         <div class="references-container">
             <div class="reference-item">
-                <div class="reference-type type-figura">Figuras 1 - 7</div>
-                <div class="reference-citation">Métodos de Investigación Científica</div>
+                <div class="reference-type">Medicina y Salud</div>
+                <div class="reference-citation">
+                    Casqueiro, J., Casqueiro, J., & Alves, C. (2012). <em>Infections in patients with diabetes mellitus: A review of pathogenesis</em>. Indian Journal of Endocrinology and Metabolism, 16(Suppl1), S27.
+                </div>
+                <div class="reference-description">Artículo científico en línea utilizado como ejemplo en el planteamiento de problemas médicos.</div>
+            </div>
+
+            <div class="reference-item">
+                <div class="reference-type">Bases de Datos</div>
+                <div class="reference-citation">
+                    Elsevier. (2023). <em>Scopus</em>.
+                </div>
+                <div class="reference-description">Plataforma web consultada para la revisión de documentación y antecedentes médicos.</div>
+            </div>
+
+            <div class="reference-item">
+                <div class="reference-type type-figura">Figura</div>
+                <div class="reference-citation">Figuras 1 - 7. Métodos de Investigación Científica</div>
                 <div class="reference-description">
                     <strong>Ubicación:</strong> Tema 1.1<br>
                     <strong>Nota:</strong> Elaboraciones propias basadas en Hernández Sampieri, R. (2014, 2018), Hulley et al. (2013) y Gordis, L. (2014). Cubre la abstracción del método científico, experimental, clínico, epidemiológico, sociológico y estadístico.
                 </div>
             </div>
+
             <div class="reference-item">
-                <div class="reference-type type-figura">Figuras 8 - 16</div>
-                <div class="reference-citation">Etapas del Proceso de Investigación</div>
+                <div class="reference-type type-figura">Figura</div>
+                <div class="reference-citation">Figuras 8 - 16. Etapas del Proceso de Investigación</div>
                 <div class="reference-description">
                     <strong>Ubicación:</strong> Tema 1.2<br>
                     <strong>Nota:</strong> Elaboraciones propias basadas en Hernández Sampieri et al. (2014). Incluye diagramas sobre el planteamiento del problema, revisión de literatura, recolección y análisis de datos.
                 </div>
             </div>
+
             <div class="reference-item">
-                <div class="reference-type type-figura">Figuras 17 - 31</div>
-                <div class="reference-citation">Tipos y Formas de Investigación</div>
+                <div class="reference-type type-figura">Figura</div>
+                <div class="reference-citation">Figuras 17 - 31. Tipos y Formas de Investigación</div>
                 <div class="reference-description">
                     <strong>Ubicación:</strong> Tema 1.3<br>
                     <strong>Nota:</strong> Elaboraciones propias basadas en Hernández Sampieri et al. (2014, 2018). Ilustran los enfoques cualitativos/cuantitativos, experimentales, transversales, longitudinales y prospectivos.
                 </div>
             </div>
-        </div>
 
-        <h2 class="section-title"><i class="fas fa-play-circle"></i> Índice de Recursos Audiovisuales</h2>
-        <div class="references-container">
             <div class="reference-item">
-                <div class="reference-type type-video">Proceso de investigación</div>
+                <div class="reference-type">Bases de Datos</div>
+                <div class="reference-citation">
+                    National Library of Medicine. (2024). <em>PubMed</em>.
+                </div>
+                <div class="reference-description">Motor de búsqueda de libre acceso utilizado para la revisión de artículos de investigación biomédica.</div>
+            </div>
+
+            <div class="reference-item">
+                <div class="reference-type type-video">Video</div>
                 <div class="reference-citation">
                     Salas, I. (2026). <em>Etapas de proceso de investigación</em> [Video]. YouTube. https://www.youtube.com/watch?v=01dC5YYOCTI
                 </div>
@@ -373,22 +400,24 @@
                     <strong>Ubicación:</strong> Tema 1.2
                 </div>
             </div>
+
             <div class="reference-item">
-                <div class="reference-type type-video">Tipos y formas</div>
-                <div class="reference-citation">
-                    Salas, I. (2026). <em>Tipos y formas de investigación</em> [Video]. YouTube. https://www.youtube.com/watch?v=C6AKenoOGQk
-                </div>
-                <div class="reference-description">
-                    <strong>Ubicación:</strong> Tema 1.3
-                </div>
-            </div>
-            <div class="reference-item">
-                <div class="reference-type type-video">Planeación</div>
+                <div class="reference-type type-video">Video</div>
                 <div class="reference-citation">
                     Salas, I. (2026). <em>Planeación de la investigación</em> [Video]. YouTube. https://www.youtube.com/watch?v=GxtHktMH0ew
                 </div>
                 <div class="reference-description">
                     <strong>Ubicación:</strong> Tema 1.4
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <div class="reference-type type-video">Video</div>
+                <div class="reference-citation">
+                    Salas, I. (2026). <em>Tipos y formas de investigación</em> [Video]. YouTube. https://www.youtube.com/watch?v=C6AKenoOGQk
+                </div>
+                <div class="reference-description">
+                    <strong>Ubicación:</strong> Tema 1.3
                 </div>
             </div>
         </div>
