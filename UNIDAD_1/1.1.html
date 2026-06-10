@@ -6,578 +6,7 @@
     <title>1.1 Metodología de la investigación científica</title>
     <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #a855f7;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1e0030, #3d0066);
-            color: var(--light);
-            min-height: 100vh;
-            line-height: 1.7;
-        }
-
-        .floating-home-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--secondary);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-size: 1.5rem;
-        }
-
-        .floating-home-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        .sidebar-nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: rgba(30, 0, 48, 0.95);
-            border-right: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
-            overflow-y: auto;
-        }
-
-        .sidebar-nav.active {
-            transform: translateX(0);
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            background: rgba(52, 152, 219, 0.1);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .sidebar-title {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .nav-sections {
-            padding: 20px 0;
-        }
-
-        .nav-section {
-            margin-bottom: 15px;
-        }
-
-        .nav-section-title {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
-            margin-bottom: 10px;
-        }
-
-        .nav-item {
-            display: block;
-            padding: 12px 20px;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: rgba(142, 68, 173, 0.2);
-            border-left-color: var(--accent);
-            padding-left: 25px;
-        }
-
-        .nav-item.active {
-            background: rgba(52, 152, 219, 0.2);
-            border-left-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        .nav-item i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            font-size: 1.2rem;
-        }
-
-        .menu-toggle:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle.active {
-            background: var(--accent);
-        }
-
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 998;
-        }
-
-        .reading-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--success));
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            transition: margin-left 0.3s ease, margin-right 0.3s ease;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            margin: 0 10px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-weight: 300;
-            text-align: center;
-        }
-        
-        .intro {
-            max-width: 900px;
-            margin: 0 auto 40px;
-            padding: 25px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary);
-            text-align: justify;
-        }
-        
-        .section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            scroll-margin-top: 100px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        
-        .section-number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-right: 15px;
-            min-width: 120px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .content {
-            padding: 0 10px;
-        }
-        
-        .content h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin: 30px 0 15px;
-            padding-left: 10px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .content h4 {
-            font-size: 1.3rem;
-            color: var(--warning);
-            margin: 25px 0 12px;
-            padding-left: 8px;
-        }
-        
-        .content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .content ul, .content ol {
-            padding-left: 30px;
-            margin: 20px 0;
-        }
-        
-        .content li {
-            margin-bottom: 12px;
-        }
-        
-        .highlight {
-            background: rgba(231, 76, 60, 0.15);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-        
-        .citation {
-            font-style: italic;
-            color: var(--gray);
-            margin: 5px 0 15px 20px;
-            border-left: 2px solid var(--secondary);
-            padding-left: 10px;
-        }
-        
-        .quote-box {
-            background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: var(--light);
-        }
-
-        .quote-box .citation {
-            border-left: none;
-            margin: 10px 0 0 0;
-            padding-left: 0;
-        }
-        
-        .table-container {
-            max-width: 100%;
-            margin: 30px auto;
-            overflow-x: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        .table-caption {
-            text-align: center;
-            padding: 10px;
-            color: var(--gray);
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        
-        .figure-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .imagen-figura1 {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain; 
-            border-radius: 8px;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: zoom-in;
-            transform-origin: center center;
-        }
-        
-        /* Efecto al pasar el mouse */
-        .imagen-figura1:hover {
-            transform: scale(1.4); 
-            border-radius: 8px;
-        }
-        
-        .figure-caption {
-            color: var(--gray);
-            margin-top: 10px;
-        }
-        
-        /* Estilos para la tarjeta de actividad */
-        .activity-card {
-            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 4px solid var(--success); /* Borde izquierdo verde */
-            text-align: center;
-        }
-        
-        .activity-title {
-            font-size: 1.8rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .activity-btn {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .activity-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--secondary);
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .nav-btn i {
-            margin: 0 8px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 768px) {
-            .sidebar-nav {
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .section-number {
-                min-width: 100px;
-                font-size: 1.8rem;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .floating-home-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="estilos.css?v=5">
 </head>
 <body>
     <div class="reading-progress">
@@ -638,7 +67,7 @@
     <div class="container">
         <header id="inicio">
             <div class="breadcrumb">
-                <a href="https://escomisr.github.io/Libro_Digital_SO/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/"><i class="fas fa-home"></i> Inicio</a>
                 <span>/</span>
                 <a href="index.html">Unidad 1</a>
                 <span>/</span>
@@ -649,8 +78,8 @@
         </header>
         
         <div class="intro">
-            <p>Iniciemos estableciendo que todo se encuentra orientada a determinar un mayor conocimiento teórico y en su caso con el desarrollo de prácticas fomentaran la adquisición del conocimiento
-                en donde se aborden problemas que pueden ser o no de la sociedad, además de permite hacer investigaciones en las que no se han concluido por algún investigador o se encuentran en proceso</p>
+            <p>Iniciemos estableciendo que todo se encuentra orientado a determinar un mayor conocimiento teórico y en su caso con el desarrollo de prácticas fomentarán la adquisición del conocimiento
+                en donde se aborden problemas que pueden ser o no de la sociedad, además de permitir realizar investigaciones en las que no se han concluido por algún investigador o se encuentran en proceso</p>
             <p>Por lo que en el transcurso de la historia toda investigación en el ámbito científico viene por lo general de una necesidad del ser humano para que con ello se dé solución a problemas en donde 
                 permita identificar su naturaleza y todo aquello que lo rodea, así con ello ayudar a complementar una necesidad de dicha investigación.
                 Por lo que durante el transcurso de esta unidad es muy importante la lectura que el estudiante vaya realizando ya que los conceptos,
@@ -663,16 +92,16 @@
                 permita la búsqueda y concentración de información para su análisis buscando siempre cumplir los objetivos, hipótesis de la investigación y resultados". <div class="citation"></div>
             </div>
 
-            <h3>Aspectos que considerar:</h3>
-            <ul>
-                <li><strong>Validez y confiabilidad:</strong> Es esencial validar que los resultados sustenten datos fiables y precisos en la medición de las variables y el control de sesgos.</li>
-                <li><strong>Método científico:</strong> Es determinante la observación, formulación de hipótesis empírica mediante procedimientos sistemáticos que permita generar conocimiento nuevo, en donde se expliquen los fenómenos y contribuya al avance de la ciencia en cualquier disciplina.</li>
-                <li><strong>Eje operativo de estudio</strong> Establece la traducción a los planteamientos teóricos en acciones concretas y medibles.</li>
-            </ul>
+            <h3>Aspectos por considerar:</h3>
+                <ul>
+                    <li><strong>Validez y confiabilidad:</strong> Es esencial validar que los resultados sustenten datos fiables y precisos en la medición de las variables y el control de sesgos.</li>
+                <li><strong>Método científico:</strong> Es determinante la observación, formulación de hipótesis empírica mediante procedimientos sistemáticos que permitan generar conocimiento nuevo, en donde se expliquen los fenómenos y contribuya al avance de la ciencia en cualquier disciplina.</li>
+                <li><strong>Eje operativo de estudio</strong> Establece la traducción de los planteamientos teóricos en acciones concretas y medibles.</li>
+                </ul>
 
 
             <div class="figure-container">
-                <div class="figure-caption">Figura 1</div>
+                <div class="figure-caption">Figura 1.1</div>
                 <div class="figure-caption">Metodología de la investigación científica.</div>
                 <div class="figura">
                     <img src="FIGURA1.png" alt="Capas de abstracción" class="imagen-figura1"/>
@@ -704,7 +133,8 @@
                 <div class="section-title">Método científico; experimental; clínico; epidemiológico; sociológico y estadístico</div>
             </div>
             <div class="content">
-                <p>1. Es una forma de organizar bajo procesos sistematizados y ordenado que genera conocimiento y a su vez sea viable bajo el fundamento de la observación en donde se establezcan preguntas, la elaboración de hipótesis y la comprobación empírica de estas. Todo
+                <h5>1. Método científico</h5>
+                <p>Es una forma de organizar bajo procesos sistematizados y ordenado que genera conocimiento y a su vez sea viable bajo el fundamento de la observación en donde se establezcan preguntas, la elaboración de hipótesis y la comprobación empírica de estas. Todo
                     esto tiene como objetivo explicar los fenómenos de la realidad de forma: objetiva, racional y verificable, apoyándose en procedimientos lógicos y evidencias observables.</p>
                 <p>Debido a la organización del método científico y la secuencia de pasos permite la interrelación con los demás objetos de estudio, donde se encuentra la observación del objeto de estudio, problema a abordar, hipótesis, b´
                     búsqueda de información, revisión de la información y conclusiones. Las etapas ayudan al estudio del fenómeno a observar y reproducible, garantizando el rigor metodológico del estudio (Hernández-Sampieri et al., 2014).</p>
@@ -713,10 +143,10 @@
                     Esta característica fortalece la validez del conocimiento científico, empírico o intuitivo. Asimismo, el método científico permite formular y contrastar teorías, ya que a partir de los
                    resultados obtenidos se pueden aceptar, modificar o rechazar hipótesis, contribuyendo al avance del conocimiento en distintas áreas del saber. De esta manera, el método científico no solo explica fenómenos, sino que también impulsa la construcción y evolución del conocimiento científico.</p>
                 <p>Por lo que  dicho método es la de toda investigación científica, teniendo en consideración el enfoque metodológico utilizado, su aplicación rigurosa garantiza que los estudios se desarrollen con criterios de validez, confiabilidad y ética.</p>   
-                
-                
+            </div>
             <div class="content">
-                <p>2. Método experimental, es un enfoque de investigación usa a las variables independientes, con el fin de observar y analizar su efecto y resultado obtenido, esto permite observar su comportamiento en el proceso. Esto
+                <h5>2. Método experimental</h5>
+                <p>Es un enfoque de investigación usa a las variables independientes, con el fin de observar y analizar su efecto y resultado obtenido, esto permite observar su comportamiento en el proceso. Esto
                     es de mucha importancia en un alto grado de rigor científico, ya que la revisión al a los grupos experimentales y de control, ayuda a tener el mínimo problemas de resultaos con relación a otros casos.</p>
                 <p> Derivado a que se pueden presentar hipótesis nulas y alternas, teniendo que aplicar pruebas estadísticas. Método experimental usa instrumentos de medición y procedimientos estandarizados para garantizar los datos de resultados.</p>
                  <p>Es por ello que el método experimental se utiliza en diferentes espacios de la salud, educación y sociedad, ya que ayuda a las intervenciones o programas. No obstante, su aplicación debe considerar criterios éticos, especialmente cuando involucra seres humanos,
@@ -724,7 +154,8 @@
 
             </div>
             <div class="content">
-                <p>3. Método clínico, se utiliza en la salud para identificar, analizar, plantear posibles soluciones a los problemas de la salud–enfermedad.
+                <h5>3. Método clínico</h5>
+                <p>Se utiliza en la salud para identificar, analizar, plantear posibles soluciones a los problemas de la salud–enfermedad.
                     su principal función es la de mirar con rigurosamente el objeto de estudio para que con ello se pueda hacer la identificación de datos  y estudios clínicos,
                      con el objetivo de establecer diagnósticos, tratamientos y pronósticos adecuados en su aplicación, el método clínico sigue una secuencia lógica de etapas, que incluye la anamnesis, la exploración física, la formulación de hipótesis diagnósticas, la solicitud e interpretación de estudios complementarios y la confirmación del diagnóstico.
                      Esta secuencia permite integrar datos subjetivos y objetivos para comprender de manera integral la condición del paciente (Hulley et al., 2013).</p>
@@ -733,7 +164,7 @@
                     clínica del profesional con los mejores resultados de la investigación científica disponible.</p> 
                  <p>La aplicación del método clínico debe regirse por principios éticos, respeto a los datos del paciente y la búsqueda del mayor beneficio con el menor riesgo posible. El apego a estos principios fortalece la relación médico-paciente y garantiza una práctica clínica responsable y humanizada.</p>   
                <div class="figure-container">
-                    <div class="figure-caption">Figura 2</div>
+                    <div class="figure-caption">Figura 1.2</div>
                     <div class="figure-caption">Método científico, experimental y clínico</div>
                     <div class="figura">
                         <img src="FIGURA2.png" alt="Método científico, experimental y clínico" class="imagen-figura1"/>
@@ -743,7 +174,8 @@
 
             </div>
             <div class="content">
-                <p>4. Método epidemiológico, se utiliza para estudiar problemas relacionados con la salud de las personas, su propósito fundamental parte de la identificar patrones, causas y factores de riesgo que permitan comprender el
+                <h5>4. Método epidemiológico</h5>
+                <p>Se utiliza para estudiar problemas relacionados con la salud de las personas, su propósito fundamental parte de la identificar patrones, causas y factores de riesgo que permitan comprender el
                      comportamiento de los problemas de salud y orientar acciones que prevean los casos que se presenten.
                      El método epidemiológico sigue etapas sistemáticas, que incluyen la observación del problema de salud, hipótesis, la medición de la frecuencia mediante indicadores como incidencia y
                      prevalencia, y el análisis de asociaciones entre variables, por lo que este proceso permite generar evidencia científica.</p> 
@@ -751,11 +183,12 @@
                     que se presentan las enfermedades en los pacientes esto permite aplicar medidas de prevención y en su caso solución al problema.</p>    
             </div>
             <div class="content">
-                <p>5. Método sociológico, es un enfoque científico orientado al estudio sistemático de los fenómenos sociales, organizaciones y comportamiento colectivo. Se orienta  a establecer la forma que interactúan los individuos con la sociedad y cómo estas interacciones generan patrones,
+                <h5>5. Método sociológico</h5>
+                <p>Es un enfoque científico orientado al estudio sistemático de los fenómenos sociales, organizaciones y comportamiento colectivo. Se orienta  a establecer la forma que interactúan los individuos con la sociedad y cómo estas interacciones generan patrones,
                      normas y dinámicas sociales observables, el método sociológico se apoya tanto en enfoques cuantitativos como cualitativos, utilizando técnicas como encuestas, entrevistas, observación participante, análisis documental y estudios de caso. La selección de estas técnicas depende del problema de investigación y la magnitud del fenómeno analizar.</p>
                 <p>Hernández-Sampieri et al. (2018), establece que método sociológico permite identificar relaciones entre variables sociales, como clase social, educación, cultura, género o contexto económico, contribuyendo a explicar desigualdades, comportamientos colectivos y cambio social.</p>
                 <div class="figure-container">
-                    <div class="figure-caption">Figura 3</div>
+                    <div class="figure-caption">Figura 1.3</div>
                     <div class="figure-caption">Método epidemiológico y sociológico</div>
                     <div class="figura">
                         <img src="FIGURA3.png" alt="Método epidemiológico y sociológico" class="imagen-figura1"/>
@@ -764,11 +197,12 @@
                 </div>               
             </div>
             <div class="content">
-                <p>6. Método estadístico, se utiliza como una estructura de control, para el análisis e interpretar información cuantitativa para describir fenómenos en los cuales se identifique
+                <h5>6. Método estadístico</h5>
+                <p>Se utiliza como una estructura de control, para el análisis e interpretar información cuantitativa para describir fenómenos en los cuales se identifique
                     los patrones y relaciones entre variables. Este método organiza los datos numéricos en información significativa que respalde la toma de decisiones y ayude a comprobar la hipótesis planteada.</p>
                 <p>Una de las funciones que presenta es la transformación objetiva de los datos de una investigación, por lo que permitirá que se puedan desarrollar diseños de estudios que su eficacia en el análisis de la información.
                <div class="figure-container">
-                    <div class="figure-caption">Figura 4</div>
+                    <div class="figure-caption">Figura 1.4</div>
                     <div class="figure-caption">Método estadístico</div>
                     <div class="figura">
                         <img src="FIGURA4.png" alt="Método estadístico" class="imagen-figura1"/>
@@ -782,10 +216,8 @@
 
 
         </div>
-    
-    </div>
         <div class="activity-card">
-            <div class="activity-title">Actividad de Aprendizaje 1.1: Aspectos Básicos</div>
+            <div class="activity-title"><strong>Actividad de Aprendizaje 1.1 Aspectos Básicos</strong></div>
             <p>Pon a prueba tus conocimientos sobre la metodología de la investigación científica.</p>
             <a href="actividad_1_1.html" class="activity-btn">
                 <i class="fas fa-pencil-alt"></i> Realizar Actividad
@@ -793,14 +225,14 @@
         </div>
     
         <div class="nav-buttons">
-            <a href="1.1.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a 1.1 Metodología de la investigación científica</a>
-            <a href="1.2.html" class="nav-btn">Continuar a 1.2: Etapas del proceso de investigación<i class="fas fa-arrow-right"></i></a>
+            <a href="1.2.html" class="nav-btn">1.2 Etapas del proceso de investigación<i class="fas fa-arrow-right"></i></a>
         </div>
        
         <footer>
             <p>Polilibro académico - Metodología de la Investigación y Estadística I</p>
             <p>Desarrollado para fines educativos - © 2025</p>
         </footer>
+    </div>
 
     <script>
         let sidebarOpen = false;
@@ -852,8 +284,8 @@
                 container.style.marginRight = '90px';
                 container.style.padding = '20px';
             } else {
-                container.style.marginLeft = '90px';
-                container.style.marginRight = '90px';
+                container.style.marginLeft = 'auto';
+                container.style.marginRight = 'auto';
                 container.style.padding = '20px';
             }
         }
@@ -952,5 +384,6 @@
             }
         });
     </script>
+    <script src="visor-imagenes.js"></script>
 </body>
 </html>
