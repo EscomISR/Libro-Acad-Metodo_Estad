@@ -14,13 +14,16 @@
         viewer.innerHTML = [
             '<button class="image-viewer-close" type="button" aria-label="Cerrar vista ampliada">X</button>',
             '<div class="image-viewer-content">',
+            '<div class="image-viewer-zoom-area" role="button" tabindex="0" aria-label="Activar zoom de imagen">',
             '<img src="" alt="">',
+            '</div>',
             '<div class="image-viewer-caption"></div>',
             '</div>'
         ].join('');
 
         document.body.appendChild(viewer);
 
+        const zoomArea = viewer.querySelector('.image-viewer-zoom-area');
         const viewerImage = viewer.querySelector('img');
         const viewerCaption = viewer.querySelector('.image-viewer-caption');
         const closeButton = viewer.querySelector('.image-viewer-close');
@@ -43,6 +46,7 @@
             viewerImage.src = image.currentSrc || image.src;
             viewerImage.alt = image.alt || 'Imagen ampliada';
             viewerCaption.textContent = getCaption(image);
+            setZoom(false);
             viewer.classList.add('active');
             document.body.classList.add('image-viewer-open');
             closeButton.focus();
@@ -51,7 +55,38 @@
         function closeViewer() {
             viewer.classList.remove('active');
             document.body.classList.remove('image-viewer-open');
+            setZoom(false);
             viewerImage.src = '';
+        }
+
+        function setZoom(isZoomed) {
+            viewer.classList.toggle('zoomed', isZoomed);
+            zoomArea.setAttribute(
+                'aria-label',
+                isZoomed ? 'Quitar zoom de imagen' : 'Activar zoom de imagen'
+            );
+
+            if (!isZoomed) {
+                viewerImage.style.setProperty('--zoom-x', '50%');
+                viewerImage.style.setProperty('--zoom-y', '50%');
+            }
+        }
+
+        function updateZoomPosition(event) {
+            const rect = zoomArea.getBoundingClientRect();
+            const x = Math.min(Math.max((event.clientX - rect.left) / rect.width, 0), 1) * 100;
+            const y = Math.min(Math.max((event.clientY - rect.top) / rect.height, 0), 1) * 100;
+
+            viewerImage.style.setProperty('--zoom-x', `${x}%`);
+            viewerImage.style.setProperty('--zoom-y', `${y}%`);
+        }
+
+        function toggleZoom(event) {
+            if (event) {
+                updateZoomPosition(event);
+            }
+
+            setZoom(!viewer.classList.contains('zoomed'));
         }
 
         images.forEach((image) => {
@@ -69,6 +104,19 @@
         });
 
         closeButton.addEventListener('click', closeViewer);
+        zoomArea.addEventListener('click', toggleZoom);
+        zoomArea.addEventListener('pointermove', (event) => {
+            if (viewer.classList.contains('zoomed')) {
+                updateZoomPosition(event);
+            }
+        });
+        zoomArea.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleZoom();
+            }
+        });
+
         viewer.addEventListener('click', (event) => {
             if (event.target === viewer) {
                 closeViewer();
