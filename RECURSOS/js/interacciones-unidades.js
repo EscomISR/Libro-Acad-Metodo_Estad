@@ -49,7 +49,7 @@
             document.body.style.overflow = 'hidden';
         } else {
             sidebarNav.classList.remove('active');
-            sidebarOverlay.classList.remove('active'); 
+            sidebarOverlay.classList.remove('active');
             menuToggle.classList.remove('active');
             menuToggle.classList.remove('hidden');
             menuToggle.removeAttribute('aria-hidden');
