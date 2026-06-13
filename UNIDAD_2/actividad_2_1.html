@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actividad 2.1: Batalla del Protocolo</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
+    <link rel="icon" type="image/png" href="img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -910,9 +910,9 @@
 
     try {
       // Archivo JSON para las preguntas de la unidad 2.1
-      const response = await fetch('preguntas_2.1.json');
+      const response = await fetch('data/preguntas_2.1.json');
       if (!response.ok) {
-        throw new Error(`No se pudo cargar preguntas_2.1.json (HTTP ${response.status})`);
+        throw new Error(`No se pudo cargar data/preguntas_2.1.json (HTTP ${response.status})`);
       }
       const allQuestionsRaw = await response.json();
 

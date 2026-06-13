@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actividad 3.4: Batalla de la Interpretación</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
+    <link rel="icon" type="image/png" href="img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -872,8 +872,8 @@
         </div>
 
         <div class="navigation">
-            <a href="2.3.html" class="btn btn-nav">
-                <i class="fas fa-arrow-left"></i> Volver a 2.3 Documental
+            <a href="3.4.html" class="btn btn-nav">
+                <i class="fas fa-arrow-left"></i> Volver a 3.4 Interpretación
             </a>
             <div class="nav-center">
                 <a href="index.html" class="btn btn-secondary">
@@ -881,7 +881,7 @@
                 </a>
             </div>
             <a href="index.html" class="btn btn-nav">
-                Finalizar Unidad 2 <i class="fas fa-flag-checkered"></i>
+                Finalizar Unidad 3 <i class="fas fa-flag-checkered"></i>
             </a>
         </div>
         
@@ -910,9 +910,9 @@
 
     try {
       // Archivo JSON para las preguntas de la unidad 3.4
-      const response = await fetch('preguntas_3.4.json');
+      const response = await fetch('data/preguntas_3.4.json');
       if (!response.ok) {
-        throw new Error(`No se pudo cargar preguntas_3.4.json (HTTP ${response.status})`);
+        throw new Error(`No se pudo cargar data/preguntas_3.4.json (HTTP ${response.status})`);
       }
       const allQuestionsRaw = await response.json();
 
