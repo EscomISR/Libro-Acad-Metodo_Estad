@@ -4,580 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1.3 Tipos y formas de investigación</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh.png">
+    <link rel="icon" type="image/png" href="../RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #a855f7;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1e0030, #3d0066);
-            color: var(--light);
-            min-height: 100vh;
-            line-height: 1.7;
-        }
-
-        .floating-home-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--secondary);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-size: 1.5rem;
-        }
-
-        .floating-home-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        .sidebar-nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: rgba(30, 0, 48, 0.95);
-            border-right: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
-            overflow-y: auto;
-        }
-
-        .sidebar-nav.active {
-            transform: translateX(0);
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            background: rgba(52, 152, 219, 0.1);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .sidebar-title {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .nav-sections {
-            padding: 20px 0;
-        }
-
-        .nav-section {
-            margin-bottom: 15px;
-        }
-
-        .nav-section-title {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
-            margin-bottom: 10px;
-        }
-
-        .nav-item {
-            display: block;
-            padding: 12px 20px;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: rgba(142, 68, 173, 0.2);
-            border-left-color: var(--accent);
-            padding-left: 25px;
-        }
-
-        .nav-item.active {
-            background: rgba(52, 152, 219, 0.2);
-            border-left-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        .nav-item i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            font-size: 1.2rem;
-        }
-
-        .menu-toggle:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle.active {
-            background: var(--accent);
-        }
-
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 998;
-        }
-
-        .reading-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--success));
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            transition: margin-left 0.3s ease, margin-right 0.3s ease;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            margin: 0 10px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-weight: 300;
-            text-align: center;
-        }
-        
-        .intro {
-            max-width: 900px;
-            margin: 0 auto 40px;
-            padding: 25px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary);
-            text-align: justify;
-        }
-        
-        .section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            scroll-margin-top: 100px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        
-        .section-number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-right: 15px;
-            min-width: 120px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .content {
-            padding: 0 10px;
-        }
-        
-        .content h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin: 30px 0 15px;
-            padding-left: 10px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .content h4 {
-            font-size: 1.3rem;
-            color: var(--warning);
-            margin: 25px 0 12px;
-            padding-left: 8px;
-        }
-        
-        .content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .content ul, .content ol {
-            padding-left: 30px;
-            margin: 20px 0;
-        }
-        
-        .content li {
-            margin-bottom: 12px;
-        }
-        
-        .highlight {
-            background: rgba(231, 76, 60, 0.15);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-        
-        .citation {
-            font-style: italic;
-            color: var(--gray);
-            margin: 5px 0 15px 20px;
-            border-left: 2px solid var(--secondary);
-            padding-left: 10px;
-        }
-        
-        .quote-box {
-            background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: var(--light);
-        }
-
-        .quote-box .citation {
-            border-left: none;
-            margin: 10px 0 0 0;
-            padding-left: 0;
-        }
-        
-        .table-container {
-            max-width: 100%;
-            margin: 30px auto;
-            overflow-x: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        .table-caption {
-            text-align: center;
-            padding: 10px;
-            color: var(--gray);
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        
-        .figure-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .imagen-figura1 {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain; 
-            border-radius: 8px;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: zoom-in;
-            transform-origin: center center;
-        }
-        
-        /* Efecto al pasar el mouse */
-        .imagen-figura1:hover {
-            transform: scale(1.4); 
-            border-radius: 8px;
-        }
-        
-        .figure-caption {
-            color: var(--gray);
-            margin-top: 10px;
-        }
-        
-        /* Estilos para la tarjeta de actividad */
-        .activity-card {
-            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 4px solid var(--success); /* Borde izquierdo verde */
-            text-align: center;
-        }
-        
-        .activity-title {
-            font-size: 1.8rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .activity-btn {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .activity-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--secondary);
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .nav-btn i {
-            margin: 0 8px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 768px) {
-            .sidebar-nav {
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .section-number {
-                min-width: 100px;
-                font-size: 1.8rem;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .floating-home-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../RECURSOS/css/estilos-unidades.css?v=1">
 </head>
 <body>
     <div class="reading-progress">
@@ -588,8 +17,8 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <a href="index.html" class="floating-home-btn" title="Ir al índice de unidades">
-        <i class="fas fa-home"></i>
+    <a href="index.html" class="floating-home-btn" title="Ir a Unidad 1">
+        <i class="fas fa-book-open"></i>
     </a>
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
@@ -597,43 +26,49 @@
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
             <div class="sidebar-title">1.3 Tipos y formas de investigación</div>
-            <div class="sidebar-subtitle">Capítulo I. Metodología de la investigación científica</div>
+            <div class="sidebar-subtitle">Diseños de investigación</div>
         </div>
-        
+
         <div class="nav-sections">
             <div class="nav-section">
                 <div class="nav-section-title">Navegación</div>
-                <a href="#inicio" class="nav-item">
-                    <i class="fas fa-rocket"></i> Inicio del Tema
+                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/" class="nav-item">
+                    <i class="fas fa-home"></i> Inicio
                 </a>
-                <a href="//escomisr.github.io/Libro-Acad-Metodo_Estad/UNIDAD_1/index.html" class="nav-item">
-                    <i class="fas fa-arrow-left"></i> Menú de Unidad 1
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-book-open"></i> Unidad 1
+                </a>
+                <a href="1.2.html" class="nav-item">
+                    <i class="fas fa-arrow-left"></i> 1.2 Etapas del proceso de investigación
+                </a>
+                <a href="1.4.html" class="nav-item">
+                    <i class="fas fa-arrow-right"></i> 1.4 Planeación de la investigación
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Contenido</div>
                 <a href="#seccion-1-3-1" class="nav-item" data-section="1-3-1">
-                    <i class="fas fa-bolt"></i> 1.3.1 Investigación con enfoque cualitativo, cuantitativo o mixto
+                    <i class="fas fa-book-open"></i> 1.3.1 Enfoques cualitativo, cuantitativo o mixto
                 </a>
                 <a href="#seccion-1-3-2" class="nav-item" data-section="1-3-2">
-                    <i class="fas fa-users"></i> 1.3.2 Investigación experimental, cuasi experimental y no experimental
+                    <i class="fas fa-bullseye"></i> 1.3.2 Investigación experimental, cuasi experimental y no experimental
                 </a>
                 <a href="#seccion-1-3-3" class="nav-item" data-section="1-3-3">
-                    <i class="fas fa-tachometer-alt"></i> 1.3.3 Descriptiva, transversal y correlacional
+                    <i class="fas fa-chart-line"></i> 1.3.3 Investigación descriptiva, transversal y correlacional
                 </a>
-               <a href="#seccion-1-3-4" class="nav-item" data-section="1-3-4">
-                    <i class="fas fa-tachometer-alt"></i> 1.3.4 Prospectivo, retrospectivo, longitudinal, casos y controles; cohorte y ensayos clínico
+                <a href="#seccion-1-3-4" class="nav-item" data-section="1-3-4">
+                    <i class="fas fa-cogs"></i> 1.3.4 Investigación prospectiva, retrospectiva y longitudinal
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Recursos</div>
-                <a href="actividad_1_3.html" class="nav-item">
-                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
+                <a href="#video-1-3" class="nav-item" data-section="video-1-3">
+                    <i class="fas fa-play-circle"></i> Material audiovisual
                 </a>
-                <a href="1.4.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i> Siguiente: Estructura del protocolo de investigación
+                <a href="#actividad-aprendizaje" class="nav-item" data-section="actividad-aprendizaje">
+                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
                 </a>
             </div>
         </div>
@@ -646,77 +81,79 @@
     <div class="container">
         <header id="inicio">
             <div class="breadcrumb">
-                <a href="https://escomisr.github.io/Libro_Digital_SO/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="../unidades.html">Unidades</a>
                 <span>/</span>
                 <a href="index.html">Unidad 1</a>
                 <span>/</span>
                 <span>1.3 Tipos y formas de investigación</span>
             </div>
             <h1>1.3 Tipos y formas de investigación</h1>
-            <div class="subtitle">Capítulo I. Metodología de la investigación científica</div>
+            <div class="subtitle">Unidad I. Metodología de la investigación científica</div>
         </header>
 
         <div class="intro">
             <p>Se clasifica dependiendo de su enfoque, alcance, diseño y fuente de datos. Conocer estos tipos y formas permite seleccionar el método más adecuado al problema de estudio y garantizar resultados válidos y útiles, especialmente en medicina y biología.</p>
-            
-            <div class="mode-card">
-                <div class="mode-title">1. Investigación básica (pura)</div>
-                <p>La intención es crear nuevos conocimiento y profundizar en todo aquello que ayude a visualizar los fenómenos naturales sin tener en cuenta su aplicación práctica, enfocando los principios, leyes y objetos de observación.
-                   La investigación es utilizada en diferentes lugares académicos y/o hospitales para ayudar a descubrir tratamientos en la propuesta de solución a un problema de salud.</p>
-            </div>
+            <br>
+            <div class="mode-title"><strong>Investigación básica/pura</strong></div>
+            <p>La intención es crear nuevos conocimientos y profundizar en todo aquello que ayude a visualizar los fenómenos naturales sin tener en cuenta su aplicación práctica, enfocando los principios, leyes y objetos de observación.
+                La investigación es utilizada en diferentes lugares académicos y/o hospitales para ayudar a descubrir tratamientos en la propuesta de solución a un problema de salud.</p>
+            <br>
+            <div class="mode-title"><strong>Investigación aplicada</strong></div>
+            <p>Se utiliza en  el conocimiento científico para resolver problemas concretos, estableciendo los mecanismos en la práctica
+                para determinar lo encontrado para establecer los posibles problemas que lo causan y plantear una posible solución.</p>
+            <p>En las ciencias de la salud, por ejemplo, dentro de la indagación se aplican diseños de tratamientos para controlar la diabetes, la implementación de estrategias de prevención de enfermedades y la evaluación de
+                intervenciones clínicas, ayudando a las personas que presentan esta enfermedad (Hernández Sampieri et al., 2014).</p>
 
-            <div class="mode-card">
-                <div class="mode-title">2. Investigación aplicada</div>
-                <p>Se utiliza en  el conocimiento científico para resolver problemas concretos, estableciendo los mecanismos en la práctica 
-                    para determinar lo encontrado para establecer los posibles problemas que lo causan y plantear una posible solución.</p>
-                <p>En las ciencias de la salud, por ejemplo, dentro de la indagación se aplican diseños de tratamientos para controlar la diabetes, la implementación de estrategias de prevención de enfermedades y la evaluación de intervenciones clínicas, ayudando a las personas que presentan esta enfermedad (Hernández Sampieri et al., 2014).</p>
-            </div>
+            <figure class="figure-container">
+                <figcaption class="figure-caption">Figura 1.11</figcaption>
+                <figcaption class="figure-caption">Investigación básica y aplicada</figcaption>
+                <img src="img/FIGURA11.png" alt="Investigación básica y aplicada" class="imagen-figura1"/>
+                <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al., 2014.</figcaption>
+            </figure>
+        </div>
 
-
-            <div class="figure-container">
-                <div class="figure-caption">Figura 11</div>
-                <div class="figure-caption">Investigación básica y aplicada</div>
-                <div class="figura">
-                        <img src="FIGURA11.png" alt="Investigación básica y aplicada" class="imagen-figura1"/>
-                </div>
-                <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al., 2014.</div>
-            </div>
-      </div>
-        
         <div class="section" id="seccion-1-3-1">
             <div class="section-header">
-                <div class="section-number">1.3.1 Investigación con enfoque cualitativo, cuantitativo o mixto</div>
-                <div class="section-title"></div>
-            </div>
-
-            <div class="mode-card">
-                <div class="mode-title">1. Enfoque cualitativo</div>
-                <p>Es fundamental en la investigación científica medir fenómenos mediante la información obtenida y establecer los mecanismos para dicernir con métodos estadístico. Su objetivo principal es comprobar hipótesis, establecer patrones y generar resultados generalizables y reproducibles.</p>
+                <div class="section-number">1.3.1</div>
+                <div class="section-title">Investigación con enfoque cualitativo, cuantitativo o mixto</div>
             </div>
 
             <div class="content">
-                <p></p>
-                <h3>4. Diseños estructurados, instrumentos estandarizados, listas y análisis estadístico garantizan objetividad y precisión.</h3>
-                <P>Su importancia radica en que facilita la predicción de comportamientos, la evaluación de intervenciones para áreas de ciencias de la salud, donde se cuantifican riesgos, prevalencias y efectos de tratamientos.</P>
-                
+                <div class="mode-title"><h2><strong>Enfoque cualitativo</strong></h2></div>
+                <p>Es fundamental en la investigación científica medir fenómenos mediante la información obtenida y establecer los mecanismos para discernir con métodos estadísticos. Su objetivo principal es comprobar hipótesis, establecer patrones y generar resultados generalizables y reproducibles.</p>
+                <p><strong>Diseños estructurados, instrumentos estandarizados, listas y análisis estadístico garantizan objetividad y precisión.</strong></p>
 
+                <div class="quote-box">
+                    <div class="type-definition">
+                        <p>"Su importancia radica en que facilita la predicción de comportamientos, la evaluación de intervenciones para áreas de ciencias de la salud, donde se cuantifican riesgos, prevalencias y efectos de tratamientos."</p>
+                        <div class="citation">(Hernández Sampieri et al., 2014)</div>
+                    </div>
+                </div>
 
-            <BR>
-            <div class="mode-card">
-                <div class="mode-title">2. Enfoque cuantitativo</div>
+                <div class="mode-title"><h2><strong>Enfoque cuantitativo</strong></h2></div>
                 <p>Método de investigación científica estableciendo la delimitación de los fenómenos con la información obtenida y análisis estadístico. Su objetivo principal es que  la hipótesis no sea nula estableciendo variables que generen resultados medibles.
                     El uso de instrumentos y muestras representativas, ayudaran a la medición estadística de los valores obtenidos.</p>
-                <P>Su importancia radica en que permite evaluar intervenciones, predecir comportamientos y tomar decisiones basadas en evidencia (Hernández Sampieri et al., 2014).</P>
-            </div>
 
-            <div class="mode-card">
-                <div class="mode-title">3. Enfoque mixto</div>
+                <div class="quote-box">
+                    <div class="type-definition">
+                        <p>"Su importancia radica en que permite evaluar intervenciones, predecir comportamientos y tomar decisiones basadas en evidencia."</p>
+                        <div class="citation">(Hernández Sampieri et al., 2014)</div>
+                    </div>
+                </div>
+
+                <div class="mode-title"><h2><strong>Enfoque mixto</strong></h2></div>
                 <p>Integra datos cuantitativos y cualitativos para obtener  resultados en donde su objetivo es combinar la información obtenida e interpretarla para explicar no solo cuánto ocurre un fenómeno, sino también por qué y cómo sucede. Se caracteriza
-                   por la triangulación de datos, el uso complementario de técnicas estadísticas y análisis interpretativo, así como por diseños secuenciales o simultáneos en la recolección de información.</p>
-                <p>Su importancia radica en que fortalece la veracidad de resultados, además analiza problemas que son dificiles de resolver y ofrece una visión integral (Hernández Sampieri et al., 2014).</p>
+                por la triangulación de datos, el uso complementario de técnicas estadísticas y análisis interpretativo, así como por diseños secuenciales o simultáneos en la recolección de información.</p>
+
+                <div class="quote-box">
+                    <div class="type-definition">
+                        <p>"Su importancia radica en que fortalece la veracidad de resultados, además analiza problemas que son difíciles de resolver y ofrece una visión integral."</p>
+                        <div class="citation">(Hernández Sampieri et al., 2014)</div>
+                    </div>
+                </div>
             </div>
-
-
         </div>
 
         <div class="section" id="seccion-1-3-2">
@@ -724,10 +161,10 @@
                 <div class="section-number">1.3.2</div>
                 <div class="section-title">Investigación experimental, cuasi experimental y no experimental</div>
             </div>
-            <div class="content">
 
-            <div class="mode-title">1. Investigación experimental</div>
-                <p>Es un estudio que utiliza variables dependientes que sirven para la observación estableciendo causa-efecto dentro del diseño estructurado 
+            <div class="content">
+                <div class="mode-title"><h2><strong>Investigación experimental</strong></h2></div>
+                <p>Es un estudio que utiliza variables dependientes que sirven para la observación estableciendo causa-efecto dentro del diseño estructurado
                  que incluye grupos experimentales y de control,  mediciones sistemáticas y procedimientos replicables.</p>
                 <p>Se lleva a cabo en entornos controlados, laboratorios o escenarios cuidadosamente diseñados, lo que permite reducir errores y garantizar la viabilidad de los resultados.</p>
                 <p>Por lo que su organización puede dar bagaje  seguro y verificable, esto permite tener los elementos para ofrecer una opinión basada en elementos científicos
@@ -735,323 +172,150 @@
                    la comprobación de estrategias pedagógicas; y en tecnología, valida innovaciones antes de su aplicación. Gracias a su rigor metodológico, este enfoque contribuye a la construcción de
                     teorías científicas sólidas y al desarrollo de soluciones efectivas para problemas reales (Hernández Sampieri et al., 2014).</p>
 
-            </div>
-        
-             </div>        
-            
-            <div class="mode-title">2. Investigación cuasi experimental</div>
+                <div class="mode-title"><h2><strong>Investigación cuasi experimental</strong></h2></div>
                 <p>Estudio orientado a examinar relaciones de causa y efecto cuando no se puede establecer datos aleatorios en los objetos de estudio. A diferencia del experimento puro, los grupos ya existen o se forman por criterios prácticos, lo que reduce el control absoluto de las variables externas. No obstante, el investigador
                    introduce una intervención o variable independiente y observa sus efectos en una variable dependiente, empleando comparaciones entre grupos semejantes o mediciones antes y después de la intervención.</p>
-                <p>Este enfoque es relevante porque permite observar el objeto de estudio y establecer valores que permita llevar a cabo un control experimental estricto, pero es importante establecer que no es éticos practicarlos.
+                <p>Este enfoque es relevante porque permite observar el objeto de estudio y establecer valores que permita llevar a cabo un control experimental estricto, pero es importante establecer que no es ético practicarlos.
                    Se utiliza con frecuencia en la sociedad para valorar programas, estrategias o intervenciones para ofrecer un menor control que el diseño experimental, aporta evidencia útil para mejorar prácticas y orientar decisiones, especialmente cuando se apoya en procedimientos estadísticos que ayudan a disminuir
                    posibles sesgos (Hernández Sampieri et al., 2014).</p>
-            
-           <br>
-            <div class="mode-title">3. Investigación no experimental</div>
-                <p>Estudio orientado a examinar vínculo de causa y efecto cuando no se establece aleatoriamente al objeto de estudio. Una característica entre los experimentos es 
-                    casa uno contiene sus bases y sus propias particularidades, por lo que cada variable presenta sus propios efectos y posteriormente podemos realizar comparaciones.</p>
-                <p>Derivado de esto se puede observar cómo es importante tener un control de cada experimento considerando siempre los valores éticos y su contexto. 
-                Ahora bien, existen programas que ayudan e tener mejor control para mejorarlas prácticas que se realizan y que se pueden tener programas computacionales para los procesos estadísticos.</p>
-            
 
-            <div class="figure-container">
-                    <div class="figure-caption">Figura 12</div>
-                    <div class="figure-caption">Investigación experimental, cuasi experimental y no experimental</div>
-                    <div class="figura">
-                        <img src="FIGURA12.png" alt="Investigación experimental, cuasi experimental y no experimental" class="imagen-figura1"/>
-                    </div>
-            <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al., 2014.</div>
-                </div>
-             </div>
-            <br>
+                <div class="mode-title"><h2><strong>Investigación no experimental</strong></h2></div>
+                <p>Estudio orientado a examinar vínculo de causa y efecto cuando no se establece aleatoriamente al objeto de estudio. Una característica entre los experimentos es
+                    cada uno contiene sus bases y sus propias particularidades, por lo que cada variable presenta sus propios efectos y posteriormente podemos realizar comparaciones.</p>
+                <p>Derivado de esto se puede observar cómo es importante tener un control de cada experimento considerando siempre los valores éticos y su contexto.
+                Ahora bien, existen programas que ayudan a tener mejor control para mejorar las prácticas que se realizan y que se pueden tener programas computacionales para los procesos estadísticos.</p>
+
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 1.12</figcaption>
+                    <figcaption class="figure-caption">Investigación experimental, cuasi experimental y no experimental</figcaption>
+                    <img src="img/FIGURA12.png" alt="Investigación experimental, cuasi experimental y no experimental" class="imagen-figura1"/>
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al., 2014.</figcaption>
+                </figure>
+            </div>
+        </div>
+
         <div class="section" id="seccion-1-3-3">
             <div class="section-header">
                 <div class="section-number">1.3.3</div>
-                <div class="section-title">Descriptiva, transversal y correlacional</div>
+                <div class="section-title">Investigación descriptiva, transversal y correlacional</div>
             </div>
-            <div class="content">
 
-            <div class="mode-title">1. Investigación descriptiva</div>
-              <p>Se distingue por la forma que busca, observa y mide los fenómenos que suceden en una población, sumando a ello sus características y propiedades.
-                hay que considerar que las preguntas a las que se orienta son: qué, cómo, cuándo y dónde, esto permite que tengamos las bases de lo que se dese investigar u observar.</p>
-              <p>Derivado de lo anterior es de suma importancia establecer que es parte elemental del diseño de la investigación ya que como se estableció con anterioridad
-                las preguntas son base principal de esta, ahora bien, puede contar con elementos como la investigación cuantitativa, variables controladas, estudios trasversales
-                y bases para tener los elementos de la investigación sólidos.</p>   
-    
-            </div>
-        
-           <br>
-           <p></p> 
-            <div class="mode-title">2. Investigación transversal</div>
+            <div class="content">
+                <div class="mode-title"><h2><strong>Investigación descriptiva</strong></h2></div>
+                <p>Se distingue por la forma que busca, observa y mide los fenómenos que suceden en una población, sumando a ello sus características y propiedades.
+                    Hay que considerar que las preguntas a las que se orienta son: qué, cómo, cuándo y dónde, esto permite que tengamos las bases de lo que se desea investigar u observar.</p>
+                <p>Derivado de lo anterior es de suma importancia establecer que es parte elemental del diseño de la investigación ya que como se estableció con anterioridad
+                    las preguntas son base principal de esta, ahora bien, puede contar con elementos como la investigación cuantitativa, variables controladas, estudios transversales
+                    y bases para tener los elementos de la investigación sólidos.</p>
+
+                <div class="mode-title"><h2><strong>Investigación transversal</strong></h2></div>
                 <p>Es un diseño de estudio que consiste en recolectar información en tiempo real o con la intención de determinar aquellos factores que se involucran en una muestra determinada.
                     Este tipo de investigación permite observar cómo se presenta un fenómeno en un punto específico del tiempo, sin realizar seguimiento posterior. Se utiliza frecuentemente mediante encuestas, cuestionarios o registros existentes para identificar características, prevalencias o
                    asociaciones entre variables.</p>
                 <p>Se utiliza para identificar enfermedades o riesgo en la salud; en educación,
-                   permite conocer el rendimiento académico en un periodo específico; y en ciencias sociales, ayuda a analizar condiciones y comportamientos en un momento determinado (Hernández-Sampieri, R., & Mendoza, C. P. 2018).</p>   
-            <br>
-            <p></p>
-             <div class="mode-title">3. Investigación correlacional</div>
+                   permite conocer el rendimiento académico en un periodo específico; y en ciencias sociales, ayuda a analizar condiciones y comportamientos en un momento determinado (Hernández-Sampieri, R., & Mendoza, C. P. 2018).</p>
+
+                <div class="mode-title"><h2><strong>Investigación correlacional</strong></h2></div>
                 <p>Estudia el comportamiento de diferentes factores  directamente, ya que estas variables cambian de manera conjunta y en qué dirección lo hacen (positiva, negativa o nula), utilizando técnicas estadísticas como el
                    coeficiente de correlación. Su propósito es identificar patrones significativos dentro de un fenómeno.</p>
                 <p>Su importancia radica en que permite comprender cómo se vinculan diferentes factores en contextos reales, aportando información valiosa, por ejemplo, puede analizar la relación entre hábitos de vida y enfermedades; en educación, entre estrategias de estudio
-                   y rendimiento académico; y en ciencias sociales, entre variables socioeconómicas y calidad de vida. Aunque no demuestra causalidad, la investigación correlacional contribuye a generar hipótesis y orientar estudios experimentales posteriores (Hernández Sampieri et al., 2014).</p> 
-            
+                   y rendimiento académico; y en ciencias sociales, entre variables socioeconómicas y calidad de vida. Aunque no demuestra causalidad, la investigación correlacional contribuye a generar hipótesis y orientar estudios experimentales posteriores (Hernández Sampieri et al., 2014).</p>
 
-            <div class="figure-container">
-                    <div class="figure-caption">Figura 13</div>
-                    <div class="figure-caption">Investigación descriptiva, transversal y correlacional</div>
-                    <div class="figura">
-                        <img src="FIGURA13.png" alt="Investigación descriptiva, transversal y correlacional" class="imagen-figura1"/>
-                    </div>
-            <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al., 2014.</div>
-            </div>        
-             <br>
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 1.13</figcaption>
+                    <figcaption class="figure-caption">Investigación descriptiva, transversal y correlacional</figcaption>
+                    <img src="img/FIGURA13.png" alt="Investigación descriptiva, transversal y correlacional" class="imagen-figura1"/>
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al., 2014.</figcaption>
+                </figure>
+            </div>
         </div>
+
        <div class="section" id="seccion-1-3-4">
             <div class="section-header">
                 <div class="section-number">1.3.4</div>
-                <div class="section-title">Prospectivo, retrospectivo, longitudinal, casos y controles; cohorte y ensayos clínico</div>
+                <div class="section-title">Investigación prospectiva, retrospectiva, longitudinal, casos y controles; cohorte y ensayos clínicos</div>
             </div>
-            <div class="content">
 
-            <div class="mode-title">1. Investigación prospectivo</div>
-             <p>Parte de un diseño de estudio que se caracteriza por seguir a los participantes a lo largo del tiempo que determina eventos o factores
-                previamente identificados. la recolecta de información establece un punto inicial, permitiendo evaluar cómo evolucionan las variables y 
-                cuál es su posible relación con los resultados observados. Los estudios de cohortes observan a las personas para analizar sus efectos con el tiempo.</p> 
-             <p>Permite establecer secuencias temporales claras entre factores de riesgo y resultados, lo que fortalece la comprensión de procesos causales y la predicción de eventos. Para estudiar la
-                evolución de enfermedades o el impacto de factores de riesgo; en educación, para analizar el desarrollo del aprendizaje a lo largo del tiempo; y en ciencias sociales, para evaluar cambios en comportamientos o 
-                condiciones de vida. Gracias a su enfoque longitudinal, la investigación prospectiva proporciona evidencia valiosa para la prevención y la planificación (Hernández-Sampieri, R., & Mendoza, C. P. 2018).</p> 
-   
-                   
-          </div> 
-            <div class="mode-title">2. Investigación retrospectivo</div>
-                <p>Es el estudio que analiza hechos o eventos que ya ocurrieron, utilizando registros previos, historiales clínicos, bases de datos o recuerdos de los participantes para establecer las variables que se encuentran 
+            <div class="content">
+                <div class="mode-title"><h2><strong>Investigación prospectiva</strong></h2></div>
+                <p>Parte de un diseño de estudio que se caracteriza por seguir a los participantes a lo largo del tiempo que determina eventos o factores
+                    previamente identificados. la recolecta de información establece un punto inicial, permitiendo evaluar cómo evolucionan las variables y
+                    cuál es su posible relación con los resultados observados. Los estudios de cohortes observan a las personas para analizar sus efectos con el tiempo.</p>
+                <p>Permite establecer secuencias temporales claras entre factores de riesgo y resultados, lo que fortalece la comprensión de procesos causales y la predicción de eventos. Para estudiar la
+                    evolución de enfermedades o el impacto de factores de riesgo; en educación, para analizar el desarrollo del aprendizaje a lo largo del tiempo; y en ciencias sociales, para evaluar cambios en comportamientos o
+                    condiciones de vida. Gracias a su enfoque longitudinal, la investigación prospectiva proporciona evidencia valiosa para la prevención y la planificación (Hernández-Sampieri, R., & Mendoza, C. P. 2018).</p>
+
+                <div class="mode-title"><h2><strong>Investigación retrospectiva</strong></h2></div>
+                <p>Es el estudio que analiza hechos o eventos que ya ocurrieron, utilizando registros previos, historiales clínicos, bases de datos o recuerdos de los participantes para establecer las variables que se encuentran
                 En este enfoque, es importante observar el resultado o evento de interés y examina información pasada para determinar factores asociados o exposiciones previas. Es común en los objetos de estudio establecer los datos de los pacientes
                  para determinar su organización y listas para su comparación de estos.</p>
-                   
                 <p>Además de estudiar fenómenos de manera eficiente cuando los eventos ya han ocurrido, reduciendo tiempo y costos en comparación con estudios prospectivos. En la educación ayuda a analizar
                    el desempeño, así como en ciencias sociales, para comprender patrones históricos de comportamiento. Aunque depende de la calidad de los registros disponibles y puede presentar sesgos de memoria o información incompleta, la investigación retrospectiva aporta evidencia
                    valiosa para la comprensión de problemas y la generación de hipótesis (Hernández-Sampieri, R., & Mendoza, C. P. 2018).</p>
 
-        <br>
-        <p></p>
-
-            <div class="mode-title">3. Investigación longitudinal</div>
+                <div class="mode-title"><h2><strong>Investigación longitudinal</strong></h2></div>
                 <p>Examina la relación con diferentes factores directamente para establecer su forma de cambiar de manera conjunta y en qué dirección lo hacen (positiva, negativa o nula), utilizando técnicas estadísticas como el
                    coeficiente de correlación. Su propósito no es establecer relaciones de causa y efecto, sino identificar patrones significativos dentro de un fenómeno.</p>
                 <p>Su importancia radica en que permite comprender cómo se vinculan diferentes factores en contextos reales, aportando información valiosa para la predicción, por ejemplo, puede analizar la relación entre hábitos de vida y enfermedades; en educación, entre estrategias de estudio
-                   y rendimiento académico; y en ciencias sociales, entre variables socioeconómicas y calidad de vida. Aunque no demuestra causalidad, la investigación correlacional contribuye a generar hipótesis y orientar estudios experimentales posteriores (Hernández Sampieri et al., 2014).</p> 
-        <br>
-        <p></p>
-            <div class="mode-title">4. Investigación casos y controles</div>
-                <p>Compara dos grupos de individuos: uno conformado por personas con una enfermedad y otras saludables. A partir de esta comparación, se observa e identifica las 
+                   y rendimiento académico; y en ciencias sociales, entre variables socioeconómicas y calidad de vida. Aunque no demuestra causalidad, la investigación correlacional contribuye a generar hipótesis y orientar estudios experimentales posteriores (Hernández Sampieri et al., 2014).</p>
+
+                <div class="mode-title"><h2><strong>Investigación de casos y controles</strong></h2></div>
+                <p>Compara dos grupos de individuos: uno conformado por personas con una enfermedad y otras saludables. A partir de esta comparación, se observa e identifica las
                     asociaciones que puedan explicar la presencia del evento de interés. Este diseño es especialmente útil cuando se estudian enfermedades poco frecuentes o con largos periodos de desarrollo.</p>
-                <p>Por lo que identificar los factores asociados a una enfermedad de manera eficiente, con menor costo y en menos tiempo que los estudios longitudinales. Se utiliza para 
+                <p>Por lo que identificar los factores asociados a una enfermedad de manera eficiente, con menor costo y en menos tiempo que los estudios longitudinales. Se utiliza para
                     padecimientos como cáncer, enfermedades cardiovasculares o infecciones emergentes. Aunque no establece causalidad directa y puede verse afectado por sesgos de selección o memoria, la investigación de casos y controles proporciona evidencia valiosa para la prevención,
                    la vigilancia epidemiológica y el diseño de estrategias de salud pública (Hernández Sampieri et al., 2014).</p>
-            <br>
-        <p></p>   
-            <div class="mode-title">5. Investigación cohorte y ensayos clínico</div>
-            <p>Es un diseño observacional longitudinal que consiste en seguir a personas en un tiempo observando la aparición de enfermedades en función de su exposición a determinados factores. Los participantes se clasifican según estén presentando síntomas
-                al riesgo y posteriormente se visualiza el resultado de interés. Es de suma importancia establecer el momento de la presencia y el proceso para que con ello de establezca la epidemia y no se desarrolle más la enfermedad.</p>
-             <p>El estudio experimental está generados para determinar la eficacia de una posible intervención que prevenga con vacunas, terapias o tratamientos.
-               Su importancia radica en que constituyen el método más confiable para determinar relaciones causales y sustentar decisiones clínicas (Hernández Sampieri et al., 2014).</p>     
 
-            <div class="figure-container">
-                    <div class="figure-caption">Figura 14</div>
-                    <div class="figure-caption">Investigación Prospectivo, retrospectivo, longitudinal, casos y controles; cohorte y ensayos clínico</div>
-                    <div class="figura">
-                        <img src="FIGURA14.png" alt="Investigación Prospectivo, retrospectivo, longitudinal, casos y controles; cohorte y ensayos clínico" class="imagen-figura1"/>
-                    </div>
-            <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al., 2014.</div>
-                
-            </div>
-            </div>
-    </div>    
+                <div class="mode-title"><h2><strong>Investigación cohorte y ensayos clínicos</strong></h2></div>
+                <p>Es un diseño observacional longitudinal que consiste en seguir a personas en un tiempo observando la aparición de enfermedades en función de su exposición a determinados factores. Los participantes se clasifican según estén presentando síntomas
+                    al riesgo y posteriormente se visualiza el resultado de interés. Es de suma importancia establecer el momento de la presencia y el proceso para que con ello de establezca la epidemia y no se desarrolle más la enfermedad.</p>
+                <p>El estudio experimental está generados para determinar la eficacia de una posible intervención que prevenga con vacunas, terapias o tratamientos.
+                    Su importancia radica en que constituyen el método más confiable para determinar relaciones causales y sustentar decisiones clínicas (Hernández Sampieri et al., 2014).</p>
 
-        <div class="section" id="video-1-3">
-            <div class="section-header">
-                <div class="section-number"><i class="fas fa-play-circle"></i></div>
-                <div class="section-title">Material Audiovisual</div>
-            </div>
-            <div class="content">
-                <div class="figure-container">
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/C6AKenoOGQk" title="Tipos y formas de investigacion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
-                    <div class="figure-caption">Salas, I. (2026). <em>Tipos y formas de investigación</em> [Video]. YouTube. https://www.youtube.com/watch?v=C6AKenoOGQk</div>
-                </div>
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 1.14</figcaption>
+                    <figcaption class="figure-caption">Investigación Prospectivo, retrospectivo, longitudinal, casos y controles; cohorte y ensayos clínicos</figcaption>
+                    <img src="img/FIGURA14.png" alt="Investigación Prospectivo, retrospectivo, longitudinal, casos y controles; cohorte y ensayos clínicos" class="imagen-figura1"/>
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al., 2014.</figcaption>
+                </figure>
             </div>
         </div>
 
-        <div class="activity-card">
-            <div class="activity-title">Actividad de Aprendizaje 1.3: Modos de Operación</div>
-            <p>Repasa los conceptos de Modo Usuario, Modo Kernel, interrupciones y contadores del sistema.</p>
+        <div class="section" id="video-1-3">
+            <div class="section-header">
+                <div class="section-number section-icon"><i class="fas fa-play-circle"></i></div>
+                <div class="section-title">Material Audiovisual</div>
+            </div>
+            <div class="content">
+                <figure class="figure-container">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/C6AKenoOGQk" title="Tipos y formas de investigación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <figcaption class="figure-caption">Salas, I. (2026). <em>Tipos y formas de investigación</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=C6AKenoOGQk" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=C6AKenoOGQk</a></figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="activity-card" id="actividad-aprendizaje">
+            <div class="activity-title"><strong>Actividad de Aprendizaje 1.3: Modos de Operación</strong></div>
+            <p>Repasa los conceptos de tipos y formas de investigación.</p>
             <a href="actividad_1_3.html" class="activity-btn">
                 <i class="fas fa-pencil-alt"></i> Realizar Actividad
             </a>
         </div>
 
         <div class="nav-buttons">
-            <a href="1.2.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a 1.2: Etapas del proceso de investigación</a>
-            <a href="1.4.html" class="nav-btn">Continuar a 1.4: Planeación de la investigación<i class="fas fa-arrow-right"></i></a>
+            <a href="1.2.html" class="nav-btn"><i class="fas fa-arrow-left"></i> 1.2 Etapas del proceso de investigación</a>
+            <a href="1.4.html" class="nav-btn">1.4 Planeación de la investigación <i class="fas fa-arrow-right"></i></a>
         </div>
-        </div>
-</div>        
-        
-        
+
+
         <footer>
             <p>Polilibro académico - Metodología de la Investigación y Estadística I</p>
             <p>Desarrollado para fines educativos - © 2025</p>
         </footer>
-
-    <script>
-        let sidebarOpen = false;
-
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebarNav = document.getElementById('sidebarNav');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-        function toggleSidebar() {
-            sidebarOpen = !sidebarOpen;
-            
-            if (sidebarOpen) {
-                sidebarNav.classList.add('active');
-                sidebarOverlay.classList.add('active');
-                menuToggle.classList.add('active');
-                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-                document.body.style.overflow = 'hidden';
-            } else {
-                sidebarNav.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                menuToggle.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = 'auto';
-            }
-            
-            updateContainerSpacing();
-        }
-
-        menuToggle.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
-
-        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    toggleSidebar();
-                }
-            });
-        });
-
-        function updateContainerSpacing() {
-            const container = document.querySelector('.container');
-            
-            if (window.innerWidth <= 768) {
-                container.style.marginLeft = '20px';
-                container.style.marginRight = '20px';
-                container.style.padding = '10px';
-            } else if (sidebarOpen && window.innerWidth > 768) {
-                container.style.marginLeft = '370px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            } else {
-                container.style.marginLeft = '90px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            }
-        }
-
-        function updateActiveSection() {
-            const sections = document.querySelectorAll('.section');
-            const navItems = document.querySelectorAll('.nav-item[data-section]');
-            let currentSectionId = '';
-
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    currentSectionId = section.id;
-                }
-            });
-
-            navItems.forEach(item => {
-                const sectionId = 'seccion-' + item.dataset.section;
-                if (sectionId === currentSectionId) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        function updateReadingProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        }
-
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        function toggleScrollToTopBtn() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        }
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            updateActiveSection();
-            updateReadingProgress();
-            toggleScrollToTopBtn();
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && sidebarOpen) {
-                toggleSidebar();
-            }
-            updateContainerSpacing();
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateActiveSection();
-            updateReadingProgress();
-            updateContainerSpacing();
-            if (window.innerWidth <= 768) {
-                sidebarNav.classList.remove('active');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && sidebarOpen) {
-                toggleSidebar();
-            }
-            if (e.key === 'm' || e.key === 'M') {
-                if (!e.ctrlKey && !e.altKey) { 
-                    toggleSidebar();
-                }
-            }
-        });
-    </script>
+    </div>
+    <script src="../RECURSOS/data/navegacion.js"></script>
+    <script src="../RECURSOS/js/navegacion-unidades.js"></script>
+    <script src="../RECURSOS/js/interacciones-unidades.js"></script>
+    <script src="../RECURSOS/js/visor-imagenes.js"></script>
 </body>
 </html>

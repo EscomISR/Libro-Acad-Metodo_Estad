@@ -4,580 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3.3 Segmentación de Memoria</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
+    <link rel="icon" type="image/png" href="../RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #a855f7;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1e0030, #3d0066);
-            color: var(--light);
-            min-height: 100vh;
-            line-height: 1.7;
-        }
-
-        .floating-home-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--secondary);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-size: 1.5rem;
-        }
-
-        .floating-home-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        .sidebar-nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: rgba(30, 0, 48, 0.95);
-            border-right: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
-            overflow-y: auto;
-        }
-
-        .sidebar-nav.active {
-            transform: translateX(0);
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            background: rgba(52, 152, 219, 0.1);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .sidebar-title {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .nav-sections {
-            padding: 20px 0;
-        }
-
-        .nav-section {
-            margin-bottom: 15px;
-        }
-
-        .nav-section-title {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
-            margin-bottom: 10px;
-        }
-
-        .nav-item {
-            display: block;
-            padding: 12px 20px;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: rgba(142, 68, 173, 0.2);
-            border-left-color: var(--accent);
-            padding-left: 25px;
-        }
-
-        .nav-item.active {
-            background: rgba(52, 152, 219, 0.2);
-            border-left-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        .nav-item i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            font-size: 1.2rem;
-        }
-
-        .menu-toggle:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle.active {
-            background: var(--accent);
-        }
-
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 998;
-        }
-
-        .reading-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--success));
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            transition: margin-left 0.3s ease, margin-right 0.3s ease;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            margin: 0 10px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-weight: 300;
-            text-align: center;
-        }
-        
-        .intro {
-            max-width: 900px;
-            margin: 0 auto 40px;
-            padding: 25px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary);
-            text-align: justify;
-        }
-        
-        .section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            scroll-margin-top: 100px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        
-        .section-number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-right: 15px;
-            min-width: 120px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .content {
-            padding: 0 10px;
-        }
-        
-        .content h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin: 30px 0 15px;
-            padding-left: 10px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .content h4 {
-            font-size: 1.3rem;
-            color: var(--warning);
-            margin: 25px 0 12px;
-            padding-left: 8px;
-        }
-        
-        .content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .content ul, .content ol {
-            padding-left: 30px;
-            margin: 20px 0;
-        }
-        
-        .content li {
-            margin-bottom: 12px;
-        }
-        
-        .highlight {
-            background: rgba(231, 76, 60, 0.15);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-        
-        .citation {
-            font-style: italic;
-            color: var(--gray);
-            margin: 5px 0 15px 20px;
-            border-left: 2px solid var(--secondary);
-            padding-left: 10px;
-        }
-        
-        .quote-box {
-            background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: var(--light);
-        }
-
-        .quote-box .citation {
-            border-left: none;
-            margin: 10px 0 0 0;
-            padding-left: 0;
-        }
-        
-        .table-container {
-            max-width: 100%;
-            margin: 30px auto;
-            overflow-x: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        .table-caption {
-            text-align: center;
-            padding: 10px;
-            color: var(--gray);
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        
-        .figure-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .imagen-figura1 {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain; 
-            border-radius: 8px;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: zoom-in;
-            transform-origin: center center;
-        }
-        
-        /* Efecto al pasar el mouse */
-        .imagen-figura1:hover {
-            transform: scale(1.4); 
-            border-radius: 8px;
-        }
-        
-        .figure-caption {
-            color: var(--gray);
-            margin-top: 10px;
-        }
-        
-        /* Estilos para la tarjeta de actividad */
-        .activity-card {
-            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 4px solid var(--success); /* Borde izquierdo verde */
-            text-align: center;
-        }
-        
-        .activity-title {
-            font-size: 1.8rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .activity-btn {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .activity-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--secondary);
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .nav-btn i {
-            margin: 0 8px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 768px) {
-            .sidebar-nav {
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .section-number {
-                min-width: 100px;
-                font-size: 1.8rem;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .floating-home-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../RECURSOS/css/estilos-unidades.css?v=1">
 </head>
 <body>
     <div class="reading-progress">
@@ -588,8 +17,8 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <a href="index.html" class="floating-home-btn" title="Ir al inicio de Unidades">
-        <i class="fas fa-home"></i>
+    <a href="index.html" class="floating-home-btn" title="Ir a Unidad 3">
+        <i class="fas fa-book-open"></i>
     </a>
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
@@ -597,47 +26,46 @@
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
             <div class="sidebar-title">3.3 Estadística descriptiva</div>
-            <div class="sidebar-subtitle"></div>
+            <div class="sidebar-subtitle">Descripción de datos</div>
         </div>
-        
+
         <div class="nav-sections">
             <div class="nav-section">
                 <div class="nav-section-title">Navegación</div>
-                <a href="#inicio" class="nav-item">
-                    <i class="fas fa-play-circle"></i>
-                    Inicio de la unidad
+                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/" class="nav-item">
+                    <i class="fas fa-home"></i> Inicio
                 </a>
                 <a href="index.html" class="nav-item">
-                    <i class="fas fa-arrow-left"></i>
-                    Menú principal 3
+                    <i class="fas fa-book-open"></i> Unidad 3
+                </a>
+                <a href="3.2.html" class="nav-item">
+                    <i class="fas fa-arrow-left"></i> 3.2 Plan de análisis estadístico
+                </a>
+                <a href="3.4.html" class="nav-item">
+                    <i class="fas fa-arrow-right"></i> 3.4 Interpretación y discusión de los resultados de la investigación
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Contenido</div>
                 <a href="#seccion-3-3-1" class="nav-item" data-section="3-3-1">
-                    <i class="fas fa-dice-d6"></i>
-                    3.3.1 Frecuencias, porcentajes, proporciones y tasas
+                    <i class="fas fa-book-open"></i> 3.3.1 Frecuencias, porcentajes, proporciones y tasas
                 </a>
                 <a href="#seccion-3-3-2" class="nav-item" data-section="3-3-2">
-                    <i class="fas fa-layer-group"></i>
-                    3.3.2 Tablas y/o gráficos
+                    <i class="fas fa-bullseye"></i> 3.3.2 Tablas y/o gráficos
                 </a>
-                <a href="#seccion-3-3-3" class="nav-item" data-section="3-3-2">
-                    <i class="fas fa-layer-group"></i>
-                    3.3.3 Tablas de contingencia
+                <a href="#seccion-3-3-3" class="nav-item" data-section="3-3-3">
+                    <i class="fas fa-chart-line"></i> 3.3.3 Tablas de contingencia
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Recursos</div>
-                <a href="#actividad-aprendizaje" class="nav-item">
-                    <i class="fas fa-tasks"></i>
-                    Actividad de aprendizaje
+                <a href="#video-3-3" class="nav-item" data-section="video-3-3">
+                    <i class="fas fa-play-circle"></i> Material audiovisual
                 </a>
-                <a href="3.2.html" class="nav-item">
-                    <i class="fas fa-arrow-left"></i>
-                    Anterior: Plan de análisis estadístico
+                <a href="#actividad-aprendizaje" class="nav-item" data-section="actividad-aprendizaje">
+                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
                 </a>
             </div>
         </div>
@@ -650,68 +78,62 @@
     <div class="container">
         <header id="inicio">
             <div class="breadcrumb">
-                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/Unidades.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="../unidades.html">Unidades</a>
                 <span>/</span>
                 <a href="index.html">Unidad 3</a>
                 <span>/</span>
                 <span>3.3 Estadística descriptiva</span>
             </div>
             <h1>3.3 Estadística descriptiva</h1>
-            <div class="subtitle"></div>
+            <div class="subtitle">Unidad III. Interpretación de los resultados de la investigación</div>
         </header>
-        
+
         <div class="intro">
-            <p>Es la encargada de organizar, concluir y mostrar la informacion obtenida para describir sus características principales. La intención es cambiar información en una forma que se entienda mediante el uso de herramientas que muestren gráficos, patrones, tendencias y comportamientos en un grupo de información
+            <p>Se encarga de organizar, resumir y mostrar la información obtenida para describir sus características principales. La intención es presentar la información de una forma comprensible mediante el uso de herramientas que muestren gráficos, patrones, tendencias y comportamientos en un grupo de información
                 esto facilita la comprensión inicial de la información sin llegar a establecer inferencias o generalizaciones de la información(Triola, 2018).</p>
-            <p>Descripción de información con la estadística descriptiva teniendo muestras establecidas por la media, mediana y moda, las cuales indican valores representativos de los cambios de la información y 
+            <p>Descripción de información con la estadística descriptiva teniendo muestras establecidas por la media, mediana y moda, las cuales indican valores representativos de los cambios de la información y
                 ayudan a interpretar cómo se distribuye la información y si existe homogeneidad o dispersión en los valores analizados.</p>
             <p>La investigación científica, la estadística descriptiva es fundamental para resumir resultados clínicos, caracterizar poblaciones y presentar información de manera clara y objetiva. Su uso permite visualizar tendencias epidemiológicas, evaluar indicadores de salud y
                comunicar hallazgos de forma comprensible de los resultados obtenidos.</p>
             <br>
-            <H3>Características como frecuencias, porcentajes, proporciones y tasas</H3>
-            <H4>🔹 Simplicidad y comprensión inmediata</H4>
-            <p>Permiten resumir datos complejos en valores fáciles de interpretar.</p>
-            <H4>🔹 Cuantificación objetiva de la información</H4>
-            <p>Transforman observaciones en valores numéricos que facilitan el análisis</p>
-            <H4>🔹 Comparabilidad entre grupos</H4>
-            <p>Facilitan la identificación de diferencias y similitudes entre poblaciones o categorías.</p>
-            <H4>🔹 Representación de la distribución de los datos</H4>
-            <p>Muestran cómo se comporta un fenómeno dentro de un conjunto de observaciones.</p>
-            <H4>🔹 Relación parte–todo</H4>
-            <p>Los porcentajes y proporciones ayudan a entender qué fracción del total representa un grupo específico.</p>
-            <H4>🔹 Medición de ocurrencia y riesgo</H4>
-            <p>Las tasas permiten evaluar la frecuencia de eventos considerando población y tiempo.</p>
-            <H$>🔹 Base para análisis estadísticos posteriores</H>
-            <p>Sirven como fundamento para análisis comparativos e inferenciales más complejos.</p>
-            
-            <div class="figure-container">
-                <p class="figure-caption">Figura 3g</p>
-                <p class="figure-caption">Estadística descriptiva</p>
-                <img src="Figura3g.png" alt="Estadística descriptiva" class="imagen-figura1">
-                <p class="figure-caption"><i>Nota</i>. Elaboración propia basada en Estadística (12.ª ed.). Triola, M. F. 2018. Pearson.</p>
-            </div>
+            <h2>Características como frecuencias, porcentajes, proporciones y tasas</h2>
+            <ul>
+                <li><strong>Simplicidad y comprensión inmediata</strong>: Permiten resumir datos complejos en valores fáciles de interpretar.</li>
+                <li><strong>Cuantificación objetiva de la información</strong>: Transforman observaciones en valores numéricos que facilitan el análisis.</li>
+                <li><strong>Comparabilidad entre grupos</strong>: Facilitan la identificación de diferencias y similitudes entre poblaciones o categorías.</li>
+                <li><strong>Representación de la distribución de los datos</strong>: Muestran cómo se comporta un fenómeno dentro de un conjunto de observaciones.</li>
+                <li><strong>Relación parte–todo</strong>: Los porcentajes y proporciones ayudan a entender qué fracción del total representa un grupo específico.</li>
+                <li><strong>Medición de ocurrencia y riesgo</strong>: Las tasas permiten evaluar la frecuencia de eventos considerando población y tiempo.</li>
+                <li><strong>Base para análisis estadísticos posteriores</strong>: Sirven como fundamento para análisis comparativos e inferenciales más complejos.</li>
+            </ul>
+
+            <figure class="figure-container">
+                <figcaption class="figure-caption">Figura 3.7</figcaption>
+                <figcaption class="figure-caption">Estadística descriptiva</figcaption>
+                <img src="img/Figura3g.png" alt="Estadística descriptiva" class="imagen-figura1">
+                <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Estadística (12.ª ed.). Triola, M. F. 2018. Pearson.</figcaption>
+            </figure>
         </div>
-        
+
         <div class="section" id="seccion-3-3-1">
             <div class="section-header">
                 <div class="section-number">3.3.1</div>
                 <div class="section-title">Frecuencias, porcentajes, proporciones y tasas</div>
             </div>
             <div class="content">
-                <p>Estadística descriptiva permiten mostar informacion entendible facilitando la interpretación de la información al mostrar cuántas veces ocurre un fenómeno y cómo se distribuye en la muestra.</p>
-                <p>Indica la frecuencia el número de veces que un evento se presenta en una observaciones, mientras que el porcentaje expresa esa frecuencia en relación con el total, multiplicada por cien para facilitar su interpretación. Por su parte,
+                <p>La estadística descriptiva permite mostrar información comprensible y facilita la interpretación de la información al mostrar cuántas veces ocurre un fenómeno y cómo se distribuye en la muestra.</p>
+                <p>La frecuencia indica el número de veces que un evento se presenta en un conjunto de observaciones, mientras que el porcentaje expresa esa frecuencia en relación con el total, multiplicada por cien para facilitar su interpretación. Por su parte,
                    la proporción representa la relación entre una parte y el total, expresada como un valor entre 0 y 1 o como fracción. Estas medidas permiten comparar resultados de manera sencilla.</p>
-                <p>Las tasas expresar ocurrencia de un evento en relación con una población y un periodo de tiempo determinado, lo que permite analizar la velocidad o riesgo con que sucede un fenómeno. En las ciencias de la salud, estas medidas
+                <p>Las tasas expresan la ocurrencia de un evento en relación con una población y un periodo de tiempo determinado, lo que permite analizar la velocidad o riesgo con que sucede un fenómeno. En las ciencias de la salud, estas medidas
                    son indispensables para describir indicadores epidemiológicos como tasas de mortalidad, incidencia o prevalencia, facilitando la vigilancia sanitaria en una población(Pagano & Gauvreau, 2018)</p>
-                <br>
-                <H4></H4>                
-                
-                <div class="figure-container">
-                    <p class="figure-caption">Figura 3h</p>
-                    <p class="figure-caption">Frecuencias, porcentajes, proporciones y tasas</p>
-                    <img src="Figura3h.png" alt="Frecuencias, porcentajes, proporciones y tasas" class="imagen-figura1">
-                    <p class="figure-caption"><i>Nota</i>. Elaboración propia basada en Estadística (12.ª ed.). Triola, M. F. 2018. Pearson.</p>
-                </div>
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 3.8</figcaption>
+                    <figcaption class="figure-caption">Frecuencias, porcentajes, proporciones y tasas</figcaption>
+                    <img src="img/Figura3h.png" alt="Frecuencias, porcentajes, proporciones y tasas" class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Estadística (12.ª ed.). Triola, M. F. 2018. Pearson.</figcaption>
+                </figure>
             </div>
 
             </div>
@@ -724,17 +146,17 @@
                 <p>el uso facilita comprender la información y permite identificar patrones,  y relaciones entre variables, además las tablas ordenan los datos en filas y columnas para su lectura detallada, los gráficos los representan visualmente, favoreciendo una comprensión rápida y efectiva (Spiegel & Stephens, 2018).</p>
                 <p>Las tablas permiten presentar la información con precisión y orden, facilitando la comparación entre categorías y valores numéricos. Entre las más utilizadas se encuentran las tablas de frecuencia, que muestran los valores que ayudan a evaluar diferencias entre grupos o periodos.</p>
                 <p>Los gráficos, por su parte, ofrecen una imagen que identifica las diferencias. Entre ellos estan barras, circulos, histogramas con frecuencia y líneas, que permiten observar cambios a lo largo del tiempo.
-                    
-                   <div class="figure-container">
-                    <p class="figure-caption">Figura 3i</p>
-                    <p class="figure-caption">Tablas y/o gráficos</p>
-                    <img src="Figura3i.png" alt="Tablas y/o gráficos" class="imagen-figura1">
-                    <p class="figure-caption"><i>Nota</i>. Elaboración propia basada en Estadística (5.ª ed.). Spiegel, M. R., & Stephens, L. J. 2018. McGraw-Hill Educación.</p>
-                </div>
+
+                   <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 3.9</figcaption>
+                    <figcaption class="figure-caption">Tablas y/o gráficos</figcaption>
+                    <img src="img/Figura3i.png" alt="Tablas y/o gráficos" class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Estadística (5.ª ed.). Spiegel, M. R., & Stephens, L. J. 2018. McGraw-Hill Educación.</figcaption>
+                </figure>
             </div>
 
             </div>
-       <div class="section" id="seccion-3-3-4">
+       <div class="section" id="seccion-3-3-3">
             <div class="section-header">
                 <div class="section-number">3.3.3</div>
                 <div class="section-title">Tablas de contingencia</div>
@@ -750,198 +172,38 @@
         </div>
         <div class="section" id="video-3-3">
             <div class="section-header">
-                <div class="section-number"><i class="fas fa-play-circle"></i></div>
+                <div class="section-number section-icon"><i class="fas fa-play-circle"></i></div>
                 <div class="section-title">Material Audiovisual</div>
             </div>
             <div class="content">
-                <div class="figure-container">
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/HBLCDlelUAA" title="Estadística descriptiva" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
-                    <div class="figure-caption">Salas, I. (2026). <em>Estadística descriptiva</em> [Video]. YouTube. https://www.youtube.com/watch?v=HBLCDlelUAA</div>
-                </div>
+                <figure class="figure-container">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/HBLCDlelUAA" title="Estadística descriptiva" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <figcaption class="figure-caption">Salas, I. (2026). <em>Estadística descriptiva</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=HBLCDlelUAA" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=HBLCDlelUAA</a></figcaption>
+                </figure>
             </div>
         </div>
-        
+
         <div class="activity-card" id="actividad-aprendizaje">
-            <div class="activity-title">
-                <i class="fas fa-tasks"></i>
-                Actividad de Aprendizaje 3.3: Estadística descriptiva
-            </div>
-            <p class="activity-description">Evalúa tu comprensión sobre Estadística descriptiva.</p>
-            <a href="Actividad_3_3.html" class="activity-btn">
+            <div class="activity-title"><strong>Actividad de Aprendizaje 3.3: Estadística descriptiva</strong></div>
+            <p>Evaluá tu comprensión sobre Estadística descriptiva.</p>
+            <a href="actividad_3_3.html" class="activity-btn">
                 <i class="fas fa-pencil-alt"></i> Realizar Actividad
             </a>
         </div>
-        
+
         <div class="nav-buttons">
-            <a href="3.2.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a 3.2: Plan de análisis estadístico</a>
-            <a href="3.4.html" class="nav-btn"><i class="fas fa-arrow-right"></i> Continuar a 3.4: Interpretación y discusión de los resultados de la investigación</a>
+            <a href="3.2.html" class="nav-btn"><i class="fas fa-arrow-left"></i> 3.2 Plan de análisis estadístico</a>
+            <a href="3.4.html" class="nav-btn">3.4 Interpretación y discusión de los resultados de la investigación <i class="fas fa-arrow-right"></i></a>
         </div>
-    
+
         <footer>
-            <p>Sistemas Operativos - Unidad 3: Administración de Memoria</p>
+            <p>Metodología de la Investigación y Estadística I - Unidad 3: Interpretación de resultados</p>
             <p>Desarrollado para fines educativos - © 2025 | Referencias: Silberschatz, Galvin y Gagne (2022).</p>
         </footer>
-    
+    <script src="../RECURSOS/data/navegacion.js"></script>
+    <script src="../RECURSOS/js/navegacion-unidades.js"></script>
+    <script src="../RECURSOS/js/interacciones-unidades.js"></script>
+    <script src="../RECURSOS/js/visor-imagenes.js"></script>
 
-    <script>
-        // Variables globales
-        let sidebarOpen = false;
-
-        // Toggle del menú lateral
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebarNav = document.getElementById('sidebarNav');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-        function toggleSidebar() {
-            sidebarOpen = !sidebarOpen;
-            
-            if (sidebarOpen) {
-                sidebarNav.classList.add('active');
-                sidebarOverlay.classList.add('active');
-                menuToggle.classList.add('active');
-                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-                document.body.style.overflow = 'hidden';
-            } else {
-                sidebarNav.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                menuToggle.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = 'auto';
-            }
-            
-            updateContainerSpacing();
-        }
-
-        menuToggle.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
-
-        // Cerrar menú al hacer clic en un enlace de navegación
-        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    toggleSidebar();
-                }
-            });
-        });
-
-        // Ajustar espaciado del contenedor dinámicamente
-        function updateContainerSpacing() {
-            const container = document.querySelector('.container');
-            
-            if (window.innerWidth <= 768) {
-                container.style.marginLeft = '20px';
-                container.style.marginRight = '20px';
-                container.style.padding = '10px';
-            } else if (sidebarOpen && window.innerWidth > 768) {
-                container.style.marginLeft = '370px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            } else {
-                container.style.marginLeft = '90px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            }
-        }
-
-        // Resaltar sección activa en el menú
-        function updateActiveSection() {
-            const sections = document.querySelectorAll('.section, .intro');
-            const navItems = document.querySelectorAll('.nav-item[data-section]');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    currentSection = section.id.replace('seccion-', '');
-                }
-            });
-            
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.dataset.section === currentSection) {
-                    item.classList.add('active');
-                }
-            });
-        }
-
-        // Indicador de progreso de lectura
-        function updateReadingProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        }
-
-        // Botón de ir arriba
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        function toggleScrollToTopBtn() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        }
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Event listeners
-        window.addEventListener('scroll', () => {
-            updateActiveSection();
-            updateReadingProgress();
-            toggleScrollToTopBtn();
-        });
-
-        // Desplazamiento suave para enlaces del menú
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && sidebarOpen) {
-                toggleSidebar();
-            }
-            updateContainerSpacing();
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateActiveSection();
-            updateReadingProgress();
-            updateContainerSpacing();
-            
-            if (window.innerWidth <= 768) {
-                sidebarNav.classList.remove('active');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && sidebarOpen) {
-                toggleSidebar();
-            }
-            
-            if (e.key === 'm' || e.key === 'M') {
-                if (!e.ctrlKey && !e.altKey) {
-                    toggleSidebar();
-                }
-            }
-        });
-    </script>
 </body>
 </html>

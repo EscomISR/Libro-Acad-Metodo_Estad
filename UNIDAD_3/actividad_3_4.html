@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad 2.1: Batalla del Protocolo</title>
+    <title>Actividad 3.4: Batalla de la Interpretación</title>
     <link rel="icon" type="image/png" href="../RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../RECURSOS/css/actividades.css">
 </head>
-<body data-question-file="data/preguntas_2.1.json">
+<body data-question-file="data/preguntas_3.4.json">
     <div class="reading-progress">
         <div class="reading-progress-bar" id="readingProgressBar"></div>
     </div>
@@ -17,7 +17,7 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <a href="index.html" class="floating-home-btn" title="Ir a Unidad 2">
+    <a href="index.html" class="floating-home-btn" title="Ir a Unidad 3">
         <i class="fas fa-book-open"></i>
     </a>
 
@@ -25,7 +25,7 @@
 
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
-            <div class="sidebar-title">2.1 Estructura del protocolo de investigación</div>
+            <div class="sidebar-title">3.4 Interpretación y discusión de los resultados de la investigación</div>
             <div class="sidebar-subtitle">Actividad de aprendizaje</div>
         </div>
 
@@ -36,10 +36,10 @@
                     <i class="fas fa-home"></i> Inicio
                 </a>
                 <a href="index.html" class="nav-item">
-                    <i class="fas fa-book-open"></i> Unidad 2
+                    <i class="fas fa-book-open"></i> Unidad 3
                 </a>
-                <a href="2.2.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i> 2.2 Planteamiento del diseño de la investigación
+                <a href="3.3.html" class="nav-item">
+                    <i class="fas fa-arrow-left"></i> 3.3 Estadística descriptiva
                 </a>
             </div>
 
@@ -52,10 +52,7 @@
 
             <div class="nav-section">
                 <div class="nav-section-title">Recursos</div>
-                <a href="2.1.html#video-2-1" class="nav-item">
-                    <i class="fas fa-play-circle"></i> Material audiovisual
-                </a>
-                <a href="2.1.html" class="nav-item">
+                <a href="3.4.html" class="nav-item">
                     <i class="fas fa-book-open"></i> Material del tema
                 </a>
             </div>
@@ -73,31 +70,31 @@
                 <span>/</span>
                 <a href="../unidades.html">Unidades</a>
                 <span>/</span>
-                <a href="index.html">Unidad 2</a>
+                <a href="index.html">Unidad 3</a>
                 <span>/</span>
-                <a href="2.1.html">2.1 Estructura del protocolo de investigación</a>
+                <a href="3.4.html">3.4 Interpretación y discusión de los resultados de la investigación</a>
                 <span>/</span>
                 <span>Actividad de aprendizaje</span>
             </div>
-            <h1>⚡ Batalla del Protocolo</h1>
-            <div class="subtitle">¡Supera al Guardián de la Estructura demostrando tu conocimiento sobre el protocolo de investigación!</div>
+            <h1>⚡ Batalla de la Interpretación</h1>
+            <div class="subtitle">¡Supera al Guardián de la Conclusión demostrando tu capacidad para analizar y debatir resultados científicos!</div>
         </div>
 
         <div class="instructions">
-            <h2><i class="fas fa-project-diagram"></i> Instrucciones de Batalla</h2>
+            <h2><i class="fas fa-comments"></i> Instrucciones de Batalla</h2>
             <ul>
-                <li><strong>Misión:</strong> Derrota al Guardián de la Estructura respondiendo correctamente las preguntas sobre el marco teórico, variables, hipótesis y justificación.</li>
+                <li><strong>Misión:</strong> Derrota al Guardián de la Conclusión respondiendo correctamente las preguntas sobre la interpretación y discusión de resultados de investigación.</li>
                 <li><strong>Mecánica:</strong> Cada respuesta correcta inflige 1 punto de daño. Cada respuesta incorrecta cuenta como un error.</li>
                 <li><strong>Victoria:</strong> Reduce la vida del guardián a 0 HP respondiendo todas las preguntas correctamente.</li>
                 <li><strong>Derrota:</strong> Cometes más de 3 errores antes de derrotar al guardián.</li>
-                <li><strong>Estrategia:</strong> Recuerda los tipos de variables, las características de los objetivos y el propósito del marco teórico.</li>
+                <li><strong>Estrategia:</strong> Recuerda cómo se contrastan los resultados empíricos con el marco teórico y cómo formular conclusiones fundamentadas.</li>
             </ul>
         </div>
 
         <div class="battle-arena">
             <div class="monster-section">
-                <div class="monster-avatar" id="monsterAvatar">📜</div>
-                <div class="monster-name">Guardián del Protocolo</div>
+                <div class="monster-avatar" id="monsterAvatar">🎓</div>
+                <div class="monster-name">Guardián de la Conclusión</div>
                 <div class="health-bar-container">
                     <div class="health-bar" id="healthBar"></div>
                 </div>
@@ -125,7 +122,7 @@
             </div>
 
             <div class="questions-section">
-                <h2><i class="fas fa-cogs"></i> Desafíos Estructurales</h2>
+                <h2><i class="fas fa-lightbulb"></i> Desafíos de Interpretación</h2>
                 <div id="questionsContainer"></div>
             </div>
 
@@ -135,7 +132,7 @@
 
             <div class="battle-controls">
                 <button class="btn btn-attack" id="attackBtn">
-                    <i class="fas fa-bolt"></i> ¡EVALUAR PROTOCOLO!
+                    <i class="fas fa-bolt"></i> ¡ARGUMENTAR RESULTADOS!
                 </button>
                 <button class="btn btn-secondary" id="resetBattleBtn">
                     <i class="fas fa-redo"></i> Nueva Batalla
@@ -149,20 +146,17 @@
         </div>
 
         <div class="navigation">
-            <a href="2.1.html" class="btn btn-nav">
-                <i class="fas fa-arrow-left"></i> 2.1 Estructura del protocolo de investigación
+            <a href="3.4.html" class="btn btn-nav">
+                <i class="fas fa-arrow-left"></i> 3.4 Interpretación y discusión de los resultados de la investigación
             </a>
             <div class="nav-center">
                 <a href="index.html" class="btn btn-secondary">
-                    <i class="fas fa-book-open"></i> Unidad 2
+                    <i class="fas fa-book-open"></i> Unidad 3
                 </a>
             </div>
-            <a href="2.2.html" class="btn btn-nav">
-                2.2 Planteamiento del diseño de la investigación <i class="fas fa-arrow-right"></i>
-            </a>
         </div>
         <footer>
-            <p>Metodología de la Investigación y Estadística I - Unidad 2</p>
+            <p>Metodología de la Investigación y Estadística I - Unidad 3</p>
             <p>Desarrollado para fines educativos - © 2026</p>
         </footer>
     </div>

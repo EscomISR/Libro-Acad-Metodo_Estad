@@ -4,580 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2.2 Planteamiento del diseño de la investigación</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh.png">
+    <link rel="icon" type="image/png" href="../RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #a855f7;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1e0030, #3d0066);
-            color: var(--light);
-            min-height: 100vh;
-            line-height: 1.7;
-        }
-
-        .floating-home-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--secondary);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-size: 1.5rem;
-        }
-
-        .floating-home-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        .sidebar-nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: rgba(30, 0, 48, 0.95);
-            border-right: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
-            overflow-y: auto;
-        }
-
-        .sidebar-nav.active {
-            transform: translateX(0);
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            background: rgba(52, 152, 219, 0.1);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .sidebar-title {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .nav-sections {
-            padding: 20px 0;
-        }
-
-        .nav-section {
-            margin-bottom: 15px;
-        }
-
-        .nav-section-title {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
-            margin-bottom: 10px;
-        }
-
-        .nav-item {
-            display: block;
-            padding: 12px 20px;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: rgba(142, 68, 173, 0.2);
-            border-left-color: var(--accent);
-            padding-left: 25px;
-        }
-
-        .nav-item.active {
-            background: rgba(52, 152, 219, 0.2);
-            border-left-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        .nav-item i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            font-size: 1.2rem;
-        }
-
-        .menu-toggle:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle.active {
-            background: var(--accent);
-        }
-
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 998;
-        }
-
-        .reading-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--success));
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            transition: margin-left 0.3s ease, margin-right 0.3s ease;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            margin: 0 10px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-weight: 300;
-            text-align: center;
-        }
-        
-        .intro {
-            max-width: 900px;
-            margin: 0 auto 40px;
-            padding: 25px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary);
-            text-align: justify;
-        }
-        
-        .section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            scroll-margin-top: 100px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        
-        .section-number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-right: 15px;
-            min-width: 120px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .content {
-            padding: 0 10px;
-        }
-        
-        .content h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin: 30px 0 15px;
-            padding-left: 10px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .content h4 {
-            font-size: 1.3rem;
-            color: var(--warning);
-            margin: 25px 0 12px;
-            padding-left: 8px;
-        }
-        
-        .content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .content ul, .content ol {
-            padding-left: 30px;
-            margin: 20px 0;
-        }
-        
-        .content li {
-            margin-bottom: 12px;
-        }
-        
-        .highlight {
-            background: rgba(231, 76, 60, 0.15);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-        
-        .citation {
-            font-style: italic;
-            color: var(--gray);
-            margin: 5px 0 15px 20px;
-            border-left: 2px solid var(--secondary);
-            padding-left: 10px;
-        }
-        
-        .quote-box {
-            background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: var(--light);
-        }
-
-        .quote-box .citation {
-            border-left: none;
-            margin: 10px 0 0 0;
-            padding-left: 0;
-        }
-        
-        .table-container {
-            max-width: 100%;
-            margin: 30px auto;
-            overflow-x: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        .table-caption {
-            text-align: center;
-            padding: 10px;
-            color: var(--gray);
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        
-        .figure-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .imagen-figura1 {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain; 
-            border-radius: 8px;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: zoom-in;
-            transform-origin: center center;
-        }
-        
-        /* Efecto al pasar el mouse */
-        .imagen-figura1:hover {
-            transform: scale(1.4); 
-            border-radius: 8px;
-        }
-        
-        .figure-caption {
-            color: var(--gray);
-            margin-top: 10px;
-        }
-        
-        /* Estilos para la tarjeta de actividad */
-        .activity-card {
-            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 4px solid var(--success); /* Borde izquierdo verde */
-            text-align: center;
-        }
-        
-        .activity-title {
-            font-size: 1.8rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .activity-btn {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .activity-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--secondary);
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .nav-btn i {
-            margin: 0 8px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 768px) {
-            .sidebar-nav {
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .section-number {
-                min-width: 100px;
-                font-size: 1.8rem;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .floating-home-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../RECURSOS/css/estilos-unidades.css?v=1">
 </head>
 <body>
     <div class="reading-progress">
@@ -588,8 +17,8 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <a href="index.html" class="floating-home-btn" title="Ir al índice de unidades">
-        <i class="fas fa-home"></i>
+    <a href="index.html" class="floating-home-btn" title="Ir a Unidad 2">
+        <i class="fas fa-book-open"></i>
     </a>
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
@@ -597,40 +26,43 @@
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
             <div class="sidebar-title">2.2 Planteamiento del diseño de la investigación</div>
-            <div class="sidebar-subtitle"></div>
+            <div class="sidebar-subtitle">Diseño de investigación</div>
         </div>
-        
+
         <div class="nav-sections">
             <div class="nav-section">
                 <div class="nav-section-title">Navegación</div>
-                <a href="#inicio" class="nav-item">
-                    <i class="fas fa-rocket"></i> Inicio del Tema
+                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/" class="nav-item">
+                    <i class="fas fa-home"></i> Inicio
                 </a>
                 <a href="index.html" class="nav-item">
-                    <i class="fas fa-arrow-left"></i> Menú de Unidad 2
+                    <i class="fas fa-book-open"></i> Unidad 2
+                </a>
+                <a href="2.1.html" class="nav-item">
+                    <i class="fas fa-arrow-left"></i> 2.1 Estructura del protocolo de investigación
+                </a>
+                <a href="2.3.html" class="nav-item">
+                    <i class="fas fa-arrow-right"></i> 2.3 Investigación documental
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Contenido</div>
                 <a href="#seccion-2-2-1" class="nav-item" data-section="2-2-1">
-                    <i class="fas fa-book"></i> 2.2.1 Control de variables (Operacionalización)
+                    <i class="fas fa-book-open"></i> 2.2.1 Control de variables (Operacionalización)
                 </a>
                 <a href="#seccion-2-2-2" class="nav-item" data-section="2-2-2">
-                    <i class="fas fa-cogs"></i> 2.2.2 Selección de la muestra
+                    <i class="fas fa-bullseye"></i> 2.2.2 Selección de la muestra
                 </a>
                 <a href="#seccion-2-2-3" class="nav-item" data-section="2-2-3">
-                    <i class="fas fa-layer-group"></i> 2.2.3 Aplicación del plan estadístico
+                    <i class="fas fa-chart-line"></i> 2.2.3 Aplicación del plan estadístico
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Recursos</div>
-                <a href="actividad_2.2.html" class="nav-item">
+                <a href="#actividad-aprendizaje" class="nav-item" data-section="actividad-aprendizaje">
                     <i class="fas fa-tasks"></i> Actividad de aprendizaje
-                </a>
-                <a href="2.3.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i> Siguiente: Investigación documental
                 </a>
             </div>
         </div>
@@ -643,16 +75,18 @@
     <div class="container">
         <header id="inicio">
             <div class="breadcrumb">
-                <a href="https://escomisr.github.io/Libro_Digital_SO/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="../unidades.html">Unidades</a>
                 <span>/</span>
                 <a href="index.html">Unidad 2</a>
                 <span>/</span>
                 <span>2.2 Planteamiento del diseño de la investigación</span>
             </div>
             <h1>2.2 Planteamiento del diseño de la investigación</h1>
-            <div class="subtitle"></div>
+            <div class="subtitle">Unidad II. Estructura del protocolo de investigación</div>
         </header>
-        
+
         <div class="intro">
             <p>Plan que se seguirá para contestar el problema a estudiar y comprobar las hipótesis formuladas. En esta etapa se determina el tipo de estudio (experimental,
                 no experimental, descriptivo, correlacional, transversal, longitudinal, entre otros), así como la forma en que se recolectarán y analizarán los datos. El diseño
@@ -662,60 +96,63 @@
                los resultados obtenidos sean confiables y reproducibles.</p>
 
         </div>
-        
+
         <div class="section" id="seccion-2-2-1">
             <div class="section-header">
                 <div class="section-number">2.2.1</div>
                 <div class="section-title">Control de variables (Operacionalización)</div>
             </div>
+
             <div class="content">
                 <p>Son la transformación en variables observables y medibles, a partir de su análisis y objetivo. Define con precisión cada variable, establecer sus dimensiones, indicadores y la forma en que serán evaluadas. Este procedimiento facilita la recolección
                    de datos confiables y asegura que los conceptos abstractos puedan medirse de manera concreta dentro del estudio.</p>
                 <p>Entre sus características principales, la operacionalización permite estandarizar la medición, reducir sesgos y validez de resultados. Asimismo, implica especificar las escalas de medición, los instrumentos a utilizar y los criterios de evaluación, lo que facilita la replicabilidad
                    del estudio y el control de factores que podrían influir en los resultados. Un adecuado control de variables fortalece el rigor metodológico y la precisión en la interpretación de los hallazgos.</p>
-               <div class="figure-container">
-                    <div class="figure-caption">Figura 2f</div>
-                    <div class="figure-caption">Control de variables (Operacionalización)</div>
-                    <img src="Figura2f.png" alt="Modelo multihilo " class="imagen-figura1">
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</div>
-                </div>                                
+
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 2.6</figcaption>
+                    <figcaption class="figure-caption">Control de variables (Operacionalización)</figcaption>
+                    <img src="img/Figura2f.png" alt="Modelo multihilo " class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</figcaption>
+                </figure>
             </div>
-
-
         </div>
-        
+
         <div class="section" id="seccion-2-2-2">
             <div class="section-header">
                 <div class="section-number">2.2.2</div>
                 <div class="section-title">Selección de la muestra</div>
             </div>
+
             <div class="content">
                 <p>Proceso mediante el cual se elige una muestra para obtener información válida y generalizable. Debido a que estudiar a toda la población suele ser costoso o impracticable, la muestra permite analizar el fenómeno con eficiencia, siempre que conserve las características esenciales del grupo total. Una adecuada selección garantiza que los resultados reflejen de manera confiable la realidad investigada.</p>
                 <p>Entre sus características, la muestra debe ser representativa, suficiente en tamaño y seleccionada mediante procedimientos adecuados según el diseño del estudio. Puede obtenerse mediante cálculos probabilísticas dependiendo de los objetivos y recursos disponibles. Una correcta selección de la muestra fortalece la validez externa del estudio y
                    permite inferir resultados con mayor precisión.</p>
-                <h3>Tipos de muestra</h3>
+                <h2>Tipos de muestra</h2>
                 <p>Sus elementos son por la muestra. Esta selección puede realizarse mediante métodos probabilísticos o no probabilísticos, dependiendo del diseño del estudio y los recursos disponibles.
-                <H3>Muestreo probabilístico</H3>
-                <p>- Se caracteriza por la muestra tienen la misma probabilidad de ser seleccionados para obtener los resultados.</p>
-                <p>+ Aleatorio simple.</p> 
-                <p>+ División de muestras.</p>
-                <p>+ Sistemático.</p>
-                <p>+ Selección de muestras completas.</p>
+                <h2>Muestreo probabilístico</h2>
+                <p>Se caracteriza porque los elementos de la muestra tienen la misma probabilidad de ser seleccionados para obtener los resultados.</p>
+                <ul>
+                    <li>Aleatorio simple.</li>
+                    <li>División de muestras.</li>
+                    <li>Sistemático.</li>
+                    <li>Selección de muestras completas.</li>
+                </ul>
+                <h2>Muestreo no probabilístico</h2>
+                <p>Utiliza muestreo no aleatorio.</p>
+                <ul>
+                    <li>Por conveniencia.</li>
+                    <li>Intencional con características específicas.</li>
+                    <li>Por cuotas.</li>
+                    <li>Participantes iniciales recomiendan a otros.</li>
+                </ul>
 
-                <H3>Muestreo no probabilístico</H3>
-                <P>- Utiliza muestra aleatorio.</P>
-                <p>+ Por conveniencia.</p>
-                <p>+ Intencional con características específicas.</p>
-                <p>+ Por cuotas.</p>
-                <p>+ Participantes iniciales recomiendan a otros.</p>
-
-               <div class="figure-container">
-                    <div class="figure-caption">Figura 2g</div>
-                    <div class="figure-caption">Selección de tipo de muestra</div>
-                    <img src="Figura2g.png" alt="Selección de tipo de muestra " class="imagen-figura1">
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</div>
-                </div>                  
-                
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 2.7</figcaption>
+                    <figcaption class="figure-caption">Selección de tipo de muestra</figcaption>
+                    <img src="img/Figura2g.png" alt="Selección de tipo de muestra " class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</figcaption>
+                </figure>
             </div>
         </div>
 
@@ -724,206 +161,63 @@
                 <div class="section-number">2.2.3</div>
                 <div class="section-title">Aplicación del plan estadístico</div>
             </div>
+
             <div class="content">
                 <p>Es la fase del proceso investigativo en la que se
                    ejecutan los procedimientos de análisis previamente
                    establecidos para interpretar los datos recolectados. En esta etapa se organizan, codifican y procesan los datos mediante técnicas estadísticas descriptivas e inferenciales, de acuerdo con los objetivos, hipótesis y tipo de variables del estudio. Su finalidad es transformar la información en resultados comprensibles que permitan responder de manera objetiva al problema de investigación.</p>
                 <p>Entre sus características, el plan estadístico debe ser coherente con el diseño metodológico, especificar el tipo de pruebas a utilizar, los niveles de significancia y los criterios de interpretación. Validez, confiabilidad y precisión de los resultados basados en evidencia. Una adecuada aplicación del plan estadístico
                    fortalece el rigor del estudio y sustenta las conclusiones con fundamentos cuantitativos sólidos (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
-                
-                <H3>Características de la aplicación del plan estadístico</H3>
-                <p>+ Objetivos, hipótesis y variables.</p>
-                <p>+ Organiza, codifica y depura los datos recolectados.</p>
-                <p>+ Utiliza estadística descriptiva (tablas, frecuencias, medias, gráficos).</p>
-                <p>+ Emplea estadística inferencial para probar hipótesis.</p>
-                <p>+ Define pruebas estadísticas acordes al diseño de investigación.</p>
-                <p>+ Establece niveles de significancia y criterios de interpretación.</p>
-                <p>+ Garantiza validez, confiabilidad y precisión en los resultados.</p>
-                <p>+ Permite presentar resultados de forma clara y comprensible.</p>
+                <h2>Características de la aplicación del plan estadístico</h2>
+                <ul>
+                    <li>Objetivos, hipótesis y variables.</li>
+                    <li>Organiza, codifica y depura los datos recolectados.</li>
+                    <li>Utiliza estadística descriptiva (tablas, frecuencias, medias, gráficos).</li>
+                    <li>Emplea estadística inferencial para probar hipótesis.</li>
+                    <li>Define pruebas estadísticas acordes al diseño de investigación.</li>
+                    <li>Establece niveles de significancia y criterios de interpretación.</li>
+                    <li>Garantiza validez, confiabilidad y precisión en los resultados.</li>
+                    <li>Permite presentar resultados de forma clara y comprensible.</li>
+                </ul>
 
                 <div class="quote-box">
                     "Aplicación del plan estadístico es fundamental para convertir los datos en evidencia científica confiable,
-                     permitiendo interpretar los resultados con objetividad y rigor. Su correcta ejecución asegura que las conclusiones del estudio estén sustentadas en análisis precisos, 
+                     permitiendo interpretar los resultados con objetividad y rigor. Su correcta ejecución asegura que las conclusiones del estudio estén sustentadas en análisis precisos,
                      con validez del conocimiento generado. De esta manera, el análisis estadístico se convierte en un puente entre la información recolectada y lo científica".
                     <div class="citation">(Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</div>
                 </div>
             </div>
-                <div class="figure-container">
-                    <div class="figure-caption">Figura 2h</div>
-                    <div class="figure-caption">Aplicación del plan estadístico</div>
-                    <img src="Figura2h.png" alt="Aplicación del plan estadístico " class="imagen-figura1">
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</div>
-                </div>  
+
+            <figure class="figure-container">
+                <figcaption class="figure-caption">Figura 2.8</figcaption>
+                <figcaption class="figure-caption">Aplicación del plan estadístico</figcaption>
+                <img src="img/Figura2h.png" alt="Aplicación del plan estadístico " class="imagen-figura1">
+                <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</figcaption>
+            </figure>
         </div>
 
-        <div class="activity-card">
-            <div class="activity-title">Actividad de Aprendizaje 2.2: Estructura del protocolo de investigación</div>
+        <div class="activity-card" id="actividad-aprendizaje">
+            <div class="activity-title"><strong>Actividad de Aprendizaje 2.2: Estructura del protocolo de investigación</strong></div>
             <p>Evalúa tu comprensión sobre la Estructura del protocolo de investigación.</p>
             <a href="actividad_2_2.html" class="activity-btn">
                 <i class="fas fa-pencil-alt"></i> Realizar Actividad
             </a>
         </div>
-        
+
         <div class="nav-buttons">
-            <a href="2.1.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Anterior: 2.1 Estructura del protocolo de investigación</a>
-            <a href="2.3.html" class="nav-btn">Continuar a 2.3: Investigación documental<i class="fas fa-arrow-right"></i></a>
+            <a href="2.1.html" class="nav-btn"><i class="fas fa-arrow-left"></i> 2.1 Estructura del protocolo de investigación</a>
+            <a href="2.3.html" class="nav-btn">2.3 Investigación documental <i class="fas fa-arrow-right"></i></a>
         </div>
-        
+
         <footer>
-            <p>Metodología de la Investigación y Estadística I - Unidad 1: Metodología de la investigación científica</p>
+            <p>Metodología de la Investigación y Estadística I - Unidad 2</p>
             <p>Desarrollado para fines educativos - © 2026</p>
         </footer>
     </div>
+    <script src="../RECURSOS/data/navegacion.js"></script>
+    <script src="../RECURSOS/js/navegacion-unidades.js"></script>
+    <script src="../RECURSOS/js/interacciones-unidades.js"></script>
+    <script src="../RECURSOS/js/visor-imagenes.js"></script>
 
-    <script>
-        let sidebarOpen = false;
-
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebarNav = document.getElementById('sidebarNav');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-        function toggleSidebar() {
-            sidebarOpen = !sidebarOpen;
-            
-            if (sidebarOpen) {
-                sidebarNav.classList.add('active');
-                sidebarOverlay.classList.add('active');
-                menuToggle.classList.add('active');
-                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-                document.body.style.overflow = 'hidden';
-            } else {
-                sidebarNav.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                menuToggle.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = 'auto';
-            }
-            
-            updateContainerSpacing();
-        }
-
-        menuToggle.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
-
-        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    toggleSidebar();
-                }
-            });
-        });
-
-        function updateContainerSpacing() {
-            const container = document.querySelector('.container');
-            
-            if (window.innerWidth <= 768) {
-                container.style.marginLeft = '20px';
-                container.style.marginRight = '20px';
-                container.style.padding = '10px';
-            } else if (sidebarOpen && window.innerWidth > 768) {
-                container.style.marginLeft = '370px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            } else {
-                container.style.marginLeft = '90px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            }
-        }
-
-        function updateActiveSection() {
-            const sections = document.querySelectorAll('.section');
-            const navItems = document.querySelectorAll('.nav-item[data-section]');
-            let currentSectionId = '';
-
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    currentSectionId = section.id;
-                }
-            });
-
-            navItems.forEach(item => {
-                const sectionId = 'seccion-' + item.dataset.section;
-                if (sectionId === currentSectionId) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        function updateReadingProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        }
-
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        function toggleScrollToTopBtn() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        }
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            updateActiveSection();
-            updateReadingProgress();
-            toggleScrollToTopBtn();
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && sidebarOpen) {
-                toggleSidebar();
-            }
-            updateContainerSpacing();
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateActiveSection();
-            updateReadingProgress();
-            updateContainerSpacing();
-            if (window.innerWidth <= 768) {
-                sidebarNav.classList.remove('active');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && sidebarOpen) {
-                toggleSidebar();
-            }
-            if (e.key === 'm' || e.key === 'M') {
-                if (!e.ctrlKey && !e.altKey) { 
-                    toggleSidebar();
-                }
-            }
-        });
-    </script>
 </body>
 </html>

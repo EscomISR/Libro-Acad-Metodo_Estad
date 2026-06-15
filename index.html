@@ -5,478 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polilibro académico - ENMYH | Metodología de la Investigación y Estadística I</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="IMAGENES/logoenmh2.png">
-    <style>
-        /* Variables de color */
-        :root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #1e0030, #3d0066);
-            color: var(--light);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* --- ESTILOS DEL CONTENIDO DE LA PÁGINA --- */
-        .hero-section {
-            text-align: center;
-            padding: 40px 20px;
-            margin: 20px 0 30px 0;
-            background: rgba(0, 0, 0, 1);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        /* Estilos base para las imágenes del hero */
-        .hero-content img {
-            margin: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        /* Logo IPN (Primera imagen) */
-        .hero-content img:first-of-type {
-            height: 8rem;
-        }
-
-        /* Logo ESCOM (Última imagen) */
-        .hero-content img:last-of-type {
-            height: 5rem;
-        }
-        
-        @media (min-width: 768px) {
-            .hero-content img {
-                margin: 0 2rem;
-            }
-            .hero-content img:first-of-type {
-                height: 12rem;
-            }
-            .hero-content img:last-of-type {
-                height: 7rem;
-            }
-        }
-
-        .hero-title h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-        
-        @media (min-width: 768px) {
-            .hero-title h1 {
-                font-size: 3rem;
-            }
-        }
-        
-        .hero-title h1 .highlight {
-            background: linear-gradient(to right, #ffffff, #d8b4fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-title .subtitle {
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
-        
-        .hero-description {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .hero-description-large {
-            font-size: 1.5rem !important;
-            font-weight: bold;
-            line-height: 1.3;
-        }
-
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        @media (min-width: 1024px) {
-            .card-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
-        .card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            transition: all 0.4s;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--border-color);
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .card .card-header {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .card-icon {
-            width: 4rem;
-            height: 4rem;
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 0.75rem;
-            transition: transform 0.3s;
-        }
-        
-        .card:hover .card-icon {
-            transform: scale(1.1);
-        }
-
-        .card-icon i {
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .card .card-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #FFF;
-        }
-
-        .card-content {
-            padding: 0 20px 20px;
-            text-align: center;
-        }
-        
-        .card-description {
-            font-size: 0.875rem;
-            color: #bdc3c7;
-            line-height: 1.5;
-        }
-
-        .gradient-1 { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
-        .gradient-2 { background: linear-gradient(135deg, #7d3cff, #5b21b6); }
-        .gradient-3 { background: linear-gradient(135deg, #a855f7, #7e22ce); }
-        .gradient-4 { background: linear-gradient(135deg, #c084fc, #9333ea); }
-        .gradient-5 { background: linear-gradient(135deg, #6d28d9, #4c1d95); }
-        .gradient-6 { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
-        .gradient-7 { background: linear-gradient(135deg, #4c1d95, #2e1065); }
-        .gradient-8 { background: linear-gradient(135deg, #581c87, #3b0764); }
-        .gradient-9 { background: linear-gradient(135deg, #581c87, #3b0764); }
-
-        /* --- ESTILOS MODAL --- */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease-out;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-overlay.show {
-            display: flex;
-        }
-
-        .modal-content {
-            background: #fff;
-            color: #333;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-            max-width: 90vw;
-            width: 800px;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            animation: slideIn 0.4s ease-out;
-        }
-
-        .modal-close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #aaa;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .modal-close-btn:hover {
-            color: var(--accent);
-            transform: rotate(90deg);
-        }
-
-        .modal-body .modal-section {
-            display: none;
-        }
-
-        .modal-body .modal-section.active {
-            display: block;
-        }
-        
-        .prose {
-            line-height: 1.7;
-            font-size: 1rem;
-            color: #555;
-        }
-        .prose h3 {
-            font-size: 1.75rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .prose h4 {
-            font-size: 1.25rem;
-            color: var(--primary);
-            margin-top: 1.5rem;
-        }
-        .prose p, .prose ul, .prose ol {
-            margin-bottom: 1rem;
-        }
-        .prose strong {
-            color: var(--primary);
-        }
-        .prose a {
-            color: var(--secondary);
-        }
-        .prose hr {
-            border: 0;
-            height: 1px;
-            background: #ddd;
-            margin: 2rem 0;
-        }
-        
-        .creator-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        @media (min-width: 768px) {
-            .creator-block {
-                flex-direction: row;
-                text-align: left;
-                align-items: flex-start;
-            }
-        }
-        
-        .creator-block img {
-            width: 8rem;
-            height: 8rem;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--secondary);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            flex-shrink: 0;
-        }
-        
-        .creator-info h4 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .creator-info .email {
-            font-size: 0.9rem;
-            color: var(--secondary);
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-        
-        .creator-info p {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .collaborator-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .collaborator-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .collaborator-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 1rem;
-        }
-
-        .collaborator-card img {
-            width: 7rem;
-            height: 7rem;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--secondary);
-            background-color: #e0e0e0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-        
-        .collaborator-info h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .collaborator-info .email {
-            font-size: 0.85rem;
-            color: var(--secondary);
-            font-weight: 500;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: #95a5a6;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* --- ESTILOS BOTÓN CTA --- */
-        .cta-section {
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            font-size: 1.125rem;
-            font-weight: bold;
-            color: white;
-            background: linear-gradient(135deg, #9333ea, #4c1d95);
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .cta-button i {
-            transition: transform 0.3s ease;
-        }
-
-        .cta-button:hover i {
-            transform: translateX(5px);
-        }
-
-        /* Estilos para la lista de videos */
-        .unit-title {
-            color: var(--secondary);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .video-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-        @media (min-width: 768px) {
-            .video-list {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        .video-list li {
-            background: #f8f9fa;
-            padding: 12px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid #eee;
-        }
-        .video-list li:hover {
-            background: var(--secondary);
-            color: white;
-            transform: translateX(5px);
-        }
-        .video-list li i {
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-        .video-list li:hover i {
-            color: white;
-        }
-
-    </style>
+    <link rel="icon" type="image/png" href="RECURSOS/img/logoenmh2.png">
+    <link rel="stylesheet" href="RECURSOS/css/inicio.css">
 </head>
 <body>
     <main class="container">
         <section class="hero-section">
             <div class="hero-content">
-                <img src="IMAGENES/IPNb.png" alt="IPN Logo">
+                <img src="RECURSOS/img/IPNb.png" alt="IPN Logo">
                 <div class="hero-title">
                     <h1><span class="highlight">Instituto Politécnico Nacional</span><br><span class="subtitle">Escuela Nacional de Medicina y Homeopatía</span></h1>
                     <p class="hero-description hero-description-large">EL MÉTODO Y LA ESTADÍSTICA,</p>
@@ -484,7 +20,7 @@
                     <p class="hero-description hero-description-large">PARA COMPRENDER LA REALIDAD<br></p>
                     <p><br>Polilibro académico <br>Unidad de aprendizaje Metodología de la Investigación y Estadística I</p>
                 </div>
-                <img src="IMAGENES/logoenmh.png" alt="ENMyH Logo">
+                <img src="RECURSOS/img/logoenmh.png" alt="ENMyH Logo">
             </div>
         </section>
 
@@ -508,7 +44,7 @@
                 <div class="card-header"><div class="card-icon gradient-2"><i class="fas fa-compass"></i></div><h3 class="card-title">Contenido</h3></div>
                 <div class="card-content"><p class="card-description">Propósito y estructura de la unidad.</p></div>
             </div>
-            
+
              <div class="card" data-modal="programa">
                 <div class="card-header"><div class="card-icon gradient-3"><i class="fas fa-file-alt"></i></div><h3 class="card-title">Programa</h3></div>
                 <div class="card-content"><p class="card-description">Programa sintético de la unidad de aprendizaje.</p></div>
@@ -540,20 +76,20 @@
                 <div class="card-header"><div class="card-icon gradient-9"><i class="fas fa-gamepad"></i></div><h3 class="card-title">Glosario de términos</h3></div>
                 <div class="card-content"><p class="card-description">Glosario de términos.</p></div>
             </div>
-            
+
             <div class="card" data-modal="licencia">
                 <div class="card-header"><div class="card-icon gradient-1"><i class="fab fa-creative-commons"></i></div><h3 class="card-title">Licencia Creative Commons</h3></div>
                 <div class="card-content"><p class="card-description">Términos de uso y licenciamiento del recurso.</p></div>
             </div>
 
             </div> <section class="cta-section">
-            <a href="Unidades.html" class="cta-button">
+            <a href="unidades.html" class="cta-button">
                 <span>Explorar unidades temáticas</span>
                 <i class="fas fa-arrow-right"></i>
             </a>
         </section>
         </div>
-        
+
         <footer>
             <p>El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I  - Polilibro académico</p>
             <p>Desarrollado para fines educativos - © 2025</p>
@@ -566,101 +102,56 @@
             <div class="modal-body prose">
                 <div id="modal-prefacio" class="modal-section">
                     <h3>Bienvenida</h3>
-                    <p><strong><p style="text-align: justify;">El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico), </strong>
+                    <p class="text-justify"><strong>El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico), </strong>
                           ha sido diseñado como una herramienta educativa dinámica e innovadora, orientada al aprendizaje activo de las y los estudiantes de Medicina. Su objetivo es fortalecer, de manera progresiva y
                           aplicada, los fundamentos de la investigación científica y la estadística como pilares para la generación, el análisis y la validación del conocimiento en el ámbito de las ciencias de la salud.</p>
-                            <p><p style="text-align: justify;">El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico), este material ofrece
+                            <p class="text-justify">El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico), este material ofrece
                                 una aproximación sistemática a los principios metodológicos de la investigación y a la estadística básica, proporcionando al estudiantado las herramientas necesarias para
                                 formular preguntas clínicas y de investigación, construir problemas relevantes, analizar datos biomédicos y sustentar conclusiones con rigor científico y criterio ético. La estructura modular
                                 del contenido permite un avance gradual, desde los conceptos fundamentales de la unidad de aprendizaje Metodología de la Investigación y Estadística I hasta temas de mayor complejidad,
                                 integrando ejemplos aplicados y escenarios propios del contexto médico. </p>
-                            <p><p style="text-align: justify;">A diferencia de un texto tradicional, El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico),
+                            <p class="text-justify">A diferencia de un texto tradicional, El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico),
                                  aprovecha las posibilidades de la interactividad mediante diagramas dinámicos, simulaciones, autoevaluaciones, actividades guiadas y recursos multimedia. Estos recursos favorecen el desarrollo de habilidades de análisis,
                                  razonamiento clínico, pensamiento crítico, interpretación de resultados y toma de decisiones basadas en evidencia, fortaleciendo la vinculación entre teoría, práctica y realidad sanitaria. </p>
                             <p>Cada sección ha sido desarrollada con un enfoque pedagógico centrado en la comprensión, la aplicación y la reflexión. La interactividad no solo complementa el
                                 contenido teórico, sino que invita al estudiante a experimentar, analizar y construir su propio conocimiento, consolidando competencias investigativas esenciales para la práctica médica.
                                 Este PoliLibro representa una innovación educativa que concibe el aprendizaje como una experiencia participativa, incluyente y significativa, en la que el futuro médico asume un papel activo y
                                 protagónico en su formación académica y profesional. </p>
-                    <p><strong><p style="text-align: justify;">El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico),</strong> es más que un material
+                    <p class="text-justify"><strong>El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico),</strong> es más que un material
                         de apoyo: es una invitación a pensar la medicina desde el método, a comprender la salud y la enfermedad con base en la evidencia, y a ejercer la práctica médica con rigor científico y responsabilidad social.</p>
                 </div>
 
                 <div id="modal-Encuadre" class="modal-section">
                     <h3>Contenido</h3>
-                    <p><p style="text-align: justify;">El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico), fue creado como un recurso didáctico innovador, destinado a las mentes creativas y analíticas que se forman  a Medico Cirujano Partero y Homeópata dentro del Instituto Politécnico Nacional. Pensado para una formación integral en las necesidades del siglo XXI, combina la teoría, la práctica y la creatividad digital, permitiendo explorar, construir y evaluar soluciones eficientes que dan vida a los metodología de la investigación y estadística I modernos.</p>
-                    <p><p style="text-align: justify;">Estos recursos favorecen el desarrollo de habilidades de análisis, razonamiento clínico, pensamiento crítico, interpretación de resultados y toma de decisiones basadas en evidencia, fortaleciendo la vinculación entre teoría, práctica y realidad sanitaria.</p>
-                    <p><p style="text-align: justify;">Cada unidad ha sido cuidadosamente estructurado para estimular la autonomía, la curiosidad científica y la aplicación teorica-práctica del conocimiento, desarrollando competencias técnicas y analíticas mediante actividades participativas, simulaciones digitales, figuras interactivas y recursos multimedia que favorecen un aprendizaje activo.</p>
-                    <p>En el desarrollo de las lecturas de cada unidad se presentarán los elementos en los cuales te permitirán situar tu aprendizaje dentro de un contexto significativo, facilitando la comprensión de los conceptos, las ideas y los procesos que sustentan el presente recurso didáctico digital.</p> 
+                    <p class="text-justify">El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico), fue creado como un recurso didáctico innovador, destinado a las mentes creativas y analíticas que se forman como Médicos Cirujanos Parteros y Homeópatas dentro del Instituto Politécnico Nacional. Pensado para una formación integral en las necesidades del siglo XXI, combina la teoría, la práctica y la creatividad digital, permitiendo explorar, construir y evaluar soluciones eficientes que dan vida a los recursos de metodología de la investigación y estadística I modernos.</p>
+                    <p class="text-justify">Estos recursos favorecen el desarrollo de habilidades de análisis, razonamiento clínico, pensamiento crítico, interpretación de resultados y toma de decisiones basadas en evidencia, fortaleciendo la vinculación entre teoría, práctica y realidad sanitaria.</p>
+                    <p class="text-justify">Cada unidad ha sido cuidadosamente estructurada para estimular la autonomía, la curiosidad científica y la aplicación teórico-práctica del conocimiento, desarrollando competencias técnicas y analíticas mediante actividades participativas, simulaciones digitales, figuras interactivas y recursos multimedia que favorecen un aprendizaje activo.</p>
+                    <p>En el desarrollo de las lecturas de cada unidad se presentarán los elementos en los cuales te permitirán situar tu aprendizaje dentro de un contexto significativo, facilitando la comprensión de los conceptos, las ideas y los procesos que sustentan el presente recurso didáctico digital.</p>
                 </div>
-                
-                <div id="modal-programa" class="modal-section">
-                    <style>
-                        /* Estilos específicos para este modal */
-                        .program-card {
-                            background-color: #f3e8ff; /* Tono morado claro */
-                            border: 1px solid #d8b4fe;
-                            border-radius: 0.75rem;
-                            padding: 1.5rem;
-                            margin-bottom: 1.5rem;
-                        }
-                        .program-card-ipn {
-                            font-weight: 600;
-                            color: #6b21a8;
-                            background-color: #e9d5ff;
-                            padding: 0.25rem 0.75rem;
-                            border-radius: 9999px;
-                            display: inline-block;
-                            margin-right: 0.75rem;
-                        }
-                        .program-details-grid {
-                            display: grid;
-                            grid-template-columns: 1fr;
-                            gap: 1rem;
-                        }
-                        @media (min-width: 768px) {
-                            .program-details-grid {
-                                grid-template-columns: 1fr 1fr;
-                            }
-                        }
-                        .program-details-card {
-                            border: 1px solid #e5e7eb;
-                            border-radius: 0.75rem;
-                            padding: 1rem;
-                        }
-                        .program-details-card div {
-                            margin-bottom: 0.5rem;
-                        }
-                        .program-cta {
-                            display: flex;
-                            align-items: center;
-                            gap: 0.5rem;
-                            color: #6b21a8;
-                            font-weight: 500;
-                        }
-                    </style>
 
-                    <div class="text-center" style="margin-bottom: 2rem;">
-                        <div style="width: 8rem; height: 8rem; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-                            <i class="fas fa-file-alt" style="font-size: 4rem; color: white;"></i>
+                <div id="modal-programa" class="modal-section">
+<div class="text-center section-spaced">
+                        <div class="document-icon-wrap">
+                            <i class="fas fa-file-alt document-icon"></i>
                         </div>
                         <h3>Programa de la unidad de aprendizaje</h3>
                     </div>
 
                     <div class="prose">
                         <div class="program-card">
-                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                            <div class="document-meta-row">
                                 <span class="program-card-ipn">IPN</span>
-                                <span style="font-weight: 600; color: #581c87;">Instituto Politécnico Nacional</span>
+                                <span class="document-meta-label">Instituto Politécnico Nacional</span>
                             </div>
-                            <div style="color: #581c87;">
-                                <p style="margin: 0;"><strong>Secretaría Académica</strong></p>
-                                <p style="margin: 0;"><strong>Dirección de Educación Superior</strong></p>
-                                <p style="margin-top: 0.5rem; font-size: 1.25rem; font-weight: 600;">Programa sintético</p>
+                            <div class="document-meta-value">
+                                <p class="flush-copy"><strong>Secretaría Académica</strong></p>
+                                <p class="flush-copy"><strong>Dirección de Educación Superior</strong></p>
+                                <p class="document-validity">Programa sintético</p>
                                 <a href="DOCUMENTOS/metod-de-la-inv-y-estad-i.pdf" target="_blank">Ver el programa completo de la unidad de aprendizaje Metodología de la investigación y estadística I</a>
-                                
+
                             </div>
                         </div>
-                        
+
                         <div class="program-details-grid">
                             <div class="program-details-card">
                                 <div><strong>Unidad Académica:</strong> Escuela Nacional de Medicina y Homeopatía</div>
@@ -668,7 +159,7 @@
                                 <div><strong>Unidad de Aprendizaje:</strong> Metodología de la investigación y estadística I</div>
                                 <div><strong>Semestre:</strong> III</div>
                             </div>
-                            
+
                             <div class="program-details-card">
                                 <div><strong>Modalidad:</strong> escolarizada</div>
                                 <div><strong>Tipo:</strong> teórica-práctica / obligatoria</div>
@@ -676,13 +167,13 @@
                                 <div><strong>Créditos TEPIC:</strong> 6.0</div>
                             </div>
                         </div>
-                        
-                        <div style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid #d8b4fe; border-radius: 0.75rem;">
-                            <h4 style="color: #6b21a8; margin-bottom: 0.75rem;">
+
+                        <div class="license-box">
+                            <h4 class="license-title">
                                 Propósito de la unidad de aprendizaje
                             </h4>
                             <p>
-                            El propósito de la unidad de aprendizaje (UA) <strong>Metodología de la investigación y estadística I</strong> es: 
+                            El propósito de la unidad de aprendizaje (UA) <strong>Metodología de la investigación y estadística I</strong> es:
                             Establecer todos los elementos necesarios para la elaborar un proyecto de investigación con base en los métodos del área de ciencias de la salud.
                             </p>
                         </div>
@@ -699,16 +190,16 @@
 
                 <div id="modal-Introducción" class="modal-section">
                     <h3>Introducción</h3>
-                    <p style="text-align: justify;">Todos los metodología de la investigación y estadística i desde sus inicios han sido parte fundamental para que la operatividad de las computadoras y juegan un papel muy importante entre el usuario y la computadora, por lo que los programas que se ejecutan les proporcionan estabilidad, seguridad y control en los procesos que se lleven a cabo con todos los elementos del hardware.</p>
-                    
-                    <p style="text-align: justify;">El pulso silencioso de los metodología de la investigación y estadística i (polilibro académico) invita a un viaje a través de los mecanismos, funciones y retos que conforman los metodología de la investigación y estadística i actuales.</p>
-                    
-                    <p style="text-align: justify;"><strong>En la primera unidad</strong> comparaciòn de los tipos de investigaciones con base en sus metodologías y el planteamiento del problema.</p>
-                    
-                    <p style="text-align: justify;"><strong>En la segunda unidad</strong> analiza un protocolo de investigación con base en los diferentes apartados de su estructura..</p>
-                    
-                    <p style="text-align: justify;"><strong>En la tercera unidad</strong> elabora un proyecto de investigación a partir de los resultados obtenidos..</p>
-                    
+                    <p class="text-justify">Todos los metodología de la investigación y estadística i desde sus inicios han sido parte fundamental para que la operatividad de las computadoras y juegan un papel muy importante entre el usuario y la computadora, por lo que los programas que se ejecutan les proporcionan estabilidad, seguridad y control en los procesos que se lleven a cabo con todos los elementos del hardware.</p>
+
+                    <p class="text-justify">El pulso silencioso de los metodología de la investigación y estadística i (polilibro académico) invita a un viaje a través de los mecanismos, funciones y retos que conforman los metodología de la investigación y estadística i actuales.</p>
+
+                    <p class="text-justify"><strong>En la primera unidad</strong> se comparan los tipos de investigación con base en sus metodologías y el planteamiento del problema.</p>
+
+                    <p class="text-justify"><strong>En la segunda unidad</strong> analiza un protocolo de investigación con base en los diferentes apartados de su estructura.</p>
+
+                    <p class="text-justify"><strong>En la tercera unidad</strong> elabora un proyecto de investigación a partir de los resultados obtenidos.</p>
+
                 </div>
 
                 <div id="modal-creadores" class="modal-section">
@@ -718,23 +209,23 @@
                         <div class="creator-info">
                            <h4>Joaquín Ramón Díaz Hernández</h4>
                             <p class="email">jdiazher@ipn.mx</p>
-                            <p style="text-align: justify;"><strong>Semblanza:</strong> Dr. Joaquín Ramón Díaz Hernández. Profesor desde hace 47 años en la Escuela Nacional de Medicina y Homeopatía del Instituto Politécnico Nacional, 
-                                egresado como Medico Cirujano de la Facultad de la UNAM, imparto las unidades de aprendizaje de metodologia y estadistica de las carreras de Medico Cirujano Homeopata y Partero</p>
-                            <p style="text-align: justify;"><strong>Áreas de interés:</strong> Educación, medicina y plataformas educativas</p>
+                            <p class="text-justify"><strong>Semblanza:</strong> Dr. Joaquín Ramón Díaz Hernández. Profesor desde hace 47 años en la Escuela Nacional de Medicina y Homeopatía del Instituto Politécnico Nacional,
+                                egresado como Médico Cirujano de la Facultad de la UNAM, imparto las unidades de aprendizaje de metodologia y estadistica de las carreras de Médico Cirujano Homeopata y Partero</p>
+                            <p class="text-justify"><strong>Áreas de interés:</strong> Educación, medicina y plataformas educativas</p>
                         </div>
                     </div>
 
                     <hr>
-                    
+
                     <div class="creator-block">
                         <img src="IMAGENES/isr.png" alt="Israel Salas Ramírez">
                         <div class="creator-info">
                             <h4>Israel Salas Ramírez</h4>
                             <p class="email">isalasr@ipn.mx</p>
-                            <p style="text-align: justify;"><strong>Semblanza:</strong>Docente en la Escuela Superior de Cómputo del Instituto Politécnico Nacional, es doctor y maestro en ciencias de la educación, ingeniero en comunicaciones y electrónica de la ESIME Zacatenco, ha trabajado como responsable de unidades de Informática y generación de proyectos de Inversión Tecnológica.</p>
-                            <p style="text-align: justify;"><strong>Áreas de interés:</strong> Sistemas Operativos, Administración de Redes, Neurociencia en la Educación, Redes Neuronales, Generación de Simuladores Médicos y Plataformas Virtuales Aplicados a la Educación.</p>
+                            <p class="text-justify"><strong>Semblanza:</strong>Docente en la Escuela Superior de Cómputo del Instituto Politécnico Nacional, es doctor y maestro en ciencias de la educación, ingeniero en comunicaciones y electrónica de la ESIME Zacatenco, ha trabajado como responsable de unidades de Informática y generación de proyectos de Inversión Tecnológica.</p>
+                            <p class="text-justify"><strong>Áreas de interés:</strong> Sistemas operativos, Administración de Redes, Neurociencia en la Educación, Redes Neuronales, Generación de Simuladores Médicos y Plataformas Virtuales Aplicados a la Educación.</p>
                         </div>
-                    </div>                    
+                    </div>
 
                     <hr>
 
@@ -743,15 +234,15 @@
                         <div class="creator-info">
                             <h4>Fernando Noguez Vázquez </h4>
                             <p class="email">fnoguezv@ipn.mx</p>
-                            <p style="text-align: justify;"><strong>Semblanza:</strong> docente de la unidad  Anatomia Humana de la Escuela Nacional de Medicina y Homeopatía  del Instituto Politécnico Nacional, Medico Cirujano y Doctor en Educación.</p>
-                            <p style="text-align: justify;"><strong>Áreas de interés:</strong> Neurociencia de la Educación y Redes Neuronales, Metodología de la Investigación y Educación en línea con plataformas virtuales.</p>
+                            <p class="text-justify"><strong>Semblanza:</strong> docente de la unidad  Anatomía Humana de la Escuela Nacional de Medicina y Homeopatía  del Instituto Politécnico Nacional, Médico Cirujano y Doctor en Educación.</p>
+                            <p class="text-justify"><strong>Áreas de interés:</strong> Neurociencia de la Educación y Redes Neuronales, Metodología de la Investigación y Educación en línea con plataformas virtuales.</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="modal-colaboradores" class="modal-section">
                     <h3>Equipo de Desarrollo</h3>
-                    <p style="text-align:center; margin-bottom: 2rem;">Estudiantes que contribuyeron a la creación de este recurso digital.</p>
+                    <p class="text-center section-spaced">Estudiantes que contribuyeron a la creación de este recurso digital.</p>
                     <div class="collaborator-grid">
                         <div class="collaborator-card">
                             <img src="IMAGENES/MARTÍNEZ_LEÓN.jpg" alt="Foto">
@@ -776,7 +267,7 @@
                                 <p class="email">lcondeg1500@alumno.ipn.mx</p>
                             </div>
                         </div>
-                        
+
                         <div class="collaborator-card">
                             <img src="IMAGENES/CASIMIRO_HERNÁNDEZ.jpg" alt="Foto">
                             <div class="collaborator-info">
@@ -786,7 +277,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="modal-metodologia" class="modal-section">
                    <h3>Metodología</h3><p>El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico), se diseñó como un recurso didáctico innovador para estudiantes de la carrera de Médico Cirujano Partero en la Escuela Nacional de Medicina y Homeopatía del Instituto Politécnico Nacional, en el marco de una formación tecnológica orientada a la comprensión, aplicación y evaluación de metodología de la investigación y estadística I y busca desarrollar competencias técnicas mediante un enfoque práctico y participativo.</p>
                     <h4>Contexto académico</h4>
@@ -796,7 +287,7 @@
 <p>Comprender, analizar y aplicar conceptos de metodología de la investigación y estadística I para la solución de problemas relacionados con el proceso de investigación y la determinación de datos estadísticos para proporcionar certeza en las investigaciunes científicas desarrolladas.</p>
 <h3>Objetivo general</h3>
 <p>Desarrollar en el estudiante competencias para la investigación científica mediante la aplicación del Apren­dizaje Orientado a Proyectos, integrando métodos inductivo, deductivo y heurístico, así como técnicas de investigación documental, organización y análisis de información, elaboración de protocolos e informes, y exposición de resultados, con el fin de fortalecer el pensamiento crítico, la capacidad analítica y la resolución de problemas en su ámbito académico y profesional.</p>
-<h4>Objetivos específicos</h4> 
+<h4>Objetivos específicos</h4>
 <ul type="circle">
     <li>Compara los tipos de investigaciones con base en sus metodologías y el planteamiento del problema.</li>
     <li>Analiza un protocolo de investigación con base en los diferentes apartados de su estructura.</li>
@@ -809,14 +300,14 @@
     <li><strong>Modalidad presencial</strong> Se recomienda que el estudiante dedique mínimo 1.5 horas a la semana para la revisión de contenidos del Polilibro Académico previos a la sesión presencial.</li>
 </ul>
 
-                    
+
 <h3>Estrategias de aprendizaje</h3>
 <ul type="disc">
     <li><strong>Aprendizaje orientado a proyectos</strong> Las y los estudiantes deberán identificar un problema de estudio, realizar investigación documental y organizar la información mediante mapas conceptuales y sábanas analíticas, aplicando los métodos inductivo, deductivo y heurístico. en donde elaborarán un protocolo preliminar,
                 desarrollarán prácticas relacionadas con el proyecto y analizarán los resultados obtenidos. Finalmente, integrarán un informe de investigación y presentarán sus hallazgos mediante una exposición oral, fortaleciendo su pensamiento crítico y comunicación científica, en el ámabito de la metodología de la investigación y estadística I.</li>
     <li><strong>Aprendizaje autónomo</strong> El o la estudiante navega de forma autogestionada por el contenido del Polilibro Académico, apoyándose en recursos interactivos, lecturas clave y ejemplos guiados.</li>
 </ul>
-</div>               
+</div>
                 <div id="modal-cuestionario" class="modal-section">
                     <h3>Cuestionario de Comentarios</h3>
                     <p>Tu opinión es muy importante para mejorar el pulso silencioso de los metodología de la investigación y estadística I (Polilibro Académico). Por favor, haznos saber tus sugerencias.</p>
@@ -825,107 +316,107 @@
                 <div id="modal-examen" class="modal-section">
                     <h3>Examen diagnóstico</h3>
                     <p><strong>Examen diagnóstico para la unidad de aprendizaje Metodología de la investigación y estadística I.</strong></p>
-                    
+
                     <h4>Instrucciones</h4>
-                    <p style="text-align: justify;">
+                    <p class="text-justify">
                         El presente examen diagnóstico de la Unidad de Aprendizaje Metodología de la investigación y estadística I tiene como propósito identificar los conocimientos previos del estudiante sobre conceptos básicos, funciones y tipos de metodología de la investigación y estadística i, así como su relación con el hardware y el uso cotidiano de la tecnología. Los resultados permitirán al docente ajustar las estrategias de enseñanza y fortalecer el proceso de aprendizaje.
                     </p>
 
-                    <p style="text-align: justify;">
-                        El examen se aplicará durante la primera sesión del curso, con una duración aproximada de 30 a 45 minutos. Incluye reactivos de opción múltiple, verdadero/falso y preguntas abiertas cortas. No se permite el uso de apuntes ni dispositivos electrónicos, salvo indicación del docente. 
+                    <p class="text-justify">
+                        El examen se aplicará durante la primera sesión del curso, con una duración aproximada de 30 a 45 minutos. Incluye reactivos de opción múltiple, verdadero/falso y preguntas abiertas cortas. No se permite el uso de apuntes ni dispositivos electrónicos, salvo indicación del docente.
                         <strong>Este instrumento NO TIENE VALOR EN LA CALIFICACIÓN FINAL</strong>, ya que su finalidad es exclusivamente diagnóstica.
                     </p>
 
-                    <p style="text-align: justify;">
+                    <p class="text-justify">
                         Tu participación en este examen diagnóstico es fundamental para construir un aprendizaje significativo y fortalecer tu formación en el área de Metodología de la investigación y estadística I, base esencial en tu desarrollo como futuro profesional en medicina.
                     </p>
-                    
+
                     <hr>
 
-                    <div style="background-color: #fff3cd; color: #856404; padding: 1rem; border-radius: 8px; border: 1px solid #ffeeba; margin-bottom: 1.5rem;">
-                        <p style="margin-bottom: 0.5rem; font-weight: bold;">
+                    <div class="diagnostic-notice">
+                        <p class="diagnostic-notice-title">
                             <i class="fas fa-exclamation-circle"></i> Antes de iniciar:
                         </p>
-                        <p style="margin-bottom: 0.5rem;">Las primeras 2 preguntas del cuestionario son obligatorias para tu identificación:</p>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+                        <p class="diagnostic-notice-text">Las primeras 2 preguntas del cuestionario son obligatorias para tu identificación:</p>
+                        <ul class="diagnostic-list">
                             <li><strong></strong> Escribe tu número de <strong>boleta</strong>.</li>
                             <li><strong></strong> Escribe tu <strong>nombre completo</strong>.</li>
                         </ul>
                     </div>
 
-                    <div style="width:100%; display:flex; flex-direction:column; gap:8px; min-height:635px; margin-top: 1rem;">
-                        <iframe src="https://wayground.com/join?gc=66599281&source=liveDashboard" title="Examen Diagnóstico - Wayground" style="flex:1;" frameBorder="0" allowfullscreen></iframe>
+                    <div class="diagnostic-embed">
+                        <iframe src="https://wayground.com/join?gc=66599281&source=liveDashboard" title="Examen Diagnóstico - Wayground" class="diagnostic-frame" frameBorder="0" allowfullscreen></iframe>
                     </div>
                 </div>
 
- 
+
                <div id="modal-licencia" class="modal-section">
                     <h3>Licencia Creative Commons</h3>
-                    <p style="text-align: center;">
-                        <i class="fab fa-creative-commons" style="font-size: 5rem; color: #2c3e50;"></i>
+                    <p class="text-center">
+                        <i class="fab fa-creative-commons license-icon"></i>
                     </p>
-                    <p><a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/">El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico)</a> © 2026 by <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/">Joaquín Ramón Díaz Hérnandez, Israel Salas Ramírez, Fernando Noguez Vázquez</a> is licensed under <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/">Polilibro académico Unidad de aprendizaje Metodología de la Investigación y Estadística I</a> © 2025 by <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/">Joaquín Ramón Díaz Hernández, Israel Salas Ramirez, Fernando Noguez Vázquez</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">> </p>
+                    <p><a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/">El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico)</a> © 2026 by <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/">Joaquín Ramón Díaz Hérnandez, Israel Salas Ramírez, Fernando Noguez Vázquez</a> is licensed under <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/">Polilibro académico Unidad de aprendizaje Metodología de la Investigación y Estadística I</a> © 2025 by <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/">Joaquín Ramón Díaz Hernández, Israel Salas Ramirez, Fernando Noguez Vázquez</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" class="cc-license-mark"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" class="cc-license-mark"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" class="cc-license-mark">> </p>
                </div>
- 
+
                 <div id="modal-actividades" class="modal-section">
                     <h3>Actividades de aprendizaje</h3>
                     <p>En esta sección encontrarás un compendio de las actividades lúdicas y ejercicios prácticos diseñados para reforzar los conocimientos de cada unidad.</p>
 
                     <h4 class="unit-title">Unidad 1: Metodología de la investigación científica</h4>
                     <ul class="video-list">
-                        <li><a href="UNIDAD_1/actividad_1_1.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 1.1</a></li>
-                        <li><a href="UNIDAD_1/actividad_1_2.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 1.2</a></li>
-                        <li><a href="UNIDAD_1/actividad_1_3.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 1.3</a></li>
-                        <li><a href="UNIDAD_1/actividad_1_4.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 1.4</a></li>
+                        <li><a href="UNIDAD_1/actividad_1_1.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 1.1</a></li>
+                        <li><a href="UNIDAD_1/actividad_1_2.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 1.2</a></li>
+                        <li><a href="UNIDAD_1/actividad_1_3.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 1.3</a></li>
+                        <li><a href="UNIDAD_1/actividad_1_4.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 1.4</a></li>
                     </ul>
 
                     <h4 class="unit-title">Unidad 2: Estructura del protocolo de investigación</h4>
                     <ul class="video-list">
-                        <li><a href="UNIDAD_2/actividad_2_1.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 2.1</a></li>
-                        <li><a href="UNIDAD_2/actividad_2_2.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 2.2</a></li>
-                        <li><a href="UNIDAD_2/actividad_2_3.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 2.3</a></li>
+                        <li><a href="UNIDAD_2/actividad_2_1.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 2.1</a></li>
+                        <li><a href="UNIDAD_2/actividad_2_2.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 2.2</a></li>
+                        <li><a href="UNIDAD_2/actividad_2_3.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 2.3</a></li>
                     </ul>
 
                     <h4 class="unit-title">Unidad 3: Interpretación de los resultados de la investigación</h4>
                     <ul class="video-list">
-                        <li><a href="UNIDAD_3/Actividad_3_1.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 3.1</a></li>
-                        <li><a href="UNIDAD_3/Actividad_3_2.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 3.2</a></li>
-                        <li><a href="UNIDAD_3/Actividad_3_3.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 3.3</a></li>
-                        <li><a href="UNIDAD_3/Actividad_3_4.html" style="text-decoration: none; color: inherit; width: 100%; display: flex; align-items: center; gap: 10px;"><i class="fas fa-gamepad"></i> Actividad 3.4</a></li>
+                        <li><a href="UNIDAD_3/actividad_3_1.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 3.1</a></li>
+                        <li><a href="UNIDAD_3/actividad_3_2.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 3.2</a></li>
+                        <li><a href="UNIDAD_3/actividad_3_3.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 3.3</a></li>
+                        <li><a href="UNIDAD_3/actividad_3_4.html" class="activity-shortcut"><i class="fas fa-gamepad"></i> Actividad 3.4</a></li>
                     </ul>
 
-                    <p>Estas actividades no son parte de la evaluación, funcionan únicamente como una manera de reforzar tu aprendizaje. Por lo que, no es necesario entregar evidencia de su realización.</p>                    
+                    <p>Estas actividades no son parte de la evaluación, funcionan únicamente como una manera de reforzar tu aprendizaje. Por lo que, no es necesario entregar evidencia de su realización.</p>
                 </div>
-                
+
                 <div id="modal-referencias" class="modal-section">
                     <h3>Referencias bibliográficas</h3>
                     <p>Bibliografía base para el desarrollo de este material didáctico:</p>
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                    <ul class="bibliography-list">
+                        <li class="bibliography-item">
                             Andrews, G. R. (2013). <i>Fundamentos de programación multihilo, paralela y distribuida</i>. Addison-Wesley.
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                        <li class="bibliography-item">
                             Bovet, D. P., & Cesati, M. (2005). <i>Comprendiendo el núcleo de Linux</i> (3.ª ed.). O’Reilly Media.
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                        <li class="bibliography-item">
                             Love, R. (2010). <i>Desarrollo del núcleo de Linux</i> (3.ª ed.). Addison-Wesley Professional.
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                        <li class="bibliography-item">
                             Silberschatz, A., Galvin, P. B., & Gagne, G. (2022). <i>Conceptos de metodología de la investigación y estadística i</i> (10.ª ed.). Wiley.
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                        <li class="bibliography-item">
                             Silberschatz, A., Korth, H. F., & Sudarshan, S. (2020). <i>Conceptos de sistemas de bases de datos</i> (7.ª ed.). McGraw-Hill Education.
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                        <li class="bibliography-item">
                             Stallings, W. (2018). <i>Metodología de la investigación y estadística I: Aspectos internos y principios de diseño</i> (9.ª ed.). Pearson Educación.
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                        <li class="bibliography-item">
                             Tanenbaum, A. S., & Bos, H. (2015). <i>Metodología de la investigación y estadística I modernos</i> (4.ª ed.). Pearson Educación.
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                        <li class="bibliography-item">
                             Tanenbaum, A. S., & Van Steen, M. (2017). <i>Sistemas distribuidos: Principios y paradigmas</i> (3.ª ed.). Pearson Educación.
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; text-indent: -1.5rem;">
+                        <li class="bibliography-item">
                             Wolf, M., Halter, J., & Dawson, J. (2015). <i>Tecnologías de computación en la nube y estrategias para centros de datos ubicuos</i> (2.ª ed.). CRC Press.
                         </li>
                     </ul>
@@ -938,43 +429,43 @@
                     <div class="video-index">
                         <h4 class="unit-title">Unidad I: Estructura de un sistema operativo</h4>
                         <ul class="video-list">
-                            <li onclick="playVideo('8U92rOkobGI')" style="background-color: #e8f4fd; border-left: 4px solid var(--secondary);"><i class="fas fa-star"></i> <strong>General: Introducción y Modos de Operación</strong></li>
-                            
-                            <li onclick="playVideo('pZOxxGNxWVs')"><i class="fas fa-play-circle"></i> Estructura del sistema operativo</li>
-                            <li onclick="playVideo('fYo1R_h2dbA')"><i class="fas fa-play-circle"></i> Implementación del kernel</li>
-                            <li onclick="playVideo('EvXrjNJSbMI')"><i class="fas fa-play-circle"></i> Interrupciones</li>
-                            <li onclick="playVideo('v40mP-w8Lnk')"><i class="fas fa-play-circle"></i> Contadores</li>
-                            <li onclick="playVideo('KDXZkv2ROkU')"><i class="fas fa-play-circle"></i> Llamadas a sistema</li>
-                            <li onclick="playVideo('UeIdTPKO7ao')"><i class="fas fa-play-circle"></i> Procesos y señales</li>
-                            <li onclick="playVideo('68rPyKE16Kc')"><i class="fas fa-play-circle"></i> Directorios y archivos</li>
-                            <li onclick="playVideo('DE6Tl61BY28')"><i class="fas fa-play-circle"></i> Protección</li>
-                            <li onclick="playVideo('epIy6lg-5Hw')"><i class="fas fa-play-circle"></i> Shell</li>
-                            <li onclick="playVideo('7LWbVX2dAEo')"><i class="fas fa-play-circle"></i> Argumentos y variables</li>
-                            <li onclick="playVideo('asEPxm_-cfU')"><i class="fas fa-play-circle"></i> Estructuras de control y funciones</li>
+                            <li class="video-resource-featured" data-video-id="8U92rOkobGI" role="button" tabindex="0"><i class="fas fa-star"></i> <strong>General: Introducción y Modos de Operación</strong></li>
+
+                            <li data-video-id="pZOxxGNxWVs" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Estructura del sistema operativo</li>
+                            <li data-video-id="fYo1R_h2dbA" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Implementación del kernel</li>
+                            <li data-video-id="EvXrjNJSbMI" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Interrupciones</li>
+                            <li data-video-id="v40mP-w8Lnk" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Contadores</li>
+                            <li data-video-id="KDXZkv2ROkU" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Llamadas a sistema</li>
+                            <li data-video-id="UeIdTPKO7ao" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Procesos y señales</li>
+                            <li data-video-id="68rPyKE16Kc" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Directorios y archivos</li>
+                            <li data-video-id="DE6Tl61BY28" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Protección</li>
+                            <li data-video-id="epIy6lg-5Hw" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Shell</li>
+                            <li data-video-id="7LWbVX2dAEo" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Argumentos y variables</li>
+                            <li data-video-id="asEPxm_-cfU" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Estructuras de control y funciones</li>
                         </ul>
 
                         <h4 class="unit-title">Unidad II: Administración de procesos</h4>
                         <ul class="video-list">
-                            <li onclick="playVideo('T9Xit0OAayo')" style="background-color: #e8f4fd; border-left: 4px solid var(--secondary);"><i class="fas fa-star"></i> <strong>General: Procesos, hilos y planificación</strong></li>
-                            
-                            <li onclick="playVideo('MZqmn8SMZMM')"><i class="fas fa-play-circle"></i> Estados de procesos</li>
-                            <li onclick="playVideo('S3-ZaInBiMs')"><i class="fas fa-play-circle"></i> Modelo multi-hilo</li>
-                            <li onclick="playVideo('v6UNbhdhdO0')"><i class="fas fa-play-circle"></i> Semáforos e hilos (Sincronización)</li>
-                            <li onclick="playVideo('kGWEHikIfQs')"><i class="fas fa-play-circle"></i> Planificación de procesos y algoritmos</li>
-                            <li onclick="playVideo('f8Zs4xwD5hA')"><i class="fas fa-play-circle"></i> Planificación de hilos</li>
+                            <li class="video-resource-featured" data-video-id="T9Xit0OAayo" role="button" tabindex="0"><i class="fas fa-star"></i> <strong>General: Procesos, hilos y planificación</strong></li>
+
+                            <li data-video-id="MZqmn8SMZMM" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Estados de procesos</li>
+                            <li data-video-id="S3-ZaInBiMs" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Modelo multi-hilo</li>
+                            <li data-video-id="v6UNbhdhdO0" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Semáforos e hilos (Sincronización)</li>
+                            <li data-video-id="kGWEHikIfQs" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Planificación de procesos y algoritmos</li>
+                            <li data-video-id="f8Zs4xwD5hA" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Planificación de hilos</li>
                         </ul>
 
                         <h4 class="unit-title">Unidad III: Administración de memoria</h4>
                         <ul class="video-list">
-                            <li onclick="playVideo('JAjisuW9THU')" style="background-color: #e8f4fd; border-left: 4px solid var(--secondary);"><i class="fas fa-star"></i> <strong>General: Abstracción, virtualización y segmentación</strong></li>
-                            
-                            <li onclick="playVideo('MgSrUlrXO6I')"><i class="fas fa-play-circle"></i> Abstracción de memoria y organización</li>
-                            <li onclick="playVideo('lJWXDgA41uM')"><i class="fas fa-play-circle"></i> Admin. almacenamiento e intercambio</li>
-                            <li onclick="playVideo('I7o-0Dn8v-g')"><i class="fas fa-play-circle"></i> Mapas de bits y listas ligadas</li>
-                            <li onclick="playVideo('orbv50J7NT4')"><i class="fas fa-play-circle"></i> Memoria virtual y paginación</li>
-                            <li onclick="playVideo('k9gQjNbMKdA')"><i class="fas fa-play-circle"></i> Tablas de paginación y algoritmos</li>
-                            <li onclick="playVideo('syi6ROCfW7I')"><i class="fas fa-play-circle"></i> Segmentación e implementación</li>
-                            <li onclick="playVideo('Yrs-0tILQrE')"><i class="fas fa-play-circle"></i> Segmentación con paginación</li>
+                            <li class="video-resource-featured" data-video-id="JAjisuW9THU" role="button" tabindex="0"><i class="fas fa-star"></i> <strong>General: Abstracción, virtualización y segmentación</strong></li>
+
+                            <li data-video-id="MgSrUlrXO6I" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Abstracción de memoria y organización</li>
+                            <li data-video-id="lJWXDgA41uM" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Admin. almacenamiento e intercambio</li>
+                            <li data-video-id="I7o-0Dn8v-g" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Mapas de bits y listas ligadas</li>
+                            <li data-video-id="orbv50J7NT4" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Memoria virtual y paginación</li>
+                            <li data-video-id="k9gQjNbMKdA" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Tablas de paginación y algoritmos</li>
+                            <li data-video-id="syi6ROCfW7I" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Segmentación e implementación</li>
+                            <li data-video-id="Yrs-0tILQrE" role="button" tabindex="0"><i class="fas fa-play-circle"></i> Segmentación con paginación</li>
                         </ul>
 
                     </div>
@@ -1023,151 +514,26 @@
     <p><strong>Validación.</strong> Forma y demostración que la información, técnica instrumento, programas o equipos establece la veracidad de estos.[cite: 2]</p>
     <p><strong>Variable.</strong> Es una tribu o como a propiedad o cualidad de un objeto en el cual se puede adoptar o asignar un número, valor o categoría en el cual se utiliza como indicador de algo.[cite: 2]</p>
 </div>
-                
+
             </div>
         </div>
     </div>
 
-    <div id="video-player-overlay" class="modal-overlay" style="z-index: 2000; background-color: rgba(0,0,0,0.95);">
-        <div class="modal-content" style="background: black; width: 900px; max-width: 95vw; padding: 0; border: 1px solid #333;">
-            <button class="modal-close-btn" onclick="closeVideoPlayer()" style="color: white; z-index: 10; top: -40px; right: 0;"><i class="fas fa-times"></i> Cerrar</button>
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                <iframe id="main-video-frame" 
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
-                        src="" 
-                        title="YouTube video player" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    <div id="video-player-overlay" class="modal-overlay video-player-overlay">
+        <div class="modal-content video-player-content">
+            <button id="video-player-close" class="modal-close-btn video-player-close"><i class="fas fa-times"></i> Cerrar</button>
+            <div class="video-aspect">
+                <iframe id="main-video-frame"
+                        class="video-frame"
+                        src=""
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                 </iframe>
             </div>
         </div>
     </div>
-
-    
-
-    <script>
-    // --- MANEJO DEL MODAL ---
-    const modalContainer = document.getElementById('modal-container');
-    const modalCloseButton = document.getElementById('modal-close-button');
-    const cardsWithModal = document.querySelectorAll('.card[data-modal]');
-
-    // Función para abrir el modal
-    function openModal(modalId) {
-        // Oculta todas las secciones del modal
-        document.querySelectorAll('.modal-section').forEach(section => section.classList.remove('active'));
-        
-        // Muestra la sección correcta
-        const activeSection = document.getElementById(`modal-${modalId}`);
-        if (activeSection) {
-            activeSection.classList.add('active');
-            modalContainer.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Evita el scroll del fondo
-        }
-    }
-
-    // Función para cerrar el modal
-    function closeModal() {
-        modalContainer.classList.remove('show');
-        document.body.style.overflow = 'auto'; // Restaura el scroll
-    }
-
-    // Asigna el evento click a cada tarjeta que abre un modal
-    cardsWithModal.forEach(card => {
-        card.addEventListener('click', () => {
-            const modalId = card.getAttribute('data-modal');
-            openModal(modalId);
-        });
-    });
-    
-    // Asigna los eventos para cerrar el modal
-    modalCloseButton.addEventListener('click', closeModal);
-    modalContainer.addEventListener('click', e => {
-        // Cierra el modal si se hace clic en el fondo oscuro
-        if (e.target === modalContainer) {
-            closeModal();
-        }
-    });
-
-    // --- EFECTO 3D HOVER (SOLO PARA DESKTOP) ---
-    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-    
-    // Solo aplica el efecto 3D si NO es un dispositivo táctil
-    if (!isTouchDevice) {
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateY = (x - centerX) / 25;
-                const rotateX = (centerY - y) / 25;
-                
-                const maxRotation = 8;
-                const clampedRotateX = Math.max(Math.min(rotateX, maxRotation), -maxRotation);
-                const clampedRotateY = Math.max(Math.min(rotateY, maxRotation), -maxRotation);
-                
-                card.style.transform = `perspective(1200px) 
-                                      rotateX(${clampedRotateX}deg) 
-                                      rotateY(${clampedRotateY}deg) 
-                                      translateY(-8px)
-                                      scale(1.02)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-            });
-        });
-    }
-
-    // --- MANEJO DE ACORDEÓN (SI APLICA) Y CLICS EXTERNOS ---
-    document.addEventListener('click', (e) => {
-        const allCards = document.querySelectorAll('.card');
-        let isClickInsideACard = false;
-        
-        allCards.forEach(card => {
-            if (card.contains(e.target)) {
-                isClickInsideACard = true;
-            }
-        });
-        
-        if (!isClickInsideACard) {
-            allCards.forEach(card => {
-                card.classList.remove('active'); // Cierra los acordeones (si los hubiera)
-            });
-        }
-    });
-
-    // --- LÓGICA DEL REPRODUCTOR DE VIDEO ---
-    const videoOverlay = document.getElementById('video-player-overlay');
-    const videoFrame = document.getElementById('main-video-frame');
-
-    function playVideo(videoId) {
-        // Construir la URL de embed de YouTube
-        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        videoFrame.src = embedUrl;
-        
-        // Mostrar el modal del reproductor
-        videoOverlay.classList.add('show');
-    }
-
-    function closeVideoPlayer() {
-        // Ocultar el modal
-        videoOverlay.classList.remove('show');
-        // Detener el video limpiando el src
-        videoFrame.src = '';
-    }
-
-    // Cerrar si se hace clic fuera del video
-    videoOverlay.addEventListener('click', (e) => {
-        if (e.target === videoOverlay) {
-            closeVideoPlayer();
-        }
-    });
-
-</script>
+    <script src="RECURSOS/js/inicio.js"></script>
 
 </body>
 </html>

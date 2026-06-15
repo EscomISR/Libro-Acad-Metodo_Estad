@@ -4,580 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1.2 Etapas del proceso de investigación</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoescom.png">
+    <link rel="icon" type="image/png" href="../RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #a855f7;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1e0030, #3d0066);
-            color: var(--light);
-            min-height: 100vh;
-            line-height: 1.7;
-        }
-
-        .floating-home-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--secondary);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-size: 1.5rem;
-        }
-
-        .floating-home-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        .sidebar-nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: rgba(30, 0, 48, 0.95);
-            border-right: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
-            overflow-y: auto;
-        }
-
-        .sidebar-nav.active {
-            transform: translateX(0);
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            background: rgba(52, 152, 219, 0.1);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .sidebar-title {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .nav-sections {
-            padding: 20px 0;
-        }
-
-        .nav-section {
-            margin-bottom: 15px;
-        }
-
-        .nav-section-title {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
-            margin-bottom: 10px;
-        }
-
-        .nav-item {
-            display: block;
-            padding: 12px 20px;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: rgba(142, 68, 173, 0.2);
-            border-left-color: var(--accent);
-            padding-left: 25px;
-        }
-
-        .nav-item.active {
-            background: rgba(52, 152, 219, 0.2);
-            border-left-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        .nav-item i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            font-size: 1.2rem;
-        }
-
-        .menu-toggle:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle.active {
-            background: var(--accent);
-        }
-
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 998;
-        }
-
-        .reading-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--success));
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            transition: margin-left 0.3s ease, margin-right 0.3s ease;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            margin: 0 10px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-weight: 300;
-            text-align: center;
-        }
-        
-        .intro {
-            max-width: 900px;
-            margin: 0 auto 40px;
-            padding: 25px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary);
-            text-align: justify;
-        }
-        
-        .section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            scroll-margin-top: 100px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        
-        .section-number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-right: 15px;
-            min-width: 120px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .content {
-            padding: 0 10px;
-        }
-        
-        .content h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin: 30px 0 15px;
-            padding-left: 10px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .content h4 {
-            font-size: 1.3rem;
-            color: var(--warning);
-            margin: 25px 0 12px;
-            padding-left: 8px;
-        }
-        
-        .content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .content ul, .content ol {
-            padding-left: 30px;
-            margin: 20px 0;
-        }
-        
-        .content li {
-            margin-bottom: 12px;
-        }
-        
-        .highlight {
-            background: rgba(231, 76, 60, 0.15);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-        
-        .citation {
-            font-style: italic;
-            color: var(--gray);
-            margin: 5px 0 15px 20px;
-            border-left: 2px solid var(--secondary);
-            padding-left: 10px;
-        }
-        
-        .quote-box {
-            background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: var(--light);
-        }
-
-        .quote-box .citation {
-            border-left: none;
-            margin: 10px 0 0 0;
-            padding-left: 0;
-        }
-        
-        .table-container {
-            max-width: 100%;
-            margin: 30px auto;
-            overflow-x: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        .table-caption {
-            text-align: center;
-            padding: 10px;
-            color: var(--gray);
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        
-        .figure-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .imagen-figura1 {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain; 
-            border-radius: 8px;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: zoom-in;
-            transform-origin: center center;
-        }
-        
-        /* Efecto al pasar el mouse */
-        .imagen-figura1:hover {
-            transform: scale(1.4); 
-            border-radius: 8px;
-        }
-        
-        .figure-caption {
-            color: var(--gray);
-            margin-top: 10px;
-        }
-        
-        /* Estilos para la tarjeta de actividad */
-        .activity-card {
-            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 4px solid var(--success); /* Borde izquierdo verde */
-            text-align: center;
-        }
-        
-        .activity-title {
-            font-size: 1.8rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .activity-btn {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .activity-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--secondary);
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .nav-btn i {
-            margin: 0 8px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 768px) {
-            .sidebar-nav {
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .section-number {
-                min-width: 100px;
-                font-size: 1.8rem;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .floating-home-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../RECURSOS/css/estilos-unidades.css?v=1">
 </head>
 <body>
     <div class="reading-progress">
@@ -588,8 +17,8 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <a href="index.html" class="floating-home-btn" title="Ir al índice de unidades">
-        <i class="fas fa-home"></i>
+    <a href="index.html" class="floating-home-btn" title="Ir a Unidad 1">
+        <i class="fas fa-book-open"></i>
     </a>
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
@@ -597,34 +26,61 @@
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
             <div class="sidebar-title">1.2 Etapas del proceso de investigación</div>
-            <div class="sidebar-subtitle">Fundamentos</div>
+            <div class="sidebar-subtitle">Proceso investigativo</div>
         </div>
-        
+
         <div class="nav-sections">
             <div class="nav-section">
                 <div class="nav-section-title">Navegación</div>
-                <a href="#inicio" class="nav-item">
-                    <i class="fas fa-rocket"></i> Inicio del Tema
+                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/" class="nav-item">
+                    <i class="fas fa-home"></i> Inicio
                 </a>
-                <a href="//escomisr.github.io/Libro-Acad-Metodo_Estad/UNIDAD_1/index.html" class="nav-item">
-                    <i class="fas fa-arrow-left"></i> Menú de Unidad 1
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-book-open"></i> Unidad 1
+                </a>
+                <a href="1.1.html" class="nav-item">
+                    <i class="fas fa-arrow-left"></i> 1.1 Metodología de la investigación científica
+                </a>
+                <a href="1.3.html" class="nav-item">
+                    <i class="fas fa-arrow-right"></i> 1.3 Tipos y formas de investigación
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Contenido</div>
-                <a href="#seccion-arquitectura" class="nav-item" data-section="arquitectura">
-                    <i class="fas fa-sitemap"></i> 1.2.1 La investigación en la medicina, la biología y la importancia de la ética
+                <a href="#seccion-1-2-1" class="nav-item" data-section="1-2-1">
+                    <i class="fas fa-book-open"></i> 1. Observación y planteamiento del problema
+                </a>
+                <a href="#seccion-1-2-2" class="nav-item" data-section="1-2-2">
+                    <i class="fas fa-bullseye"></i> 2. Analizar documentación y antecedentes
+                </a>
+                <a href="#seccion-1-2-3" class="nav-item" data-section="1-2-3">
+                    <i class="fas fa-chart-line"></i> 3. Formulación de objetivos e hipótesis
+                </a>
+                <a href="#seccion-1-2-4" class="nav-item" data-section="1-2-4">
+                    <i class="fas fa-cogs"></i> 4. Diseño metodológico
+                </a>
+                <a href="#seccion-1-2-5" class="nav-item" data-section="1-2-5">
+                    <i class="fas fa-flask"></i> 5. Recolección de datos
+                </a>
+                <a href="#seccion-1-2-6" class="nav-item" data-section="1-2-6">
+                    <i class="fas fa-list-check"></i> 6. Interpretación y análisis de información
+                </a>
+                <a href="#seccion-1-2-7" class="nav-item" data-section="1-2-7">
+                    <i class="fas fa-lightbulb"></i> 7. Conclusiones y recomendaciones
+                </a>
+                <a href="#seccion-1-2-8" class="nav-item" data-section="1-2-8">
+                    <i class="fas fa-notes-medical"></i> 1.2.1 Medicina, biología y ética
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Recursos</div>
-                <a href="actividad_1_2.html" class="nav-item">
-                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
+                <a href="#video-1-2" class="nav-item" data-section="video-1-2">
+                    <i class="fas fa-play-circle"></i> Material audiovisual
                 </a>
-                <a href="1.3.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i> Siguiente: Modos de Operación
+                <a href="#actividad-aprendizaje" class="nav-item" data-section="actividad-aprendizaje">
+                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
                 </a>
             </div>
         </div>
@@ -637,421 +93,291 @@
     <div class="container">
         <header id="inicio">
             <div class="breadcrumb">
-                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/index.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="../unidades.html">Unidades</a>
                 <span>/</span>
                 <a href="index.html">Unidad 1</a>
                 <span>/</span>
                 <span>1.2 Etapas del proceso de investigación</span>
             </div>
             <h1>1.2 Etapas del proceso de investigación</h1>
-            <div class="subtitle">Capítulo I. Metodología de la investigación científica</div>
+            <div class="subtitle">Unidad I. Metodología de la investigación científica</div>
         </header>
-        
+
         <div class="intro">
-             <p> Iniciar a indagar permite encontrar cosas que nos animen a seguir descubrimiento y atreverse a cuestionar lo que parece evidente, porque cada pregunta bien formulada marca el inicio de un camino hacia nuevas respuestas. A través de la búsqueda, el análisis y la reflexión,
-                el conocimiento cobra sentido y transforma nuestra comprensión del mundo, despertando la curiosidad y el deseo permanente de aprender.</p>
-                 <br>
-            <p> Secuencia lógica y ordenada de etapas que permite transformar una inquietud o problema en conocimiento científico válido. En el área de la medicina es parte fundamental
-               para verificar datos en una forma ética, confiables en donde se pueden aplicar en prácticas de laboratorio y en todo lo referente al bienestar de los pacientes. Hernández Sampieri et al. (2014).</p>
-                 <div class="citation"></div>
-             <p></p>
+            <p> Iniciar a indagar permite encontrar cosas que nos animen a seguir descubriendo y atreverse a cuestionar lo que parece evidente, porque cada pregunta bien formulada marca el inicio de un camino hacia nuevas respuestas. A través de la búsqueda, el análisis y la reflexión,
+            el conocimiento cobra sentido y transforma nuestra comprensión del mundo, despertando la curiosidad y el deseo permanente de aprender.</p>
+            <br>
+            <p> Es una secuencia lógica y ordenada de etapas que permite transformar una inquietud o problema en conocimiento científico válido. En el área de la medicina es parte fundamental
+            para verificar datos en una forma ética, confiables en donde se pueden aplicar en prácticas de laboratorio y en todo lo referente al bienestar de los pacientes. Hernández Sampieri et al. (2014).</p>
+
+            <figure class="figure-container">
+                <figcaption class="figure-caption">Figura 1.5</figcaption>
+                <figcaption class="figure-caption"> Etapas del proceso de investigación</figcaption>
+                <img src="img/FIGURA5.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
+                <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</figcaption>
+            </figure>
         </div>
-                <div class="figure-container">
-                    <div class="figure-caption">Figura 5</div>
-                    <div class="figure-caption"> Etapas del proceso de investigación</div>
-                    <div class="figura">
-                        <img src="FIGURA5.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
-                    </div>
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</div>
-                </div>
-
-
 
         <div class="section" id="seccion-1-2-1">
             <div class="section-header">
                 <div class="section-number">1. Observación y planteamiento del problema</div>
-                <div class="section-title"></div>
             </div>
 
-
-        <div class="content">
-                <p>La observación sistemática permite visualizar a un fenómeno real. A partir de esta observación se establece específicamente el problema que se abordará y que en su momento se explicará
+            <div class="content">
+                <p>La observación sistemática permite visualizar un fenómeno real. A partir de esta observación se establece específicamente el problema que se abordará y que en su momento se explicará
                     científicamente. El planteamiento del problema debe ser claro, delimitado y relevante, ya que orienta todo el proceso posterior.</p>
-                
+
                 <div class="type-card">
-                    <div class="type-title">Ejemplo </div>
-                <div class="type-definition">
+                    <div class="type-title">Ejemplo</div>
+                    <div class="type-definition">
                         <p>Se observa que pacientes con diabetes hospitalizados presentan mayor riesgo de complicaciones infecciosas.</p>
-                </div>
-               <div class="figure-container">
-                    <div class="figure-caption">Figura 6</div>
-                    <div class="figure-caption"> Observación y planteamiento del problema en el proceso de investigación.</div>
-                    <div class="figura">
-                        <img src="FIGURA6.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
                     </div>
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</div>
-                </div>                
-                   <div class="type-characteristics">
-                        <h3>¿Los factores influyen en las complicaciones?</h3>
+                    <figure class="figure-container">
+                        <figcaption class="figure-caption">Figura 1.6</figcaption>
+                        <figcaption class="figure-caption"> Observación y planteamiento del problema en el proceso de investigación.</figcaption>
+                        <img src="img/FIGURA6.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
+                        <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</figcaption>
+                    </figure>
+                    <div class="type-characteristics">
+                        <h2>¿Los factores influyen en las complicaciones?</h2>
                         <ul>
                             <li>Complicaciones infecciosas en pacientes con diabetes hospitalizados se relacionan principalmente con el mal control de la glucosa,
                                 ya que la hiperglucemia debilita las partes fundamentales del cuerpo humano y propicia que se generen microorganismos. También influyen comorbilidades,
                                 el daño vascular propio de la enfermedad y el uso de dispositivos invasivos durante la hospitalización, que aumentan el riesgo de infecciones.
                                 En conjunto, estos factores explican la mayor susceptibilidad y gravedad de los procesos infecciosos en esta población (Casqueiro, Casqueiro & Alves, 2012).</li>
-                         </ul>
+                        </ul>
                     </div>
-       </div>
-       </div>
-       </div>
+                </div>
+            </div>
+        </div>
 
-        <div class="section" id="seccion-1-2-1">
+        <div class="section" id="seccion-1-2-2">
             <div class="section-header">
                 <div class="section-number">2. Analizar documentación y antecedentes</div>
                 <div class="section-title"></div>
             </div>
 
 
-        <div class="content">
-                <p>La Examinar información y los antecedentes en una etapa esencial en la investigación porque permite conocer todas las situaciones y detalles que apoyen la adquisición de conocimiento
+            <div class="content">
+                <p>Examinar la información y los antecedentes es una etapa esencial en la investigación porque permite conocer todas las situaciones y detalles que apoyen la adquisición de conocimiento
                     con el fin de tener los elementos para plantear una posible solución. esto se da desde el análisis se identifican hallazgos previos, teorías relevantes, vacíos de conocimiento y enfoques metodológicos utilizados.
                     Además, sustenta la pertinencia científica del proyecto, fortalece su marco teórico y contribuye a formular preguntas y objetivos mejor fundamentados.</p>
-                
+
                 <div class="type-card">
-                    <div class="type-title">Ejemplo </div>
-                <div class="type-definition">
+                    <div class="type-title">Ejemplo</div>
+                    <div class="type-definition">
                         <p>Se observa que pacientes con diabetes hospitalizados presentan mayor riesgo de complicaciones infecciosas.</p>
-                </div>
-               <div class="figure-container">
-                    <div class="figure-caption">Figura 7</div>
-                    <div class="figure-caption"> Analizar documentación y antecedentes.</div>
-                    <div class="figura">
-                        <img src="FIGURA7.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
-                    </div>
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</div>
-                </div>                
-                   <div class="type-characteristics">
-                        <h3>Importancia de consulta y revisión de revistas indexadas </h3>
-                        <p>Se revisan artículos científicos sobre diabetes, infecciones y factores de riesgo y se consulta espacios en páginas web orientadas a la 
-                            medicina como médicas como PubMed y Scopus, incluyendo publicaciones y revistas clínicas, epidemiológicas, biomédicas, de salud pública, infectología, endocrinología y medicina interna, las cuales aportan evidencia
-                            actualizada y revisada por pares. La consulta de estas fuentes garantiza información confiable, relevante y basada en evidencia para sustentar el análisis del problema de investigación (Elsevier, 2023; National Library of Medicine, 2024).</p>
-                    </div>
-
-                <div class="type-card">
-                    <div class="type-title">3. Formulación de objetivos e hipótesis</div>
-                    <div class="quote-box">
-                        Antes de iniciar el estudio, es indispensable establecer con precisión qué se busca alcanzar y qué se pretende comprobar. Todo aquello que se encuentre relacionado con la investigación, los antecedentes, hipótesis, 
-                        objetivos y la meta, mientras se busca una posible explicación o relación entre variables que será sometida a verificación. Este paso orienta la metodología, organiza la información y permite evaluar
-                        los datos de forma clara y precisa.
-                     <br>
-                    <div class="type-definition">
-                        <p>Los objetivos determinan el desarrollo de la indagación del objeto de estudio y sustentar su hipótesis y su demostración. </p>
-                        <div class="citation">(Hernández Sampieri y Mendoza, 2018).</div>
-                    </div>                           
-                           
-                    </div>
-              <div class="figure-container">
-                    <div class="figure-caption">Figura 8</div>
-                    <div class="figure-caption"> Formulación de objetivos e hipótesis.</div>
-                    <div class="figura">
-                        <img src="FIGURA8.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
-                    </div>
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</div>
-                </div> 
-                </div>
-
-                <div class="type-card">
-                    <div class="type-title">4. Diseño metodológico</div>
-                    <div class="quote-box">
-                        A partir de lo que se desea investigar se establece el estudio, población la cantidad de la muestra a observar, la forma en que se reunirá la información, los instrumentos y los procedimientos éticos. </div>
-                    <div class="type-definition">
-                        <p>Diseño metodológico establece la estructura de lo que se indaga del objeto de estudio, población, técnicas para obtener los datos y análisis. Su importancia radica en la coherencia, certeza de los resultados, permitiendo al estudio pueda reproducirse y que sus hallazgos se sustenten en procedimientos sistemáticos y rigurosos</p>
-                    </div>
-                         <div class="citation">(Hernández Sampieri & Mendoza, 2018).</div>
-                    </div>                   
-
-                </div>
-
-                <div class="type-card">
-                    <div class="type-title">5. Recolección de datos</div>
-                    <div class="quote-box">
-                        "Es importante porque aporta la evidencia real sobre la cual se analiza el problema y se toman decisiones. Hernández Sampieri & Mendoza, 2018"
-                        <div class="citation"></div>
-                    </div>
-                    <div class="type-definition">
-                        <p>Recopilación de datos tiene mucha importancia, debido a que en esta etapa es esencial porque permite obtener la información que avale la pregunta de investigación. Consiste en reunir datos de manera ordenada y con instrumentos adecuados para asegurar que sean veraces y útiles. Su importancia radica en que,
-                           si los datos se obtienen correctamente, los resultados serán confiables y las conclusiones tendrán sustento real.</p>
-                    </div>
-                    <div class="type-characteristics">
-                        <h3>Las principales características de la recopilación de información son:</h3>
-                        <ul>
-                            <li>Sistemática: realiza siguiendo un plan organizado y pasos definidos.</li>
-                            <li>Objetiva: busca obtener información sin sesgos ni interpretaciones personales</li>
-                            <li>Precisa: utiliza instrumentos adecuados para garantizar exactitud en los datos.</li>            
-                            <li>Confiable: permite obtener resultados consistentes si el proceso se repite.</li>                           
-                            <li>Válida: los datos realmente representan el fenómeno que se desea estudiar.</li>
-                            <li>Ética: respeta los datos de las personas y la integridad de estos.</li>
-                            <li>Pertinente: se enfoca únicamente a datos que avalen la indagación del objeto a estudiar.</li>
-                        </ul>
                     </div>
                 </div>
-               <div class="type-card">
-                    <div class="type-title">6. Interpretación e análisis de información</div>
-                    <div class="quote-box">
-                        "Etapa fundamental del proceso de investigación que posibilita convertir datos recopilados en información importante para dar respuesta a la cuestión de estudio y respaldar los datos obtenidos."
-                    </div>
-                    <br>
-                    <div class="type-definition">
-                        <p>Interpretación de datos constituyen una etapa fundamental, así como la organización de los datos, la cual ayudará a responder la pregunta de estudio y sustentar las 
-                           conclusiones. El análisis organiza, clasificar y procesar la información utilizando técnicas estadísticas o cualitativas para identificar patrones, tendencias o relaciones; puede ser cuantitativo cuando se trabaja
-                           con datos numéricos (porcentajes, promedios, correlaciones) o cualitativo cuando se analizan contenidos descriptivos (categorías, temas, discursos).
-                           Por su parte, la interpretación consiste en otorgar significado a los resultados obtenidos, relacionando objetivos, hipótesis, marco teórico, comparándolos con estudios previos y determinando sus implicaciones. En conjunto,
-                           este proceso permite generar evidencia científica confiable, explicar fenómenos estudiados.</p>
-                    </div>
-                         <div class="citation">(Hernández Sampieri & Mendoza, 2018).</div>
-                    </div>                   
-              <div class="figure-container">
-                    <div class="figure-caption">Figura 9</div>
-                    <div class="figure-caption">Análisis e interpretación de datos.</div>
-                    <div class="figura">
-                        <img src="FIGURA9.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
-                    </div>
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</div>
-                </div>    
+
+               <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 1.7</figcaption>
+                    <figcaption class="figure-caption">Analizar documentación y antecedentes.</figcaption>
+                    <img src="img/FIGURA7.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</figcaption>
+               </figure>
+
+                <div class="type-characteristics">
+                    <h2>Importancia de la consulta y revisión de revistas indexadas</h2>
+                    <p>Se revisan artículos científicos sobre diabetes, infecciones y factores de riesgo y se consulta espacios en páginas web orientadas a la
+                        medicina como médicas como PubMed y Scopus, incluyendo publicaciones y revistas clínicas, epidemiológicas, biomédicas, de salud pública, infectología, endocrinología y medicina interna, las cuales aportan evidencia
+                        actualizada y revisada por pares. La consulta de estas fuentes garantiza información confiable, relevante y basada en evidencia para sustentar el análisis del problema de investigación (Elsevier, 2023; National Library of Medicine, 2024).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="seccion-1-2-3">
+            <div class="section-header">
+                <div class="section-number">3. Formulación de objetivos e hipótesis</div>
+                <div class="section-title"></div>
             </div>
 
-               <div class="type-card">
-                    <div class="type-title">7. Conclusiones y recomendaciones</div>
-                    <div class="quote-box">
-                        "Son esenciales porque permiten comprender el significado de los resultados obtenidos y verificar los objetivos de la investigación."
-                    </div>
-                    <br>
-                    <div class="type-definition">
-                        <p>Es por ello la importancia ya que presentan la forma sintética, lo que significan los resultados obtenidos y cómo estos responden a los objetivos del estudio. Permiten transformar los hallazgos en orientaciones prácticas para mejorar procesos, resolver problemas o tomar decisiones informadas.
-                           Asimismo, señalan acciones futuras y nuevas áreas de investigación basadas en la evidencia obtenida</p>
-                    </div>
-                         <div class="citation">(Hernández Sampieri & Mendoza, 2018).</div>
-                    </div>                   
-               </div>
+            <div class="content">
+                <p>Antes de iniciar el estudio, es indispensable establecer con precisión qué se busca alcanzar y qué se pretende comprobar. Todo aquello que se encuentre relacionado con la investigación, los antecedentes, hipótesis,
+                objetivos y la meta, mientras se busca una posible explicación o relación entre variables que será sometida a verificación. Este paso orienta la metodología, organiza la información y permite evaluar
+                los datos de forma clara y precisa.</p>
 
-        <div class="section" id="seccion-arquitectura">
+                <div class="quote-box">
+                    <p>"Los objetivos determinan el desarrollo de la indagación del objeto de estudio y sustentar su hipótesis y su demostración. "</p>
+                    <div class="citation">(Hernández Sampieri y Mendoza, 2018).</div>
+                </div>
+
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 1.8</figcaption>
+                    <figcaption class="figure-caption"> Formulación de objetivos e hipótesis.</figcaption>
+                    <img src="img/FIGURA8.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="section" id="seccion-1-2-4">
             <div class="section-header">
-                <div class="section-title">1.2.1 La investigación en la medicina, la biología y la importancia de la ética.</div>
+                <div class="section-number">4. Diseño metodológico</div>
+                <div class="section-title"></div>
+            </div>
+
+            <div class="content">
+                <p>El diseño metodológico establece la estructura de lo que se indaga del objeto de estudio, población, técnicas para obtener los datos y análisis. Su importancia radica en la coherencia, certeza de los resultados,
+                    permitiendo al estudio pueda reproducirse y que sus hallazgos se sustenten en procedimientos sistemáticos y rigurosos.</p>
+
+                <div class="quote-box">
+                    <div class="type-definition">
+                        <p>"A partir de lo que se desea investigar se establece el estudio, población la cantidad de la muestra a observar, la forma en que se reunirá la información, los instrumentos y los procedimientos éticos."</p>
+                        <div class="citation">(Hernández Sampieri & Mendoza, 2018).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="seccion-1-2-5">
+            <div class="section-header">
+                <div class="section-number">5. Recolección de datos</div>
+                <div class="section-title"></div>
+            </div>
+
+            <div class="content">
+                <p>La recopilación de datos tiene mucha importancia, debido a que en esta etapa es esencial porque permite obtener la información que avale la pregunta de investigación. Consiste en reunir datos de manera ordenada y con instrumentos adecuados para asegurar que sean veraces y útiles. Su importancia radica en que,
+                           si los datos se obtienen correctamente, los resultados serán confiables y las conclusiones tendrán sustento real.</p>
+
+                <div class="quote-box">
+                    <div class="type-definition">
+                        <p>"Es importante porque aporta la evidencia real sobre la cual se analiza el problema y se toman decisiones."</p>
+                        <div class="citation">(Hernández Sampieri & Mendoza, 2018).</div>
+                    </div>
+                </div>
+                <div class="type-characteristics">
+                    <h2>Las principales características de la recopilación de información son:</h2>
+                    <ul>
+                        <li><strong>Sistemática:</strong> se realiza siguiendo un plan organizado y pasos definidos.</li>
+                        <li><strong>Objetiva:</strong> busca obtener información sin sesgos ni interpretaciones personales</li>
+                        <li><strong>Precisa:</strong> utiliza instrumentos adecuados para garantizar exactitud en los datos.</li>
+                        <li><strong>Confiable:</strong> permite obtener resultados consistentes si el proceso se repite.</li>
+                        <li><strong>Válida:</strong> los datos realmente representan el fenómeno que se desea estudiar.</li>
+                        <li><strong>Ética:</strong> respeta los datos de las personas y la integridad de estos.</li>
+                        <li><strong>Pertinente:</strong> se enfoca únicamente a datos que avalen la indagación del objeto a estudiar.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="seccion-1-2-6">
+            <div class="section-header">
+                <div class="section-number">6. Interpretación y análisis de información</div>
+                <div class="section-title"></div>
+            </div>
+
+            <div class="content">
+                <p>La interpretación de datos constituye una etapa fundamental, así como la organización de los datos, la cual ayudará a responder la pregunta de estudio y sustentar las
+                    conclusiones. El análisis organiza, clasificar y procesar la información utilizando técnicas estadísticas o cualitativas para identificar patrones, tendencias o relaciones; puede ser cuantitativo cuando se trabaja
+                    con datos numéricos (porcentajes, promedios, correlaciones) o cualitativo cuando se analizan contenidos descriptivos (categorías, temas, discursos).
+                    Por su parte, la interpretación consiste en otorgar significado a los resultados obtenidos, relacionando objetivos, hipótesis, marco teórico, comparándolos con estudios previos y determinando sus implicaciones. En conjunto,
+                    este proceso permite generar evidencia científica confiable, explicar fenómenos estudiados.</p>
+
+                <div class="quote-box">
+                    <div class="type-definition">
+                        <p>"Etapa fundamental del proceso de investigación que posibilita convertir datos recopilados en información importante para dar respuesta a la cuestión de estudio y respaldar los datos obtenidos."</p>
+                        <div class="citation">(Hernández Sampieri & Mendoza, 2018).</div>
+                    </div>
+                </div>
+
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 1.9</figcaption>
+                    <figcaption class="figure-caption">Análisis e interpretación de datos.</figcaption>
+                    <img src="img/FIGURA9.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. 2014.</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="section" id="seccion-1-2-7">
+            <div class="section-header">
+                <div class="section-number">7. Conclusiones y recomendaciones</div>
+                <div class="section-title"></div>
+            </div>
+
+            <div class="content">
+                <p>Es por ello la importancia ya que presentan la forma sintética, lo que significan los resultados obtenidos y cómo estos responden a los objetivos del estudio. Permiten transformar los hallazgos en orientaciones prácticas para mejorar procesos, resolver problemas o tomar decisiones informadas.
+                    Asimismo, señalan acciones futuras y nuevas áreas de investigación basadas en la evidencia obtenida.</p>
+
+                <div class="quote-box">
+                    <div class="type-definition">
+                        <p>"Son esenciales porque permiten comprender el significado de los resultados obtenidos y verificar los objetivos de la investigación."</p>
+                        <div class="citation">(Hernández Sampieri & Mendoza, 2018).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="seccion-1-2-8">
+            <div class="section-header">
+                <div class="section-number">1.2.1</div>
+                <div class="section-title">La investigación en la medicina, la biología y la importancia de la ética.</div>
             </div>
             <div class="content">
                 <p>Es esencial para comprender los procesos de la vida, explicar el origen de las enfermedades y desarrollar estrategias de prevención,
-                   diagnóstico y tratamiento. Debido a que estas disciplinas trabajan directa o indirectamente con seres vivos, debe de contener principios éticos que protejan los datos de las personas.</p>
- 
-                <br>
+                   diagnóstico y tratamiento. Debido a que estas disciplinas trabajan directa o indirectamente con seres vivos, debe contener principios éticos que protejan los datos de las personas.</p>
+
                 <ul>
-                    <li><strong>Investigación en la medicina</strong>, tiene como objetivo generar conocimiento científico aplicable a la atención de la salud. Se apoya en estudios clínicos,
+                    <li><strong>Investigación en la medicina</strong>: tiene como objetivo generar conocimiento científico aplicable a la atención de la salud. Se apoya en estudios clínicos,
                                epidemiológicos y experimentales que busca estructurar la evidencia científica apoyada con la experiencia clínica y valores del paciente.
-                    </li><br>
+                    </li>
                     <p>Este tipo de investigación implica riesgos potenciales, ya que puede involucrar intervenciones diagnósticas o terapéuticas en seres humanos. Por ello, requiere rigor metodológico y
                         una evaluación ética estricta que garantice la seguridad de los participantes (Hulley et al., 2013).</p>
 
-                    <li><strong>Investigación en la biología</strong>, la parte central del estudio del ser humano desde lo molecular y celular hasta organismos completos y
+                    <li><strong>Investigación en la biología</strong>: la parte central del estudio del ser humano desde lo molecular y celular hasta organismos completos y
                                 ecosistemas. En el ámbito de la salud, la biología aporta conocimientos fundamentales sobre genética, microbiología, fisiología e inmunología, que sustentan los avances médicos. </li>
-                    <p>Aunque muchos estudios biológicos se realizan en laboratorio o con modelos animales, sus resultados suelen tener implicaciones directas en la salud, lo que hace indispensable tener presente 
+                    <p>Aunque muchos estudios biológicos se realizan en laboratorio o con modelos animales, sus resultados suelen tener implicaciones directas en la salud, lo que hace indispensable tener presente
                         los valores éticos relacionados con los recursos biológicos y el bienestar animal (Hernández Sampieri et al. 2014).</p>
 
-                    <li>Valores éticos en investigación regular toda conducta de las personas que participan ya que los sujetos de estudio son para una práctica científica responsable. En medicina y biología, la ética es indispensable.</li>
+                    <li><strong>Valores éticos en investigación</strong>: regulan la conducta de las personas que participan ya que los sujetos de estudio son para una práctica científica responsable. En medicina y biología, la ética es indispensable.</li>
                 </ul>
 
-                <div class="figure-container">
-                    <div class="figure-caption">Figura 10</div>
-                    <div class="figure-caption"> La investigación en la medicina, la biología y la importancia de la ética</div>
-                    <div class="figura">
-                        <img src="FIGURA10.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
-                    </div>
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. (2014).</div>
-                </div>
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 1.10</figcaption>
+                    <figcaption class="figure-caption"> La investigación en la medicina, la biología y la importancia de la ética</figcaption>
+                    <img src="img/FIGURA10.png" alt="Elaboración propia basada en Hernández Sampieri et al. (2014)" class="imagen-figura1"/>
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Hernández Sampieri et al. (2014).</figcaption>
+                </figure>
             </div>
         </div>
 
         <div class="section" id="video-1-2">
             <div class="section-header">
-                <div class="section-number"><i class="fas fa-play-circle"></i></div>
+                <div class="section-number section-icon"><i class="fas fa-play-circle"></i></div>
                 <div class="section-title">Material Audiovisual</div>
             </div>
             <div class="content">
-                <div class="figure-container">
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/01dC5YYOCTI" title="Etapas de proceso de investigación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
-                    <div class="figure-caption">Salas, I. (2026). <em>Etapas de proceso de investigación</em> [Video]. YouTube. https://www.youtube.com/watch?v=01dC5YYOCTI</div>
-                </div>
+                <figure class="figure-container">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/01dC5YYOCTI" title="Etapas del proceso de investigación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <figcaption class="figure-caption">Salas, I. (2026). <em>Etapas del proceso de investigación</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=01dC5YYOCTI" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=01dC5YYOCTI</a></figcaption>
+                </figure>
             </div>
         </div>
 
-        <div class="activity-card">
-            <div class="activity-title">Actividad de Aprendizaje 1.2 Etapas del proceso de investigación</div>
+        <div class="activity-card" id="actividad-aprendizaje">
+            <div class="activity-title"><strong>Actividad de Aprendizaje 1.2 Etapas del proceso de investigación</strong></div>
             <p>Las etapas del proceso de investigación estructuran de forma ordenada el estudio, permitiendo obtener resultados válidos y confiables que sustentan conclusiones científicas y decisiones basadas en evidencia.</p>
             <a href="actividad_1_2.html" class="activity-btn">
                 <i class="fas fa-pencil-alt"></i> Realizar Actividad
             </a>
         </div>
-        
+
         <div class="nav-buttons">
-            <a href="1.1.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a 1.1 Metodología de la investigación científica</a>
-            <a href="1.3.html" class="nav-btn">Continuar a 1.3 Tipos y formas de investigación<i class="fas fa-arrow-right"></i></a>
+            <a href="1.1.html" class="nav-btn"><i class="fas fa-arrow-left"></i> 1.1 Metodología de la investigación científica</a>
+            <a href="1.3.html" class="nav-btn">1.3 Tipos y formas de investigación <i class="fas fa-arrow-right"></i></a>
         </div>
-        
+
         <footer>
             <p>Polilibro académico - Metodología de la Investigación y Estadística I</p>
             <p>Desarrollado para fines educativos - © 2025</p>
         </footer>
     </div>
-
-    <script>
-        let sidebarOpen = false;
-
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebarNav = document.getElementById('sidebarNav');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-        function toggleSidebar() {
-            sidebarOpen = !sidebarOpen;
-            
-            if (sidebarOpen) {
-                sidebarNav.classList.add('active');
-                sidebarOverlay.classList.add('active');
-                menuToggle.classList.add('active');
-                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-                document.body.style.overflow = 'hidden';
-            } else {
-                sidebarNav.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                menuToggle.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = 'auto';
-            }
-            
-            updateContainerSpacing();
-        }
-
-        menuToggle.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
-
-        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    toggleSidebar();
-                }
-            });
-        });
-
-        function updateContainerSpacing() {
-            const container = document.querySelector('.container');
-            
-            if (window.innerWidth <= 768) {
-                container.style.marginLeft = '20px';
-                container.style.marginRight = '20px';
-                container.style.padding = '10px';
-            } else if (sidebarOpen && window.innerWidth > 768) {
-                container.style.marginLeft = '370px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            } else {
-                container.style.marginLeft = '90px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            }
-        }
-
-        function updateActiveSection() {
-            const sections = document.querySelectorAll('.section');
-            const navItems = document.querySelectorAll('.nav-item[data-section]');
-            let currentSectionId = '';
-
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    currentSectionId = section.id;
-                }
-            });
-
-            navItems.forEach(item => {
-                const sectionId = 'seccion-' + item.dataset.section;
-                // Check if nav item refers to architecture section manually created in nav
-                if (item.dataset.section === 'arquitectura' && currentSectionId === 'seccion-arquitectura') {
-                    item.classList.add('active');
-                } else if (sectionId === currentSectionId) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        function updateReadingProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        }
-
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        function toggleScrollToTopBtn() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        }
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            updateActiveSection();
-            updateReadingProgress();
-            toggleScrollToTopBtn();
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && sidebarOpen) {
-                toggleSidebar();
-            }
-            updateContainerSpacing();
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateActiveSection();
-            updateReadingProgress();
-            updateContainerSpacing();
-            if (window.innerWidth <= 768) {
-                sidebarNav.classList.remove('active');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && sidebarOpen) {
-                toggleSidebar();
-            }
-            if (e.key === 'm' || e.key === 'M') {
-                if (!e.ctrlKey && !e.altKey) { 
-                    toggleSidebar();
-                }
-            }
-        });
-    </script>
+    <script src="../RECURSOS/data/navegacion.js"></script>
+    <script src="../RECURSOS/js/navegacion-unidades.js"></script>
+    <script src="../RECURSOS/js/interacciones-unidades.js"></script>
+    <script src="../RECURSOS/js/visor-imagenes.js"></script>
 </body>
 </html>

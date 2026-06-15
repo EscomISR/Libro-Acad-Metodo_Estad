@@ -4,580 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3.1 Informe final</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh.png">
+    <link rel="icon" type="image/png" href="../RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #a855f7;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1e0030, #3d0066);
-            color: var(--light);
-            min-height: 100vh;
-            line-height: 1.7;
-        }
-
-        .floating-home-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--secondary);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-size: 1.5rem;
-        }
-
-        .floating-home-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        .sidebar-nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: rgba(30, 0, 48, 0.95);
-            border-right: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
-            overflow-y: auto;
-        }
-
-        .sidebar-nav.active {
-            transform: translateX(0);
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            background: rgba(52, 152, 219, 0.1);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .sidebar-title {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .nav-sections {
-            padding: 20px 0;
-        }
-
-        .nav-section {
-            margin-bottom: 15px;
-        }
-
-        .nav-section-title {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
-            margin-bottom: 10px;
-        }
-
-        .nav-item {
-            display: block;
-            padding: 12px 20px;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: rgba(142, 68, 173, 0.2);
-            border-left-color: var(--accent);
-            padding-left: 25px;
-        }
-
-        .nav-item.active {
-            background: rgba(52, 152, 219, 0.2);
-            border-left-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        .nav-item i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            font-size: 1.2rem;
-        }
-
-        .menu-toggle:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle.active {
-            background: var(--accent);
-        }
-
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 998;
-        }
-
-        .reading-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--success));
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            transition: margin-left 0.3s ease, margin-right 0.3s ease;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            margin: 0 10px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-weight: 300;
-            text-align: center;
-        }
-        
-        .intro {
-            max-width: 900px;
-            margin: 0 auto 40px;
-            padding: 25px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary);
-            text-align: justify;
-        }
-        
-        .section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            scroll-margin-top: 100px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        
-        .section-number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-right: 15px;
-            min-width: 120px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .content {
-            padding: 0 10px;
-        }
-        
-        .content h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin: 30px 0 15px;
-            padding-left: 10px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .content h4 {
-            font-size: 1.3rem;
-            color: var(--warning);
-            margin: 25px 0 12px;
-            padding-left: 8px;
-        }
-        
-        .content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .content ul, .content ol {
-            padding-left: 30px;
-            margin: 20px 0;
-        }
-        
-        .content li {
-            margin-bottom: 12px;
-        }
-        
-        .highlight {
-            background: rgba(231, 76, 60, 0.15);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-        
-        .citation {
-            font-style: italic;
-            color: var(--gray);
-            margin: 5px 0 15px 20px;
-            border-left: 2px solid var(--secondary);
-            padding-left: 10px;
-        }
-        
-        .quote-box {
-            background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: var(--light);
-        }
-
-        .quote-box .citation {
-            border-left: none;
-            margin: 10px 0 0 0;
-            padding-left: 0;
-        }
-        
-        .table-container {
-            max-width: 100%;
-            margin: 30px auto;
-            overflow-x: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        .table-caption {
-            text-align: center;
-            padding: 10px;
-            color: var(--gray);
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        
-        .figure-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .imagen-figura1 {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain; 
-            border-radius: 8px;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: zoom-in;
-            transform-origin: center center;
-        }
-        
-        /* Efecto al pasar el mouse */
-        .imagen-figura1:hover {
-            transform: scale(1.4); 
-            border-radius: 8px;
-        }
-        
-        .figure-caption {
-            color: var(--gray);
-            margin-top: 10px;
-        }
-        
-        /* Estilos para la tarjeta de actividad */
-        .activity-card {
-            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 4px solid var(--success); /* Borde izquierdo verde */
-            text-align: center;
-        }
-        
-        .activity-title {
-            font-size: 1.8rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .activity-btn {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .activity-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--secondary);
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .nav-btn i {
-            margin: 0 8px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 768px) {
-            .sidebar-nav {
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .section-number {
-                min-width: 100px;
-                font-size: 1.8rem;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .floating-home-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../RECURSOS/css/estilos-unidades.css?v=1">
 </head>
 <body>
     <div class="reading-progress">
@@ -588,60 +17,52 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <a href="index.html" class="floating-home-btn" title="Ir al inicio de Unidades">
-        <i class="fas fa-home"></i>
+    <a href="index.html" class="floating-home-btn" title="Ir a Unidad 3">
+        <i class="fas fa-book-open"></i>
     </a>
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
-            <div class="sidebar-title">CAPÍTULO III</div>
-            <div class="sidebar-subtitle">Interpretación de los resultados de la investigación</div>
+            <div class="sidebar-title">3.1 Informe final</div>
+            <div class="sidebar-subtitle">Informe de resultados</div>
         </div>
-        
+
         <div class="nav-sections">
             <div class="nav-section">
                 <div class="nav-section-title">Navegación</div>
-                <a href="#inicio" class="nav-item">
-                    <i class="fas fa-play-circle"></i>
-                    Inicio de la unidad
+                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/" class="nav-item">
+                    <i class="fas fa-home"></i> Inicio
                 </a>
                 <a href="index.html" class="nav-item">
-                    <i class="fas fa-arrow-left"></i>
-                    Menú principal 3
+                    <i class="fas fa-book-open"></i> Unidad 3
+                </a>
+                <a href="3.2.html" class="nav-item">
+                    <i class="fas fa-arrow-right"></i> 3.2 Plan de análisis estadístico
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Contenido</div>
-                <a href="#seccion-3-1" class="nav-item" data-section="3-1">
-                    <i class="fas fa-layer-group"></i>
-                    3.1 Informe final
-                </a>
                 <a href="#seccion-3-1-1" class="nav-item" data-section="3-1-1">
-                    <i class="fas fa-sitemap"></i>
-                    3.1.1 Resultados
+                    <i class="fas fa-book-open"></i> 3.1.1 Resultados
                 </a>
                 <a href="#seccion-3-1-2" class="nav-item" data-section="3-1-2">
-                    <i class="fas fa-tasks"></i>
-                    3.1.2 Ejecución de la investigación
+                    <i class="fas fa-bullseye"></i> 3.1.2 Ejecución de la investigación
                 </a>
                 <a href="#seccion-3-1-3" class="nav-item" data-section="3-1-3">
-                    <i class="fas fa-exchange-alt"></i>
-                    3.1.3 Aplicación de la encuesta y/o instrumentos
+                    <i class="fas fa-chart-line"></i> 3.1.3 Aplicación de la encuesta y/o instrumentos
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Recursos</div>
-                <a href="actividad_3_1.html" class="nav-item">
-                    <i class="fas fa-pencil-alt"></i>
-                    Actividad de aprendizaje
+                <a href="#video-3-1" class="nav-item" data-section="video-3-1">
+                    <i class="fas fa-play-circle"></i> Material audiovisual
                 </a>
-                <a href="3.2.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i>
-                    Siguiente: Memoria Virtual
+                <a href="#actividad-aprendizaje" class="nav-item" data-section="actividad-aprendizaje">
+                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
                 </a>
             </div>
         </div>
@@ -654,19 +75,21 @@
     <div class="container">
         <header id="inicio">
             <div class="breadcrumb">
-                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/Unidades.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="../unidades.html">Unidades</a>
                 <span>/</span>
                 <a href="index.html">Unidad 3</a>
                 <span>/</span>
-                <span>Interpretación de los resultados de la investigación</span>
+                <span>3.1 Informe final</span>
             </div>
             <h1>3.1 Informe final</h1>
-            <div class="subtitle"></div>
+            <div class="subtitle">Unidad III. Interpretación de los resultados de la investigación</div>
         </header>
-        
-        <div class="intro">            
+
+        <div class="intro">
             <p>Es un documento que se encuentra organizado, estructurado con todo los elementos que se aboradoron en una investigación que ayudará a entender con mayor precisión los datos obtenidos de está.</p>
-            <p>Por lo que la validación de este es de suma importancia para la sociedad médica que busca realizar investigaciones cieníticas que ayuden a resolver los problemas de salud.</p> 
+            <p>Por lo que la validación de este es de suma importancia para la sociedad médica que busca realizar investigaciones científicas que ayuden a resolver los problemas de salud.</p>
             <p>Derivado de ello la difusión del conocimiento adquirido y documentado en este informe ayudará a la comunidad científica a nuevos descubrimientos de una enfermedad o tratamiento, es por ello su importancia y relevancia para la toma de decisiones médicas.</p>
 
 
@@ -674,25 +97,25 @@
                 <li><strong>Organización y documento formal:</strong> Establece secciones que permitan identificar y comprender la investigación.</li>
                 <li><strong>Claridad y coherencia en la redacción:</strong> Utiliza lenguaje preciso, técnico y objetivo, facilitando la comprensión del contenido por parte de lectores académicos y profesionales.</li>
                 <li><strong>Objetividad y rigor científico:</strong> Expone información basada en evidencia verificable, evitando opiniones sin sustento y manteniendo imparcialidad en la interpretación de resultados.</li>
-                <li><strong>Presentación sistemática de datos:</strong> Incluye tablas, gráficas y elementos para ver resultados de forma clara y ordenada.</li> 
-                <li><strong>Análisis e interpretación crítica</strong> No solo describe los resultados, sino que los explica y relaciona con teorías o estudios previos.</li> 
-                <li><strong>Uso adecuado de citas y referencias:</strong> Reconoce las fuentes consultadas mediante normas académicas estandarizadas, fortaleciendo la credibilidad y evitando el plagio.</li> 
-                <li><strong>Cumplimiento de normas de presentación:</strong> sigue lineamientos formales como APA o Vancouver para asegurar uniformidad y calidad académica.</li> 
-                <li><strong>Soporte digital y tecnológico:</strong> Integra herramientas informáticas para el procesamiento de datos, redacción, análisis estadístico y gestión bibliográfica.</li> 
-                <li><strong>Transparencia y reproducibilidad:</strong> Describe el método a detalle para otros investigadores repliquen el estudio.</li> 
-                 <li><strong>Aporte al conocimiento:</strong> Presenta conclusiones y recomendaciones que contribuyen al desarrollo científico o a la solución de problemas prácticos.</li> 
-               
+                <li><strong>Presentación sistemática de datos:</strong> Incluye tablas, gráficas y elementos para ver resultados de forma clara y ordenada.</li>
+                <li><strong>Análisis e interpretación crítica</strong> No solo describe los resultados, sino que los explica y relaciona con teorías o estudios previos.</li>
+                <li><strong>Uso adecuado de citas y referencias:</strong> Reconoce las fuentes consultadas mediante normas académicas estandarizadas, fortaleciendo la credibilidad y evitando el plagio.</li>
+                <li><strong>Cumplimiento de normas de presentación:</strong> sigue lineamientos formales como APA o Vancouver para asegurar uniformidad y calidad académica.</li>
+                <li><strong>Soporte digital y tecnológico:</strong> Integra herramientas informáticas para el procesamiento de datos, redacción, análisis estadístico y gestión bibliográfica.</li>
+                <li><strong>Transparencia y reproducibilidad:</strong> Describe el método a detalle para otros investigadores repliquen el estudio.</li>
+                 <li><strong>Aporte al conocimiento:</strong> Presenta conclusiones y recomendaciones que contribuyen al desarrollo científico o a la solución de problemas prácticos.</li>
+
             </ul>
-            
-            <div class="figure-container">
-                <p class="figure-caption">Figura 3a</p>
-                <p class="figure-caption">Informe final</p>
-                <img src="Figura3a.png" alt="Informe final" class="imagen-figura1">
-                <p class="figure-caption"><i>Nota</i>. Elaboración propia basada en Metodología de la investigación (6.ª ed.). Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014 McGraw-Hill Educacion. </p>
-            </div>
+
+            <figure class="figure-container">
+                <figcaption class="figure-caption">Figura 3.1</figcaption>
+                <figcaption class="figure-caption">Informe final</figcaption>
+                <img src="img/Figura3a.png" alt="Informe final" class="imagen-figura1">
+                <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Metodología de la investigación (6.ª ed.). Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014 McGraw-Hill Educación. </figcaption>
+            </figure>
 
         </div>
-        
+
 
         <div class="section" id="seccion-3-1-1">
             <div class="section-header">
@@ -700,10 +123,10 @@
                 <div class="section-title">Resultados</div>
             </div>
             <div class="content">
-                <p>Esta parte es fundamental en la documentación de un reporte final ya que establece los aportes de lo obtenido y permite validar o en su momento refutar la hipótesis planteada, de la misma manera determina nuevos 
+                <p>Esta parte es fundamental en la documentación de un reporte final ya que establece los aportes de lo obtenido y permite validar o en su momento refutar la hipótesis planteada, de la misma manera determina nuevos
                     conocimientos y  bibliografía que es parte elemental del desarrollo de la investigación.</p>
- 
-                <h3> Elementos que aportan los resultados:</h3>
+
+                <h2> Elementos que aportan los resultados:</h2>
                 <ul>
                     <li>Presentan datos de forma objetiva y sin interpretaciones.</li>
                     <li>Responden directamente a los objetivos e hipótesis del estudio.</li>
@@ -716,20 +139,20 @@
             </div>
 
         </div>
-        
+
         <div class="section" id="seccion-3-1-2">
             <div class="section-header">
                 <div class="section-number">3.1.2</div>
                 <div class="section-title">Ejecución de la investigación</div>
             </div>
             <div class="content">
-                <p>Es vital lleva a cabo la ejecución ya que permite transforma todos los elementos que se vean involucrados desde lo teórico-práctico dentro de ella, de la misma manera la planificación y sus elementos que participaron en su desarrollo estableciendo acciones que permitieron establecer 
+                <p>Es vital lleva a cabo la ejecución ya que permite transforma todos los elementos que se vean involucrados desde lo teórico-práctico dentro de ella, de la misma manera la planificación y sus elementos que participaron en su desarrollo estableciendo acciones que permitieron establecer
                     los resultados tangibles y medibles.</p>
-                    
+
                 <p>A lo largo del desarrollo de la investigación científica se establecen pilares que son la base de esta, como es el diseño o la planificació del desarrollo de esta, la medición t, se agrupa la información
                    por los instrumentos que se aplicarán, por ello e análisis o validación de los datos son de mucha relevancia en la correcta aplicación de técnicas Estadísticas o análisis cuantitativos para apoyar o desechar la hipótesis planteada.</p>
-                <p>Por lo que se establece lo siguiente</p>    
-                    
+                <p>Por lo que se establece lo siguiente</p>
+
                <ul>
                     <li><strong>Aplicación del diseño metodológico:</strong> se implementan los procedimientos y técnicas definidos en la planeación para obtener los datos necesarios del estudio.</li>
                     <li><strong>Recolección sistemática de datos:</strong> la información se obtiene de manera organizada, siguiendo protocolos que garantizan validez y confiabilidad.</li>
@@ -743,15 +166,15 @@
                     <li><strong>Calidad de los datos:</strong> una ejecución asegura que los datos sean precisos, utiles y se obtengan conclusiones.</li>
 
                 </ul>
-                <div class="figure-container">
-                    <p class="figure-caption">Figura 3b</p>
-                    <p class="figure-caption">Resultados y ejecución de la investigación</p>
-                    <img src="Figura3b.png" alt="Resultados y ejecución de la investigación" class="imagen-figura1">
-                    <p class="figure-caption"><i>Nota</i>. Elaboración propia basada en Metodología de la investigación (6.ª ed.). Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014 McGraw-Hill Educación.</p>
-                </div>
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 3.2</figcaption>
+                    <figcaption class="figure-caption">Resultados y ejecución de la investigación</figcaption>
+                    <img src="img/Figura3b.png" alt="Resultados y ejecución de la investigación" class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Metodología de la investigación (6.ª ed.). Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014 McGraw-Hill Educación.</figcaption>
+                </figure>
             </div>
         </div>
-        
+
         <div class="section" id="seccion-3-1-3">
             <div class="section-header">
                 <div class="section-number">3.1.3</div>
@@ -763,221 +186,50 @@
                 <p>Durante esta fase, es fundamental seguir procedimientos estandarizados que aseguren la uniformidad en la recolección de datos, evitando sesgos o errores que puedan afectar los resultados. Esto implica brindar instrucciones claras a los participantes, mantener condiciones similares de aplicación y verificar que los instrumentos se utilicen de manera consistente.</p>
                 <p>En la actualidad, la aplicación de encuestas e instrumentos se apoya en herramientas digitales que facilitan la recopilación y almacenamiento de datos, como formularios electrónicos, dispositivos móviles y plataformas en línea. Estas tecnologías permiten reducir errores de registro, proceso de datos y mejorar la organización de la información.</p>
 
-                <div class="figure-container">
-                    <p class="figure-caption">Figura 3c</p>
-                    <p class="figure-caption">Aplicación de la encuesta y/o instrumentos</p>
-                    <img src="Figura3c.png" alt="Aplicación de la encuesta y/o instrumentos" class="imagen-figura1">
-                    <p class="figure-caption"><i>Nota</i>. Elaboración propia basada en Metodología de la investigación (6.ª ed.). McGraw-Hill Education. Hernández Sampieri, R., Fernández Collado, C., & Baptista Lucio, M. P. 2014</p>
-                </div>
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 3.3</figcaption>
+                    <figcaption class="figure-caption">Aplicación de la encuesta y/o instrumentos</figcaption>
+                    <img src="img/Figura3c.png" alt="Aplicación de la encuesta y/o instrumentos" class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Metodología de la investigación (6.ª ed.). McGraw-Hill Education. Hernández Sampieri, R., Fernández Collado, C., & Baptista Lucio, M. P. 2014</figcaption>
+                </figure>
             </div>
             </div>
 
             <div class="section" id="video-3-1">
                 <div class="section-header">
-                    <div class="section-number"><i class="fas fa-play-circle"></i></div>
+                    <div class="section-number section-icon"><i class="fas fa-play-circle"></i></div>
                     <div class="section-title">Material Audiovisual</div>
                 </div>
                 <div class="content">
-                    <div class="figure-container">
-                        <iframe width="100%" height="450" src="https://www.youtube.com/embed/Jdp6vBdDkCw" title="Informe Final" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
-                        <div class="figure-caption">Salas, I. (2026). <em>Informe Final</em> [Video]. YouTube. https://www.youtube.com/watch?v=Jdp6vBdDkCw</div>
-                    </div>
+                    <figure class="figure-container">
+                        <iframe width="100%" height="450" src="https://www.youtube.com/embed/Jdp6vBdDkCw" title="Informe Final" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <figcaption class="figure-caption">Salas, I. (2026). <em>Informe Final</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=Jdp6vBdDkCw" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=Jdp6vBdDkCw</a></figcaption>
+                    </figure>
                 </div>
             </div>
 
 
-        <div class="activity-card">
-            <div class="activity-title">Actividad de Aprendizaje 3.1: Informe final</div>
+        <div class="activity-card" id="actividad-aprendizaje">
+            <div class="activity-title"><strong>Actividad de Aprendizaje 3.1: Informe final</strong></div>
             <p>Pon a prueba tus conocimientos sobre Informe final.</p>
-            <a href="Actividad_3_1.html" class="activity-btn">
+            <a href="actividad_3_1.html" class="activity-btn">
                 <i class="fas fa-pencil-alt"></i> Realizar Actividad
             </a>
         </div>
-        
-        <div class="nav-buttons">
-            <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
-            <a href="3.2.html" class="nav-btn">Continuar a 3.2: Plan de análisis estadístico <i class="fas fa-arrow-right"></i></a>
+
+        <div class="nav-buttons nav-buttons-next">
+            <a href="3.2.html" class="nav-btn">3.2 Plan de análisis estadístico <i class="fas fa-arrow-right"></i></a>
         </div>
-        
+
         <footer>
-            <p>Metodología de la Investigación y Estadística I - Unidad 1: Metodología de la investigación científica</p>
-            <p>Desarrollado para fines educativos - © 2026</p>>
+            <p>Metodología de la Investigación y Estadística I</p>
+            <p>Desarrollado para fines educativos - © 2026</p>
         </footer>
     </div>
+    <script src="../RECURSOS/data/navegacion.js"></script>
+    <script src="../RECURSOS/js/navegacion-unidades.js"></script>
+    <script src="../RECURSOS/js/interacciones-unidades.js"></script>
+    <script src="../RECURSOS/js/visor-imagenes.js"></script>
 
-    <script>
-        // Variables globales
-        let sidebarOpen = false;
-
-        // Toggle del menú lateral
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebarNav = document.getElementById('sidebarNav');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-        function toggleSidebar() {
-            sidebarOpen = !sidebarOpen;
-            
-            if (sidebarOpen) {
-                sidebarNav.classList.add('active');
-                sidebarOverlay.classList.add('active');
-                menuToggle.classList.add('active');
-                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-                document.body.style.overflow = 'hidden';
-            } else {
-                sidebarNav.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                menuToggle.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = 'auto';
-            }
-            
-            updateContainerSpacing();
-        }
-
-        menuToggle.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
-
-        // Cerrar menú al hacer clic en un enlace de navegación
-        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    toggleSidebar();
-                }
-            });
-        });
-
-        // Ajustar espaciado del contenedor dinámicamente
-        function updateContainerSpacing() {
-            const container = document.querySelector('.container');
-            
-            if (window.innerWidth <= 768) {
-                // En móviles, usar márgenes mínimos y padding reducido
-                container.style.marginLeft = '20px';
-                container.style.marginRight = '20px';
-                container.style.padding = '10px';
-            } else if (sidebarOpen && window.innerWidth > 768) {
-                // Cuando el menú está abierto en desktop/tablet
-                container.style.marginLeft = '370px'; // 280px (ancho menú) + 90px (espaciado)
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            } else if (window.innerWidth > 1024) {
-                // Desktop normal
-                container.style.marginLeft = '90px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            } else {
-                // Tablet normal
-                container.style.marginLeft = '70px';
-                container.style.marginRight = '70px';
-                container.style.padding = '20px';
-            }
-        }
-
-        // Resaltar sección activa en el menú
-        function updateActiveSection() {
-            const sections = document.querySelectorAll('.section');
-            const navItems = document.querySelectorAll('.nav-item[data-section]');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    currentSection = section.id.replace('seccion-', '');
-                }
-            });
-            
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.dataset.section === currentSection) {
-                    item.classList.add('active');
-                }
-            });
-        }
-
-        // Indicador de progreso de lectura
-        function updateReadingProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        }
-
-        // Botón de ir arriba
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        function toggleScrollToTopBtn() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        }
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Event listeners
-        window.addEventListener('scroll', () => {
-            updateActiveSection();
-            updateReadingProgress();
-            toggleScrollToTopBtn();
-        });
-
-        // Desplazamiento suave para enlaces del menú
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Cerrar menú al redimensionar ventana (para tablets/móviles)
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && sidebarOpen) {
-                toggleSidebar();
-            }
-            updateContainerSpacing();
-        });
-
-        // Inicialización
-        document.addEventListener('DOMContentLoaded', function() {
-            updateActiveSection();
-            updateReadingProgress();
-            updateContainerSpacing();
-            
-            // Auto-cerrar menú en dispositivos móviles
-            if (window.innerWidth <= 768) {
-                sidebarNav.classList.remove('active');
-            }
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            // ESC para cerrar menú
-            if (e.key === 'Escape' && sidebarOpen) {
-                toggleSidebar();
-            }
-            
-            // M para toggle menú
-            if (e.key === 'm' || e.key === 'M') {
-                if (!e.ctrlKey && !e.altKey) {
-                    toggleSidebar();
-                }
-            }
-        });
-    </script>
 </body>
 </html>

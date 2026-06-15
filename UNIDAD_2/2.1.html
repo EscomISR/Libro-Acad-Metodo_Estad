@@ -4,580 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2.1 Estructura del protocolo de investigación</title>
-    <link rel="icon" type="image/png" href="../IMAGENES/logoenmh2.png">
+    <link rel="icon" type="image/png" href="../RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #f8f5fa;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1e0030, #3d0066);
-            color: var(--light);
-            min-height: 100vh;
-            line-height: 1.7;
-        }
-
-        .floating-home-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--secondary);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-size: 1.5rem;
-        }
-
-        .floating-home-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        .sidebar-nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: rgba(30, 0, 48, 0.95);
-            border-right: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
-            overflow-y: auto;
-        }
-
-        .sidebar-nav.active {
-            transform: translateX(0);
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            background: rgba(52, 152, 219, 0.1);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .sidebar-title {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .nav-sections {
-            padding: 20px 0;
-        }
-
-        .nav-section {
-            margin-bottom: 15px;
-        }
-
-        .nav-section-title {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
-            margin-bottom: 10px;
-        }
-
-        .nav-item {
-            display: block;
-            padding: 12px 20px;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: rgba(142, 68, 173, 0.2);
-            border-left-color: var(--accent);
-            padding-left: 25px;
-        }
-
-        .nav-item.active {
-            background: rgba(52, 152, 219, 0.2);
-            border-left-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        .nav-item i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            font-size: 1.2rem;
-        }
-
-        .menu-toggle:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle.active {
-            background: var(--accent);
-        }
-
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 998;
-        }
-
-        .reading-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--success));
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            transition: margin-left 0.3s ease, margin-right 0.3s ease;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            margin: 0 10px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-weight: 300;
-            text-align: center;
-        }
-        
-        .intro {
-            max-width: 900px;
-            margin: 0 auto 40px;
-            padding: 25px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary);
-            text-align: justify;
-        }
-        
-        .section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            scroll-margin-top: 100px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        
-        .section-number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-right: 15px;
-            min-width: 120px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .content {
-            padding: 0 10px;
-        }
-        
-        .content h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin: 30px 0 15px;
-            padding-left: 10px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .content h4 {
-            font-size: 1.3rem;
-            color: var(--warning);
-            margin: 25px 0 12px;
-            padding-left: 8px;
-        }
-        
-        .content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .content ul, .content ol {
-            padding-left: 30px;
-            margin: 20px 0;
-        }
-        
-        .content li {
-            margin-bottom: 12px;
-        }
-        
-        .highlight {
-            background: rgba(231, 76, 60, 0.15);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-        
-        .citation {
-            font-style: italic;
-            color: var(--gray);
-            margin: 5px 0 15px 20px;
-            border-left: 2px solid var(--secondary);
-            padding-left: 10px;
-        }
-        
-        .quote-box {
-            background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: var(--light);
-        }
-
-        .quote-box .citation {
-            border-left: none;
-            margin: 10px 0 0 0;
-            padding-left: 0;
-        }
-        
-        .table-container {
-            max-width: 100%;
-            margin: 30px auto;
-            overflow-x: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        .table-caption {
-            text-align: center;
-            padding: 10px;
-            color: var(--gray);
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        
-        .figure-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .imagen-figura1 {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain; 
-            border-radius: 8px;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: zoom-in;
-            transform-origin: center center;
-        }
-        
-        /* Efecto al pasar el mouse */
-        .imagen-figura1:hover {
-            transform: scale(1.4); 
-            border-radius: 8px;
-        }
-        
-        .figure-caption {
-            color: var(--gray);
-            margin-top: 10px;
-        }
-        
-        /* Estilos para la tarjeta de actividad */
-        .activity-card {
-            background: rgba(46, 204, 113, 0.1); /* Fondo verde translúcido */
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 4px solid var(--success); /* Borde izquierdo verde */
-            text-align: center;
-        }
-        
-        .activity-title {
-            font-size: 1.8rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .activity-btn {
-            display: inline-block;
-            background: var(--success);
-            color: rgb(39, 3, 51);
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .activity-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--secondary);
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .nav-btn i {
-            margin: 0 8px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 768px) {
-            .sidebar-nav {
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .section-number {
-                min-width: 100px;
-                font-size: 1.8rem;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .floating-home-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../RECURSOS/css/estilos-unidades.css?v=1">
 </head>
 <body>
     <div class="reading-progress">
@@ -588,8 +17,8 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <a href="index.html" class="floating-home-btn" title="Ir al índice de unidades">
-        <i class="fas fa-home"></i>
+    <a href="index.html" class="floating-home-btn" title="Ir a Unidad 2">
+        <i class="fas fa-book-open"></i>
     </a>
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
@@ -597,54 +26,55 @@
     <nav class="sidebar-nav" id="sidebarNav">
         <div class="sidebar-header">
             <div class="sidebar-title">2.1 Estructura del protocolo de investigación</div>
-            <div class="sidebar-subtitle"></div>
+            <div class="sidebar-subtitle">Protocolo de investigación</div>
         </div>
-        
+
         <div class="nav-sections">
             <div class="nav-section">
                 <div class="nav-section-title">Navegación</div>
-                <a href="#inicio" class="nav-item">
-                    <i class="fas fa-rocket"></i> Inicio del Tema
+                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/" class="nav-item">
+                    <i class="fas fa-home"></i> Inicio
                 </a>
                 <a href="index.html" class="nav-item">
-                    <i class="fas fa-arrow-left"></i> Menú de Unidad 2
+                    <i class="fas fa-book-open"></i> Unidad 2
+                </a>
+                <a href="2.2.html" class="nav-item">
+                    <i class="fas fa-arrow-right"></i> 2.2 Planteamiento del diseño de la investigación
                 </a>
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Contenido</div>
                 <a href="#seccion-2-1-1" class="nav-item" data-section="2-1-1">
-                    <i class="fas fa-sitemap"></i> 2.1.1 Marco teórico
+                    <i class="fas fa-book-open"></i> 2.1.1 Marco teórico
                 </a>
                 <a href="#seccion-2-1-2" class="nav-item" data-section="2-1-2">
-                    <i class="fas fa-cogs"></i> 2.1.2 Delimitación del problema de la investigación
+                    <i class="fas fa-bullseye"></i> 2.1.2 Delimitación del problema de la investigación
                 </a>
                 <a href="#seccion-2-1-3" class="nav-item" data-section="2-1-3">
-                    <i class="fas fa-exchange-alt"></i> 2.1.3 Planteamiento de objetivos
+                    <i class="fas fa-chart-line"></i> 2.1.3 Planteamiento de objetivos
                 </a>
                 <a href="#seccion-2-1-4" class="nav-item" data-section="2-1-4">
-                    <i class="fas fa-code"></i> 2.1.4 Delimitación de variables
+                    <i class="fas fa-cogs"></i> 2.1.4 Delimitación de variables
                 </a>
                 <a href="#seccion-2-1-5" class="nav-item" data-section="2-1-5">
-                    <i class="fas fa-code"></i> 2.1.5 Hipótesis nula y alterna
+                    <i class="fas fa-flask"></i> 2.1.5 Hipótesis nula y alterna
                 </a>
                 <a href="#seccion-2-1-6" class="nav-item" data-section="2-1-6">
-                    <i class="fas fa-code"></i> 2.1.6 Justificación
+                    <i class="fas fa-list-check"></i> 2.1.6 Justificación
                 </a>
                 <a href="#seccion-2-1-7" class="nav-item" data-section="2-1-7">
-                    <i class="fas fa-code"></i> 2.1.7 Trascendencia
+                    <i class="fas fa-lightbulb"></i> 2.1.7 Trascendencia
                 </a>
-
-
             </div>
 
             <div class="nav-section">
                 <div class="nav-section-title">Recursos</div>
-                <a href="actividad_2.1.html" class="nav-item">
-                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
+                <a href="#video-2-1" class="nav-item" data-section="video-2-1">
+                    <i class="fas fa-play-circle"></i> Material audiovisual
                 </a>
-                <a href="2.2.html" class="nav-item">
-                    <i class="fas fa-arrow-right"></i> Siguiente: Modelo multi-hilo
+                <a href="#actividad-aprendizaje" class="nav-item" data-section="actividad-aprendizaje">
+                    <i class="fas fa-tasks"></i> Actividad de aprendizaje
                 </a>
             </div>
         </div>
@@ -657,215 +87,218 @@
     <div class="container">
         <header id="inicio">
             <div class="breadcrumb">
-                <a href="https://escomisr.github.io/Libro-Acad-Metodo_Estad/Unidades.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="../unidades.html">Unidades</a>
                 <span>/</span>
                 <a href="index.html">Unidad 2</a>
                 <span>/</span>
                 <span>2.1 Estructura del protocolo de investigación</span>
             </div>
             <h1>2.1 Estructura del protocolo de investigación</h1>
-            <div class="subtitle"></div>            
+            <div class="subtitle">Unidad II. Estructura del protocolo de investigación</div>
         </header>
-        
+
         <div class="intro">
             <p>Es el esquema organizado que guía el desarrollo del estudio y asegura su rigor científico. Generalmente incluye el título, planteamiento del problema, justificación, objetivos,
                hipótesis o preguntas de investigación, marco teórico, diseño, muestra, recolección de datos, estadística, éticas, cronograma, recursos y referencias. Esta estructura permite presentar de forma clara y sistemática qué se investigará, por qué es importante y cómo se llevará a cabo,
                garantizando coherencia, viabilidad y validez (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
-            <div class="citation"></div>
+            <br>
+            <p>La estructura del protocolo de investigación se caracteriza por su organización lógica y sistemática, que permite presentar de manera clara el problema a estudiar, los objetivos que se persiguen y la fundamentación teórica que sustenta el estudio.
+                Todo lo que se establece debe ser preciso, coherente y objetivo, teniendo como propósito de la investigación la importancia científica y social.</p>
         </div>
-        <div class="section" id="seccion-2-1">
-            <div class="content">
-                <p>La estructura del protocolo de investigación se caracteriza por su organización lógica y sistemática, que permite presentar de manera clara el problema a estudiar, los objetivos que se persiguen y la fundamentación teórica que sustenta el estudio.
-                    Todo lo que se establece debe de ser preciso, coherente y objetiva, teniendo como propósito de la investigación la importancia científica y social.</p>
-            </div>
-                
-        </div>
-        
+
         <div class="section" id="seccion-2-1-1">
             <div class="section-header">
                 <div class="section-number">2.1.1</div>
                 <div class="section-title">Marco teórico</div>
             </div>
+
             <div class="content">
-                <p>Es la forma conceptual que permite la investigación, dado que compila, examina y estructura las teorías, conceptos y estudios que vinculan la problemática en cuestión. Su función principal es ofrecer una base científica que posibilite entender el fenómeno investigado,
+                <p>Es la base conceptual que orienta la investigación, dado que compila, examina y estructura las teorías, conceptos y estudios que vinculan la problemática en cuestión. Su función principal es ofrecer una base científica que posibilite entender el fenómeno investigado,
                    dar razones de la importancia del estudio y guiar en la elaboración de hipótesis o interrogantes de investigación.</p>
                 <p>Se distingue entre sus rasgos esenciales que debe ser pertinente, al contener datos directamente vinculados con el problema; actualizado, al incluir fuentes confiables y actuales.</p>
-
-                <h3>Características</h3>
-                <p>* Sustento científico</p>
-                <p>* Proceso sistemático</p>
-                <p>* Información organizada y fuentes fidedigna</p>
-                <p>* Mantiene coherencia lógica y organización temática clara.</p>
-                <p>* Originalidad en la información</p>
-                <p>* Relevancia en la investigación</p>
-                <p>* Enfoque deductivo y rigor científico</p>
-
-          </div>
+                <h2>Características</h2>
+                <ul>
+                    <li>Sustento científico</li>
+                    <li>Proceso sistemático</li>
+                    <li>Información organizada y fuentes fidedignas</li>
+                    <li>Mantiene coherencia lógica y organización temática clara.</li>
+                    <li>Originalidad en la información</li>
+                    <li>Relevancia en la investigación</li>
+                    <li>Enfoque deductivo y rigor científico</li>
+                </ul>
+            </div>
         </div>
-        
+
         <div class="section" id="seccion-2-1-2">
             <div class="section-header">
                 <div class="section-number">2.1.2</div>
                 <div class="section-title">Delimitación del problema de la investigación</div>
             </div>
+
             <div class="content">
                 <p>Precisa el alcance del estudio estableciendo con claridad los límites espaciales, temporales, conceptuales y poblacionales del fenómeno que se analizará. Este proceso permite enfocar la investigación en un contexto específico, evitando ambigüedades y reduciendo la complejidad del problema para hacerlo viable y abordable científicamente.</p>
-                <p>Al delimitar el problema se define qué se estudiará y qué quedará fuera del análisis, favoreciendo la claridad en los objetivos, métodos y resultados. Una delimitación precisa contribuye a la factibilidad del estudio, optimiza recursos y asegura que la investigación responda de manera concreta a la 
+                <p>Al delimitar el problema se define qué se estudiará y qué quedará fuera del análisis, favoreciendo la claridad en los objetivos, métodos y resultados. Una delimitación precisa contribuye a la factibilidad del estudio, optimiza recursos y asegura que la investigación responda de manera concreta a la
                    pregunta planteada.</p>
 
-
-                <div class="figure-container">
-                    <div class="figure-caption">Figura 2a</div>
-                    <div class="figure-caption">Marco teórico y delimitación del problema de la investigación</div>
-                    <img src="Figura2a.png" alt="Marco teórico y delimitación del problema de la investigación" class="imagen-figura1">
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</div>
-                </div>                                               
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 2.1</figcaption>
+                    <figcaption class="figure-caption">Marco teórico y delimitación del problema de la investigación</figcaption>
+                    <img src="img/Figura2a.png" alt="Marco teórico y delimitación del problema de la investigación" class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</figcaption>
+                </figure>
             </div>
         </div>
-        
+
         <div class="section" id="seccion-2-1-3">
             <div class="section-header">
                 <div class="section-number">2.1.3</div>
                 <div class="section-title">Planteamiento de objetivos</div>
             </div>
+
             <div class="content">
                 <p>Etapa en la que se establecen los propósitos que guían la investigación y orientan todas sus acciones metodológicas. Los objetivos el alcance de la investigación y deben derivarse directamente del problema planteado. </p>
                 <p>Entre sus características, se establece objetivos, precisos, medibles y coherentes con la investigación. Se redactan en infinitivo
                      y delimitan el rumbo del estudio. Un adecuado planteamiento de objetivos asegura la coherencia del proceso investigativo y permite evaluar
                    el cumplimiento de los resultados esperados (Hernández Sampieri, Fernández Collado y Baptista Lucio, 2014).</p>
-                
-                 <h3>Objetivo general</h3>
-                    <p>Expresa  y define con claridad qué se busca alcanzar al concluir la investigación. Se deriva directamente al planteamiento del problema y orienta todo el proceso investigativo, estableciendo el rumbo que seguirán los métodos, técnicas y procedimientos. Su redacción debe ser clara, precisa y estar formulada en infinitivo, reflejando el resultado global que se espera alcanzar.</p>
-                    <p>Este objetivo integra el propósito central del estudio y sirve como referente para formular los objetivos específicos, evaluar los resultados y mantener la coherencia del trabajo científico.</p>
- 
-                 <h3>Elementos:</h3>
-                    <p>* Investigación.</p>
-                    <p>* Problema planteado.</p>
-                    <p>* Redacción clara y coherente.</p>
-                    <p>* Elaboracion analitica.</p>
-                    <p>* Acotación del alcance del estudio.</p>
-                    <p>* Desarrollo metodológico y de investigación.</p>
-                    <p>* Formulación de los objetivos específicos.</p>
-                    <p>* Evaluación del estudio.</p>
-                 
-                 <h3>Objetivo específicos</h3>
-                    <p>Es la forma de establecer las acciones concretas y ordenadas que permiten alcanzarlo de manera sistemática.</p>
-                 <h3>Características:</h3>
-                    <p>* Objetivo general.</p>
-                    <p>* Estudio en acciones concretas y ordenadas.</p>
-                    <p>* Identificar, analizar, describir y evaluar.</p>
-                    <p>* Claros, precisos y comprensibles.</p>
-                    <p>* Medibles y verificables.</p>
-                    <p>* Congruencia del problema de investigación.</p>
-                    <p>* Selección herramientas y método.</p>
-                    <p>* Evaluación.</p>
-                    <p>* Logro del objetivo general.</p>
+                <h2>Objetivo general</h2>
+                <p>Expresa  y define con claridad qué se busca alcanzar al concluir la investigación. Se deriva directamente al planteamiento del problema y orienta todo el proceso investigativo, estableciendo el rumbo que seguirán los métodos, técnicas y procedimientos. Su redacción debe ser clara, precisa y estar formulada en infinitivo, reflejando el resultado global que se espera alcanzar.</p>
+                <p>Este objetivo integra el propósito central del estudio y sirve como referente para formular los objetivos específicos, evaluar los resultados y mantener la coherencia del trabajo científico.</p>
+                <h2>Elementos:</h2>
+                <ul>
+                    <li>Investigación.</li>
+                    <li>Problema planteado.</li>
+                    <li>Redacción clara y coherente.</li>
+                    <li>Elaboración analítica.</li>
+                    <li>Acotación del alcance del estudio.</li>
+                    <li>Desarrollo metodológico y de investigación.</li>
+                    <li>Formulación de los objetivos específicos.</li>
+                    <li>Evaluación del estudio.</li>
+                </ul>
+                <h2>Objetivos específicos</h2>
+                <p>Es la forma de establecer las acciones concretas y ordenadas que permiten alcanzarlo de manera sistemática.</p>
+                <h2>Características:</h2>
+                <ul>
+                    <li>Objetivo general.</li>
+                    <li>Estudio en acciones concretas y ordenadas.</li>
+                    <li>Identificar, analizar, describir y evaluar.</li>
+                    <li>Claros, precisos y comprensibles.</li>
+                    <li>Medibles y verificables.</li>
+                    <li>Congruencia del problema de investigación.</li>
+                    <li>Selección herramientas y método.</li>
+                    <li>Evaluación.</li>
+                    <li>Logro del objetivo general.</li>
+                </ul>
+                <h2>Impacto científico</h2>
+                <p>Es la forma en que se relaciona con la contribución la investigación con el avance de una área específica.</p>
+                <h2>Impacto social</h2>
+                <p>Son los beneficios en donde la investigación presenta la forma de la muestra y solución (Hernández Sampieri et al., 2014).</p>
+                <h2>Impacto económico</h2>
+                <p>Es cuando los resultados contribuyen al buen rendimiento de los recursos y valor (Hernández Sampieri et al., 2014).</p>
+                <h2>Impacto tecnológico</h2>
+                <p>Esto impulsa el desarrollo de soluciones prácticas que facilitan actividades humanas y optimizan procesos en diferentes sectores.</p>
+                <p>Asimismo, promueve la modernización, la eficiencia y la transformación digital, favoreciendo la transferencia de conocimiento hacia la industria y la sociedad. La investigación con impacto tecnológico fortalece la innovación y contribuye al desarrollo científico-tecnológico de las naciones (Hernández Sampieri et al., 2014).</p>
 
-                 <h3>Impacto científico</h3>
-                    <p>Es la forma en que se relaciona con la contribución la investigación con el avance de una área específica.
-                 <h3>Impacto social</h3>
-                    <p>Son los beneficios en donde la investigación presenta la forma de la muestra y solución (Hernández Sampieri et al., 2014).</p>
-
-                 <h3>Impacto económico</h3>
-                    <p>Es cuando los resultados contribuyen al buen rendimiento de los recursos y valor (Hernández Sampieri et al., 2014).</p>
-
-                 <h3>Impacto tecnológico</h3>
-                    <p>Esto impulsa el desarrollo de soluciones prácticas que facilitan actividades humanas y optimizan procesos en diferentes sectores.</p>
-                    <p>Asimismo, promueve la modernización, la eficiencia y la transformación digital, favoreciendo la transferencia de conocimiento hacia la industria y la sociedad. La investigación con impacto tecnológico fortalece la innovación y contribuye al desarrollo científico-tecnológico de las naciones (Hernández Sampieri et al., 2014).</p>
-
-                 <div class="figure-container">
-                    <div class="figure-caption">Figura 2b</div>
-                    <div class="figure-caption">Planteamiento de objetivos</div>
-                    <img src="Figura2b.png" alt="Planteamiento de objetivos" class="imagen-figura1">
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</div>
-                </div>                                               
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 2.2</figcaption>
+                    <figcaption class="figure-caption">Planteamiento de objetivos</figcaption>
+                    <img src="img/Figura2b.png" alt="Planteamiento de objetivos" class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</figcaption>
+                </figure>
             </div>
-        </div>   
+        </div>
+
        <div class="section" id="seccion-2-1-4">
             <div class="section-header">
                 <div class="section-number">2.1.4</div>
                 <div class="section-title">Delimitación de variables</div>
             </div>
+
             <div class="content">
                 <p>Consiste en identificar, definir y precisar las características o factores que serán objeto de medición y análisis dentro de una investigación. Este proceso permite establecer con claridad qué aspectos del fenómeno se estudiarán, cómo se relacionan entre sí y de qué manera podrán observarse o cuantificarse. Delimitar las variables facilita la formulación de hipótesis, orienta la recolección de datos y asegura que el estudio mantenga coherencia con el problema planteado.</p>
                 <p>Entre sus características principales, las variables deben estar claramente definidas conceptual y operacionalmente, ser medibles y pertinentes al objetivo del estudio (Hernández Sampieri, Fernández Collado & Baptista Lucio, 2014).</p>
-
-                <h3>Tipos de variables</h3>
+                <h2>Tipos de variables</h2>
                 <p>Todas las variables tienen propiedades o factores que pueden medirse u observarse en una investigación.</p>
-            
-                <h3>Según su función en la investigación</h3>
-                <p>* Varieble independiente y dependiente</p>
-                <p>* Variables intervinientes y control</p>
-            
-                <h3>Según su naturaleza</h3>
-                <p>* Variables cualitativas y cuantitativas</p>
-                <p>* Discretas</p>
+                <h2>Según su función en la investigación</h2>
+                <ul>
+                    <li>Variable independiente y dependiente</li>
+                    <li>Variables intervinientes y control</li>
+                </ul>
+                <h2>Según su naturaleza</h2>
+                <ul>
+                    <li>Variables cualitativas y cuantitativas</li>
+                    <li>Discretas</li>
+                </ul>
+                <h2>Según su nivel de medición</h2>
+                <ul>
+                    <li>Nominales</li>
+                    <li>Ordinales</li>
+                    <li>Intervalo</li>
+                    <li>Razón</li>
+                </ul>
 
-                <h3>Según su nivel de medición</h3>
-                <p>* Nominales</p>
-                <p>* Ordinales</p>
-                <p>* Intervalo</p>
-                <p>* Razón</p>
-                <br>
-                
-                <div class="figure-container">
-                    <div class="figure-caption">Figura 2c</div>
-                    <div class="figure-caption">Delimitación de variables</div>
-                    <img src="Figura2c.png" alt="Delimitación de variables" class="imagen-figura1">
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</div>
-                </div>                
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 2.3</figcaption>
+                    <figcaption class="figure-caption">Delimitación de variables</figcaption>
+                    <img src="img/Figura2c.png" alt="Delimitación de variables" class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</figcaption>
+                </figure>
             </div>
         </div>
-        
+
        <div class="section" id="seccion-2-1-5">
             <div class="section-header">
                 <div class="section-number">2.1.5</div>
                 <div class="section-title">Hipótesis nula y alterna</div>
             </div>
+
             <div class="content">
                 <p>Son proposiciones utilizadas en la investigación cuantitativa para someter a prueba una afirmación mediante métodos estadísticos.</p>
-                                
-                <H3>Características de la hipótesis nula (H₀)</H3>
-                <p>* Representa la suposición inicial que se somete a prueba estadística.</p>
-                <p>* Se formula de manera clara, objetiva y medible.</p>
-                <p>* Es susceptible de ser rechazada mediante evidencia empírica.</p>
-                <p>* Análisis estadístico.</p>
-                <p>* Se expresa en términos de igualdad o ausencia de efecto.</p>
-                <p>* Debe ser coherente con el problema, objetivos y variables del estudio.</p>
-                <p>* Permite tomar decisiones objetivas basadas en los resultados obtenidos.</p>
-                
+                <h2>Características de la hipótesis nula (H₀)</h2>
+                <ul>
+                    <li>Representa la suposición inicial que se somete a prueba estadística.</li>
+                    <li>Se formula de manera clara, objetiva y medible.</li>
+                    <li>Es susceptible de ser rechazada mediante evidencia empírica.</li>
+                    <li>Análisis estadístico.</li>
+                    <li>Se expresa en términos de igualdad o ausencia de efecto.</li>
+                    <li>Debe ser coherente con el problema, objetivos y variables del estudio.</li>
+                    <li>Permite tomar decisiones objetivas basadas en los resultados obtenidos.</li>
+                </ul>
                 <p>Por su parte, la hipótesis alterna plantea que sí existe una relación, diferencia o efecto significativo entre las variables. Representa la afirmación que el investigador espera demostrar y se acepta cuando los
                     datos permiten rechazar la hipótesis nula. Ambas hipótesis son mutuamente excluyentes y científicas ya que permiten interpretar resultados con rigor y objetividad (Hernández Sampieri, Fernández Collado y Baptista Lucio, (2014)).</p>
-                                   
-                <H3>Elementos de la hipótesis alterna (H₁ o Ha)</H3>
-                <p>* Plantea que sí existe relación, diferencia o efecto significativo entre las variables.</p>
-                <p>* Representa la afirmación que el investigador busca demostrar.</p>
-                <p>* Se formula de manera clara, precisa y medible.</p>
-                <p>* Es aceptada cuando la evidencia permite rechazar la hipótesis nula.</p>
-                <p>* Expresa una posible explicación o resultado esperado del estudio.</p>
-                <p>* Debe ser coherente con el problema, objetivos y variables.</p>
-                <p>* Puede plantearse en forma direccional (indica el sentido del efecto) o no direccional.</p>
-                <p>* Sentido a los datos obtenidos en la investigación científicas.</p>
-                
-                <div class="figure-container">
-                    <div class="figure-caption">Figura 2d</div>
-                    <div class="figure-caption">Hipótesis nula y alterna</div>
-                    <img src="Figura2d.png" alt="Hipótesis nula y alterna" class="imagen-figura1">
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</div>
-                </div>                                               
+
+                <h2>Elementos de la hipótesis alterna (H₁ o Ha)</h2>
+                <ul>
+                    <li>Plantea que sí existe relación, diferencia o efecto significativo entre las variables.</li>
+                    <li>Representa la afirmación que el investigador busca demostrar.</li>
+                    <li>Se formula de manera clara, precisa y medible.</li>
+                    <li>Es aceptada cuando la evidencia permite rechazar la hipótesis nula.</li>
+                    <li>Expresa una posible explicación o resultado esperado del estudio.</li>
+                    <li>Debe ser coherente con el problema, objetivos y variables.</li>
+                    <li>Puede plantearse en forma direccional (indica el sentido del efecto) o no direccional.</li>
+                    <li>Sentido a los datos obtenidos en la investigación científicas.</li>
+                </ul>
+
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 2.4</figcaption>
+                    <figcaption class="figure-caption">Hipótesis nula y alterna</figcaption>
+                    <img src="img/Figura2d.png" alt="Hipótesis nula y alterna" class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</figcaption>
+                </figure>
             </div>
-       </div>
+        </div>
+
         <div class="section" id="seccion-2-1-6">
             <div class="section-header">
                 <div class="section-number">2.1.6</div>
                 <div class="section-title">Justificación</div>
             </div>
+
             <div class="content">
                 <p>Planteamiento a preguntas "por qué" y "para que" de la investigación científica, que permita establecer la importancia, relevancia, beneficios que se van a obtener de la misma, así como los conocimientos prácticos, teóricos y sociales que pueden emanar de ella.</p>
-                <p>Las características elementales que debe de establecerse es que tenga una relevancia social, obtención de conocimientos teóricos-prácticos en beneficio de un problema a resolver, de la misma manera se debe de llevar 
-                    a cabo la aplicación de una metodología para su desarrollo, para que con ello se establezca la viabilidad de la misma.</p>   
-
-                                            
+                <p>Las características elementales que debe de establecerse es que tenga una relevancia social, obtención de conocimientos teóricos-prácticos en beneficio de un problema a resolver, de la misma manera se debe de llevar
+                    a cabo la aplicación de una metodología para su desarrollo, para que con ello se establezca la viabilidad de la misma.</p>
             </div>
 
         </div>
@@ -875,201 +308,56 @@
                 <div class="section-number">2.1.7</div>
                 <div class="section-title">Trascendencia</div>
             </div>
+
             <div class="content">
                 <p>Una investigación trascendente no solo responde a una necesidad actual, sino que también aporta bases para futuros estudios y avances en el área del conocimiento.</p>
                 <p>Entre sus características, la trascendencia destaca por su proyección a largo plazo, su aporte significativo al conocimiento y su potencial para generar cambios positivos en
                    la comunidad o disciplina. Asimismo, se relaciona con la pertinencia social, la aplicabilidad de los resultados y la posibilidad de transferir los hallazgos a otros contextos.</p>
- 
 
-                <div class="figure-container">
-                    <div class="figure-caption">Figura 2e</div>
-                    <div class="figure-caption">Justificación y trascendencia</div>
-                    <img src="Figura2e.png" alt="Trascendencia" class="imagen-figura1">
-                    <div class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</div>
-                </div>                                               
+                <figure class="figure-container">
+                    <figcaption class="figure-caption">Figura 2.5</figcaption>
+                    <figcaption class="figure-caption">Justificación y trascendencia</figcaption>
+                    <img src="img/Figura2e.png" alt="Trascendencia" class="imagen-figura1">
+                    <figcaption class="figure-caption"><i>Nota</i>. Elaboración propia basada en Fundamentos de investigación. McGraw-Hill (2018). Hernández Sampieri, R.</figcaption>
+                </figure>
             </div>
-            </div>
-            <div class="section" id="video-unidad-2">
-                <div class="section-header">
-                    <div class="section-number"><i class="fas fa-play-circle"></i></div>
-                    <div class="section-title">Material Audiovisual</div>
-                </div>
-                <div class="content">
-                    <div class="figure-container">
-                        <iframe width="100%" height="450" src="https://www.youtube.com/embed/_SsttXVFkpg" title="Hipótesis, justificación y trascendencia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 5px; max-width: 100%;"></iframe>
-                        <div class="figure-caption">Salas, I. (2026). <em>Hipótesis, justificación y trascendencia</em> [Video]. YouTube. https://www.youtube.com/watch?v=_SsttXVFkpg</div>
-                    </div>
-                </div>
+        </div>
+
+        <div class="section" id="video-2-1">
+            <div class="section-header">
+                <div class="section-number section-icon"><i class="fas fa-play-circle"></i></div>
+                <div class="section-title">Material Audiovisual</div>
             </div>
 
-        <div class="activity-card">
-            <div class="activity-title">Actividad de Aprendizaje 2.1: Estructura del protocolo de investigación</div>
+            <div class="content">
+                <figure class="figure-container">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/_SsttXVFkpg" title="Hipótesis, justificación y trascendencia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <figcaption class="figure-caption">Salas, I. (2026). <em>Hipótesis, justificación y trascendencia</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=_SsttXVFkpg" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=_SsttXVFkpg</a></figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="activity-card" id="actividad-aprendizaje">
+            <div class="activity-title"><strong>Actividad de Aprendizaje 2.1: Estructura del protocolo de investigación</strong></div>
             <p>Evalúa tu comprensión sobre Estructura del protocolo de investigación.</p>
             <a href="actividad_2_1.html" class="activity-btn">
                 <i class="fas fa-pencil-alt"></i> Realizar Actividad
             </a>
         </div>
 
-        <div class="nav-buttons">
-            <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver al Menú de Unidad</a>
-            <a href="2.2.html" class="nav-btn">Continuar a 2.2: Planteamiento del diseño de la investigación<i class="fas fa-arrow-right"></i></a>
+        <div class="nav-buttons nav-buttons-next">
+            <a href="2.2.html" class="nav-btn">2.2 Planteamiento del diseño de la investigación <i class="fas fa-arrow-right"></i></a>
         </div>
-        
+
         <footer>
-            <p>Metodología de la Investigación y Estadística I - Unidad 1: Metodología de la investigación científica</p>
+            <p>Metodología de la Investigación y Estadística I - Unidad 2</p>
             <p>Desarrollado para fines educativos - © 2026</p>
         </footer>
     </div>
+    <script src="../RECURSOS/data/navegacion.js"></script>
+    <script src="../RECURSOS/js/navegacion-unidades.js"></script>
+    <script src="../RECURSOS/js/interacciones-unidades.js"></script>
+    <script src="../RECURSOS/js/visor-imagenes.js"></script>
 
-    <script>
-        let sidebarOpen = false;
-
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebarNav = document.getElementById('sidebarNav');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-        function toggleSidebar() {
-            sidebarOpen = !sidebarOpen;
-            
-            if (sidebarOpen) {
-                sidebarNav.classList.add('active');
-                sidebarOverlay.classList.add('active');
-                menuToggle.classList.add('active');
-                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-                document.body.style.overflow = 'hidden';
-            } else {
-                sidebarNav.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                menuToggle.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = 'auto';
-            }
-            
-            updateContainerSpacing();
-        }
-
-        menuToggle.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
-
-        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    toggleSidebar();
-                }
-            });
-        });
-
-        function updateContainerSpacing() {
-            const container = document.querySelector('.container');
-            
-            if (window.innerWidth <= 768) {
-                container.style.marginLeft = '20px';
-                container.style.marginRight = '20px';
-                container.style.padding = '10px';
-            } else if (sidebarOpen && window.innerWidth > 768) {
-                container.style.marginLeft = '370px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            } else {
-                container.style.marginLeft = '90px';
-                container.style.marginRight = '90px';
-                container.style.padding = '20px';
-            }
-        }
-
-        function updateActiveSection() {
-            const sections = document.querySelectorAll('.section');
-            const navItems = document.querySelectorAll('.nav-item[data-section]');
-            let currentSectionId = '';
-
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    currentSectionId = section.id;
-                }
-            });
-
-            navItems.forEach(item => {
-                const sectionId = 'seccion-' + item.dataset.section;
-                if (sectionId === currentSectionId) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        function updateReadingProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        }
-
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        function toggleScrollToTopBtn() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        }
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            updateActiveSection();
-            updateReadingProgress();
-            toggleScrollToTopBtn();
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && sidebarOpen) {
-                toggleSidebar();
-            }
-            updateContainerSpacing();
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateActiveSection();
-            updateReadingProgress();
-            updateContainerSpacing();
-            if (window.innerWidth <= 768) {
-                sidebarNav.classList.remove('active');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && sidebarOpen) {
-                toggleSidebar();
-            }
-            if (e.key === 'm' || e.key === 'M') {
-                if (!e.ctrlKey && !e.altKey) { 
-                    toggleSidebar();
-                }
-            }
-        });
-    </script>
 </body>
 </html>
