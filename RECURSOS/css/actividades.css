@@ -732,7 +732,8 @@
             .navigation .btn { width: 100%; text-align: center; justify-content: center; }
             .question { padding: 20px; }
             .floating-home-btn { width: 50px; height: 50px; font-size: 1.2rem; }
-            .container { margin-left: 20px; margin-right: 20px; padding: 10px; }
+            .container { margin-left: 20px; margin-right: 20px; padding: 10px 10px calc(80px + env(safe-area-inset-bottom)); }
+            .scroll-to-top { bottom: calc(20px + env(safe-area-inset-bottom)); }
             .health-bar-container { width: 250px; }
             .monster-avatar { font-size: 4rem; }
         }

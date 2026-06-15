@@ -311,27 +311,7 @@
             position: relative;
         }
 
-        .hardware-icon {
-            font-size: 2.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .hardware-icon.interactive:hover {
-            transform: translateY(-5px);
-            background: var(--secondary);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
-            cursor: pointer;
-        }
-
-        /* --- BOTÓN DE INTRODUCCIÓN (ÓVALO DEL VIDEO) ACTUALIZADO --- */
+/* --- BOTÓN DE INTRODUCCIÓN (ÓVALO DEL VIDEO) ACTUALIZADO --- */
         .video-oval {
             background: rgba(142, 68, 173, 0.15);
             width: auto;
@@ -472,7 +452,7 @@
         }
 
         .activities-card {
-            border-left: 4px solid var(--activities);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .activities-card .card-number {
@@ -480,7 +460,7 @@
         }
 
         .activities-card .card-header {
-            border-bottom: 1px solid rgba(217, 70, 239, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .activities-card .card-icon {
@@ -562,14 +542,6 @@
     justify-content: center;
 }
 
-.activities-card {
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.activities-card .card-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 .unit-home-btn {
     position: fixed;
     right: 25px;
@@ -594,4 +566,20 @@
 .unit-home-btn:hover {
     transform: scale(1.08);
     background: rgba(168, 85, 247, 0.85);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: calc(120px + env(safe-area-inset-bottom));
+    }
+
+    .back-to-menu-btn {
+        right: 18px;
+        bottom: calc(20px + env(safe-area-inset-bottom));
+    }
+
+    .unit-home-btn {
+        right: 18px;
+        bottom: calc(90px + env(safe-area-inset-bottom));
+    }
 }

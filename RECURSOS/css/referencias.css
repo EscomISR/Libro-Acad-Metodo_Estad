@@ -146,7 +146,6 @@
         }
 
         .type-figura { background: var(--success); }
-        .type-tabla { background: #3498db; }
         .type-video { background: var(--warning); }
 
         .reference-description {

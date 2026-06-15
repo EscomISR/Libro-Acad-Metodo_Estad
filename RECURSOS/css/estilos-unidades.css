@@ -467,46 +467,6 @@ h1 {
     padding-left: 0;
 }
 
-.table-container {
-    max-width: 100%;
-    margin: 30px auto;
-    overflow-x: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-th {
-    background: var(--primary);
-    color: white;
-    padding: 15px;
-    text-align: left;
-    font-weight: 600;
-}
-
-td {
-    padding: 12px 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.03);
-}
-
-.table-caption {
-    text-align: center;
-    padding: 10px;
-    color: var(--gray);
-    background: rgba(0, 0, 0, 0.3);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
 .figure-container {
     margin: 30px 0;
     padding: 20px;
@@ -884,7 +844,6 @@ header,
 .section,
 .quote-box,
 .figure-container,
-.table-container,
 .activity-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -919,27 +878,6 @@ header,
 
 .imagen-figura1:hover {
     box-shadow: 0 0 0 2px #ead7ff, 0 14px 34px rgba(0, 0, 0, 0.32);
-}
-
-table {
-    background: rgba(30, 0, 48, 0.45);
-}
-
-th {
-    background: #5f1aa3;
-}
-
-td {
-    border-bottom-color: rgba(221, 214, 254, 0.16);
-}
-
-tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.table-caption {
-    background: rgba(30, 0, 48, 0.5);
-    color: #ead7ff;
 }
 
 .activity-card {
@@ -980,4 +918,14 @@ tr:nth-child(even) {
 footer {
     color: #d8c9f7;
     border-top-color: rgba(221, 214, 254, 0.18);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    }
+
+    .scroll-to-top {
+        bottom: calc(20px + env(safe-area-inset-bottom));
+    }
 }

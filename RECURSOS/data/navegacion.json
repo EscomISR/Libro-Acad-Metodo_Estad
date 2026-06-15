@@ -1,0 +1,104 @@
+{
+  "inicio": "index.html",
+  "unidades": "unidades.html",
+  "recursosComunes": {
+    "ipn": "RECURSOS/img/IPNb.png",
+    "enmyh": "RECURSOS/img/logoenmh.png",
+    "favicon": "RECURSOS/img/logoenmh2.png"
+  },
+  "unidadesTematicas": [
+    {
+      "numero": 1,
+      "carpeta": "UNIDAD_1",
+      "titulo": "Metodologia de la investigacion cientifica",
+      "indice": "UNIDAD_1/index.html",
+      "referencias": "UNIDAD_1/referencias.html",
+      "temas": [
+        {
+          "id": "1.1",
+          "archivo": "UNIDAD_1/1.1.html",
+          "titulo": "Metodologia de la investigacion cientifica",
+          "actividad": "UNIDAD_1/actividad_1_1.html"
+        },
+        {
+          "id": "1.2",
+          "archivo": "UNIDAD_1/1.2.html",
+          "titulo": "Etapas del proceso de investigacion",
+          "actividad": "UNIDAD_1/actividad_1_2.html"
+        },
+        {
+          "id": "1.3",
+          "archivo": "UNIDAD_1/1.3.html",
+          "titulo": "Tipos y formas de investigacion",
+          "actividad": "UNIDAD_1/actividad_1_3.html"
+        },
+        {
+          "id": "1.4",
+          "archivo": "UNIDAD_1/1.4.html",
+          "titulo": "Planeacion de la investigacion",
+          "actividad": "UNIDAD_1/actividad_1_4.html"
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "carpeta": "UNIDAD_2",
+      "titulo": "Estructura del protocolo de investigacion",
+      "indice": "UNIDAD_2/index.html",
+      "referencias": "UNIDAD_2/referencias.html",
+      "temas": [
+        {
+          "id": "2.1",
+          "archivo": "UNIDAD_2/2.1.html",
+          "titulo": "Estructura del protocolo de investigacion",
+          "actividad": "UNIDAD_2/actividad_2_1.html"
+        },
+        {
+          "id": "2.2",
+          "archivo": "UNIDAD_2/2.2.html",
+          "titulo": "Planteamiento del diseno de la investigacion",
+          "actividad": "UNIDAD_2/actividad_2_2.html"
+        },
+        {
+          "id": "2.3",
+          "archivo": "UNIDAD_2/2.3.html",
+          "titulo": "Investigacion documental",
+          "actividad": "UNIDAD_2/actividad_2_3.html"
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "carpeta": "UNIDAD_3",
+      "titulo": "Interpretacion de resultados de la investigacion",
+      "indice": "UNIDAD_3/index.html",
+      "referencias": "UNIDAD_3/referencias.html",
+      "temas": [
+        {
+          "id": "3.1",
+          "archivo": "UNIDAD_3/3.1.html",
+          "titulo": "Informe final",
+          "actividad": "UNIDAD_3/actividad_3_1.html"
+        },
+        {
+          "id": "3.2",
+          "archivo": "UNIDAD_3/3.2.html",
+          "titulo": "Plan de analisis estadistico",
+          "actividad": "UNIDAD_3/actividad_3_2.html"
+        },
+        {
+          "id": "3.3",
+          "archivo": "UNIDAD_3/3.3.html",
+          "titulo": "Estadistica descriptiva",
+          "actividad": "UNIDAD_3/actividad_3_3.html"
+        },
+        {
+          "id": "3.4",
+          "archivo": "UNIDAD_3/3.4.html",
+          "titulo": "Interpretacion y discusion de los resultados de la investigacion",
+          "actividad": "UNIDAD_3/actividad_3_4.html"
+        }
+      ]
+    }
+  ]
+}

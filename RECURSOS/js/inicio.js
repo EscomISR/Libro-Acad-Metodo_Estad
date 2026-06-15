@@ -23,12 +23,27 @@
         document.body.style.overflow = 'auto'; // Restaura el scroll
     }
 
+    function activateWithKeyboard(element, handler) {
+        element.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            handler(event);
+        });
+    }
+
     // Asigna el evento click a cada tarjeta que abre un modal
     cardsWithModal.forEach(card => {
-        card.addEventListener('click', () => {
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-haspopup', 'dialog');
+
+        const openCardModal = () => {
             const modalId = card.getAttribute('data-modal');
             openModal(modalId);
-        });
+        };
+
+        card.addEventListener('click', openCardModal);
+        activateWithKeyboard(card, openCardModal);
     });
 
     // Asigna los eventos para cerrar el modal

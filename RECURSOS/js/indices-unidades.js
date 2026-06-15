@@ -1,5 +1,6 @@
 function toggleCard(cardIdSuffix) {
             const card = document.getElementById(`card-${cardIdSuffix}`);
+            if (!card) return;
             const wasActive = card.classList.contains('active');
 
             const allCards = document.querySelectorAll('.card');
@@ -14,11 +15,26 @@ function toggleCard(cardIdSuffix) {
             } else {
                 card.classList.remove('active');
             }
+            updateCardAccessibility();
+        }
+
+        function activateWithKeyboard(element, handler) {
+            element.addEventListener('keydown', event => {
+                if (event.key !== 'Enter' && event.key !== ' ') return;
+                event.preventDefault();
+                handler(event);
+            });
+        }
+
+        function updateCardAccessibility() {
+            document.querySelectorAll('[data-card-target]').forEach(trigger => {
+                const card = document.getElementById(`card-${trigger.dataset.cardTarget}`);
+                trigger.setAttribute('aria-expanded', card?.classList.contains('active') ? 'true' : 'false');
+            });
         }
 
         // Funciones para el modal del video
         function openVideoModal() {
-            console.log('Abriendo modal de video...');
             const modal = document.getElementById('videoModal');
             const videoFrame = document.getElementById('videoFrame');
 
@@ -38,11 +54,9 @@ function toggleCard(cardIdSuffix) {
             modal.classList.add('show');
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-            console.log('Modal abierto correctamente');
         }
 
         function closeVideoModal() {
-            console.log('Cerrando modal de video...');
             const modal = document.getElementById('videoModal');
             const videoFrame = document.getElementById('videoFrame');
 
@@ -57,16 +71,25 @@ function toggleCard(cardIdSuffix) {
             modal.classList.remove('show');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
-            console.log('Modal cerrado correctamente');
         }
 
-        document.querySelector('.video-oval')?.addEventListener('click', openVideoModal);
+        const videoTrigger = document.querySelector('.video-oval');
+        if (videoTrigger) {
+            videoTrigger.setAttribute('aria-label', videoTrigger.getAttribute('aria-label') || 'Abrir video de introducción');
+            videoTrigger.addEventListener('click', openVideoModal);
+            activateWithKeyboard(videoTrigger, openVideoModal);
+        }
 
         document.querySelectorAll('[data-card-target]').forEach(trigger => {
+            trigger.setAttribute('aria-controls', `card-${trigger.dataset.cardTarget}`);
             trigger.addEventListener('click', () => {
                 toggleCard(trigger.dataset.cardTarget);
             });
+            activateWithKeyboard(trigger, () => {
+                toggleCard(trigger.dataset.cardTarget);
+            });
         });
+        updateCardAccessibility();
 
         document.querySelector('.close-btn')?.addEventListener('click', closeVideoModal);
 

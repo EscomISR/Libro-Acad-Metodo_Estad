@@ -232,10 +232,16 @@ let time = 0;
     alert(`💡 Respuestas Correctas:\n\n${answers}`);
   }
 
+  window.renderSidebarNavigation?.({ mode: 'actividad' });
+
   /* Toggle menú lateral */
   const menuToggle = document.getElementById('menuToggle');
   const sidebarNav = document.getElementById('sidebarNav');
   const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+  menuToggle?.setAttribute('aria-controls', 'sidebarNav');
+  menuToggle?.setAttribute('aria-expanded', 'false');
+  menuToggle?.setAttribute('aria-label', 'Abrir menú de navegación');
 
   function toggleSidebar() {
       sidebarOpen = !sidebarOpen;
@@ -244,11 +250,15 @@ let time = 0;
           sidebarOverlay.classList.add('active');
           menuToggle.classList.add('active');
           menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+          menuToggle.setAttribute('aria-expanded', 'true');
+          menuToggle.setAttribute('aria-label', 'Cerrar menú de navegación');
       } else {
           sidebarNav.classList.remove('active');
           sidebarOverlay.classList.remove('active');
           menuToggle.classList.remove('active');
           menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
       }
       updateContainerSpacing();
   }

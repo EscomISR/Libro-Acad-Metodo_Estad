@@ -11,6 +11,10 @@
         return;
     }
 
+    menuToggle.setAttribute('aria-controls', 'sidebarNav');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+
     function updateContainerSpacing() {
         const container = document.querySelector('.container');
 
@@ -43,6 +47,8 @@
             menuToggle.classList.add('hidden');
             menuToggle.setAttribute('aria-hidden', 'true');
             menuToggle.setAttribute('tabindex', '-1');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.setAttribute('aria-label', 'Cerrar menú de navegación');
             floatingHomeBtn?.classList.add('hidden');
             floatingHomeBtn?.setAttribute('aria-hidden', 'true');
             floatingHomeBtn?.setAttribute('tabindex', '-1');
@@ -54,6 +60,8 @@
             menuToggle.classList.remove('hidden');
             menuToggle.removeAttribute('aria-hidden');
             menuToggle.removeAttribute('tabindex');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
             floatingHomeBtn?.classList.remove('hidden');
             floatingHomeBtn?.removeAttribute('aria-hidden');
             floatingHomeBtn?.removeAttribute('tabindex');
@@ -161,6 +169,7 @@
     }
 
     function initUnidadInteractions() {
+        window.renderSidebarNavigation?.({ mode: 'tema' });
         initSidebarCloseButton();
 
         menuToggle.addEventListener('click', () => {
