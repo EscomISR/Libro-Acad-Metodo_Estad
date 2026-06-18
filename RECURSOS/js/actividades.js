@@ -1,5 +1,6 @@
 let time = 0;
-  const defaultQuestionCount = 8;
+  const defaultQuestionCount = 20;
+  let feedbackRules = [];
   let gameOver = false;
   let timerInterval;
   let sidebarOpen = false;
@@ -220,6 +221,9 @@ let time = 0;
     const container = document.getElementById('questionsContainer');
 
     try {
+      // Archivo JSON para las ponderaciones 
+      const ponderacionesResponse = await fetch('../RECURSOS/data/ponderaciones.json');
+      feedbackRules = await ponderacionesResponse.json();
       // Archivo JSON para las preguntas de la unidad 2.1
       const questionFile = document.body.dataset.questionFile;
       if (!questionFile) {
@@ -234,9 +238,9 @@ let time = 0;
       if (!Array.isArray(allQuestionsRaw) || allQuestionsRaw.length === 0) {
         throw new Error('El JSON no contiene un arreglo de preguntas.');
       }
-
+      
       shuffleArray(allQuestionsRaw);
-      questions = allQuestionsRaw.slice(0, 8).map((q, idx) => {
+      questions = allQuestionsRaw.slice(0, defaultQuestionCount).map((q, idx) => {
         const questionText = q.pregunta ?? q.question;
         const optionsOrig = q.opciones ?? q.options;
         const answerOrig  = q.respuesta_correcta ?? q.answer;
@@ -380,9 +384,10 @@ let time = 0;
 
     correctCount = correct;
     const score = calculateScore(correct, questions.length);
+    const grade = calculateGrade(correct);
     gameOver = true;
     updateUI();
-    checkGameEnd(correct, score, force);
+    checkGameEnd(correct, grade, score, force);
   }
 
   function calculateScore(correct, total) {
@@ -390,48 +395,35 @@ let time = 0;
     return Math.round((correct / total) * 100) / 10;
   }
 
-  function formatScore(score) {
-    return Number.isInteger(score) ? String(score) : score.toFixed(1);
+  function calculateGrade(correct) {
+    return correct * 0.5;
   }
 
-  function getScoreFeedback(score) {
-    const feedback = getCurrentStory().feedback;
-    if (score <= 5) {
-      return {
-        type: 'defeat',
-        icon: 'fas fa-book-reader',
-        text: feedback.low
-      };
-    }
-    if (score < 8) {
-      return {
-        type: 'continue',
-        icon: 'fas fa-chart-line',
-        text: feedback.mid
-      };
-    }
-    if (score < 10) {
-      return {
-        type: 'victory',
-        icon: 'fas fa-medal',
-        text: feedback.high
-      };
-    }
-    return {
-      type: 'victory',
-      icon: 'fas fa-trophy',
-      text: feedback.perfect
-    };
+  function formatGrade(grade) {
+    return Number.isInteger(grade) ? String(grade) : grade.toFixed(1);
   }
 
-  function checkGameEnd(correct, score, timeExpired = false) {
+function getFeedback(correct) {
+  // Buscamos la regla exacta donde la propiedad "aciertos" coincida con la variable "correct"
+  const rule = feedbackRules.find(r => r.aciertos === correct);
+  
+  return rule || {
+    type: 'victory',
+    icon: 'fas fa-trophy',
+    text: '¡Actividad finalizada! (Regla no encontrada)'
+  };
+}
+
+  function checkGameEnd(correct, grade, score, timeExpired = false) {
     const btn = document.getElementById('evaluateBtn');
-    const feedback = getScoreFeedback(score);
+    const feedback = getFeedback(correct);
     clearInterval(timerInterval);
+
     showGameStatus(
-      `<div class="score-result ${feedback.type}">
-        <div class="score-value">${formatScore(score)}</div>
-        <div class="score-message">${timeExpired ? 'El tiempo se agotó. ' : ''}${feedback.text}</div>
+      `<div class="quiz-result ${feedback.type}">
+        <div class="grade-value">${formatGrade(grade)}</div>
+        <div class="score-value"> Aciertos: ${correct} de ${questions.length} </div>
+        <div class="quiz-message">${timeExpired ? 'El tiempo se agotó. ' : ''}${feedback.text}</div>
       </div>`,
       feedback.type
     );

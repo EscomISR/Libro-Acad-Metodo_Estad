@@ -895,7 +895,7 @@
     color: var(--light);
 }
 
-.score-result {
+.quiz-result {
     width: min(760px, 100%);
     margin: 0 auto;
     padding: 34px 24px;
@@ -906,14 +906,20 @@
     box-shadow: 0 18px 42px rgba(12, 0, 24, 0.32);
 }
 
-.score-value {
+.grade-value {
     font-size: clamp(4.5rem, 15vw, 7.5rem);
     line-height: 0.95;
     font-weight: 800;
     color: var(--accent);
 }
 
-.score-message {
+.score-value {
+    font-size: 1rem; 
+    font-weight: 400; 
+    margin-top: 5px; 
+}
+
+.quiz-message {
     max-width: 680px;
     margin: 18px auto 0;
     color: var(--light);
@@ -922,15 +928,15 @@
     line-height: 1.55;
 }
 
-.score-result.defeat {
+.quiz-result.defeat {
     border-color: rgba(240, 161, 178, 0.45);
 }
 
-.score-result.continue {
+.quiz-result.continue {
     border-color: rgba(230, 211, 255, 0.38);
 }
 
-.score-result.victory {
+.quiz-result.victory {
     border-color: rgba(139, 214, 174, 0.42);
 }
 
