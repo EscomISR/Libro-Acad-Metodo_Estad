@@ -1,14 +1,4 @@
-:root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #a855f7;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-        }
+@import url("paleta-global.css?v=6");
 
         * {
             margin: 0;
@@ -25,36 +15,40 @@
         }
 
         .references-title {
-            color: var(--secondary);
+            color: var(--light);
             margin-bottom: 20px;
         }
 
         .container {
-            max-width: 1200px;
+            width: min(100%, 1080px);
             margin: 0 auto;
-            padding: 20px;
+            padding: clamp(18px, 3vw, 38px) 20px;
         }
 
         header {
             text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.3);
+            padding: 32px 24px;
+            margin-bottom: 28px;
+            background: linear-gradient(135deg, rgba(54, 24, 76, 0.88), rgba(72, 31, 101, 0.70));
+            border: 1px solid var(--card-border);
             border-radius: 15px;
+            box-shadow: var(--card-shadow);
             position: relative;
             overflow: hidden;
         }
 
         .breadcrumb {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
+            gap: 8px 0;
             margin-bottom: 20px;
             color: var(--gray);
             font-size: 1.1rem;
         }
 
         .breadcrumb a {
-            color: var(--secondary);
+            color: var(--accent);
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -69,61 +63,138 @@
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: clamp(2.1rem, 5vw, 3.1rem);
+            line-height: 1.08;
             margin-bottom: 10px;
             color: white;
         }
 
         .subtitle {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
+            font-size: clamp(1.15rem, 3vw, 1.65rem);
+            color: var(--light);
+            margin: 10px 0 0;
             font-weight: 300;
             text-align: center;
         }
 
         .intro {
-            max-width: 900px;
-            margin: 0 auto 40px;
+            width: 100%;
+            margin: 0 0 32px;
             padding: 25px;
             background: var(--card-bg);
             border-radius: 15px;
-            border-left: 4px solid var(--secondary);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid #c084fc !important;
+            box-shadow: var(--card-shadow);
             text-align: justify;
         }
 
         .section-title {
             color: var(--light);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 10px;
-            margin: 50px 0 30px;
-            font-size: 2rem;
+            width: 100%;
+            padding: 18px 22px;
+            margin: 34px 0 18px;
+            font-size: clamp(1.45rem, 3vw, 2rem);
             font-weight: 600;
+            background: rgba(80, 36, 111, 0.30);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--secondary);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
         }
 
         .section-title i {
             margin-right: 10px;
-            color: var(--secondary);
+            color: var(--accent);
+        }
+
+        .references-section {
+            width: 100%;
+            margin: 34px 0;
+            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .references-section .section-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding-bottom: 18px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(230, 211, 255, 0.18);
+        }
+
+        .references-section .section-number {
+            width: 54px;
+            height: 54px;
+            flex: 0 0 54px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(185, 149, 240, 0.96), rgba(104, 53, 145, 0.96));
+            border: 1px solid rgba(230, 211, 255, 0.24);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.35rem;
+            box-shadow: 0 10px 22px rgba(12, 0, 24, 0.22);
+        }
+
+        .references-section .section-title {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            font-size: clamp(1.45rem, 3vw, 2rem);
+            line-height: 1.2;
+        }
+
+        .references-content {
+            display: grid;
+            gap: 18px;
+        }
+
+        .subsection-title {
+            width: 100%;
+            margin: 4px 0 0;
+            padding: 14px 20px;
+            color: var(--light);
+            font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+            font-weight: 600;
+            background: rgba(27, 0, 41, 0.34);
+            border: 1px solid rgba(230, 211, 255, 0.18);
+            border-radius: 12px;
+        }
+
+        .subsection-title i {
+            margin-right: 10px;
+            color: var(--accent);
         }
 
         .references-container {
             display: grid;
-            gap: 25px;
-            margin-bottom: 40px;
+            width: 100%;
+            gap: 18px;
+            margin-bottom: 12px;
         }
 
         .reference-item {
             background: var(--card-bg);
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--card-border);
             border-left: 4px solid var(--secondary);
             transition: all 0.3s ease;
         }
 
         .reference-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(230, 211, 255, 0.38);
+            box-shadow: 0 18px 42px rgba(12, 0, 24, 0.34);
         }
 
         .reference-citation {
@@ -136,17 +207,18 @@
 
         .reference-type {
             display: inline-block;
-            background: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
             color: white;
-            padding: 4px 12px;
+            padding: 5px 13px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
             margin-bottom: 12px;
+            border: 1px solid rgba(230, 211, 255, 0.22);
         }
 
-        .type-figura { background: var(--success); }
-        .type-video { background: var(--warning); }
+        .type-figura { background: linear-gradient(135deg, rgba(185, 149, 240, 0.96), rgba(104, 53, 145, 0.96)); }
+        .type-video { background: linear-gradient(135deg, rgba(137, 80, 179, 0.96), rgba(74, 31, 111, 0.96)); }
 
         .reference-description {
             color: var(--light);
@@ -155,12 +227,20 @@
             opacity: 0.9;
         }
 
+        .reference-citation a {
+            color: var(--accent);
+            overflow-wrap: anywhere;
+        }
+
         .stats-section {
-            background: rgba(0, 0, 0, 0.2);
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             border-radius: 15px;
             padding: 25px;
-            margin: 40px 0;
+            margin: 32px 0;
             text-align: center;
+            box-shadow: var(--card-shadow);
         }
 
         .stats-grid {
@@ -171,16 +251,16 @@
         }
 
         .stat-item {
-            background: rgba(142, 68, 173, 0.1);
+            background: rgba(27, 0, 41, 0.34);
             padding: 20px;
             border-radius: 10px;
-            border: 1px solid rgba(142, 68, 173, 0.3);
+            border: 1px solid rgba(230, 211, 255, 0.18);
         }
 
         .stat-number {
             font-size: 2rem;
             font-weight: bold;
-            color: var(--secondary);
+            color: var(--accent);
             display: block;
         }
 
@@ -199,7 +279,7 @@
         .nav-btn {
             display: inline-flex;
             align-items: center;
-            background: var(--secondary);
+            background: linear-gradient(135deg, rgba(104, 53, 145, 0.96), rgba(74, 31, 111, 0.96));
             color: white;
             padding: 15px 30px;
             border-radius: 30px;
@@ -207,12 +287,15 @@
             font-weight: 600;
             transition: all 0.3s ease;
             font-size: 1.1rem;
+            border: 1px solid rgba(230, 211, 255, 0.24);
+            box-shadow: 0 10px 22px rgba(12, 0, 24, 0.28);
         }
 
         .nav-btn:hover {
-            background: var(--primary);
+            background: linear-gradient(135deg, rgba(185, 149, 240, 0.92), rgba(104, 53, 145, 0.96));
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);
+            border-color: rgba(230, 211, 255, 0.52);
+            box-shadow: 0 12px 26px rgba(12, 0, 24, 0.32);
         }
 
         .nav-btn i {
@@ -225,7 +308,7 @@
             padding: 30px;
             color: var(--gray);
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(230, 211, 255, 0.18);
         }
 
         @media (max-width: 768px) {
@@ -240,5 +323,30 @@
             }
             .stats-grid {
                 grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 16px;
+            }
+            header,
+            .intro,
+            .stats-section,
+            .references-section,
+            .reference-item,
+            .section-title,
+            .subsection-title {
+                border-radius: 12px;
+            }
+            .references-section {
+                padding: 18px;
+            }
+            .references-section .section-header {
+                align-items: flex-start;
+                gap: 14px;
+            }
+            .references-section .section-number {
+                width: 46px;
+                height: 46px;
+                flex-basis: 46px;
+                font-size: 1.1rem;
             }
         }

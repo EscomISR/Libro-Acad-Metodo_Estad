@@ -1,3 +1,5 @@
+@import url("paleta-global.css?v=6");
+
 :root {
     --primary: #4b0082;
     --secondary: #cc6afd;
@@ -22,26 +24,6 @@ body {
     color: var(--light);
     min-height: 100vh;
     line-height: 1.7;
-    scrollbar-color: #b975ff #1e0030;
-    scrollbar-width: thin;
-}
-
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: #1e0030;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #ead7ff, #b975ff 45%, #7b2ed0);
-    border: 3px solid #1e0030;
-    border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #ffffff, #c084fc 45%, #8f3eea);
 }
 
 .floating-home-btn {
@@ -860,7 +842,7 @@ header,
 .intro,
 .activity-card,
 .quote-box {
-    border-left: 4px solid #c084fc;
+    border-left: 4px solid #c084fc !important;
 }
 
 .section-header {

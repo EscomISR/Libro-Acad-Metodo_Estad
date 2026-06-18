@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad 2.3: Batalla Documental</title>
+    <title>Actividad 2.3: Evaluación del tema</title>
     <link rel="icon" type="image/png" href="../RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../RECURSOS/css/actividades.css">
+    <link rel="stylesheet" href="../RECURSOS/css/actividades.css?v=5">
 </head>
 <body data-question-file="data/preguntas_2.3.json">
     <div class="reading-progress">
@@ -79,53 +79,41 @@
                 <span>/</span>
                 <span>Actividad de aprendizaje</span>
             </div>
-            <h1>⚡ Batalla Documental</h1>
-            <div class="subtitle">¡Derrota al Guardián de las Fuentes demostrando tu dominio en investigación documental!</div>
+            <h1>Actividad de aprendizaje</h1>
+            <div class="subtitle">Responde las preguntas del tema y revisa tu resultado.</div>
         </div>
-
         <div class="instructions">
-            <h2><i class="fas fa-book"></i> Instrucciones de Batalla</h2>
+            <h2><i class="fas fa-clipboard-check"></i> Escenario de investigación</h2>
             <ul>
-                <li><strong>Misión:</strong> Derrota al Guardián de las Fuentes respondiendo correctamente las preguntas sobre referencias bibliográficas y búsqueda de información.</li>
-                <li><strong>Mecánica:</strong> Cada respuesta correcta inflige 1 punto de daño. Cada respuesta incorrecta cuenta como un error.</li>
-                <li><strong>Victoria:</strong> Reduce la vida del guardián a 0 HP respondiendo todas las preguntas correctamente.</li>
-                <li><strong>Derrota:</strong> Cometes más de 3 errores antes de derrotar al guardián.</li>
-                <li><strong>Estrategia:</strong> Recuerda la importancia de las bases de datos (PubMed, Scopus), los gestores (Mendeley) y el propósito de citar.</li>
+                <li><strong>Misión:</strong> Responde las preguntas para fortalecer tu comprensión del tema.</li>
+                <li><strong>Mecánica:</strong> Al evaluar, se calcula una calificación de 0 a 10 de acuerdo con tus respuestas correctas.</li>
+                <li><strong>Tiempo:</strong> Tendrás 5 segundos por pregunta.</li>
+                <li><strong>Retroalimentación:</strong> Recibirás un mensaje de acuerdo con tu calificación final.</li>
+                <li><strong>Importante:</strong> Las respuestas correctas no se muestran; revisa el material del tema antes de volver a intentarlo.</li>
             </ul>
         </div>
-
-        <div class="battle-arena">
-            <div class="monster-section">
-                <div class="monster-avatar" id="monsterAvatar">📚</div>
-                <div class="monster-name">Guardián de las Fuentes</div>
-                <div class="health-bar-container">
-                    <div class="health-bar" id="healthBar"></div>
+        <div class="activity-panel">
+            <div class="case-section">
+                <div class="case-avatar" id="caseAvatar"><i class="fas fa-clipboard-check"></i></div>
+                <div class="case-name">Caso de investigación</div>
+                <div class="answer-progress-container">
+                    <div class="answer-progress-bar" id="answerProgressBar"></div>
                 </div>
-                <div class="health-text" id="healthText">8 / 8 HP</div>
+                <div class="answer-progress-text" id="answerProgressText">0 / 0 respondidas</div>
             </div>
-
             <div class="player-stats">
                 <div class="stat-card">
-                    <div class="stat-value" id="timerValue">0s</div>
-                    <div class="stat-label"><i class="fas fa-clock"></i> Tiempo</div>
+                    <div class="stat-value" id="timerValue">--s</div>
+                    <div class="stat-label"><i class="fas fa-clock"></i> Tiempo restante</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value" id="attemptsValue">0</div>
-                    <div class="stat-label"><i class="fas fa-flask"></i> Intentos</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="errorsValue">0 / 3</div>
-                    <div class="stat-label"><i class="fas fa-skull"></i> Errores</div>
-                    <div class="error-indicators" id="errorIndicators">
-                        <div class="error-dot"></div>
-                        <div class="error-dot"></div>
-                        <div class="error-dot"></div>
-                    </div>
+                    <div class="stat-value" id="correctValue">0 / 0</div>
+                    <div class="stat-label"><i class="fas fa-check-circle"></i> Aciertos</div>
                 </div>
             </div>
 
             <div class="questions-section">
-                <h2><i class="fas fa-file-alt"></i> Desafíos Documentales</h2>
+                <h2><i class="fas fa-list-check"></i> Preguntas de evaluación</h2>
                 <div id="questionsContainer"></div>
             </div>
 
@@ -133,15 +121,12 @@
                 <div class="progress-fill" id="progressFill"></div>
             </div>
 
-            <div class="battle-controls">
-                <button class="btn btn-attack" id="attackBtn">
-                    <i class="fas fa-bolt"></i> ¡CITAR EVIDENCIA!
+            <div class="activity-controls">
+                <button class="btn btn-evaluate" id="evaluateBtn">
+                    <i class="fas fa-check-circle"></i> Evaluar respuestas
                 </button>
-                <button class="btn btn-secondary" id="resetBattleBtn">
-                    <i class="fas fa-redo"></i> Nueva Batalla
-                </button>
-                <button class="btn btn-secondary" id="showSolutionsBtn">
-                    <i class="fas fa-lightbulb"></i> Ver Respuestas
+                <button class="btn btn-secondary" id="resetActivityBtn">
+                    <i class="fas fa-rotate-right"></i> Intentar de nuevo
                 </button>
             </div>
 
@@ -166,5 +151,7 @@
     <script src="../RECURSOS/data/navegacion.js"></script>
     <script src="../RECURSOS/js/navegacion-unidades.js"></script>
     <script src="../RECURSOS/js/actividades.js"></script>
+    <script src="../RECURSOS/js/copiar-texto-plano.js"></script>
+
 </body>
 </html>
