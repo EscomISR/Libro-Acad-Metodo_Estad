@@ -1,0 +1,71 @@
+:root {
+    --primary: #4b0082 !important;
+    --secondary: #cc6afd !important;
+    --accent: #d8b4fe !important;
+    --light: #f5f3ff !important;
+    --dark: #1e0030 !important;
+    --gray: #dec4fa !important;
+    --activities: #d7a4ff !important;
+    --border-color: rgba(230, 211, 255, 0.22) !important;
+    --card-border: rgba(230, 211, 255, 0.24) !important;
+    --card-shadow: 0 14px 34px rgba(12, 0, 24, 0.28) !important;
+    --card-bg: linear-gradient(135deg, rgba(54, 24, 76, 0.78), rgba(72, 31, 101, 0.58)) !important;
+    --intro-border: #c084fc !important;
+    --submenu-bg: rgba(83, 38, 112, 0.36) !important;
+    --soft-panel: rgba(80, 36, 111, 0.28) !important;
+    --page-bg: linear-gradient(135deg, #1b0029 0%, #2a003d 48%, #3a0b59 100%) !important;
+    --scroll-track: rgba(27, 0, 41, 0.95) !important;
+    --scroll-thumb: #b995f0 !important;
+    --scroll-thumb-hover: #d8c2ff !important;
+}
+
+html,
+body {
+    background: var(--page-bg) !important;
+    color: var(--light);
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track) !important;
+    scrollbar-width: thin;
+}
+
+* {
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--scroll-track) !important;
+    border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent), var(--scroll-thumb) 52%, var(--primary)) !important;
+    border: 3px solid var(--scroll-track);
+    border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffffff, var(--scroll-thumb-hover) 52%, var(--secondary)) !important;
+}
+
+header,
+.hero-section {
+    background: linear-gradient(135deg, rgba(54, 24, 76, 0.88), rgba(72, 31, 101, 0.70)) !important;
+    border-color: var(--card-border) !important;
+    box-shadow: var(--card-shadow);
+}
+
+.card,
+.intro,
+.section,
+.activity-card,
+.quote-box,
+.figure-container,
+.reference-card,
+.resource-card {
+    border-color: var(--card-border) !important;
+}

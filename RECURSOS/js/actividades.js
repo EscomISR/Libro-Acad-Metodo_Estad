@@ -1,15 +1,220 @@
 let time = 0;
-  let attempts = 0;
-  let errors = 0;
-  let monsterHP = 8;
-  const maxHP = 8;
-  const maxErrors = 3;
+  const defaultQuestionCount = 8;
   let gameOver = false;
   let timerInterval;
   let sidebarOpen = false;
   let selectedAnswers = {};
   let completed = 0;
   let questions = [];
+  let correctCount = 0;
+  let timeLimit = 0;
+  let timeRemaining = 0;
+  const secondsPerQuestion = 5;
+
+  const activityStories = {
+    'actividad_1_1': {
+      title: 'Caso de investigación: el método adecuado',
+      subtitle: 'El Dr. Salas debe iniciar un estudio científico y necesita definir con claridad el método que guiará su trabajo.',
+      avatar: '🧑‍⚕️',
+      caseName: 'Investigación del Dr. Salas',
+      mission: 'Ayuda al Dr. Salas a reconocer los métodos generales y particulares de la ciencia para orientar su investigación.',
+      victory: 'Responde correctamente las preguntas para que el Dr. Salas pueda justificar una investigación sólida.',
+      strategy: 'Lee cuidadosamente cada pregunta basada en el tema 1.1. Demuestra tu conocimiento metodológico.',
+      feedback: {
+        low: 'El Dr. Salas no logró sustentar bien su investigación. Vuelve a repasar los métodos de investigación e inténtalo de nuevo.',
+        mid: 'El Dr. Salas avanzó, pero su protocolo todavía necesita bases metodológicas más claras.',
+        high: 'El Dr. Salas recibió buenos comentarios por la claridad de su enfoque metodológico.',
+        perfect: 'El Dr. Salas recibió reconocimiento por plantear una investigación impecable desde el método.'
+      }
+    },
+    'actividad_1_2': {
+      title: 'Caso de investigación: ordenar el proceso',
+      subtitle: 'El Dr. Méndez tiene datos e ideas, pero necesita organizar las etapas de su investigación antes de continuar.',
+      avatar: '🧑‍🔬',
+      caseName: 'Proceso del Dr. Méndez',
+      mission: 'Ayuda al Dr. Méndez a identificar el orden y la función de las etapas del proceso de investigación.',
+      victory: 'Responde correctamente para que el proyecto avance desde el planteamiento hasta las conclusiones.',
+      strategy: 'Analiza cada etapa aprendida: observación, antecedentes, objetivos, diseño, recolección, análisis y conclusiones.',
+      feedback: {
+        low: 'El proyecto del Dr. Méndez quedó desordenado. Repasa las etapas del proceso e inténtalo de nuevo.',
+        mid: 'El Dr. Méndez logró avanzar, pero debe reforzar algunas etapas antes de entregar su plan.',
+        high: 'El Dr. Méndez estructuró bien su proceso de investigación y recibió una revisión favorable.',
+        perfect: 'El Dr. Méndez presentó un proceso impecable y su proyecto fue aprobado sin observaciones.'
+      }
+    },
+    'actividad_1_3': {
+      title: 'Caso de investigación: elegir el diseño',
+      subtitle: 'La Dra. Robles necesita seleccionar el enfoque y tipo de investigación más adecuados para su problema.',
+      avatar: '🧑‍🏫',
+      caseName: 'Diseño de la Dra. Robles',
+      mission: 'Ayuda a la Dra. Robles a diferenciar enfoques, diseños y alcances de investigación.',
+      victory: 'Responde correctamente para que la investigación use un diseño coherente con sus objetivos.',
+      strategy: 'Recuerda las diferencias entre cualitativo, cuantitativo, experimental, descriptivo, transversal y longitudinal.',
+      feedback: {
+        low: 'La Dra. Robles eligió un diseño poco adecuado. Repasa los tipos de investigación e inténtalo de nuevo.',
+        mid: 'La Dra. Robles identificó parte del diseño, pero todavía necesita afinar el enfoque.',
+        high: 'La Dra. Robles seleccionó un diseño consistente y recibió buenos comentarios.',
+        perfect: 'La Dra. Robles defendió un diseño excelente y su investigación quedó muy bien fundamentada.'
+      }
+    },
+    'actividad_1_4': {
+      title: 'Caso de investigación: plantear el problema',
+      subtitle: 'El Dr. Herrera detectó un suceso relevante y necesita transformarlo en un problema de investigación claro.',
+      avatar: '🧑‍💼',
+      caseName: 'Planeación del Dr. Herrera',
+      mission: 'Ayuda al Dr. Herrera a reconocer los elementos necesarios para planear su investigación.',
+      victory: 'Responde correctamente para que el planteamiento del problema quede claro y defendible.',
+      strategy: 'Recuerda los elementos del planteamiento del problema, justificación, objetivos y metodología.',
+      feedback: {
+        low: 'El Dr. Herrera no logró formular un problema claro. Repasa la planeación e inténtalo de nuevo.',
+        mid: 'El Dr. Herrera tiene una base útil, pero debe mejorar la precisión del planteamiento.',
+        high: 'El Dr. Herrera presentó una planeación clara y recibió felicitaciones por su avance.',
+        perfect: 'El Dr. Herrera formuló un planteamiento excelente y su investigación fue aprobada con distinción.'
+      }
+    },
+    'actividad_2_1': {
+      title: 'Caso de investigación: construir el protocolo',
+      subtitle: 'La Dra. Luna necesita integrar marco teórico, variables, hipótesis y justificación en un protocolo coherente.',
+      avatar: '📋',
+      caseName: 'Protocolo de la Dra. Luna',
+      mission: 'Ayuda a la Dra. Luna a reconocer los apartados esenciales de un protocolo de investigación.',
+      victory: 'Responde correctamente para que el protocolo tenga estructura, fundamento y claridad.',
+      strategy: 'Recuerda los tipos de variables, las características de los objetivos y el propósito del marco teórico.',
+      feedback: {
+        low: 'El protocolo de la Dra. Luna quedó incompleto. Repasa su estructura e inténtalo de nuevo.',
+        mid: 'La Dra. Luna avanzó, pero debe fortalecer algunos apartados del protocolo.',
+        high: 'La Dra. Luna entregó un protocolo sólido y recibió una revisión positiva.',
+        perfect: 'La Dra. Luna presentó un protocolo excelente y fue reconocido por su calidad metodológica.'
+      }
+    },
+    'actividad_2_2': {
+      title: 'Caso de investigación: diseñar la muestra',
+      subtitle: 'El Dr. Navarro debe operacionalizar variables, elegir muestra y preparar su plan estadístico.',
+      avatar: '📐',
+      caseName: 'Diseño del Dr. Navarro',
+      mission: 'Ayuda al Dr. Navarro a tomar decisiones correctas sobre variables, muestra y plan estadístico.',
+      victory: 'Responde correctamente para que el diseño de investigación sea viable y ordenado.',
+      strategy: 'Recuerda los tipos de muestreo y el concepto de operacionalización de variables.',
+      feedback: {
+        low: 'El diseño del Dr. Navarro quedó débil. Repasa variables, muestra y plan estadístico e inténtalo de nuevo.',
+        mid: 'El Dr. Navarro puede avanzar, pero necesita ajustar decisiones importantes del diseño.',
+        high: 'El Dr. Navarro diseñó una investigación clara y recibió buenos comentarios.',
+        perfect: 'El Dr. Navarro presentó un diseño excelente y su plan fue aprobado sin observaciones.'
+      }
+    },
+    'actividad_2_3': {
+      title: 'Caso de investigación: documentar fuentes',
+      subtitle: 'La Dra. Ibarra debe sustentar su investigación con referencias confiables y bien seleccionadas.',
+      avatar: '📚',
+      caseName: 'Búsqueda documental de la Dra. Ibarra',
+      mission: 'Ayuda a la Dra. Ibarra a identificar fuentes, referencias y criterios de búsqueda documental.',
+      victory: 'Responde correctamente para que su investigación quede respaldada por evidencia confiable.',
+      strategy: 'Recuerda la importancia de bases de datos, gestores bibliográficos y citas académicas.',
+      feedback: {
+        low: 'La Dra. Ibarra usó fuentes insuficientes. Repasa investigación documental e inténtalo de nuevo.',
+        mid: 'La Dra. Ibarra encontró algunas fuentes útiles, pero debe mejorar la selección y citación.',
+        high: 'La Dra. Ibarra documentó bien su trabajo y recibió una evaluación favorable.',
+        perfect: 'La Dra. Ibarra construyó una base documental excelente y su investigación ganó mucha solidez.'
+      }
+    },
+    'actividad_3_1': {
+      title: 'Caso de investigación: preparar el informe final',
+      subtitle: 'El Dr. Ortega terminó la recolección de datos y necesita presentar resultados de forma clara.',
+      avatar: '📊',
+      caseName: 'Informe del Dr. Ortega',
+      mission: 'Ayuda al Dr. Ortega a reconocer elementos clave del informe final y la ejecución de la investigación.',
+      victory: 'Responde correctamente para que el informe final comunique adecuadamente los resultados.',
+      strategy: 'Recuerda las características de presentación, ejecución y aplicación de instrumentos.',
+      feedback: {
+        low: 'El informe del Dr. Ortega quedó confuso. Repasa la estructura del informe e inténtalo de nuevo.',
+        mid: 'El Dr. Ortega presentó avances, pero debe mejorar la claridad del informe.',
+        high: 'El Dr. Ortega entregó un buen informe y recibió felicitaciones por su trabajo.',
+        perfect: 'El Dr. Ortega presentó un informe excelente y fue reconocido por la calidad de sus resultados.'
+      }
+    },
+    'actividad_3_2': {
+      title: 'Caso de investigación: procesar los datos',
+      subtitle: 'La Dra. Serrano tiene información recolectada y necesita organizarla antes del análisis estadístico.',
+      avatar: '🧮',
+      caseName: 'Datos de la Dra. Serrano',
+      mission: 'Ayuda a la Dra. Serrano a distinguir recopilación, procesamiento y organización de datos.',
+      victory: 'Responde correctamente para que los datos queden listos para un análisis confiable.',
+      strategy: 'Recuerda depuración, codificación, tabulación y análisis estadístico de datos.',
+      feedback: {
+        low: 'Los datos de la Dra. Serrano quedaron desordenados. Repasa procesamiento de datos e inténtalo de nuevo.',
+        mid: 'La Dra. Serrano organizó parte de la información, pero debe reforzar el procesamiento.',
+        high: 'La Dra. Serrano procesó bien los datos y pudo continuar con su análisis.',
+        perfect: 'La Dra. Serrano preparó una base de datos excelente y su análisis avanzó sin problemas.'
+      }
+    },
+    'actividad_3_3': {
+      title: 'Caso de investigación: interpretar la estadística',
+      subtitle: 'El Dr. Paredes necesita convertir tablas, frecuencias y gráficos en información útil para su estudio.',
+      avatar: '📈',
+      caseName: 'Análisis del Dr. Paredes',
+      mission: 'Ayuda al Dr. Paredes a interpretar frecuencias, porcentajes, gráficos y tablas de contingencia.',
+      victory: 'Responde correctamente para que los resultados estadísticos se comuniquen con precisión.',
+      strategy: 'Recuerda frecuencias, porcentajes, proporciones, tasas, tablas y gráficos.',
+      feedback: {
+        low: 'El Dr. Paredes interpretó mal los datos. Repasa estadística descriptiva e inténtalo de nuevo.',
+        mid: 'El Dr. Paredes obtuvo parte del análisis, pero debe reforzar la interpretación.',
+        high: 'El Dr. Paredes interpretó bien los resultados y recibió buenos comentarios.',
+        perfect: 'El Dr. Paredes presentó un análisis estadístico excelente y fue reconocido por su claridad.'
+      }
+    },
+    'actividad_3_4': {
+      title: 'Caso de investigación: defender conclusiones',
+      subtitle: 'La Dra. Torres debe discutir sus resultados y formular conclusiones bien fundamentadas.',
+      avatar: '🎓',
+      caseName: 'Conclusiones de la Dra. Torres',
+      mission: 'Ayuda a la Dra. Torres a interpretar resultados, discutir hallazgos y formular conclusiones.',
+      victory: 'Responde correctamente para que sus conclusiones sean claras, prudentes y defendibles.',
+      strategy: 'Recuerda cómo contrastar resultados con el marco teórico y formular conclusiones fundamentadas.',
+      feedback: {
+        low: 'Las conclusiones de la Dra. Torres quedaron poco sustentadas. Repasa interpretación y discusión e inténtalo de nuevo.',
+        mid: 'La Dra. Torres planteó conclusiones útiles, pero debe fortalecer la discusión.',
+        high: 'La Dra. Torres defendió bien sus resultados y recibió felicitaciones.',
+        perfect: 'La Dra. Torres presentó conclusiones excelentes y recibió reconocimiento por su investigación.'
+      }
+    }
+  };
+
+  function getActivityKey() {
+    const file = window.location.pathname.split('/').pop() || '';
+    return file.replace('.html', '');
+  }
+
+  function getCurrentStory() {
+    return activityStories[getActivityKey()] ?? activityStories.actividad_1_1;
+  }
+
+  function applyActivityStory() {
+    const story = getCurrentStory();
+    const headerTitle = document.querySelector('.header h1');
+    const subtitle = document.querySelector('.header .subtitle');
+    const instructionsTitle = document.querySelector('.instructions h2');
+    const instructionsList = document.querySelector('.instructions ul');
+    const avatar = document.getElementById('caseAvatar');
+    const caseName = document.querySelector('.case-name');
+    const evaluateBtn = document.getElementById('evaluateBtn');
+
+    if (headerTitle) headerTitle.textContent = story.title;
+    if (subtitle) subtitle.textContent = story.subtitle;
+    if (instructionsTitle) instructionsTitle.innerHTML = '<i class="fas fa-clipboard-check"></i> Escenario de investigación';
+    if (instructionsList) {
+      instructionsList.innerHTML = `
+        <li><strong>Situación:</strong> ${story.subtitle}</li>
+        <li><strong>Misión:</strong> ${story.mission}</li>
+        <li><strong>Mecánica:</strong> Cada respuesta correcta suma puntos al trabajo de investigación; cada error reduce su solidez.</li>
+        <li><strong>Victoria:</strong> ${story.victory}</li>
+        <li><strong>Derrota:</strong> Si hay demasiados errores, ${story.feedback.low}</li>
+        <li><strong>Estrategia:</strong> ${story.strategy}</li>
+      `;
+    }
+    if (avatar) avatar.textContent = story.avatar;
+    if (caseName) caseName.textContent = story.caseName;
+    if (evaluateBtn) evaluateBtn.innerHTML = '<i class="fas fa-check-circle"></i> Evaluar respuestas';
+  }
 
   async function initGame() {
     const container = document.getElementById('questionsContainer');
@@ -62,16 +267,16 @@ let time = 0;
         };
       });
 
-      // Actualizar vida máxima del monstruo (por si hay menos de 8 preguntas)
-      monsterHP = questions.length;
-      document.getElementById('healthText').textContent = `${monsterHP} / ${monsterHP} HP`;
+      timeLimit = questions.length * secondsPerQuestion;
+      timeRemaining = timeLimit;
+      document.getElementById('answerProgressText').textContent = `0 / ${questions.length} respondidas`;
 
       container.innerHTML = '';
       questions.forEach((q, index) => {
         const questionDiv = document.createElement('div');
         questionDiv.className = 'question';
         questionDiv.innerHTML = `
-          <div class="question-number">Desafío ${index + 1}</div>
+          <div class="question-number">Pregunta ${index + 1}</div>
           <div class="question-text">${q.question}</div>
           <div class="options">
             ${q.options.map((option, optIndex) => `
@@ -85,8 +290,12 @@ let time = 0;
         container.appendChild(questionDiv);
       });
 
-      time = attempts = errors = completed = 0;
+      time = completed = correctCount = 0;
+      gameOver = false;
       selectedAnswers = {};
+      document.getElementById('evaluateBtn').disabled = false;
+      document.getElementById('gameStatus').style.display = 'none';
+      document.body.style.animation = 'none';
       updateUI();
       clearInterval(timerInterval);
       startTimer();
@@ -109,9 +318,15 @@ let time = 0;
   }
 
   function startTimer() {
+    document.getElementById('timerValue').textContent = `${timeRemaining}s`;
     timerInterval = setInterval(() => {
       time++;
-      document.getElementById('timerValue').textContent = `${time}s`;
+      timeRemaining = Math.max(0, timeLimit - time);
+      document.getElementById('timerValue').textContent = `${timeRemaining}s`;
+      if (timeRemaining <= 0) {
+        clearInterval(timerInterval);
+        evaluateActivity(true);
+      }
     }, 1000);
   }
 
@@ -121,29 +336,18 @@ let time = 0;
     document.getElementById('progressFill').style.width = `${percentage}%`;
   }
 
-  function updateMonsterAvatar() {
-    const avatar = document.getElementById('monsterAvatar');
-    const healthPercentage = (monsterHP / questions.length) * 100;
-    if (healthPercentage > 70) avatar.textContent = '📜';
-    else if (healthPercentage > 40) avatar.textContent = '📄';
-    else if (healthPercentage > 0) avatar.textContent = '📑';
-    else avatar.textContent = '💥';
-  }
-
   function updateUI() {
-    const totalHP = questions.length > 0 ? questions.length : maxHP;
-    document.getElementById('healthBar').style.width = `${(monsterHP / totalHP) * 100}%`;
-    document.getElementById('healthText').textContent = `${monsterHP} / ${totalHP} HP`;
-    const dots = document.querySelectorAll('.error-dot');
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('filled', i < errors);
-    });
-    document.getElementById('attemptsValue').textContent = attempts;
-    document.getElementById('errorsValue').textContent = `${errors} / ${maxErrors}`;
-    updateMonsterAvatar();
+    const totalQuestions = questions.length > 0 ? questions.length : defaultQuestionCount;
+    const progressValue = gameOver ? correctCount : completed;
+    document.getElementById('answerProgressBar').style.width = `${(progressValue / totalQuestions) * 100}%`;
+    document.getElementById('answerProgressText').textContent = gameOver
+      ? `${correctCount} / ${totalQuestions} aciertos`
+      : `${completed} / ${totalQuestions} respondidas`;
+    document.getElementById('correctValue').textContent = `${correctCount} / ${totalQuestions}`;
   }
 
   function selectOption(qIndex, oIndex) {
+    if (gameOver) return;
     for (let i = 0; i < questions[qIndex].options.length; i++) {
       document.getElementById(`q${qIndex}opt${i}`).classList.remove('selected');
     }
@@ -152,12 +356,12 @@ let time = 0;
     updateProgress();
   }
 
-  function attack() {
+  function evaluateActivity(force = false) {
+    force = force === true;
     if (gameOver) return;
-    if (completed < questions.length) {
-      return showGameStatus("⚠️ ¡Selecciona una opción para todas las preguntas antes de evaluar el protocolo!", "continue");
+    if (!force && completed < questions.length) {
+      return showGameStatus("⚠️ ¡Selecciona una opción para todas las preguntas antes de evaluar la actividad!", "continue", true);
     }
-    attempts++;
     let correct = 0;
 
     questions.forEach((q, i) => {
@@ -167,70 +371,87 @@ let time = 0;
       for (let j = 0; j < q.options.length; j++) {
         const optEl = document.getElementById(`q${i}opt${j}`);
         optEl.classList.remove('selected', 'correct', 'incorrect');
-        if (j === correctAns) optEl.classList.add('correct');
-        else if (j === userAns) optEl.classList.add('incorrect');
+        if (j === userAns) {
+          optEl.classList.add(userAns === correctAns ? 'correct' : 'incorrect');
+        }
       }
       if (userAns === correctAns) correct++;
     });
 
-    monsterHP = Math.max(0, questions.length - correct);
-    errors = Math.min(maxErrors, questions.length - correct);
+    correctCount = correct;
+    const score = calculateScore(correct, questions.length);
+    gameOver = true;
     updateUI();
-    checkGameEnd();
+    checkGameEnd(correct, score, force);
   }
 
-  function checkGameEnd() {
-    const btn = document.getElementById('attackBtn');
-    if (monsterHP <= 0) {
-      gameOver = true;
-      clearInterval(timerInterval);
-      showGameStatus(`<i class='fas fa-trophy'></i> ¡PROTOCOLO APROBADO! Tiempo: ${time}s`, 'victory');
-      btn.disabled = true;
-      document.body.style.animation = 'victoryGlow 2s infinite';
-    } else if (errors >= maxErrors) {
-      gameOver = true;
-      clearInterval(timerInterval);
-      showGameStatus(`<i class='fas fa-skull'></i> ¡PROYECTO RECHAZADO! Demasiados errores`, 'defeat');
-      btn.disabled = true;
-      document.body.style.animation = 'defeatPulse 1s infinite';
+  function calculateScore(correct, total) {
+    if (total <= 0) return 0;
+    return Math.round((correct / total) * 100) / 10;
+  }
+
+  function formatScore(score) {
+    return Number.isInteger(score) ? String(score) : score.toFixed(1);
+  }
+
+  function getScoreFeedback(score) {
+    const feedback = getCurrentStory().feedback;
+    if (score <= 5) {
+      return {
+        type: 'defeat',
+        icon: 'fas fa-book-reader',
+        text: feedback.low
+      };
     }
+    if (score < 8) {
+      return {
+        type: 'continue',
+        icon: 'fas fa-chart-line',
+        text: feedback.mid
+      };
+    }
+    if (score < 10) {
+      return {
+        type: 'victory',
+        icon: 'fas fa-medal',
+        text: feedback.high
+      };
+    }
+    return {
+      type: 'victory',
+      icon: 'fas fa-trophy',
+      text: feedback.perfect
+    };
   }
 
-  function resetBattle() {
-    time = attempts = errors = completed = 0;
-    monsterHP = questions.length > 0 ? questions.length : maxHP;
-    gameOver = false;
-    selectedAnswers = {};
-    document.getElementById('timerValue').textContent = '0s';
-    document.getElementById('attemptsValue').textContent = '0';
-    document.getElementById('errorsValue').textContent = '0 / 3';
-    document.getElementById('gameStatus').style.display = 'none';
-    document.getElementById('attackBtn').disabled = false;
-    document.getElementById('progressFill').style.width = '0%';
-    document.body.style.animation = 'none';
-    questions.forEach((q, i) => {
-      q.options.forEach((_, j) => {
-        const el = document.getElementById(`q${i}opt${j}`);
-        if (el) el.classList.remove('selected', 'correct', 'incorrect');
-      });
-    });
-    updateUI();
+  function checkGameEnd(correct, score, timeExpired = false) {
+    const btn = document.getElementById('evaluateBtn');
+    const feedback = getScoreFeedback(score);
     clearInterval(timerInterval);
-    startTimer();
+    showGameStatus(
+      `<div class="score-result ${feedback.type}">
+        <div class="score-value">${formatScore(score)}</div>
+        <div class="score-message">${timeExpired ? 'El tiempo se agotó. ' : ''}${feedback.text}</div>
+      </div>`,
+      feedback.type
+    );
+    btn.disabled = true;
+    document.body.style.animation = score >= 8 ? 'victoryGlow 2s infinite' : score <= 5 ? 'defeatPulse 1s infinite' : 'none';
   }
 
-  function showGameStatus(msg, type) {
+  function resetActivity() {
+    clearInterval(timerInterval);
+    initGame();
+  }
+
+  function showGameStatus(msg, type, autoHide = false) {
     const div = document.getElementById('gameStatus');
     div.innerHTML = msg;
     div.className = `game-status ${type}`;
     div.style.display = 'block';
-    if (type === 'continue') setTimeout(() => div.style.display = 'none', 4000);
+    if (autoHide) setTimeout(() => div.style.display = 'none', 4000);
   }
 
-  function showSolutions() {
-    const answers = questions.map((q, i) => `${i + 1}. ${q.options[q.correct]}`).join('\n');
-    alert(`💡 Respuestas Correctas:\n\n${answers}`);
-  }
 
   window.renderSidebarNavigation?.({ mode: 'actividad' });
 
@@ -293,7 +514,6 @@ let time = 0;
           scrollToTopBtn.classList.remove('visible');
       }
   });
-
   scrollToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
   });
@@ -304,10 +524,10 @@ let time = 0;
   });
 
   document.addEventListener('DOMContentLoaded', () => {
+      applyActivityStory();
       initGame();
-      document.getElementById('attackBtn')?.addEventListener('click', attack);
-      document.getElementById('resetBattleBtn')?.addEventListener('click', resetBattle);
-      document.getElementById('showSolutionsBtn')?.addEventListener('click', showSolutions);
+      document.getElementById('evaluateBtn')?.addEventListener('click', () => evaluateActivity(false));
+      document.getElementById('resetActivityBtn')?.addEventListener('click', resetActivity);
       document.getElementById('questionsContainer')?.addEventListener('click', (event) => {
           const option = event.target.closest('.option[data-question-index][data-option-index]');
           if (!option) return;
