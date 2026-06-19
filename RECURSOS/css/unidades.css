@@ -1,24 +1,4 @@
-@import url("paleta-global.css?v=5");
-
-        /* Variables CSS raíz */
-        :root {
-            --primary: #4b0082; /* Indigo profundo */
-            --secondary: #8e44ad; /* Amatista */
-            --accent: #d8b4fe; /* Lavanda */
-            --light: #f5f3ff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --text-muted: #bdc3c7;
-
-            /* Gradientes para las tarjetas de unidades */
-            --gradient-unit-1: linear-gradient(135deg, #9b59b6, #8e44ad);
-            --gradient-unit-2: linear-gradient(135deg, #7d3cff, #5b21b6);
-            --gradient-unit-3: linear-gradient(135deg, #a855f7, #7e22ce);
-            --gradient-unit-4: linear-gradient(135deg, #6d28d9, #4c1d95);
-            --gradient-unit-5: linear-gradient(135deg, #8b5cf6, #6d28d9);
-            --gradient-unit-6: linear-gradient(135deg, #581c87, #3b0764);
-        }
-
+@import url("paleta-global.css?v=7");
         /* Estilos generales */
         * {
             margin: 0;

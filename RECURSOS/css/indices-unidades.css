@@ -1,17 +1,4 @@
-@import url("paleta-global.css?v=5");
-
-:root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #2c3e50;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --activities: #d946ef; /* Nuevo color fiusha para actividades */
-            --card-bg: linear-gradient(135deg, rgba(75, 0, 130, 0.45), rgba(61, 0, 102, 0.34));
-            --submenu-bg: rgba(142, 68, 173, 0.22);
-        }
+@import url("paleta-global.css?v=7");
 
         * {
             margin: 0;
@@ -83,7 +70,7 @@
 
         .unit-brand-row {
             display: grid;
-            grid-template-columns: minmax(104px, 150px) minmax(0, 1fr) minmax(104px, 150px);
+            grid-template-columns: minmax(124px, 172px) minmax(0, 1fr) minmax(96px, 136px);
             align-items: center;
             justify-items: center;
             gap: clamp(18px, 3vw, 32px);
@@ -102,6 +89,16 @@
         .unit-brand-logo {
             width: clamp(104px, 12vw, 140px);
             height: clamp(104px, 12vw, 140px);
+        }
+
+        .unit-brand-logo-left {
+            width: clamp(128px, 14vw, 168px);
+            height: clamp(128px, 14vw, 168px);
+        }
+
+        .unit-brand-logo-right {
+            width: clamp(112px, 11vw, 144px);
+            height: clamp(112px, 11vw, 144px);
         }
 
         .unit-brand-text {
@@ -584,7 +581,7 @@
                 font-size: clamp(1.05rem, 4vw, 1.35rem);
             }
             .unit-brand-row {
-                grid-template-columns: clamp(48px, 16vw, 76px) minmax(0, 1fr) clamp(48px, 16vw, 76px);
+                grid-template-columns: clamp(58px, 18vw, 86px) minmax(0, 1fr) clamp(46px, 14vw, 68px);
                 gap: clamp(8px, 2.5vw, 14px);
                 margin: 4px 0 10px;
                 padding-left: clamp(8px, 3vw, 16px);
@@ -593,6 +590,16 @@
             .unit-brand-logo {
                 width: clamp(48px, 16vw, 76px);
                 height: clamp(48px, 16vw, 76px);
+            }
+
+            .unit-brand-logo-left {
+                width: clamp(58px, 18vw, 86px);
+                height: clamp(58px, 18vw, 86px);
+            }
+
+            .unit-brand-logo-right {
+                width: clamp(50px, 15vw, 74px);
+                height: clamp(50px, 15vw, 74px);
             }
             .unit-logo {
                 width: 100%;

@@ -1,22 +1,4 @@
-@import url("paleta-global.css?v=5");
-
-:root {
-            /* Paleta de colores en tonos morados */
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #a855f7;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-
-            /* Colores funcionales para la actividad */
-            --quiz-correct: #2ecc71;
-            --quiz-incorrect: #e74c3c;
-            --case-color: #d8b4fe;
-        }
+@import url("paleta-global.css?v=7");
 
         * {
             margin: 0;
@@ -721,12 +703,6 @@
         }
 
 /* Ajuste visual final: actividades alineadas con la paleta global */
-:root {
-    --quiz-correct: #8bd6ae;
-    --quiz-incorrect: #f0a1b2;
-    --case-color: var(--accent);
-}
-
 .header,
 .instructions,
 .activity-panel,

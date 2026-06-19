@@ -5,7 +5,10 @@
     --light: #f5f3ff !important;
     --dark: #1e0030 !important;
     --gray: #dec4fa !important;
+    --success: #a855f7 !important;
+    --warning: #7d3cff !important;
     --activities: #d7a4ff !important;
+    --text-muted: #dec4fa !important;
     --border-color: rgba(230, 211, 255, 0.22) !important;
     --card-border: rgba(230, 211, 255, 0.24) !important;
     --card-shadow: 0 14px 34px rgba(12, 0, 24, 0.28) !important;
@@ -17,6 +20,15 @@
     --scroll-track: rgba(27, 0, 41, 0.95) !important;
     --scroll-thumb: #b995f0 !important;
     --scroll-thumb-hover: #d8c2ff !important;
+    --quiz-correct: #8bd6ae !important;
+    --quiz-incorrect: #f0a1b2 !important;
+    --case-color: var(--accent) !important;
+    --gradient-unit-1: linear-gradient(135deg, #9b59b6, #8e44ad) !important;
+    --gradient-unit-2: linear-gradient(135deg, #7d3cff, #5b21b6) !important;
+    --gradient-unit-3: linear-gradient(135deg, #a855f7, #7e22ce) !important;
+    --gradient-unit-4: linear-gradient(135deg, #6d28d9, #4c1d95) !important;
+    --gradient-unit-5: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
+    --gradient-unit-6: linear-gradient(135deg, #581c87, #3b0764) !important;
 }
 
 html,
