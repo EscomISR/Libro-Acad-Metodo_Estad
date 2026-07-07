@@ -1,20 +1,4 @@
-:root {
-            /* Paleta de colores en tonos morados */
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #1e0030;
-            --gray: #d8b4fe;
-            --success: #a855f7;
-            --warning: #7d3cff;
-            --card-bg: rgba(255, 255, 255, 0.08);
-
-            /* Colores funcionales para el minijuego */
-            --quiz-correct: #2ecc71;
-            --quiz-incorrect: #e74c3c;
-            --monster-color: #d8b4fe;
-        }
+@import url("paleta-global.css?v=7");
 
         * {
             margin: 0;
@@ -301,7 +285,7 @@
             margin-bottom: 8px;
         }
 
-        .battle-arena {
+        .activity-panel {
             background: var(--card-bg);
             border-radius: 15px;
             padding: 30px;
@@ -312,7 +296,7 @@
             overflow: hidden;
         }
 
-        .battle-arena::before {
+        .activity-panel::before {
             content: "";
             position: absolute;
             top: 0;
@@ -321,15 +305,15 @@
             height: 100%;
             background: radial-gradient(circle at 50% 50%, rgba(142, 68, 173, 0.1) 0%, transparent 70%);
             z-index: -1;
-            animation: arenaGlow 4s ease-in-out infinite;
+            animation: panelGlow 4s ease-in-out infinite;
         }
 
-        @keyframes arenaGlow {
+        @keyframes panelGlow {
             0%, 100% { opacity: 0.3; }
             50% { opacity: 0.8; }
         }
 
-        .monster-section {
+        .case-section {
             text-align: center;
             margin-bottom: 30px;
             padding: 25px;
@@ -340,7 +324,7 @@
             overflow: hidden;
         }
 
-        .monster-section::before {
+        .case-section::before {
             content: "";
             position: absolute;
             top: -50%;
@@ -348,16 +332,16 @@
             width: 200%;
             height: 200%;
             background: radial-gradient(circle, rgba(142, 68, 173, 0.15) 0%, transparent 70%);
-            animation: monsterAura 3s linear infinite;
+            animation: caseAura 3s linear infinite;
             z-index: -1;
         }
 
-        @keyframes monsterAura {
+        @keyframes caseAura {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        .monster-avatar {
+        .case-avatar {
             font-size: 5rem;
             margin-bottom: 15px;
             animation: float 3s ease-in-out infinite;
@@ -368,14 +352,14 @@
             50% { transform: translateY(-10px); }
         }
 
-        .monster-name {
+        .case-name {
             font-size: 1.8rem;
-            color: var(--monster-color);
+            color: var(--case-color);
             font-weight: bold;
             margin-bottom: 10px;
         }
 
-        .health-bar-container {
+        .answer-progress-container {
             width: 300px;
             height: 20px;
             background: rgba(0, 0, 0, 0.4);
@@ -385,7 +369,7 @@
             border: 2px solid rgba(142, 68, 173, 0.5);
         }
 
-        .health-bar {
+        .answer-progress-bar {
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, var(--warning), var(--accent));
@@ -393,7 +377,7 @@
             border-radius: 8px;
         }
 
-        .health-text {
+        .answer-progress-text {
             font-size: 1.2rem;
             font-weight: bold;
             color: var(--light);
@@ -424,26 +408,6 @@
         .stat-label {
             font-size: 0.9rem;
             color: var(--gray);
-        }
-
-        .error-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .error-dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .error-dot.filled {
-            background: var(--quiz-incorrect);
-            box-shadow: 0 0 10px rgba(231, 76, 60, 0.6);
         }
 
         .questions-section {
@@ -557,7 +521,7 @@
             font-size: 1rem;
         }
 
-        .battle-controls {
+        .activity-controls {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
@@ -583,7 +547,7 @@
             font-size: 1.1rem;
         }
 
-        .btn-attack {
+        .btn-evaluate {
             background: var(--warning);
             color: white;
             box-shadow: 0 4px 15px rgba(125, 60, 255, 0.3);
@@ -591,13 +555,13 @@
             padding: 18px 35px;
         }
 
-        .btn-attack:hover {
+        .btn-evaluate:hover {
             background: var(--success);
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
         }
 
-        .btn-attack:disabled {
+        .btn-evaluate:disabled {
             background: rgba(255, 255, 255, 0.2);
             color: var(--gray);
             cursor: not-allowed;
@@ -727,13 +691,253 @@
         @media (max-width: 768px) {
             .sidebar-nav { width: 100%; }
             h1 { font-size: 2rem; }
-            .battle-controls, .player-stats, .navigation { flex-direction: column; gap: 15px; }
+            .activity-controls, .player-stats, .navigation { flex-direction: column; gap: 15px; }
             .nav-center { order: 2; }
             .navigation .btn { width: 100%; text-align: center; justify-content: center; }
             .question { padding: 20px; }
             .floating-home-btn { width: 50px; height: 50px; font-size: 1.2rem; }
             .container { margin-left: 20px; margin-right: 20px; padding: 10px 10px calc(80px + env(safe-area-inset-bottom)); }
             .scroll-to-top { bottom: calc(20px + env(safe-area-inset-bottom)); }
-            .health-bar-container { width: 250px; }
-            .monster-avatar { font-size: 4rem; }
+            .answer-progress-container { width: 250px; }
+            .case-avatar { font-size: 4rem; }
         }
+
+/* Ajuste visual final: actividades alineadas con la paleta global */
+.header,
+.instructions,
+.activity-panel,
+.case-section,
+.question,
+.stat-card,
+.activity-controls {
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.header {
+    background: linear-gradient(135deg, rgba(54, 24, 76, 0.88), rgba(72, 31, 101, 0.70));
+}
+
+.subtitle {
+    color: var(--accent);
+}
+
+.instructions,
+.activity-panel {
+    background: var(--card-bg);
+}
+
+.instructions {
+    border-left-color: var(--secondary);
+}
+
+.case-section,
+.question,
+.activity-controls {
+    background: rgba(80, 36, 111, 0.30);
+}
+
+.case-section {
+    border-color: rgba(230, 211, 255, 0.28);
+}
+
+.answer-progress-container {
+    background: rgba(27, 0, 41, 0.78);
+    border-color: rgba(230, 211, 255, 0.32);
+}
+
+.answer-progress-bar,
+.reading-progress-bar,
+.progress-fill {
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+.stat-card,
+.option {
+    background: rgba(27, 0, 41, 0.34);
+    border-color: rgba(230, 211, 255, 0.18);
+}
+
+.question:hover,
+.option:hover,
+.option.selected {
+    background: rgba(185, 149, 240, 0.16);
+    border-color: var(--secondary);
+}
+
+.option.selected {
+    box-shadow: 0 0 0 2px rgba(230, 211, 255, 0.16);
+}
+
+.option.correct {
+    background: rgba(139, 214, 174, 0.16);
+    box-shadow: 0 0 15px rgba(139, 214, 174, 0.22);
+}
+
+.option.incorrect {
+    background: rgba(240, 161, 178, 0.16);
+    box-shadow: 0 0 15px rgba(240, 161, 178, 0.22);
+}
+
+.btn,
+.menu-toggle,
+.floating-home-btn,
+.scroll-to-top {
+    border: 1px solid rgba(230, 211, 255, 0.24);
+    box-shadow: 0 10px 22px rgba(12, 0, 24, 0.28);
+}
+
+.btn-evaluate,
+.btn-nav,
+.menu-toggle,
+.floating-home-btn,
+.scroll-to-top {
+    background: linear-gradient(135deg, rgba(104, 53, 145, 0.96), rgba(74, 31, 111, 0.96));
+    color: #ffffff;
+}
+
+.btn-evaluate {
+    box-shadow: 0 12px 26px rgba(12, 0, 24, 0.32);
+}
+
+.btn-evaluate:hover,
+.btn-nav:hover,
+.menu-toggle:hover,
+.floating-home-btn:hover,
+.scroll-to-top:hover {
+    background: linear-gradient(135deg, rgba(185, 149, 240, 0.92), rgba(104, 53, 145, 0.96));
+    border-color: rgba(230, 211, 255, 0.52);
+}
+
+.btn-secondary {
+    background: rgba(80, 36, 111, 0.34);
+    border-color: rgba(230, 211, 255, 0.24);
+    color: var(--light);
+}
+
+.btn-secondary:hover {
+    background: rgba(185, 149, 240, 0.20);
+    border-color: rgba(230, 211, 255, 0.45);
+}
+
+.btn-evaluate:disabled {
+    background: rgba(230, 211, 255, 0.12);
+    color: var(--gray);
+    border-color: rgba(230, 211, 255, 0.18);
+}
+
+.game-status.continue {
+    background: rgba(185, 149, 240, 0.18);
+    border-color: var(--accent);
+}
+
+.player-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 16px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stat-card {
+    min-height: 96px;
+    display: grid;
+    align-content: center;
+    gap: 8px;
+}
+
+.stat-value {
+    font-size: clamp(1.9rem, 5vw, 2.7rem);
+    line-height: 1;
+}
+
+.stat-label {
+    color: var(--light);
+}
+
+.game-status {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: var(--light);
+}
+
+.game-status.victory,
+.game-status.defeat,
+.game-status.continue {
+    background: transparent;
+    border: 0;
+    color: var(--light);
+}
+
+.quiz-result {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    padding: 34px 24px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(54, 24, 76, 0.92), rgba(80, 36, 111, 0.72));
+    border: 1px solid rgba(230, 211, 255, 0.28);
+    border-radius: 18px;
+    box-shadow: 0 18px 42px rgba(12, 0, 24, 0.32);
+}
+
+.grade-value {
+    font-size: clamp(4.5rem, 15vw, 7.5rem);
+    line-height: 0.95;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.score-value {
+    font-size: 1rem; 
+    font-weight: 400; 
+    margin-top: 5px; 
+}
+
+.quiz-message {
+    max-width: 680px;
+    margin: 18px auto 0;
+    color: var(--light);
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    font-weight: 500;
+    line-height: 1.55;
+}
+
+.quiz-result.defeat {
+    border-color: rgba(240, 161, 178, 0.45);
+}
+
+.quiz-result.continue {
+    border-color: rgba(230, 211, 255, 0.38);
+}
+
+.quiz-result.victory {
+    border-color: rgba(139, 214, 174, 0.42);
+}
+
+/* Contenedor Responsivo para Iframes (Genially) */
+.genially-container {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 0;
+    height: 0;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.genially-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 640px) {
+    .player-stats {
+        grid-template-columns: 1fr;
+    }
+}

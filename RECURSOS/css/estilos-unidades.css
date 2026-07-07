@@ -1,14 +1,4 @@
-:root {
-    --primary: #4b0082;
-    --secondary: #cc6afd;
-    --accent: #d8b4fe;
-    --light: #f5f3ff;
-    --dark: #1e0030;
-    --gray: #dec4fa;
-    --success: #a855f7;
-    --warning: #7d3cff;
-    --card-bg: rgba(255, 255, 255, 0.08);
-}
+@import url("paleta-global.css?v=7");
 
 * {
     margin: 0;
@@ -22,26 +12,6 @@ body {
     color: var(--light);
     min-height: 100vh;
     line-height: 1.7;
-    scrollbar-color: #b975ff #1e0030;
-    scrollbar-width: thin;
-}
-
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: #1e0030;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #ead7ff, #b975ff 45%, #7b2ed0);
-    border: 3px solid #1e0030;
-    border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #ffffff, #c084fc 45%, #8f3eea);
 }
 
 .floating-home-btn {
@@ -769,22 +739,6 @@ footer {
     }
 }
 
-/* Diseno final integrado desde paleta-prueba.css */
-:root {
-    --primary: #4b0082;
-    --secondary: #b975ff;
-    --accent: #ead7ff;
-    --light: #fff9ff;
-    --dark: #1e0030;
-    --gray: #e0c9ff;
-    --success: #9f5cf4;
-    --warning: #f0b7ff;
-    --card-bg: rgba(255, 255, 255, 0.10);
-    --card-border: rgba(234, 215, 255, 0.24);
-    --card-shadow: 0 14px 34px rgba(12, 0, 24, 0.30);
-    --soft-panel: rgba(75, 0, 130, 0.28);
-}
-
 body {
     background: linear-gradient(135deg, #1e0030, #3d0066);
     color: var(--light);
@@ -860,7 +814,7 @@ header,
 .intro,
 .activity-card,
 .quote-box {
-    border-left: 4px solid #c084fc;
+    border-left: 4px solid #c084fc !important;
 }
 
 .section-header {

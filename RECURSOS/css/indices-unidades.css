@@ -1,15 +1,4 @@
-:root {
-            --primary: #4b0082;
-            --secondary: #8e44ad;
-            --accent: #d8b4fe;
-            --light: #f5f3ff;
-            --dark: #2c3e50;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --activities: #d946ef; /* Nuevo color fiusha para actividades */
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --submenu-bg: rgba(30, 0, 48, 0.4);
-        }
+@import url("paleta-global.css?v=7");
 
         * {
             margin: 0;
@@ -33,11 +22,12 @@
 
         header {
             text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.4);
+            padding: 26px 18px;
+            margin-bottom: 28px;
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.72), rgba(142, 68, 173, 0.32));
+            border: 1px solid rgba(216, 180, 254, 0.28);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(30, 0, 48, 0.28);
             position: relative;
             overflow: hidden;
         }
@@ -64,8 +54,8 @@
 
         .subtitle {
             font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 25px;
+            color: white;
+            margin: 10px 0 0;
             font-weight: 300;
         }
 
@@ -80,33 +70,78 @@
 
         .unit-brand-row {
             display: grid;
-            grid-template-columns: auto 1fr auto;
+            grid-template-columns: minmax(124px, 172px) minmax(0, 1fr) minmax(96px, 136px);
             align-items: center;
-            margin-bottom: 20px;
+            justify-items: center;
+            gap: clamp(18px, 3vw, 32px);
+            margin: 4px 0 10px;
+            padding-left: clamp(14px, 3vw, 36px);
+            padding-right: clamp(14px, 3vw, 36px);
+        }
+
+        .unit-brand-logo,
+        .unit-brand-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .unit-brand-logo {
+            width: clamp(104px, 12vw, 140px);
+            height: clamp(104px, 12vw, 140px);
+        }
+
+        .unit-brand-logo-left {
+            width: clamp(128px, 14vw, 168px);
+            height: clamp(128px, 14vw, 168px);
+        }
+
+        .unit-brand-logo-right {
+            width: clamp(112px, 11vw, 144px);
+            height: clamp(112px, 11vw, 144px);
+        }
+
+        .unit-brand-text {
+            min-width: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .unit-brand-text .description {
+            margin: 10px auto 0;
+            max-width: 680px;
         }
 
         .unit-logo {
-            height: 80px;
-            max-width: 120px;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
             object-fit: contain;
+            display: block;
         }
 
         .unit-title {
             margin: 0;
             text-align: center;
+            line-height: 1.08;
         }
 
         .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
             gap: 30px;
-            margin-top: 40px;
+            width: 100%;
+            margin: 34px auto 0;
         }
 
         .card {
             background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
+            flex: 1 1 300px;
+            max-width: 360px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             position: relative;
@@ -119,13 +154,14 @@
         .card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-            background: rgba(255, 255, 255, 0.12);
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.55), rgba(142, 68, 173, 0.28));
         }
 
         .card-header {
-            padding: 25px 25px 15px;
-            background: rgba(0, 0, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 118px;
+            padding: 20px 22px;
+            background: rgba(30, 0, 48, 0.28);
+            border-bottom: 1px solid rgba(216, 180, 254, 0.18);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -135,25 +171,29 @@
         .card-header-content {
             display: flex;
             align-items: center;
+            min-width: 0;
+            flex: 1;
         }
 
         .card-number {
             font-size: 1.2rem;
             font-weight: bold;
-            color: var(--secondary);
+            color: var(--accent);
             margin-right: 15px;
             min-width: 50px;
             text-align: center;
         }
 
         .card-title {
-            font-size: 1.6rem;
+            font-size: 1.28rem;
+            line-height: 1.22;
             font-weight: 600;
             color: white;
         }
 
         .card-icon {
             font-size: 1.4rem;
+            color: white;
             transition: transform 0.4s ease;
         }
 
@@ -166,6 +206,7 @@
             overflow: hidden;
             transition: max-height 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             background: var(--submenu-bg);
+            box-shadow: inset 0 1px 0 rgba(216, 180, 254, 0.22);
         }
 
         .card.active .subtopics {
@@ -186,14 +227,14 @@
         }
 
         .subtopic-item:hover {
-            background: rgba(52, 152, 219, 0.15);
+            background: rgba(216, 180, 254, 0.16);
             border-left: 3px solid var(--secondary);
         }
 
         .subtopic-number {
             min-width: 70px;
             font-weight: bold;
-            color: var(--secondary);
+            color: var(--accent);
         }
 
         .subtopic-name {
@@ -230,7 +271,7 @@
         .activity-number {
             min-width: 70px;
             font-weight: bold;
-            color: var(--activities);
+            color: #f0abfc;
         }
 
         .activity-name {
@@ -253,24 +294,32 @@
         }
 
         .card-footer {
-            padding: 0 25px 25px;
+            min-height: 82px;
+            padding: 0 25px 22px;
             text-align: center;
             transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
             max-height: 100px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .card.active .card-footer {
             opacity: 0;
             transform: translateY(-20px);
             max-height: 0;
+            min-height: 0;
             padding: 0 25px;
             pointer-events: none;
         }
 
         /* --- BOTONES GENERALES ACTUALIZADOS --- */
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
             padding: 12px 25px;
@@ -291,6 +340,10 @@
             border-color: var(--secondary);
         }
 
+        .card-footer .btn {
+            margin-top: 0;
+        }
+
         .btn-activities {
             background: rgba(142, 68, 173, 0.2);
             border: 1px solid rgba(217, 70, 239, 0.4);
@@ -301,21 +354,12 @@
             border-color: var(--activities);
         }
 
-        .hardware-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-            position: relative;
-        }
-
 /* --- BOTÓN DE INTRODUCCIÓN (ÓVALO DEL VIDEO) ACTUALIZADO --- */
         .video-oval {
             background: rgba(142, 68, 173, 0.15);
-            width: auto;
+            width: fit-content;
             min-width: 160px;
+            margin: 14px auto 0;
             padding: 0 25px;
             height: 60px;
             border-radius: 50px;
@@ -351,7 +395,10 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background:
+                radial-gradient(circle at 20% 20%, rgba(142, 68, 173, 0.28), transparent 34%),
+                radial-gradient(circle at 80% 80%, rgba(216, 180, 254, 0.16), transparent 36%),
+                rgba(30, 0, 48, 0.92);
             backdrop-filter: blur(8px);
             animation: fadeIn 0.3s ease-out;
         }
@@ -363,54 +410,99 @@
         }
 
         .modal-content {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background:
+                linear-gradient(135deg, rgba(30, 0, 48, 0.98), rgba(61, 0, 102, 0.96)),
+                var(--primary);
             border-radius: 20px;
             padding: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+            box-shadow:
+                0 22px 60px rgba(0, 0, 0, 0.62),
+                0 0 36px rgba(142, 68, 173, 0.28);
             max-width: 90vw;
-            max-height: 85vh;
+            max-height: 88vh;
             width: 900px;
             position: relative;
             animation: slideIn 0.4s ease-out;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
+            border: 2px solid rgba(216, 180, 254, 0.28);
+            overflow-y: auto;
         }
 
         .modal-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 2px 58px 14px;
+            border-bottom: 2px solid rgba(216, 180, 254, 0.22);
+            position: relative;
+            text-align: center;
         }
 
         .modal-title {
             font-size: 1.8rem;
             font-weight: 600;
-            color: white;
+            color: var(--light);
             margin: 0;
         }
 
+        .modal-title::before {
+            content: "Introducción a la";
+            display: block;
+            margin-bottom: 6px;
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
         .close-btn {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: #bdc3c7;
+            background: rgba(142, 68, 173, 0.16);
+            border: 1px solid rgba(216, 180, 254, 0.28);
+            font-size: 0;
+            color: var(--accent);
             cursor: pointer;
             transition: all 0.3s ease;
-            padding: 5px;
+            padding: 0;
             border-radius: 50%;
-            width: 45px;
-            height: 45px;
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
+            line-height: 1;
+            aspect-ratio: 1 / 1;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .close-btn::before,
+        .close-btn::after {
+            content: "";
+            position: absolute;
+            width: 22px;
+            height: 4px;
+            border-radius: 999px;
+            background: currentColor;
+            left: 50%;
+            top: 50%;
+            transform-origin: center;
+        }
+
+        .close-btn::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .close-btn::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
         }
 
         .close-btn:hover {
-            color: var(--accent);
-            background: rgba(231, 76, 60, 0.1);
+            color: white;
+            background: rgba(142, 68, 173, 0.42);
+            border-color: var(--accent);
             transform: rotate(90deg);
         }
 
@@ -420,7 +512,9 @@
             height: 0;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow:
+                0 8px 22px rgba(0, 0, 0, 0.35),
+                0 0 0 1px rgba(216, 180, 254, 0.24);
             background: #000;
             overflow: hidden;
         }
@@ -456,7 +550,7 @@
         }
 
         .activities-card .card-number {
-            color: var(--activities);
+            color: var(--accent);
         }
 
         .activities-card .card-header {
@@ -464,7 +558,7 @@
         }
 
         .activities-card .card-icon {
-            color: var(--activities);
+            color: white;
         }
 
         footer {
@@ -477,17 +571,53 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                padding: 20px 10px;
+            }
             h1 {
-                font-size: 2.5rem;
+                font-size: clamp(1.35rem, 6vw, 2.1rem);
             }
             .subtitle {
-                font-size: 1.4rem;
+                font-size: clamp(1.05rem, 4vw, 1.35rem);
+            }
+            .unit-brand-row {
+                grid-template-columns: clamp(58px, 18vw, 86px) minmax(0, 1fr) clamp(46px, 14vw, 68px);
+                gap: clamp(8px, 2.5vw, 14px);
+                margin: 4px 0 10px;
+                padding-left: clamp(8px, 3vw, 16px);
+                padding-right: clamp(8px, 3vw, 16px);
+            }
+            .unit-brand-logo {
+                width: clamp(48px, 16vw, 76px);
+                height: clamp(48px, 16vw, 76px);
+            }
+
+            .unit-brand-logo-left {
+                width: clamp(58px, 18vw, 86px);
+                height: clamp(58px, 18vw, 86px);
+            }
+
+            .unit-brand-logo-right {
+                width: clamp(50px, 15vw, 74px);
+                height: clamp(50px, 15vw, 74px);
+            }
+            .unit-logo {
+                width: 100%;
+                height: 100%;
             }
             .card-container {
-                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+            .card {
+                flex-basis: 100%;
+                max-width: 100%;
             }
             .card-title {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
+            }
+            .card-header {
+                min-height: 104px;
+                padding: 18px 20px;
             }
             .modal-content {
                 padding: 15px;
@@ -495,8 +625,14 @@
                 width: 98vw;
                 max-width: none;
             }
+            .modal-header {
+                padding: 0 50px 12px;
+            }
             .modal-title {
                 font-size: 1.2rem;
+            }
+            .modal-title::before {
+                font-size: 0.82rem;
             }
             .video-oval {
                 width: 100px;
