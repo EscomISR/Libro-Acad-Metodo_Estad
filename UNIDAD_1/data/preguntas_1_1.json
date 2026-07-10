@@ -1,0 +1,359 @@
+[
+  {
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es la finalidad de utilizar una metodología en la investigación científica?",
+    "options": [
+      "Estructurar los pasos para establecer el objeto de estudio y sus posibles soluciones.",
+      "Sustituir el análisis del problema por conclusiones anticipadas.",
+      "Limitar la investigación a la concentración de información."
+    ],
+    "answer": "Estructurar los pasos para establecer el objeto de estudio y sus posibles soluciones."
+  },
+  {
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Qué permite fortalecer la validez del conocimiento científico?",
+    "options": [
+      "Que los resultados sean sistemáticos y verificables.",
+      "Que los resultados dependan únicamente de la intuición.",
+      "Que las hipótesis siempre sean aceptadas."
+    ],
+    "answer": "Que los resultados sean sistemáticos y verificables."
+  },
+  {
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿Qué busca observar el método experimental?",
+    "options": [
+      "El efecto producido por las variables independientes.",
+      "Solamente las opiniones de los participantes.",
+      "Únicamente los datos clínicos del paciente."
+    ],
+    "answer": "El efecto producido por las variables independientes."
+  },
+  {
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es el objetivo del método clínico?",
+    "options": [
+      "Establecer diagnósticos, tratamientos y pronósticos adecuados.",
+      "Medir la frecuencia de enfermedades en una población.",
+      "Explicar las dinámicas y normas sociales."
+    ],
+    "answer": "Establecer diagnósticos, tratamientos y pronósticos adecuados."
+  },
+  {
+    "id": 5,
+    "type": "opcion_multiple",
+    "question": "¿Qué indicadores utiliza el método epidemiológico para medir la frecuencia de los problemas de salud?",
+    "options": [
+      "Incidencia y prevalencia.",
+      "Media y desviación estándar.",
+      "Clase social y cultura."
+    ],
+    "answer": "Incidencia y prevalencia."
+  },
+  {
+    "id": 6,
+    "type": "opcion_multiple",
+    "question": "¿De qué depende la selección de técnicas en el método sociológico?",
+    "options": [
+      "Del problema de investigación y la magnitud del fenómeno que se analizará.",
+      "Exclusivamente de la frecuencia de las enfermedades.",
+      "Únicamente de los exámenes de laboratorio disponibles."
+    ],
+    "answer": "Del problema de investigación y la magnitud del fenómeno que se analizará."
+  },
+  {
+    "id": 7,
+    "type": "opcion_multiple",
+    "question": "¿Para qué se utiliza el método estadístico?",
+    "options": [
+      "Para analizar e interpretar información cuantitativa e identificar patrones y relaciones entre variables.",
+      "Para formular diagnósticos y tratamientos clínicos.",
+      "Para estudiar únicamente el comportamiento colectivo."
+    ],
+    "answer": "Para analizar e interpretar información cuantitativa e identificar patrones y relaciones entre variables."
+  },
+  {
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "Toda investigación científica establece el uso de una _____ que ayude a estructurar los pasos para definir el objeto de estudio y sus posibles _____.",
+    "wordBank": [
+      "metodología",
+      "soluciones",
+      "intuición",
+      "variables",
+      "frecuencias"
+    ],
+    "answer": [
+      "metodología",
+      "soluciones"
+    ]
+  },
+  {
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "La validez y la confiabilidad permiten obtener datos _____ y _____ en la medición de las variables y el control de sesgos.",
+    "wordBank": [
+      "fiables",
+      "precisos",
+      "subjetivos",
+      "colectivos",
+      "intuitivos"
+    ],
+    "answer": [
+      "fiables",
+      "precisos"
+    ]
+  },
+  {
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "El método científico se fundamenta en la _____, la elaboración de _____ y su comprobación empírica.",
+    "wordBank": [
+      "observación",
+      "hipótesis",
+      "prevalencia",
+      "anamnesis",
+      "cultura"
+    ],
+    "answer": [
+      "observación",
+      "hipótesis"
+    ]
+  },
+  {
+    "id": 11,
+    "type": "completar_oracion",
+    "question": "El método experimental utiliza variables _____ para observar y analizar su _____ en el proceso.",
+    "wordBank": [
+      "independientes",
+      "efecto",
+      "sociales",
+      "pronóstico",
+      "documental"
+    ],
+    "answer": [
+      "independientes",
+      "efecto"
+    ]
+  },
+  {
+    "id": 12,
+    "type": "completar_oracion",
+    "question": "El método clínico integra datos _____ y _____ para comprender de manera integral la condición del paciente.",
+    "wordBank": [
+      "subjetivos",
+      "objetivos",
+      "colectivos",
+      "económicos",
+      "experimentales"
+    ],
+    "answer": [
+      "subjetivos",
+      "objetivos"
+    ]
+  },
+  {
+    "id": 13,
+    "type": "completar_oracion",
+    "question": "El método epidemiológico mide la frecuencia mediante indicadores como _____ y _____.",
+    "wordBank": [
+      "incidencia",
+      "prevalencia",
+      "anamnesis",
+      "cultura",
+      "diagnóstico"
+    ],
+    "answer": [
+      "incidencia",
+      "prevalencia"
+    ]
+  },
+  {
+    "id": 14,
+    "type": "completar_oracion",
+    "question": "El método estadístico transforma los datos _____ en información _____ que respalda la toma de decisiones.",
+    "wordBank": [
+      "numéricos",
+      "significativa",
+      "clínicos",
+      "colectiva",
+      "intuitiva"
+    ],
+    "answer": [
+      "numéricos",
+      "significativa"
+    ]
+  },
+  {
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "La investigación científica puede dar continuidad a trabajos que otros investigadores no han concluido o que todavía se encuentran en proceso.",
+    "answer": true
+  },
+  {
+    "id": 16,
+    "type": "verdadero_falso",
+    "statement": "El eje operativo de estudio traduce los planteamientos teóricos en acciones concretas y medibles.",
+    "answer": true
+  },
+  {
+    "id": 17,
+    "type": "verdadero_falso",
+    "statement": "El método científico obliga a aceptar todas las hipótesis planteadas inicialmente.",
+    "answer": false
+  },
+  {
+    "id": 18,
+    "type": "verdadero_falso",
+    "statement": "El método experimental puede requerir la aplicación de pruebas estadísticas para trabajar con hipótesis nulas y alternas.",
+    "answer": true
+  },
+  {
+    "id": 19,
+    "type": "verdadero_falso",
+    "statement": "El método clínico debe ignorar los principios éticos cuando busca confirmar un diagnóstico.",
+    "answer": false
+  },
+  {
+    "id": 20,
+    "type": "verdadero_falso",
+    "statement": "El método epidemiológico estudia únicamente casos individuales y no analiza la frecuencia de las enfermedades.",
+    "answer": false
+  },
+  {
+    "id": 21,
+    "type": "verdadero_falso",
+    "statement": "El método sociológico puede apoyarse tanto en enfoques cuantitativos como cualitativos.",
+    "answer": true
+  },
+  {
+    "id": 22,
+    "type": "ordenar_oracion",
+    "segments": [
+      "para dar solución",
+      "La investigación científica",
+      "a problemas.",
+      "surge generalmente",
+      "de una necesidad del ser humano"
+    ],
+    "answer": [
+      "La investigación científica",
+      "surge generalmente",
+      "de una necesidad del ser humano",
+      "para dar solución",
+      "a problemas."
+    ]
+  },
+  {
+    "id": 23,
+    "type": "ordenar_oracion",
+    "segments": [
+      "el objeto de estudio",
+      "ayuda a estructurar",
+      "La metodología",
+      "y sus posibles soluciones.",
+      "los pasos para establecer"
+    ],
+    "answer": [
+      "La metodología",
+      "ayuda a estructurar",
+      "los pasos para establecer",
+      "el objeto de estudio",
+      "y sus posibles soluciones."
+    ]
+  },
+  {
+    "id": 24,
+    "type": "ordenar_oracion",
+    "segments": [
+      "objetiva, racional",
+      "explica los fenómenos",
+      "El método científico",
+      "y verificable.",
+      "de la realidad de forma"
+    ],
+    "answer": [
+      "El método científico",
+      "explica los fenómenos",
+      "de la realidad de forma",
+      "objetiva, racional",
+      "y verificable."
+    ]
+  },
+  {
+    "id": 25,
+    "type": "ordenar_oracion",
+    "segments": [
+      "para observar",
+      "variables independientes",
+      "El método experimental utiliza",
+      "sus efectos.",
+      "y analizar"
+    ],
+    "answer": [
+      "El método experimental utiliza",
+      "variables independientes",
+      "para observar",
+      "y analizar",
+      "sus efectos."
+    ]
+  },
+  {
+    "id": 26,
+    "type": "ordenar_oracion",
+    "segments": [
+      "la exploración física,",
+      "El método clínico incluye",
+      "y los estudios complementarios.",
+      "la anamnesis,",
+      "las hipótesis diagnósticas"
+    ],
+    "answer": [
+      "El método clínico incluye",
+      "la anamnesis,",
+      "la exploración física,",
+      "las hipótesis diagnósticas",
+      "y los estudios complementarios."
+    ]
+  },
+  {
+    "id": 27,
+    "type": "ordenar_oracion",
+    "segments": [
+      "entrevistas, observación participante,",
+      "El método sociológico utiliza",
+      "y estudios de caso.",
+      "análisis documental",
+      "técnicas como encuestas,"
+    ],
+    "answer": [
+      "El método sociológico utiliza",
+      "técnicas como encuestas,",
+      "entrevistas, observación participante,",
+      "análisis documental",
+      "y estudios de caso."
+    ]
+  },
+  {
+    "id": 28,
+    "type": "ordenar_oracion",
+    "segments": [
+      "en información significativa",
+      "los datos numéricos",
+      "El método estadístico transforma",
+      "la toma de decisiones.",
+      "que respalda"
+    ],
+    "answer": [
+      "El método estadístico transforma",
+      "los datos numéricos",
+      "en información significativa",
+      "que respalda",
+      "la toma de decisiones."
+    ]
+  }
+]

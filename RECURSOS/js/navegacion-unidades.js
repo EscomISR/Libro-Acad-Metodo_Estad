@@ -87,6 +87,8 @@
     }
 
     function getResourceItems(context, mode) {
+        const activityLabel = `Actividad de aprendizaje ${context.tema.id}`;
+
         if (mode === 'actividad') {
             const items = [
                 createNavItem({
@@ -123,7 +125,7 @@
             items.push(createNavItem({
                 href: '#actividad-aprendizaje',
                 icon: 'tasks',
-                text: 'Actividad de aprendizaje',
+                text: activityLabel,
                 dataSection: 'actividad-aprendizaje'
             }));
         }
@@ -143,13 +145,14 @@
         const mode = options.mode || context.mode;
         const title = sidebarNav.querySelector('.sidebar-title');
         const subtitle = sidebarNav.querySelector('.sidebar-subtitle');
+        const activityLabel = `Actividad de aprendizaje ${context.tema.id}`;
 
         if (title) {
             title.textContent = `${context.tema.id} ${context.tema.titulo}`;
         }
 
         if (subtitle) {
-            subtitle.textContent = mode === 'actividad' ? 'Actividad de aprendizaje' : context.tema.descripcion;
+            subtitle.textContent = mode === 'actividad' ? activityLabel : context.tema.descripcion;
         }
 
         const previousTopic = context.unidad.temas[context.index - 1];
@@ -184,7 +187,7 @@
         }
 
         const contentItems = mode === 'actividad'
-            ? [createNavItem({ href: '#inicio', icon: 'tasks', text: 'Actividad de aprendizaje', dataSection: 'inicio' })]
+            ? [createNavItem({ href: '#inicio', icon: 'tasks', text: activityLabel, dataSection: 'inicio' })]
             : getTopicContentItems();
 
         const resourceItems = getResourceItems(context, mode);
