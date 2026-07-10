@@ -531,7 +531,7 @@ body.image-viewer-open {
 
 .image-viewer.zoomed img {
     max-height: calc(100vh - 48px);
-    transform: scale(2.6);
+    transform: scale(var(--zoom-scale, 2.6));
 }
 
 .image-viewer.zoomed .image-viewer-caption {
