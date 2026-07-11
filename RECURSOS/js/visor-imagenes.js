@@ -42,6 +42,20 @@
             return captions.length ? captions.join(' - ') : image.alt || '';
         }
 
+        function updateZoomScale() {
+            const rect = viewerImage.getBoundingClientRect();
+
+            if (!viewerImage.naturalWidth || !rect.width) {
+                viewerImage.style.setProperty('--zoom-scale', '2.6');
+                return;
+            }
+
+            const nativeToDisplayedRatio = viewerImage.naturalWidth / rect.width;
+            const scale = Math.min(2.6, Math.max(1.4, nativeToDisplayedRatio));
+
+            viewerImage.style.setProperty('--zoom-scale', scale.toFixed(2));
+        }
+
         function openViewer(image) {
             viewerImage.src = image.currentSrc || image.src;
             viewerImage.alt = image.alt || 'Imagen ampliada';
@@ -50,6 +64,12 @@
             viewer.classList.add('active');
             document.body.classList.add('image-viewer-open');
             closeButton.focus();
+
+            if (viewerImage.complete && viewerImage.naturalWidth) {
+                updateZoomScale();
+            } else {
+                viewerImage.onload = updateZoomScale;
+            }
         }
 
         function closeViewer() {
