@@ -1,227 +1,352 @@
 [
   {
-    "question": "El proceso de investigación es definido como:",
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿Qué característica del planteamiento del problema orienta todo el proceso posterior?",
     "options": [
-      "Una secuencia lógica y ordenada de etapas que permite transformar una inquietud o problema en conocimiento científico válido.",
-      "Un conjunto de técnicas estadísticas aplicadas al azar.",
-      "Una recopilación informal de información sin estructura definida."
+      "Que sea claro, delimitado y relevante.",
+      "Que incluya únicamente datos numéricos.",
+      "Que presente conclusiones definitivas."
     ],
-    "answer": "Una secuencia lógica y ordenada de etapas que permite transformar una inquietud o problema en conocimiento científico válido."
+    "answer": "Que sea claro, delimitado y relevante."
   },
   {
-    "question": "En el ámbito médico y de la salud, el proceso de investigación es fundamental porque:",
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Qué permite identificar el análisis de documentación y antecedentes?",
     "options": [
-      "Garantiza que los resultados obtenidos sean éticos, confiables y aplicables a la práctica clínica y a la salud pública.",
-      "Permite publicar más artículos en menor tiempo.",
-      "Evita el uso de hipótesis en los estudios clínicos."
+      "Solo los resultados finales del estudio.",
+      "Hallazgos previos, teorías relevantes y vacíos de conocimiento.",
+      "Únicamente los instrumentos de recolección de datos."
     ],
-    "answer": "Garantiza que los resultados obtenidos sean éticos, confiables y aplicables a la práctica clínica y a la salud pública."
+    "answer": "Hallazgos previos, teorías relevantes y vacíos de conocimiento."
   },
   {
-    "question": "La investigación inicia con:",
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es la función principal de formular objetivos e hipótesis antes de iniciar el estudio?",
     "options": [
-      "La observación sistemática de un fenómeno real.",
-      "La elaboración de conclusiones preliminares.",
-      "La aplicación de pruebas estadísticas."
+      "Sustituir el análisis de resultados.",
+      "Eliminar la necesidad de revisar antecedentes.",
+      "Precisar qué se busca alcanzar y qué se pretende comprobar."
     ],
-    "answer": "La observación sistemática de un fenómeno real."
+    "answer": "Precisar qué se busca alcanzar y qué se pretende comprobar."
   },
   {
-    "question": "El planteamiento del problema debe ser:",
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿Qué establece el diseño metodológico?",
     "options": [
-      "Claro, delimitado y relevante.",
-      "Extenso y ambiguo para abarcar más temas.",
-      "General y sin delimitación específica."
+      "La estructura del estudio, la población, las técnicas y el análisis.",
+      "Las conclusiones y recomendaciones definitivas.",
+      "Solo la revisión de revistas indexadas."
     ],
-    "answer": "Claro, delimitado y relevante."
+    "answer": "La estructura del estudio, la población, las técnicas y el análisis."
   },
   {
-    "question": "La revisión de la literatura permite:",
+    "id": 5,
+    "type": "opcion_multiple",
+    "question": "¿Qué característica de la recolección de datos busca obtener información sin sesgos ni interpretaciones personales?",
     "options": [
-      "Conocer el estado actual del conocimiento sobre el problema de estudio.",
-      "Evitar completamente el uso del marco teórico.",
-      "Eliminar la necesidad de objetivos."
+      "Precisa.",
+      "Objetiva.",
+      "Pertinente."
     ],
-    "answer": "Conocer el estado actual del conocimiento sobre el problema de estudio."
+    "answer": "Objetiva."
   },
   {
-    "question": "La revisión de antecedentes evita:",
+    "id": 6,
+    "type": "opcion_multiple",
+    "question": "¿Cuándo se considera cuantitativo el análisis de información?",
     "options": [
-      "La duplicación de esfuerzos.",
-      "La formulación de hipótesis.",
-      "La recolección de datos."
+      "Cuando compara únicamente publicaciones médicas.",
+      "Cuando analiza categorías, temas y discursos.",
+      "Cuando trabaja con datos numéricos como porcentajes y promedios."
     ],
-    "answer": "La duplicación de esfuerzos."
+    "answer": "Cuando trabaja con datos numéricos como porcentajes y promedios."
   },
   {
-    "question": "Las revistas indexadas garantizan:",
+    "id": 7,
+    "type": "opcion_multiple",
+    "question": "¿Por qué la investigación médica requiere una evaluación ética estricta?",
     "options": [
-      "Información confiable, relevante y basada en evidencia.",
-      "Opiniones personales sin revisión.",
-      "Publicaciones sin control académico."
+      "Porque puede involucrar intervenciones diagnósticas o terapéuticas en seres humanos.",
+      "Porque todos los estudios médicos se realizan únicamente con modelos animales.",
+      "Porque evita formular objetivos e hipótesis."
     ],
-    "answer": "Información confiable, relevante y basada en evidencia."
+    "answer": "Porque puede involucrar intervenciones diagnósticas o terapéuticas en seres humanos."
   },
   {
-    "question": "Los objetivos en una investigación definen:",
-    "options": [
-      "Lo que se pretende lograr con la investigación.",
-      "El presupuesto del proyecto.",
-      "El tipo de publicación final."
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "La observación _____ permite visualizar un fenómeno _____ y plantear el problema de investigación.",
+    "wordBank": [
+      "sistemática",
+      "real",
+      "teórica",
+      "final"
     ],
-    "answer": "Lo que se pretende lograr con la investigación."
+    "answer": [
+      "sistemática",
+      "real"
+    ]
   },
   {
-    "question": "La hipótesis es:",
-    "options": [
-      "Una explicación tentativa que se someterá a prueba.",
-      "Una conclusión definitiva del estudio.",
-      "Un resumen del marco teórico."
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "La revisión de fuentes aporta evidencia _____ y revisada por _____ para sustentar el problema de investigación.",
+    "wordBank": [
+      "actualizada",
+      "pares",
+      "subjetiva",
+      "pacientes"
     ],
-    "answer": "Una explicación tentativa que se someterá a prueba."
+    "answer": [
+      "actualizada",
+      "pares"
+    ]
   },
   {
-    "question": "En estudios cualitativos:",
-    "options": [
-      "Pueden no plantearse hipótesis, pero sí preguntas de investigación.",
-      "Siempre se requieren hipótesis nulas.",
-      "No se establecen objetivos."
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "Los objetivos orientan la _____ y permiten evaluar los _____ de forma clara y precisa.",
+    "wordBank": [
+      "metodología",
+      "datos",
+      "conclusiones",
+      "dispositivos"
     ],
-    "answer": "Pueden no plantearse hipótesis, pero sí preguntas de investigación."
+    "answer": [
+      "metodología",
+      "datos"
+    ]
   },
   {
-    "question": "El diseño metodológico define:",
-    "options": [
-      "Cómo se realizará la investigación.",
-      "Las conclusiones finales del estudio.",
-      "La interpretación subjetiva de los datos."
+    "id": 11,
+    "type": "completar_oracion",
+    "question": "El diseño metodológico favorece la _____ del estudio y sustenta los hallazgos en procedimientos _____ y rigurosos.",
+    "wordBank": [
+      "reproducción",
+      "sistemáticos",
+      "improvisación",
+      "descriptivos"
     ],
-    "answer": "Cómo se realizará la investigación."
+    "answer": [
+      "reproducción",
+      "sistemáticos"
+    ]
   },
   {
-    "question": "Un diseño adecuado garantiza:",
-    "options": [
-      "La validez de los resultados.",
-      "La ausencia total de errores humanos.",
-      "La eliminación del análisis estadístico."
+    "id": 12,
+    "type": "completar_oracion",
+    "question": "La recolección de datos debe realizarse de manera _____ y con instrumentos _____ para obtener información útil.",
+    "wordBank": [
+      "ordenada",
+      "adecuados",
+      "personal",
+      "invasivos"
     ],
-    "answer": "La validez de los resultados."
+    "answer": [
+      "ordenada",
+      "adecuados"
+    ]
   },
   {
-    "question": "La recolección de datos es esencial porque:",
-    "options": [
-      "Permite obtener la información necesaria para responder la pregunta de investigación.",
-      "Sustituye el análisis e interpretación.",
-      "Evita la formulación de objetivos."
+    "id": 13,
+    "type": "completar_oracion",
+    "question": "El análisis _____ la información y la interpretación le otorga _____.",
+    "wordBank": [
+      "organiza",
+      "significado",
+      "omite",
+      "riesgo"
     ],
-    "answer": "Permite obtener la información necesaria para responder la pregunta de investigación."
+    "answer": [
+      "organiza",
+      "significado"
+    ]
   },
   {
-    "question": "Una característica de la recolección de datos es que debe ser:",
-    "options": [
-      "Sistemática.",
-      "Improvisada.",
-      "Subjetiva."
+    "id": 14,
+    "type": "completar_oracion",
+    "question": "La investigación biológica aporta conocimientos sobre _____ e _____ que sustentan avances médicos.",
+    "wordBank": [
+      "genética",
+      "inmunología",
+      "epidemiología",
+      "conclusiones"
     ],
-    "answer": "Sistemática."
+    "answer": [
+      "genética",
+      "inmunología"
+    ]
   },
   {
-    "question": "La recolección de datos debe ser ética porque:",
-    "options": [
-      "Respeta la confidencialidad, el consentimiento informado y la integridad de los participantes.",
-      "Permite obtener datos sin autorización.",
-      "Reduce el tiempo del estudio."
-    ],
-    "answer": "Respeta la confidencialidad, el consentimiento informado y la integridad de los participantes."
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "El proceso de investigación transforma una inquietud o problema en conocimiento científico válido mediante una secuencia lógica y ordenada.",
+    "answer": true
   },
   {
-    "question": "El análisis de datos implica:",
-    "options": [
-      "Organizar, depurar, clasificar y procesar los datos.",
-      "Publicar resultados sin interpretación.",
-      "Modificar los datos para que coincidan con la hipótesis."
-    ],
-    "answer": "Organizar, depurar, clasificar y procesar los datos."
+    "id": 16,
+    "type": "verdadero_falso",
+    "statement": "El planteamiento del problema se realiza después de formular las conclusiones y recomendaciones.",
+    "answer": false
   },
   {
-    "question": "El análisis cuantitativo trabaja con:",
-    "options": [
-      "Datos numéricos como porcentajes, promedios y correlaciones.",
-      "Discursos narrativos exclusivamente.",
-      "Opiniones sin medición."
-    ],
-    "answer": "Datos numéricos como porcentajes, promedios y correlaciones."
+    "id": 17,
+    "type": "verdadero_falso",
+    "statement": "La consulta de revistas indexadas puede aportar evidencia actualizada, relevante y revisada por pares.",
+    "answer": true
   },
   {
-    "question": "La interpretación de datos consiste en:",
-    "options": [
-      "Otorgar significado a los resultados obtenidos.",
-      "Eliminar los datos inconsistentes sin análisis.",
-      "Repetir la recolección de datos."
-    ],
-    "answer": "Otorgar significado a los resultados obtenidos."
+    "id": 18,
+    "type": "verdadero_falso",
+    "statement": "La recolección de datos es válida cuando los datos representan realmente el fenómeno que se desea estudiar.",
+    "answer": true
   },
   {
-    "question": "Las conclusiones permiten:",
-    "options": [
-      "Verificar si se cumplieron los objetivos de la investigación.",
-      "Evitar recomendaciones futuras.",
-      "Eliminar la necesidad de análisis."
-    ],
-    "answer": "Verificar si se cumplieron los objetivos de la investigación."
+    "id": 19,
+    "type": "verdadero_falso",
+    "statement": "El análisis cualitativo se limita al uso de porcentajes, promedios y correlaciones.",
+    "answer": false
   },
   {
-    "question": "Las recomendaciones sirven para:",
-    "options": [
-      "Generar orientaciones claras para la toma de decisiones y mejora de procesos.",
-      "Sustituir los objetivos iniciales.",
-      "Evitar nuevas investigaciones."
-    ],
-    "answer": "Generar orientaciones claras para la toma de decisiones y mejora de procesos."
+    "id": 20,
+    "type": "verdadero_falso",
+    "statement": "Las conclusiones y recomendaciones sustituyen la necesidad de relacionar los resultados con los objetivos del estudio.",
+    "answer": false
   },
   {
-    "question": "La investigación médica tiene como objetivo:",
-    "options": [
-      "Generar conocimiento científico aplicable a la atención de la salud.",
-      "Sustituir la experiencia clínica.",
-      "Evitar el uso de evidencia científica."
-    ],
-    "answer": "Generar conocimiento científico aplicable a la atención de la salud."
+    "id": 21,
+    "type": "verdadero_falso",
+    "statement": "La investigación biológica carece de implicaciones para la salud cuando se realiza con modelos animales.",
+    "answer": false
   },
   {
-    "question": "La medicina basada en evidencia integra:",
-    "options": [
-      "La mejor evidencia científica disponible con la experiencia clínica y los valores del paciente.",
-      "Opiniones personales exclusivamente.",
-      "Únicamente datos estadísticos sin contexto clínico."
+    "id": 22,
+    "type": "ordenar_oracion",
+    "segments": [
+      "un fenómeno real",
+      "La observación sistemática",
+      "el problema de investigación.",
+      "permite visualizar",
+      "y establecer"
     ],
-    "answer": "La mejor evidencia científica disponible con la experiencia clínica y los valores del paciente."
+    "answer": [
+      "La observación sistemática",
+      "permite visualizar",
+      "un fenómeno real",
+      "y establecer",
+      "el problema de investigación."
+    ]
   },
   {
-    "question": "La investigación biológica estudia:",
-    "options": [
-      "Los seres vivos y sus procesos desde el nivel molecular hasta ecosistemas.",
-      "Solo enfermedades humanas.",
-      "Únicamente procedimientos clínicos."
+    "id": 23,
+    "type": "ordenar_oracion",
+    "segments": [
+      "fortalece el marco teórico",
+      "La revisión de antecedentes",
+      "y fundamenta mejor",
+      "preguntas y objetivos.",
+      "del proyecto"
     ],
-    "answer": "Los seres vivos y sus procesos desde el nivel molecular hasta ecosistemas."
+    "answer": [
+      "La revisión de antecedentes",
+      "fortalece el marco teórico",
+      "del proyecto",
+      "y fundamenta mejor",
+      "preguntas y objetivos."
+    ]
   },
   {
-    "question": "La ética en la investigación tiene como propósito:",
-    "options": [
-      "Proteger a los sujetos de estudio y asegurar una práctica científica responsable.",
-      "Acelerar la publicación de resultados.",
-      "Evitar la revisión por pares."
+    "id": 24,
+    "type": "ordenar_oracion",
+    "segments": [
+      "qué se busca alcanzar",
+      "Los objetivos precisan",
+      "la metodología del estudio.",
+      "y orientan",
+      "desde el inicio"
     ],
-    "answer": "Proteger a los sujetos de estudio y asegurar una práctica científica responsable."
+    "answer": [
+      "Los objetivos precisan",
+      "qué se busca alcanzar",
+      "desde el inicio",
+      "y orientan",
+      "la metodología del estudio."
+    ]
   },
   {
-    "question": "En medicina y biología, la ética es indispensable debido a:",
-    "options": [
-      "El impacto potencial de la investigación sobre la vida y la salud.",
-      "La necesidad de reducir costos.",
-      "La facilidad de experimentar sin regulación."
+    "id": 25,
+    "type": "ordenar_oracion",
+    "segments": [
+      "de forma ordenada",
+      "La recolección de datos",
+      "información veraz y útil.",
+      "para obtener",
+      "utiliza instrumentos adecuados"
     ],
-    "answer": "El impacto potencial de la investigación sobre la vida y la salud."
+    "answer": [
+      "La recolección de datos",
+      "utiliza instrumentos adecuados",
+      "de forma ordenada",
+      "para obtener",
+      "información veraz y útil."
+    ]
+  },
+  {
+    "id": 26,
+    "type": "ordenar_oracion",
+    "segments": [
+      "patrones y relaciones",
+      "El análisis procesa",
+      "para identificar",
+      "en los resultados.",
+      "la información"
+    ],
+    "answer": [
+      "El análisis procesa",
+      "la información",
+      "para identificar",
+      "patrones y relaciones",
+      "en los resultados."
+    ]
+  },
+  {
+    "id": 27,
+    "type": "ordenar_oracion",
+    "segments": [
+      "en orientaciones prácticas",
+      "Las conclusiones transforman",
+      "para resolver problemas",
+      "y tomar decisiones informadas.",
+      "los hallazgos"
+    ],
+    "answer": [
+      "Las conclusiones transforman",
+      "los hallazgos",
+      "en orientaciones prácticas",
+      "para resolver problemas",
+      "y tomar decisiones informadas."
+    ]
+  },
+  {
+    "id": 28,
+    "type": "ordenar_oracion",
+    "segments": [
+      "y la seguridad",
+      "La ética protege",
+      "en investigaciones médicas.",
+      "de los participantes",
+      "los datos personales"
+    ],
+    "answer": [
+      "La ética protege",
+      "los datos personales",
+      "y la seguridad",
+      "de los participantes",
+      "en investigaciones médicas."
+    ]
   }
 ]

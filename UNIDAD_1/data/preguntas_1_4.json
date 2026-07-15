@@ -1,227 +1,250 @@
 [
   {
-    "question": "¿En qué momento del proceso investigativo se organiza y estructura de manera sistemática todo el estudio antes de ejecutarlo?",
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿Qué caracteriza a la planeación de la investigación?",
     "options": [
-      "En la etapa inicial llamada planeación de la investigación",
-      "En la fase de análisis estadístico de datos",
-      "En la etapa de publicación de resultados"
+      "Organiza sistemáticamente el proceso antes de ejecutarlo.",
+      "Presenta únicamente los resultados finales.",
+      "Sustituye la formulación del problema."
     ],
-    "answer": "En la etapa inicial llamada planeación de la investigación"
+    "answer": "Organiza sistemáticamente el proceso antes de ejecutarlo."
   },
   {
-    "question": "¿Qué se define durante la planeación de la investigación?",
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Qué elementos se establecen durante la planeación de la investigación?",
     "options": [
-      "El problema de estudio, preguntas de investigación, objetivos, justificación y alcance",
-      "Únicamente los instrumentos estadísticos",
-      "Solo la hipótesis final comprobada"
+      "Las conclusiones, los resultados y las recomendaciones.",
+      "Las preguntas, los objetivos y la justificación.",
+      "Las publicaciones, las respuestas y los hallazgos."
     ],
-    "answer": "El problema de estudio, preguntas de investigación, objetivos, justificación y alcance"
+    "answer": "Las preguntas, los objetivos y la justificación."
   },
   {
-    "question": "¿Qué se inicia durante la planeación para sustentar científicamente el proyecto?",
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿Para qué se analizan documentos durante la planeación?",
     "options": [
-      "La revisión de la literatura para construir el marco teórico",
-      "La aplicación inmediata de encuestas masivas",
-      "La redacción de conclusiones finales"
+      "Para construir el marco referencial.",
+      "Para sustituir la metodología.",
+      "Para eliminar la delimitación del estudio."
     ],
-    "answer": "La revisión de la literatura para construir el marco teórico"
+    "answer": "Para construir el marco referencial."
   },
   {
-    "question": "¿Qué incluye el diseño metodológico dentro de la planeación?",
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿Qué debe incluir el diseño de la metodología?",
     "options": [
-      "Selección del tipo de investigación, población, muestra, técnicas e instrumentos y procedimiento de análisis",
-      "Solo la elección del título del estudio",
-      "Únicamente la elaboración de gráficas finales"
+      "Solo la definición del problema.",
+      "Únicamente los valores éticos.",
+      "El tipo de investigación, la muestra y las herramientas de recolección."
     ],
-    "answer": "Selección del tipo de investigación, población, muestra, técnicas e instrumentos y procedimiento de análisis"
+    "answer": "El tipo de investigación, la muestra y las herramientas de recolección."
   },
   {
-    "question": "¿Qué aspectos adicionales se consideran en la planeación además del diseño metodológico?",
+    "id": 5,
+    "type": "opcion_multiple",
+    "question": "¿Cómo debe describirse el problema de investigación?",
     "options": [
-      "Aspectos éticos, recursos disponibles, cronograma y viabilidad",
-      "Solo la impresión del documento final",
-      "Únicamente la difusión en redes sociales"
+      "De manera amplia, subjetiva y general.",
+      "De manera clara, precisa y objetiva.",
+      "De manera breve, provisional y personal."
     ],
-    "answer": "Aspectos éticos, recursos disponibles, cronograma y viabilidad"
+    "answer": "De manera clara, precisa y objetiva."
   },
   {
-    "question": "¿Qué garantiza la coherencia entre objetivos y métodos durante la planeación?",
-    "options": [
-      "Asegurar que los métodos elegidos correspondan a los objetivos planteados",
-      "Cambiar los objetivos durante la ejecución",
-      "Omitir la justificación del estudio"
+    "id": 6,
+    "type": "completar_oracion",
+    "question": "La planeación organiza y estructura de manera _____ todo el proceso _____ antes de su ejecución.",
+    "wordBank": [
+      "sistemática",
+      "investigativo",
+      "cotidiana",
+      "profesional"
     ],
-    "answer": "Asegurar que los métodos elegidos correspondan a los objetivos planteados"
+    "answer": [
+      "sistemática",
+      "investigativo"
+    ]
   },
   {
-    "question": "¿Qué permite anticipar dificultades y optimizar recursos?",
-    "options": [
-      "Una planeación adecuada",
-      "La improvisación metodológica",
-      "La eliminación del cronograma"
+    "id": 7,
+    "type": "completar_oracion",
+    "question": "Durante la planeación se delimita el _____ del estudio y se construye el marco _____.",
+    "wordBank": [
+      "alcance",
+      "referencial",
+      "resultado",
+      "procedimiento"
     ],
-    "answer": "Una planeación adecuada"
+    "answer": [
+      "alcance",
+      "referencial"
+    ]
   },
   {
-    "question": "¿Qué fortalece una planeación adecuada respecto a los resultados?",
-    "options": [
-      "La validez y confiabilidad de los resultados",
-      "La subjetividad del investigador",
-      "La reducción del marco teórico"
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "La metodología incluye la selección de la _____ y las herramientas de recolección de _____.",
+    "wordBank": [
+      "muestra",
+      "información",
+      "publicación",
+      "justificación"
     ],
-    "answer": "La validez y confiabilidad de los resultados"
+    "answer": [
+      "muestra",
+      "información"
+    ]
   },
   {
-    "question": "Según la cita textual incluida, ¿qué transforma una idea en conocimiento organizado?",
-    "options": [
-      "La planeación de la investigación",
-      "El análisis improvisado",
-      "La simple observación sin método"
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "El orden y el rigor _____ permiten obtener resultados _____.",
+    "wordBank": [
+      "científico",
+      "confiables",
+      "social",
+      "cotidianos"
     ],
-    "answer": "La planeación de la investigación"
+    "answer": [
+      "científico",
+      "confiables"
+    ]
   },
   {
-    "question": "¿Qué permite que el estudio contribuya al avance del saber y solución de problemas reales?",
-    "options": [
-      "Definir objetivos, métodos y recursos con coherencia y rigor científico",
-      "Redactar conclusiones antes del estudio",
-      "Evitar la revisión de literatura"
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "El problema debe describirse de manera _____, precisa y _____.",
+    "wordBank": [
+      "clara",
+      "objetiva",
+      "general",
+      "cotidiana"
     ],
-    "answer": "Definir objetivos, métodos y recursos con coherencia y rigor científico"
+    "answer": [
+      "clara",
+      "objetiva"
+    ]
   },
   {
-    "question": "¿Qué constituye la captación del suceso dentro del proceso de investigación?",
-    "options": [
-      "La fase inicial donde se identifica un fenómeno o necesidad que requiere estudio",
-      "La fase final de publicación",
-      "El análisis estadístico avanzado"
-    ],
-    "answer": "La fase inicial donde se identifica un fenómeno o necesidad que requiere estudio"
+    "id": 11,
+    "type": "verdadero_falso",
+    "statement": "La planeación de la investigación se realiza antes de ejecutar el estudio.",
+    "answer": true
   },
   {
-    "question": "¿De dónde puede surgir la captación del suceso?",
-    "options": [
-      "Observación directa, práctica profesional, revisión de literatura o análisis de datos previos",
-      "Únicamente de experimentos de laboratorio",
-      "Solo de hipótesis confirmadas"
-    ],
-    "answer": "Observación directa, práctica profesional, revisión de literatura o análisis de datos previos"
+    "id": 12,
+    "type": "verdadero_falso",
+    "statement": "La planeación se limita únicamente a seleccionar las herramientas de recolección de información.",
+    "answer": false
   },
   {
-    "question": "¿Qué se reconoce durante la captación del suceso?",
-    "options": [
-      "La existencia de una situación problemática que afecta a un grupo o contexto",
-      "La solución definitiva del problema",
-      "La publicación inmediata del estudio"
-    ],
-    "answer": "La existencia de una situación problemática que afecta a un grupo o contexto"
+    "id": 13,
+    "type": "verdadero_falso",
+    "statement": "Los valores éticos y los recursos disponibles deben considerarse durante la planeación.",
+    "answer": true
   },
   {
-    "question": "¿Qué implica el planteamiento del problema?",
-    "options": [
-      "Delimitar y describir con claridad qué ocurre, a quién afecta, dónde y por qué es importante",
-      "Redactar conclusiones finales",
-      "Eliminar la justificación del estudio"
-    ],
-    "answer": "Delimitar y describir con claridad qué ocurre, a quién afecta, dónde y por qué es importante"
+    "id": 14,
+    "type": "verdadero_falso",
+    "statement": "La observación del objeto de estudio impide identificar problemas relacionados con la práctica profesional.",
+    "answer": false
   },
   {
-    "question": "¿Qué incluye el planteamiento del problema?",
-    "options": [
-      "Formulación de preguntas de investigación, definición de objetivos y justificación",
-      "Únicamente la selección de gráficos",
-      "Solo la elaboración del cronograma"
-    ],
-    "answer": "Formulación de preguntas de investigación, definición de objetivos y justificación"
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "Un planteamiento claro puede orientar la investigación hacia la solución de necesidades reales.",
+    "answer": true
   },
   {
-    "question": "¿Qué orienta el rumbo del estudio?",
-    "options": [
-      "Un problema bien planteado",
-      "Un título llamativo",
-      "La ausencia de objetivos"
+    "id": 16,
+    "type": "ordenar_oracion",
+    "segments": [
+      "antes de su ejecución.",
+      "La planeación organiza",
+      "el proceso investigativo",
+      "de manera sistemática"
     ],
-    "answer": "Un problema bien planteado"
+    "answer": [
+      "La planeación organiza",
+      "el proceso investigativo",
+      "de manera sistemática",
+      "antes de su ejecución."
+    ]
   },
   {
-    "question": "¿Por qué es importante una adecuada formulación del problema?",
-    "options": [
-      "Porque facilita la selección del diseño metodológico y la recolección de datos pertinentes",
-      "Porque elimina la necesidad de metodología",
-      "Porque evita la toma de decisiones"
+    "id": 17,
+    "type": "ordenar_oracion",
+    "segments": [
+      "el marco referencial",
+      "El análisis documental",
+      "de la investigación.",
+      "permite construir",
+      "que sustenta científicamente"
     ],
-    "answer": "Porque facilita la selección del diseño metodológico y la recolección de datos pertinentes"
+    "answer": [
+      "El análisis documental",
+      "permite construir",
+      "el marco referencial",
+      "que sustenta científicamente",
+      "de la investigación."
+    ]
   },
   {
-    "question": "¿Qué permite un planteamiento claro en áreas como salud y educación?",
-    "options": [
-      "Generar conocimiento aplicable para mejorar prácticas y resolver necesidades reales",
-      "Evitar la aplicación práctica",
-      "Limitar el impacto social"
+    "id": 18,
+    "type": "ordenar_oracion",
+    "segments": [
+      "los recursos disponibles",
+      "La planeación considera",
+      "para organizar",
+      "las actividades del estudio.",
+      "y los valores éticos"
     ],
-    "answer": "Generar conocimiento aplicable para mejorar prácticas y resolver necesidades reales"
+    "answer": [
+      "La planeación considera",
+      "los recursos disponibles",
+      "y los valores éticos",
+      "para organizar",
+      "las actividades del estudio."
+    ]
   },
   {
-    "question": "Según la cita textual, ¿qué ocurre cuando la curiosidad científica se activa?",
-    "options": [
-      "Una situación cotidiana se transforma en una oportunidad de conocimiento",
-      "Se finaliza automáticamente la investigación",
-      "Se elimina la necesidad de preguntas"
+    "id": 19,
+    "type": "ordenar_oracion",
+    "segments": [
+      "resultados confiables.",
+      "El rigor científico",
+      "durante la investigación",
+      "permite obtener",
+      "y el orden"
     ],
-    "answer": "Una situación cotidiana se transforma en una oportunidad de conocimiento"
+    "answer": [
+      "El rigor científico",
+      "y el orden",
+      "durante la investigación",
+      "permite obtener",
+      "resultados confiables."
+    ]
   },
   {
-    "question": "¿Qué conecta la realidad con el pensamiento científico en el planteamiento del problema?",
-    "options": [
-      "Convertir una necesidad real en una pregunta precisa",
-      "Memorizar conceptos sin análisis",
-      "Copiar investigaciones anteriores"
+    "id": 20,
+    "type": "ordenar_oracion",
+    "segments": [
+      "una necesidad real",
+      "La observación crítica permite",
+      "en una pregunta precisa.",
+      "reconocer",
+      "y convertirla"
     ],
-    "answer": "Convertir una necesidad real en una pregunta precisa"
-  },
-  {
-    "question": "¿Cuál es la función principal de la justificación en el planteamiento del problema?",
-    "options": [
-      "Establecer la relevancia científica, social o profesional del estudio",
-      "Definir las variables de la investigación",
-      "Seleccionar el tipo de muestra"
-    ],
-    "answer": "Establecer la relevancia científica, social o profesional del estudio"
-  },
-  {
-    "question": "¿Qué papel juegan los recursos disponibles en la planeación de la investigación?",
-    "options": [
-      "Determinan la viabilidad del proyecto",
-      "Son un aspecto secundario y opcional",
-      "Solo se consideran al final del estudio"
-    ],
-    "answer": "Determinan la viabilidad del proyecto"
-  },
-  {
-    "question": "¿Por qué es importante considerar los aspectos éticos durante la planeación?",
-    "options": [
-      "Para proteger a los participantes y garantizar la integridad del estudio",
-      "Para aumentar el presupuesto de la investigación",
-      "Para reducir el número de preguntas de investigación"
-    ],
-    "answer": "Para proteger a los participantes y garantizar la integridad del estudio"
-  },
-  {
-    "question": "¿Qué se logra al delimitar el alcance de un estudio durante la planeación?",
-    "options": [
-      "Enfocar la investigación en aspectos concretos y manejables",
-      "Ampliar el problema para abarcar más temas",
-      "Eliminar la necesidad de objetivos específicos"
-    ],
-    "answer": "Enfocar la investigación en aspectos concretos y manejables"
-  },
-  {
-    "question": "¿Qué elemento de la planeación ayuda a visualizar las actividades y el tiempo necesario para ejecutar la investigación?",
-    "options": [
-      "El cronograma de actividades",
-      "El marco teórico",
-      "La justificación"
-    ],
-    "answer": "El cronograma de actividades"
+    "answer": [
+      "La observación crítica permite",
+      "reconocer",
+      "una necesidad real",
+      "y convertirla",
+      "en una pregunta precisa."
+    ]
   }
 ]

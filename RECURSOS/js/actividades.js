@@ -1,5 +1,19 @@
-let time = 0;
-  const defaultQuestionCount = 20;
+(() => {
+  'use strict';
+
+  const supportedQuestionTypes = new Set([
+    'opcion_multiple',
+    'completar_oracion',
+    'verdadero_falso',
+    'ordenar_oracion'
+  ]);
+  const configuredQuestionCount = Number.parseInt(document.body.dataset.totalQuestions || '20', 10);
+  const defaultQuestionCount = Number.isFinite(configuredQuestionCount) && configuredQuestionCount > 0
+    ? configuredQuestionCount
+    : 20;
+  const secondsPerQuestion = 30;
+
+  let time = 0;
   let feedbackRules = [];
   let gameOver = false;
   let timerInterval;
@@ -12,7 +26,6 @@ let time = 0;
   let timeRemaining = 0;
   let activityStarted = false;
   let questionsReady = false;
-  const secondsPerQuestion = 30;
 
   function getActivityTimeLimit(questionCount) {
     const configuredTimeLimit = Number.parseInt(document.body.dataset.timeLimitSeconds || '', 10);
@@ -21,366 +34,19 @@ let time = 0;
       : questionCount * secondsPerQuestion;
   }
 
-  const activityStories = {
-    'actividad_1_1': {
-      title: 'Actividad de aprendizaje 1.1',
-      headerSubtitle: 'Metodología de la investigación científica',
-      subtitle: 'El Dr. Salas debe iniciar un estudio científico y necesita definir con claridad el método que guiará su trabajo.',
-      avatar: '🧑‍⚕️',
-      caseName: 'Actividad 1.1 - Métodos de la investigación científica',
-      mission: 'Ayuda al Dr. Salas a reconocer los métodos generales y particulares de la ciencia para orientar su investigación.',
-      victory: 'Responde correctamente las preguntas para que el Dr. Salas pueda justificar una investigación sólida.',
-      strategy: 'Lee cuidadosamente cada pregunta basada en el tema 1.1. Demuestra tu conocimiento metodológico.',
-      feedback: {
-        low: 'El Dr. Salas no logró sustentar bien su investigación. Vuelve a repasar los métodos de investigación e inténtalo de nuevo.',
-        mid: 'El Dr. Salas avanzó, pero su protocolo todavía necesita bases metodológicas más claras.',
-        high: 'El Dr. Salas recibió buenos comentarios por la claridad de su enfoque metodológico.',
-        perfect: 'El Dr. Salas recibió reconocimiento por plantear una investigación impecable desde el método.'
-      }
-    },
-    'actividad_1_2': {
-      title: 'Caso de investigación: ordenar el proceso',
-      subtitle: 'El Dr. Méndez tiene datos e ideas, pero necesita organizar las etapas de su investigación antes de continuar.',
-      avatar: '🧑‍🔬',
-      caseName: 'Proceso del Dr. Méndez',
-      mission: 'Ayuda al Dr. Méndez a identificar el orden y la función de las etapas del proceso de investigación.',
-      victory: 'Responde correctamente para que el proyecto avance desde el planteamiento hasta las conclusiones.',
-      strategy: 'Analiza cada etapa aprendida: observación, antecedentes, objetivos, diseño, recolección, análisis y conclusiones.',
-      feedback: {
-        low: 'El proyecto del Dr. Méndez quedó desordenado. Repasa las etapas del proceso e inténtalo de nuevo.',
-        mid: 'El Dr. Méndez logró avanzar, pero debe reforzar algunas etapas antes de entregar su plan.',
-        high: 'El Dr. Méndez estructuró bien su proceso de investigación y recibió una revisión favorable.',
-        perfect: 'El Dr. Méndez presentó un proceso impecable y su proyecto fue aprobado sin observaciones.'
-      }
-    },
-    'actividad_1_3': {
-      title: 'Caso de investigación: elegir el diseño',
-      subtitle: 'La Dra. Robles necesita seleccionar el enfoque y tipo de investigación más adecuados para su problema.',
-      avatar: '🧑‍🏫',
-      caseName: 'Diseño de la Dra. Robles',
-      mission: 'Ayuda a la Dra. Robles a diferenciar enfoques, diseños y alcances de investigación.',
-      victory: 'Responde correctamente para que la investigación use un diseño coherente con sus objetivos.',
-      strategy: 'Recuerda las diferencias entre cualitativo, cuantitativo, experimental, descriptivo, transversal y longitudinal.',
-      feedback: {
-        low: 'La Dra. Robles eligió un diseño poco adecuado. Repasa los tipos de investigación e inténtalo de nuevo.',
-        mid: 'La Dra. Robles identificó parte del diseño, pero todavía necesita afinar el enfoque.',
-        high: 'La Dra. Robles seleccionó un diseño consistente y recibió buenos comentarios.',
-        perfect: 'La Dra. Robles defendió un diseño excelente y su investigación quedó muy bien fundamentada.'
-      }
-    },
-    'actividad_1_4': {
-      title: 'Caso de investigación: plantear el problema',
-      subtitle: 'El Dr. Herrera detectó un suceso relevante y necesita transformarlo en un problema de investigación claro.',
-      avatar: '🧑‍💼',
-      caseName: 'Planeación del Dr. Herrera',
-      mission: 'Ayuda al Dr. Herrera a reconocer los elementos necesarios para planear su investigación.',
-      victory: 'Responde correctamente para que el planteamiento del problema quede claro y defendible.',
-      strategy: 'Recuerda los elementos del planteamiento del problema, justificación, objetivos y metodología.',
-      feedback: {
-        low: 'El Dr. Herrera no logró formular un problema claro. Repasa la planeación e inténtalo de nuevo.',
-        mid: 'El Dr. Herrera tiene una base útil, pero debe mejorar la precisión del planteamiento.',
-        high: 'El Dr. Herrera presentó una planeación clara y recibió felicitaciones por su avance.',
-        perfect: 'El Dr. Herrera formuló un planteamiento excelente y su investigación fue aprobada con distinción.'
-      }
-    },
-    'actividad_2_1': {
-      title: 'Caso de investigación: construir el protocolo',
-      subtitle: 'La Dra. Luna necesita integrar marco teórico, variables, hipótesis y justificación en un protocolo coherente.',
-      avatar: '📋',
-      caseName: 'Protocolo de la Dra. Luna',
-      mission: 'Ayuda a la Dra. Luna a reconocer los apartados esenciales de un protocolo de investigación.',
-      victory: 'Responde correctamente para que el protocolo tenga estructura, fundamento y claridad.',
-      strategy: 'Recuerda los tipos de variables, las características de los objetivos y el propósito del marco teórico.',
-      feedback: {
-        low: 'El protocolo de la Dra. Luna quedó incompleto. Repasa su estructura e inténtalo de nuevo.',
-        mid: 'La Dra. Luna avanzó, pero debe fortalecer algunos apartados del protocolo.',
-        high: 'La Dra. Luna entregó un protocolo sólido y recibió una revisión positiva.',
-        perfect: 'La Dra. Luna presentó un protocolo excelente y fue reconocido por su calidad metodológica.'
-      }
-    },
-    'actividad_2_2': {
-      title: 'Caso de investigación: diseñar la muestra',
-      subtitle: 'El Dr. Navarro debe operacionalizar variables, elegir muestra y preparar su plan estadístico.',
-      avatar: '📐',
-      caseName: 'Diseño del Dr. Navarro',
-      mission: 'Ayuda al Dr. Navarro a tomar decisiones correctas sobre variables, muestra y plan estadístico.',
-      victory: 'Responde correctamente para que el diseño de investigación sea viable y ordenado.',
-      strategy: 'Recuerda los tipos de muestreo y el concepto de operacionalización de variables.',
-      feedback: {
-        low: 'El diseño del Dr. Navarro quedó débil. Repasa variables, muestra y plan estadístico e inténtalo de nuevo.',
-        mid: 'El Dr. Navarro puede avanzar, pero necesita ajustar decisiones importantes del diseño.',
-        high: 'El Dr. Navarro diseñó una investigación clara y recibió buenos comentarios.',
-        perfect: 'El Dr. Navarro presentó un diseño excelente y su plan fue aprobado sin observaciones.'
-      }
-    },
-    'actividad_2_3': {
-      title: 'Caso de investigación: documentar fuentes',
-      subtitle: 'La Dra. Ibarra debe sustentar su investigación con referencias confiables y bien seleccionadas.',
-      avatar: '📚',
-      caseName: 'Búsqueda documental de la Dra. Ibarra',
-      mission: 'Ayuda a la Dra. Ibarra a identificar fuentes, referencias y criterios de búsqueda documental.',
-      victory: 'Responde correctamente para que su investigación quede respaldada por evidencia confiable.',
-      strategy: 'Recuerda la importancia de bases de datos, gestores bibliográficos y citas académicas.',
-      feedback: {
-        low: 'La Dra. Ibarra usó fuentes insuficientes. Repasa investigación documental e inténtalo de nuevo.',
-        mid: 'La Dra. Ibarra encontró algunas fuentes útiles, pero debe mejorar la selección y citación.',
-        high: 'La Dra. Ibarra documentó bien su trabajo y recibió una evaluación favorable.',
-        perfect: 'La Dra. Ibarra construyó una base documental excelente y su investigación ganó mucha solidez.'
-      }
-    },
-    'actividad_3_1': {
-      title: 'Caso de investigación: preparar el informe final',
-      subtitle: 'El Dr. Ortega terminó la recolección de datos y necesita presentar resultados de forma clara.',
-      avatar: '📊',
-      caseName: 'Informe del Dr. Ortega',
-      mission: 'Ayuda al Dr. Ortega a reconocer elementos clave del informe final y la ejecución de la investigación.',
-      victory: 'Responde correctamente para que el informe final comunique adecuadamente los resultados.',
-      strategy: 'Recuerda las características de presentación, ejecución y aplicación de instrumentos.',
-      feedback: {
-        low: 'El informe del Dr. Ortega quedó confuso. Repasa la estructura del informe e inténtalo de nuevo.',
-        mid: 'El Dr. Ortega presentó avances, pero debe mejorar la claridad del informe.',
-        high: 'El Dr. Ortega entregó un buen informe y recibió felicitaciones por su trabajo.',
-        perfect: 'El Dr. Ortega presentó un informe excelente y fue reconocido por la calidad de sus resultados.'
-      }
-    },
-    'actividad_3_2': {
-      title: 'Caso de investigación: procesar los datos',
-      subtitle: 'La Dra. Serrano tiene información recolectada y necesita organizarla antes del análisis estadístico.',
-      avatar: '🧮',
-      caseName: 'Datos de la Dra. Serrano',
-      mission: 'Ayuda a la Dra. Serrano a distinguir recopilación, procesamiento y organización de datos.',
-      victory: 'Responde correctamente para que los datos queden listos para un análisis confiable.',
-      strategy: 'Recuerda depuración, codificación, tabulación y análisis estadístico de datos.',
-      feedback: {
-        low: 'Los datos de la Dra. Serrano quedaron desordenados. Repasa procesamiento de datos e inténtalo de nuevo.',
-        mid: 'La Dra. Serrano organizó parte de la información, pero debe reforzar el procesamiento.',
-        high: 'La Dra. Serrano procesó bien los datos y pudo continuar con su análisis.',
-        perfect: 'La Dra. Serrano preparó una base de datos excelente y su análisis avanzó sin problemas.'
-      }
-    },
-    'actividad_3_3': {
-      title: 'Caso de investigación: interpretar la estadística',
-      subtitle: 'El Dr. Paredes necesita convertir tablas, frecuencias y gráficos en información útil para su estudio.',
-      avatar: '📈',
-      caseName: 'Análisis del Dr. Paredes',
-      mission: 'Ayuda al Dr. Paredes a interpretar frecuencias, porcentajes, gráficos y tablas de contingencia.',
-      victory: 'Responde correctamente para que los resultados estadísticos se comuniquen con precisión.',
-      strategy: 'Recuerda frecuencias, porcentajes, proporciones, tasas, tablas y gráficos.',
-      feedback: {
-        low: 'El Dr. Paredes interpretó mal los datos. Repasa estadística descriptiva e inténtalo de nuevo.',
-        mid: 'El Dr. Paredes obtuvo parte del análisis, pero debe reforzar la interpretación.',
-        high: 'El Dr. Paredes interpretó bien los resultados y recibió buenos comentarios.',
-        perfect: 'El Dr. Paredes presentó un análisis estadístico excelente y fue reconocido por su claridad.'
-      }
-    },
-    'actividad_3_4': {
-      title: 'Caso de investigación: defender conclusiones',
-      subtitle: 'La Dra. Torres debe discutir sus resultados y formular conclusiones bien fundamentadas.',
-      avatar: '🎓',
-      caseName: 'Conclusiones de la Dra. Torres',
-      mission: 'Ayuda a la Dra. Torres a interpretar resultados, discutir hallazgos y formular conclusiones.',
-      victory: 'Responde correctamente para que sus conclusiones sean claras, prudentes y defendibles.',
-      strategy: 'Recuerda cómo contrastar resultados con el marco teórico y formular conclusiones fundamentadas.',
-      feedback: {
-        low: 'Las conclusiones de la Dra. Torres quedaron poco sustentadas. Repasa interpretación y discusión e inténtalo de nuevo.',
-        mid: 'La Dra. Torres planteó conclusiones útiles, pero debe fortalecer la discusión.',
-        high: 'La Dra. Torres defendió bien sus resultados y recibió felicitaciones.',
-        perfect: 'La Dra. Torres presentó conclusiones excelentes y recibió reconocimiento por su investigación.'
-      }
-    }
-  };
-
-  function getActivityKey() {
-    const file = window.location.pathname.split('/').pop() || '';
-    return file.replace('.html', '');
-  }
-
-  function getCurrentStory() {
-    return activityStories[getActivityKey()] ?? activityStories.actividad_1_1;
-  }
-
-  function applyActivityStory() {
-    const story = getCurrentStory();
-    const headerTitle = document.querySelector('.header h1');
-    const subtitle = document.querySelector('.header .subtitle');
-    const instructionsTitle = document.querySelector('.instructions h2');
-    const instructionsList = document.querySelector('.instructions ul');
-    const instructionsText = document.querySelector('.instructions p');
-    const avatar = document.getElementById('caseAvatar');
-    const caseName = document.querySelector('.case-name');
-    const evaluateBtn = document.getElementById('evaluateBtn');
-
-    if (headerTitle) headerTitle.textContent = story.title;
-    if (subtitle) subtitle.textContent = story.headerSubtitle || story.subtitle;
-    if (instructionsTitle) instructionsTitle.innerHTML = '<i class="fas fa-list-check"></i> Indicaciones de la actividad';
-    if (instructionsText) {
-      instructionsText.textContent = 'Lee cuidadosamente cada pregunta y responde según el tipo de ejercicio indicado. En esta actividad encontrarás preguntas de opción múltiple, completar oraciones, verdadero o falso y ordenar palabras. Selecciona la respuesta correcta o acomoda los elementos según corresponda. Antes de avanzar, revisa que tu respuesta tenga sentido con el tema visto en la unidad.';
-    }
-    if (instructionsList) {
-      instructionsList.innerHTML = `
-        <li><strong>Opción múltiple:</strong> elige una sola respuesta correcta.</li>
-        <li><strong>Completar oración:</strong> selecciona las palabras que completan correctamente el enunciado.</li>
-        <li><strong>Verdadero o falso:</strong> indica si la afirmación es correcta o incorrecta.</li>
-        <li><strong>Ordenar oración:</strong> acomoda las palabras para formar una oración coherente.</li>
-      `;
-    }
-    if (avatar) avatar.innerHTML = '<i class="fas fa-clipboard-list"></i>';
-    if (caseName) caseName.textContent = 'Preguntas de evaluación';
-    if (evaluateBtn) evaluateBtn.innerHTML = '<i class="fas fa-check-circle"></i> Evaluar respuestas';
-  }
-
-  async function initGame() {
-    const container = document.getElementById('questionsContainer');
-    const startActivityBtn = document.getElementById('startActivityBtn');
-    questionsReady = false;
-    if (startActivityBtn) {
-      startActivityBtn.disabled = true;
-      startActivityBtn.setAttribute('aria-busy', 'true');
-    }
-
-    try {
-      // Archivo JSON para las ponderaciones 
-      try {
-        const ponderacionesResponse = await fetch('../RECURSOS/data/ponderaciones.json');
-        if (ponderacionesResponse.ok) {
-          feedbackRules = await ponderacionesResponse.json();
-        }
-      } catch (_) {
-        feedbackRules = [];
-      }
-      // Archivo JSON para las preguntas de la unidad 2.1
-      const questionFile = document.body.dataset.questionFile;
-      if (!questionFile) {
-        throw new Error('No se definió data-question-file en la página de actividad.');
-      }
-      const response = await fetch(questionFile);
-      if (!response.ok) {
-        throw new Error(`No se pudo cargar ${questionFile} (HTTP ${response.status})`);
-      }
-      const allQuestionsRaw = await response.json();
-
-      if (!Array.isArray(allQuestionsRaw) || allQuestionsRaw.length === 0) {
-        throw new Error('El JSON no contiene un arreglo de preguntas.');
-      }
-      
-      shuffleArray(allQuestionsRaw);
-      questions = allQuestionsRaw.slice(0, defaultQuestionCount).map((q, idx) => {
-        const questionText = q.pregunta ?? q.question;
-        const optionsOrig = q.opciones ?? q.options;
-        const answerOrig  = q.respuesta_correcta ?? q.answer;
-
-        if (!questionText || !Array.isArray(optionsOrig) || !answerOrig) {
-          throw new Error(`Pregunta ${idx + 1} con formato inválido (faltan campos).`);
-        }
-
-        const optionsShuffled = shuffleArray([...optionsOrig]);
-        let correctIndex = optionsShuffled.indexOf(answerOrig);
-
-        if (correctIndex === -1) {
-          const norm = s => String(s).trim();
-          const normAnswer = norm(answerOrig);
-          correctIndex = optionsShuffled.findIndex(o => norm(o) === normAnswer);
-        }
-
-        if (correctIndex === -1) {
-          throw new Error(
-            `La respuesta no coincide con ninguna opción en la pregunta: "${questionText.substring(0, 50)}..."`
-          );
-        }
-
-        return {
-          question: questionText,
-          options: optionsShuffled,
-          correct: correctIndex
-        };
-      });
-
-      timeLimit = getActivityTimeLimit(questions.length);
-      timeRemaining = timeLimit;
-      const totalQuestionsValue = document.getElementById('totalQuestionsValue');
-      const timeAvailableValue = document.getElementById('timeAvailableValue');
-      const evaluationStatus = document.getElementById('evaluationStatus');
-      if (totalQuestionsValue) totalQuestionsValue.textContent = questions.length;
-      if (timeAvailableValue) timeAvailableValue.textContent = formatTime(timeLimit).replace(':00', ' min');
-      if (evaluationStatus) evaluationStatus.textContent = 'Sin iniciar';
-
-      container.innerHTML = '';
-      questions.forEach((q, index) => {
-        const questionDiv = document.createElement('div');
-        questionDiv.className = 'question';
-        questionDiv.innerHTML = `
-          <div class="question-number">Pregunta ${index + 1}</div>
-          <div class="question-text">${q.question}</div>
-          <div class="options">
-            ${q.options.map((option, optIndex) => `
-              <div class="option" role="button" tabindex="0" data-question-index="${index}" data-option-index="${optIndex}" id="q${index}opt${optIndex}">
-                <div class="option-letter">${String.fromCharCode(97 + optIndex)})</div>
-                <div class="option-text">${option}</div>
-              </div>
-            `).join('')}
-          </div>
-        `;
-        container.appendChild(questionDiv);
-      });
-
-      time = completed = correctCount = 0;
-      gameOver = false;
-      activityStarted = false;
-      selectedAnswers = {};
-      document.getElementById('evaluateBtn').disabled = false;
-      document.getElementById('gameStatus').style.display = 'none';
-      document.body.style.animation = 'none';
-      setEvaluationVisibility(false);
-      questionsReady = true;
-      if (startActivityBtn) {
-        startActivityBtn.disabled = false;
-        startActivityBtn.removeAttribute('aria-busy');
-      }
-      updateUI();
-      clearInterval(timerInterval);
-
-    } catch (err) {
-      console.error(err);
-      container.innerHTML = `
-        <div class="question">
-          ⚠️ <strong>Error al cargar preguntas:</strong><br>${err.message}
-        </div>`;
-    }
-  }
-
   function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+    for (let index = array.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [array[index], array[randomIndex]] = [array[randomIndex], array[index]];
     }
     return array;
-  }
-
-  function setEvaluationVisibility(isVisible) {
-    document.getElementById('questionsSection')?.classList.toggle('is-hidden', !isVisible);
-    document.getElementById('activityControls')?.classList.toggle('is-hidden', !isVisible);
-    document.getElementById('floatingTimer')?.classList.toggle('is-hidden', !isVisible);
-    document.getElementById('startActivityBtn')?.classList.toggle('is-hidden', isVisible);
-  }
-
-  function startActivity() {
-    if (activityStarted || gameOver) return;
-    activityStarted = true;
-    time = 0;
-    timeRemaining = timeLimit;
-    const evaluationStatus = document.getElementById('evaluationStatus');
-    if (evaluationStatus) evaluationStatus.textContent = 'En progreso';
-    setEvaluationVisibility(true);
-    updateTimerDisplay();
-    startTimer();
-    document.getElementById('questionsSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function startTimer() {
     clearInterval(timerInterval);
     updateTimerDisplay();
-    timerInterval = setInterval(() => {
-      time++;
+    timerInterval = window.setInterval(() => {
+      time += 1;
       timeRemaining = Math.max(0, timeLimit - time);
       updateTimerDisplay();
       if (timeRemaining <= 0) {
@@ -401,123 +67,41 @@ let time = 0;
     if (floatingTimerValue) floatingTimerValue.textContent = formatTime(timeRemaining);
   }
 
-  function updateProgress() {
-    completed = Object.keys(selectedAnswers).length;
-    const evaluationStatus = document.getElementById('evaluationStatus');
-    if (evaluationStatus && activityStarted && !gameOver) evaluationStatus.textContent = 'En progreso';
-  }
-
-  function updateUI() {
-    const totalQuestions = questions.length > 0 ? questions.length : defaultQuestionCount;
-    const totalQuestionsValue = document.getElementById('totalQuestionsValue');
-    if (totalQuestionsValue) totalQuestionsValue.textContent = totalQuestions;
-    updateTimerDisplay();
-  }
-
-  function selectOption(qIndex, oIndex) {
-    if (gameOver || !activityStarted) return;
-    for (let i = 0; i < questions[qIndex].options.length; i++) {
-      document.getElementById(`q${qIndex}opt${i}`).classList.remove('selected');
-    }
-    document.getElementById(`q${qIndex}opt${oIndex}`).classList.add('selected');
-    selectedAnswers[qIndex] = oIndex;
-    updateProgress();
-  }
-
-  function evaluateActivity(force = false) {
-    force = force === true;
-    if (gameOver || !activityStarted) return;
-    if (!force && completed < questions.length) {
-      return showGameStatus("⚠️ ¡Selecciona una opción para todas las preguntas antes de evaluar la actividad!", "continue", true);
-    }
-    let correct = 0;
-
-    questions.forEach((q, i) => {
-      const userAns = selectedAnswers[i];
-      const correctAns = q.correct;
-
-      for (let j = 0; j < q.options.length; j++) {
-        const optEl = document.getElementById(`q${i}opt${j}`);
-        optEl.classList.remove('selected', 'correct', 'incorrect');
-        if (j === userAns) {
-          optEl.classList.add(userAns === correctAns ? 'correct' : 'incorrect');
-        }
-      }
-      if (userAns === correctAns) correct++;
-    });
-
-    correctCount = correct;
-    const score = calculateScore(correct, questions.length);
-    const grade = calculateGrade(correct);
-    gameOver = true;
-    const evaluationStatus = document.getElementById('evaluationStatus');
-    if (evaluationStatus) evaluationStatus.textContent = 'Enviado';
-    updateUI();
-    checkGameEnd(correct, grade, score, force);
-  }
-
   function calculateScore(correct, total) {
-    if (total <= 0) return 0;
-    return Math.round((correct / total) * 100) / 10;
+    return total > 0 ? Math.round((correct / total) * 100) / 10 : 0;
   }
 
   function calculateGrade(correct) {
-    return correct * 0.5;
+    return questions.length > 0 ? Math.round((correct / questions.length) * 100) / 10 : 0;
   }
 
   function formatGrade(grade) {
     return Number.isInteger(grade) ? String(grade) : grade.toFixed(1);
   }
 
-function getFeedback(correct) {
-  // Buscamos la regla exacta donde la propiedad "aciertos" coincida con la variable "correct"
-  const rule = feedbackRules.find(r => r.aciertos === correct);
-  
-  return rule || {
-    type: 'victory',
-    icon: 'fas fa-trophy',
-    text: '¡Actividad finalizada! (Regla no encontrada)'
-  };
-}
-
-  function checkGameEnd(correct, grade, score, timeExpired = false) {
-    const btn = document.getElementById('evaluateBtn');
-    const feedback = getFeedback(correct);
-    clearInterval(timerInterval);
-
-    showGameStatus(
-      `<div class="quiz-result ${feedback.type}">
-        <div class="grade-value">${formatGrade(grade)}</div>
-        <div class="score-value"> Aciertos: ${correct} de ${questions.length} </div>
-        <div class="quiz-message">${timeExpired ? 'El tiempo se agotó. ' : ''}${feedback.text}</div>
-      </div>`,
-      feedback.type
-    );
-    btn.disabled = true;
-    document.body.style.animation = score >= 8 ? 'victoryGlow 2s infinite' : score <= 5 ? 'defeatPulse 1s infinite' : 'none';
+  function getFeedback(correct) {
+    return feedbackRules.find(rule => rule.aciertos === correct) || {
+      type: 'victory',
+      icon: 'fas fa-trophy',
+      text: '¡Actividad finalizada!'
+    };
   }
 
-  function resetActivity() {
-    clearInterval(timerInterval);
-    initGame();
-  }
-
-  function showGameStatus(msg, type, autoHide = false) {
-    const div = document.getElementById('gameStatus');
-    div.innerHTML = msg;
-    div.className = `game-status ${type}`;
-    div.style.display = 'block';
-    if (autoHide) setTimeout(() => div.style.display = 'none', 4000);
+  function showGameStatus(message, type) {
+    const status = document.getElementById('gameStatus');
+    if (!status) return;
+    status.innerHTML = message;
+    status.className = `game-status ${type}`;
+    status.style.display = 'block';
   }
 
   let activityFeedbackState = {};
   let activityDragState = null;
-  let activityAttempt = 0;
   let unansweredModalResolve = null;
   let unansweredModalPreviousFocus = null;
 
   function getLastGradeStorageKey() {
-    return `${getActivityKey()}:last-grade`;
+    return document.body.dataset.storageKey || `${document.body.dataset.activityId || 'actividad'}_ultima_calificacion`;
   }
 
   function updateLastGradeDisplay() {
@@ -561,8 +145,13 @@ function getFeedback(correct) {
   }
 
   function normalizeActivityQuestion(rawQuestion, index) {
-    const type = rawQuestion.type || 'opcion_multiple';
-    const id = rawQuestion.id ?? `pregunta-${index + 1}`;
+    const type = rawQuestion.type;
+    const id = rawQuestion.id;
+
+    if (!supportedQuestionTypes.has(type) || (typeof id !== 'string' && typeof id !== 'number')) {
+      throw new Error(`Pregunta ${index + 1} pendiente de migrar al esquema definitivo.`);
+    }
+
     const base = { id, type };
 
     if (type === 'verdadero_falso') {
@@ -789,7 +378,6 @@ function getFeedback(correct) {
   }
 
   function renderOrderingQuestion(question) {
-    const key = getQuestionKey(question);
     const order = getOrderAnswer(question);
     const usedSegments = new Set(order);
     const availableSegments = question.segments
@@ -800,7 +388,7 @@ function getFeedback(correct) {
 
     return `
       <div class="ordering-board" data-order-question="${escapeHtml(question.id)}">
-        <div class="ordering-placed${feedbackClass}" data-order-dropzone data-question-id="${escapeHtml(question.id)}" role="list" aria-label="Segmentos colocados">
+        <div class="ordering-placed${order.length ? '' : ' is-ordering-empty'}${feedbackClass}" data-order-dropzone data-question-id="${escapeHtml(question.id)}" role="list" aria-label="Segmentos colocados">
           ${order.length ? order.map((segmentIndex, placedIndex) => `
             <button type="button" class="ordering-segment placed" data-action="remove-segment" data-question-id="${escapeHtml(question.id)}" data-segment-index="${segmentIndex}" data-placed-index="${placedIndex}" draggable="${!gameOver}" aria-label="Quitar segmento: ${escapeHtml(question.segments[segmentIndex])}"${disabled}>
               ${escapeHtml(question.segments[segmentIndex])}
@@ -820,6 +408,13 @@ function getFeedback(correct) {
   }
 
   function renderActivityQuestion(question, index) {
+    const typePresentation = {
+      opcion_multiple: { icon: 'fa-list-ul', label: 'Opción múltiple' },
+      completar_oracion: { icon: 'fa-pen-to-square', label: 'Completar oración' },
+      verdadero_falso: { icon: 'fa-circle-check', label: 'Verdadero o falso' },
+      ordenar_oracion: { icon: 'fa-arrow-down-wide-short', label: 'Ordenar oración' }
+    };
+    const presentation = typePresentation[question.type];
     const prompt = question.type === 'verdadero_falso' ? question.statement : question.question;
     let interaction = '';
 
@@ -835,7 +430,12 @@ function getFeedback(correct) {
 
     return `
       <div class="question" data-question-id="${escapeHtml(question.id)}" data-question-type="${escapeHtml(question.type)}">
-        <div class="question-number">Pregunta ${index + 1}</div>
+        <div class="question-number" aria-label="${escapeHtml(presentation.label)}, pregunta ${index + 1}">
+          <span class="instruction-type-icon question-type-icon" aria-hidden="true">
+            <i class="fas ${presentation.icon}"></i>
+          </span>
+          <span>Pregunta ${index + 1}</span>
+        </div>
         ${question.type !== 'completar_oracion' && question.type !== 'ordenar_oracion' ? `<div class="question-text">${escapeHtml(prompt)}</div>` : ''}
         ${interaction}
       </div>
@@ -881,8 +481,13 @@ function getFeedback(correct) {
         throw new Error('El JSON no contiene un arreglo de preguntas.');
       }
 
-      const selectedRawQuestions = shuffleArray([...allQuestionsRaw]).slice(0, defaultQuestionCount);
-      questions = selectedRawQuestions.map(normalizeActivityQuestion);
+      if (allQuestionsRaw.length < defaultQuestionCount) {
+        throw new Error(`El banco requiere al menos ${defaultQuestionCount} preguntas con el esquema definitivo.`);
+      }
+
+      const normalizedQuestions = allQuestionsRaw.map(normalizeActivityQuestion);
+      const selectedRawQuestions = shuffleArray([...normalizedQuestions]).slice(0, defaultQuestionCount);
+      questions = selectedRawQuestions;
 
       selectedAnswers = {};
       activityFeedbackState = {};
@@ -900,13 +505,11 @@ function getFeedback(correct) {
 
       const totalQuestionsValue = document.getElementById('totalQuestionsValue');
       const timeAvailableValue = document.getElementById('timeAvailableValue');
-      const evaluationStatus = document.getElementById('evaluationStatus');
       const evaluateBtn = document.getElementById('evaluateBtn');
       const gameStatus = document.getElementById('gameStatus');
 
       if (totalQuestionsValue) totalQuestionsValue.textContent = questions.length;
       if (timeAvailableValue) timeAvailableValue.textContent = formatDurationLabel(timeLimit);
-      if (evaluationStatus) evaluationStatus.textContent = 'Sin iniciar';
       updateLastGradeDisplay();
       setTopActionButton('auto');
       if (evaluateBtn) evaluateBtn.disabled = false;
@@ -921,16 +524,34 @@ function getFeedback(correct) {
       }
       updateUI();
       return true;
-    } catch (err) {
-      console.error(err);
+    } catch (_) {
+      clearInterval(timerInterval);
+      questions = [];
+      selectedAnswers = {};
+      activityStarted = false;
+      questionsReady = false;
+      timeRemaining = 0;
+
       if (container) {
         container.innerHTML = `
-          <div class="question">
-            ⚠️ <strong>Error al cargar preguntas:</strong><br>${escapeHtml(err.message)}
+          <div class="activity-pending" role="status">
+            <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+            <div>
+              <strong>Contenido pendiente de integración</strong>
+              <p>El banco de preguntas de esta actividad todavía no utiliza el esquema definitivo.</p>
+            </div>
           </div>`;
       }
-      if (startActivityBtn) startActivityBtn.removeAttribute('aria-busy');
-      showGameStatus(`No se pudo preparar la actividad: ${escapeHtml(err.message)}`, 'continue');
+
+      document.getElementById('questionsSection')?.classList.remove('is-hidden');
+      document.getElementById('activityControls')?.classList.add('is-hidden');
+      document.getElementById('floatingTimer')?.classList.add('is-hidden');
+      document.querySelector('.evaluation-overview')?.classList.add('is-unavailable');
+      if (startActivityBtn) {
+        startActivityBtn.disabled = true;
+        startActivityBtn.removeAttribute('aria-busy');
+      }
+      document.getElementById('resetActivityBtn')?.classList.add('is-hidden');
       return false;
     }
   }
@@ -938,7 +559,6 @@ function getFeedback(correct) {
   function setEvaluationVisibility(isVisible) {
     const questionsSection = document.getElementById('questionsSection');
     const activityControls = document.getElementById('activityControls');
-    const retryControls = document.getElementById('retryControls');
     const floatingTimer = document.getElementById('floatingTimer');
     const startActivityBtn = document.getElementById('startActivityBtn');
     const evaluateBtn = document.getElementById('evaluateBtn');
@@ -946,10 +566,10 @@ function getFeedback(correct) {
 
     questionsSection?.classList.toggle('is-hidden', !isVisible);
     activityControls?.classList.toggle('is-hidden', !isVisible);
-    retryControls?.classList.add('is-hidden');
     floatingTimer?.classList.toggle('is-hidden', !isVisible);
-    evaluationOverview?.classList.remove('activity-results-heading');
-    evaluationOverview?.classList.toggle('is-hidden', isVisible);
+    evaluationOverview?.classList.remove('activity-results-heading', 'is-unavailable');
+    evaluationOverview?.classList.toggle('activity-questions-heading', isVisible);
+    evaluationOverview?.classList.remove('is-hidden');
     if (isVisible) {
       startActivityBtn?.classList.add('is-hidden');
       document.getElementById('resetActivityBtn')?.classList.add('is-hidden');
@@ -967,13 +587,10 @@ function getFeedback(correct) {
     }
 
     activityStarted = true;
-    activityAttempt++;
     gameOver = false;
     activityFeedbackState = {};
     time = 0;
     timeRemaining = timeLimit;
-    const evaluationStatus = document.getElementById('evaluationStatus');
-    if (evaluationStatus) evaluationStatus.textContent = 'En progreso';
     const gameStatus = document.getElementById('gameStatus');
     if (gameStatus) gameStatus.style.display = 'none';
     document.querySelector('.evaluation-overview')?.classList.remove('activity-results-heading');
@@ -987,8 +604,6 @@ function getFeedback(correct) {
 
   function updateProgress() {
     completed = getAnsweredQuestionsCount();
-    const evaluationStatus = document.getElementById('evaluationStatus');
-    if (evaluationStatus && activityStarted && !gameOver) evaluationStatus.textContent = 'En progreso';
   }
 
   function updateUI() {
@@ -1270,9 +885,6 @@ function getFeedback(correct) {
     const grade = calculateGrade(correctCount);
     gameOver = true;
     activityStarted = false;
-    const evaluationStatus = document.getElementById('evaluationStatus');
-    if (evaluationStatus) evaluationStatus.textContent = force ? 'Tiempo agotado' : 'Enviado';
-
     renderActivityQuestions();
     updateUI();
     checkGameEnd(correctCount, grade, score, force);
@@ -1294,7 +906,6 @@ function getFeedback(correct) {
     );
 
     document.getElementById('activityControls')?.classList.add('is-hidden');
-    document.getElementById('retryControls')?.classList.remove('is-hidden');
     document.getElementById('floatingTimer')?.classList.add('is-hidden');
     const evaluationOverview = document.querySelector('.evaluation-overview');
     evaluationOverview?.classList.remove('is-hidden', 'activity-questions-heading');
@@ -1344,12 +955,13 @@ function getFeedback(correct) {
       updateContainerSpacing();
   }
 
-  menuToggle.addEventListener('click', toggleSidebar);
-  sidebarOverlay.addEventListener('click', toggleSidebar);
+  menuToggle?.addEventListener('click', toggleSidebar);
+  sidebarOverlay?.addEventListener('click', toggleSidebar);
 
   function updateContainerSpacing() {
     const container = document.querySelector('.container');
     if (window.innerWidth <= 768) {
+      if (!container) return;
       container.style.marginLeft = 'auto';
       container.style.marginRight = 'auto';
       container.style.padding = '10px';
@@ -1364,7 +976,8 @@ function getFeedback(correct) {
     const scroll = document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const percent = Math.min((scroll / height) * 100, 100);
-    document.getElementById('readingProgressBar').style.width = `${percent}%`;
+    const progressBar = document.getElementById('readingProgressBar');
+    if (progressBar) progressBar.style.width = `${percent}%`;
   }
 
   const scrollToTopBtn = document.getElementById('scrollToTop');
@@ -1376,7 +989,7 @@ function getFeedback(correct) {
           scrollToTopBtn.classList.remove('visible');
       }
   });
-  scrollToTopBtn.addEventListener('click', () => {
+  scrollToTopBtn?.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
@@ -1386,26 +999,12 @@ function getFeedback(correct) {
   });
 
   document.addEventListener('DOMContentLoaded', () => {
-      applyActivityStory();
       initGame();
       document.getElementById('startActivityBtn')?.addEventListener('click', startActivity);
       document.getElementById('evaluateBtn')?.addEventListener('click', () => evaluateActivity(false));
       document.getElementById('resetActivityBtn')?.addEventListener('click', resetActivity);
-      document.getElementById('resetActivityBottomBtn')?.addEventListener('click', resetActivity);
       document.getElementById('continueAnsweringBtn')?.addEventListener('click', () => closeUnansweredModal(false));
       document.getElementById('confirmEvaluateBtn')?.addEventListener('click', () => closeUnansweredModal(true));
-      document.getElementById('questionsContainer')?.addEventListener('click', (event) => {
-          const option = event.target.closest('.option[data-question-index][data-option-index]');
-          if (!option) return;
-          selectOption(Number(option.dataset.questionIndex), Number(option.dataset.optionIndex));
-      });
-      document.getElementById('questionsContainer')?.addEventListener('keydown', (event) => {
-          if (event.key !== 'Enter' && event.key !== ' ') return;
-          const option = event.target.closest('.option[data-question-index][data-option-index]');
-          if (!option) return;
-          event.preventDefault();
-          selectOption(Number(option.dataset.questionIndex), Number(option.dataset.optionIndex));
-      });
       document.getElementById('questionsContainer')?.addEventListener('click', handleActivityClick);
       document.getElementById('questionsContainer')?.addEventListener('keydown', handleActivityKeydown);
       document.getElementById('questionsContainer')?.addEventListener('dragstart', handleActivityDragStart);
@@ -1415,3 +1014,4 @@ function getFeedback(correct) {
       document.getElementById('questionsContainer')?.addEventListener('dragend', handleActivityDragEnd);
       updateContainerSpacing();
   });
+})();

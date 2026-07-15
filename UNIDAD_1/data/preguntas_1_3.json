@@ -1,227 +1,352 @@
 [
   {
-    "question": "La investigación científica puede clasificarse según:",
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es la finalidad principal de la investigación básica o pura?",
     "options": [
-      "Su finalidad, enfoque, alcance, diseño y fuente de datos.",
-      "Únicamente el tipo de hipótesis.",
-      "El número de investigadores participantes."
+      "Evaluar únicamente intervenciones clínicas.",
+      "Crear nuevos conocimientos y profundizar en los fenómenos naturales.",
+      "Resolver de forma inmediata un problema concreto."
     ],
-    "answer": "Su finalidad, enfoque, alcance, diseño y fuente de datos."
+    "answer": "Crear nuevos conocimientos y profundizar en los fenómenos naturales."
   },
   {
-    "question": "La investigación básica tiene como propósito principal:",
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Qué distingue principalmente a la investigación aplicada?",
     "options": [
-      "Generar conocimiento nuevo y ampliar la comprensión de los fenómenos naturales sin buscar una aplicación práctica inmediata.",
-      "Resolver problemas concretos con aplicación inmediata.",
-      "Evaluar intervenciones clínicas en hospitales."
+      "Utiliza conocimiento científico para resolver problemas concretos.",
+      "Estudia fenómenos sin considerar su aplicación práctica.",
+      "Se limita a describir acontecimientos pasados."
     ],
-    "answer": "Generar conocimiento nuevo y ampliar la comprensión de los fenómenos naturales sin buscar una aplicación práctica inmediata."
+    "answer": "Utiliza conocimiento científico para resolver problemas concretos."
   },
   {
-    "question": "La investigación aplicada se orienta a:",
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿Qué busca explicar el enfoque mixto además de cuánto ocurre un fenómeno?",
     "options": [
-      "Utilizar el conocimiento científico existente para resolver problemas concretos y mejorar situaciones reales.",
-      "Desarrollar teorías sin intención práctica.",
-      "Describir fenómenos sin intervención."
+      "Dónde se publicaron los resultados.",
+      "Qué instrumentos fueron estandarizados.",
+      "Por qué y cómo sucede el fenómeno."
     ],
-    "answer": "Utilizar el conocimiento científico existente para resolver problemas concretos y mejorar situaciones reales."
+    "answer": "Por qué y cómo sucede el fenómeno."
   },
   {
-    "question": "El enfoque cuantitativo se caracteriza por:",
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿Qué ocurre en una investigación cuasi experimental?",
     "options": [
-      "La medición objetiva de fenómenos mediante datos numéricos y análisis estadístico.",
-      "La interpretación exclusiva de experiencias subjetivas.",
-      "La ausencia de instrumentos estructurados."
+      "Se manipulan variables sin observar sus efectos.",
+      "Se introduce una intervención cuando no es posible asignar aleatoriamente a los participantes.",
+      "Se estudian exclusivamente hechos que ya ocurrieron."
     ],
-    "answer": "La medición objetiva de fenómenos mediante datos numéricos y análisis estadístico."
+    "answer": "Se introduce una intervención cuando no es posible asignar aleatoriamente a los participantes."
   },
   {
-    "question": "El enfoque cuantitativo permite:",
+    "id": 5,
+    "type": "opcion_multiple",
+    "question": "¿Qué preguntas orientan principalmente a la investigación descriptiva?",
     "options": [
-      "Comprobar hipótesis e identificar relaciones entre variables con resultados generalizables.",
-      "Evitar el uso de muestras representativas.",
-      "Eliminar el análisis estadístico."
+      "Qué, cómo, cuándo y dónde.",
+      "Por qué, para qué y con quién.",
+      "Cuánto cuesta y quién interviene."
     ],
-    "answer": "Comprobar hipótesis e identificar relaciones entre variables con resultados generalizables."
+    "answer": "Qué, cómo, cuándo y dónde."
   },
   {
-    "question": "El enfoque mixto integra:",
+    "id": 6,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es una característica de la investigación transversal?",
     "options": [
-      "Métodos cuantitativos y cualitativos para obtener una comprensión más completa de los fenómenos.",
-      "Únicamente análisis estadístico avanzado.",
-      "Solo entrevistas abiertas sin medición."
+      "Realiza seguimiento permanente a los participantes.",
+      "Compara exclusivamente personas enfermas y saludables.",
+      "Observa un fenómeno en un punto específico del tiempo."
     ],
-    "answer": "Métodos cuantitativos y cualitativos para obtener una comprensión más completa de los fenómenos."
+    "answer": "Observa un fenómeno en un punto específico del tiempo."
   },
   {
-    "question": "La investigación experimental se caracteriza por:",
+    "id": 7,
+    "type": "opcion_multiple",
+    "question": "¿Qué permite identificar la investigación correlacional?",
     "options": [
-      "La manipulación deliberada de variables independientes para observar su efecto en una variable dependiente.",
-      "La observación sin intervención alguna.",
-      "La recopilación de datos históricos exclusivamente."
+      "La eficacia causal de una intervención clínica.",
+      "La dirección en que cambian conjuntamente distintas variables.",
+      "La evolución individual de cada participante durante toda su vida."
     ],
-    "answer": "La manipulación deliberada de variables independientes para observar su efecto en una variable dependiente."
+    "answer": "La dirección en que cambian conjuntamente distintas variables."
   },
   {
-    "question": "La investigación experimental permite establecer:",
-    "options": [
-      "Relaciones de causa y efecto.",
-      "Únicamente asociaciones descriptivas.",
-      "Relaciones sin control de variables."
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "Los tipos de investigación se clasifican según su _____, alcance, diseño y fuente de _____.",
+    "wordBank": [
+      "enfoque",
+      "datos",
+      "tratamiento",
+      "intervención"
     ],
-    "answer": "Relaciones de causa y efecto."
+    "answer": [
+      "enfoque",
+      "datos"
+    ]
   },
   {
-    "question": "La investigación cuasi experimental se utiliza cuando:",
-    "options": [
-      "No es posible asignar aleatoriamente a los participantes en los grupos de estudio.",
-      "Se puede controlar completamente todas las variables.",
-      "No existe intervención alguna."
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "La investigación _____ profundiza en los fenómenos naturales, mientras que la investigación _____ busca resolver problemas concretos.",
+    "wordBank": [
+      "básica",
+      "aplicada",
+      "transversal",
+      "retrospectiva"
     ],
-    "answer": "No es posible asignar aleatoriamente a los participantes en los grupos de estudio."
+    "answer": [
+      "básica",
+      "aplicada"
+    ]
   },
   {
-    "question": "La investigación no experimental se caracteriza por:",
-    "options": [
-      "Examinar relaciones sin manipular directamente las variables.",
-      "Asignar grupos de manera aleatoria.",
-      "Realizar únicamente pruebas de laboratorio."
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "El enfoque mixto combina datos _____ y palabras para ofrecer una visión _____.",
+    "wordBank": [
+      "numéricos",
+      "integral",
+      "aleatorios",
+      "descriptiva"
     ],
-    "answer": "Examinar relaciones sin manipular directamente las variables."
+    "answer": [
+      "numéricos",
+      "integral"
+    ]
   },
   {
-    "question": "La investigación descriptiva tiene como propósito:",
-    "options": [
-      "Detallar y caracterizar un fenómeno sin manipular variables.",
-      "Establecer causalidad directa.",
-      "Aplicar intervenciones clínicas."
+    "id": 11,
+    "type": "completar_oracion",
+    "question": "La investigación experimental incluye grupos _____ y de control, además de procedimientos _____.",
+    "wordBank": [
+      "experimentales",
+      "replicables",
+      "retrospectivos",
+      "incompletos"
     ],
-    "answer": "Detallar y caracterizar un fenómeno sin manipular variables."
+    "answer": [
+      "experimentales",
+      "replicables"
+    ]
   },
   {
-    "question": "La investigación transversal recolecta datos:",
-    "options": [
-      "En un solo momento o en un periodo corto.",
-      "Durante décadas obligatoriamente.",
-      "Solo después de aplicar una intervención."
+    "id": 12,
+    "type": "completar_oracion",
+    "question": "La investigación transversal puede utilizar _____, cuestionarios o registros existentes para identificar características y _____.",
+    "wordBank": [
+      "encuestas",
+      "prevalencias",
+      "terapias",
+      "ecosistemas"
     ],
-    "answer": "En un solo momento o en un periodo corto."
+    "answer": [
+      "encuestas",
+      "prevalencias"
+    ]
   },
   {
-    "question": "La investigación correlacional tiene como finalidad:",
-    "options": [
-      "Analizar la relación o grado de asociación entre dos o más variables sin manipularlas.",
-      "Comprobar relaciones causales definitivas.",
-      "Aplicar tratamientos experimentales."
+    "id": 13,
+    "type": "completar_oracion",
+    "question": "La investigación prospectiva sigue a los _____ a lo largo del tiempo y permite establecer secuencias _____ claras.",
+    "wordBank": [
+      "participantes",
+      "temporales",
+      "resultados",
+      "aleatorias"
     ],
-    "answer": "Analizar la relación o grado de asociación entre dos o más variables sin manipularlas."
+    "answer": [
+      "participantes",
+      "temporales"
+    ]
   },
   {
-    "question": "La investigación prospectiva se caracteriza por:",
-    "options": [
-      "Seguir a los participantes hacia el futuro para observar la aparición de eventos.",
-      "Analizar únicamente datos pasados.",
-      "No considerar factores de riesgo."
+    "id": 14,
+    "type": "completar_oracion",
+    "question": "Los estudios de casos y controles comparan personas con una _____ y personas _____.",
+    "wordBank": [
+      "enfermedad",
+      "saludables",
+      "intervención",
+      "expuestas"
     ],
-    "answer": "Seguir a los participantes hacia el futuro para observar la aparición de eventos."
+    "answer": [
+      "enfermedad",
+      "saludables"
+    ]
   },
   {
-    "question": "La investigación retrospectiva analiza:",
-    "options": [
-      "Hechos o eventos que ya ocurrieron utilizando registros previos.",
-      "Eventos futuros exclusivamente.",
-      "Datos simulados en laboratorio."
-    ],
-    "answer": "Hechos o eventos que ya ocurrieron utilizando registros previos."
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "Conocer los tipos de investigación permite seleccionar el método más adecuado para el problema de estudio.",
+    "answer": true
   },
   {
-    "question": "La investigación longitudinal se caracteriza por:",
-    "options": [
-      "Analizar variables a lo largo del tiempo.",
-      "Recolectar datos en un solo momento.",
-      "No realizar seguimiento a los participantes."
-    ],
-    "answer": "Analizar variables a lo largo del tiempo."
+    "id": 16,
+    "type": "verdadero_falso",
+    "statement": "La investigación aplicada excluye el uso del conocimiento científico para solucionar problemas de salud.",
+    "answer": false
   },
   {
-    "question": "La investigación de casos y controles compara:",
-    "options": [
-      "Personas con una enfermedad y personas sin ella para analizar exposiciones previas.",
-      "Dos tratamientos experimentales nuevos.",
-      "Solo datos estadísticos poblacionales."
-    ],
-    "answer": "Personas con una enfermedad y personas sin ella para analizar exposiciones previas."
+    "id": 17,
+    "type": "verdadero_falso",
+    "statement": "El enfoque mixto puede emplear técnicas estadísticas y análisis interpretativo de manera complementaria.",
+    "answer": true
   },
   {
-    "question": "La investigación de cohorte consiste en:",
-    "options": [
-      "Seguir a un grupo de personas según su exposición a un factor de riesgo para observar la aparición de un evento.",
-      "Asignar aleatoriamente tratamientos.",
-      "Analizar únicamente datos históricos."
-    ],
-    "answer": "Seguir a un grupo de personas según su exposición a un factor de riesgo para observar la aparición de un evento."
+    "id": 18,
+    "type": "verdadero_falso",
+    "statement": "En la investigación cuasi experimental siempre se asigna aleatoriamente a los participantes en los grupos.",
+    "answer": false
   },
   {
-    "question": "Los ensayos clínicos son estudios:",
-    "options": [
-      "Experimentales diseñados para evaluar la eficacia y seguridad de intervenciones médicas.",
-      "Observacionales sin intervención.",
-      "Descriptivos sin grupo control."
-    ],
-    "answer": "Experimentales diseñados para evaluar la eficacia y seguridad de intervenciones médicas."
+    "id": 19,
+    "type": "verdadero_falso",
+    "statement": "La investigación transversal observa un fenómeno en un momento determinado sin efectuar seguimiento posterior.",
+    "answer": true
   },
   {
-    "question": "En los ensayos clínicos los participantes se asignan:",
-    "options": [
-      "De manera controlada, generalmente aleatoria, a un grupo experimental y a un grupo control.",
-      "Según preferencia personal.",
-      "Sin criterios establecidos."
-    ],
-    "answer": "De manera controlada, generalmente aleatoria, a un grupo experimental y a un grupo control."
+    "id": 20,
+    "type": "verdadero_falso",
+    "statement": "La investigación correlacional demuestra necesariamente que una variable causa los cambios de otra.",
+    "answer": false
   },
   {
-    "question": "La investigación básica contribuye principalmente a:",
-    "options": [
-      "El desarrollo teórico de la ciencia.",
-      "La aplicación inmediata de tratamientos.",
-      "La evaluación de políticas públicas."
-    ],
-    "answer": "El desarrollo teórico de la ciencia."
+    "id": 21,
+    "type": "verdadero_falso",
+    "statement": "Los ensayos clínicos permiten evaluar la eficacia de vacunas, terapias o tratamientos.",
+    "answer": true
   },
   {
-    "question": "La investigación aplicada en salud puede incluir:",
-    "options": [
-      "El diseño de tratamientos y estrategias de prevención de enfermedades.",
-      "Únicamente estudios celulares sin aplicación.",
-      "Solo análisis descriptivos."
+    "id": 22,
+    "type": "ordenar_oracion",
+    "segments": [
+      "según su enfoque",
+      "Los tipos de investigación",
+      "y fuente de datos.",
+      "alcance, diseño",
+      "se clasifican"
     ],
-    "answer": "El diseño de tratamientos y estrategias de prevención de enfermedades."
+    "answer": [
+      "Los tipos de investigación",
+      "se clasifican",
+      "según su enfoque",
+      "alcance, diseño",
+      "y fuente de datos."
+    ]
   },
   {
-    "question": "La investigación correlacional utiliza técnicas como:",
-    "options": [
-      "El coeficiente de correlación.",
-      "La asignación aleatoria de grupos.",
-      "La manipulación experimental directa."
+    "id": 23,
+    "type": "ordenar_oracion",
+    "segments": [
+      "problemas concretos",
+      "La investigación aplicada",
+      "para resolver",
+      "utiliza conocimiento científico",
+      "en la práctica."
     ],
-    "answer": "El coeficiente de correlación."
+    "answer": [
+      "La investigación aplicada",
+      "utiliza conocimiento científico",
+      "para resolver",
+      "problemas concretos",
+      "en la práctica."
+    ]
   },
   {
-    "question": "La investigación transversal no establece:",
-    "options": [
-      "Relaciones de causalidad.",
-      "Prevalencias en un momento determinado.",
-      "Asociaciones entre variables."
+    "id": 24,
+    "type": "ordenar_oracion",
+    "segments": [
+      "datos numéricos y palabras",
+      "El enfoque mixto",
+      "de un fenómeno.",
+      "para explicar integralmente",
+      "combina"
     ],
-    "answer": "Relaciones de causalidad."
+    "answer": [
+      "El enfoque mixto",
+      "combina",
+      "datos numéricos y palabras",
+      "para explicar integralmente",
+      "de un fenómeno."
+    ]
   },
   {
-    "question": "Los estudios de cohorte permiten:",
-    "options": [
-      "Establecer la secuencia temporal entre exposición y efecto.",
-      "Eliminar la necesidad de seguimiento.",
-      "Evitar la clasificación por exposición."
+    "id": 25,
+    "type": "ordenar_oracion",
+    "segments": [
+      "relaciones de causa y efecto",
+      "La investigación experimental",
+      "en entornos controlados.",
+      "permite estudiar",
+      "mediante diseños estructurados"
     ],
-    "answer": "Establecer la secuencia temporal entre exposición y efecto."
+    "answer": [
+      "La investigación experimental",
+      "permite estudiar",
+      "relaciones de causa y efecto",
+      "mediante diseños estructurados",
+      "en entornos controlados."
+    ]
+  },
+  {
+    "id": 26,
+    "type": "ordenar_oracion",
+    "segments": [
+      "en un punto específico",
+      "La investigación transversal",
+      "sin seguimiento posterior.",
+      "observa un fenómeno",
+      "del tiempo"
+    ],
+    "answer": [
+      "La investigación transversal",
+      "observa un fenómeno",
+      "en un punto específico",
+      "del tiempo",
+      "sin seguimiento posterior."
+    ]
+  },
+  {
+    "id": 27,
+    "type": "ordenar_oracion",
+    "segments": [
+      "a los participantes",
+      "La investigación prospectiva",
+      "la evolución de variables.",
+      "para analizar",
+      "sigue a lo largo del tiempo"
+    ],
+    "answer": [
+      "La investigación prospectiva",
+      "sigue a lo largo del tiempo",
+      "a los participantes",
+      "para analizar",
+      "la evolución de variables."
+    ]
+  },
+  {
+    "id": 28,
+    "type": "ordenar_oracion",
+    "segments": [
+      "dos grupos de personas",
+      "Los estudios de casos y controles",
+      "factores asociados",
+      "para identificar",
+      "comparan"
+    ],
+    "answer": [
+      "Los estudios de casos y controles",
+      "comparan",
+      "dos grupos de personas",
+      "para identificar",
+      "factores asociados"
+    ]
   }
 ]
