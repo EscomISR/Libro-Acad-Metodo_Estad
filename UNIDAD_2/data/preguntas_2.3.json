@@ -1,227 +1,244 @@
 [
   {
-    "question": "¿Qué es la investigación documental?",
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿En qué consiste la investigación documental?",
     "options": [
-      "Un método sistemático de recopilación, análisis e interpretación de información proveniente de fuentes previamente publicadas",
-      "Un procedimiento exclusivo de recolección de datos en campo",
-      "Un tipo de experimento clínico"
+      "En agrupar e interpretar sistemáticamente información de fuentes verídicas.",
+      "En recolectar únicamente información directa de campo.",
+      "En realizar experimentos sin consultar documentos."
     ],
-    "answer": "Un método sistemático de recopilación, análisis e interpretación de información proveniente de fuentes previamente publicadas"
+    "answer": "En agrupar e interpretar sistemáticamente información de fuentes verídicas."
   },
   {
-    "question": "¿En qué tipo de fuentes se basa la investigación documental?",
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Cuál de las siguientes fuentes puede utilizarse en una investigación documental?",
     "options": [
-      "Fuentes escritas, digitales o audiovisuales previamente publicadas",
-      "Entrevistas informales no registradas",
-      "Observación directa en laboratorio"
+      "Observaciones sin registro.",
+      "Artículos científicos.",
+      "Opiniones sin sustento."
     ],
-    "answer": "Fuentes escritas, digitales o audiovisuales previamente publicadas"
+    "answer": "Artículos científicos."
   },
   {
-    "question": "¿Cuál es el propósito de la investigación documental?",
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿Qué permite hacer la investigación documental sin recurrir directamente a información de campo?",
     "options": [
-      "Construir conocimiento a partir de evidencias existentes",
-      "Eliminar la formulación de hipótesis",
-      "Reducir el tamaño de la muestra"
+      "Comprender fenómenos y sustentar científicamente un problema.",
+      "Eliminar la necesidad de utilizar evidencias.",
+      "Comprobar automáticamente todas las hipótesis."
     ],
-    "answer": "Construir conocimiento a partir de evidencias existentes"
+    "answer": "Comprender fenómenos y sustentar científicamente un problema."
   },
   {
-    "question": "¿Qué permite sustentar científicamente la investigación documental?",
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿Qué beneficio aporta la investigación documental respecto a estudios anteriores?",
     "options": [
-      "Un problema de estudio sin recurrir directamente a la recolección de datos en campo",
-      "La aplicación de encuestas masivas",
-      "La modificación del marco teórico"
+      "Evita comparar información.",
+      "Impide formular preguntas de investigación.",
+      "Ayuda a evitar la duplicidad de estudios."
     ],
-    "answer": "Un problema de estudio sin recurrir directamente a la recolección de datos en campo"
+    "answer": "Ayuda a evitar la duplicidad de estudios."
   },
   {
-    "question": "¿Para qué sirve la investigación documental dentro del estudio?",
+    "id": 5,
+    "type": "opcion_multiple",
+    "question": "¿Para qué sirven las referencias bibliográficas?",
     "options": [
-      "Fundamentar el marco teórico e identificar el estado del arte",
-      "Eliminar antecedentes teóricos",
-      "Reducir el análisis estadístico"
+      "Para ocultar el origen de la información.",
+      "Para indicar de dónde se obtuvo la información.",
+      "Para sustituir las evidencias del estudio."
     ],
-    "answer": "Fundamentar el marco teórico e identificar el estado del arte"
+    "answer": "Para indicar de dónde se obtuvo la información."
   },
   {
-    "question": "¿Qué evita la investigación documental?",
-    "options": [
-      "La duplicidad de estudios",
-      "El uso de referencias",
-      "La formulación de preguntas"
+    "id": 6,
+    "type": "completar_oracion",
+    "question": "La investigación documental agrupa e interpreta información proveniente de fuentes _____ y _____.",
+    "wordBank": [
+      "verídicas",
+      "digitales",
+      "personales",
+      "experimentales"
     ],
-    "answer": "La duplicidad de estudios"
+    "answer": [
+      "verídicas",
+      "digitales"
+    ]
   },
   {
-    "question": "¿Qué facilita la comparación de enfoques teóricos?",
-    "options": [
-      "La construcción de argumentos sólidos",
-      "La eliminación de hipótesis",
-      "La reducción del análisis crítico"
+    "id": 7,
+    "type": "completar_oracion",
+    "question": "Los libros especializados y los artículos _____ son documentos _____ para la investigación.",
+    "wordBank": [
+      "científicos",
+      "confiables",
+      "imprecisos",
+      "personales"
     ],
-    "answer": "La construcción de argumentos sólidos"
+    "answer": [
+      "científicos",
+      "confiables"
+    ]
   },
   {
-    "question": "¿En qué ámbito se menciona como ejemplo la aplicación de investigación documental?",
-    "options": [
-      "Ciencias de la salud",
-      "Ingeniería aeroespacial exclusivamente",
-      "Arquitectura urbana"
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "La investigación documental permite establecer antecedentes _____ y sustentar científicamente un _____.",
+    "wordBank": [
+      "teóricos",
+      "problema",
+      "costos",
+      "autor"
     ],
-    "answer": "Ciencias de la salud"
+    "answer": [
+      "teóricos",
+      "problema"
+    ]
   },
   {
-    "question": "¿Qué permite analizar en ciencias de la salud?",
-    "options": [
-      "Guías clínicas, revisiones sistemáticas y evidencia científica",
-      "Entrevistas sin estructura",
-      "Datos sin respaldo teórico"
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "La consulta de fuentes puede ahorrar _____, recursos y _____.",
+    "wordBank": [
+      "tiempo",
+      "costos",
+      "hipótesis",
+      "normativas"
     ],
-    "answer": "Guías clínicas, revisiones sistemáticas y evidencia científica"
+    "answer": [
+      "tiempo",
+      "costos"
+    ]
   },
   {
-    "question": "¿Dónde se realiza principalmente la investigación documental en la actualidad?",
-    "options": [
-      "En bases de datos académicas y plataformas digitales indexadas",
-      "En entrevistas presenciales",
-      "En prácticas de laboratorio"
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "Las referencias deben incluir datos como autor, _____, título y dirección _____.",
+    "wordBank": [
+      "año",
+      "electrónica",
+      "problema",
+      "evidencia"
     ],
-    "answer": "En bases de datos académicas y plataformas digitales indexadas"
+    "answer": [
+      "año",
+      "electrónica"
+    ]
   },
   {
-    "question": "¿Qué permiten las plataformas como PubMed y Scopus?",
-    "options": [
-      "Acceder a literatura científica actualizada y revisada por pares",
-      "Eliminar la necesidad de citar",
-      "Modificar hipótesis automáticamente"
-    ],
-    "answer": "Acceder a literatura científica actualizada y revisada por pares"
+    "id": 11,
+    "type": "verdadero_falso",
+    "statement": "La investigación documental utiliza evidencias existentes para construir conocimiento.",
+    "answer": true
   },
   {
-    "question": "¿Qué facilitan los operadores booleanos?",
-    "options": [
-      "Búsquedas avanzadas mediante palabras clave y filtros",
-      "La redacción automática del informe",
-      "La validación estadística"
-    ],
-    "answer": "Búsquedas avanzadas mediante palabras clave y filtros"
+    "id": 12,
+    "type": "verdadero_falso",
+    "statement": "La investigación documental requiere obtener directamente toda la información mediante trabajo de campo.",
+    "answer": false
   },
   {
-    "question": "¿Qué garantiza el uso de normas de citación?",
-    "options": [
-      "El respeto a la propiedad intelectual",
-      "La eliminación del análisis crítico",
-      "La reducción del número de fuentes"
-    ],
-    "answer": "El respeto a la propiedad intelectual"
+    "id": 13,
+    "type": "verdadero_falso",
+    "statement": "La revisión documental puede apoyar la formulación de hipótesis y preguntas de investigación.",
+    "answer": true
   },
   {
-    "question": "¿Qué son las referencias bibliográficas?",
-    "options": [
-      "El conjunto ordenado de fuentes documentales que respaldan un trabajo científico",
-      "Las conclusiones del estudio",
-      "Los instrumentos de recolección"
-    ],
-    "answer": "El conjunto ordenado de fuentes documentales que respaldan un trabajo científico"
+    "id": 14,
+    "type": "verdadero_falso",
+    "statement": "Las referencias bibliográficas son innecesarias cuando la información tiene carácter científico.",
+    "answer": false
   },
   {
-    "question": "¿Qué incluyen las referencias bibliográficas?",
-    "options": [
-      "Libros, artículos científicos, tesis, documentos oficiales y recursos electrónicos",
-      "Únicamente entrevistas personales",
-      "Solo datos estadísticos"
-    ],
-    "answer": "Libros, artículos científicos, tesis, documentos oficiales y recursos electrónicos"
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "Las citas permiten diferenciar al autor de las ideas o frases utilizadas.",
+    "answer": true
   },
   {
-    "question": "¿Cuál es la función principal de las referencias bibliográficas?",
-    "options": [
-      "Reconocer la autoría intelectual y permitir la verificación de la información",
-      "Reducir el tamaño del documento",
-      "Eliminar hipótesis"
+    "id": 16,
+    "type": "ordenar_oracion",
+    "segments": [
+      "información de fuentes confiables.",
+      "La investigación documental",
+      "agrupa e interpreta",
+      "de manera sistemática"
     ],
-    "answer": "Reconocer la autoría intelectual y permitir la verificación de la información"
+    "answer": [
+      "La investigación documental",
+      "agrupa e interpreta",
+      "de manera sistemática",
+      "información de fuentes confiables."
+    ]
   },
   {
-    "question": "¿Qué demuestran las referencias bibliográficas?",
-    "options": [
-      "El rigor académico del estudio",
-      "La cantidad de participantes",
-      "El número de variables"
+    "id": 17,
+    "type": "ordenar_oracion",
+    "segments": [
+      "con evidencias existentes.",
+      "Los documentos confiables",
+      "conocimiento científico",
+      "permiten construir"
     ],
-    "answer": "El rigor académico del estudio"
+    "answer": [
+      "Los documentos confiables",
+      "permiten construir",
+      "conocimiento científico",
+      "con evidencias existentes."
+    ]
   },
   {
-    "question": "¿Qué ayudan a evitar las referencias bibliográficas?",
-    "options": [
-      "El plagio",
-      "La formulación de preguntas",
-      "La interpretación de resultados"
+    "id": 18,
+    "type": "ordenar_oracion",
+    "segments": [
+      "la duplicidad de estudios.",
+      "El estado del arte",
+      "y ayuda a evitar",
+      "organiza antecedentes"
     ],
-    "answer": "El plagio"
+    "answer": [
+      "El estado del arte",
+      "organiza antecedentes",
+      "y ayuda a evitar",
+      "la duplicidad de estudios."
+    ]
   },
   {
-    "question": "¿Qué permiten las referencias a otros investigadores?",
-    "options": [
-      "Localizar las fuentes originales para profundizar en el tema",
-      "Modificar resultados",
-      "Reducir el marco teórico"
+    "id": 19,
+    "type": "ordenar_oracion",
+    "segments": [
+      "autor, año y título.",
+      "Las referencias bibliográficas",
+      "datos específicos como",
+      "deben incluir"
     ],
-    "answer": "Localizar las fuentes originales para profundizar en el tema"
+    "answer": [
+      "Las referencias bibliográficas",
+      "deben incluir",
+      "datos específicos como",
+      "autor, año y título."
+    ]
   },
   {
-    "question": "¿Qué evidencian las referencias bibliográficas?",
-    "options": [
-      "El estado del conocimiento existente",
-      "La duración del estudio",
-      "La cantidad de encuestas"
+    "id": 20,
+    "type": "ordenar_oracion",
+    "segments": [
+      "el origen de las ideas.",
+      "Las citas correspondientes",
+      "el plagio",
+      "y permiten reconocer",
+      "evitan"
     ],
-    "answer": "El estado del conocimiento existente"
-  },
-  {
-    "question": "¿Qué normas de citación se mencionan?",
-    "options": [
-      "APA, Vancouver o IEEE",
-      "ISO exclusivamente",
-      "MLA únicamente"
-    ],
-    "answer": "APA, Vancouver o IEEE"
-  },
-  {
-    "question": "¿Qué contribuye a mantener el uso adecuado de normas de citación?",
-    "options": [
-      "Uniformidad, claridad y calidad académica",
-      "Reducción de bibliografía",
-      "Eliminación de hipótesis"
-    ],
-    "answer": "Uniformidad, claridad y calidad académica"
-  },
-  {
-    "question": "¿Qué gestores bibliográficos se mencionan?",
-    "options": [
-      "Mendeley y Zotero",
-      "Excel y PowerPoint",
-      "WordPad y Bloc de notas"
-    ],
-    "answer": "Mendeley y Zotero"
-  },
-  {
-    "question": "¿Qué facilitan los gestores bibliográficos?",
-    "options": [
-      "La organización automática de fuentes y generación de referencias",
-      "La aplicación de encuestas",
-      "La eliminación de datos"
-    ],
-    "answer": "La organización automática de fuentes y generación de referencias"
-  },
-  {
-    "question": "¿Qué aseguran los gestores bibliográficos y normas de citación?",
-    "options": [
-      "La transparencia académica y el respeto a la propiedad intelectual",
-      "La reducción del estudio",
-      "La modificación de resultados"
-    ],
-    "answer": "La transparencia académica y el respeto a la propiedad intelectual"
+    "answer": [
+      "Las citas correspondientes",
+      "evitan",
+      "el plagio",
+      "y permiten reconocer",
+      "el origen de las ideas."
+    ]
   }
 ]

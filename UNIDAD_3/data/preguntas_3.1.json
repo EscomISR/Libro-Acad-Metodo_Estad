@@ -1,227 +1,348 @@
 [
   {
-    "question": "¿Qué es el informe final?",
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es una función principal del informe final?",
     "options": [
-      "El documento académico o científico que presenta de manera ordenada los resultados de una investigación concluida",
-      "Un resumen preliminar antes de iniciar la investigación",
-      "Un instrumento para recolectar datos en campo"
+      "Organizar los elementos abordados en la investigación.",
+      "Sustituir la recolección de datos.",
+      "Eliminar la necesidad de interpretar resultados."
     ],
-    "answer": "El documento académico o científico que presenta de manera ordenada los resultados de una investigación concluida"
+    "answer": "Organizar los elementos abordados en la investigación."
   },
   {
-    "question": "¿Qué función cumple el informe final dentro del proceso de investigación?",
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Qué característica del informe final evita opiniones sin sustento?",
     "options": [
-      "Presentar de manera sistemática los resultados obtenidos al concluir el estudio",
-      "Modificar las hipótesis planteadas",
-      "Sustituir el marco teórico"
+      "Soporte digital y tecnológico.",
+      "Objetividad y rigor científico.",
+      "Cumplimiento de normas de presentación."
     ],
-    "answer": "Presentar de manera sistemática los resultados obtenidos al concluir el estudio"
+    "answer": "Objetividad y rigor científico."
   },
   {
-    "question": "¿Qué integra el informe final?",
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿Para qué se utilizan tablas, gráficas y figuras en la presentación de resultados?",
     "options": [
-      "Planteamiento del problema, objetivos, metodología, resultados, análisis, conclusiones y recomendaciones",
-      "Únicamente resultados y conclusiones",
-      "Solo tablas y gráficos estadísticos"
+      "Para facilitar la comprensión de los datos.",
+      "Para reemplazar los objetivos del estudio.",
+      "Para modificar la hipótesis planteada."
     ],
-    "answer": "Planteamiento del problema, objetivos, metodología, resultados, análisis, conclusiones y recomendaciones"
+    "answer": "Para facilitar la comprensión de los datos."
   },
   {
-    "question": "¿Cuál es el propósito del informe final?",
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿Qué permite la ejecución de la investigación?",
     "options": [
-      "Comunicar los hallazgos de forma comprensible, verificable y sustentada",
-      "Reducir la cantidad de datos obtenidos",
-      "Evitar la replicación del estudio"
+      "Transformar la planificación en acciones y resultados medibles.",
+      "Evitar la aplicación del diseño metodológico.",
+      "Presentar conclusiones antes de obtener datos."
     ],
-    "answer": "Comunicar los hallazgos de forma comprensible, verificable y sustentada"
+    "answer": "Transformar la planificación en acciones y resultados medibles."
   },
   {
-    "question": "¿Qué permite el informe final a otros investigadores?",
+    "id": 5,
+    "type": "opcion_multiple",
+    "question": "¿Qué busca la supervisión de variables y sesgos durante la ejecución?",
     "options": [
-      "Evaluar, reproducir o ampliar el estudio realizado",
-      "Modificar los resultados originales",
-      "Eliminar las conclusiones"
+      "Aumentar las influencias externas.",
+      "Evitar errores y distorsiones en los resultados.",
+      "Eliminar los instrumentos de recolección."
     ],
-    "answer": "Evaluar, reproducir o ampliar el estudio realizado"
+    "answer": "Evitar errores y distorsiones en los resultados."
   },
   {
-    "question": "¿Qué evidencia el informe final?",
+    "id": 6,
+    "type": "opcion_multiple",
+    "question": "¿Cuál de los siguientes es un instrumento para recolectar información?",
     "options": [
-      "El rigor científico del proceso",
-      "La duración del cronograma",
-      "La cantidad de autores consultados"
+      "Cuestionario.",
+      "Conclusión.",
+      "Hipótesis."
     ],
-    "answer": "El rigor científico del proceso"
+    "answer": "Cuestionario."
   },
   {
-    "question": "¿Qué caracteriza la estructura del informe final?",
+    "id": 7,
+    "type": "opcion_multiple",
+    "question": "¿Qué ventaja ofrecen las herramientas digitales en la aplicación de instrumentos?",
     "options": [
-      "Presenta secciones definidas como introducción, metodología, resultados y conclusiones",
-      "Carece de orden formal",
-      "Se redacta sin divisiones internas"
+      "Permiten eliminar la organización de la información.",
+      "Facilitan la recopilación y el almacenamiento de datos.",
+      "Impiden utilizar procedimientos estandarizados."
     ],
-    "answer": "Presenta secciones definidas como introducción, metodología, resultados y conclusiones"
+    "answer": "Facilitan la recopilación y el almacenamiento de datos."
   },
   {
-    "question": "¿Cómo debe ser la redacción del informe final?",
-    "options": [
-      "Clara, coherente, técnica y objetiva",
-      "Informal y subjetiva",
-      "Ambigua y general"
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "El informe final es un documento _____ y _____ que reúne los elementos de una investigación.",
+    "wordBank": [
+      "organizado",
+      "estructurado",
+      "provisional",
+      "subjetivo"
     ],
-    "answer": "Clara, coherente, técnica y objetiva"
+    "answer": [
+      "organizado",
+      "estructurado"
+    ]
   },
   {
-    "question": "¿Qué evita el informe al mantener objetividad?",
-    "options": [
-      "Opiniones personales sin sustento",
-      "El uso de tablas",
-      "La presentación de resultados"
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "La redacción del informe debe utilizar un lenguaje _____, técnico y _____.",
+    "wordBank": [
+      "preciso",
+      "objetivo",
+      "informal",
+      "ambiguo"
     ],
-    "answer": "Opiniones personales sin sustento"
+    "answer": [
+      "preciso",
+      "objetivo"
+    ]
   },
   {
-    "question": "¿Qué debe existir entre los objetivos planteados y las conclusiones del informe final?",
-    "options": [
-      "Coherencia y correspondencia directa",
-      "Independencia total",
-      "Relación únicamente con la bibliografía"
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "El uso adecuado de citas fortalece la _____ y evita el _____.",
+    "wordBank": [
+      "credibilidad",
+      "plagio",
+      "sesgo",
+      "muestreo"
     ],
-    "answer": "Coherencia y correspondencia directa"
+    "answer": [
+      "credibilidad",
+      "plagio"
+    ]
   },
   {
-    "question": "¿Qué permite la presentación ordenada de los apartados en el informe final?",
-    "options": [
-      "Facilitar la comprensión y evaluación del estudio",
-      "Reducir la cantidad de información",
-      "Evitar el uso de metodología"
+    "id": 11,
+    "type": "completar_oracion",
+    "question": "Los resultados presentan datos de forma _____ y sin _____.",
+    "wordBank": [
+      "objetiva",
+      "interpretaciones",
+      "subjetiva",
+      "instrumentos"
     ],
-    "answer": "Facilitar la comprensión y evaluación del estudio"
+    "answer": [
+      "objetiva",
+      "interpretaciones"
+    ]
   },
   {
-    "question": "¿Qué debe evitar el informe final en su redacción?",
-    "options": [
-      "Incluir información que no haya sido analizada previamente",
-      "Presentar resultados organizados",
-      "Utilizar lenguaje técnico"
+    "id": 12,
+    "type": "completar_oracion",
+    "question": "La recolección de datos debe realizarse de manera _____ y siguiendo _____ establecidos.",
+    "wordBank": [
+      "organizada",
+      "protocolos",
+      "improvisada",
+      "resultados"
     ],
-    "answer": "Incluir información que no haya sido analizada previamente"
+    "answer": [
+      "organizada",
+      "protocolos"
+    ]
   },
   {
-    "question": "¿Qué demuestra un informe final bien estructurado?",
-    "options": [
-      "El cumplimiento adecuado de las etapas del proceso de investigación",
-      "La eliminación de variables secundarias",
-      "La reducción del número de participantes"
+    "id": 13,
+    "type": "completar_oracion",
+    "question": "Los principios éticos protegen la _____ y requieren el consentimiento _____.",
+    "wordBank": [
+      "confidencialidad",
+      "informado",
+      "hipótesis",
+      "estadístico"
     ],
-    "answer": "El cumplimiento adecuado de las etapas del proceso de investigación"
+    "answer": [
+      "confidencialidad",
+      "informado"
+    ]
   },
   {
-    "question": "¿Qué incluyen los resultados dentro del informe final?",
-    "options": [
-      "Datos recolectados y procesados sin interpretaciones personales",
-      "Opiniones del investigador",
-      "Recomendaciones finales"
+    "id": 14,
+    "type": "completar_oracion",
+    "question": "Los procedimientos estandarizados aseguran la _____ y reducen los _____ durante la recolección.",
+    "wordBank": [
+      "uniformidad",
+      "sesgos",
+      "hallazgos",
+      "objetivos"
     ],
-    "answer": "Datos recolectados y procesados sin interpretaciones personales"
+    "answer": [
+      "uniformidad",
+      "sesgos"
+    ]
   },
   {
-    "question": "¿Qué permiten identificar los resultados?",
-    "options": [
-      "Patrones, tendencias, relaciones o diferencias significativas",
-      "Nuevos problemas no estudiados",
-      "Cambios en la muestra"
-    ],
-    "answer": "Patrones, tendencias, relaciones o diferencias significativas"
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "El informe final ayuda a comprender con mayor precisión los datos obtenidos en una investigación.",
+    "answer": true
   },
   {
-    "question": "¿Qué representan los resultados dentro del estudio?",
-    "options": [
-      "La evidencia científica del estudio",
-      "El marco teórico",
-      "La hipótesis nula"
-    ],
-    "answer": "La evidencia científica del estudio"
+    "id": 16,
+    "type": "verdadero_falso",
+    "statement": "La presentación sistemática de datos excluye el uso de tablas y gráficas.",
+    "answer": false
   },
   {
-    "question": "¿Qué es la ejecución de la investigación?",
-    "options": [
-      "La fase donde se pone en práctica el diseño metodológico",
-      "La elaboración del marco teórico",
-      "La redacción de conclusiones"
-    ],
-    "answer": "La fase donde se pone en práctica el diseño metodológico"
+    "id": 17,
+    "type": "verdadero_falso",
+    "statement": "Los resultados constituyen una base para la discusión y las conclusiones.",
+    "answer": true
   },
   {
-    "question": "¿Qué se aplican durante la ejecución?",
-    "options": [
-      "Instrumentos de recolección de datos",
-      "Conclusiones finales",
-      "Referencias bibliográficas"
-    ],
-    "answer": "Instrumentos de recolección de datos"
+    "id": 18,
+    "type": "verdadero_falso",
+    "statement": "La ejecución de la investigación puede realizarse sin aplicar los procedimientos definidos en la planeación.",
+    "answer": false
   },
   {
-    "question": "¿Qué garantiza una ejecución adecuada?",
-    "options": [
-      "Validez y confiabilidad de la información obtenida",
-      "Reducción del marco teórico",
-      "Eliminación del análisis estadístico"
-    ],
-    "answer": "Validez y confiabilidad de la información obtenida"
+    "id": 19,
+    "type": "verdadero_falso",
+    "statement": "Los instrumentos validados pueden incluir cuestionarios, entrevistas y registros clínicos.",
+    "answer": true
   },
   {
-    "question": "¿Qué debe respetarse durante la ejecución?",
-    "options": [
-      "Principios éticos como confidencialidad y consentimiento informado",
-      "Preferencias personales del investigador",
-      "Opiniones externas"
-    ],
-    "answer": "Principios éticos como confidencialidad y consentimiento informado"
+    "id": 20,
+    "type": "verdadero_falso",
+    "statement": "Durante la aplicación de instrumentos deben modificarse las condiciones para cada participante.",
+    "answer": false
   },
   {
-    "question": "¿Qué es la aplicación de la encuesta y/o instrumentos?",
-    "options": [
-      "La etapa donde se implementan herramientas para recolectar información",
-      "La fase de interpretación de resultados",
-      "La elaboración del cronograma"
-    ],
-    "answer": "La etapa donde se implementan herramientas para recolectar información"
+    "id": 21,
+    "type": "verdadero_falso",
+    "statement": "Las herramientas digitales pueden reducir errores de registro y mejorar la organización de la información.",
+    "answer": true
   },
   {
-    "question": "¿Qué aseguran los procedimientos estandarizados?",
-    "options": [
-      "Uniformidad en la recolección de datos",
-      "Mayor cantidad de hipótesis",
-      "Reducción del análisis"
+    "id": 22,
+    "type": "ordenar_oracion",
+    "segments": [
+      "los elementos abordados",
+      "El informe final",
+      "en una investigación.",
+      "organiza y estructura"
     ],
-    "answer": "Uniformidad en la recolección de datos"
+    "answer": [
+      "El informe final",
+      "organiza y estructura",
+      "los elementos abordados",
+      "en una investigación."
+    ]
   },
   {
-    "question": "¿Qué garantizan una correcta aplicación de instrumentos?",
-    "options": [
-      "Datos precisos, confiables y pertinentes",
-      "Resultados subjetivos",
-      "Mayor número de participantes"
+    "id": 23,
+    "type": "ordenar_oracion",
+    "segments": [
+      "con evidencia verificable",
+      "El rigor científico",
+      "la información",
+      "permite presentar",
+      "y objetividad."
     ],
-    "answer": "Datos precisos, confiables y pertinentes"
+    "answer": [
+      "El rigor científico",
+      "permite presentar",
+      "la información",
+      "con evidencia verificable",
+      "y objetividad."
+    ]
   },
   {
-    "question": "¿Qué fortalecen los resultados bien presentados?",
-    "options": [
-      "La credibilidad del trabajo",
-      "La reducción de datos",
-      "La eliminación de variables"
+    "id": 24,
+    "type": "ordenar_oracion",
+    "segments": [
+      "patrones y tendencias",
+      "Los resultados muestran",
+      "de manera objetiva.",
+      "hallazgos relevantes"
     ],
-    "answer": "La credibilidad del trabajo"
+    "answer": [
+      "Los resultados muestran",
+      "hallazgos relevantes",
+      "patrones y tendencias",
+      "de manera objetiva."
+    ]
   },
   {
-    "question": "¿Qué permiten integrar las herramientas digitales en el informe?",
-    "options": [
-      "Texto, tablas, gráficos y referencias de manera estandarizada",
-      "Únicamente imágenes decorativas",
-      "Opiniones del investigador"
+    "id": 25,
+    "type": "ordenar_oracion",
+    "segments": [
+      "los procedimientos definidos",
+      "La ejecución aplica",
+      "para obtener",
+      "los datos necesarios.",
+      "en la planeación"
     ],
-    "answer": "Texto, tablas, gráficos y referencias de manera estandarizada"
+    "answer": [
+      "La ejecución aplica",
+      "los procedimientos definidos",
+      "en la planeación",
+      "para obtener",
+      "los datos necesarios."
+    ]
+  },
+  {
+    "id": 26,
+    "type": "ordenar_oracion",
+    "segments": [
+      "la confidencialidad",
+      "Los principios éticos",
+      "de los participantes.",
+      "protegen",
+      "y el consentimiento informado"
+    ],
+    "answer": [
+      "Los principios éticos",
+      "protegen",
+      "la confidencialidad",
+      "y el consentimiento informado",
+      "de los participantes."
+    ]
+  },
+  {
+    "id": 27,
+    "type": "ordenar_oracion",
+    "segments": [
+      "instrucciones claras",
+      "La aplicación de instrumentos",
+      "y condiciones similares.",
+      "requiere",
+      "para los participantes"
+    ],
+    "answer": [
+      "La aplicación de instrumentos",
+      "requiere",
+      "instrucciones claras",
+      "para los participantes",
+      "y condiciones similares."
+    ]
+  },
+  {
+    "id": 28,
+    "type": "ordenar_oracion",
+    "segments": [
+      "la recopilación de datos",
+      "Las herramientas digitales",
+      "y mejoran",
+      "facilitan",
+      "su almacenamiento."
+    ],
+    "answer": [
+      "Las herramientas digitales",
+      "facilitan",
+      "la recopilación de datos",
+      "y mejoran",
+      "su almacenamiento."
+    ]
   }
 ]

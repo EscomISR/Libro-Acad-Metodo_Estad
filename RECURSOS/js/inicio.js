@@ -2,6 +2,7 @@
     const modalContainer = document.getElementById('modal-container');
     const modalCloseButton = document.getElementById('modal-close-button');
     const cardsWithModal = document.querySelectorAll('.card[data-modal]');
+    let modalTrigger = null;
 
     // Función para abrir el modal
     function openModal(modalId) {
@@ -11,39 +12,32 @@
         // Muestra la sección correcta
         const activeSection = document.getElementById(`modal-${modalId}`);
         if (activeSection) {
+            modalTrigger = document.activeElement;
             activeSection.classList.add('active');
             modalContainer.classList.add('show');
+            modalContainer.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden'; // Evita el scroll del fondo
+            window.requestAnimationFrame(() => modalCloseButton.focus());
         }
     }
 
     // Función para cerrar el modal
     function closeModal() {
         modalContainer.classList.remove('show');
+        modalContainer.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = 'auto'; // Restaura el scroll
-    }
-
-    function activateWithKeyboard(element, handler) {
-        element.addEventListener('keydown', event => {
-            if (event.key !== 'Enter' && event.key !== ' ') return;
-            event.preventDefault();
-            handler(event);
-        });
+        modalTrigger?.focus();
+        modalTrigger = null;
     }
 
     // Asigna el evento click a cada tarjeta que abre un modal
     cardsWithModal.forEach(card => {
-        card.setAttribute('role', 'button');
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('aria-haspopup', 'dialog');
-
         const openCardModal = () => {
             const modalId = card.getAttribute('data-modal');
             openModal(modalId);
         };
 
         card.addEventListener('click', openCardModal);
-        activateWithKeyboard(card, openCardModal);
     });
 
     // Asigna los eventos para cerrar el modal
@@ -51,6 +45,12 @@
     modalContainer.addEventListener('click', e => {
         // Cierra el modal si se hace clic en el fondo oscuro
         if (e.target === modalContainer) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && modalContainer.classList.contains('show')) {
             closeModal();
         }
     });

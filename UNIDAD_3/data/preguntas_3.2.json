@@ -1,227 +1,350 @@
 [
   {
-    "question": "¿Qué permite seleccionar adecuadamente el plan de análisis estadístico?",
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es la finalidad principal del plan de análisis estadístico?",
     "options": [
-      "Elegir las pruebas estadísticas acordes al tipo de datos",
-      "Reducir el tamaño de muestra",
-      "Eliminar hipótesis"
+      "Transformar los datos recolectados en resultados significativos y coherentes.",
+      "Sustituir la recopilación de información del estudio.",
+      "Definir únicamente las fuentes bibliográficas."
     ],
-    "answer": "Elegir las pruebas estadísticas acordes al tipo de datos"
+    "answer": "Transformar los datos recolectados en resultados significativos y coherentes."
   },
   {
-    "question": "¿Qué se debe establecer respecto a las hipótesis en el plan de análisis?",
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Cuándo debe diseñarse el plan de análisis estadístico?",
     "options": [
-      "Cómo serán contrastadas mediante pruebas estadísticas",
-      "Cómo serán eliminadas",
-      "Cómo serán redactadas nuevamente"
+      "Después de presentar las conclusiones.",
+      "Antes de analizar la información.",
+      "Durante la publicación de resultados."
     ],
-    "answer": "Cómo serán contrastadas mediante pruebas estadísticas"
+    "answer": "Antes de analizar la información."
   },
   {
-    "question": "¿Qué debe especificarse respecto al nivel de significancia?",
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿Cuál de los siguientes procedimientos pertenece a la estadística descriptiva?",
     "options": [
-      "El valor alfa que determinará la aceptación o rechazo de hipótesis",
-      "El número de tablas",
-      "La duración del estudio"
+      "Prueba t.",
+      "Regresión.",
+      "Cálculo de porcentajes."
     ],
-    "answer": "El valor alfa que determinará la aceptación o rechazo de hipótesis"
+    "answer": "Cálculo de porcentajes."
   },
   {
-    "question": "¿Qué debe incluir el plan respecto al procesamiento de datos?",
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿De qué depende la selección de las pruebas estadísticas?",
     "options": [
-      "La forma en que serán codificados, capturados y depurados",
-      "La redacción de conclusiones",
-      "La elaboración del índice"
+      "Del tipo de variables, el diseño y el nivel de medición.",
+      "Únicamente del volumen de información recolectada.",
+      "De las herramientas digitales disponibles."
     ],
-    "answer": "La forma en que serán codificados, capturados y depurados"
+    "answer": "Del tipo de variables, el diseño y el nivel de medición."
   },
   {
-    "question": "¿Qué se debe definir sobre el software estadístico?",
+    "id": 5,
+    "type": "opcion_multiple",
+    "question": "¿Qué caracteriza a los datos cualitativos?",
     "options": [
-      "El programa que se utilizará para analizar los datos",
-      "El diseño de portada",
-      "La bibliografía final"
+      "Se expresan solamente mediante valores numéricos.",
+      "Describen percepciones, experiencias o características.",
+      "Se presentan exclusivamente en tablas estadísticas."
     ],
-    "answer": "El programa que se utilizará para analizar los datos"
+    "answer": "Describen percepciones, experiencias o características."
   },
   {
-    "question": "¿Qué relación debe existir entre el plan de análisis y los objetivos específicos?",
+    "id": 6,
+    "type": "opcion_multiple",
+    "question": "¿En qué consiste la depuración de datos?",
     "options": [
-      "Correspondencia directa entre cada objetivo y el análisis propuesto",
-      "Independencia total",
-      "Relación con las recomendaciones"
+      "En asignar símbolos o números a las respuestas.",
+      "En presentar la información mediante gráficas.",
+      "En detectar errores, omisiones, duplicidades e inconsistencias."
     ],
-    "answer": "Correspondencia directa entre cada objetivo y el análisis propuesto"
+    "answer": "En detectar errores, omisiones, duplicidades e inconsistencias."
   },
   {
-    "question": "¿Qué permite prever el plan de análisis estadístico?",
+    "id": 7,
+    "type": "opcion_multiple",
+    "question": "¿Para qué se realiza la tabulación de datos?",
     "options": [
-      "La forma en que se presentarán los resultados",
-      "La modificación del problema de investigación",
-      "La eliminación del marco teórico"
+      "Para organizar la información en tablas o matrices.",
+      "Para seleccionar a los participantes del estudio.",
+      "Para definir las hipótesis de investigación."
     ],
-    "answer": "La forma en que se presentarán los resultados"
+    "answer": "Para organizar la información en tablas o matrices."
   },
   {
-    "question": "¿Qué tipo de medidas pueden contemplarse en el análisis descriptivo?",
-    "options": [
-      "Medidas de tendencia central y dispersión",
-      "Hipótesis nulas",
-      "Variables latentes"
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "El plan de análisis define cómo se _____, examinarán e interpretarán los _____ obtenidos.",
+    "wordBank": [
+      "procesarán",
+      "datos",
+      "objetivos",
+      "instrumentos"
     ],
-    "answer": "Medidas de tendencia central y dispersión"
+    "answer": [
+      "procesarán",
+      "datos"
+    ]
   },
   {
-    "question": "¿Qué se debe considerar respecto al tipo de estudio?",
-    "options": [
-      "Que el análisis sea acorde al diseño metodológico",
-      "Que se modifique el diseño",
-      "Que se eliminen variables"
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "La preparación de los datos incluye la _____, depuración y estructuración de la base de _____.",
+    "wordBank": [
+      "codificación",
+      "datos",
+      "hipótesis",
+      "muestra"
     ],
-    "answer": "Que el análisis sea acorde al diseño metodológico"
+    "answer": [
+      "codificación",
+      "datos"
+    ]
   },
   {
-    "question": "¿Qué se debe prever respecto a los datos faltantes?",
-    "options": [
-      "El procedimiento para su manejo o exclusión",
-      "Su eliminación automática sin registro",
-      "La modificación de hipótesis"
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "La estadística _____ permite resumir los datos mediante frecuencias, porcentajes y _____.",
+    "wordBank": [
+      "descriptiva",
+      "medias",
+      "inferencial",
+      "categorías"
     ],
-    "answer": "El procedimiento para su manejo o exclusión"
+    "answer": [
+      "descriptiva",
+      "medias"
+    ]
   },
   {
-    "question": "¿Qué debe garantizar el plan respecto a la validez de los resultados?",
-    "options": [
-      "Un análisis sistemático y fundamentado",
-      "La simplificación del estudio",
-      "La reducción de bibliografía"
+    "id": 11,
+    "type": "completar_oracion",
+    "question": "La estadística inferencial permite establecer relaciones, _____ o asociaciones entre _____.",
+    "wordBank": [
+      "diferencias",
+      "variables",
+      "frecuencias",
+      "instrumentos"
     ],
-    "answer": "Un análisis sistemático y fundamentado"
+    "answer": [
+      "diferencias",
+      "variables"
+    ]
   },
   {
-    "question": "¿Qué se establece respecto a la presentación de resultados?",
-    "options": [
-      "El uso de tablas y gráficos según el tipo de variable",
-      "El uso exclusivo de texto",
-      "La eliminación de figuras"
+    "id": 12,
+    "type": "completar_oracion",
+    "question": "La recopilación debe realizarse de manera _____, ética y _____.",
+    "wordBank": [
+      "sistemática",
+      "organizada",
+      "subjetiva",
+      "inferencial"
     ],
-    "answer": "El uso de tablas y gráficos según el tipo de variable"
+    "answer": [
+      "sistemática",
+      "organizada"
+    ]
   },
   {
-    "question": "¿Qué debe definirse respecto a la muestra?",
-    "options": [
-      "El tamaño y características que influyen en el análisis",
-      "El color de las tablas",
-      "La extensión del documento"
+    "id": 13,
+    "type": "completar_oracion",
+    "question": "La codificación asigna símbolos, números o _____ a las respuestas para facilitar su registro y _____.",
+    "wordBank": [
+      "etiquetas",
+      "análisis",
+      "gráficas",
+      "errores"
     ],
-    "answer": "El tamaño y características que influyen en el análisis"
+    "answer": [
+      "etiquetas",
+      "análisis"
+    ]
   },
   {
-    "question": "¿Qué permite el plan respecto a la interpretación futura?",
-    "options": [
-      "Facilitar una discusión coherente con los resultados",
-      "Evitar conclusiones",
-      "Eliminar recomendaciones"
+    "id": 14,
+    "type": "completar_oracion",
+    "question": "La presentación de datos utiliza cuadros, _____, diagramas o matrices para facilitar su _____.",
+    "wordBank": [
+      "gráficas",
+      "comprensión",
+      "entrevistas",
+      "depuración"
     ],
-    "answer": "Facilitar una discusión coherente con los resultados"
+    "answer": [
+      "gráficas",
+      "comprensión"
+    ]
   },
   {
-    "question": "¿Qué debe evitar el plan de análisis estadístico?",
-    "options": [
-      "La improvisación en el tratamiento de datos",
-      "La organización previa",
-      "La coherencia metodológica"
-    ],
-    "answer": "La improvisación en el tratamiento de datos"
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "El plan de análisis estadístico especifica los procedimientos que se utilizarán para examinar los datos.",
+    "answer": true
   },
   {
-    "question": "¿Qué relación tiene el plan con la recolección de datos?",
-    "options": [
-      "Orienta qué información debe obtenerse",
-      "Se redacta después de las conclusiones",
-      "Sustituye el marco teórico"
-    ],
-    "answer": "Orienta qué información debe obtenerse"
+    "id": 16,
+    "type": "verdadero_falso",
+    "statement": "La estadística descriptiva utiliza pruebas t, chi cuadrada y regresión para probar hipótesis.",
+    "answer": false
   },
   {
-    "question": "¿Qué define respecto a las pruebas estadísticas?",
-    "options": [
-      "Cuáles se aplicarán según el tipo de variable y objetivo",
-      "Que no se aplicarán pruebas",
-      "Que solo se usarán estadísticas descriptivas"
-    ],
-    "answer": "Cuáles se aplicarán según el tipo de variable y objetivo"
+    "id": 17,
+    "type": "verdadero_falso",
+    "statement": "La recopilación de datos proporciona evidencias objetivas para el análisis y los resultados.",
+    "answer": true
   },
   {
-    "question": "¿Qué garantiza una correcta planificación del análisis?",
-    "options": [
-      "Rigor científico en el tratamiento de datos",
-      "Resultados favorables",
-      "Menor número de variables"
-    ],
-    "answer": "Rigor científico en el tratamiento de datos"
+    "id": 18,
+    "type": "verdadero_falso",
+    "statement": "Los datos cuantitativos describen exclusivamente percepciones y experiencias de los participantes.",
+    "answer": false
   },
   {
-    "question": "¿Qué debe existir entre el plan de análisis y las variables del estudio?",
-    "options": [
-      "Correspondencia metodológica clara",
-      "Independencia total",
-      "Eliminación de variables secundarias"
-    ],
-    "answer": "Correspondencia metodológica clara"
+    "id": 19,
+    "type": "verdadero_falso",
+    "statement": "El procesamiento de datos se realiza después de recopilar la información.",
+    "answer": true
   },
   {
-    "question": "¿Qué permite estructurar adecuadamente el plan de análisis estadístico?",
-    "options": [
-      "Transformar datos en información útil y fundamentada",
-      "Modificar los resultados obtenidos",
-      "Reducir el marco conceptual"
-    ],
-    "answer": "Transformar datos en información útil y fundamentada"
+    "id": 20,
+    "type": "verdadero_falso",
+    "statement": "En las investigaciones cualitativas, los datos se organizan únicamente mediante valores numéricos.",
+    "answer": false
   },
   {
-    "question": "¿Qué es el plan de análisis estadístico?",
-    "options": [
-      "La estrategia organizada que define cómo se procesarán e interpretarán los datos",
-      "Un tipo de muestreo probabilístico",
-      "Un instrumento de recolección"
-    ],
-    "answer": "La estrategia organizada que define cómo se procesarán e interpretarán los datos"
+    "id": 21,
+    "type": "verdadero_falso",
+    "statement": "El software especializado permite procesar grandes volúmenes de información con mayor rapidez y precisión.",
+    "answer": true
   },
   {
-    "question": "¿Cuándo se diseña el plan de análisis estadístico?",
-    "options": [
-      "Antes de analizar la información",
-      "Después de presentar conclusiones",
-      "Durante la redacción del marco teórico"
+    "id": 22,
+    "type": "ordenar_oracion",
+    "segments": [
+      "antes de analizar",
+      "El plan estadístico",
+      "la información recolectada.",
+      "se diseña"
     ],
-    "answer": "Antes de analizar la información"
+    "answer": [
+      "El plan estadístico",
+      "se diseña",
+      "antes de analizar",
+      "la información recolectada."
+    ]
   },
   {
-    "question": "¿Qué incluye la preparación de los datos?",
-    "options": [
-      "Codificación, depuración, clasificación y organización",
-      "Conclusiones y recomendaciones",
-      "Aplicación de encuestas"
+    "id": 23,
+    "type": "ordenar_oracion",
+    "segments": [
+      "en resultados significativos",
+      "El análisis estadístico",
+      "los datos recolectados",
+      "transforma",
+      "y coherentes."
     ],
-    "answer": "Codificación, depuración, clasificación y organización"
+    "answer": [
+      "El análisis estadístico",
+      "transforma",
+      "los datos recolectados",
+      "en resultados significativos",
+      "y coherentes."
+    ]
   },
   {
-    "question": "¿Qué utiliza la estadística descriptiva según el texto?",
-    "options": [
-      "Frecuencias, porcentajes, medias y desviación estándar",
-      "Hipótesis alternas",
-      "Ensayos clínicos"
+    "id": 24,
+    "type": "ordenar_oracion",
+    "segments": [
+      "información pertinente",
+      "La recopilación de datos",
+      "de manera organizada.",
+      "permite obtener",
+      "y confiable"
     ],
-    "answer": "Frecuencias, porcentajes, medias y desviación estándar"
+    "answer": [
+      "La recopilación de datos",
+      "permite obtener",
+      "información pertinente",
+      "y confiable",
+      "de manera organizada."
+    ]
   },
   {
-    "question": "¿Qué permite la estadística inferencial?",
-    "options": [
-      "Establecer relaciones, diferencias o asociaciones entre variables",
-      "Redactar conclusiones",
-      "Eliminar datos atípicos"
+    "id": 25,
+    "type": "ordenar_oracion",
+    "segments": [
+      "los datos obtenidos",
+      "El procesamiento clasifica",
+      "para facilitar",
+      "su análisis.",
+      "depura y estructura"
     ],
-    "answer": "Establecer relaciones, diferencias o asociaciones entre variables"
+    "answer": [
+      "El procesamiento clasifica",
+      "depura y estructura",
+      "los datos obtenidos",
+      "para facilitar",
+      "su análisis."
+    ]
+  },
+  {
+    "id": 26,
+    "type": "ordenar_oracion",
+    "segments": [
+      "errores e inconsistencias",
+      "La depuración permite",
+      "que afectan",
+      "la validez del estudio.",
+      "detectar"
+    ],
+    "answer": [
+      "La depuración permite",
+      "detectar",
+      "errores e inconsistencias",
+      "que afectan",
+      "la validez del estudio."
+    ]
+  },
+  {
+    "id": 27,
+    "type": "ordenar_oracion",
+    "segments": [
+      "en tablas o matrices",
+      "La tabulación organiza",
+      "la información",
+      "su análisis estadístico.",
+      "para facilitar"
+    ],
+    "answer": [
+      "La tabulación organiza",
+      "la información",
+      "en tablas o matrices",
+      "para facilitar",
+      "su análisis estadístico."
+    ]
+  },
+  {
+    "id": 28,
+    "type": "ordenar_oracion",
+    "segments": [
+      "grandes volúmenes de información",
+      "Las herramientas digitales",
+      "con rapidez",
+      "permiten manejar",
+      "precisión y seguridad."
+    ],
+    "answer": [
+      "Las herramientas digitales",
+      "permiten manejar",
+      "grandes volúmenes de información",
+      "con rapidez",
+      "precisión y seguridad."
+    ]
   }
 ]

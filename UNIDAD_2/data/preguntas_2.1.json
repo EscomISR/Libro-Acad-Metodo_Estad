@@ -1,227 +1,352 @@
 [
   {
-    "question": "¿Qué es la estructura del protocolo de investigación?",
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es la función principal de la estructura del protocolo de investigación?",
     "options": [
-      "Es el esquema organizado que guía el desarrollo del estudio y asegura su rigor científico",
-      "Es el resumen final donde se presentan únicamente los resultados obtenidos",
-      "Es un documento opcional que se redacta después de concluir la investigación"
+      "Orientar el desarrollo del estudio y asegurar su rigor científico.",
+      "Presentar únicamente los resultados obtenidos.",
+      "Sustituir el diseño metodológico y el marco teórico."
     ],
-    "answer": "Es el esquema organizado que guía el desarrollo del estudio y asegura su rigor científico"
+    "answer": "Orientar el desarrollo del estudio y asegurar su rigor científico."
   },
   {
-    "question": "¿Qué elemento forma parte de la estructura del protocolo de investigación?",
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Qué función cumple el marco teórico dentro de una investigación?",
     "options": [
-      "Título, planteamiento del problema, justificación y objetivos",
-      "Portada decorativa y conclusiones preliminares",
-      "Opiniones personales del investigador sin sustento teórico"
+      "Determinar exclusivamente los recursos económicos.",
+      "Ofrecer una base científica para comprender el fenómeno investigado.",
+      "Establecer los resultados definitivos del estudio."
     ],
-    "answer": "Título, planteamiento del problema, justificación y objetivos"
+    "answer": "Ofrecer una base científica para comprender el fenómeno investigado."
   },
   {
-    "question": "¿Qué garantiza la estructura del protocolo dentro del proceso investigativo?",
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿Qué se establece mediante la delimitación del problema?",
     "options": [
-      "Coherencia, viabilidad y validez en el proceso investigativo",
-      "La eliminación de la metodología",
-      "La sustitución del marco teórico por opiniones"
+      "Los límites espaciales, temporales, conceptuales y poblacionales.",
+      "Las conclusiones, recomendaciones y referencias.",
+      "Los efectos económicos, sociales y tecnológicos."
     ],
-    "answer": "Coherencia, viabilidad y validez en el proceso investigativo"
+    "answer": "Los límites espaciales, temporales, conceptuales y poblacionales."
   },
   {
-    "question": "¿Qué caracteriza la redacción del protocolo de investigación?",
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿Cómo deben redactarse los objetivos de investigación?",
     "options": [
-      "Debe ser precisa, coherente y objetiva",
-      "Debe ser extensa y subjetiva",
-      "Debe incluir lenguaje informal para facilitar lectura rápida"
+      "En forma interrogativa y con términos generales.",
+      "En pasado y mediante expresiones subjetivas.",
+      "En infinitivo, de manera precisa y coherente."
     ],
-    "answer": "Debe ser precisa, coherente y objetiva"
+    "answer": "En infinitivo, de manera precisa y coherente."
   },
   {
-    "question": "¿Qué asegura el rigor metodológico dentro del protocolo?",
+    "id": 5,
+    "type": "opcion_multiple",
+    "question": "¿Qué permiten establecer los objetivos específicos?",
     "options": [
-      "La descripción detallada del diseño, población, instrumentos y procedimientos de análisis",
-      "La omisión de las variables para evitar confusión",
-      "La modificación constante de los objetivos"
+      "Acciones concretas y ordenadas para alcanzar el objetivo general.",
+      "Una explicación definitiva de todos los resultados.",
+      "Los límites temporales y espaciales del estudio."
     ],
-    "answer": "La descripción detallada del diseño, población, instrumentos y procedimientos de análisis"
+    "answer": "Acciones concretas y ordenadas para alcanzar el objetivo general."
   },
   {
-    "question": "¿Cuál es la función principal del marco teórico?",
+    "id": 6,
+    "type": "opcion_multiple",
+    "question": "¿Qué caracteriza a la hipótesis nula?",
     "options": [
-      "Proporcionar un fundamento científico que permita comprender el fenómeno investigado",
-      "Sustituir la metodología del estudio",
-      "Presentar únicamente opiniones del investigador"
+      "Afirma que siempre existe una relación significativa.",
+      "Expresa una igualdad o ausencia de efecto.",
+      "Describe únicamente el impacto social del estudio."
     ],
-    "answer": "Proporcionar un fundamento científico que permita comprender el fenómeno investigado"
+    "answer": "Expresa una igualdad o ausencia de efecto."
   },
   {
-    "question": "¿Qué evita el marco teórico dentro de una investigación?",
+    "id": 7,
+    "type": "opcion_multiple",
+    "question": "¿Qué distingue a una investigación trascendente?",
     "options": [
-      "Duplicar investigaciones ya realizadas",
-      "Formular hipótesis",
-      "Delimitar variables"
+      "Se limita a resolver una necesidad inmediata.",
+      "Evita transferir sus hallazgos a otros contextos.",
+      "Aporta bases para futuros estudios y avances."
     ],
-    "answer": "Duplicar investigaciones ya realizadas"
+    "answer": "Aporta bases para futuros estudios y avances."
   },
   {
-    "question": "¿Qué característica debe cumplir el marco teórico?",
-    "options": [
-      "Ser pertinente, actualizado y analítico",
-      "Ser únicamente descriptivo",
-      "Basarse en fuentes no verificables"
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "El protocolo presenta de forma _____ qué se investigará y cómo se llevará a _____.",
+    "wordBank": [
+      "clara",
+      "cabo",
+      "subjetiva",
+      "medición"
     ],
-    "answer": "Ser pertinente, actualizado y analítico"
+    "answer": [
+      "clara",
+      "cabo"
+    ]
   },
   {
-    "question": "¿Qué implica la delimitación del problema?",
-    "options": [
-      "Precisar los límites espaciales, temporales, conceptuales y poblacionales del estudio",
-      "Ampliar el problema sin establecer límites",
-      "Eliminar variables del análisis"
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "El marco teórico compila y organiza _____, conceptos y estudios vinculados con el _____.",
+    "wordBank": [
+      "teorías",
+      "problema",
+      "recursos",
+      "cronograma"
     ],
-    "answer": "Precisar los límites espaciales, temporales, conceptuales y poblacionales del estudio"
+    "answer": [
+      "teorías",
+      "problema"
+    ]
   },
   {
-    "question": "¿Qué favorece una delimitación precisa del problema?",
-    "options": [
-      "La claridad en los objetivos y la selección adecuada de métodos",
-      "La ampliación indefinida del estudio",
-      "La reducción del marco teórico"
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "La delimitación establece los límites _____, temporales, conceptuales y _____.",
+    "wordBank": [
+      "espaciales",
+      "poblacionales",
+      "económicos",
+      "estadísticos"
     ],
-    "answer": "La claridad en los objetivos y la selección adecuada de métodos"
+    "answer": [
+      "espaciales",
+      "poblacionales"
+    ]
   },
   {
-    "question": "¿Qué son los objetivos en una investigación?",
-    "options": [
-      "Los propósitos que guían la investigación y orientan sus acciones metodológicas",
-      "Las conclusiones finales del estudio",
-      "Las variables independientes"
+    "id": 11,
+    "type": "completar_oracion",
+    "question": "El objetivo general expresa el propósito _____ del estudio y orienta el proceso _____.",
+    "wordBank": [
+      "central",
+      "investigativo",
+      "social",
+      "operacional"
     ],
-    "answer": "Los propósitos que guían la investigación y orientan sus acciones metodológicas"
+    "answer": [
+      "central",
+      "investigativo"
+    ]
   },
   {
-    "question": "¿Cómo deben redactarse los objetivos?",
-    "options": [
-      "En infinitivo, con claridad y precisión",
-      "En tiempo pasado",
-      "En forma interrogativa obligatoriamente"
+    "id": 12,
+    "type": "completar_oracion",
+    "question": "Las variables deben definirse de manera _____ y operacional, además de ser medibles y _____.",
+    "wordBank": [
+      "conceptual",
+      "pertinentes",
+      "temporal",
+      "alternas"
     ],
-    "answer": "En infinitivo, con claridad y precisión"
+    "answer": [
+      "conceptual",
+      "pertinentes"
+    ]
   },
   {
-    "question": "¿Qué expresa el objetivo general?",
-    "options": [
-      "La finalidad principal de la investigación",
-      "Las tareas específicas del estudio",
-      "La metodología aplicada"
+    "id": 13,
+    "type": "completar_oracion",
+    "question": "La hipótesis alterna plantea que existe una _____, diferencia o efecto _____ entre las variables.",
+    "wordBank": [
+      "relación",
+      "significativo",
+      "igualdad",
+      "conceptual"
     ],
-    "answer": "La finalidad principal de la investigación"
+    "answer": [
+      "relación",
+      "significativo"
+    ]
   },
   {
-    "question": "¿Qué hacen los objetivos específicos?",
-    "options": [
-      "Desglosan el objetivo general en acciones concretas y ordenadas",
-      "Sustituyen al objetivo general",
-      "Eliminan la necesidad de hipótesis"
+    "id": 14,
+    "type": "completar_oracion",
+    "question": "La justificación explica el _____ y el _____ de la investigación científica.",
+    "wordBank": [
+      "porqué",
+      "para qué",
+      "cuándo",
+      "dónde"
     ],
-    "answer": "Desglosan el objetivo general en acciones concretas y ordenadas"
+    "answer": [
+      "porqué",
+      "para qué"
+    ]
   },
   {
-    "question": "¿A qué se refiere el impacto científico?",
-    "options": [
-      "A la contribución que la investigación realiza al avance del conocimiento",
-      "A la rentabilidad económica del estudio",
-      "A la duración del cronograma"
-    ],
-    "answer": "A la contribución que la investigación realiza al avance del conocimiento"
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "La estructura del protocolo permite presentar de manera clara qué se investigará, su importancia y cómo se realizará.",
+    "answer": true
   },
   {
-    "question": "¿Qué caracteriza el impacto social?",
-    "options": [
-      "Los beneficios que la investigación genera en la calidad de vida y solución de problemas comunitarios",
-      "La generación exclusiva de teorías",
-      "La eliminación del marco metodológico"
-    ],
-    "answer": "Los beneficios que la investigación genera en la calidad de vida y solución de problemas comunitarios"
+    "id": 16,
+    "type": "verdadero_falso",
+    "statement": "El marco teórico debe incluir información sin relación directa con el problema para ampliar el contenido.",
+    "answer": false
   },
   {
-    "question": "¿Qué implica el impacto económico?",
-    "options": [
-      "Uso eficiente de recursos, optimización de procesos y generación de valor",
-      "El aumento obligatorio del presupuesto",
-      "La reducción del marco teórico"
-    ],
-    "answer": "Uso eficiente de recursos, optimización de procesos y generación de valor"
+    "id": 17,
+    "type": "verdadero_falso",
+    "statement": "Delimitar el problema permite definir qué se estudiará y qué quedará fuera del análisis.",
+    "answer": true
   },
   {
-    "question": "¿Qué representa el impacto tecnológico?",
-    "options": [
-      "La aplicación del conocimiento científico para crear o mejorar herramientas y procesos",
-      "La eliminación de métodos tradicionales",
-      "La sustitución del análisis estadístico"
-    ],
-    "answer": "La aplicación del conocimiento científico para crear o mejorar herramientas y procesos"
+    "id": 18,
+    "type": "verdadero_falso",
+    "statement": "Los objetivos específicos deben ser generales, difíciles de medir y ajenos al objetivo principal.",
+    "answer": false
   },
   {
-    "question": "¿Qué es delimitar variables?",
-    "options": [
-      "Identificar, definir y precisar las características que serán objeto de medición y análisis",
-      "Eliminar las variables dependientes",
-      "Redactar únicamente el marco teórico"
-    ],
-    "answer": "Identificar, definir y precisar las características que serán objeto de medición y análisis"
+    "id": 19,
+    "type": "verdadero_falso",
+    "statement": "Las variables pueden clasificarse según su función, naturaleza y nivel de medición.",
+    "answer": true
   },
   {
-    "question": "¿Cómo deben estar definidas las variables?",
-    "options": [
-      "Conceptual y operacionalmente, y ser medibles",
-      "Solo de forma conceptual",
-      "De manera ambigua para permitir flexibilidad"
-    ],
-    "answer": "Conceptual y operacionalmente, y ser medibles"
+    "id": 20,
+    "type": "verdadero_falso",
+    "statement": "La hipótesis nula y la hipótesis alterna pueden aceptarse simultáneamente como explicaciones compatibles.",
+    "answer": false
   },
   {
-    "question": "¿Qué establece la hipótesis nula?",
-    "options": [
-      "Que no existe relación, diferencia o efecto significativo entre las variables",
-      "Que existe una relación directa entre las variables",
-      "Que las variables son irrelevantes"
-    ],
-    "answer": "Que no existe relación, diferencia o efecto significativo entre las variables"
+    "id": 21,
+    "type": "verdadero_falso",
+    "statement": "La trascendencia de una investigación se relaciona con su proyección a largo plazo y su aporte al conocimiento.",
+    "answer": true
   },
   {
-    "question": "¿Cuándo se acepta la hipótesis alterna?",
-    "options": [
-      "Cuando la evidencia permite rechazar la hipótesis nula",
-      "Cuando no se realiza análisis estadístico",
-      "Cuando el investigador lo decide subjetivamente"
+    "id": 22,
+    "type": "ordenar_oracion",
+    "segments": [
+      "de manera lógica",
+      "La estructura del protocolo",
+      "el proceso de investigación.",
+      "organiza",
+      "y sistemática"
     ],
-    "answer": "Cuando la evidencia permite rechazar la hipótesis nula"
+    "answer": [
+      "La estructura del protocolo",
+      "organiza",
+      "de manera lógica",
+      "y sistemática",
+      "el proceso de investigación."
+    ]
   },
   {
-    "question": "¿Qué explica la justificación?",
-    "options": [
-      "Las razones que fundamentan la realización del estudio y su importancia",
-      "La estructura del cronograma",
-      "La clasificación de variables"
+    "id": 23,
+    "type": "ordenar_oracion",
+    "segments": [
+      "una base científica",
+      "El marco teórico",
+      "del fenómeno investigado.",
+      "para la comprensión",
+      "proporciona"
     ],
-    "answer": "Las razones que fundamentan la realización del estudio y su importancia"
+    "answer": [
+      "El marco teórico",
+      "proporciona",
+      "una base científica",
+      "para la comprensión",
+      "del fenómeno investigado."
+    ]
   },
   {
-    "question": "¿Qué debe destacar la justificación?",
-    "options": [
-      "La relevancia del problema, su impacto potencial y la viabilidad de la investigación",
-      "El diseño gráfico del protocolo",
-      "La extensión del marco teórico"
+    "id": 24,
+    "type": "ordenar_oracion",
+    "segments": [
+      "los límites del estudio",
+      "La delimitación precisa",
+      "y reduce",
+      "del problema",
+      "su complejidad."
     ],
-    "answer": "La relevancia del problema, su impacto potencial y la viabilidad de la investigación"
+    "answer": [
+      "La delimitación",
+      "del problema",
+      "precisa los límites del estudio",
+      "y reduce",
+      "su complejidad."
+    ]
   },
   {
-    "question": "¿A qué se refiere la trascendencia en la investigación?",
-    "options": [
-      "Al impacto duradero que los resultados pueden generar más allá de su contexto inmediato",
-      "A la duración del estudio en meses",
-      "Al número de páginas del protocolo"
+    "id": 25,
+    "type": "ordenar_oracion",
+    "segments": [
+      "el propósito central",
+      "El objetivo general",
+      "de la investigación.",
+      "expresa con claridad",
+      "y orienta el desarrollo"
     ],
-    "answer": "Al impacto duradero que los resultados pueden generar más allá de su contexto inmediato"
+    "answer": [
+      "El objetivo general",
+      "expresa con claridad",
+      "el propósito central",
+      "y orienta el desarrollo",
+      "de la investigación."
+    ]
+  },
+  {
+    "id": 26,
+    "type": "ordenar_oracion",
+    "segments": [
+      "la recolección de datos",
+      "La delimitación de variables",
+      "la formulación de hipótesis",
+      "y orienta",
+      "facilita"
+    ],
+    "answer": [
+      "La delimitación de variables",
+      "facilita",
+      "la formulación de hipótesis",
+      "y orienta",
+      "la recolección de datos"
+    ]
+  },
+  {
+    "id": 27,
+    "type": "ordenar_oracion",
+    "segments": [
+      "la hipótesis nula",
+      "La evidencia empírica",
+      "cuando los datos",
+      "permite rechazar",
+      "son suficientes."
+    ],
+    "answer": [
+      "La evidencia empírica",
+      "permite rechazar",
+      "la hipótesis nula",
+      "cuando los datos",
+      "son suficientes."
+    ]
+  },
+  {
+    "id": 28,
+    "type": "ordenar_oracion",
+    "segments": [
+      "la importancia y beneficios",
+      "La justificación explica",
+      "de realizar",
+      "la investigación científica.",
+      "el porqué"
+    ],
+    "answer": [
+      "La justificación explica",
+      "el porqué",
+      "la importancia y beneficios",
+      "de realizar",
+      "la investigación científica."
+    ]
   }
 ]

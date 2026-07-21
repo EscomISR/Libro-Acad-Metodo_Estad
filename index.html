@@ -6,7 +6,7 @@
     <title>Polilibro académico - ENMYH | Metodología de la Investigación y Estadística I</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="RECURSOS/img/logoenmh2.png">
-    <link rel="stylesheet" href="RECURSOS/css/inicio.css?v=8">
+    <link rel="stylesheet" href="RECURSOS/css/inicio.css?v=9">
 </head>
 <body>
     <main class="container">
@@ -15,80 +15,67 @@
                 <img src="RECURSOS/img/IPNb.png" alt="IPN Logo" class="hero-logo hero-logo-ipn">
                 <div class="hero-title">
                     <h1><span class="highlight">Instituto Politécnico Nacional</span><br><span class="subtitle">Escuela Nacional de Medicina y Homeopatía</span></h1>
-                    <p class="hero-description hero-description-large">EL MÉTODO Y LA ESTADÍSTICA 
-                    <p class="hero-description hero-description-large">COMO CAMINO</p>
-                    <p class="hero-description hero-description-large">PARA COMPRENDER LA REALIDAD<br></p>
-                    <p><br>Polilibro académico <br>Unidad de aprendizaje Metodología de la Investigación y Estadística I</p>
+                    <p class="hero-description hero-description-large">
+                        <span>EL MÉTODO Y LA ESTADÍSTICA</span>
+                        <span>COMO CAMINO</span>
+                        <span>PARA COMPRENDER LA REALIDAD</span>
+                    </p>
+                    <p class="hero-meta">
+                        <strong>Polilibro académico</strong>
+                        <span>Unidad de aprendizaje Metodología de la Investigación y Estadística I</span>
+                    </p>
                 </div>
                 <img src="RECURSOS/img/logoenmh.png" alt="ENMyH Logo" class="hero-logo hero-logo-enmyh">
             </div>
         </section>
 
-        <div class="card-container">
-            <div class="card" data-modal="prefacio">
-                <div class="card-header"><div class="card-icon gradient-1"><i class="fas fa-book"></i></div><h3 class="card-title">Bienvenida</h3></div>
-                <div class="card-content"><p class="card-description">El porqué y para quién de este recurso.</p></div>
-            </div>
-            <div class="card" data-modal="examen">
-                <div class="card-header">
-                    <div class="card-icon gradient-2">
-                        <i class="fas fa-file-signature"></i>
-                    </div>
-                    <h3 class="card-title">Examen diagnóstico</h3>
-                </div>
-                <div class="card-content">
-                    <p class="card-description">Evaluación de conocimientos previos.</p>
-                </div>
-            </div>
-            <div class="card" data-modal="Encuadre">
-                <div class="card-header"><div class="card-icon gradient-2"><i class="fas fa-compass"></i></div><h3 class="card-title">Contenido</h3></div>
-                <div class="card-content"><p class="card-description">Propósito y estructura de la unidad.</p></div>
-            </div>
+        <nav class="card-container" aria-label="Secciones del polilibro">
+            <button class="card" type="button" data-modal="prefacio" aria-label="Abrir la bienvenida" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-1"><i class="fas fa-book" aria-hidden="true"></i></span><span class="card-title">Bienvenida</span></span>
+            </button>
+            <button class="card" type="button" data-modal="examen" aria-label="Abrir el examen diagnóstico" aria-haspopup="dialog">
+                <span class="card-header">
+                    <span class="card-icon gradient-2">
+                        <i class="fas fa-file-signature" aria-hidden="true"></i>
+                    </span>
+                    <span class="card-title">Examen diagnóstico</span>
+                </span>
+            </button>
+            <button class="card" type="button" data-modal="Encuadre" aria-label="Consultar el contenido de la unidad" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-2"><i class="fas fa-compass" aria-hidden="true"></i></span><span class="card-title">Contenido de la unidad</span></span>
+            </button>
+            <button class="card" type="button" data-modal="programa" aria-label="Consultar el programa" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-3"><i class="fas fa-file-alt" aria-hidden="true"></i></span><span class="card-title">Programa</span></span>
+            </button>
+            <button class="card" type="button" data-modal="Introducción" aria-label="Leer el prólogo" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-4"><i class="fas fa-lightbulb" aria-hidden="true"></i></span><span class="card-title">Prólogo</span></span>
+            </button>
+            <button class="card" type="button" data-modal="creadores" aria-label="Consultar información de los creadores" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-5"><i class="fas fa-users" aria-hidden="true"></i></span><span class="card-title">Creadores</span></span>
+            </button>
+            <button class="card" type="button" data-modal="colaboradores" aria-label="Consultar colaboradores" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-7"><i class="fas fa-hands-helping" aria-hidden="true"></i></span><span class="card-title">Colaboradores</span></span>
+            </button>
+            <button class="card" type="button" data-modal="metodologia" aria-label="Consultar la metodología" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-8"><i class="fas fa-sitemap" aria-hidden="true"></i></span><span class="card-title">Metodología</span></span>
+            </button>
+            <button class="card" type="button" data-modal="actividades" aria-label="Abrir la agenda de actividades" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-6"><i class="fas fa-gamepad" aria-hidden="true"></i></span><span class="card-title">Agenda de actividades</span></span>
+            </button>
+            <button class="card" type="button" data-modal="Glosario" aria-label="Consultar el glosario de términos" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-9"><i class="fas fa-gamepad" aria-hidden="true"></i></span><span class="card-title">Glosario de términos</span></span>
+            </button>
+            <button class="card" type="button" data-modal="licencia" aria-label="Consultar los términos de uso y licenciamiento" aria-haspopup="dialog">
+                <span class="card-header"><span class="card-icon gradient-1"><i class="fab fa-creative-commons" aria-hidden="true"></i></span><span class="card-title">Términos de uso y licenciamiento.</span></span>
+            </button>
+        </nav>
 
-             <div class="card" data-modal="programa">
-                <div class="card-header"><div class="card-icon gradient-3"><i class="fas fa-file-alt"></i></div><h3 class="card-title">Programa</h3></div>
-                <div class="card-content"><p class="card-description">Programa sintético de la unidad de aprendizaje.</p></div>
-            </div>
-            <div class="card" data-modal="Introducción">
-                <div class="card-header"><div class="card-icon gradient-4"><i class="fas fa-lightbulb"></i></div><h3 class="card-title">Introducción</h3></div>
-                <div class="card-content"><p class="card-description">Prólogo.</p></div>
-            </div>
-
-            <div class="card" data-modal="creadores">
-                <div class="card-header"><div class="card-icon gradient-5"><i class="fas fa-users"></i></div><h3 class="card-title">Creadores</h3></div>
-                <div class="card-content"><p class="card-description">Información sobre los autores.</p></div>
-            </div>
-            <div class="card" data-modal="colaboradores">
-                <div class="card-header"><div class="card-icon gradient-7"><i class="fas fa-hands-helping"></i></div><h3 class="card-title">Colaboradores</h3></div>
-                <div class="card-content"><p class="card-description">Equipo de desarrollo y agradecimientos.</p></div>
-            </div>
-             <div class="card" data-modal="metodologia">
-                <div class="card-header"><div class="card-icon gradient-8"><i class="fas fa-sitemap"></i></div><h3 class="card-title">Metodología</h3></div>
-                <div class="card-content"><p class="card-description">Estrategia y métodos de aprendizaje.</p></div>
-            </div>
-
-            <div class="card" data-modal="actividades">
-                <div class="card-header"><div class="card-icon gradient-6"><i class="fas fa-gamepad"></i></div><h3 class="card-title">Agenda de actividades</h3></div>
-                <div class="card-content"><p class="card-description">Ejercicios y dinámicas de aprendizaje.</p></div>
-            </div>
-
-            <div class="card" data-modal="Glosario">
-                <div class="card-header"><div class="card-icon gradient-9"><i class="fas fa-gamepad"></i></div><h3 class="card-title">Glosario de términos</h3></div>
-                <div class="card-content"><p class="card-description">Glosario de términos.</p></div>
-            </div>
-
-            <div class="card" data-modal="licencia">
-                <div class="card-header"><div class="card-icon gradient-1"><i class="fab fa-creative-commons"></i></div><h3 class="card-title">Licencia Creative Commons</h3></div>
-                <div class="card-content"><p class="card-description">Términos de uso y licenciamiento.</p></div>
-            </div>
-
-            </div> <section class="cta-section">
+        <section class="cta-section">
             <a href="unidades.html" class="cta-button">
                 <span>Explorar unidades temáticas</span>
                 <i class="fas fa-arrow-right"></i>
             </a>
         </section>
-        </div>
 
         <footer>
             <p>El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I  - Polilibro académico</p>
@@ -96,9 +83,9 @@
         </footer>
     </main>
 
-    <div id="modal-container" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" id="modal-close-button"><i class="fas fa-times"></i></button>
+    <div id="modal-container" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-label="Información del polilibro" tabindex="-1">
+            <button class="modal-close-btn" id="modal-close-button" type="button" aria-label="Cerrar ventana"><i class="fas fa-times" aria-hidden="true"></i></button>
             <div class="modal-body prose">
                 <div id="modal-prefacio" class="modal-section">
                     <h3>Bienvenida</h3>
@@ -121,7 +108,7 @@
                 </div>
 
                 <div id="modal-Encuadre" class="modal-section">
-                    <h3>Contenido</h3>
+                    <h3>Contenido de la unidad</h3>
                     <p class="text-justify">El método y la estadística como camino para comprender la realidad, metodología de la investigación y estadística I (polilibro académico), fue creado como un recurso didáctico innovador, destinado a las mentes creativas y analíticas que se forman como Médicos Cirujanos Parteros y Homeópatas dentro del Instituto Politécnico Nacional. Pensado para una formación integral en las necesidades del siglo XXI, combina la teoría, la práctica y la creatividad digital, permitiendo explorar, construir y evaluar soluciones eficientes que dan vida a los recursos de metodología de la investigación y estadística I modernos.</p>
                     <p class="text-justify">Estos recursos favorecen el desarrollo de habilidades de análisis, razonamiento clínico, pensamiento crítico, interpretación de resultados y toma de decisiones basadas en evidencia, fortaleciendo la vinculación entre teoría, práctica y realidad sanitaria.</p>
                     <p class="text-justify">Cada unidad ha sido cuidadosamente estructurada para estimular la autonomía, la curiosidad científica y la aplicación teórico-práctica del conocimiento, desarrollando competencias técnicas y analíticas mediante actividades participativas, simulaciones digitales, figuras interactivas y recursos multimedia que favorecen un aprendizaje activo.</p>
@@ -188,7 +175,7 @@
                 </div>
 
                 <div id="modal-Introducción" class="modal-section">
-                    <h3>Introducción</h3>
+                    <h3>Prólogo</h3>
                     <p class="text-justify">Todos los metodología de la investigación y estadística i desde sus inicios han sido parte fundamental para que la operatividad de las computadoras y juegan un papel muy importante entre el usuario y la computadora, por lo que los programas que se ejecutan les proporcionan estabilidad, seguridad y control en los procesos que se lleven a cabo con todos los elementos del hardware.</p>
 
                     <p class="text-justify">El pulso silencioso de los metodología de la investigación y estadística i (polilibro académico) invita a un viaje a través de los mecanismos, funciones y retos que conforman los metodología de la investigación y estadística i actuales.</p>
@@ -361,7 +348,7 @@
 
 
                <div id="modal-licencia" class="modal-section">
-                    <h3>Licencia Creative Commons</h3>
+                    <h3>Términos de uso y licenciamiento.</h3>
                     <p class="text-center">
                         <i class="fab fa-creative-commons license-icon"></i>
                     </p>
@@ -543,7 +530,7 @@
             </div>
         </div>
     </div>
-    <script src="RECURSOS/js/inicio.js"></script>
+    <script src="RECURSOS/js/inicio.js?v=2"></script>
     <script src="RECURSOS/js/copiar-texto-plano.js"></script>
 
 

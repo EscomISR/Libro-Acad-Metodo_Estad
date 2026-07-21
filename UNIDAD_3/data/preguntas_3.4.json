@@ -1,227 +1,350 @@
 [
   {
-    "question": "¿Qué constituye la interpretación y discusión de los resultados?",
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿Qué se analiza durante la interpretación de los resultados?",
     "options": [
-      "Una etapa esencial del proceso de investigación donde se analiza el significado de los datos obtenidos",
-      "La fase de recolección de datos en campo",
-      "Un resumen estadístico sin análisis"
+      "El significado de los datos obtenidos.",
+      "Únicamente la estructura de las tablas.",
+      "Solo las referencias bibliográficas."
     ],
-    "answer": "Una etapa esencial del proceso de investigación donde se analiza el significado de los datos obtenidos"
+    "answer": "El significado de los datos obtenidos."
   },
   {
-    "question": "¿Con qué se vinculan los resultados en la interpretación?",
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Qué debe determinar el investigador al interpretar los hallazgos?",
     "options": [
-      "Con los objetivos, las hipótesis y el marco teórico del estudio",
-      "Con el cronograma y presupuesto",
-      "Con las referencias bibliográficas exclusivamente"
+      "Si los resultados respaldan o rechazan las hipótesis.",
+      "Si deben eliminarse los objetivos del estudio.",
+      "Si los datos deben sustituirse por teorías."
     ],
-    "answer": "Con los objetivos, las hipótesis y el marco teórico del estudio"
+    "answer": "Si los resultados respaldan o rechazan las hipótesis."
   },
   {
-    "question": "¿Qué hace el investigador además de describir los hallazgos?",
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿Con qué elementos deben contrastarse los resultados?",
     "options": [
-      "Explica su relevancia e identifica patrones",
-      "Aplica nuevamente los instrumentos",
-      "Reduce el tamaño de la muestra"
+      "Con investigaciones previas, teorías y evidencia científica.",
+      "Con información nueva ajena al estudio.",
+      "Con opiniones sin sustento científico."
     ],
-    "answer": "Explica su relevancia e identifica patrones"
+    "answer": "Con investigaciones previas, teorías y evidencia científica."
   },
   {
-    "question": "¿Qué permite determinar la interpretación respecto a las hipótesis?",
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es una característica que deben cumplir las conclusiones?",
     "options": [
-      "Si los resultados las respaldan o las rechazan",
-      "Si deben eliminarse del estudio",
-      "Si deben modificarse antes del análisis"
+      "Introducir información no analizada.",
+      "Reflejar el alcance real del estudio.",
+      "Presentar únicamente recomendaciones futuras."
     ],
-    "answer": "Si los resultados las respaldan o las rechazan"
+    "answer": "Reflejar el alcance real del estudio."
   },
   {
-    "question": "¿Qué requiere la interpretación según el texto?",
+    "id": 5,
+    "type": "opcion_multiple",
+    "question": "¿Qué proponen las recomendaciones de una investigación?",
     "options": [
-      "Contrastar los resultados con investigaciones previas y teorías existentes",
-      "Eliminar los datos cualitativos",
-      "Aplicar nuevas encuestas"
+      "Acciones, mejoras o líneas de intervención.",
+      "Nuevas hipótesis sin relación con los resultados.",
+      "Modificaciones a los datos recolectados."
     ],
-    "answer": "Contrastar los resultados con investigaciones previas y teorías existentes"
+    "answer": "Acciones, mejoras o líneas de intervención."
   },
   {
-    "question": "¿Qué debe reconocerse durante la discusión?",
+    "id": 6,
+    "type": "opcion_multiple",
+    "question": "¿A qué se refieren las perspectivas de una investigación?",
     "options": [
-      "Las limitaciones del estudio y posibles sesgos",
-      "Nuevas hipótesis no planteadas",
-      "Cambios en la muestra"
+      "A la descripción exclusiva de los datos obtenidos.",
+      "A las proyecciones futuras del tema investigado.",
+      "A la eliminación de las limitaciones del estudio."
     ],
-    "answer": "Las limitaciones del estudio y posibles sesgos"
+    "answer": "A las proyecciones futuras del tema investigado."
   },
   {
-    "question": "¿Qué implica la discusión de los resultados?",
+    "id": 7,
+    "type": "opcion_multiple",
+    "question": "¿Qué tipo de gráfico permite observar cambios a lo largo del tiempo?",
     "options": [
-      "Una reflexión crítica que fundamente el significado de los hallazgos",
-      "Un resumen de tablas estadísticas",
-      "La repetición del marco teórico"
+      "Gráfico circular.",
+      "Histograma.",
+      "Gráfico de líneas."
     ],
-    "answer": "Una reflexión crítica que fundamente el significado de los hallazgos"
+    "answer": "Gráfico de líneas."
   },
   {
-    "question": "¿Qué favorece una adecuada interpretación en ciencias de la salud?",
-    "options": [
-      "La comprensión de fenómenos clínicos y epidemiológicos",
-      "La eliminación de variables",
-      "La reducción del análisis"
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "La interpretación vincula los datos con los _____, las hipótesis y el marco _____.",
+    "wordBank": [
+      "propósitos",
+      "teórico",
+      "gráficos",
+      "periodos"
     ],
-    "answer": "La comprensión de fenómenos clínicos y epidemiológicos"
+    "answer": [
+      "propósitos",
+      "teórico"
+    ]
   },
   {
-    "question": "¿Qué fortalece la interpretación en el ámbito sanitario?",
-    "options": [
-      "La toma de decisiones basadas en evidencia",
-      "La modificación de resultados",
-      "La reducción de participantes"
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "El investigador identifica _____ y explica la _____ de los hallazgos.",
+    "wordBank": [
+      "patrones",
+      "relevancia",
+      "columnas",
+      "frecuencia"
     ],
-    "answer": "La toma de decisiones basadas en evidencia"
+    "answer": [
+      "patrones",
+      "relevancia"
+    ]
   },
   {
-    "question": "¿Qué permiten elaborar la interpretación y discusión?",
-    "options": [
-      "Conclusiones sólidas y recomendaciones prácticas",
-      "Nuevos instrumentos de medición",
-      "Hipótesis adicionales"
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "La discusión debe reconocer las _____ del estudio y los posibles _____.",
+    "wordBank": [
+      "limitaciones",
+      "sesgos",
+      "objetivos",
+      "gráficos"
     ],
-    "answer": "Conclusiones sólidas y recomendaciones prácticas"
+    "answer": [
+      "limitaciones",
+      "sesgos"
+    ]
   },
   {
-    "question": "¿Qué representan las conclusiones?",
-    "options": [
-      "La fase final del proceso de investigación",
-      "La etapa de recopilación de datos",
-      "La sección metodológica"
+    "id": 11,
+    "type": "completar_oracion",
+    "question": "Las conclusiones sintetizan los _____ más relevantes y responden a los _____ propuestos.",
+    "wordBank": [
+      "hallazgos",
+      "objetivos",
+      "instrumentos",
+      "periodos"
     ],
-    "answer": "La fase final del proceso de investigación"
+    "answer": [
+      "hallazgos",
+      "objetivos"
+    ]
   },
   {
-    "question": "¿Qué sintetizan las conclusiones?",
-    "options": [
-      "Los hallazgos más relevantes del estudio",
-      "Las referencias utilizadas",
-      "El cronograma del proyecto"
+    "id": 12,
+    "type": "completar_oracion",
+    "question": "Las conclusiones deben redactarse con claridad, _____ y _____.",
+    "wordBank": [
+      "precisión",
+      "objetividad",
+      "frecuencia",
+      "novedad"
     ],
-    "answer": "Los hallazgos más relevantes del estudio"
+    "answer": [
+      "precisión",
+      "objetividad"
+    ]
   },
   {
-    "question": "¿A qué deben responder directamente las conclusiones?",
-    "options": [
-      "Al problema planteado y a los objetivos propuestos",
-      "Al número de encuestas aplicadas",
-      "Al presupuesto del estudio"
+    "id": 13,
+    "type": "completar_oracion",
+    "question": "Las recomendaciones deben ser claras, _____ y coherentes con los _____.",
+    "wordBank": [
+      "viables",
+      "hallazgos",
+      "circulares",
+      "sesgos"
     ],
-    "answer": "Al problema planteado y a los objetivos propuestos"
+    "answer": [
+      "viables",
+      "hallazgos"
+    ]
   },
   {
-    "question": "¿Qué no deben incluir las conclusiones?",
-    "options": [
-      "Información nueva que no haya sido analizada previamente",
-      "Síntesis de resultados",
-      "Relación con hipótesis"
+    "id": 14,
+    "type": "completar_oracion",
+    "question": "Las tablas organizan los datos en _____ y columnas, mientras que los gráficos los representan de forma _____.",
+    "wordBank": [
+      "filas",
+      "visual",
+      "teorías",
+      "objetiva"
     ],
-    "answer": "Información nueva que no haya sido analizada previamente"
+    "answer": [
+      "filas",
+      "visual"
+    ]
   },
   {
-    "question": "¿Cómo deben redactarse las conclusiones?",
-    "options": [
-      "Con claridad, precisión y objetividad",
-      "Con opiniones personales",
-      "Con lenguaje informal"
-    ],
-    "answer": "Con claridad, precisión y objetividad"
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "La interpretación de resultados se limita a describir los hallazgos obtenidos.",
+    "answer": false
   },
   {
-    "question": "¿Qué constituyen las recomendaciones?",
-    "options": [
-      "Acciones o mejoras derivadas de los resultados obtenidos",
-      "Nuevas hipótesis",
-      "Instrumentos de análisis"
-    ],
-    "answer": "Acciones o mejoras derivadas de los resultados obtenidos"
+    "id": 16,
+    "type": "verdadero_falso",
+    "statement": "La discusión permite identificar coincidencias, discrepancias y aportaciones novedosas.",
+    "answer": true
   },
   {
-    "question": "¿En qué deben basarse las recomendaciones?",
-    "options": [
-      "En la evidencia generada por el estudio",
-      "En opiniones externas",
-      "En estudios no relacionados"
-    ],
-    "answer": "En la evidencia generada por el estudio"
+    "id": 17,
+    "type": "verdadero_falso",
+    "statement": "Los factores externos que pudieron influir en los resultados deben ignorarse durante la discusión.",
+    "answer": false
   },
   {
-    "question": "¿Qué deben ser las recomendaciones?",
-    "options": [
-      "Claras, viables y coherentes con los hallazgos",
-      "Generales e imprecisas",
-      "Independientes de los resultados"
-    ],
-    "answer": "Claras, viables y coherentes con los hallazgos"
+    "id": 18,
+    "type": "verdadero_falso",
+    "statement": "Las conclusiones deben responder directamente al problema y a los objetivos del estudio.",
+    "answer": true
   },
   {
-    "question": "¿A qué se refieren las perspectivas?",
-    "options": [
-      "A las proyecciones futuras del tema investigado",
-      "A la recopilación de datos",
-      "Al análisis descriptivo"
-    ],
-    "answer": "A las proyecciones futuras del tema investigado"
+    "id": 19,
+    "type": "verdadero_falso",
+    "statement": "Las conclusiones pueden incluir información nueva que no haya sido analizada previamente.",
+    "answer": false
   },
   {
-    "question": "¿Qué permiten las perspectivas?",
-    "options": [
-      "Ampliar el conocimiento y desarrollar nuevas líneas de investigación",
-      "Reducir el estudio",
-      "Eliminar variables"
-    ],
-    "answer": "Ampliar el conocimiento y desarrollar nuevas líneas de investigación"
+    "id": 20,
+    "type": "verdadero_falso",
+    "statement": "Las perspectivas pueden proponer nuevas líneas de investigación y variables por explorar.",
+    "answer": true
   },
   {
-    "question": "¿Qué constituyen las tablas y gráficos en esta sección?",
-    "options": [
-      "Herramientas para organizar y presentar datos de forma clara",
-      "Instrumentos de recolección",
-      "Hipótesis estadísticas"
-    ],
-    "answer": "Herramientas para organizar y presentar datos de forma clara"
+    "id": 21,
+    "type": "verdadero_falso",
+    "statement": "Las tablas de contingencia permiten analizar la relación entre dos variables.",
+    "answer": true
   },
   {
-    "question": "¿Qué permiten las tablas?",
-    "options": [
-      "Comparar categorías y valores numéricos",
-      "Modificar resultados",
-      "Eliminar datos cualitativos"
+    "id": 22,
+    "type": "ordenar_oracion",
+    "segments": [
+      "en conocimiento significativo",
+      "La interpretación transforma",
+      "y útil.",
+      "los datos obtenidos"
     ],
-    "answer": "Comparar categorías y valores numéricos"
+    "answer": [
+      "La interpretación transforma",
+      "los datos obtenidos",
+      "en conocimiento significativo",
+      "y útil."
+    ]
   },
   {
-    "question": "¿Qué favorecen los gráficos?",
-    "options": [
-      "Una comprensión rápida y efectiva de la información",
-      "La eliminación de hipótesis",
-      "La reducción del análisis"
+    "id": 23,
+    "type": "ordenar_oracion",
+    "segments": [
+      "con investigaciones previas",
+      "La discusión contrasta",
+      "y evidencia científica.",
+      "los resultados",
+      "teorías existentes"
     ],
-    "answer": "Una comprensión rápida y efectiva de la información"
+    "answer": [
+      "La discusión contrasta",
+      "los resultados",
+      "con investigaciones previas",
+      "teorías existentes",
+      "y evidencia científica."
+    ]
   },
   {
-    "question": "¿Qué permiten identificar los gráficos?",
-    "options": [
-      "Tendencias y diferencias",
-      "Errores metodológicos",
-      "Cambios en el marco teórico"
+    "id": 24,
+    "type": "ordenar_oracion",
+    "segments": [
+      "los hallazgos relevantes",
+      "Las conclusiones sintetizan",
+      "del estudio.",
+      "y responden",
+      "a los objetivos"
     ],
-    "answer": "Tendencias y diferencias"
+    "answer": [
+      "Las conclusiones sintetizan",
+      "los hallazgos relevantes",
+      "y responden",
+      "a los objetivos",
+      "del estudio."
+    ]
   },
   {
-    "question": "¿Qué fortalece la sección de recomendaciones y perspectivas?",
-    "options": [
-      "La práctica basada en evidencia y el avance científico",
-      "La reducción del estudio",
-      "La eliminación del análisis"
+    "id": 25,
+    "type": "ordenar_oracion",
+    "segments": [
+      "información nueva",
+      "Las conclusiones no deben",
+      "previamente.",
+      "que no fue analizada",
+      "introducir"
     ],
-    "answer": "La práctica basada en evidencia y el avance científico"
+    "answer": [
+      "Las conclusiones no deben",
+      "introducir",
+      "información nueva",
+      "que no fue analizada",
+      "previamente."
+    ]
+  },
+  {
+    "id": 26,
+    "type": "ordenar_oracion",
+    "segments": [
+      "acciones viables",
+      "Las recomendaciones proponen",
+      "en la evidencia",
+      "basadas",
+      "del estudio."
+    ],
+    "answer": [
+      "Las recomendaciones proponen",
+      "acciones viables",
+      "basadas",
+      "en la evidencia",
+      "del estudio."
+    ]
+  },
+  {
+    "id": 27,
+    "type": "ordenar_oracion",
+    "segments": [
+      "oportunidades futuras",
+      "Las perspectivas identifican",
+      "el conocimiento.",
+      "para ampliar",
+      "y profundizar"
+    ],
+    "answer": [
+      "Las perspectivas identifican",
+      "oportunidades futuras",
+      "para ampliar",
+      "y profundizar",
+      "el conocimiento."
+    ]
+  },
+  {
+    "id": 28,
+    "type": "ordenar_oracion",
+    "segments": [
+      "los datos",
+      "Las tablas organizan",
+      "y los gráficos",
+      "visualmente.",
+      "los representan"
+    ],
+    "answer": [
+      "Las tablas organizan",
+      "los datos",
+      "y los gráficos",
+      "los representan",
+      "visualmente."
+    ]
   }
 ]

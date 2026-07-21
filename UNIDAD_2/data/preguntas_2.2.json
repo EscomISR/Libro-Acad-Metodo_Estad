@@ -1,227 +1,346 @@
 [
   {
-    "question": "¿En qué consiste el planteamiento del diseño de la investigación?",
+    "id": 1,
+    "type": "opcion_multiple",
+    "question": "¿Cuál es la finalidad principal del diseño de investigación?",
     "options": [
-      "En definir el plan o estrategia para responder al problema y comprobar las hipótesis",
-      "En redactar únicamente el marco teórico",
-      "En presentar los resultados finales del estudio"
+      "Presentar los resultados antes de recolectar los datos.",
+      "Contestar el problema de estudio y comprobar las hipótesis formuladas.",
+      "Seleccionar únicamente las referencias del estudio."
     ],
-    "answer": "En definir el plan o estrategia para responder al problema y comprobar las hipótesis"
+    "answer": "Contestar el problema de estudio y comprobar las hipótesis formuladas."
   },
   {
-    "question": "¿Qué determina el diseño de investigación?",
+    "id": 2,
+    "type": "opcion_multiple",
+    "question": "¿Qué conecta la estructura lógica del diseño de investigación?",
     "options": [
-      "El tipo de estudio y la forma en que se recolectarán y analizarán los datos",
-      "Solo la redacción de los objetivos",
-      "La eliminación de variables intervinientes"
+      "Los objetivos con los procedimientos metodológicos.",
+      "La muestra con las referencias bibliográficas.",
+      "Los resultados con los recursos económicos."
     ],
-    "answer": "El tipo de estudio y la forma en que se recolectarán y analizarán los datos"
+    "answer": "Los objetivos con los procedimientos metodológicos."
   },
   {
-    "question": "¿Qué conecta el diseño dentro de la investigación?",
+    "id": 3,
+    "type": "opcion_multiple",
+    "question": "¿En qué consiste la operacionalización de variables?",
     "options": [
-      "Los objetivos con los procedimientos metodológicos",
-      "Las conclusiones con la portada",
-      "Las referencias con el cronograma"
+      "En eliminar las variables difíciles de medir.",
+      "En sustituir los objetivos por indicadores.",
+      "En transformar las variables en elementos observables y medibles."
     ],
-    "answer": "Los objetivos con los procedimientos metodológicos"
+    "answer": "En transformar las variables en elementos observables y medibles."
   },
   {
-    "question": "¿Qué garantiza un diseño bien planteado?",
+    "id": 4,
+    "type": "opcion_multiple",
+    "question": "¿Por qué se selecciona una muestra en lugar de estudiar a toda la población?",
     "options": [
-      "Validez interna y externa",
-      "Resultados subjetivos",
-      "La reducción del tamaño de muestra"
+      "Porque estudiar a toda la población puede ser costoso o impracticable.",
+      "Porque la muestra no necesita representar al grupo total.",
+      "Porque una muestra elimina la necesidad de analizar datos."
     ],
-    "answer": "Validez interna y externa"
+    "answer": "Porque estudiar a toda la población puede ser costoso o impracticable."
   },
   {
-    "question": "¿Qué permite controlar el diseño de investigación?",
-    "options": [
-      "Las variables del estudio",
-      "Las referencias bibliográficas",
-      "Los títulos de las tablas"
-    ],
-    "answer": "Las variables del estudio"
-  },
-  {
-    "question": "¿Qué es la operacionalización de variables?",
-    "options": [
-      "El proceso de transformar conceptos teóricos en variables observables y medibles",
-      "La eliminación de variables dependientes",
-      "La redacción de hipótesis alternativas"
-    ],
-    "answer": "El proceso de transformar conceptos teóricos en variables observables y medibles"
-  },
-  {
-    "question": "¿Qué se establece durante la operacionalización?",
-    "options": [
-      "Dimensiones, indicadores y forma de evaluación de cada variable",
-      "Las conclusiones finales",
-      "El índice del documento"
-    ],
-    "answer": "Dimensiones, indicadores y forma de evaluación de cada variable"
-  },
-  {
-    "question": "¿Qué permite la operacionalización respecto a la medición?",
-    "options": [
-      "Estandarizar la medición y reducir sesgos",
-      "Eliminar la necesidad de instrumentos",
-      "Modificar los objetivos del estudio"
-    ],
-    "answer": "Estandarizar la medición y reducir sesgos"
-  },
-  {
-    "question": "¿Qué debe especificarse en el control de variables?",
-    "options": [
-      "Escalas de medición, instrumentos y criterios de evaluación",
-      "Solo la hipótesis nula",
-      "Únicamente el impacto social"
-    ],
-    "answer": "Escalas de medición, instrumentos y criterios de evaluación"
-  },
-  {
-    "question": "¿Qué es la selección de la muestra?",
-    "options": [
-      "El proceso de elegir un subconjunto representativo de la población",
-      "La eliminación de participantes con errores",
-      "La definición del marco teórico"
-    ],
-    "answer": "El proceso de elegir un subconjunto representativo de la población"
-  },
-  {
-    "question": "¿Qué garantiza una muestra adecuada?",
-    "options": [
-      "Que los resultados reflejen de manera confiable la realidad investigada",
-      "La reducción del problema de estudio",
-      "La eliminación del análisis estadístico"
-    ],
-    "answer": "Que los resultados reflejen de manera confiable la realidad investigada"
-  },
-  {
+    "id": 5,
+    "type": "opcion_multiple",
     "question": "¿Qué caracteriza al muestreo probabilístico?",
     "options": [
-      "Todos los elementos tienen la misma probabilidad de ser seleccionados",
-      "Solo algunos individuos pueden ser elegidos intencionalmente",
-      "Se basa únicamente en disponibilidad"
+      "Selecciona únicamente participantes disponibles.",
+      "Los elementos tienen la misma oportunidad de ser seleccionados.",
+      "Los participantes iniciales recomiendan a otros."
     ],
-    "answer": "Todos los elementos tienen la misma probabilidad de ser seleccionados"
+    "answer": "Los elementos tienen la misma oportunidad de ser seleccionados."
   },
   {
-    "question": "¿Qué es el muestreo estratificado?",
+    "id": 6,
+    "type": "opcion_multiple",
+    "question": "¿Qué actividades se realizan durante la aplicación del plan estadístico?",
     "options": [
-      "Dividir la población en subgrupos y seleccionar muestra de cada uno",
-      "Elegir participantes disponibles",
-      "Seleccionar cada décimo participante sin dividir grupos"
+      "Se organizan, codifican y procesan los datos.",
+      "Se sustituyen las hipótesis por conclusiones.",
+      "Se modifica el problema de investigación."
     ],
-    "answer": "Dividir la población en subgrupos y seleccionar muestra de cada uno"
+    "answer": "Se organizan, codifican y procesan los datos."
   },
   {
-    "question": "¿Qué caracteriza al muestreo no probabilístico?",
+    "id": 7,
+    "type": "opcion_multiple",
+    "question": "¿Para qué se utiliza la estadística inferencial dentro del plan estadístico?",
     "options": [
-      "No todos los individuos tienen la misma probabilidad de ser seleccionados",
-      "Todos tienen igual probabilidad",
-      "Se realiza únicamente por azar simple"
+      "Para seleccionar los instrumentos de recolección.",
+      "Para definir las dimensiones de las variables.",
+      "Para probar las hipótesis del estudio."
     ],
-    "answer": "No todos los individuos tienen la misma probabilidad de ser seleccionados"
+    "answer": "Para probar las hipótesis del estudio."
   },
   {
-    "question": "¿Qué es el muestreo por conveniencia?",
-    "options": [
-      "Elegir participantes disponibles o accesibles",
-      "Dividir en estratos proporcionales",
-      "Seleccionar conglomerados completos"
+    "id": 8,
+    "type": "completar_oracion",
+    "question": "El diseño de investigación conecta los _____ con los procedimientos _____.",
+    "wordBank": [
+      "objetivos",
+      "metodológicos",
+      "resultados",
+      "poblacionales"
     ],
-    "answer": "Elegir participantes disponibles o accesibles"
+    "answer": [
+      "objetivos",
+      "metodológicos"
+    ]
   },
   {
-    "question": "¿Qué es la aplicación del plan estadístico?",
-    "options": [
-      "La ejecución de los procedimientos de análisis para interpretar los datos",
-      "La redacción del marco teórico",
-      "La delimitación del problema"
+    "id": 9,
+    "type": "completar_oracion",
+    "question": "Un diseño bien planteado garantiza validez _____ y externa, además de resultados _____.",
+    "wordBank": [
+      "interna",
+      "confiables",
+      "descriptiva",
+      "abstractos"
     ],
-    "answer": "La ejecución de los procedimientos de análisis para interpretar los datos"
+    "answer": [
+      "interna",
+      "confiables"
+    ]
   },
   {
-    "question": "¿Qué tipo de estadística utiliza tablas, frecuencias y medias?",
-    "options": [
-      "Estadística descriptiva",
-      "Estadística inferencial",
-      "Estadística cualitativa narrativa"
+    "id": 10,
+    "type": "completar_oracion",
+    "question": "La operacionalización establece las _____, los indicadores y la forma de _____ cada variable.",
+    "wordBank": [
+      "dimensiones",
+      "evaluar",
+      "muestras",
+      "codificar"
     ],
-    "answer": "Estadística descriptiva"
+    "answer": [
+      "dimensiones",
+      "evaluar"
+    ]
   },
   {
-    "question": "¿Para qué se utiliza la estadística inferencial?",
-    "options": [
-      "Para probar hipótesis",
-      "Para redactar conclusiones sin datos",
-      "Para definir el cronograma"
+    "id": 11,
+    "type": "completar_oracion",
+    "question": "El control de variables permite estandarizar la _____ y reducir los _____.",
+    "wordBank": [
+      "medición",
+      "sesgos",
+      "recursos",
+      "objetivos"
     ],
-    "answer": "Para probar hipótesis"
+    "answer": [
+      "medición",
+      "sesgos"
+    ]
   },
   {
-    "question": "¿Qué debe definir el plan estadístico?",
-    "options": [
-      "Pruebas estadísticas, niveles de significancia y criterios de interpretación",
-      "Solo los objetivos generales",
-      "Únicamente el impacto económico"
+    "id": 12,
+    "type": "completar_oracion",
+    "question": "La muestra debe ser _____ y tener un tamaño _____.",
+    "wordBank": [
+      "representativa",
+      "suficiente",
+      "abstracta",
+      "inferencial"
     ],
-    "answer": "Pruebas estadísticas, niveles de significancia y criterios de interpretación"
+    "answer": [
+      "representativa",
+      "suficiente"
+    ]
   },
   {
-    "question": "¿Qué garantiza una adecuada aplicación del plan estadístico?",
-    "options": [
-      "Validez, confiabilidad y precisión en los resultados",
-      "Resultados subjetivos",
-      "Eliminación del diseño metodológico"
+    "id": 13,
+    "type": "completar_oracion",
+    "question": "El muestreo puede ser _____ o no probabilístico, según el diseño y los _____ disponibles.",
+    "wordBank": [
+      "probabilístico",
+      "recursos",
+      "descriptivo",
+      "indicadores"
     ],
-    "answer": "Validez, confiabilidad y precisión en los resultados"
+    "answer": [
+      "probabilístico",
+      "recursos"
+    ]
   },
   {
-    "question": "¿Qué permite presentar resultados de forma clara y comprensible?",
-    "options": [
-      "Una adecuada aplicación del plan estadístico",
-      "La omisión de variables",
-      "La eliminación del análisis inferencial"
+    "id": 14,
+    "type": "completar_oracion",
+    "question": "El plan estadístico transforma la _____ recolectada en resultados claros y _____.",
+    "wordBank": [
+      "información",
+      "comprensibles",
+      "muestra",
+      "aleatorios"
     ],
-    "answer": "Una adecuada aplicación del plan estadístico"
+    "answer": [
+      "información",
+      "comprensibles"
+    ]
   },
   {
-    "question": "¿Qué fortalece el rigor del estudio en la etapa estadística?",
-    "options": [
-      "La correcta ejecución del plan estadístico",
-      "La modificación de hipótesis",
-      "La eliminación de instrumentos"
-    ],
-    "answer": "La correcta ejecución del plan estadístico"
+    "id": 15,
+    "type": "verdadero_falso",
+    "statement": "El diseño de investigación determina el tipo de estudio y la forma de recolectar y analizar los datos.",
+    "answer": true
   },
   {
-    "question": "¿Qué facilita la toma de decisiones científicas basadas en evidencia?",
-    "options": [
-      "El análisis estadístico bien aplicado",
-      "Las opiniones personales",
-      "La ausencia de pruebas estadísticas"
-    ],
-    "answer": "El análisis estadístico bien aplicado"
+    "id": 16,
+    "type": "verdadero_falso",
+    "statement": "Un diseño bien planteado puede controlar variables y favorecer resultados reproducibles.",
+    "answer": true
   },
   {
-    "question": "¿Qué relación debe tener el plan estadístico?",
-    "options": [
-      "Coherencia con el diseño metodológico, objetivos e hipótesis",
-      "Independencia total del diseño",
-      "Desvinculación de las variables"
-    ],
-    "answer": "Coherencia con el diseño metodológico, objetivos e hipótesis"
+    "id": 17,
+    "type": "verdadero_falso",
+    "statement": "La operacionalización mantiene los conceptos en un nivel abstracto y evita definir cómo serán medidos.",
+    "answer": false
   },
   {
-    "question": "¿Qué convierte los datos en evidencia científica confiable?",
-    "options": [
-      "La aplicación del plan estadístico",
-      "La redacción del marco conceptual",
-      "La delimitación espacial del problema"
+    "id": 18,
+    "type": "verdadero_falso",
+    "statement": "Una muestra representativa conserva las características esenciales de la población.",
+    "answer": true
+  },
+  {
+    "id": 19,
+    "type": "verdadero_falso",
+    "statement": "El muestreo por conveniencia pertenece a los métodos probabilísticos.",
+    "answer": false
+  },
+  {
+    "id": 20,
+    "type": "verdadero_falso",
+    "statement": "La estadística descriptiva puede utilizar tablas, frecuencias, medias y gráficos.",
+    "answer": true
+  },
+  {
+    "id": 21,
+    "type": "verdadero_falso",
+    "statement": "El plan estadístico puede aplicarse sin considerar los objetivos, las hipótesis ni las variables.",
+    "answer": false
+  },
+  {
+    "id": 22,
+    "type": "ordenar_oracion",
+    "segments": [
+      "los procedimientos metodológicos.",
+      "El diseño conecta",
+      "con",
+      "los objetivos",
+      "de la investigación"
     ],
-    "answer": "La aplicación del plan estadístico"
+    "answer": [
+      "El diseño conecta",
+      "los objetivos",
+      "de la investigación",
+      "con",
+      "los procedimientos metodológicos."
+    ]
+  },
+  {
+    "id": 23,
+    "type": "ordenar_oracion",
+    "segments": [
+      "en elementos observables",
+      "La operacionalización transforma",
+      "y medibles.",
+      "las variables abstractas"
+    ],
+    "answer": [
+      "La operacionalización transforma",
+      "las variables abstractas",
+      "en elementos observables",
+      "y medibles."
+    ]
+  },
+  {
+    "id": 24,
+    "type": "ordenar_oracion",
+    "segments": [
+      "la medición",
+      "El control de variables",
+      "y reduce",
+      "los sesgos.",
+      "estandariza"
+    ],
+    "answer": [
+      "El control de variables",
+      "estandariza",
+      "la medición",
+      "y reduce",
+      "los sesgos."
+    ]
+  },
+  {
+    "id": 25,
+    "type": "ordenar_oracion",
+    "segments": [
+      "las características esenciales",
+      "Una muestra adecuada",
+      "de la población.",
+      "debe conservar"
+    ],
+    "answer": [
+      "Una muestra adecuada",
+      "debe conservar",
+      "las características esenciales",
+      "de la población."
+    ]
+  },
+  {
+    "id": 26,
+    "type": "ordenar_oracion",
+    "segments": [
+      "la misma oportunidad",
+      "En el muestreo probabilístico",
+      "de ser seleccionados.",
+      "los elementos tienen"
+    ],
+    "answer": [
+      "En el muestreo probabilístico",
+      "los elementos tienen",
+      "la misma oportunidad",
+      "de ser seleccionados."
+    ]
+  },
+  {
+    "id": 27,
+    "type": "ordenar_oracion",
+    "segments": [
+      "los datos recolectados",
+      "El plan estadístico",
+      "para obtener",
+      "resultados comprensibles.",
+      "organiza y procesa"
+    ],
+    "answer": [
+      "El plan estadístico",
+      "organiza y procesa",
+      "los datos recolectados",
+      "para obtener",
+      "resultados comprensibles."
+    ]
+  },
+  {
+    "id": 28,
+    "type": "ordenar_oracion",
+    "segments": [
+      "permite probar",
+      "La estadística inferencial",
+      "con evidencia cuantitativa.",
+      "las hipótesis",
+      "del estudio"
+    ],
+    "answer": [
+      "La estadística inferencial",
+      "permite probar",
+      "las hipótesis",
+      "del estudio",
+      "con evidencia cuantitativa."
+    ]
   }
 ]
