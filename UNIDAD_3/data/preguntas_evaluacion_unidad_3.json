@@ -1,0 +1,490 @@
+[
+  {
+    "id": 1,
+    "type": "opcion_multiple",
+    "category": "Comprensión del caso",
+    "question": "¿Qué porcentaje de participantes con asistencia alta logró controlar su presión arterial?",
+    "options": [
+      "75.0 %.",
+      "59.5 %.",
+      "35.0 %."
+    ],
+    "answer": "75.0 %.",
+    "explanation": "La tabla de resultados indica que el grupo de asistencia alta alcanzó 75.0 % de control."
+  },
+  {
+    "id": 2,
+    "type": "opcion_multiple",
+    "category": "Comprensión del caso",
+    "question": "¿Cuál fue el objetivo principal del estudio?",
+    "options": [
+      "Analizar la relación entre la asistencia y el control de la presión arterial.",
+      "Comparar diferentes medicamentos para la hipertensión.",
+      "Estudiar la presión arterial de todos los centros de salud."
+    ],
+    "answer": "Analizar la relación entre la asistencia y el control de la presión arterial.",
+    "explanation": "El objetivo del caso fue analizar la relación entre el nivel de asistencia y el control final de la presión arterial."
+  },
+  {
+    "id": 3,
+    "type": "opcion_multiple",
+    "category": "Análisis crítico",
+    "question": "¿Cuál fue una limitación reconocida en el estudio?",
+    "options": [
+      "El estudio se realizó en un solo centro de salud.",
+      "No se midió la presión arterial.",
+      "No se registró la asistencia de los participantes."
+    ],
+    "answer": "El estudio se realizó en un solo centro de salud.",
+    "explanation": "El apartado de limitaciones indica expresamente que el estudio se realizó en un solo centro."
+  },
+  {
+    "id": 4,
+    "type": "opcion_multiple",
+    "category": "Estadística descriptiva",
+    "question": "¿Qué dato permite comparar mejor el control entre los grupos de asistencia?",
+    "options": [
+      "El porcentaje de personas controladas.",
+      "El nombre del centro de salud.",
+      "El número de reactivos del cuestionario."
+    ],
+    "answer": "El porcentaje de personas controladas.",
+    "explanation": "Los porcentajes permiten comparar grupos con diferentes cantidades de participantes."
+  },
+  {
+    "id": 5,
+    "type": "opcion_multiple",
+    "category": "Conclusiones y recomendaciones",
+    "question": "¿Cuál conclusión coincide con los resultados del caso?",
+    "options": [
+      "El grupo de asistencia alta presentó mejores resultados de control.",
+      "Todos los participantes lograron controlar su presión.",
+      "El grupo de asistencia baja tuvo la mayor reducción de presión."
+    ],
+    "answer": "El grupo de asistencia alta presentó mejores resultados de control.",
+    "explanation": "El grupo de asistencia alta tuvo el mayor porcentaje de control y la mayor reducción promedio de presión sistólica."
+  },
+  {
+    "id": 6,
+    "type": "opcion_multiple",
+    "category": "Conclusiones y recomendaciones",
+    "question": "¿Qué acción podría ayudar a reducir las inasistencias relacionadas con el motivo más frecuente?",
+    "options": [
+      "Ofrecer sesiones en horarios alternativos.",
+      "Eliminar el registro de asistencia.",
+      "Suspender las mediciones de presión."
+    ],
+    "answer": "Ofrecer sesiones en horarios alternativos.",
+    "explanation": "El horario fue el motivo de inasistencia más frecuente, con 40 %."
+  },
+  {
+    "id": 7,
+    "type": "opcion_multiple",
+    "category": "Interpretación",
+    "question": "¿Qué grupo presentó la mayor reducción promedio de presión sistólica?",
+    "options": [
+      "Asistencia alta.",
+      "Asistencia media.",
+      "Asistencia baja."
+    ],
+    "answer": "Asistencia alta.",
+    "explanation": "El grupo de asistencia alta presentó una reducción promedio de 12 mmHg."
+  },
+  {
+    "id": 8,
+    "type": "opcion_multiple",
+    "category": "Procesamiento de datos",
+    "question": "¿Qué acción del caso corresponde a la depuración de datos?",
+    "options": [
+      "Buscar registros duplicados y valores imposibles.",
+      "Cambiar los resultados obtenidos.",
+      "Eliminar las tablas del informe."
+    ],
+    "answer": "Buscar registros duplicados y valores imposibles.",
+    "explanation": "La depuración consiste en revisar los datos para detectar errores, duplicidades o inconsistencias."
+  },
+  {
+    "id": 9,
+    "type": "seleccion_multiple",
+    "category": "Procesamiento de datos",
+    "question": "¿Qué acciones se realizaron para revisar la calidad de los datos?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "Buscar registros duplicados.",
+      "Detectar valores imposibles.",
+      "Cotejar registros con los formatos originales.",
+      "Eliminar participantes con resultados bajos.",
+      "Cambiar la hipótesis al finalizar."
+    ],
+    "answer": [
+      "Buscar registros duplicados.",
+      "Detectar valores imposibles.",
+      "Cotejar registros con los formatos originales."
+    ],
+    "explanation": "Estas tres acciones aparecen en el procedimiento del caso y forman parte del control de calidad de los datos."
+  },
+  {
+    "id": 10,
+    "type": "seleccion_multiple",
+    "category": "Aplicación de instrumentos",
+    "question": "¿Qué acciones ayudaron a mantener una aplicación uniforme de las mediciones?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "Capacitar al personal.",
+      "Usar equipos calibrados.",
+      "Aplicar un protocolo uniforme.",
+      "Permitir que cada persona midiera de forma diferente.",
+      "Registrar solo la medición más favorable."
+    ],
+    "answer": [
+      "Capacitar al personal.",
+      "Usar equipos calibrados.",
+      "Aplicar un protocolo uniforme."
+    ],
+    "explanation": "El caso menciona personal capacitado, equipos calibrados y un protocolo uniforme."
+  },
+  {
+    "id": 11,
+    "type": "seleccion_multiple",
+    "category": "Conclusiones y recomendaciones",
+    "question": "¿Qué debe cumplir una conclusión correcta según la Unidad 3?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "Basarse en los resultados.",
+      "Responder al objetivo del estudio.",
+      "Respetar las limitaciones del estudio.",
+      "Agregar información que no fue analizada.",
+      "Afirmar hechos que no aparecen en los datos."
+    ],
+    "answer": [
+      "Basarse en los resultados.",
+      "Responder al objetivo del estudio.",
+      "Respetar las limitaciones del estudio."
+    ],
+    "explanation": "La Unidad 3 indica que las conclusiones deben ser coherentes con la evidencia, responder a los objetivos y reflejar el alcance real del estudio."
+  },
+  {
+    "id": 12,
+    "type": "seleccion_multiple",
+    "category": "Análisis crítico",
+    "question": "¿Qué limitaciones aparecen directamente en el caso?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "El estudio se realizó en un solo centro.",
+      "Algunas respuestas fueron autoinformadas.",
+      "No se controlaron todos los cambios de tratamiento.",
+      "No se utilizaron tablas ni gráficas.",
+      "No se registró la asistencia."
+    ],
+    "answer": [
+      "El estudio se realizó en un solo centro.",
+      "Algunas respuestas fueron autoinformadas.",
+      "No se controlaron todos los cambios de tratamiento."
+    ],
+    "explanation": "Estas tres limitaciones se mencionan expresamente en el caso."
+  },
+  {
+    "id": 13,
+    "type": "clasificar",
+    "category": "Interpretación",
+    "instruction": "Clasifica cada afirmación según su función.",
+    "categories": [
+      "Resultado",
+      "Interpretación",
+      "Recomendación"
+    ],
+    "items": [
+      {
+        "text": "El grupo de asistencia baja alcanzó 35.0 % de control.",
+        "category": "Resultado"
+      },
+      {
+        "text": "Los datos muestran mejores resultados en el grupo de asistencia alta.",
+        "category": "Interpretación"
+      },
+      {
+        "text": "Se podrían ofrecer sesiones en horarios alternativos.",
+        "category": "Recomendación"
+      }
+    ],
+    "explanation": "El resultado presenta un dato, la interpretación explica el significado general y la recomendación propone una acción."
+  },
+  {
+    "id": 14,
+    "type": "clasificar",
+    "category": "Procesamiento de datos",
+    "instruction": "Clasifica cada dato como cuantitativo o cualitativo.",
+    "categories": [
+      "Cuantitativo",
+      "Cualitativo"
+    ],
+    "items": [
+      {
+        "text": "Número de sesiones asistidas.",
+        "category": "Cuantitativo"
+      },
+      {
+        "text": "Cambio de presión sistólica en mmHg.",
+        "category": "Cuantitativo"
+      },
+      {
+        "text": "Motivo principal de inasistencia.",
+        "category": "Cualitativo"
+      },
+      {
+        "text": "Nivel de asistencia: alta, media o baja.",
+        "category": "Cualitativo"
+      }
+    ],
+    "explanation": "Los números y mediciones son cuantitativos; los motivos y categorías son cualitativos."
+  },
+  {
+    "id": 15,
+    "type": "clasificar",
+    "category": "Estadística descriptiva",
+    "instruction": "Clasifica cada elemento según la forma en que se presenta en el caso.",
+    "categories": [
+      "Frecuencia",
+      "Porcentaje",
+      "Promedio"
+    ],
+    "items": [
+      {
+        "text": "72 participantes con presión controlada.",
+        "category": "Frecuencia"
+      },
+      {
+        "text": "75.0 % de control en asistencia alta.",
+        "category": "Porcentaje"
+      },
+      {
+        "text": "Reducción de 12 mmHg en asistencia alta.",
+        "category": "Promedio"
+      }
+    ],
+    "explanation": "La frecuencia cuenta personas, el porcentaje expresa una parte del grupo y el promedio resume el cambio de presión."
+  },
+  {
+    "id": 16,
+    "type": "clasificar",
+    "category": "Informe final",
+    "instruction": "Clasifica cada fragmento según el apartado del informe al que corresponde.",
+    "categories": [
+      "Resultados",
+      "Discusión",
+      "Conclusión",
+      "Recomendación"
+    ],
+    "items": [
+      {
+        "text": "Ciento cuarenta y tres participantes alcanzaron el control.",
+        "category": "Resultados"
+      },
+      {
+        "text": "Los cambios de tratamiento pudieron influir en los resultados.",
+        "category": "Discusión"
+      },
+      {
+        "text": "La asistencia alta se relacionó con mejores indicadores de control.",
+        "category": "Conclusión"
+      },
+      {
+        "text": "Se recomienda considerar horarios alternativos para las sesiones.",
+        "category": "Recomendación"
+      }
+    ],
+    "explanation": "Cada fragmento corresponde a presentar datos, explicar limitaciones, sintetizar hallazgos o proponer una acción."
+  },
+  {
+    "id": 17,
+    "type": "interpretar_datos",
+    "category": "Estadística descriptiva",
+    "resourceId": "tabla_resultados",
+    "question": "¿Cuántos participantes alcanzaron el control de la presión arterial?",
+    "options": [
+      "143 participantes.",
+      "97 participantes.",
+      "240 participantes."
+    ],
+    "answer": "143 participantes.",
+    "explanation": "La fila total de la tabla muestra 143 participantes con presión controlada."
+  },
+  {
+    "id": 18,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "grafica_control",
+    "question": "¿Cuál fue la diferencia entre el porcentaje de control del grupo de asistencia alta y el grupo de asistencia baja?",
+    "options": [
+      "40 puntos porcentuales.",
+      "16 puntos porcentuales.",
+      "25 puntos porcentuales."
+    ],
+    "answer": "40 puntos porcentuales.",
+    "explanation": "La diferencia entre 75 % y 35 % es de 40 puntos porcentuales."
+  },
+  {
+    "id": 19,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "tabla_contingencia",
+    "question": "¿En qué grupo hubo más personas sin control que con control?",
+    "options": [
+      "Asistencia baja.",
+      "Asistencia media.",
+      "Asistencia alta."
+    ],
+    "answer": "Asistencia baja.",
+    "explanation": "En el grupo de asistencia baja hubo 39 personas sin control y 21 con control."
+  },
+  {
+    "id": 20,
+    "type": "interpretar_datos",
+    "category": "Estadística descriptiva",
+    "resourceId": "grafica_motivos",
+    "question": "¿Cuál fue el motivo de inasistencia reportado con mayor frecuencia?",
+    "options": [
+      "Horario.",
+      "Transporte.",
+      "Malestar."
+    ],
+    "answer": "Horario.",
+    "explanation": "El horario presentó el porcentaje más alto, con 40 %."
+  },
+  {
+    "id": 21,
+    "type": "identificar_error",
+    "category": "Análisis crítico",
+    "scenario": "El informe afirma que la asistencia al programa fue la única causa del control de la presión arterial.",
+    "question": "¿Cuál es el error principal?",
+    "options": [
+      "El caso solo permite observar una asociación, no una causa única.",
+      "El estudio utilizó una tabla de contingencia.",
+      "La muestra tuvo 240 participantes."
+    ],
+    "answer": "El caso solo permite observar una asociación, no una causa única.",
+    "explanation": "El apartado de limitaciones señala que no puede demostrarse que la asistencia fuera la única causa."
+  },
+  {
+    "id": 22,
+    "type": "identificar_error",
+    "category": "Estadística descriptiva",
+    "scenario": "El informe afirma que 72 de 240 participantes equivalen al 75 % del grupo de asistencia alta.",
+    "question": "¿Qué error se cometió?",
+    "options": [
+      "Se utilizó el total de participantes en lugar del total del grupo de asistencia alta.",
+      "Se utilizó un porcentaje en lugar de una frecuencia.",
+      "Se incluyó la asistencia alta en la tabla."
+    ],
+    "answer": "Se utilizó el total de participantes en lugar del total del grupo de asistencia alta.",
+    "explanation": "El porcentaje del grupo debe calcularse con 96 participantes: 72 de 96 equivale a 75 %."
+  },
+  {
+    "id": 23,
+    "type": "identificar_error",
+    "category": "Procesamiento de datos",
+    "scenario": "El equipo conserva registros duplicados dentro de la base de datos.",
+    "question": "¿Qué procedimiento no se realizó correctamente?",
+    "options": [
+      "La depuración de datos.",
+      "La elaboración de recomendaciones.",
+      "La presentación de gráficas."
+    ],
+    "answer": "La depuración de datos.",
+    "explanation": "La depuración permite detectar y corregir duplicidades e inconsistencias."
+  },
+  {
+    "id": 24,
+    "type": "identificar_error",
+    "category": "Conclusiones y recomendaciones",
+    "scenario": "La conclusión afirma que el programa redujo las hospitalizaciones, aunque el estudio no registró hospitalizaciones.",
+    "question": "¿Cuál es el problema principal?",
+    "options": [
+      "La conclusión incluye información que no fue medida.",
+      "La conclusión utiliza un dato numérico.",
+      "La conclusión menciona el programa educativo."
+    ],
+    "answer": "La conclusión incluye información que no fue medida.",
+    "explanation": "Las conclusiones deben basarse únicamente en los resultados analizados."
+  },
+  {
+    "id": 25,
+    "type": "ordenar_proceso",
+    "category": "Procesamiento de datos",
+    "instruction": "Ordena el proceso general de manejo de la información.",
+    "segments": [
+      "Presentar tablas y gráficas",
+      "Recopilar los datos",
+      "Interpretar los resultados",
+      "Depurar y organizar los datos",
+      "Resumir la información"
+    ],
+    "answer": [
+      "Recopilar los datos",
+      "Depurar y organizar los datos",
+      "Resumir la información",
+      "Presentar tablas y gráficas",
+      "Interpretar los resultados"
+    ],
+    "explanation": "Primero se obtienen y organizan los datos; después se resumen, presentan e interpretan."
+  },
+  {
+    "id": 26,
+    "type": "ordenar_proceso",
+    "category": "Aplicación de instrumentos",
+    "instruction": "Ordena las acciones realizadas durante la recopilación y revisión de los datos.",
+    "segments": [
+      "Capturar los registros con códigos anónimos",
+      "Aplicar el cuestionario y medir la presión",
+      "Obtener el consentimiento",
+      "Cotejar una muestra con los formatos originales",
+      "Buscar duplicados y valores imposibles"
+    ],
+    "answer": [
+      "Obtener el consentimiento",
+      "Aplicar el cuestionario y medir la presión",
+      "Capturar los registros con códigos anónimos",
+      "Buscar duplicados y valores imposibles",
+      "Cotejar una muestra con los formatos originales"
+    ],
+    "explanation": "La secuencia sigue directamente el procedimiento descrito en el caso."
+  },
+  {
+    "id": 27,
+    "type": "ordenar_proceso",
+    "category": "Informe final",
+    "instruction": "Ordena las etapas para presentar el cierre de una investigación.",
+    "segments": [
+      "Redactar las conclusiones",
+      "Presentar los resultados",
+      "Proponer recomendaciones",
+      "Interpretar los hallazgos"
+    ],
+    "answer": [
+      "Presentar los resultados",
+      "Interpretar los hallazgos",
+      "Redactar las conclusiones",
+      "Proponer recomendaciones"
+    ],
+    "explanation": "La Unidad 3 presenta primero los resultados, después su interpretación, las conclusiones y finalmente las recomendaciones."
+  },
+  {
+    "id": 28,
+    "type": "ordenar_proceso",
+    "category": "Conclusiones y recomendaciones",
+    "instruction": "Ordena los elementos para elaborar una conclusión correcta.",
+    "segments": [
+      "Redactar una afirmación clara",
+      "Reconocer las limitaciones",
+      "Identificar los resultados principales",
+      "Relacionar los resultados con el objetivo"
+    ],
+    "answer": [
+      "Identificar los resultados principales",
+      "Relacionar los resultados con el objetivo",
+      "Reconocer las limitaciones",
+      "Redactar una afirmación clara"
+    ],
+    "explanation": "Una conclusión debe partir de los hallazgos, responder al objetivo, respetar el alcance del estudio y redactarse con claridad."
+  }
+]

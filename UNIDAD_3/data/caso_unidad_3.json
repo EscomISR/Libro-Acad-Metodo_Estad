@@ -1,0 +1,105 @@
+{
+  "id": "caso_control_hipertension",
+  "title": "Seguimiento educativo y control de la presión arterial",
+  "summary": "Un equipo de un centro de salud analizó la relación entre la asistencia a un programa educativo de 12 semanas y el control de la presión arterial en personas adultas con hipertensión.",
+  "sections": [
+    {
+      "id": "contexto",
+      "title": "Contexto",
+      "icon": "fa-hospital-user",
+      "content": "En el Centro de Salud Comunitario San Miguel se observó que una proporción importante de pacientes con hipertensión mantenía cifras de presión arterial por encima de la meta clínica. El equipo implementó un programa educativo de 12 semanas con sesiones sobre tratamiento, alimentación, actividad física y automonitoreo."
+    },
+    {
+      "id": "objetivo",
+      "title": "Objetivo e hipótesis",
+      "icon": "fa-bullseye",
+      "content": "El objetivo fue analizar la relación entre el nivel de asistencia al programa y el control de la presión arterial al finalizar las 12 semanas. La hipótesis planteó que las personas con asistencia alta presentarían una mayor proporción de control y una mayor reducción promedio de la presión sistólica que quienes tuvieran asistencia media o baja."
+    },
+    {
+      "id": "poblacion",
+      "title": "Población y muestra",
+      "icon": "fa-users",
+      "content": "La población estuvo formada por 600 personas adultas con diagnóstico de hipertensión registradas en el centro. Se seleccionó una muestra aleatoria estratificada de 240 participantes, equilibrando sexo y grupos de edad. Se incluyeron personas de 30 a 74 años con tratamiento activo y expediente clínico disponible."
+    },
+    {
+      "id": "instrumento",
+      "title": "Instrumento",
+      "icon": "fa-clipboard-list",
+      "content": "Se utilizó un cuestionario de 18 reactivos sobre adherencia y hábitos, previamente revisado por tres especialistas y aplicado en una prueba piloto. También se emplearon el registro de asistencia y las mediciones clínicas del expediente. La presión se midió con equipos calibrados y un protocolo uniforme."
+    },
+    {
+      "id": "procedimiento",
+      "title": "Procedimiento y recopilación",
+      "icon": "fa-list-check",
+      "content": "Personal capacitado obtuvo el consentimiento, aplicó el cuestionario inicial y registró dos mediciones de presión arterial. Durante 12 semanas se documentó la asistencia. Al final se repitieron el cuestionario y las mediciones. Los registros se capturaron con códigos anónimos, se buscaron duplicados y valores imposibles, y se cotejó una muestra del 20 % contra los formatos originales."
+    },
+    {
+      "id": "analisis",
+      "title": "Plan de análisis",
+      "icon": "fa-chart-column",
+      "content": "La asistencia se clasificó como alta (9 a 12 sesiones), media (5 a 8) o baja (0 a 4). Se calcularon frecuencias, porcentajes y el cambio promedio de presión sistólica. Se construyó una tabla de contingencia entre asistencia y control final. El control se definió como una presión menor de 140/90 mmHg."
+    },
+    {
+      "id": "limitaciones",
+      "title": "Posibles limitaciones",
+      "icon": "fa-triangle-exclamation",
+      "content": "El estudio se realizó en un solo centro, algunas respuestas sobre hábitos fueron autoinformadas y no se controlaron todos los cambios de tratamiento indicados durante las 12 semanas. El diseño permitió observar asociaciones, pero no demostrar que la asistencia fuera la única causa de los cambios."
+    }
+  ],
+  "resources": [
+    {
+      "id": "tabla_resultados",
+      "type": "table",
+      "title": "Resultados por nivel de asistencia",
+      "description": "Control final y cambio promedio de presión sistólica en los 240 participantes.",
+      "columns": ["Asistencia", "Participantes", "Con presión controlada", "Porcentaje controlado", "Cambio sistólico promedio"],
+      "rows": [
+        ["Alta (9–12)", "96", "72", "75.0 %", "-12 mmHg"],
+        ["Media (5–8)", "84", "50", "59.5 %", "-7 mmHg"],
+        ["Baja (0–4)", "60", "21", "35.0 %", "-3 mmHg"],
+        ["Total", "240", "143", "59.6 %", "-7.9 mmHg"]
+      ]
+    },
+    {
+      "id": "grafica_control",
+      "type": "bar",
+      "title": "Porcentaje con presión controlada",
+      "description": "Comparación del control final según el nivel de asistencia.",
+      "unit": "%",
+      "max": 100,
+      "bars": [
+        {"label": "Alta", "value": 75},
+        {"label": "Media", "value": 59.5},
+        {"label": "Baja", "value": 35}
+      ]
+    },
+    {
+      "id": "tabla_contingencia",
+      "type": "table",
+      "title": "Tabla de contingencia: asistencia y control final",
+      "description": "Distribución de participantes de acuerdo con las dos variables.",
+      "columns": ["Nivel de asistencia", "Controlada", "No controlada", "Total"],
+      "rows": [
+        ["Alta", "72", "24", "96"],
+        ["Media", "50", "34", "84"],
+        ["Baja", "21", "39", "60"],
+        ["Total", "143", "97", "240"]
+      ]
+    },
+    {
+      "id": "grafica_motivos",
+      "type": "bar",
+      "title": "Motivo principal de inasistencia reportado",
+      "description": "Distribución porcentual entre 80 participantes que faltaron a cuatro o más sesiones.",
+      "unit": "%",
+      "max": 50,
+      "bars": [
+        {"label": "Horario", "value": 40},
+        {"label": "Transporte", "value": 25},
+        {"label": "Malestar", "value": 15},
+        {"label": "Otro", "value": 20}
+      ]
+    }
+  ],
+  "resultsNarrative": "Al finalizar, 143 de 240 participantes (59.6 %) alcanzaron el criterio de control. El grupo de asistencia alta presentó el porcentaje más alto de control y la mayor reducción promedio de presión sistólica. En el grupo de asistencia baja hubo más personas sin control que con control. Entre quienes faltaron a cuatro o más sesiones, el horario fue el motivo reportado con mayor frecuencia."
+}

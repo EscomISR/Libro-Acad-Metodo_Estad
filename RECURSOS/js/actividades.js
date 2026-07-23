@@ -559,6 +559,7 @@
   function setEvaluationVisibility(isVisible) {
     const questionsSection = document.getElementById('questionsSection');
     const activityControls = document.getElementById('activityControls');
+    const retryControls = document.getElementById('retryControls');
     const floatingTimer = document.getElementById('floatingTimer');
     const startActivityBtn = document.getElementById('startActivityBtn');
     const evaluateBtn = document.getElementById('evaluateBtn');
@@ -566,6 +567,7 @@
 
     questionsSection?.classList.toggle('is-hidden', !isVisible);
     activityControls?.classList.toggle('is-hidden', !isVisible);
+    retryControls?.classList.add('is-hidden');
     floatingTimer?.classList.toggle('is-hidden', !isVisible);
     evaluationOverview?.classList.remove('activity-results-heading', 'is-unavailable');
     evaluationOverview?.classList.toggle('activity-questions-heading', isVisible);
@@ -906,6 +908,7 @@
     );
 
     document.getElementById('activityControls')?.classList.add('is-hidden');
+    document.getElementById('retryControls')?.classList.remove('is-hidden');
     document.getElementById('floatingTimer')?.classList.add('is-hidden');
     const evaluationOverview = document.querySelector('.evaluation-overview');
     evaluationOverview?.classList.remove('is-hidden', 'activity-questions-heading');
@@ -1003,6 +1006,7 @@
       document.getElementById('startActivityBtn')?.addEventListener('click', startActivity);
       document.getElementById('evaluateBtn')?.addEventListener('click', () => evaluateActivity(false));
       document.getElementById('resetActivityBtn')?.addEventListener('click', resetActivity);
+      document.getElementById('resetActivityBottomBtn')?.addEventListener('click', resetActivity);
       document.getElementById('continueAnsweringBtn')?.addEventListener('click', () => closeUnansweredModal(false));
       document.getElementById('confirmEvaluateBtn')?.addEventListener('click', () => closeUnansweredModal(true));
       document.getElementById('questionsContainer')?.addEventListener('click', handleActivityClick);
