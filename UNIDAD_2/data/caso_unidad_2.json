@@ -1,0 +1,93 @@
+{
+  "id": "caso_adherencia_diabetes",
+  "title": "Adherencia al tratamiento farmacológico y control glucémico en diabetes mellitus tipo 2",
+  "summary": "Un equipo de la Escuela Superior de Medicina y Homeopatía del IPN diseñó un protocolo de investigación no experimental para analizar si la adherencia al tratamiento farmacológico se relaciona con el control glucémico de pacientes con diabetes mellitus tipo 2 atendidos en la consulta externa.",
+  "resultsLabel": "Cifras del protocolo",
+  "resultsHeading": "Datos clave del diseño metodológico",
+  "resultsNarrativeLabel": "Lectura general de las cifras",
+  "sections": [
+    {
+      "id": "contexto",
+      "title": "Contexto y marco teórico",
+      "icon": "fa-hospital-user",
+      "content": "Un equipo de estudiantes y docentes de la Escuela Superior de Medicina y Homeopatía del Instituto Politécnico Nacional identificó, en la consulta externa, que un número importante de pacientes con diabetes mellitus tipo 2 presentaba niveles elevados de hemoglobina glucosilada a pesar de contar con tratamiento farmacológico prescrito, lo que sugería fallas en la adherencia terapéutica. Para construir el marco teórico, el equipo documentó estudios nacionales e internacionales sobre adherencia en enfermedades crónicas y el modelo de adherencia de la Organización Mundial de la Salud, tomando como guía metodológica a Hernández Sampieri, Fernández Collado y Baptista Lucio (2014) y revisando artículos indexados en PubMed y Scielo publicados en los últimos cinco años."
+    },
+    {
+      "id": "objetivo",
+      "title": "Objetivos e impacto esperado",
+      "icon": "fa-bullseye",
+      "content": "El objetivo general del protocolo fue determinar la relación entre la adherencia al tratamiento farmacológico y el nivel de control glucémico en pacientes con diabetes mellitus tipo 2 atendidos en la unidad durante el periodo febrero-junio de 2026. Los objetivos específicos consistieron en evaluar el grado de adherencia mediante el cuestionario de Morisky-Green, medir el nivel de hemoglobina glucosilada de los participantes, analizar estadísticamente la relación entre ambas variables y proponer estrategias de intervención. El equipo también identificó impactos esperados en cuatro ámbitos: científico (evidencia empírica para la medicina familiar), social (reducción de complicaciones crónicas), económico (menores costos de atención) y tecnológico (posibles recordatorios digitales de apoyo a la adherencia)."
+    },
+    {
+      "id": "delimitacion",
+      "title": "Delimitación del problema",
+      "icon": "fa-map-location-dot",
+      "content": "El problema se delimitó en cuatro dimensiones. Espacialmente, el estudio se ubicó en la consulta externa de medicina familiar de la Escuela Superior de Medicina y Homeopatía, en la Ciudad de México. Temporalmente, abarcó el periodo febrero-junio de 2026. Conceptualmente, se definió que 'adherencia al tratamiento farmacológico' sería el grado en que el paciente cumple la dosis, el horario y la duración del tratamiento, medido con el cuestionario de Morisky-Green, y que 'control glucémico' sería el nivel de hemoglobina glucosilada (HbA1c) reportado en el expediente clínico. Poblacionalmente, se consideró a pacientes adultos de 40 a 65 años, diagnosticados con diabetes mellitus tipo 2 con al menos un año de evolución, adscritos a la unidad."
+    },
+    {
+      "id": "variables",
+      "title": "Variables e hipótesis",
+      "icon": "fa-diagram-project",
+      "content": "La adherencia al tratamiento farmacológico se definió como la variable independiente, de tipo cualitativa ordinal, clasificada mediante la escala de Morisky-Green en alta, media o baja. El control glucémico se definió como la variable dependiente, de tipo cuantitativa de razón, medida como porcentaje de hemoglobina glucosilada. El tiempo de evolución de la enfermedad, el apoyo familiar y la presencia de comorbilidades se consideraron variables intervinientes, mientras que el periodo de estudio y la unidad médica se fijaron como variables de control. A partir de estas variables se plantearon las hipótesis del estudio: la hipótesis nula (H0) sostiene que no existe una relación estadísticamente significativa entre la adherencia y el control glucémico, mientras que la hipótesis alterna (H1) sostiene que a mayor adherencia, mejor control glucémico, es decir, menor porcentaje de HbA1c."
+    },
+    {
+      "id": "justificacion",
+      "title": "Justificación y trascendencia",
+      "icon": "fa-hand-holding-medical",
+      "content": "La justificación del protocolo se sustenta en tres planos: social, porque la diabetes mellitus tipo 2 es un problema de salud pública prioritario en México; teórico-práctico, porque el estudio puede confirmar o refutar hallazgos previos en la población atendida; y metodológico, porque el equipo cuenta con acceso a los expedientes clínicos, un instrumento validado (Morisky-Green) y tiempo suficiente dentro del periodo establecido. En cuanto a su trascendencia, se espera que los resultados informen el diseño de protocolos clínicos y programas preventivos de la unidad, además de sentar un precedente para investigar la adherencia terapéutica en otras enfermedades crónicas, proyectando el estudio más allá de su aplicación inmediata."
+    },
+    {
+      "id": "diseno",
+      "title": "Diseño y operacionalización de variables",
+      "icon": "fa-flask",
+      "content": "El diseño de la investigación se definió como no experimental, transversal y correlacional, ya que no habrá manipulación de variables y los datos se recolectarán en un único momento durante la consulta de los pacientes. Para operacionalizar las variables, la adherencia al tratamiento farmacológico se medirá aplicando el cuestionario validado de Morisky-Green, compuesto por cuatro preguntas dicotómicas, clasificando al paciente en adherencia alta, media o baja; el control glucémico se obtendrá del resultado de hemoglobina glucosilada registrado en el expediente clínico, expresado en porcentaje."
+    },
+    {
+      "id": "muestra",
+      "title": "Muestra y plan estadístico",
+      "icon": "fa-users-gear",
+      "content": "De una población de 400 pacientes con diabetes mellitus tipo 2 registrados en la unidad, se seleccionará una muestra de 120 pacientes mediante muestreo probabilístico aleatorio simple, utilizando el padrón de pacientes crónicos como marco muestral, de modo que todos tengan la misma probabilidad de ser elegidos. Para el plan estadístico, se aplicará estadística descriptiva (medias, frecuencias y tablas) para caracterizar ambas variables, y estadística inferencial —prueba de chi-cuadrada y coeficiente de correlación de Spearman— para contrastar la hipótesis, estableciendo un nivel de significancia de α = 0.05 como criterio de interpretación."
+    },
+    {
+      "id": "documental",
+      "title": "Investigación documental",
+      "icon": "fa-book",
+      "content": "Para sustentar el marco teórico, el equipo consultó 25 fuentes documentales publicadas entre 2018 y 2025: 15 artículos científicos indexados en PubMed y Scielo, 5 tesis de posgrado en medicina familiar, 3 informes técnicos de organismos de salud (OMS/OPS) y 2 libros especializados. De cada fuente se registró autor, año, título y dirección electrónica o DOI, con el fin de garantizar la veracidad de la información, sustentar su carácter científico y evitar el plagio."
+    },
+    {
+      "id": "limitaciones",
+      "title": "Posibles limitaciones metodológicas",
+      "icon": "fa-triangle-exclamation",
+      "content": "El diseño transversal y correlacional permite identificar asociaciones entre la adherencia y el control glucémico, pero no establece relaciones de causa-efecto. La medición de la adherencia mediante un instrumento de autorreporte, como el cuestionario de Morisky-Green, puede subestimar o sobreestimar el cumplimiento real del tratamiento. Además, al desarrollarse en una sola unidad médica, los resultados podrían no ser generalizables a otras poblaciones, y variables intervinientes como el apoyo familiar o las comorbilidades no quedan completamente controladas mediante el análisis estadístico planteado."
+    }
+  ],
+  "resources": [
+    {
+      "id": "muestra_poblacion",
+      "type": "table",
+      "title": "Selección de la muestra",
+      "description": "Relación entre la población total de pacientes con diabetes mellitus tipo 2 registrados en la unidad y la muestra seleccionada mediante muestreo aleatorio simple.",
+      "columns": ["Concepto", "Pacientes", "Porcentaje respecto a la población"],
+      "rows": [
+        ["Población total (N)", "400", "100 %"],
+        ["Muestra seleccionada (n)", "120", "30 %"],
+        ["Pacientes no incluidos en la muestra", "280", "70 %"]
+      ]
+    },
+    {
+      "id": "fuentes_documentales",
+      "type": "bar",
+      "title": "Distribución de las fuentes documentales consultadas",
+      "description": "Clasificación de las 25 fuentes utilizadas para construir el marco teórico del protocolo, publicadas entre 2018 y 2025.",
+      "unit": " fuentes",
+      "max": 15,
+      "bars": [
+        {"label": "Artículos científicos", "value": 15},
+        {"label": "Tesis de posgrado", "value": 5},
+        {"label": "Informes técnicos", "value": 3},
+        {"label": "Libros especializados", "value": 2}
+      ]
+    }
+  ],
+  "resultsNarrative": "El protocolo se apoya en 25 fuentes documentales, la mayoría artículos científicos indexados, y contempla una muestra de 120 pacientes seleccionados aleatoriamente de una población de 400, lo que equivale al 30 % del total registrado en la unidad. Estas cifras permiten valorar tanto el sustento teórico como la representatividad esperada del estudio."
+}

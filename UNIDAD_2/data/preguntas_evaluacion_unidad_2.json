@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "type": "opcion_multiple",
+    "category": "Comprensión del caso",
+    "question": "En el protocolo, ¿qué función cumple la revisión de estudios previos sobre adherencia terapéutica y el modelo de la OMS?",
+    "options": [
+      "Sirve como marco teórico, dando sustento científico y actualizado al problema.",
+      "Es la delimitación del problema.",
+      "Es la aplicación del plan estadístico."
+    ],
+    "answer": "Sirve como marco teórico, dando sustento científico y actualizado al problema.",
+    "explanation": "El marco teórico compila y examina teorías y estudios relacionados para dar una base científica que permita entender el fenómeno investigado."
+  },
+  {
+    "id": 2,
+    "type": "opcion_multiple",
+    "category": "Comprensión del caso",
+    "question": "\"Periodo febrero-junio de 2026\" corresponde a la delimitación:",
+    "options": [
+      "Temporal.",
+      "Espacial.",
+      "Poblacional."
+    ],
+    "answer": "Temporal.",
+    "explanation": "Establece el periodo en el que se desarrollará el estudio, uno de los límites que precisan el alcance de la investigación."
+  },
+  {
+    "id": 3,
+    "type": "opcion_multiple",
+    "category": "Comprensión del caso",
+    "question": "Definir que \"control glucémico\" se entenderá como el nivel de hemoglobina glucosilada es un ejemplo de delimitación:",
+    "options": [
+      "Conceptual.",
+      "Espacial.",
+      "Temporal."
+    ],
+    "answer": "Conceptual.",
+    "explanation": "Precisa el significado operativo de un término clave del estudio, evitando ambigüedades en su interpretación."
+  },
+  {
+    "id": 4,
+    "type": "opcion_multiple",
+    "category": "Comprensión del caso",
+    "question": "\"Determinar la relación entre la adherencia al tratamiento farmacológico y el nivel de control glucémico...\" corresponde a:",
+    "options": [
+      "El objetivo general.",
+      "Un objetivo específico.",
+      "La hipótesis nula."
+    ],
+    "answer": "El objetivo general.",
+    "explanation": "Expresa el propósito global del estudio, redactado en infinitivo y derivado directamente del planteamiento del problema."
+  },
+  {
+    "id": 5,
+    "type": "opcion_multiple",
+    "category": "Conclusiones y recomendaciones",
+    "question": "Que los resultados puedan orientar el desarrollo de recordatorios digitales para la toma de medicamentos corresponde al impacto:",
+    "options": [
+      "Tecnológico.",
+      "Económico.",
+      "Científico."
+    ],
+    "answer": "Tecnológico.",
+    "explanation": "El impacto tecnológico impulsa el desarrollo de soluciones prácticas que facilitan actividades y optimizan procesos."
+  },
+  {
+    "id": 6,
+    "type": "opcion_multiple",
+    "category": "Conclusiones y recomendaciones",
+    "question": "Que el estudio \"beneficie a los pacientes y al sistema de salud al reducir complicaciones crónicas\" corresponde principalmente a la justificación:",
+    "options": [
+      "Social.",
+      "Económica.",
+      "Tecnológica."
+    ],
+    "answer": "Social.",
+    "explanation": "La justificación social destaca la relevancia y los beneficios que obtiene la comunidad involucrada en el estudio."
+  },
+  {
+    "id": 7,
+    "type": "opcion_multiple",
+    "category": "Estadística descriptiva",
+    "question": "Calcular medias, frecuencias y tablas del nivel de adherencia y de la HbA1c corresponde a estadística:",
+    "options": [
+      "Descriptiva.",
+      "Inferencial.",
+      "Documental."
+    ],
+    "answer": "Descriptiva.",
+    "explanation": "La estadística descriptiva organiza y resume los datos recolectados mediante tablas, frecuencias, medias y gráficos."
+  },
+  {
+    "id": 8,
+    "type": "opcion_multiple",
+    "category": "Estadística descriptiva",
+    "question": "¿Qué valor de significancia estadística establece el equipo para interpretar las pruebas inferenciales del plan estadístico?",
+    "options": [
+      "α = 0.05.",
+      "α = 0.10.",
+      "α = 0.01."
+    ],
+    "answer": "α = 0.05.",
+    "explanation": "El plan estadístico establece un nivel de significancia de α = 0.05 como criterio de interpretación de la chi-cuadrada y el coeficiente de Spearman."
+  },
+  {
+    "id": 9,
+    "type": "seleccion_multiple",
+    "category": "Análisis crítico",
+    "question": "¿Cuáles son las cuatro dimensiones utilizadas para delimitar el problema en el protocolo?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "Espacial.",
+      "Temporal.",
+      "Conceptual.",
+      "Poblacional.",
+      "Estadística.",
+      "Económica."
+    ],
+    "answer": [
+      "Espacial.",
+      "Temporal.",
+      "Conceptual.",
+      "Poblacional."
+    ],
+    "explanation": "El caso delimita el problema en cuatro dimensiones: espacial, temporal, conceptual y poblacional."
+  },
+  {
+    "id": 10,
+    "type": "seleccion_multiple",
+    "category": "Procesamiento de datos",
+    "question": "¿Qué acciones realizó el equipo para garantizar la calidad de las fuentes documentales del marco teórico?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "Revisar que las fuentes fueran recientes (últimos cinco años).",
+      "Verificar que las fuentes fueran pertinentes al tema.",
+      "Registrar autor, año, título y DOI de cada fuente.",
+      "Usar cualquier fuente sin revisar su antigüedad.",
+      "Omitir el registro de la referencia electrónica."
+    ],
+    "answer": [
+      "Revisar que las fuentes fueran recientes (últimos cinco años).",
+      "Verificar que las fuentes fueran pertinentes al tema.",
+      "Registrar autor, año, título y DOI de cada fuente."
+    ],
+    "explanation": "El equipo priorizó fuentes actuales y pertinentes, y registró los datos completos de cada una para garantizar la veracidad de la información y evitar el plagio."
+  },
+  {
+    "id": 11,
+    "type": "seleccion_multiple",
+    "category": "Análisis crítico",
+    "question": "¿Qué afirmaciones sobre las variables del estudio son correctas?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "La adherencia al tratamiento es la variable independiente.",
+      "El control glucémico es la variable dependiente.",
+      "El apoyo familiar es una variable interviniente.",
+      "La adherencia es una variable de control.",
+      "El control glucémico es una variable cualitativa."
+    ],
+    "answer": [
+      "La adherencia al tratamiento es la variable independiente.",
+      "El control glucémico es la variable dependiente.",
+      "El apoyo familiar es una variable interviniente."
+    ],
+    "explanation": "La adherencia es la variable independiente, el control glucémico la dependiente, y el apoyo familiar una variable interviniente que puede afectar la relación sin ser el foco directo del estudio."
+  },
+  {
+    "id": 12,
+    "type": "seleccion_multiple",
+    "category": "Conclusiones y recomendaciones",
+    "question": "¿Qué elementos debe incluir la justificación del protocolo, de acuerdo con el caso?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "La relevancia social del problema.",
+      "El aporte teórico-práctico esperado.",
+      "La viabilidad metodológica del estudio.",
+      "La garantía de obtener el mismo resultado que otros estudios.",
+      "La omisión de la población de estudio."
+    ],
+    "answer": [
+      "La relevancia social del problema.",
+      "El aporte teórico-práctico esperado.",
+      "La viabilidad metodológica del estudio."
+    ],
+    "explanation": "La justificación del caso se sustenta en los planos social, teórico-práctico y metodológico (viabilidad)."
+  },
+  {
+    "id": 13,
+    "type": "clasificar",
+    "category": "Procesamiento de datos",
+    "instruction": "Clasifica cada elemento según la función de la variable a la que corresponde.",
+    "categories": [
+      "Variable independiente",
+      "Variable dependiente",
+      "Variable interviniente",
+      "Variable de control"
+    ],
+    "items": [
+      { "text": "Adherencia al tratamiento farmacológico", "category": "Variable independiente" },
+      { "text": "Control glucémico (HbA1c)", "category": "Variable dependiente" },
+      { "text": "Apoyo familiar", "category": "Variable interviniente" },
+      { "text": "Misma unidad médica y mismo periodo de estudio", "category": "Variable de control" }
+    ],
+    "explanation": "Cada elemento corresponde a una de las cuatro funciones de las variables descritas en el protocolo: la que se supone influye, la que se ve afectada, los factores externos no controlados y las condiciones fijas para todos los participantes."
+  },
+  {
+    "id": 14,
+    "type": "clasificar",
+    "category": "Comprensión del caso",
+    "instruction": "Clasifica cada elemento según el tipo de delimitación al que corresponde.",
+    "categories": [
+      "Espacial",
+      "Temporal",
+      "Conceptual",
+      "Poblacional"
+    ],
+    "items": [
+      { "text": "Consulta externa de medicina familiar de la Escuela Superior de Medicina y Homeopatía", "category": "Espacial" },
+      { "text": "Periodo febrero-junio de 2026", "category": "Temporal" },
+      { "text": "La adherencia se medirá con el cuestionario de Morisky-Green", "category": "Conceptual" },
+      { "text": "Pacientes de 40 a 65 años con diabetes mellitus tipo 2", "category": "Poblacional" }
+    ],
+    "explanation": "Los cuatro límites del problema —espacial, temporal, conceptual y poblacional— precisan dónde, cuándo, qué se entenderá por cada término y a quiénes se estudiará."
+  },
+  {
+    "id": 15,
+    "type": "clasificar",
+    "category": "Estadística descriptiva",
+    "instruction": "Clasifica cada variable según su nivel de medición.",
+    "categories": [
+      "Cualitativa ordinal",
+      "Cuantitativa de razón"
+    ],
+    "items": [
+      { "text": "Adherencia clasificada en alta, media o baja", "category": "Cualitativa ordinal" },
+      { "text": "Porcentaje de hemoglobina glucosilada (HbA1c)", "category": "Cuantitativa de razón" },
+      { "text": "Resultado del cuestionario de Morisky-Green", "category": "Cualitativa ordinal" },
+      { "text": "Cambio porcentual de HbA1c entre dos mediciones", "category": "Cuantitativa de razón" }
+    ],
+    "explanation": "Las variables ordinales se clasifican en categorías con un orden (alta, media, baja); las de razón se expresan como cantidades numéricas con un cero absoluto, como el porcentaje de HbA1c."
+  },
+  {
+    "id": 16,
+    "type": "clasificar",
+    "category": "Análisis crítico",
+    "instruction": "Clasifica cada afirmación según el apartado del protocolo al que corresponde.",
+    "categories": [
+      "Justificación",
+      "Trascendencia",
+      "Delimitación",
+      "Hipótesis"
+    ],
+    "items": [
+      { "text": "El estudio es relevante porque la diabetes es un problema de salud pública prioritario", "category": "Justificación" },
+      { "text": "Los hallazgos podrían sentar precedente para investigar la adherencia en otras enfermedades crónicas", "category": "Trascendencia" },
+      { "text": "El estudio abarca el periodo febrero-junio de 2026", "category": "Delimitación" },
+      { "text": "A mayor adherencia, mejor control glucémico", "category": "Hipótesis" }
+    ],
+    "explanation": "Cada frase corresponde a justificar la relevancia del estudio, proyectar sus alcances futuros, precisar sus límites o formular la relación esperada entre variables."
+  },
+  {
+    "id": 17,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "muestra_poblacion",
+    "question": "¿Qué porcentaje de la población total de pacientes fue seleccionado como muestra del estudio?",
+    "options": [
+      "30 %.",
+      "70 %.",
+      "100 %."
+    ],
+    "answer": "30 %.",
+    "explanation": "La tabla indica que la muestra de 120 pacientes equivale al 30 % de la población total de 400."
+  },
+  {
+    "id": 18,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "muestra_poblacion",
+    "question": "¿Cuántos pacientes de la población NO formarán parte de la muestra del estudio?",
+    "options": [
+      "280 pacientes.",
+      "120 pacientes.",
+      "400 pacientes."
+    ],
+    "answer": "280 pacientes.",
+    "explanation": "De los 400 pacientes de la población, 120 se seleccionaron como muestra, por lo que 280 no fueron incluidos."
+  },
+  {
+    "id": 19,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "fuentes_documentales",
+    "question": "¿Qué proporción de las 25 fuentes documentales consultadas corresponde a artículos científicos indexados?",
+    "options": [
+      "60 % (15 de 25).",
+      "20 % (5 de 25).",
+      "12 % (3 de 25)."
+    ],
+    "answer": "60 % (15 de 25).",
+    "explanation": "Los artículos científicos representan 15 de las 25 fuentes consultadas, es decir, el 60 %."
+  },
+  {
+    "id": 20,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "fuentes_documentales",
+    "question": "¿Cuántas fuentes documentales, distintas a los artículos científicos, se consultaron para construir el marco teórico?",
+    "options": [
+      "10 fuentes (tesis, informes y libros).",
+      "15 fuentes.",
+      "25 fuentes."
+    ],
+    "answer": "10 fuentes (tesis, informes y libros).",
+    "explanation": "Al sumar las 5 tesis, los 3 informes técnicos y los 2 libros especializados se obtienen 10 fuentes distintas a los artículos científicos."
+  },
+  {
+    "id": 21,
+    "type": "identificar_error",
+    "category": "Análisis crítico",
+    "scenario": "Un integrante del equipo propone usar estudios de hace treinta años sobre enfermedades cardiovasculares, sin relación directa con la diabetes mellitus tipo 2, para construir el marco teórico.",
+    "question": "¿Cuál es el error principal de esta propuesta?",
+    "options": [
+      "Se incumple la pertinencia y actualidad de las fuentes.",
+      "Se incumple la delimitación poblacional.",
+      "Se incumple el plan estadístico."
+    ],
+    "answer": "Se incumple la pertinencia y actualidad de las fuentes.",
+    "explanation": "El marco teórico debe ser pertinente, con datos directamente vinculados al problema, y actualizado, con fuentes confiables y recientes."
+  },
+  {
+    "id": 22,
+    "type": "identificar_error",
+    "category": "Análisis crítico",
+    "scenario": "En el informe final, el equipo concluye que la baja adherencia causa directamente el mal control glucémico, sin matices, a partir de los resultados de un diseño correlacional y transversal.",
+    "question": "¿Cuál es el problema principal de esta conclusión?",
+    "options": [
+      "El diseño correlacional no permite establecer relaciones de causa-efecto.",
+      "La muestra fue demasiado grande para el estudio.",
+      "El instrumento de Morisky-Green no está validado."
+    ],
+    "answer": "El diseño correlacional no permite establecer relaciones de causa-efecto.",
+    "explanation": "Un diseño no experimental, transversal y correlacional permite identificar asociaciones entre variables, pero no demuestra causalidad."
+  },
+  {
+    "id": 23,
+    "type": "identificar_error",
+    "category": "Análisis crítico",
+    "scenario": "Al redactar la trascendencia del protocolo, el equipo escribe: \"la hemoglobina glucosilada se medirá a través del resultado registrado en el expediente clínico del paciente\".",
+    "question": "¿Qué error de ubicación se cometió en esta redacción?",
+    "options": [
+      "Esa afirmación corresponde a la operacionalización de variables, no a la trascendencia.",
+      "Esa afirmación corresponde a la hipótesis alterna.",
+      "Esa afirmación corresponde a la delimitación temporal."
+    ],
+    "answer": "Esa afirmación corresponde a la operacionalización de variables, no a la trascendencia.",
+    "explanation": "Definir cómo se medirá una variable corresponde a la operacionalización dentro del diseño de la investigación, no a la trascendencia, que se enfoca en la proyección y el aporte a largo plazo del estudio."
+  },
+  {
+    "id": 24,
+    "type": "identificar_error",
+    "category": "Análisis crítico",
+    "scenario": "Al aplicar la prueba de chi-cuadrada, el equipo compara directamente el nivel de adherencia (alta, media, baja) contra el valor exacto de HbA1c en porcentaje, sin agrupar antes esta última variable en categorías.",
+    "question": "¿Cuál es el error metodológico en este procedimiento?",
+    "options": [
+      "La prueba de chi-cuadrada requiere variables categóricas, por lo que la HbA1c continua debería categorizarse antes de aplicarla.",
+      "La prueba de chi-cuadrada no puede usarse en investigación en salud.",
+      "El error consiste en haber medido la HbA1c en porcentaje."
+    ],
+    "answer": "La prueba de chi-cuadrada requiere variables categóricas, por lo que la HbA1c continua debería categorizarse antes de aplicarla.",
+    "explanation": "La chi-cuadrada se aplica entre variables categóricas; para usarla con la HbA1c (cuantitativa de razón) es necesario agruparla primero, por ejemplo en \"controlada\" o \"no controlada\"."
+  },
+  {
+    "id": 25,
+    "type": "ordenar_proceso",
+    "category": "Procesamiento de datos",
+    "instruction": "Ordena las etapas para construir el protocolo de investigación, de acuerdo con el caso.",
+    "segments": [
+      "Delimitar el problema de investigación",
+      "Documentar el marco teórico",
+      "Definir las variables y plantear la hipótesis",
+      "Diseñar la metodología (muestreo e instrumentos)",
+      "Elaborar el plan de análisis estadístico"
+    ],
+    "answer": [
+      "Documentar el marco teórico",
+      "Delimitar el problema de investigación",
+      "Definir las variables y plantear la hipótesis",
+      "Diseñar la metodología (muestreo e instrumentos)",
+      "Elaborar el plan de análisis estadístico"
+    ],
+    "explanation": "El protocolo se construye documentando primero el marco teórico, delimitando después el problema, definiendo variables e hipótesis, diseñando la metodología y, finalmente, elaborando el plan estadístico."
+  },
+  {
+    "id": 26,
+    "type": "ordenar_proceso",
+    "category": "Procesamiento de datos",
+    "instruction": "Ordena las acciones para aplicar el instrumento de Morisky-Green durante la consulta.",
+    "segments": [
+      "Registrar el resultado en el expediente del paciente",
+      "Aplicar las cuatro preguntas dicotómicas del cuestionario",
+      "Clasificar al paciente en adherencia alta, media o baja",
+      "Explicar al paciente el propósito del cuestionario"
+    ],
+    "answer": [
+      "Explicar al paciente el propósito del cuestionario",
+      "Aplicar las cuatro preguntas dicotómicas del cuestionario",
+      "Clasificar al paciente en adherencia alta, media o baja",
+      "Registrar el resultado en el expediente del paciente"
+    ],
+    "explanation": "La aplicación del instrumento sigue una secuencia lógica: explicar su propósito, aplicar las preguntas, clasificar la respuesta y registrar el resultado."
+  },
+  {
+    "id": 27,
+    "type": "ordenar_proceso",
+    "category": "Estadística descriptiva",
+    "instruction": "Ordena las etapas del plan estadístico descritas en el caso.",
+    "segments": [
+      "Aplicar la prueba de chi-cuadrada y el coeficiente de Spearman",
+      "Calcular frecuencias, medias y tablas descriptivas",
+      "Recolectar los datos de adherencia y HbA1c",
+      "Interpretar los resultados con un nivel de significancia de α = 0.05"
+    ],
+    "answer": [
+      "Recolectar los datos de adherencia y HbA1c",
+      "Calcular frecuencias, medias y tablas descriptivas",
+      "Aplicar la prueba de chi-cuadrada y el coeficiente de Spearman",
+      "Interpretar los resultados con un nivel de significancia de α = 0.05"
+    ],
+    "explanation": "El plan estadístico recolecta primero los datos, los resume con estadística descriptiva, aplica después las pruebas inferenciales y finalmente interpreta los resultados con el criterio de significancia establecido."
+  },
+  {
+    "id": 28,
+    "type": "ordenar_proceso",
+    "category": "Conclusiones y recomendaciones",
+    "instruction": "Ordena los elementos para redactar la hipótesis del protocolo a partir del planteamiento del problema.",
+    "segments": [
+      "Redactar la hipótesis alterna (H1) como la relación esperada",
+      "Identificar las variables del estudio",
+      "Redactar la hipótesis nula (H0) como ausencia de relación",
+      "Revisar el planteamiento del problema"
+    ],
+    "answer": [
+      "Revisar el planteamiento del problema",
+      "Identificar las variables del estudio",
+      "Redactar la hipótesis nula (H0) como ausencia de relación",
+      "Redactar la hipótesis alterna (H1) como la relación esperada"
+    ],
+    "explanation": "Para plantear una hipótesis se parte del problema, se identifican las variables involucradas y se redactan primero la hipótesis nula y después la alterna."
+  }
+]
