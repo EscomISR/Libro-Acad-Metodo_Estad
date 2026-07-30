@@ -1,0 +1,445 @@
+[
+  {
+    "id": 1,
+    "type": "opcion_multiple",
+    "category": "Metodología de la investigación científica",
+    "question": "Cuando los pasantes observan los signos vitales, síntomas y estado físico del paciente en la consulta presencial, aplican el método:",
+    "options": [
+      "Clínico.",
+      "Epidemiológico.",
+      "Sociológico."
+    ],
+    "answer": "Clínico.",
+    "explanation": "El método clínico se basa en la observación directa y sistemática del paciente para establecer diagnósticos y tratamientos individuales."
+  },
+  {
+    "id": 2,
+    "type": "opcion_multiple",
+    "category": "Metodología de la investigación científica",
+    "question": "Si el estudio analiza la distribución de la obesidad en toda la comunidad escolar y su relación con el entorno, utiliza el método:",
+    "options": [
+      "Epidemiológico.",
+      "Experimental de laboratorio.",
+      "Histórico."
+    ],
+    "answer": "Epidemiológico.",
+    "explanation": "El método epidemiológico estudia la frecuencia, distribución y determinantes de los padecimientos en poblaciones humanas."
+  },
+  {
+    "id": 3,
+    "type": "opcion_multiple",
+    "category": "Etapas del proceso de investigación",
+    "question": "El requisito de obtener la firma de autorización de los padres y el asentimiento de los adolescentes obedece a:",
+    "options": [
+      "La ética en la investigación médica.",
+      "La delimitación espacial.",
+      "El plan estadístico."
+    ],
+    "answer": "La ética en la investigación médica.",
+    "explanation": "Protege los derechos, la dignidad y la autonomía de los participantes, especialmente al tratarse de menores de edad."
+  },
+  {
+    "id": 4,
+    "type": "opcion_multiple",
+    "category": "Tipos y formas de investigación",
+    "question": "Al recolectar datos numéricos de IMC y realizar entrevistas sobre las emociones de los pacientes, el enfoque es:",
+    "options": [
+      "Mixto.",
+      "Exclusivamente cuantitativo.",
+      "Exclusivamente cualitativo."
+    ],
+    "answer": "Mixto.",
+    "explanation": "El enfoque mixto integra la recolección y análisis de datos cuantitativos (IMC) y cualitativos (experiencias emocionales)."
+  },
+  {
+    "id": 5,
+    "type": "opcion_multiple",
+    "category": "Tipos y formas de investigación",
+    "question": "Dado que habrá intervención (uso de la app) pero los grupos se formaron en la comunidad sin asignación de laboratorio, el diseño es:",
+    "options": [
+      "Cuasi experimental.",
+      "No experimental transversal.",
+      "Documental puro."
+    ],
+    "answer": "Cuasi experimental.",
+    "explanation": "Los diseños cuasi experimentales involucran la manipulación de una variable independiente en entornos reales donde no es posible la aleatorización completa."
+  },
+  {
+    "id": 6,
+    "type": "opcion_multiple",
+    "category": "Tipos y formas de investigación",
+    "question": "Como el estudio le dará seguimiento a los adolescentes a lo largo de 12 meses con mediciones repetidas, la temporalidad es:",
+    "options": [
+      "Longitudinal.",
+      "Transversal.",
+      "Retrospectiva."
+    ],
+    "answer": "Longitudinal.",
+    "explanation": "Los estudios longitudinales realizan mediciones en varios momentos a lo largo del tiempo para evaluar la evolución del fenómeno."
+  },
+  {
+    "id": 7,
+    "type": "opcion_multiple",
+    "category": "Planeación de la investigación",
+    "question": "En el protocolo, 'el uso de la aplicación móvil de telemedicina' actúa como la variable:",
+    "options": [
+      "Independiente.",
+      "Dependiente.",
+      "Interviniente."
+    ],
+    "answer": "Independiente.",
+    "explanation": "La variable independiente es el factor manipulado o la intervención aplicada para observar su efecto sobre el resultado."
+  },
+  {
+    "id": 8,
+    "type": "opcion_multiple",
+    "category": "Planeación de la investigación",
+    "question": "El 'Índice de Masa Corporal (IMC)', que es el resultado que se espera modificar con la app, representa la variable:",
+    "options": [
+      "Dependiente.",
+      "Independiente.",
+      "De control."
+    ],
+    "answer": "Dependiente.",
+    "explanation": "La variable dependiente es el aspecto observado o medido para evaluar el efecto de la variable independiente."
+  },
+  {
+    "id": 9,
+    "type": "seleccion_multiple",
+    "category": "Metodología de la investigación científica",
+    "question": "¿Cuáles de los siguientes son métodos de la ciencia aplicados directamente en este protocolo clínico?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "Método clínico.",
+      "Método estadístico.",
+      "Método epidemiológico.",
+      "Método teológico.",
+      "Método astronómico."
+    ],
+    "answer": [
+      "Método clínico.",
+      "Método estadístico.",
+      "Método epidemiológico."
+    ],
+    "explanation": "El protocolo integra el método clínico (evaluación directa del paciente), estadístico (análisis de datos) y epidemiológico (análisis poblacional de la obesidad)."
+  },
+  {
+    "id": 10,
+    "type": "seleccion_multiple",
+    "category": "Etapas del proceso de investigación",
+    "question": "¿Qué principios éticos fundamentales se garantizan en la atención a los adolescentes del caso?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "Consentimiento y asentimiento informado.",
+      "Confidencialidad y anonimato mediante códigos.",
+      "Respeto a la autonomía para abandonar el estudio.",
+      "Obligatoriedad de permanencia por contrato.",
+      "Publicación de nombres de los participantes."
+    ],
+    "answer": [
+      "Consentimiento y asentimiento informado.",
+      "Confidencialidad y anonimato mediante códigos.",
+      "Respeto a la autonomía para abandonar el estudio."
+    ],
+    "explanation": "El protocolo respeta los derechos de los adolescentes asegurando la autorización escrita, la protección de su identidad y la libertad de retiro."
+  },
+  {
+    "id": 11,
+    "type": "seleccion_multiple",
+    "category": "Tipos y formas de investigación",
+    "question": "¿Qué características clasifican a la investigación propuesta según su alcance y temporalidad?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "Es una investigación aplicada.",
+      "Tiene un diseño longitudinal.",
+      "Tiene una captación prospectiva de datos.",
+      "Es una investigación retrospectiva pura.",
+      "Es un estudio puramente básico o teórico."
+    ],
+    "answer": [
+      "Es una investigación aplicada.",
+      "Tiene un diseño longitudinal.",
+      "Tiene una captación prospectiva de datos."
+    ],
+    "explanation": "Busca solucionar un problema práctico de salud (aplicada), realiza seguimiento a 12 meses (longitudinal) y recoge los datos a medida que ocurren (prospectiva)."
+  },
+  {
+    "id": 12,
+    "type": "seleccion_multiple",
+    "category": "Planeación de la investigación",
+    "question": "¿Qué elementos deben incluirse obligatoriamente en un planteamiento del problema científico y objetivo?",
+    "instruction": "Selecciona todas las respuestas correctas.",
+    "options": [
+      "Formulación clara en forma de pregunta o propósito.",
+      "Delimitación poblacional, temporal y espacial.",
+      "Objetividad sin adelantar resultados no probados.",
+      "Aseveraciones categóricas sobre la cura del padecimiento.",
+      "Juicios de valor sobre los hábitos de los participantes."
+    ],
+    "answer": [
+      "Formulación clara en forma de pregunta o propósito.",
+      "Delimitación poblacional, temporal y espacial.",
+      "Objetividad sin adelantar resultados no probados."
+    ],
+    "explanation": "El planteamiento debe ser riguroso, delimitado y neutro, evitando sesgos o prejuicios sobre el fenómeno a investigar."
+  },
+  {
+    "id": 13,
+    "type": "clasificar",
+    "category": "Metodología de la investigación científica",
+    "instruction": "Clasifica cada acción según el método de la ciencia al que corresponde.",
+    "categories": [
+      "Método clínico",
+      "Método estadístico",
+      "Método epidemiológico"
+    ],
+    "items": [
+      { "text": "Medición de peso y talla individual en el consultorio", "category": "Método clínico" },
+      { "text": "Cálculo de medias y porcentaje de cambio de IMC", "category": "Método estadístico" },
+      { "text": "Análisis de la prevalencia de obesidad en la secundaria local", "category": "Método epidemiológico" },
+      { "text": "Registro de signos vitales en el expediente médico", "category": "Método clínico" }
+    ],
+    "explanation": "Cada método aborda el estudio de la salud desde un nivel distinto: individual (clínico), cuantitativo-matemático (estadístico) o poblacional (epidemiológico)."
+  },
+  {
+    "id": 14,
+    "type": "clasificar",
+    "category": "Planeación de la investigación",
+    "instruction": "Clasifica cada variable del protocolo según su función.",
+    "categories": [
+      "Variable independiente",
+      "Variable dependiente",
+      "Variable interviniente"
+    ],
+    "items": [
+      { "text": "Uso de la aplicación móvil de telemedicina", "category": "Variable independiente" },
+      { "text": "Índice de Masa Corporal (IMC) de los adolescentes", "category": "Variable dependiente" },
+      { "text": "Acceso y tipo de alimentación disponible en el hogar", "category": "Variable interviniente" },
+      { "text": "Nivel de adherencia al tratamiento nutricional", "category": "Variable dependiente" }
+    ],
+    "explanation": "La variable independiente es la intervención, la dependiente mide el efecto, y la interviniente es el factor del entorno que puede influir en los resultados."
+  },
+  {
+    "id": 15,
+    "type": "clasificar",
+    "category": "Tipos y formas de investigación",
+    "instruction": "Clasifica cada técnica de recolección según el enfoque al que pertenece.",
+    "categories": [
+      "Enfoque cuantitativo",
+      "Enfoque cualitativo"
+    ],
+    "items": [
+      { "text": "Registro numérico mensual del peso y talla", "category": "Enfoque cuantitativo" },
+      { "text": "Entrevistas a profundidad sobre percepciones de la app", "category": "Enfoque cualitativo" },
+      { "text": "Cálculo matemático de la diferencia de IMC", "category": "Enfoque cuantitativo" },
+      { "text": "Análisis de testimonios sobre la vivencia emocional", "category": "Enfoque cualitativo" }
+    ],
+    "explanation": "El enfoque cuantitativo mide magnitudes numéricas, mientras que el cualitativo comprende experiencias, opiniones y percepciones."
+  },
+  {
+    "id": 16,
+    "type": "clasificar",
+    "category": "Etapas del proceso de investigación",
+    "instruction": "Clasifica cada documento según el principio ético que respalda.",
+    "categories": [
+      "Consentimiento informado",
+      "Asentimiento informado",
+      "Confidencialidad"
+    ],
+    "items": [
+      { "text": "Firma de autorización por parte de los padres o tutores", "category": "Consentimiento informado" },
+      { "text": "Aceptación voluntaria firmada por el adolescente de 14 años", "category": "Asentimiento informado" },
+      { "text": "Uso de códigos alfanuméricos en lugar de nombres", "category": "Confidencialidad" },
+      { "text": "Hoja de información sobre el retiro voluntario sin sanciones", "category": "Consentimiento informado" }
+    ],
+    "explanation": "Los padres firman el consentimiento, los menores expresan su asentimiento y los códigos cifrados protegen la identidad y confidencialidad."
+  },
+  {
+    "id": 17,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "tabla_muestra",
+    "question": "¿Cuántos adolescentes formarán parte del Grupo Experimental (A) que utilizará la app de telemedicina?",
+    "options": [
+      "60 participantes.",
+      "120 participantes.",
+      "35 participantes."
+    ],
+    "answer": "60 participantes.",
+    "explanation": "La tabla de distribución indica que el Grupo A contará con 60 adolescentes, representando el 50% de la muestra total."
+  },
+  {
+    "id": 18,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "tabla_muestra",
+    "question": "¿Cuál es el tamaño total de la muestra planeada para la comparación entre ambos grupos?",
+    "options": [
+      "120 participantes.",
+      "60 participantes.",
+      "100 participantes."
+    ],
+    "answer": "120 participantes.",
+    "explanation": "Sumando los 60 del grupo experimental y los 60 del grupo control se obtiene una muestra total de 120 participantes."
+  },
+  {
+    "id": 19,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "grafica_captacion",
+    "question": "De acuerdo con el diagnóstico inicial, ¿qué porcentaje combinado de adolescentes presentaba exceso de peso (sobrepeso + obesidad)?",
+    "options": [
+      "55 %.",
+      "45 %.",
+      "20 %."
+    ],
+    "answer": "55 %.",
+    "explanation": "Sumando el 35% de sobrepeso y el 20% de obesidad identificados en la gráfica se obtiene un 55% de prevalencia de exceso de peso."
+  },
+  {
+    "id": 20,
+    "type": "interpretar_datos",
+    "category": "Interpretación",
+    "resourceId": "grafica_captacion",
+    "question": "¿Cuál fue el porcentaje de adolescentes detectados con un estado nutricional de Normopeso en la secundaria?",
+    "options": [
+      "45 %.",
+      "35 %.",
+      "20 %."
+    ],
+    "answer": "45 %.",
+    "explanation": "La gráfica de diagnóstico inicial señala que el 45% de los estudiantes evaluados se encontraba dentro del rango de normopeso."
+  },
+  {
+    "id": 21,
+    "type": "identificar_error",
+    "category": "Etapas del proceso de investigación",
+    "scenario": "Un pasante propone publicar en redes sociales las fotografías y nombres completos de los adolescentes que lograron reducir su IMC para 'promocionar el éxito del programa'.",
+    "question": "¿Cuál es el error ético principal en esta propuesta?",
+    "options": [
+      "Viola el principio de confidencialidad y anonimato de los datos médicos.",
+      "Altera el diseño cuasi experimental del estudio.",
+      "Invalida la variable independiente."
+    ],
+    "answer": "Viola el principio de confidencialidad y anonimato de los datos médicos.",
+    "explanation": "Los datos clínicos e identidad de los participantes, especialmente menores de edad, jamás deben divulgarse públicamente sin anonimizar."
+  },
+  {
+    "id": 22,
+    "type": "identificar_error",
+    "category": "Planeación de la investigación",
+    "scenario": "En el documento de planeación, el equipo escribe: 'Demostraremos sin lugar a dudas que la aplicación curará definitivamente la obesidad en todos los jóvenes'.",
+    "question": "¿Cuál es el error metodológico en este planteamiento?",
+    "options": [
+      "Establece un sesgo absoluto y adelanta conclusiones antes de probar la hipótesis.",
+      "Omite incluir la variable dependiente.",
+      "Incurre en una falta de delimitación temporal."
+    ],
+    "answer": "Establece un sesgo absoluto y adelanta conclusiones antes de probar la hipótesis.",
+    "explanation": "El planteamiento del problema debe ser neutro y objetivo. No se pueden dar por hechos los resultados antes de ejecutar la investigación."
+  },
+  {
+    "id": 23,
+    "type": "identificar_error",
+    "category": "Metodología de la investigación científica",
+    "scenario": "Un investigador afirma que no necesita usar el método estadístico porque 'con ver a simple vista a los pacientes en el consultorio basta para saber si la app funcionó'.",
+    "question": "¿Cuál es el error conceptual de esta postura?",
+    "options": [
+      "Ignora que el método estadístico es indispensable para verificar objetivamente la significancia de los cambios cuantitativos.",
+      "Confunde el método clínico con la ética médica.",
+      "Omite la investigación cualitativa."
+    ],
+    "answer": "Ignora que el método estadístico es indispensable para verificar objetivamente la significancia de los cambios cuantitativos.",
+    "explanation": "La simple apreciación visual no sustituye al análisis estadístico, el cual valida matemáticamente si las diferencias de peso son reales o fruto del azar."
+  },
+  {
+    "id": 24,
+    "type": "identificar_error",
+    "category": "Tipos y formas de investigación",
+    "scenario": "El equipo decide evaluar el efecto de la app midiendo a los pacientes una sola vez al inicio del año y concluye con esa única toma que la app fue efectiva a largo plazo.",
+    "question": "¿Cuál es el error de diseño metodológico?",
+    "options": [
+      "Un estudio de una sola medición (transversal) no puede evaluar cambios o efectividad a través del tiempo (longitudinal).",
+      "Se omitió el análisis epidemiológico.",
+      "El error consistió en no usar un cuestionario cualitativo."
+    ],
+    "answer": "Un estudio de una sola medición (transversal) no puede evaluar cambios o efectividad a través del tiempo (longitudinal).",
+    "explanation": "Para evaluar la evolución o eficacia de un tratamiento o intervención en el tiempo se requiere un diseño longitudinal con mediciones antes y después."
+  },
+  {
+    "id": 25,
+    "type": "ordenar_proceso",
+    "category": "Etapas del proceso de investigación",
+    "instruction": "Ordena cronológicamente las etapas iniciales del protocolo de investigación.",
+    "segments": [
+      "Captación del suceso (observación de la obesidad)",
+      "Revision del marco teórico y antecedentes",
+      "Planteamiento del problema y formulacion de hipótesis",
+      "Sometimiento del protocolo al Comité de Ética"
+    ],
+    "answer": [
+      "Captación del suceso (observación de la obesidad)",
+      "Revision del marco teórico y antecedentes",
+      "Planteamiento del problema y formulacion de hipótesis",
+      "Sometimiento del protocolo al Comité de Ética"
+    ],
+    "explanation": "El proceso inicia con la observación del problema, la fundamentación teórica, el planteamiento formal y la aprobación ética antes de intervenir."
+  },
+  {
+    "id": 26,
+    "type": "ordenar_proceso",
+    "category": "Planeación de la investigación",
+    "instruction": "Ordena los pasos para operacionalizar las variables del estudio.",
+    "segments": [
+      "Definir el concepto general de la variable (ej. IMC)",
+      "Seleccionar el instrumento de medición (ej. báscula/cinta métrica)",
+      "Establecer la unidad de medida o categoría (ej. kg/m²)",
+      "Registrar los datos cuantitativos en la base cifrada"
+    ],
+    "answer": [
+      "Definir el concepto general de la variable (ej. IMC)",
+      "Seleccionar el instrumento de medición (ej. báscula/cinta métrica)",
+      "Establecer la unidad de medida o categoría (ej. kg/m²)",
+      "Registrar los datos cuantitativos en la base cifrada"
+    ],
+    "explanation": "Operacionalizar requiere definir la variable, elegir la herramienta de medición, determinar las unidades y proceder a la captura ordenada."
+  },
+  {
+    "id": 27,
+    "type": "ordenar_proceso",
+    "category": "Etapas del proceso de investigación",
+    "instruction": "Ordena el proceso de obtención del consentimiento y asentimiento informado.",
+    "segments": [
+      "Explicar los objetivos, riesgos y beneficios a los tutores y jóvenes",
+      "Aclarar dudas y reiterar que la participación es voluntaria",
+      "Firma del consentimiento informado por parte de los padres",
+      "Firma del asentimiento informado por parte del adolescente"
+    ],
+    "answer": [
+      "Explicar los objetivos, riesgos y beneficios a los tutores y jóvenes",
+      "Aclarar dudas y reiterar que la participación es voluntaria",
+      "Firma del consentimiento informado por parte de los padres",
+      "Firma del asentimiento informado por parte del adolescente"
+    ],
+    "explanation": "El proceso ético exige brindar información clara, resolver inquietudes, recabar la firma legal del tutor y el asentimiento explícito del menor."
+  },
+  {
+    "id": 28,
+    "type": "ordenar_proceso",
+    "category": "Metodología de la investigación científica",
+    "instruction": "Ordena la secuencia del análisis de datos en el enfoque mixto.",
+    "segments": [
+      "Recolectar las mediciones numéricas de IMC y transcripciones de entrevistas",
+      "Procesar los datos numéricos mediante estadística descriptiva e inferencial",
+      "Sintetizar las categorías temáticas de las entrevistas cualitativas",
+      "Integrar ambos hallazgos para responder a la pregunta de investigación"
+    ],
+    "answer": [
+      "Recolectar las mediciones numéricas de IMC y transcripciones de entrevistas",
+      "Procesar los datos numéricos mediante estadística descriptiva e inferencial",
+      "Sintetizar las categorías temáticas de las entrevistas cualitativas",
+      "Integrar ambos hallazgos para responder a la pregunta de investigación"
+    ],
+    "explanation": "En un estudio mixto se capturan los datos, se analizan cuantitativamente y cualitativamente por separado, y finalmente se triangulan los resultados."
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "id": "caso_obesidad_telemedicina",
+  "title": "Diseño y planeación de un estudio sobre telemedicina en obesidad adolescente",
+  "summary": "Un equipo de médicos pasantes de la ENMyH diseñó un protocolo de investigación inicial para evaluar el impacto de una aplicación móvil de telemedicina en el control del Índice de Masa Corporal (IMC) en adolescentes, decidiendo el tipo de estudio, métodos y lineamientos éticos.",
+  "resultsLabel": "Cifras de planeación",
+  "resultsHeading": "Datos preliminares y diseño metodológico",
+  "resultsNarrativeLabel": "Lectura de viabilidad",
+  "sections": [
+    {
+      "id": "contexto",
+      "title": "Contexto y captación del suceso",
+      "icon": "fa-hospital-user",
+      "content": "Durante su rotación en una clínica comunitaria, un equipo de pasantes de la Escuela Superior de Medicina y Homeopatía (ENMyH) del IPN observó un aumento alarmante en la incidencia de obesidad y sobrepeso en adolescentes de 13 a 17 años de una secundaria local. Además, notaron que las consultas mensuales tradicionales tenían una alta tasa de abandono y poca adherencia a las dietas."
+    },
+    {
+      "id": "objetivo",
+      "title": "Planteamiento del problema",
+      "icon": "fa-bullseye",
+      "content": "Para abordar esta problemática como una investigación aplicada, el equipo formuló la siguiente pregunta central: ¿Cuál es el impacto de una aplicación móvil de telemedicina (que incluye monitoreo de peso, asesoría nutricional y psicológica semanal) en la reducción del Índice de Masa Corporal (IMC), en comparación con el seguimiento presencial tradicional?"
+    },
+    {
+      "id": "metodos",
+      "title": "Métodos de la ciencia aplicados",
+      "icon": "fa-microscope",
+      "content": "Para llevar a cabo el protocolo, el equipo integró diferentes métodos: el método clínico, para registrar signos vitales, peso y talla de los adolescentes de manera directa; el método estadístico, para la cuantificación matemática de la pérdida de peso y el cruce de variables; y el método epidemiológico, para entender la distribución poblacional del padecimiento en la comunidad escolar."
+    },
+    {
+      "id": "diseno",
+      "title": "Diseño y enfoque de la investigación",
+      "icon": "fa-flask",
+      "content": "El estudio se definió con una duración de 12 meses, lo que le da una temporalidad longitudinal prospectiva. El diseño es cuasi experimental, dividiendo a los jóvenes en un grupo de intervención (app) y un grupo control (cita presencial). Asimismo, se estableció un enfoque mixto: recolectarán el IMC numérico (cuantitativo) y realizarán entrevistas a profundidad para entender las emociones de los usuarios frente a la app (cualitativo)."
+    },
+    {
+      "id": "etica",
+      "title": "Consideraciones éticas",
+      "icon": "fa-scale-balanced",
+      "content": "Como los sujetos de estudio son menores de edad, el protocolo debió ser riguroso éticamente. Se exigió el consentimiento informado firmado por los tutores y el asentimiento de los adolescentes. Para cumplir con el principio de confidencialidad y anonimato, los expedientes fueron cifrados mediante códigos alfanuméricos. Finalmente, bajo el principio de autonomía, se garantizó que cualquier joven podría abandonar el estudio sin represalias médicas."
+    },
+    {
+      "id": "limitaciones",
+      "title": "Posibles limitaciones metodológicas",
+      "icon": "fa-triangle-exclamation",
+      "content": "Al ser un diseño cuasi experimental en una comunidad abierta, existen variables intervinientes difíciles de controlar, como el acceso real de los jóvenes a los alimentos en casa o el apoyo familiar. Además, el éxito del enfoque mixto depende de la honestidad con la que los adolescentes respondan las entrevistas a profundidad al finalizar los 12 meses."
+    }
+  ],
+  "resources": [
+    {
+      "id": "tabla_muestra",
+      "type": "table",
+      "title": "Distribución proyectada de la muestra",
+      "description": "Asignación planeada de los adolescentes detectados en la clínica para el diseño cuasi experimental.",
+      "columns": ["Grupo de Estudio", "Tipo de Intervención", "Participantes", "Porcentaje de la muestra"],
+      "rows": [
+        ["Grupo Experimental (A)", "Uso de App de telemedicina", "60", "50 %"],
+        ["Grupo Control (B)", "Atención presencial tradicional", "60", "50 %"],
+        ["Total", "Ambas modalidades", "120", "100 %"]
+      ]
+    },
+    {
+      "id": "grafica_captacion",
+      "type": "bar",
+      "title": "Diagnóstico inicial en la secundaria local",
+      "description": "Distribución del estado nutricional que detonó la captación del problema de investigación en la comunidad.",
+      "unit": "%",
+      "max": 100,
+      "bars": [
+        {"label": "Normopeso", "value": 45},
+        {"label": "Sobrepeso", "value": 35},
+        {"label": "Obesidad", "value": 20}
+      ]
+    }
+  ],
+  "resultsNarrative": "El planteamiento del problema se derivó tras observar que el 55 % de la población adolescente de la clínica presentaba exceso de peso (35 % sobrepeso y 20 % obesidad). Para el estudio cuasi experimental, la muestra se delimitó en 120 participantes divididos equitativamente, garantizando los recursos suficientes para medir la efectividad de la intervención bajo un enfoque metodológico mixto."
+}
