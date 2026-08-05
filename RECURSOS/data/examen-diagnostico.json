@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "modoPrueba": true,
+  "titulo": "Examen diagnóstico",
+  "descripcion": "Banco de reactivos del examen diagnóstico de Metodología de la Investigación y Estadística I.",
+  "configuracion": {
+    "mostrarResultado": true,
+    "mezclarPreguntas": false,
+    "mezclarOpciones": false,
+    "endpointEnvio": ""
+  },
+  "preguntas": [
+    {
+      "id": "diagnostico-03",
+      "numero": 3,
+      "tipo": "opcion-multiple",
+      "enunciado": "En un emocionante experimento realizado por David, junto a sus amigos Daniel y Mia, se busca descubrir si el uso de fertilizantes orgánicos puede hacer que las plantas crezcan más fuertes y saludables. ¿Cuál de los siguientes tipos de investigación se adentra en el fascinante mundo de las relaciones de causa y efecto?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "Investigación descriptiva" },
+        { "id": "b", "texto": "Investigación experimental" },
+        { "id": "c", "texto": "Investigación correlacional" },
+        { "id": "d", "texto": "Investigación cualitativa" }
+      ],
+      "respuestaCorrecta": "b"
+    },
+    {
+      "id": "diagnostico-04",
+      "numero": 4,
+      "tipo": "opcion-multiple",
+      "enunciado": "En un emocionante estudio sobre la salud de los estudiantes de la universidad, nuestro investigador, el intrépido Michael, decide seleccionar a un grupo de estudiantes de manera aleatoria para participar en una encuesta. ¿Qué método de muestreo está utilizando?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "Muestreo por conveniencia" },
+        { "id": "b", "texto": "Muestreo aleatorio simple" },
+        { "id": "c", "texto": "Muestreo estratificado" },
+        { "id": "d", "texto": "Muestreo sistemático" }
+      ],
+      "respuestaCorrecta": "b"
+    },
+    {
+      "id": "diagnostico-05",
+      "numero": 5,
+      "tipo": "opcion-multiple",
+      "enunciado": "En un emocionante experimento sobre el crecimiento de plantas, nuestra amiga Priya, junto a sus compañeros Benjamin y Emma, decide cambiar la cantidad de luz que reciben las plantas para descubrir cómo afecta su crecimiento. ¿Cuál de las siguientes opciones describe mejor una variable independiente en esta investigación?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "Es la variable que se mide en el experimento." },
+        { "id": "b", "texto": "Es la variable que se manipula para observar su efecto." },
+        { "id": "c", "texto": "Es una variable que no tiene relación con el estudio." },
+        { "id": "d", "texto": "Es una variable que se mantiene constante." }
+      ],
+      "respuestaCorrecta": "b"
+    },
+    {
+      "id": "diagnostico-06",
+      "numero": 6,
+      "tipo": "opcion-multiple",
+      "enunciado": "En una emocionante clase de estadística, el Dr. Joaquín les lanza un reto a sus alumnos, incluyendo a Oliver, Ava y Sophia: analizar un conjunto de datos sobre las calificaciones de los estudiantes en el último examen. ¿Qué tipo de análisis se utiliza para resumir y describir las características de este conjunto de datos?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "Análisis inferencial" },
+        { "id": "b", "texto": "Análisis descriptivo" },
+        { "id": "c", "texto": "Análisis cualitativo" },
+        { "id": "d", "texto": "Análisis correlacional" }
+      ],
+      "respuestaCorrecta": "b"
+    },
+    {
+      "id": "diagnostico-07",
+      "numero": 7,
+      "tipo": "opcion-multiple",
+      "enunciado": "En un emocionante experimento realizado por David, junto a sus amigos Henry e Isla, sobre el fascinante efecto de la luz en el crecimiento de las plantas, ¿cuál sería una posible variable dependiente que podrían observar?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "La cantidad de luz utilizada" },
+        { "id": "b", "texto": "El tipo de planta" },
+        { "id": "c", "texto": "La altura de las plantas" },
+        { "id": "d", "texto": "El tipo de suelo" }
+      ],
+      "respuestaCorrecta": "c"
+    },
+    {
+      "id": "diagnostico-08",
+      "numero": 8,
+      "tipo": "opcion-multiple",
+      "enunciado": "Leticia, una investigadora educativa, está en una emocionante misión para descubrir si hay una relación significativa entre el tiempo de estudio y las calificaciones de sus estudiantes, como Noah, Maya y Sophia. ¿Qué tipo de análisis debería realizar para desentrañar este misterio académico?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "Análisis descriptivo" },
+        { "id": "b", "texto": "Análisis de regresión" },
+        { "id": "c", "texto": "Análisis de varianza" },
+        { "id": "d", "texto": "Análisis de contenido" }
+      ],
+      "respuestaCorrecta": "b"
+    },
+    {
+      "id": "diagnostico-09",
+      "numero": 9,
+      "tipo": "opcion-multiple",
+      "enunciado": "En un emocionante estudio sobre el impacto de un nuevo medicamento, el investigador Dr. Fernando, junto con sus amigos Aiden y Harper, decide dividir a los participantes en dos grupos: uno recibe el medicamento mágico y el otro un placebo. ¿Qué tipo de diseño de investigación están utilizando en esta aventura científica?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "Diseño transversal" },
+        { "id": "b", "texto": "Diseño longitudinal" },
+        { "id": "c", "texto": "Diseño experimental" },
+        { "id": "d", "texto": "Diseño correlacional" }
+      ],
+      "respuestaCorrecta": "c"
+    },
+    {
+      "id": "diagnostico-10",
+      "numero": 10,
+      "tipo": "opcion-multiple",
+      "enunciado": "El investigador Dr. Israel, junto a sus amigos el Dr. Joaquín y el Dr. Fernando, está sumergido en el fascinante mundo de los datos de un cuestionario sobre hábitos de consumo. ¿Qué estrategia divertida y efectiva deberían usar para interpretar los resultados y descubrir patrones interesantes?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "Solo contar las respuestas más comunes" },
+        { "id": "b", "texto": "Comparar los resultados con estudios previos" },
+        { "id": "c", "texto": "Ignorar las respuestas atípicas" },
+        { "id": "d", "texto": "Presentar los datos sin análisis adicional" }
+      ],
+      "respuestaCorrecta": "b"
+    },
+    {
+      "id": "diagnostico-11",
+      "numero": 11,
+      "tipo": "opcion-multiple",
+      "enunciado": "En un emocionante estudio sobre la satisfacción de los estudiantes en la universidad, nuestro investigador, el intrépido profesor, decide utilizar un muestreo estratificado. ¿Cuál crees que es el objetivo principal de este ingenioso método? ¿Será que Abigail, Emma o Maya tienen algo que ver con ello?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "Aumentar la aleatoriedad de la muestra" },
+        { "id": "b", "texto": "Asegurar que diferentes subgrupos de la población estén representados" },
+        { "id": "c", "texto": "Reducir el tamaño de la muestra" },
+        { "id": "d", "texto": "Facilitar el análisis cualitativo" }
+      ],
+      "respuestaCorrecta": "b"
+    },
+    {
+      "id": "diagnostico-12",
+      "numero": 12,
+      "tipo": "opcion-multiple",
+      "enunciado": "Imagina que Evelyn, Lily y Maya están analizando los resultados de un emocionante estudio estadístico realizado por un grupo de investigadores en su universidad. ¿Cuál crees que es el aspecto más crucial para validar las conclusiones de su análisis?",
+      "obligatoria": true,
+      "opciones": [
+        { "id": "a", "texto": "La cantidad de datos recolectados" },
+        { "id": "b", "texto": "La significancia estadística de los resultados" },
+        { "id": "c", "texto": "La opinión personal del investigador" },
+        { "id": "d", "texto": "La duración del estudio" }
+      ],
+      "respuestaCorrecta": "b"
+    }
+  ]
+}

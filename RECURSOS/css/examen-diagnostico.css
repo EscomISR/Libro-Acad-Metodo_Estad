@@ -1,0 +1,200 @@
+.diagnostic-exam {
+    margin-top: 1.5rem;
+}
+
+.diagnostic-status,
+.diagnostic-panel,
+.diagnostic-question,
+.diagnostic-progress {
+    border: 1px solid var(--card-border);
+    border-radius: 0.85rem;
+    background: rgba(27, 0, 41, 0.38);
+}
+
+.diagnostic-status {
+    padding: 1rem;
+    text-align: center;
+}
+
+.diagnostic-status-error {
+    color: #fecaca;
+    border-color: rgba(248, 113, 113, 0.55);
+}
+
+.diagnostic-panel {
+    padding: 1.25rem;
+}
+
+.diagnostic-panel h4 {
+    margin-top: 0;
+}
+
+.diagnostic-privacy {
+    padding: 0.8rem 1rem;
+    border-left: 4px solid var(--accent);
+    background: rgba(168, 85, 247, 0.13);
+}
+
+.diagnostic-fields {
+    display: grid;
+    gap: 1rem;
+}
+
+.diagnostic-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-weight: 600;
+}
+
+.diagnostic-fields input,
+.diagnostic-question textarea {
+    width: 100%;
+    border: 1px solid var(--card-border);
+    border-radius: 0.6rem;
+    padding: 0.75rem;
+    color: var(--light);
+    background: rgba(12, 0, 24, 0.65);
+    font: inherit;
+}
+
+.diagnostic-fields input:focus,
+.diagnostic-question textarea:focus {
+    outline: 3px solid rgba(168, 85, 247, 0.35);
+    border-color: var(--secondary);
+}
+
+.diagnostic-progress {
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+}
+
+.diagnostic-progress-copy {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.diagnostic-progress-track {
+    height: 0.55rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+#diagnostic-progress-bar {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    transition: width 0.2s ease;
+}
+
+.diagnostic-questions {
+    display: grid;
+    gap: 1rem;
+}
+
+.diagnostic-question {
+    margin: 0;
+    padding: 1.15rem;
+}
+
+.diagnostic-question-title {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.diagnostic-required {
+    color: #fca5a5;
+}
+
+.diagnostic-options {
+    display: grid;
+    gap: 0.65rem;
+    margin-top: 1rem;
+}
+
+.diagnostic-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 0.7rem;
+    border: 1px solid transparent;
+    border-radius: 0.55rem;
+    cursor: pointer;
+}
+
+.diagnostic-option:hover {
+    border-color: var(--card-border);
+    background: rgba(168, 85, 247, 0.1);
+}
+
+.diagnostic-option input {
+    margin-top: 0.35rem;
+}
+
+.diagnostic-question textarea {
+    min-height: 7rem;
+    margin-top: 1rem;
+    resize: vertical;
+}
+
+.diagnostic-character-count {
+    display: block;
+    text-align: right;
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+.diagnostic-actions {
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
+.diagnostic-primary-button,
+.diagnostic-secondary-button {
+    border: 0;
+    border-radius: 0.65rem;
+    padding: 0.8rem 1.2rem;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.diagnostic-primary-button {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+}
+
+.diagnostic-secondary-button {
+    background: rgba(168, 85, 247, 0.24);
+    border: 1px solid var(--card-border);
+}
+
+.diagnostic-form-message {
+    min-height: 1.5rem;
+    margin: 0.75rem 0 0;
+    color: #fecaca;
+}
+
+.diagnostic-result {
+    text-align: center;
+}
+
+.diagnostic-result-icon {
+    color: #86efac;
+    font-size: 3rem;
+}
+
+@media (min-width: 700px) {
+    .diagnostic-fields {
+        grid-template-columns: minmax(12rem, 0.65fr) minmax(16rem, 1.35fr);
+    }
+}

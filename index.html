@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="RECURSOS/css/inicio.css?v=9">
+    <link rel="stylesheet" href="RECURSOS/css/examen-diagnostico.css?v=1">
 </head>
 <body>
     <main class="container">
@@ -333,8 +334,62 @@
                         </ul>
                     </div>
 
-                    <div class="diagnostic-embed">
-                        <iframe src="https://wayground.com/join?gc=66599281&source=liveDashboard" title="Examen Diagnóstico - Wayground" class="diagnostic-frame" frameBorder="0" allowfullscreen></iframe>
+                    <div id="diagnostic-exam" class="diagnostic-exam" data-question-file="RECURSOS/data/examen-diagnostico.json">
+                        <div id="diagnostic-loading" class="diagnostic-status" role="status">
+                            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+                            Preparando el examen…
+                        </div>
+                        <div id="diagnostic-error" class="diagnostic-status diagnostic-status-error" role="alert" hidden>
+                            <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+                            <span id="diagnostic-error-text">No fue posible cargar el examen.</span>
+                        </div>
+
+                        <form id="diagnostic-form" novalidate hidden>
+                            <section class="diagnostic-panel" aria-labelledby="diagnostic-identification-title">
+                                <h4 id="diagnostic-identification-title">Datos del estudiante</h4>
+                                <p class="diagnostic-privacy">
+                                    <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                                    Durante esta demostración los datos permanecen únicamente en esta pestaña y no se envían ni se almacenan.
+                                </p>
+                                <div class="diagnostic-fields">
+                                    <label>
+                                        <span>1. Boleta <strong aria-hidden="true">*</strong></span>
+                                        <input id="diagnostic-student-id" name="boleta" type="text" inputmode="numeric" autocomplete="off" required maxlength="20">
+                                    </label>
+                                    <label>
+                                        <span>2. Nombre completo <strong aria-hidden="true">*</strong></span>
+                                        <input id="diagnostic-student-name" name="nombreCompleto" type="text" autocomplete="name" required maxlength="120">
+                                    </label>
+                                </div>
+                            </section>
+
+                            <div class="diagnostic-progress" aria-live="polite">
+                                <div class="diagnostic-progress-copy">
+                                    <span id="diagnostic-progress-text">0 de 0 reactivos respondidos</span>
+                                    <span id="diagnostic-progress-percent">0%</span>
+                                </div>
+                                <div class="diagnostic-progress-track" aria-hidden="true">
+                                    <span id="diagnostic-progress-bar"></span>
+                                </div>
+                            </div>
+
+                            <div id="diagnostic-questions" class="diagnostic-questions"></div>
+                            <div class="diagnostic-actions">
+                                <button id="diagnostic-submit" class="diagnostic-primary-button" type="submit">
+                                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                    Finalizar examen
+                                </button>
+                                <p id="diagnostic-form-message" class="diagnostic-form-message" role="alert"></p>
+                            </div>
+                        </form>
+
+                        <section id="diagnostic-result" class="diagnostic-panel diagnostic-result" aria-live="polite" hidden>
+                            <i class="fas fa-circle-check diagnostic-result-icon" aria-hidden="true"></i>
+                            <h4>Examen finalizado</h4>
+                            <p id="diagnostic-result-summary"></p>
+                            <p class="diagnostic-privacy">Resultado de demostración: no se envió información a ningún servidor.</p>
+                            <button id="diagnostic-restart" class="diagnostic-secondary-button" type="button">Realizar otra prueba</button>
+                        </section>
                     </div>
                 </div>
 
@@ -526,6 +581,7 @@
         </div>
     </div>
     <script src="RECURSOS/js/inicio.js?v=2"></script>
+    <script src="RECURSOS/js/examen-diagnostico.js?v=1"></script>
     <script src="RECURSOS/js/copiar-texto-plano.js"></script>
 
 
