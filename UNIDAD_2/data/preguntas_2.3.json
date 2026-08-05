@@ -59,13 +59,13 @@
     "type": "completar_oracion",
     "question": "La investigación documental agrupa e interpreta información proveniente de fuentes _____ y _____.",
     "wordBank": [
-      "verídicas",
+      "impresas",
       "digitales",
       "personales",
       "experimentales"
     ],
     "answer": [
-      "verídicas",
+      "impresas",
       "digitales"
     ]
   },

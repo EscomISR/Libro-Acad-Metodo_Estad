@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,137 +6,17 @@
     <title>Actividad final de la Unidad 2</title>
     <link rel="icon" type="image/png" href="../RECURSOS/img/logoenmh2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../RECURSOS/css/evaluacion-final.css?v=3">
-    <style>
-        .final-evaluation-page .evaluation-header {
-            padding-top: 25px;
-            padding-bottom: 24px;
-        }
-
-        .final-evaluation-page .breadcrumb {
-            color: rgba(245, 243, 255, 0.72);
-        }
-
-        .final-evaluation-page .breadcrumb a {
-            color: rgba(245, 243, 255, 0.88);
-        }
-
-        .final-evaluation-page .breadcrumb > span[aria-hidden="true"] {
-            color: var(--accent);
-        }
-
-        .final-evaluation-page .breadcrumb > span:last-child {
-            color: var(--light);
-            font-weight: 700;
-        }
-
-        .final-evaluation-page .evaluation-header .eyebrow {
-            color: var(--light);
-            font-size: 0.84rem;
-            font-weight: 700;
-            opacity: 0.92;
-        }
-
-        .final-evaluation-page .evaluation-header h1 {
-            color: var(--light);
-            font-size: clamp(1.9rem, 3.7vw, 2.8rem);
-        }
-
-        .final-evaluation-page .evaluation-header .header-subtitle {
-            color: var(--light);
-            opacity: 0.88;
-        }
-
-        .final-evaluation-page .intro-card {
-            border-left: 4px solid var(--intro-border);
-            padding-left: 27px;
-        }
-
-        .final-evaluation-page .menu-toggle,
-        .final-evaluation-page .floating-home-btn {
-            width: 58px;
-            height: 58px;
-            font-size: 24px;
-        }
-
-        .final-evaluation-page .menu-toggle {
-            left: 20px;
-        }
-
-        .final-evaluation-page .floating-home-btn {
-            right: 22px;
-        }
-
-        .final-evaluation-page .result-charts.single-chart {
-            grid-template-columns: minmax(0, 1fr);
-            max-width: 420px;
-            margin: 0 auto;
-        }
-
-        .final-evaluation-page .resource-muestra_poblacion .data-table th:nth-child(1) { width: 46%; }
-        .final-evaluation-page .resource-muestra_poblacion .data-table th:nth-child(2) { width: 24%; }
-        .final-evaluation-page .resource-muestra_poblacion .data-table th:nth-child(3) { width: 30%; }
-
-        @media (max-width: 1180px) {
-            .final-evaluation-page .evaluation-shell {
-                padding-top: 92px;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .final-evaluation-page .evaluation-shell {
-                width: auto;
-                max-width: none;
-                margin-right: 12px;
-                margin-left: 12px;
-                padding-top: 78px;
-            }
-
-            .final-evaluation-page .evaluation-header {
-                padding-top: 22px;
-                padding-bottom: 21px;
-            }
-
-            .final-evaluation-page .evaluation-header h1 {
-                font-size: clamp(1.65rem, 8vw, 2.1rem);
-                overflow-wrap: anywhere;
-            }
-
-            .final-evaluation-page .intro-card {
-                width: 100%;
-                min-width: 0;
-                padding-left: 22px;
-            }
-
-            .final-evaluation-page .intro-card > *,
-            .final-evaluation-page .header-title-content,
-            .final-evaluation-page .breadcrumb {
-                min-width: 0;
-                max-width: 100%;
-            }
-
-            .final-evaluation-page .menu-toggle,
-            .final-evaluation-page .floating-home-btn {
-                width: 50px;
-                height: 50px;
-                top: 16px;
-                font-size: 21px;
-            }
-
-            .final-evaluation-page .menu-toggle {
-                left: 14px;
-            }
-
-            .final-evaluation-page .floating-home-btn {
-                right: 18px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../RECURSOS/css/actividad-final.css?v=1">
 </head>
 <body class="final-evaluation-page"
+      data-unit="2"
+      data-activity-id="actividad_final_unidad_2"
       data-case-url="data/caso_unidad_2.json"
       data-questions-url="data/preguntas_evaluacion_unidad_2.json"
-      data-time-minutes="45">
+      data-total-questions="20"
+      data-time-minutes="45"
+      data-reaction-types="6"
+      data-storage-key="actividad_final_unidad_2">
     <div class="reading-progress" aria-hidden="true">
         <div class="reading-progress-bar" id="readingProgressBar"></div>
     </div>
@@ -368,7 +248,7 @@
         </div>
     </div>
 
-    <script src="../RECURSOS/js/evaluacion-final-unidad2.js?v=1"></script>
+    <script src="../RECURSOS/js/actividad-final.js?v=1"></script>
     <script src="../RECURSOS/js/copiar-texto-plano.js"></script>
 </body>
 </html>

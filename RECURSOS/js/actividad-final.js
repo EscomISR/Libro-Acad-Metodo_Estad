@@ -3,9 +3,14 @@
 
   const page = document.body;
   const config = {
+    unit: page.dataset.unit,
+    activityId: page.dataset.activityId,
     caseUrl: page.dataset.caseUrl,
     questionsUrl: page.dataset.questionsUrl,
-    timeMinutes: Number(page.dataset.timeMinutes) || 45
+    totalQuestions: Number(page.dataset.totalQuestions),
+    timeMinutes: Number(page.dataset.timeMinutes),
+    reactionTypes: Number(page.dataset.reactionTypes),
+    storageKey: page.dataset.storageKey
   };
 
   const typeMeta = {
@@ -17,15 +22,6 @@
     ordenar_proceso: { label: 'Ordenar proceso', icon: 'fa-arrow-down-1-9' }
   };
 
-  const expectedCounts = {
-    opcion_multiple: 8,
-    seleccion_multiple: 4,
-    clasificar: 4,
-    interpretar_datos: 4,
-    identificar_error: 4,
-    ordenar_proceso: 4
-  };
-
   const attemptCounts = {
     opcion_multiple: 6,
     seleccion_multiple: 3,
@@ -34,15 +30,6 @@
     identificar_error: 3,
     ordenar_proceso: 2
   };
-
-  const performanceCategories = [
-    'Comprensión del caso',
-    'Procesamiento de datos',
-    'Estadística descriptiva',
-    'Interpretación',
-    'Conclusiones y recomendaciones',
-    'Análisis crítico'
-  ];
 
   let caseData = null;
   let baseQuestions = [];
@@ -55,6 +42,9 @@
   let deadline = 0;
   let timerId = null;
   let lastDialogFocus = null;
+  let remainingSeconds = 0;
+  let hasPausedAttempt = false;
+  let attemptActive = false;
 
   const $ = id => document.getElementById(id);
   const loadingState = $('loadingState');
@@ -96,21 +86,102 @@
     return normalizedLeft.every((value, index) => value === normalizedRight[index]);
   }
 
+  function secondsRemaining() {
+    if (!attemptActive) return Math.max(0, remainingSeconds);
+    return Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+  }
+
+  function saveAttempt(status = attemptActive ? 'active' : 'paused') {
+    if (!config.storageKey || !questions.length || !startedAt) return;
+    const savedRemaining = secondsRemaining();
+    try {
+      sessionStorage.setItem(config.storageKey, JSON.stringify({
+        version: 1,
+        activityId: config.activityId,
+        status,
+        questions,
+        currentIndex,
+        answers: [...answers.entries()],
+        orderState: [...orderState.entries()],
+        touchedOrders: [...touchedOrders],
+        startedAt,
+        remainingSeconds: savedRemaining
+      }));
+    } catch (error) {
+      console.warn('[actividad-final] No fue posible guardar el progreso temporal.', error);
+    }
+  }
+
+  function clearSavedAttempt() {
+    try {
+      sessionStorage.removeItem(config.storageKey);
+    } catch (error) {
+      console.warn('[actividad-final] No fue posible limpiar el progreso temporal.', error);
+    }
+  }
+
+  function showResumeState() {
+    hasPausedAttempt = true;
+    attemptActive = false;
+    evaluationScreen.classList.add('is-hidden');
+    resultsScreen.classList.add('is-hidden');
+    introScreen.classList.remove('is-hidden');
+    document.querySelector('.evaluation-header')?.classList.remove('is-hidden');
+    const startPanel = document.querySelector('.start-panel');
+    const heading = startPanel?.querySelector('h2');
+    const description = startPanel?.querySelector('p');
+    if (heading) heading.textContent = 'Tu actividad está pausada.';
+    if (description) description.textContent = `Puedes reanudar desde la pregunta ${currentIndex + 1}; el temporizador continuará con el tiempo restante.`;
+    $('startEvaluationBtn').innerHTML = '<i class="fas fa-play" aria-hidden="true"></i> Reanudar actividad';
+  }
+
+  function restorePausedAttempt() {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(config.storageKey) || 'null');
+      if (!saved || saved.activityId !== config.activityId || !Array.isArray(saved.questions) || !saved.questions.length) return false;
+      if (!Number.isFinite(Number(saved.remainingSeconds)) || Number(saved.remainingSeconds) <= 0) {
+        clearSavedAttempt();
+        return false;
+      }
+      questions = saved.questions;
+      currentIndex = Math.min(Math.max(0, Number(saved.currentIndex) || 0), questions.length - 1);
+      answers = new Map(saved.answers || []);
+      orderState = new Map(saved.orderState || []);
+      touchedOrders = new Set(saved.touchedOrders || []);
+      startedAt = Number(saved.startedAt) || Date.now();
+      remainingSeconds = Number(saved.remainingSeconds);
+      showResumeState();
+      saveAttempt('paused');
+      return true;
+    } catch (error) {
+      clearSavedAttempt();
+      console.warn('[actividad-final] El progreso guardado no era válido y se descartó.', error);
+      return false;
+    }
+  }
+
+  function pauseAttempt() {
+    if (!attemptActive || !questions.length) return;
+    remainingSeconds = secondsRemaining();
+    attemptActive = false;
+    clearInterval(timerId);
+    saveAttempt('paused');
+  }
+
   function validateData(loadedCase, loadedQuestions) {
     if (!loadedCase || !Array.isArray(loadedCase.sections) || !Array.isArray(loadedCase.resources)) {
       throw new Error('El archivo del caso no contiene las secciones o recursos esperados.');
     }
-    if (!Array.isArray(loadedQuestions) || loadedQuestions.length !== 28) {
-      throw new Error('El banco debe contener exactamente 28 preguntas.');
+    if (!Array.isArray(loadedQuestions) || loadedQuestions.length < config.totalQuestions) {
+      throw new Error(`El banco debe contener al menos ${config.totalQuestions} preguntas.`);
     }
 
     const ids = new Set(loadedQuestions.map(question => question.id));
-    if (ids.size !== 28) throw new Error('Los identificadores de las preguntas deben ser únicos.');
-
-    Object.entries(expectedCounts).forEach(([type, expected]) => {
-      const total = loadedQuestions.filter(question => question.type === type).length;
-      if (total !== expected) throw new Error(`El tipo ${type} debe contener ${expected} preguntas.`);
-    });
+    if (ids.size !== loadedQuestions.length) throw new Error('Los identificadores de las preguntas deben ser únicos.');
+    const loadedTypes = new Set(loadedQuestions.map(question => question.type));
+    const unknownType = [...loadedTypes].find(type => !typeMeta[type]);
+    if (unknownType) throw new Error(`Tipo de reactivo no compatible: ${unknownType}.`);
+    if (loadedTypes.size < config.reactionTypes) throw new Error(`El banco debe incluir ${config.reactionTypes} tipos de reactivo.`);
 
     const resourceIds = new Set(loadedCase.resources.map(resource => resource.id));
     loadedQuestions
@@ -131,6 +202,9 @@
     resultsScreen.classList.add('is-hidden');
 
     try {
+      if (!config.unit || !config.activityId || !config.caseUrl || !config.questionsUrl || !config.storageKey) {
+        throw new Error('La configuración declarativa de la actividad está incompleta.');
+      }
       const [caseResponse, questionsResponse] = await Promise.all([
         fetch(config.caseUrl),
         fetch(config.questionsUrl)
@@ -141,6 +215,23 @@
         caseResponse.json(),
         questionsResponse.json()
       ]);
+
+      const pendingContent = !loadedCase.title
+        && loadedCase.sections.length === 0
+        && loadedCase.resources.length === 0
+        && Array.isArray(loadedQuestions)
+        && loadedQuestions.length === 0;
+      if (pendingContent) {
+        loadingState.classList.add('is-hidden');
+        loadError.classList.remove('error-state');
+        loadError.classList.add('content-pending-state');
+        loadError.classList.remove('is-hidden');
+        loadError.querySelector('i')?.classList.replace('fa-triangle-exclamation', 'fa-file-circle-plus');
+        loadError.querySelector('h2').textContent = 'Actividad pendiente de contenido';
+        $('loadErrorMessage').textContent = 'La plantilla y los archivos JSON están preparados para incorporar posteriormente el caso y las preguntas de esta unidad.';
+        $('retryLoadBtn').classList.add('is-hidden');
+        return;
+      }
       validateData(loadedCase, loadedQuestions);
 
       caseData = loadedCase;
@@ -148,11 +239,12 @@
       renderCaseContent($('casePresentation'), 'case');
 
       loadingState.classList.add('is-hidden');
-      introScreen.classList.remove('is-hidden');
+      if (!restorePausedAttempt()) introScreen.classList.remove('is-hidden');
     } catch (error) {
       loadingState.classList.add('is-hidden');
       loadError.classList.remove('is-hidden');
       $('loadErrorMessage').textContent = error.message || 'Verifica los archivos de datos e intenta nuevamente.';
+      console.error('[actividad-final] No fue posible preparar la actividad.', error);
     }
   }
 
@@ -193,13 +285,39 @@
   function renderCaseContent(target, prefix) {
     if (!target || !caseData) return;
     const section = id => caseData.sections.find(item => item.id === id);
-    const resource = id => caseData.resources.find(item => item.id === id);
-    const sectionMarkup = (item, id = '') => `<article ${id ? `id="${id}"` : ''} class="case-detail">
+    const sectionMarkup = (item, id = '') => item ? `<article ${id ? `id="${id}"` : ''} class="case-detail">
       <h3><i class="fas ${escapeHtml(item.icon)}" aria-hidden="true"></i>${escapeHtml(item.title)}</h3>
       <p>${escapeHtml(item.content)}</p>
-    </article>`;
-    const designSections = ['poblacion', 'instrumento', 'procedimiento', 'analisis']
-      .map(id => sectionMarkup(section(id))).join('');
+    </article>` : '';
+
+    const summaryOnlyIds = ['contexto', 'objetivo', 'limitaciones'];
+    const designSections = caseData.sections
+      .filter(item => !summaryOnlyIds.includes(item.id))
+      .map(item => sectionMarkup(item))
+      .join('');
+
+    const resources = Array.isArray(caseData.resources) ? caseData.resources : [];
+    const resourceGroups = [];
+    resources.forEach(item => {
+      if (item.type === 'table') {
+        resourceGroups.push({ kind: 'table', items: [item] });
+        return;
+      }
+      const last = resourceGroups[resourceGroups.length - 1];
+      if (last && last.kind === 'chart') last.items.push(item);
+      else resourceGroups.push({ kind: 'chart', items: [item] });
+    });
+    const resultsLayout = resourceGroups.map(group => group.kind === 'table'
+      ? `<div class="result-wide">${resourceMarkup(group.items[0])}</div>`
+      : `<div class="${group.items.length === 1 ? 'result-wide' : 'result-charts'}">${group.items.map(item => resourceMarkup(item)).join('')}</div>`
+    ).join('');
+
+    const resultsMarkup = resources.length ? `
+      <section id="${prefix}-results" class="case-content-section case-results-section">
+        <div class="case-section-title reading-column"><p class="case-block-label">${escapeHtml(caseData.resultsLabel || 'Resultados')}</p><h3>${escapeHtml(caseData.resultsHeading || 'Datos obtenidos en el estudio')}</h3></div>
+        <div id="${prefix}-visuals" class="case-results-layout">${resultsLayout}</div>
+        ${caseData.resultsNarrative ? `<div class="case-results-narrative"><div class="reading-column"><strong>${escapeHtml(caseData.resultsNarrativeLabel || 'Descripción general de los hallazgos')}</strong><p>${escapeHtml(caseData.resultsNarrative)}</p></div></div>` : ''}
+      </section>` : '';
 
     target.innerHTML = `
       <section id="${prefix}-summary" class="case-content-section case-general-section">
@@ -217,15 +335,7 @@
         <div class="case-section-title reading-column"><p class="case-block-label">Diseño y procedimiento</p><h3>Cómo se realizó la investigación</h3></div>
         <div class="case-design-grid">${designSections}${sectionMarkup(section('limitaciones'), `${prefix}-limitations`)}</div>
       </section>
-      <section id="${prefix}-results" class="case-content-section case-results-section">
-        <div class="case-section-title reading-column"><p class="case-block-label">Resultados</p><h3>Datos obtenidos en el estudio</h3></div>
-        <div id="${prefix}-visuals" class="case-results-layout">
-          <div class="result-wide">${resourceMarkup(resource('tabla_resultados'))}</div>
-          <div class="result-charts">${resourceMarkup(resource('grafica_control'))}${resourceMarkup(resource('grafica_motivos'))}</div>
-          <div class="result-wide">${resourceMarkup(resource('tabla_contingencia'))}</div>
-        </div>
-        <div class="case-results-narrative"><div class="reading-column"><strong>Descripción general de los hallazgos</strong><p>${escapeHtml(caseData.resultsNarrative)}</p></div></div>
-      </section>`;
+      ${resultsMarkup}`;
   }
 
   function prepareAttempt() {
@@ -233,10 +343,17 @@
     orderState = new Map();
     touchedOrders = new Set();
     currentIndex = 0;
-    const selectedQuestions = Object.entries(attemptCounts).flatMap(([type, total]) =>
+    let selectedQuestions = Object.entries(attemptCounts).flatMap(([type, total]) =>
       shuffle(baseQuestions.filter(question => question.type === type)).slice(0, total)
     );
-    questions = shuffle(selectedQuestions).map(question => {
+    const selectedIds = new Set(selectedQuestions.map(question => question.id));
+    if (selectedQuestions.length < config.totalQuestions) {
+      selectedQuestions = selectedQuestions.concat(
+        shuffle(baseQuestions.filter(question => !selectedIds.has(question.id)))
+          .slice(0, config.totalQuestions - selectedQuestions.length)
+      );
+    }
+    questions = shuffle(selectedQuestions).slice(0, config.totalQuestions).map(question => {
       const prepared = { ...question };
       if (Array.isArray(question.options)) prepared.displayOptions = shuffle(question.options);
       if (question.type === 'clasificar') prepared.displayItems = shuffle(question.items);
@@ -250,16 +367,22 @@
   }
 
   function startEvaluation() {
-    prepareAttempt();
+    if (!hasPausedAttempt) {
+      prepareAttempt();
+      startedAt = Date.now();
+      remainingSeconds = config.timeMinutes * 60;
+    }
     document.querySelector('.evaluation-header')?.classList.add('is-hidden');
     introScreen.classList.add('is-hidden');
     resultsScreen.classList.add('is-hidden');
     evaluationScreen.classList.remove('is-hidden');
-    startedAt = Date.now();
-    deadline = startedAt + config.timeMinutes * 60 * 1000;
+    deadline = Date.now() + remainingSeconds * 1000;
+    attemptActive = true;
+    hasPausedAttempt = false;
     document.querySelector('.question-progress')?.setAttribute('aria-valuemax', String(questions.length));
     startTimer();
     renderQuestion();
+    saveAttempt('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -271,6 +394,7 @@
 
   function updateTimer() {
     const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+    remainingSeconds = remaining;
     const minutes = Math.floor(remaining / 60);
     const seconds = remaining % 60;
     $('timerValue').textContent = `${minutes}:${String(seconds).padStart(2, '0')}`;
@@ -327,7 +451,7 @@
   function orderingMarkup(question) {
     const segments = orderState.get(question.id) || question.displaySegments;
     return `<div class="ordering-list">${segments.map((segment, index) => `
-      <div class="order-item">
+      <div class="order-item" draggable="true" data-order-index="${index}">
         <span class="order-number">${index + 1}</span>
         <span>${escapeHtml(segment)}</span>
         <span class="order-actions">
@@ -400,6 +524,7 @@
     if (index < 0 || index >= questions.length) return;
     currentIndex = index;
     renderQuestion();
+    saveAttempt('active');
     questionCard.focus?.({ preventScroll: true });
     window.scrollTo({ top: Math.max(0, questionCard.offsetTop - 90), behavior: 'smooth' });
   }
@@ -428,6 +553,7 @@
 
     updateEvaluationProgress();
     updateNavigation();
+    saveAttempt('active');
   }
 
   function handleQuestionClick(event) {
@@ -443,6 +569,33 @@
     answers.set(question.id, [...segments]);
     touchedOrders.add(question.id);
     renderQuestion();
+    saveAttempt('active');
+  }
+
+  let draggedOrderIndex = null;
+
+  function handleOrderDragStart(event) {
+    const item = event.target.closest('.order-item');
+    if (!item) return;
+    draggedOrderIndex = Number(item.dataset.orderIndex);
+    event.dataTransfer.effectAllowed = 'move';
+  }
+
+  function handleOrderDrop(event) {
+    const item = event.target.closest('.order-item');
+    if (!item || draggedOrderIndex === null) return;
+    event.preventDefault();
+    const question = currentQuestion();
+    const targetIndex = Number(item.dataset.orderIndex);
+    const segments = [...(orderState.get(question.id) || [])];
+    const [moved] = segments.splice(draggedOrderIndex, 1);
+    segments.splice(targetIndex, 0, moved);
+    orderState.set(question.id, segments);
+    answers.set(question.id, [...segments]);
+    touchedOrders.add(question.id);
+    draggedOrderIndex = null;
+    renderQuestion();
+    saveAttempt('active');
   }
 
   function openCaseDrawer() {
@@ -516,9 +669,12 @@
 
   function submitEvaluation(timeExpired = false) {
     clearInterval(timerId);
+    attemptActive = false;
+    hasPausedAttempt = false;
+    clearSavedAttempt();
     closePendingDialog();
     closeCaseDrawer();
-    const elapsedSeconds = Math.min(config.timeMinutes * 60, (Date.now() - startedAt) / 1000);
+    const elapsedSeconds = Math.max(0, (config.timeMinutes * 60) - secondsRemaining());
     const correct = questions.filter(isCorrect).length;
     const unanswered = questions.filter(question => !isAnswered(question)).length;
     const incorrect = questions.length - correct - unanswered;
@@ -541,6 +697,7 @@
     ];
     $('resultsSummary').innerHTML = summary.map(([label, value]) => `<div class="summary-stat"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join('');
 
+    const performanceCategories = [...new Set(questions.map(question => question.category).filter(Boolean))];
     $('categoryPerformance').innerHTML = performanceCategories.map(category => {
       const categoryQuestions = questions.filter(question => question.category === category);
       const categoryCorrect = categoryQuestions.filter(isCorrect).length;
@@ -581,12 +738,22 @@
 
   function returnToCase() {
     clearInterval(timerId);
+    clearSavedAttempt();
+    attemptActive = false;
+    hasPausedAttempt = false;
     answers = new Map();
     orderState = new Map();
     touchedOrders = new Set();
     questions = [];
     currentIndex = 0;
+    remainingSeconds = config.timeMinutes * 60;
     $('timerValue').textContent = `${config.timeMinutes}:00`;
+    $('startEvaluationBtn').innerHTML = '<i class="fas fa-play" aria-hidden="true"></i> Iniciar actividad';
+    const startPanel = document.querySelector('.start-panel');
+    const heading = startPanel?.querySelector('h2');
+    const description = startPanel?.querySelector('p');
+    if (heading) heading.textContent = 'Cuando hayas revisado el caso, inicia la actividad.';
+    if (description) description.textContent = 'Durante el intento podrás consultar nuevamente toda la información sin perder tus respuestas.';
     resultsScreen.classList.add('is-hidden');
     evaluationScreen.classList.add('is-hidden');
     document.querySelector('.case-card')?.appendChild($('casePresentation'));
@@ -632,6 +799,11 @@
 
   questionCard.addEventListener('change', handleQuestionChange);
   questionCard.addEventListener('click', handleQuestionClick);
+  questionCard.addEventListener('dragstart', handleOrderDragStart);
+  questionCard.addEventListener('dragover', event => {
+    if (event.target.closest('.order-item')) event.preventDefault();
+  });
+  questionCard.addEventListener('drop', handleOrderDrop);
   $('questionDots').addEventListener('click', event => {
     const button = event.target.closest('[data-question-index]');
     if (button) goToQuestion(Number(button.dataset.questionIndex));
@@ -664,6 +836,11 @@
   $('scrollToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   window.addEventListener('scroll', updatePageControls, { passive: true });
   window.addEventListener('resize', updatePageControls);
+  window.addEventListener('pagehide', pauseAttempt);
+  window.addEventListener('pageshow', event => {
+    if (event.persisted && questions.length && !resultsScreen.classList.contains('is-hidden')) return;
+    if (event.persisted && questions.length) showResumeState();
+  });
   document.addEventListener('keydown', handleGlobalKeydown);
   document.addEventListener('DOMContentLoaded', () => {
     updatePageControls();
