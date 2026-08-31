@@ -433,7 +433,7 @@ h1 {
     padding: 20px;
     margin: 25px 0;
     border-radius: 8px;
-    font-style: italic;
+    font-style: normal;
     color: var(--light);
 }
 
